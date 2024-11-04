@@ -1,0 +1,456 @@
+hi-------------Sunday 2nd of June 2024 07:55:10 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27103824
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27103824OR USERID=10
+userId is 10BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 441
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => EROTK007
+                            [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+                        )
+
+                )
+
+            [Message] => 
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+)
+
+-------------Sunday 2nd of June 2024 08:21:40 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27104024
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27104024OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 442
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24060223-cb896219-7925-4c7b-84ca-b50d564fa452
+            [UniqueID] => MF27104024
+        )
+
+    [Success] => 1
+)
+
+-------------Sunday 2nd of June 2024 08:40:38 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27104224
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27104224OR USERID=10
+userId is 10BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 445
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => EROTK007
+                            [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+                        )
+
+                )
+
+            [Message] => 
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+)
+
+-------------Tuesday 30th of July 2024 02:17:39 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27803324
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27803324OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 493
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24073017-7062cc6d-169e-4d84-9ff2-b463df4522ab
+            [UniqueID] => MF27803324
+        )
+
+    [Success] => 1
+)
+
+-------------Tuesday 30th of July 2024 06:33:14 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27808924
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27808924OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 497
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24073021-46e74de1-df6f-4e23-9a9b-16edebb3b49e
+            [UniqueID] => MF27808924
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 31st of July 2024 05:19:09 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27812424
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27812424OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 499
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24073108-b578aca9-b3d2-47db-baaa-1d4c649201c5
+            [UniqueID] => MF27812424
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 31st of July 2024 08:52:25 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27818824
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27818824OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 506
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24073112-c072da7f-b265-49f5-8c15-fc3723596dcf
+            [UniqueID] => MF27818824
+        )
+
+    [Success] => 1
+)
+
+-------------Thursday 1st of August 2024 06:54:21 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27836524
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27836524OR USERID=10
+userId is 10BOOKING STATUS IS CONFIRMED
+Booking ID is 507
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24080110-a38140ff-aa1d-40ce-9c45-87e7dd45ab31
+            [UniqueID] => MF27836524
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 2nd of August 2024 08:50:58 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27859724
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27859724OR USERID=38
+userId is 38BOOKING STATUS IS CONFIRMED
+Booking ID is 510
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24080212-ac88e92f-9c5e-4fef-a900-7989ec27c4cf
+            [UniqueID] => MF27859724
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 2nd of August 2024 09:51:10 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27866524
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27866524OR USERID=38
+userId is 38BOOKING STATUS IS CONFIRMED
+Booking ID is 512
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24080213-a50e9f63-3341-41f9-ba5f-8b6ca8e60056
+            [UniqueID] => MF27866524
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 2nd of August 2024 12:38:35 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF27873624
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF27873624OR USERID=38
+userId is 38BOOKING STATUS IS CONFIRMED
+Booking ID is 513
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24080216-b32a1dfa-583b-4796-b963-6ae3460d0222
+            [UniqueID] => MF27873624
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 30th of August 2024 05:58:51 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28116924
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28116924OR USERID=28
+userId is 28BOOKING STATUS IS CONFIRMED
+Booking ID is 11
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24083011-c3f00d2d-6020-45f3-941f-6f2ea08b262a
+            [UniqueID] => MF28116924
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 30th of August 2024 06:08:41 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28117024
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28117024OR USERID=17
+userId is 17BOOKING STATUS IS CONFIRMED
+Booking ID is 12
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24083011-8263c251-49d4-41c3-b08b-ff2473f2b5f8
+            [UniqueID] => MF28117024
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 11th of September 2024 12:29:15 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28203524
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28203524OR USERID=17
+userId is 17BOOKING STATUS IS CONFIRMED
+Booking ID is 62
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24091117-a2cc0751-19ab-4a97-a142-afb38dc8f1a0
+            [UniqueID] => MF28203524
+        )
+
+    [Success] => 1
+)
+
+-------------Thursday 12th of September 2024 12:23:34 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28212124
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28212124OR USERID=46
+userId is 46BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 71
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => EROTK007
+                            [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+                        )
+
+                )
+
+            [Message] => 
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking may be already ordered for ticket or ticketed or cancelled.
+)
+

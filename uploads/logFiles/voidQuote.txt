@@ -1,0 +1,4838 @@
+-------------Monday 31st of July 2023 06:26:22 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Monday 31st of July 2023 07:01:32 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Monday 31st of July 2023 08:41:46 PM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Monday 31st of July 2023 08:44:54 PM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Monday 31st of July 2023 08:57:43 PM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:48:32 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:49:30 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:52:13 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:56:39 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:58:08 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:02:03 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:06:07 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:06:25 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:09:23 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:14:36 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:43:20 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:45:33 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:03:51 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+-------------Tuesday 1s
+of August 2023 05:03:51 AM-------------
+REsponse Received for MF:\nMF23720823essfully Cancelled Your Booking
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:03:51 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:04:33 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:05:24 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:07:49 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:07:53 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:08:00 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:08:16 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:08:17 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:09:23 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:11:59 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 05:12:32 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 06:08:23 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 07:42:11 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 07:56:59 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 07:57:43 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 08:44:03 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 08:45:51 AM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 01:05:59 PM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 01:08:14 PM-------------
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 01:22:06 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 01:34:11 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:05:34 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:08:40 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:16:28 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:20:54 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:23:06 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:24:13 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:25:30 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:26:13 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:28:11 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:31:17 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:37:38 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:39:41 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:40:52 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:41:52 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:43:28 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:49:48 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:51:08 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 03:57:25 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully Cancelled Your Booking
+-------------Tuesday 1st of August 2023 04:24:44 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Tuesday 1st of August 2023 04:27:12 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Tuesday 1st of August 2023 05:36:22 PM-------------
+-------------Tuesday 1st of August 2023 05:40:13 PM-------------
+-------------Tuesday 1st of August 2023 05:40:34 PM-------------
+-------------Tuesday 1st of August 2023 05:42:42 PM-------------
+-------------Tuesday 1st of August 2023 05:44:13 PM-------------
+-------------Tuesday 1st of August 2023 05:45:56 PM-------------
+-------------Tuesday 1st of August 2023 05:47:53 PM-------------
+-------------Tuesday 1st of August 2023 05:49:45 PM-------------
+-------------Tuesday 1st of August 2023 05:51:37 PM-------------
+-------------Tuesday 1st of August 2023 06:50:01 PM-------------
+-------------Tuesday 1st of August 2023 06:50:12 PM-------------
+-------------Tuesday 1st of August 2023 07:02:31 PM-------------
+-------------Tuesday 1st of August 2023 07:02:50 PM-------------
+-------------Tuesday 1st of August 2023 07:05:52 PM-------------
+-------------Tuesday 1st of August 2023 08:23:46 PM-------------
+-------------Tuesday 1st of August 2023 08:24:36 PM-------------
+-------------Tuesday 1st of August 2023 08:28:30 PM-------------
+-------------Tuesday 1st of August 2023 08:31:49 PM-------------
+-------------Tuesday 1st of August 2023 08:31:55 PM-------------
+-------------Tuesday 1st of August 2023 08:33:36 PM-------------
+-------------Tuesday 1st of August 2023 08:35:59 PM-------------
+-------------Tuesday 1st of August 2023 08:40:07 PM-------------
+-------------Tuesday 1st of August 2023 10:11:47 PM-------------
+-------------Tuesday 1st of August 2023 10:16:27 PM-------------
+-------------Tuesday 1st of August 2023 10:20:24 PM-------------
+-------------Tuesday 1st of August 2023 10:21:18 PM-------------
+-------------Tuesday 1st of August 2023 10:22:04 PM-------------
+-------------Tuesday 1st of August 2023 10:30:09 PM-------------
+-------------Wednesday 2nd of August 2023 04:14:34 AM-------------
+-------------Wednesday 2nd of August 2023 04:15:08 AM-------------
+-------------Wednesday 2nd of August 2023 04:23:33 AM-------------
+-------------Wednesday 2nd of August 2023 04:25:11 AM-------------
+-------------Wednesday 2nd of August 2023 04:25:46 AM-------------
+-------------Wednesday 2nd of August 2023 04:28:05 AM-------------
+-------------Wednesday 2nd of August 2023 04:29:17 AM-------------
+-------------Wednesday 2nd of August 2023 04:29:24 AM-------------
+-------------Wednesday 2nd of August 2023 04:34:07 AM-------------
+-------------Wednesday 2nd of August 2023 04:36:09 AM-------------
+-------------Wednesday 2nd of August 2023 04:41:10 AM-------------
+-------------Wednesday 2nd of August 2023 04:44:27 AM-------------
+-------------Wednesday 2nd of August 2023 04:49:06 AM-------------
+-------------Wednesday 2nd of August 2023 04:52:17 AM-------------
+-------------Wednesday 2nd of August 2023 04:54:18 AM-------------
+-------------Wednesday 2nd of August 2023 04:58:10 AM-------------
+-------------Wednesday 2nd of August 2023 04:59:29 AM-------------
+-------------Wednesday 2nd of August 2023 05:00:04 AM-------------
+-------------Wednesday 2nd of August 2023 05:08:55 AM-------------
+-------------Wednesday 2nd of August 2023 05:14:15 AM-------------
+-------------Wednesday 2nd of August 2023 05:19:28 AM-------------
+-------------Wednesday 2nd of August 2023 05:19:54 AM-------------
+-------------Wednesday 2nd of August 2023 05:20:27 AM-------------
+-------------Wednesday 2nd of August 2023 05:25:38 AM-------------
+-------------Wednesday 2nd of August 2023 05:26:47 AM-------------
+-------------Wednesday 2nd of August 2023 05:28:18 AM-------------
+-------------Wednesday 2nd of August 2023 07:30:54 AM-------------
+-------------Wednesday 2nd of August 2023 07:31:18 AM-------------
+-------------Wednesday 2nd of August 2023 04:34:57 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Wednesday 2nd of August 2023 04:36:56 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Wednesday 2nd of August 2023 04:36:56 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Wednesday 2nd of August 2023 04:46:06 PM-------------
+-------------Wednesday 2nd of August 2023 04:52:58 PM-------------
+-------------Wednesday 2nd of August 2023 05:06:24 PM-------------
+REsponse Received for MF:\nMF23525723
+userId is 9
+Booking ID is 163
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Booking is not eligible for voiding.
+)
+
+step data empty Booking is not eligible for voiding.
+step end of void quote ========= Booking is not eligible for voiding.
+-------------Wednesday 2nd of August 2023 05:12:47 PM-------------
+REsponse Received for MF:\nMF23560923
+userId is 9
+Booking ID is 176
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Booking is not eligible for voiding.
+)
+
+step data empty Booking is not eligible for voiding.
+step end of void quote ========= Booking is not eligible for voiding.
+-------------Thursday 3rd of August 2023 06:10:25 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Thursday 3rd of August 2023 08:15:21 AM-------------
+-------------Thursday 3rd of August 2023 08:26:30 AM-------------
+-------------Thursday 3rd of August 2023 03:55:14 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Invalid Session
+)
+
+step httpcode not 200 API request failed with status code: 401
+step end of void quote ========= API request failed with status code: 401
+-------------Thursday 3rd of August 2023 06:58:29 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Thursday 3rd of August 2023 06:59:08 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Thursday 3rd of August 2023 07:01:32 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Thursday 3rd of August 2023 08:26:20 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Thursday 3rd of August 2023 09:51:24 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 04:05:19 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 04:05:36 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Friday 4th of August 2023 04:05:55 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Friday 4th of August 2023 04:46:40 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 04:47:02 AM-------------
+REsponse Received for MF:\nMF23525523
+userId is 9
+Booking ID is 159
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Friday 4th of August 2023 04:47:07 AM-------------
+REsponse Received for MF:\nMF23525523
+userId is 9
+Booking ID is 159
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Booking is not eligible for voiding.
+)
+
+step data empty Booking is not eligible for voiding.
+step end of void quote ========= Booking is not eligible for voiding.
+-------------Friday 4th of August 2023 04:53:55 AM-------------
+REsponse Received for MF:\nMF23525523
+userId is 9
+Booking ID is 159
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Booking is not eligible for voiding.
+)
+
+step data empty Booking is not eligible for voiding.
+step end of void quote ========= Booking is not eligible for voiding.
+-------------Friday 4th of August 2023 04:54:05 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 04:54:13 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Friday 4th of August 2023 10:57:25 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Friday 4th of August 2023 10:57:29 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 12:55:32 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Friday 4th of August 2023 01:31:33 PM-------------
+-------------Friday 4th of August 2023 01:32:14 PM-------------
+-------------Friday 4th of August 2023 01:32:26 PM-------------
+-------------Friday 4th of August 2023 02:11:18 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 02:19:14 PM-------------
+REsponse Received for MF:\nMF23478723
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Booking is not eligible for voiding.
+)
+
+step data empty Booking is not eligible for voiding.
+step end of void quote ========= Booking is not eligible for voiding.
+-------------Friday 4th of August 2023 02:21:43 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Friday 4th of August 2023 02:21:46 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 02:25:14 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Friday 4th of August 2023 02:25:16 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 02:39:49 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 02:40:54 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 02:41:59 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:46:41 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:47:38 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:48:16 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:49:38 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:50:53 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:55:43 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:56:39 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 02:57:49 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:26:59 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:27:35 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:30:25 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:31:17 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Friday 4th of August 2023 03:34:33 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:35:13 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:37:23 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 03:39:12 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [PTRType] => VoidQuote
+            [MFRef] => MF23720823
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2023-07-28T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => William
+                            [LastName] => William
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365420
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                    [1] => Array
+                        (
+                            [FirstName] => jack
+                            [LastName] => jack
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT365419
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 65.18
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 4th of August 2023 06:46:11 PM-------------
+-------------Friday 4th of August 2023 06:55:27 PM-------------
+-------------Friday 4th of August 2023 07:09:26 PM-------------
+-------------Friday 4th of August 2023 07:14:51 PM-------------
+-------------Friday 4th of August 2023 09:06:37 PM-------------
+-------------Friday 4th of August 2023 09:14:15 PM-------------
+-------------Friday 4th of August 2023 09:15:06 PM-------------
+-------------Friday 4th of August 2023 09:15:58 PM-------------
+-------------Saturday 5th of August 2023 04:34:24 AM-------------
+-------------Saturday 5th of August 2023 04:44:12 AM-------------
+-------------Saturday 5th of August 2023 06:02:53 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => jack
+                    [lastname] => jack
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+            [1] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Saturday 5th of August 2023 06:03:05 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => jack
+                    [lastname] => jack
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Saturday 5th of August 2023 06:03:15 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Saturday 5th of August 2023 07:17:42 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => jack
+                    [lastname] => jack
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+            [1] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger count not matching.
+)
+
+step data empty Passenger count not matching.
+step end of void quote ========= Passenger count not matching.
+-------------Saturday 5th of August 2023 07:17:49 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Saturday 5th of August 2023 07:17:57 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => jack
+                    [lastname] => jack
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Saturday 5th of August 2023 07:18:08 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => jack
+                    [lastname] => jack
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Saturday 5th of August 2023 07:18:18 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Saturday 5th of August 2023 08:00:19 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => 
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Saturday 5th of August 2023 08:00:23 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Saturday 5th of August 2023 02:44:33 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => William
+                    [lastname] => William
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Voiding window expired.
+)
+
+step data empty Voiding window expired.
+step end of void quote ========= Voiding window expired.
+-------------Monday 7th of August 2023 04:37:41 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => 
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void quote ========= Please verify the request.
+-------------Monday 7th of August 2023 04:37:45 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => test
+                    [lastname] => test
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+-------------Monday 7th of August 2023 04:52:08 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 129
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF23720823
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => test
+                    [lastname] => test
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request for the selected passengers is already in process.
+)
+
+step data empty Void request for the selected passengers is already in process.
+step end of void quote ========= Void request for the selected passengers is already in process.
+step httpcode not 200 API request failed with status code: 400
+step end of void quote ========= API request failed with status code: 400
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+step data empty Please verify the Request.
+step end of void quote ========= Please verify the Request.
+Step 1Success Completed
+Step 1Success Completed

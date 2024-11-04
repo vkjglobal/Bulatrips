@@ -1,0 +1,8 @@
+[25-Sep-2023 10:44:27 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/bulatrips/public_html/admin_panel/includes/dbConnect.php:76) in /home/bulatrips/public_html/admin_panel/model/adminlogin.php on line 52
+[20-Nov-2023 10:25:49 UTC] PHP Deprecated:  Creation of dynamic property Member::$db is deprecated in /home/bulatrips/public_html/admin_panel/includes/class.member.php on line 13
+[20-Nov-2023 10:26:37 UTC] PHP Deprecated:  Creation of dynamic property Member::$db is deprecated in /home/bulatrips/public_html/admin_panel/includes/class.member.php on line 13
+[20-Nov-2023 10:26:51 UTC] PHP Deprecated:  Creation of dynamic property Member::$db is deprecated in /home/bulatrips/public_html/admin_panel/includes/class.member.php on line 13
+[11-Sep-2024 05:53:20 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/bulatrips/public_html/admin_panel/includes/dbConnect.php:76) in /home/bulatrips/public_html/admin_panel/model/adminlogin.php on line 52
+[22-Sep-2024 10:00:32 UTC] PHP Deprecated:  Creation of dynamic property Member::$db is deprecated in /home/bulatrips/public_html/admin_panel/includes/class.member.php on line 13
+[22-Sep-2024 10:02:15 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/bulatrips/public_html/admin_panel/includes/dbConnect.php:76) in /home/bulatrips/public_html/admin_panel/model/adminlogin.php on line 52
+[22-Sep-2024 10:06:22 UTC] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home/bulatrips/public_html/admin_panel/includes/dbConnect.php:76) in /home/bulatrips/public_html/admin_panel/model/adminlogin.php on line 52

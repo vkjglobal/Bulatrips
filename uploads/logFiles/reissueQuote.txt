@@ -1,0 +1,2943 @@
+-------------Thursday 17th of August 2023 10:47:27 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":null,"departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Thursday 17th of August 2023 11:32:39 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":null,"departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please specify valid CabinClass for segment
+)
+
+step data empty Please specify valid CabinClass for segment
+step end of reissue quote ========= Please specify valid CabinClass for segment
+-------------Thursday 17th of August 2023 11:34:56 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 11:39:43 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 12:02:33 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 01:46:29 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 01:52:06 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 01:52:06 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 02:14:36 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Thursday 17th of August 2023 02:15:57 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Invalid selection. Infant must be accompanied with an Adult.
+)
+
+step data empty Invalid selection. Infant must be accompanied with an Adult.
+step end of reissue quote ========= Invalid selection. Infant must be accompanied with an Adult.
+-------------Thursday 17th of August 2023 02:16:42 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 02:16:53 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10875
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Thursday 17th of August 2023 03:13:46 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 03:13:55 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10876
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Thursday 17th of August 2023 05:00:05 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Thursday 17th of August 2023 05:04:47 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":null,"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-27","flightNumber":"","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Thursday 17th of August 2023 05:05:02 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Thursday 17th of August 2023 05:08:26 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Thursday 17th of August 2023 05:08:58 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 05:29:06 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Thursday 17th of August 2023 05:29:16 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10887
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+-------------Thursday 17th of August 2023 05:29:18 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"GetExchangeQuote","mFRef":"MF23911723","PTRId":10887,"Page":1}
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 10887
+            [PTRType] => ReIssueQuote
+            [Status] => InProcess
+            [MFRef] => MF23911723
+            [CreatedOn] => 2023-08-17T20:59:13.373
+            [RequestCompletionTime] => 2023-08-17T20:59:13.373
+            [CreatedByName] => XPay Global
+            [Passengers] => Array
+                (
+                    [0] => Array
+                        (
+                            [ETicket] => TKT369483
+                            [PassengerType] => ADT
+                            [Tittle] => Mrs
+                            [FirstName] => janet
+                            [LastName] => janet
+                        )
+
+                    [1] => Array
+                        (
+                            [ETicket] => TKT369485
+                            [PassengerType] => INF
+                            [Tittle] => Mr
+                            [FirstName] => honey
+                            [LastName] => honey
+                        )
+
+                )
+
+            [RequestedPreferences] => Array
+                (
+                    [0] => Array
+                        (
+                            [Option] => 1
+                            [CreatedOn] => 2023-08-17T20:59:13.373
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 18th of August 2023 02:29:44 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Friday 18th of August 2023 02:29:52 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10889
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+-------------Friday 18th of August 2023 02:29:53 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"GetExchangeQuote","mFRef":"MF23911723","PTRId":10889,"Page":1}
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 10889
+            [PTRType] => ReIssueQuote
+            [Status] => InProcess
+            [MFRef] => MF23911723
+            [CreatedOn] => 2023-08-18T17:59:49.697
+            [RequestCompletionTime] => 2023-08-18T17:59:49.697
+            [CreatedByName] => XPay Global
+            [Passengers] => Array
+                (
+                    [0] => Array
+                        (
+                            [ETicket] => TKT369484
+                            [PassengerType] => CHD
+                            [Tittle] => Mr
+                            [FirstName] => heera
+                            [LastName] => heera
+                        )
+
+                )
+
+            [RequestedPreferences] => Array
+                (
+                    [0] => Array
+                        (
+                            [Option] => 1
+                            [CreatedOn] => 2023-08-18T17:59:49.697
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Friday 18th of August 2023 02:32:14 PM-------------
+REsponse Received for MF:\nMF23914923
+userId is 36
+Booking ID is 205
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23914923","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"luka","lastname":"luka","title":"Mr","eticket":"","passengertype":"ADT"},{"firstname":"chitra","lastname":"chitra","title":"Mr","eticket":"","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"TRV","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"7255","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Friday 18th of August 2023 03:34:20 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Friday 18th of August 2023 03:34:30 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10891
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+-------------Friday 18th of August 2023 03:34:32 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"GetExchangeQuote","mFRef":"MF23911723","PTRId":10891,"Page":1}
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 10891
+            [PTRType] => ReIssueQuote
+            [Status] => InProcess
+            [MFRef] => MF23911723
+            [CreatedOn] => 2023-08-18T19:04:28.05
+            [RequestCompletionTime] => 2023-08-18T19:04:28.05
+            [CreatedByName] => XPay Global
+            [Passengers] => Array
+                (
+                    [0] => Array
+                        (
+                            [ETicket] => TKT369484
+                            [PassengerType] => CHD
+                            [Tittle] => Mr
+                            [FirstName] => heera
+                            [LastName] => heera
+                        )
+
+                )
+
+            [RequestedPreferences] => Array
+                (
+                    [0] => Array
+                        (
+                            [Option] => 1
+                            [CreatedOn] => 2023-08-18T19:04:28.05
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Saturday 19th of August 2023 03:40:43 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Saturday 19th of August 2023 03:41:08 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Invalid selection. Infant must be accompanied with an Adult.
+)
+
+step data empty Invalid selection. Infant must be accompanied with an Adult.
+step end of reissue quote ========= Invalid selection. Infant must be accompanied with an Adult.
+-------------Saturday 19th of August 2023 03:41:41 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Saturday 19th of August 2023 03:41:52 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10893
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23911723
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Saturday 19th of August 2023 04:26:18 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-27","flightNumber":"","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Saturday 19th of August 2023 04:26:34 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Saturday 19th of August 2023 04:29:24 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger janet
+)
+
+step data empty Request is already in process for passenger janet
+step end of reissue quote ========= Request is already in process for passenger janet
+-------------Saturday 19th of August 2023 04:30:20 PM-------------
+REsponse Received for MF:\nMF23911123
+userId is 36
+Booking ID is 197
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911123","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"nila","lastname":"nila","title":"Mr","eticket":"","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/21\/2023","flightNumber":"886","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Saturday 19th of August 2023 04:30:32 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"janet","lastname":"janet","title":"Mrs","eticket":"TKT369483","passengertype":"ADT"},{"firstname":"honey","lastname":"honey","title":"Mr","eticket":"TKT369485","passengertype":"INF"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger janet
+)
+
+step data empty Request is already in process for passenger janet
+step end of reissue quote ========= Request is already in process for passenger janet
+-------------Saturday 19th of August 2023 06:46:46 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+Step 1Success reissueQuote 
+-------------Saturday 19th of August 2023 07:05:26 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+Step 1Success reissueQuote 
+-------------Saturday 19th of August 2023 08:05:13 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+Step 1Success reissueQuote 
+-------------Monday 21st of August 2023 10:56:08 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+-------------Monday 21st of August 2023 10:59:56 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Monday 21st of August 2023 11:02:02 AM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/26\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Monday 21st of August 2023 11:05:40 AM-------------
+REsponse Received for MF:\nMF23888023
+userId is 9
+Booking ID is 156
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23888023","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"Soumya","lastname":"Stebin","title":"Mrs","eticket":"","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"AUH","destinationLocationCode":"BGR","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"","airlineCode":"QR"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Monday 21st of August 2023 11:07:08 AM-------------
+REsponse Received for MF:\nMF23888023
+userId is 9
+Booking ID is 156
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23888023","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"Soumya","lastname":"Stebin","title":"Mrs","eticket":"","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"AUH","destinationLocationCode":"BGR","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"1041","airlineCode":"QR"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Monday 21st of August 2023 12:31:55 PM-------------
+REsponse Received for MF:\nMF23911123
+userId is 36
+Booking ID is 197
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911123","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"nila","lastname":"nila","title":"Mr","eticket":"","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/21\/2023","flightNumber":"886","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Monday 21st of August 2023 12:31:58 PM-------------
+REsponse Received for MF:\nMF23911123
+userId is 36
+Booking ID is 197
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911123","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"nila","lastname":"nila","title":"Mr","eticket":"","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/21\/2023","flightNumber":"886","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Monday 21st of August 2023 12:35:38 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => originDestinations[0].flightNumber is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+step httpcode not 200 Validation Error
+step end of reissue quote ========= Validation Error
+-------------Monday 21st of August 2023 12:35:48 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please Specify ETicket Number for Passenger
+)
+
+step data empty Please Specify ETicket Number for Passenger
+step end of reissue quote ========= Please Specify ETicket Number for Passenger
+-------------Monday 21st of August 2023 12:51:05 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Monday 21st of August 2023 10:08:54 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Monday 21st of August 2023 10:09:13 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":null,"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the Request.
+)
+
+step data empty Please verify the Request.
+step end of reissue quote ========= Please verify the Request.
+-------------Tuesday 22nd of August 2023 07:43:53 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Tuesday 22nd of August 2023 07:43:55 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Tuesday 22nd of August 2023 07:51:30 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Tuesday 22nd of August 2023 07:51:41 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Tuesday 22nd of August 2023 08:04:32 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 08:04:45 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 08:05:56 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+step data empty No flights found for your search criteria
+step end of reissue quote ========= No flights found for your search criteria
+-------------Tuesday 22nd of August 2023 08:08:25 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 10:47:31 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 10:47:33 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"2023-08-30","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 01:54:05 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No flights found for your search criteria
+)
+
+-------------Tuesday 22nd of August 2023 01:54:07 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10910
+            [PTRType] => ReIssueQuote
+            [MFRef] => MF23894423
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+        )
+
+)
+
+-------------Tuesday 22nd of August 2023 02:03:30 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:04:08 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:04:45 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:06:46 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:06:47 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:15:14 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:15:15 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:31:34 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:31:35 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:32:54 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:32:55 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:34:08 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:34:09 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:45:27 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:45:29 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:46:46 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:46:48 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:47:36 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:47:37 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:49:42 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 02:49:44 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote InProcess
+step end of reissue quote ========= Your ReIssue Request  is :InProcess This will update within 1 Hours
+-------------Tuesday 22nd of August 2023 02:56:55 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+step data empty Request is already in process for passenger anu
+step end of reissue quote ========= Request is already in process for passenger anu
+-------------Tuesday 22nd of August 2023 02:57:22 PM-------------
+REsponse Received for MF:\nMF23911723
+userId is 36
+Booking ID is 199
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23911723","AllowChildPassenger":"true","reissueQuoteRequestType":"OND","passengers":[{"firstname":"heera","lastname":"heera","title":"Mr","eticket":"TKT369484","passengertype":"CHD"}],"originDestinations":[{"originLocationCode":"MAA","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/28\/2023","flightNumber":"838","airlineCode":"UK"},{"originLocationCode":"DEL","destinationLocationCode":"MAA","cabinPreference":"ECOYL","departureDateTime":"2023-09-01","flightNumber":"833","airlineCode":"UK"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger heera
+)
+
+step data empty Request is already in process for passenger heera
+step end of reissue quote ========= Request is already in process for passenger heera
+-------------Tuesday 22nd of August 2023 03:29:58 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 03:30:00 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+step end of reissue quote ========= 
+-------------Tuesday 22nd of August 2023 03:32:52 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 03:32:54 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+step end of reissue quote ========= 
+-------------Tuesday 22nd of August 2023 03:40:53 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 03:40:55 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 04:18:43 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 04:18:45 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 04:36:56 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 04:36:57 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 04:42:32 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 04:42:33 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 04:54:07 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 04:54:08 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 04:54:10 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 04:54:12 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 05:00:33 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 05:00:35 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 05:03:04 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 05:03:05 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 05:04:06 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 05:04:07 PM-------------
+REsponse Received for Segment Type MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"Segment","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote Completed
+-------------Tuesday 22nd of August 2023 09:17:11 PM-------------
+-------------Tuesday 22nd of August 2023 09:17:11 PM-------------
+REsponse Received for MF:\nMF23894423
+
+userId is 36
+
+Booking ID is 163
+
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+
+-------------Tuesday 22nd of August 2023 09:17:47 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+-------------Tuesday 22nd of August 2023 09:24:41 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Tuesday 22nd of August 2023 09:24:42 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 04:42:14 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 04:49:10 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 05:17:09 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:07:56 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:10:48 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:11:57 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:12:58 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:17:10 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:17:10 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:17:21 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:08:35 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:11:17 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:11:20 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:14:48 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:14:48 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Wednesday 23rd of August 2023 07:16:25 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:19:25 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:23:58 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:26:21 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:31:34 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:37:26 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:51:16 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:52:05 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:55:51 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:57:06 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 06:09:05 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 06:18:55 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 06:23:32 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 06:29:24 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 06:45:53 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:17:08 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:21:24 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:22:18 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:36:52 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:36:53 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:58:35 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 07:59:37 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:00:34 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:01:49 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:05:52 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:05:56 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:06:59 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:08:56 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:13:15 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:13:21 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:13:34 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:17:18 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:17:19 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:17:21 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:17:22 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:18:10 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:20:16 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:22:43 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:23:53 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:25:09 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:28:23 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:26 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:35 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:37 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:37 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:37 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+
+Step 1Success reissueQuote OND Type C
+pleted
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:29:38 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:30:31 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:31:41 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:32:11 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 08:34:33 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:44:59 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:46:29 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:46:31 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:48:34 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:49:33 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 12:52:53 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:01:42 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:06:02 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:08:20 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:11:42 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:31:58 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 01:40:39 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 02:11:41 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 02:42:06 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 02:49:07 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 03:24:46 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 03:25:07 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 03:25:11 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 04:49:59 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Thursday 24th of August 2023 05:03:25 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Friday 25th of August 2023 04:56:21 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Friday 25th of August 2023 04:56:30 AM-------------
+REsponse Received for  Reissue Quote Accept MF:\nMF23829623
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReIssueQuote","mFRef":"MF23829623","PTRId":"10816","PreferenceOption":"1","AcceptQuote":"yes","AdditionalNote":"Please Reissue as for quoted fare"}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Reissue is in process
+)
+
+-------------Friday 25th of August 2023 05:06:34 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Friday 25th of August 2023 05:08:19 AM-------------
+REsponse Received for  Reissue Quote Accept MF:\nMF23829623
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReIssueQuote","mFRef":"MF23829623","PTRId":"10816","PreferenceOption":"1","AcceptQuote":"yes","AdditionalNote":"Please Reissue as for quoted fare"}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Reissue is in process
+)
+
+-------------Friday 25th of August 2023 05:09:45 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Friday 25th of August 2023 05:09:52 AM-------------
+REsponse Received for  Reissue Quote Accept MF:\nMF23829623
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReIssueQuote","mFRef":"MF23829623","PTRId":"10816","PreferenceOption":"1","AcceptQuote":"yes","AdditionalNote":"Please Reissue as for quoted fare"}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Reissue is in process
+)
+
+-------------Friday 25th of August 2023 05:18:35 AM-------------
+REsponse Received for  Reissue Quote Accept MF:\nMF23829623
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReIssueQuote","mFRef":"MF23829623","PTRId":"10816","PreferenceOption":"1","AcceptQuote":"yes","AdditionalNote":"Please Reissue as for quoted fare"}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Reissue is in process
+)
+
+step end of reissue accept  ========= Reissue is in process
+-------------Friday 25th of August 2023 05:20:09 AM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"08\/31\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed
+-------------Friday 25th of August 2023 05:20:15 AM-------------
+REsponse Received for  Reissue Quote Accept MF:\nMF23829623
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReIssueQuote","mFRef":"MF23829623","PTRId":"10816","PreferenceOption":"1","AcceptQuote":"yes","AdditionalNote":"Please Reissue as for quoted fare"}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Reissue is in process
+)
+
+step end of reissue accept  ========= Reissue is in process
+-------------Friday 1st of September 2023 02:38:31 PM-------------
+REsponse Received for MF:\nMF23894423
+userId is 36
+Booking ID is 163
+REquest Received\n{"ptrType":"ReissueQuote","mFRef":"MF23894423","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"anu","lastname":"anu","title":"Mrs","eticket":"NIUKWT","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"COK","destinationLocationCode":"DEL","cabinPreference":"Y","departureDateTime":"09\/02\/2023","flightNumber":"968","airlineCode":"6E"}]}
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Request is already in process for passenger anu
+)
+
+Step 1Success reissueQuote OND Type Completed

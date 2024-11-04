@@ -1,0 +1,4300 @@
+-------------Tuesday 1st of August 2023 08:30:19 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10680 is already in process
+)
+
+-------------Tuesday 1st of August 2023 08:30:20 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10680 is already in process
+)
+
+-------------Tuesday 1st of August 2023 08:31:58 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10680 is already in process
+)
+
+-------------Tuesday 1st of August 2023 08:33:40 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10680 is already in process
+)
+
+-------------Tuesday 1st of August 2023 08:36:03 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10680 is already in process
+)
+
+-------------Tuesday 1st of August 2023 08:40:10 PM-------------
+REsponse Received for MF:\nhhhhhh
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => Invalid MFRef.
+)
+
+-------------Tuesday 1st of August 2023 10:11:50 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 1st of August 2023 10:22:08 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 1st of August 2023 10:23:12 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 1st of August 2023 10:30:15 PM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:15:11 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:17:11 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:23:36 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:25:14 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:25:50 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:28:08 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:29:27 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:34:10 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:36:12 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:41:13 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:44:30 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:49:09 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:52:21 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:54:23 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:58:14 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:58:14 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:59:32 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:00:08 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:08:59 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:14:18 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:19:31 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:19:57 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:20:30 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:25:41 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:26:50 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 05:28:42 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 07:30:59 AM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 07:31:22 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 2nd of August 2023 04:53:06 PM-------------
+REsponse Received for MF:\n
+userId is 9
+Booking ID is 159
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 3rd of August 2023 08:15:27 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 3rd of August 2023 08:26:34 AM-------------
+REsponse Received for MF:\nMF23731023
+userId is 9
+Booking ID is 130
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Friday 4th of August 2023 01:31:44 PM-------------
+REsponse Received for MF:\nMF23720823
+userId is 9
+Booking ID is 233
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Friday 4th of August 2023 09:06:40 PM-------------
+REsponse Received for MF:\nMF23720523
+userId is 9
+Booking ID is 231
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Friday 4th of August 2023 09:14:19 PM-------------
+REsponse Received for MF:\nMF23720523
+userId is 9
+Booking ID is 231
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Friday 4th of August 2023 09:16:02 PM-------------
+REsponse Received for MF:\nMF23720523
+userId is 9
+Booking ID is 231
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Saturday 5th of August 2023 05:02:22 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:02:27 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:02:32 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:02:32 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:02:33 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:02:33 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => The request was canceled due to the configured HttpClient.Timeout of 100 seconds elapsing.
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:10 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10780
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:10 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10777
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:11 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10778
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:11 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10781
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:11 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+-------------Saturday 5th of August 2023 05:04:11 AM-------------MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+
+REsponse Received\nArray
+(
+    [Succe
+] => 
+    [Data] => 
+    [Message] => Refund request PTR 10777 is already in process
+)
+
+userId is 5ss 
+
+Booking ID is 243 ========= 
+
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10779
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcessF:\nMF23809123
+
+step end of void  ========= 
+
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10777 is already in process
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:12 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5--Saturday 5th of August 2023 05:04:12 AM-------------
+
+REsponse Received
+or MF:\nMF23809123
+userId is 5eived\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+
+Booking ID is 243\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10782
+            [PTRType] => Refund
+            [MFRef] => MF23809123
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => Request is under process
+        )
+
+)
+
+Step 1Success InProcess
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+ 
+ [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10777 is already in process
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:13 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10777 is already in process
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:04:13 AM-------------
+REsponse Received for MF:\nMF23809123
+userId is 5
+Booking ID is 243
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23809123
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => nila
+                    [lastname] => nila
+                    [title] => Mr
+                    [eticket] => 2289706268465
+                    [passengertype] => CHD
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund request PTR 10777 is already in process
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Saturday 5th of August 2023 05:49:43 AM-------------
+REsponse Received for MF:\nMF23808623
+userId is 5
+Booking ID is 242
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23808623
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => sam
+                    [lastname] => sam
+                    [title] => Mr
+                    [eticket] => 2289699427087
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10786
+            [PTRType] => Refund
+            [MFRef] => MF23808623
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= 
+-------------Tuesday 5th of September 2023 09:05:57 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of void  ========= 
+-------------Tuesday 5th of September 2023 09:28:51 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:03:46 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+-------------Tuesday 5th of September 2023 10:04:20 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+-------------Tuesday 5th of September 2023 10:06:53 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:12:08 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:14:54 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:14:56 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:15:11 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:16:51 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+Step 1Success 
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 10:17:59 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+-------------Tuesday 5th of September 2023 10:19:03 AM-------------
+REsponse Received for MF:\nMF23971323 2023 10:19:03 AM-------------
+
+REsponse Received for MF:\nMF23971323 2023 10:19:03 AM-------------
+
+userId is 36eived for MF:\nMF23971323
+
+userId is 36s 206
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+-------------Tuesday 5th of September 2023 10:25:19 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+-------------Tuesday 5th of September 2023 10:28:06 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Passenger is not valid for this booking
+)
+
+step data empty Passenger is not valid for this booking
+step end of Refund===== Passenger is not valid for this booking
+-------------Tuesday 5th of September 2023 03:19:19 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 04:10:22 PM-------------
+-------------Tuesday 5th of September 2023 04:10:22 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+
+Booking ID is 206
+Booking ID is 206nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+           [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+
+Step 1Success InProcessREsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 5th of September 2023 04:11:33 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 5th of September 2023 04:11:37 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Tuesday 5th of September 2023 04:12:31 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 04:17:51 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 04:33:44 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Tuesday 5th of September 2023 04:37:30 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Wednesday 6th of September 2023 10:13:39 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Wednesday 6th of September 2023 06:49:16 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Wednesday 6th of September 2023 06:50:44 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Wednesday 6th of September 2023 06:55:27 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 03:18:23 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 03:33:06 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 03:43:53 PM-------------
+REsponse Received for MF:\nMF23971323r 2023 03:43:53 PM-------------
+
+userId is 36
+REsponse Received for MF:\nMF23971323
+Booking ID is 206
+Request Received\
+rray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+           [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+
+Step 1Success InProcess 
+
+step end of Refund===== 
+-------------Thursday 7th of September 2023 03:52:47 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 03:55:07 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:02:25 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:25:23 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:27:19 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:30:44 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:43:55 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:46:37 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:49:29 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 04:58:17 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:00:39 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:01:32 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:03:21 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:07:57 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:09:06 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:10:37 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+-------------Thursday 7th of September 2023 05:11:58 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF2
+71323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received for MF:\nMF23971323ss] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+userId is 36Step 1Success InProcess
+step end of Refund===== 
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 05:11:59 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Thursday 7th of September 2023 05:51:19 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Friday 8th of September 2023 02:50:32 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Friday 8th of September 2023 02:58:46 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Friday 8th of September 2023 03:04:32 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:16:29 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:22:02 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:32:57 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:34:47 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:35:59 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 04:58:38 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:00:53 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:00:54 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:08:39 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:18:32 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:22:28 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 05:23:42 AM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:45:45 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:46:20 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:47:30 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:47:31 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:53:38 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:57:51 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 02:57:52 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 
+-------------Saturday 9th of September 2023 03:00:28 PM-------------
+REsponse Received for MF:\nMF23971323
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF23971323
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Soumya
+                    [lastname] => Stebin
+                    [title] => Mrs
+                    [eticket] => 2289699426651
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 10680
+            [PTRType] => Refund
+            [MFRef] => MF23731023
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 

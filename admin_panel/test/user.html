@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin Users Listing</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Search Bar -->
+        <div class="row mt-3 mb-3">
+            <div class="col-md-6">
+                <input type="text" class="form-control" id="searchInput" placeholder="Search">
+            </div>
+        </div>
+
+        <!-- User Table -->
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th onclick="sortUsers('name')">Name <i class="fa fa-sort"></i></th>
+                    <th onclick="sortUsers('email')">Email <i class="fa fa-sort"></i></th>
+                    <th onclick="sortUsers('role')">Role <i class="fa fa-sort"></i></th>
+                </tr>
+            </thead>
+
+            <tbody id="userTableBody">
+                <!-- User rows will be dynamically added here -->
+            </tbody>
+        </table>
+
+        <!-- Pagination -->
+        <nav>
+            <ul class="pagination" id="pagination"></ul>
+        </nav>
+    </div>
+
+    <!-- Include Bootstrap JS and your custom JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="custom.js"></script>
+    <script>
+    // Sorting variables
+    var sortField = ""; // The currently selected field for sorting
+    var sortDirection = "asc"; // The sorting direction (asc or desc)
+
+    // Function to sort the users based on the specified field
+    function sortUsers(field) {
+    if (sortField === field) {
+    // If the same field is clicked again, reverse the sorting direction
+    sortDirection = sortDirection === "asc" ? "desc" : "asc";
+    } else {
+    // If a different field is clicked, set it as the new sort field and default to ascending order
+    sortField = field;
+    sortDirection = "asc";
+    }
+
+    displayUsers(); // Re-display the sorted users
+    }
+
+    // Function to display users based on search, pagination, and sorting
+    function displayUsers() {
+    // ...
+
+    // Apply sorting if a sort field is selected
+    if (sortField !== "") {
+    paginatedUsers.sort(function(a, b) {
+    // Compare the field values based on the sort direction
+    var valueA = a[sortField].toLowerCase();
+    var valueB = b[sortField].toLowerCase();
+
+    if (sortDirection === "asc") {
+    return valueA.localeCompare(valueB);
+    } else {
+    return valueB.localeCompare(valueA);
+    }
+    });
+    }
+
+    // ...
+    }
+    </script>
+</body>
+</html>

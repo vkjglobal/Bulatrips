@@ -1,0 +1,2844 @@
+-------------Wednesday 2nd of August 2023 04:49:12 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Wednesday 2nd of August 2023 04:52:25 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 04:54:24 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 04:58:15 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 04:58:16 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 04:59:34 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 05:00:09 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+-------------Wednesday 2nd of August 2023 05:09:01 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+-------------Wednesday 2nd of August 2023 05:14:20 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+-------------Wednesday 2nd of August 2023 05:19:33 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess Total Refundable Amount is :  
+-------------Wednesday 2nd of August 2023 05:19:59 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess Total Refundable Amount is :  
+-------------Wednesday 2nd of August 2023 05:20:31 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess Total Refundable Amount is :  
+-------------Wednesday 2nd of August 2023 05:25:42 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess
+-------------Wednesday 2nd of August 2023 05:26:51 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess
+-------------Wednesday 2nd of August 2023 05:28:43 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess
+-------------Wednesday 2nd of August 2023 07:31:00 AM-------------
+userId is 9
+Booking ID is 233
+REsponse Received for MF:\nMF23720823
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step data empty No records found.
+step end of void  ========= No records found.
+-------------Wednesday 2nd of August 2023 07:31:24 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess
+-------------Thursday 3rd of August 2023 08:15:29 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 3rd of August 2023 08:26:35 AM-------------
+userId is 9
+Booking ID is 130
+REsponse Received for MF:\nMF23731023
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 7th of September 2023 04:27:21 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => RefundRequested
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 10
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution RefundRequested
+step end of void  ========= Your Canellation is :InProcess
+-------------Thursday 7th of September 2023 04:30:46 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 7th of September 2023 04:43:57 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Thursday 7th of September 2023 04:46:39 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Thursday 7th of September 2023 04:49:31 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Thursday 7th of September 2023 05:12:03 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 7th of September 2023 05:12:04 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 7th of September 2023 05:12:06 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Thursday 7th of September 2023 05:51:23 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.89Please note Your CreditNoteNumber: 3101373
+-------------Friday 8th of September 2023 02:50:40 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0Please note Your CreditNoteNumber: 3101373
+-------------Friday 8th of September 2023 02:58:53 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0Please note Your CreditNoteNumber: 3101373
+-------------Saturday 9th of September 2023 04:16:34 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 04:22:05 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 04:33:08 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 04:34:50 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 04:36:02 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 04:58:46 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:00:56 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:00:57 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:08:42 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:18:36 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:22:31 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 05:23:47 AM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:45:49 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:46:24 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:47:33 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:47:35 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:53:41 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:57:54 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 02:57:59 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+-------------Saturday 9th of September 2023 03:00:31 PM-------------
+userId is 36
+Booking ID is 206
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF23971323
+    [PTRId] => 10680
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF23971323
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 10680
+                            [PTRType] => Refund
+                            [MFRef] => MF23731023
+                            [BookingStatus] => Refunded
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101373
+                            [TotalRefundAmount] => 0.89
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Refunded
+                            [CreditNoteStatus] => Unpaid
+                            [ProcessingMethod] => Manual
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 11986
+                                            [PTRId] => 10680
+                                            [PaxId] => 365617
+                                            [TicketNumber] => 2289699426651
+                                            [TicketStatus] => 0
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Tittle] => MR
+                                            [FirstName] => AVIKASH
+                                            [LastName] => AVIKASH
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 7
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Refunded
+step end of void  ========= Your Canellation is :Completed Total Refundable Amount is : USD 0.02Please note Your CreditNoteNumber: 3101373

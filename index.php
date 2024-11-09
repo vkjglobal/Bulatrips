@@ -410,10 +410,14 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h4>Breathtaking Cities</h4>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
             </div>
+
+
+
+
             <div class="col-12 video-wrapper">
                 <div class="video-container" id="video-container">
                     <video id="video" preload="metadata" poster="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/poster.jpg">
-                        <source src="images/<?php echo $DBvideo[0]['video']; ?>" type="video/mp4">
+                        <source src="images/<?php //echo $DBvideo[0]['video']; ?>" type="video/mp4">
                     </video>
                     <div class="play-button-wrapper">
                         <div title="Play video" class="play-gif" id="circle-play-b">
@@ -644,27 +648,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </section>
 <!-- Button trigger modal -->
 
-<form method="post" id="newsletter-subscribe"  >
-    <div class="row d-flex justify-content-center align-items-center rows" style="background: #121e7e;padding:35px;">
-        <div class="col-md-8">
-            <div class="card">
-                    <div class="text-center p-3">
-                        <img src="https://i.imgur.com/Dh7U4bp.png" width="100">
-                        <h3>Stay Updated with Exclusive Offers!</h3>
-                        <span class="d-block mt-3">Subscribe to our newsletter for the latest deals, exclusive promotions, and travel insights delivered straight to your inbox. Be the first to know about discounts and special offers on bookings!</span>
-                        <div class="mx-5">
-                            
-                            <div class="input-group mt-4">
-                                <input type="email" class="form-control" id="newsletter-email" name="newsletter-email"  placeholder="Enter email">
-                                <button class="btn btn-success border-rad" name="newsletter-submit" type="submit">Subscribe</button>
-                                <p id="newsletter-email-error"></p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</form>
+
 <!-- 
 
 <form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >

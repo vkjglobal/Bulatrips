@@ -32,7 +32,7 @@ $(document).ready(function() {
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-        url:'https://bulatrips.com/admin_panel/model/adminlogin.php',
+        url:'model/adminlogin.php',
       type: 'post',
       data: formData,
       processData: false,

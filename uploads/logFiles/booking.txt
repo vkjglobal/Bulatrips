@@ -14110,3 +14110,689 @@ REsponse Received\nArray
 )
 
 Success Received\nCONFIRMED
+-------------Thursday 7th of November 2024 05:47:50 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 86
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:05:02 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:05:11 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:05:14 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:05:22 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:07:56 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:08:53 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Thursday 7th of November 2024 06:11:59 AM-------------
+Request Received\n
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 
+REsponse Received\n
+-------------Friday 8th of November 2024 06:04:57 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => ZGN4cEcralZQVFJEZUVvaDZ3MmdQMlUvTDY3N3poRHRJWVE2dzhSSjVpSXF1K0Qveks2cGwyYjZTZkY2YXlaOEZpMHBsSlJBbEs2cTRyeVJneEpNYWRycGhneVRTekpUMnRIZ1hRcHlzSFltKy9pZmIyS1cvakw4RFEvRUk5a0pKTFIwMENQbE5yS0p5WGRhY0U1UTV0QmxJTzA5aU4zV3JsL0hFNlAvNkM0PQ==
+    [ClientMarkup] => 41.9055
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => testing
+                                    [PassengerLastName] => testing
+                                )
+
+                            [DateOfBirth] => 1989-02-07
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 5485198187657981
+                                    [ExpiryDate] => 2028-12-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 680
+            [PhoneNumber] => +923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 32423423
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28256624OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 93
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-11-11T06:04:38
+            [TraceId] => 24110810-765ef207-2e63-4ac6-a769-d29b99821615
+            [UniqueID] => MF28256624
+        )
+
+    [Success] => 1
+)
+
+Success Received\nCONFIRMED
+-------------Friday 8th of November 2024 06:06:15 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => ZGN4cEcralZQVFJEZUVvaDZ3MmdQMlUvTDY3N3poRHRJWVE2dzhSSjVpSXF1K0Qveks2cGwyYjZTZkY2YXlaOEZpMHBsSlJBbEs2cTRyeVJneEpNYWRycGhneVRTekpUMnRIZ1hRcHlzSFltKy9pZmIyS1cvakw4RFEvRUk5a0pKTFIwMENQbE5yS0p5WGRhY0U1UTV0QmxJTzA5aU4zV3JsL0hFNlAvNkM0PQ==
+    [ClientMarkup] => 41.9055
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => testing
+                                    [PassengerLastName] => testing
+                                )
+
+                            [DateOfBirth] => 1989-02-07
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 5485198187657981
+                                    [ExpiryDate] => 2028-12-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 680
+            [PhoneNumber] => +923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 32423423
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 94
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+-------------Friday 8th of November 2024 06:06:37 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => ZGN4cEcralZQVFJEZUVvaDZ3MmdQMlUvTDY3N3poRHRJWVE2dzhSSjVpSXF1K0Qveks2cGwyYjZTZkY2YXlaOEZpMHBsSlJBbEs2cTRyeVJneEpNYWRycGhneVRTekpUMnRIZ1hRcHlzSFltKy9pZmIyS1cvakw4RFEvRUk5a0pKTFIwMENQbE5yS0p5WGRhY0U1UTV0QmxJTzA5aU4zV3JsL0hFNlAvNkM0PQ==
+    [ClientMarkup] => 41.9055
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => testing
+                                    [PassengerLastName] => testing
+                                )
+
+                            [DateOfBirth] => 1989-02-07
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 5485198187657981
+                                    [ExpiryDate] => 2028-12-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 680
+            [PhoneNumber] => +923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 32423423
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 95
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+-------------Friday 8th of November 2024 06:07:04 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => ZGN4cEcralZQVFJEZUVvaDZ3MmdQMlUvTDY3N3poRHRJWVE2dzhSSjVpSXF1K0Qveks2cGwyYjZTZkY2YXlaOEZpMHBsSlJBbEs2cTRyeVJneEpNYWRycGhneVRTekpUMnRIZ1hRcHlzSFltKy9pZmIyS1cvakw4RFEvRUk5a0pKTFIwMENQbE5yS0p5WGRhY0U1UTV0QmxJTzA5aU4zV3JsL0hFNlAvNkM0PQ==
+    [ClientMarkup] => 41.9055
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => testing
+                                    [PassengerLastName] => testing
+                                )
+
+                            [DateOfBirth] => 1989-02-07
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 5485198187657981
+                                    [ExpiryDate] => 2028-12-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 680
+            [PhoneNumber] => +923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 32423423
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 96
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+-------------Friday 8th of November 2024 06:07:23 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => ZGN4cEcralZQVFJEZUVvaDZ3MmdQMlUvTDY3N3poRHRJWVE2dzhSSjVpSXF1K0Qveks2cGwyYjZTZkY2YXlaOEZpMHBsSlJBbEs2cTRyeVJneEpNYWRycGhneVRTekpUMnRIZ1hRcHlzSFltKy9pZmIyS1cvakw4RFEvRUk5a0pKTFIwMENQbE5yS0p5WGRhY0U1UTV0QmxJTzA5aU4zV3JsL0hFNlAvNkM0PQ==
+    [ClientMarkup] => 41.9055
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => testing
+                                    [PassengerLastName] => testing
+                                )
+
+                            [DateOfBirth] => 1989-02-07
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 5485198187657981
+                                    [ExpiryDate] => 2028-12-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 680
+            [PhoneNumber] => +923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 32423423
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 97
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+-------------Friday 8th of November 2024 06:12:31 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => czZ4WEUxS0ZYN1dEL0x6RHVWZXhucmZsQjYyT1IyRlduU3NvM2RSait3anRqZisrWEY0VEErNkl0ZUdTMFppMG5nYXZ2SXQxRmViV2pTY0NPbUtSVTEvRlBoSUJhZnF6am5WT1JlMWd2M1NjS1lGOVVHQzN6VU9oRHhhazlKMkltaXVQa3ZUVE11WWF1RFIrZWlOeHFzUGppaStHNFhWKy9DWndhcGRBcTRjPQ==
+    [ClientMarkup] => 42.6503
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Teegan
+                                    [PassengerLastName] => Salas
+                                )
+
+                            [DateOfBirth] => 1986-12-25
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => In corporis similiqu
+                                    [ExpiryDate] => 2030-07-18
+                                    [Country] => NL
+                                )
+
+                            [PassengerNationality] => BV
+                        )
+
+                )
+
+            [CountryCode] => 1784
+            [PhoneNumber] => 579
+            [Email] => cypycu@mailinator.com
+            [PostCode] => Id cillum et nemo ex
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28256724OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 98
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-11-11T06:12:10
+            [TraceId] => 24110810-765ef207-2e63-4ac6-a769-d29b99821615
+            [UniqueID] => MF28256724
+        )
+
+    [Success] => 1
+)
+
+Success Received\nCONFIRMED
+-------------Saturday 9th of November 2024 11:49:45 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => UXRjM242Z3ZFcVpweVVCNE9XcXEwTHhvUGpOS0M2Tm5hQmh5blBNczk5czU2djBvQnBvSDRTVkU0Mkc0SHVONFk1bmhnS2JUWTNwT3JNcks0aFMxbFpXYittN2Rnb2RPZ0FGQTMyaE45RFA2b1RlY2VSMy9zU2tEaFhTY0JybVFhZ1dqaXF1S3BhTCtOR1owOVQ3Y0E0cUd6NS9JQ2lKTWQ1TklzN29JeFFVPQ==
+    [ClientMarkup] => 35.2268
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => U
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Amelia
+                                    [PassengerLastName] => Terry
+                                )
+
+                            [DateOfBirth] => 1981-05-11
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => Quos voluptas conseq
+                                    [ExpiryDate] => 2030-08-26
+                                    [Country] => ZA
+                                )
+
+                            [PassengerNationality] => LY
+                        )
+
+                )
+
+            [CountryCode] => 267
+            [PhoneNumber] => 58
+            [Email] => nygu@mailinator.com
+            [PostCode] => Deserunt saepe ducim
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 100
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                    [1] => Array
+                        (
+                            [Code] => ERSUPPLIER-422
+                            [Message] => Unexpected value: 3[Ljava.lang.StackTraceElement;@125e713b
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+-------------Saturday 9th of November 2024 11:50:43 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => UXRjM242Z3ZFcVpweVVCNE9XcXEwTHhvUGpOS0M2Tm5hQmh5blBNczk5czU2djBvQnBvSDRTVkU0Mkc0SHVONFk1bmhnS2JUWTNwT3JNcks0aFMxbFpXYittN2Rnb2RPZ0FGQTMyaE45RFA2b1RlY2VSMy9zU2tEaFhTY0JybVFhZ1dqaXF1S3BhTCtOR1owOVQ3Y0E0cUd6NS9JQ2lKTWQ1TklzN29JeFFVPQ==
+    [ClientMarkup] => 35.2268
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => U
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Amelia
+                                    [PassengerLastName] => Terry
+                                )
+
+                            [DateOfBirth] => 1981-05-11
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => Quos voluptas conseq
+                                    [ExpiryDate] => 2030-08-26
+                                    [Country] => ZA
+                                )
+
+                            [PassengerNationality] => LY
+                        )
+
+                )
+
+            [CountryCode] => 267
+            [PhoneNumber] => 58
+            [Email] => nygu@mailinator.com
+            [PostCode] => Deserunt saepe ducim
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 101
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                    [1] => Array
+                        (
+                            [Code] => ERSUPPLIER-422
+                            [Message] => Unexpected value: 3[Ljava.lang.StackTraceElement;@1aa8a247
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+

@@ -12,6 +12,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     header('Content-Type: application/json');
     $data   =   $_SESSION['revalidationApi'];
 
+    // echo "<pre>";
+    //     print_r($data);
+    // echo "</pre>";
+    // die;
+
    //echo json_encode($_SESSION);
 
    // exit;
@@ -347,7 +352,7 @@ foreach ($pricedItineraries as $pricedItinerary) {
                 }
                   
                 */
-                //=============================
+                //============================= nafees
                  if (isset($data['baggageService' . $i])) {
                     $baggageServiceData = explode('/', $data['baggageService' . $i]);
                     if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {

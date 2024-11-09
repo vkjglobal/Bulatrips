@@ -1,4 +1,15 @@
 <?php
+
+$url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
+$response = file_get_contents($url);
+$usd_converion_rate = 1;
+if ($response !== false) {
+    $data = json_decode($response, true); // Decode JSON to associative array
+    $usd_converion_rate = $data['conversion_rates']['USD'];
+} else {
+    echo "Failed to retrieve data.";
+}
+
 error_reporting(0);
 session_start();
 require_once("includes/header.php");
@@ -63,7 +74,6 @@ $currentPageFlights = array_slice($pricedItineraries, $startIndex, $flightsPerPa
 $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
 $stmtlocation->execute(array('airport_code' => $originLocationCode[0]));
 $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
-
 
 $stmtlocation->execute(array('airport_code' => $destinationLocationCode[0]));
 $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
@@ -1301,7 +1311,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                     $totDisplay =   $val['RefundPenaltyAmount']+$markupPenaltyPercentage;
                                                                                    // echo $val['RefundPenaltyAmount']."LLLLLLLLL".$markupPenaltyPercentage."TOTAL:".($val['RefundPenaltyAmount']+$markupPenaltyPercentage);
                                                                                     ?>
-                                                                                    <td><?php echo $passengerType.": ". $val['Currency'].' '.$totDisplay; ?></td>
+                                                                                    <td><?php echo $passengerType.": $ ".round(($totDisplay*$usd_converion_rate),3); ?></td>
                                                                                     <?php
                                                                                 }
                                                                                 else{
@@ -1365,7 +1375,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                                                 $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
                                                                                                                  $totDisplayDate =   $val['ChangePenaltyAmount']+$markupDatechangePercentage;
                                                                                                                 ?>
-                                                                                                                <td><?php echo $passengerType.": ". $val['Currency'].' '.$totDisplayDate; ?></td>
+                                                                                                                <td><?php echo $passengerType.": $ ".round(($totDisplayDate*$usd_converion_rate),3); ?></td>
                                                                                                                 <?php
                                                                                                          }
                                                                                                          else{

@@ -5,16 +5,17 @@ ini_set('display_startup_errors', 1); // Display startup errors */
 session_start();
 //-------
 // Clear specific session variables related to the previous booking/search
-unset($_SESSION['search_values']);
-unset($_SESSION['response']);
-unset($_SESSION['Revalidateresponse']);
-unset($_SESSION['name-character-count']);
-unset($_SESSION['travel-depdate']);
-unset($_SESSION['fsc']);
-unset($_SESSION['totalService']);
-unset($_SESSION['travel-return-depdate']);
-unset($_SESSION['adultCount']);
-unset($_SESSION['revalidationApi']);
+
+// unset($_SESSION['search_values']);
+// unset($_SESSION['response']);
+// unset($_SESSION['Revalidateresponse']);
+// unset($_SESSION['name-character-count']);
+// unset($_SESSION['travel-depdate']);
+// unset($_SESSION['fsc']);
+// unset($_SESSION['totalService']);
+// unset($_SESSION['travel-return-depdate']);
+// unset($_SESSION['adultCount']);
+// unset($_SESSION['revalidationApi']);
 
 //---------
 // require_once("includes/header.php");
@@ -412,12 +413,10 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-12 video-wrapper">
                 <div class="video-container" id="video-container">
                     <video id="video" preload="metadata" poster="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/poster.jpg">
-                        <!-- <source src="images/video-home.mp4" type="video/mp4"> -->
                         <source src="images/<?php echo $DBvideo[0]['video']; ?>" type="video/mp4">
                     </video>
                     <div class="play-button-wrapper">
                         <div title="Play video" class="play-gif" id="circle-play-b">
-                            <!-- SVG Play Button -->
                             <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M21.097 14.4351L3.42452 24.6892C1.92473 25.5585 0 24.5059 0 22.7533V2.2451C0 0.495342 1.92195 -0.560066 3.42452 0.312034L21.097 10.5662C21.4382 10.7609 21.7218 11.0424 21.9191 11.3822C22.1163 11.7219 22.2202 12.1078 22.2202 12.5006C22.2202 12.8934 22.1163 13.2793 21.9191 13.619C21.7218 13.9588 21.4382 14.2403 21.097 14.4351Z" fill="black" />
                             </svg>
@@ -644,6 +643,39 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
 </section>
 <!-- Button trigger modal -->
+
+<form method="post" id="newsletter-subscribe"  >
+    <div class="row d-flex justify-content-center align-items-center rows" style="background: #121e7e;padding:35px;">
+        <div class="col-md-8">
+            <div class="card">
+                    <div class="text-center p-3">
+                        <img src="https://i.imgur.com/Dh7U4bp.png" width="100">
+                        <h3>Stay Updated with Exclusive Offers!</h3>
+                        <span class="d-block mt-3">Subscribe to our newsletter for the latest deals, exclusive promotions, and travel insights delivered straight to your inbox. Be the first to know about discounts and special offers on bookings!</span>
+                        <div class="mx-5">
+                            
+                            <div class="input-group mt-4">
+                                <input type="email" class="form-control" id="newsletter-email" name="newsletter-email"  placeholder="Enter email">
+                                <button class="btn btn-success border-rad" name="newsletter-submit" type="submit">Subscribe</button>
+                                <p id="newsletter-email-error"></p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</form>
+<!-- 
+
+<form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >
+    <ul class="footer-links">
+        <li class="link-title">Subscribe to our Newsletter</li>
+        <li><p>Do you want to receive our latest news and promotions?</p></li>
+        <li class="mb-3"><input type="text" id="newsletter-name" name="newsletter-name" class="form-control" placeholder="Name"></li>
+        <li class="mb-3"><input type="email" id="newsletter-email" name="newsletter-email" class="form-control" placeholder="Email"></li>
+        <li><button type="submit" name="newsletter-submit" class="btn btn-primary">Submit</button></li>
+    </ul>
+</form> -->
 
 
 <!--  Login Modal -->

@@ -2,6 +2,18 @@
 session_start();
 error_reporting(0);
 // $_SESSION['user_id'] =9;
+
+$url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
+$response = file_get_contents($url);
+$usd_converion_rate = 1;
+if ($response !== false) {
+    $data = json_decode($response, true); // Decode JSON to associative array
+    $usd_converion_rate = $data['conversion_rates']['USD'];
+} else {
+    echo "Failed to retrieve data.";
+}
+
+
 if(!isset($_SESSION['user_id'])){
 ?>
    <script>
@@ -307,11 +319,11 @@ else {
                                             <table class="w-100">
                                                 <tbody><tr class="bdr">
                                                     <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                    <td class="p-1">₹ 500</td>
+                                                    <td class="p-1">$ 500</td>
                                                 </tr>
                                                 <tr class="bdr">
                                                     <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                    <td class="p-1">₹ 500</td>
+                                                    <td class="p-1">$ 500</td>
                                                 </tr>
                                             </tbody></table>
                                         </li>
@@ -325,11 +337,11 @@ else {
                                             <table class="w-100">
                                                 <tbody><tr class="bdr">
                                                     <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                    <td class="p-1">₹ 500</td>
+                                                    <td class="p-1">$ 500</td>
                                                 </tr>
                                                 <tr class="bdr">
                                                     <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                    <td class="p-1">₹ 500</td>
+                                                    <td class="p-1">$ 500</td>
                                                 </tr>
                                             </tbody></table>
                                         </li>

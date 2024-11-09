@@ -177,7 +177,7 @@ function sendMail($to, $subject, $content, $headers = "")
   //$headers .= "Content-type: text/html; charset=UTF-8" . "\r\n";
     $mail = new PHPMailer(true);
     // $from = "no-reply@bulatrips.com";
-   
+    $isSent = false;
     try {
         //Server settings
        $mail = new PHPMailer;

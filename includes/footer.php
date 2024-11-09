@@ -76,18 +76,16 @@
                         <li class="link-item"><a href="">Dhow Cruise Dinner Marina</a></li>
                     </ul>
                 </div>
-                <form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >
+                <!-- <form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >
                     <ul class="footer-links">
                         <li class="link-title">Subscribe to our Newsletter</li>
                         <li><p>Do you want to receive our latest news and promotions?</p></li>
                         <li class="mb-3"><input type="text" id="newsletter-name" name="newsletter-name" class="form-control" placeholder="Name"></li>
                         <li class="mb-3"><input type="email" id="newsletter-email" name="newsletter-email" class="form-control" placeholder="Email"></li>
                         <li>
-                        <!-- <button type="submit" name="bookinguserlogin" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4">CONTINUE</button> -->
-
                             <button type="submit" name="newsletter-submit" class="btn btn-primary">Submit</button></li>
                     </ul>
-                </form>
+                </form> -->
             </div>
             <div class="row">
                 <div class="col-lg-12 footer-bottom-bar">

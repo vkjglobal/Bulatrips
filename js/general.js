@@ -3450,22 +3450,23 @@ $(document).ready(function () {
   //news letter script
 
   $('#newsletter-subscribe').submit(function (event) {
+    console.log("HURRAY");
     event.preventDefault();
     // Validate form data
     var email = $('#newsletter-email').val();
-    var name = $('#newsletter-name').val();
+    // var name = $('#newsletter-name').val();
     emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     valid = true;
 
     if (email == '' || !emailReg.test(email)) {
 
-      $('#newsletter-email').after('<sapan class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
+      $('#newsletter-email-error').html('<sapan class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
       valid = false;
     }
-    if (name == '') {
-      $('#newsletter-name').after('<sapan class="text-danger fs-12 position-absolute" >Enter your Name.</span>')
-      valid = false;
-    }
+    // if (name == '') {
+    //   $('#newsletter-name').after('<sapan class="text-danger fs-12 position-absolute" >Enter your Name.</span>')
+    //   valid = false;
+    // }
 
     if (!valid) {
       return false;

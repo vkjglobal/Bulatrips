@@ -1,6 +1,17 @@
 <?php
 session_start();
 error_reporting(0);
+
+$url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
+$response = file_get_contents($url);
+$usd_converion_rate = 1;
+if ($response !== false) {
+    $data = json_decode($response, true); // Decode JSON to associative array
+    $usd_converion_rate = $data['conversion_rates']['USD'];
+} else {
+    echo "Failed to retrieve data.";
+}
+
  include_once('includes/common_const.php');
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
@@ -638,16 +649,12 @@ else{
 
                                                                             if(!empty($penaltyCancel['Amount'])){
 
-                                                                                $markupPenaltyPercentage = ($markupPenaltyInfo['commission_percentage'] / 100) *  $penaltyCancel['Amount'];
-
-                                                                               
-
-                                                                                $markupPenaltyPercentage    =    number_format(round($markupPenaltyPercentage));
-
+                                                                                $markupPenaltyPercentage = (($markupPenaltyInfo['commission_percentage'] / 100) *  $penaltyCancel['Amount'])*$usd_converion_rate;
                                                                             }
 
                                                                         //===============
-                                                                            $penaltyAmount = $penaltyCancel['Amount'];
+                                                                        
+                                                                            $penaltyAmount = $penaltyCancel['Amount']*$usd_converion_rate;
                                                                             $totDisplay =   $penaltyAmount+$markupPenaltyPercentage;
                                                                             $penaltyCurrency = $penaltyCancel['CurrencyCode'];
                                                                         }else{
@@ -658,17 +665,12 @@ else{
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php if ($penaltyCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                <?php }
-                                                                                        echo $penaltyAmount; ?></td>
+                                                                            <td> <?php echo "$ ".round($penaltyAmount,3); ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
                                                                             <?php if ($penaltyCancel['Allowed'] == 1) { ?>
-                                                                                <td class="p-1"><?php if ($penaltyCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                    <?php } echo $markupPenaltyPercentage;?>
+                                                                                <td class="p-1"><?php echo "$ ".round($markupPenaltyPercentage,3);?>
                                                                                 </td>
                                                                             <?php } ?>
                                                                         </tr>
@@ -687,9 +689,8 @@ else{
                                                                         // print_r($pricedItinerary);
                                                                         $penaltyChange = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'][1];
                                                                         if ($penaltyChange['Allowed'] == 1) {
-                                                                            $penaltyChangeAmount = $penaltyChange['Amount'];
+                                                                            $penaltyChangeAmount = $penaltyChange['Amount']*$usd_converion_rate;
                                                                             $penaltyChangeCurrency = $penaltyChange['CurrencyCode'];
-                                                                            echo $penaltyChangeAmount;
                                                                         }else{
 
                                                                             $penaltyChangeAmount    =   "Date Change Not Allowed";
@@ -713,11 +714,6 @@ else{
                                                                         if(!empty($penaltyChange['Amount'])){
 
                                                                             $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $penaltyChange['Amount'];
-
-                                                                            $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
-
-                                                                                $totDisplayDate =   $penaltyChange['Amount']+$markupDatechangePercentage;
-
                                                                         }     
 
 
@@ -727,20 +723,11 @@ else{
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php if ($penaltyChangeCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                <?php }
-                                                                                        echo $penaltyChangeAmount; ?></td>
+                                                                            <td> <?php echo "$ ".round($penaltyChangeAmount,3); ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                                            <td> <?php if ($penaltyChangeCurrency == 'INR') { ?>
-
-                                                                            &#8377; <?php } else { ?>
-
-                                                                            <?php }
-
-                                                                                echo $markupDatechangePercentage; ?></td>
+                                                                            <td> <?php echo "$ ".round($markupDatechangePercentage*$usd_converion_rate,3); ?></td>
                                                                         </tr>
                                                                     </table>
                                                                 </li>

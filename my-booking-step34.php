@@ -1,6 +1,17 @@
 <?php
 error_reporting(0);
 session_start();
+
+$url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
+$response = file_get_contents($url);
+$usd_converion_rate = 1;
+if ($response !== false) {
+    $data = json_decode($response, true); // Decode JSON to associative array
+    $usd_converion_rate = $data['conversion_rates']['USD'];
+} else {
+    echo "Failed to retrieve data.";
+}
+
 if (!isset($_SESSION['user_id'])) {
 ?>
     <script>
@@ -601,16 +612,12 @@ if(isset($revalidData['mealService1'])){
                                                                             if(!empty($penaltyCancel['Amount'])){
 
                                                                                 $markupPenaltyPercentage = ($markupPenaltyInfo['commission_percentage'] / 100) *  $penaltyCancel['Amount'];
-
-                                                                                
-
-                                                                                $markupPenaltyPercentage    =    number_format(round($markupPenaltyPercentage));
+                                                                                $markupPenaltyPercentage    =    round($markupPenaltyPercentage*$usd_converion_rate,3);
 
                                                                             }
 
                                                                         //===============
-                                                                            $penaltyAmount = $penaltyCancel['Amount'];
-                                                                            $totDisplay =   $penaltyAmount+$markupPenaltyPercentage;
+                                                                            $penaltyAmount = $penaltyCancel['Amount']*$usd_converion_rate;
                                                                             $penaltyCurrency = $penaltyCancel['CurrencyCode'];
                                                                         }else{
                                                                             $penaltyCurrency = '';
@@ -620,17 +627,12 @@ if(isset($revalidData['mealService1'])){
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php if ($penaltyCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                <?php }
-                                                                                        echo $penaltyAmount; ?></td>
+                                                                            <td> <?php echo "$ ".round($penaltyAmount,3); ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
                                                                             <?php if ($penaltyCancel['Allowed'] == 1) { ?>
-                                                                                <td class="p-1"><?php if ($penaltyCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                    <?php } echo $markupPenaltyPercentage;?>
+                                                                                <td class="p-1"><?php echo "$ ".round($markupPenaltyPercentage,3);?>
                                                                                 </td>
                                                                             <?php } ?>
                                                                         </tr>
@@ -649,7 +651,7 @@ if(isset($revalidData['mealService1'])){
                                                                         // print_r($pricedItinerary);
                                                                         $penaltyChange = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'][1];
                                                                         if ($penaltyChange['Allowed'] == 1) {
-                                                                            $penaltyChangeAmount = $penaltyChange['Amount'];
+                                                                            $penaltyChangeAmount = $penaltyChange['Amount']*$usd_converion_rate;
                                                                             $penaltyChangeCurrency = $penaltyChange['CurrencyCode'];
                                                                         }else{
                                                                             $penaltyChangeCurrency = '';
@@ -673,11 +675,7 @@ if(isset($revalidData['mealService1'])){
                                                                         if(!empty($penaltyChange['Amount'])){
 
                                                                             $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $penaltyChange['Amount'];
-
-                                                                            $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
-
-                                                                                $totDisplayDate =   $penaltyChange['Amount']+$markupDatechangePercentage;
-
+                                                                            $markupDatechangePercentage    =    $markupDatechangePercentage*$usd_converion_rate;
                                                                         }     
 
 
@@ -687,20 +685,11 @@ if(isset($revalidData['mealService1'])){
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php if ($penaltyChangeCurrency == 'INR') { ?>
-                                                                                    &#8377; <?php } else { ?>&#36;
-                                                                                <?php }
-                                                                                        echo $penaltyChangeAmount; ?></td>
+                                                                            <td> <?php echo "$ ".round($penaltyChangeAmount,3); ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                                            <td> <?php if ($penaltyChangeCurrency == 'INR') { ?>
-
-                                                                            &#8377; <?php } else { ?>
-
-                                                                            <?php }
-
-                                                                                echo $markupDatechangePercentage; ?></td>
+                                                                            <td> <?php echo "$ ".round($markupDatechangePercentage,3); ?></td>
                                                                         </tr>
                                                                     </table>
                                                                 </li>

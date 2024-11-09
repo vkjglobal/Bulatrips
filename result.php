@@ -90,9 +90,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         <section class="midbar-wrapper-inner pt-3 pb-3">
             <div class="flight-search-midbar container">
                 <div class="d-flex white-txt justify-content-center">
-                    <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name'] . ' ' . $airTripType . ' ' . date("D, d M", strtotime($fromDate)) . ' | ' . $adultCount + $childCount + $infantCount ?> passenger
+                    <div class="d-flex align-items-center">
+                        <span class="mr-3">
+                            <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name']; ?> 
+                            <?php echo $airTripType; ?> 
+                            <?php echo date("D, d M", strtotime($fromDate)); ?> | 
+                            <?php echo $adultCount + $childCount + $infantCount; ?> passenger
+                        </span>
+                        <button class="btn btn-typ1 ml-3" id="modify-search-result-btn">modify</button>
+                    </div>
                 </div>
-                <div class="row">
+
+                <div class="row" id="modify-search-result" style="display: none;">
                     <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
                     <form class="flight-search col-12" id="flight-search" method="POST" action="">
                         <span class="lbl">
@@ -112,30 +121,24 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             </svg>
                             FLIGHTS
                         </span>
-                        <!-- <input type="radio" id="return" name="tab" checked="checked">
-                <label for="return">Round-trip</label>
-                <input type="radio" id="one-way" name="tab">
-                <label for="one-way">One-way</label>
-                <input type="radio" id="multi-city" name="tab">
-                <label for="multi-city">Multi-city</label> -->
-
-                        <input type="radio" value="Return" id="return" name="tab" <?php if ($airTripType === 'Return') echo 'checked'; ?>>
+                        <input type="radio" id="return" name="tab">
                         <label for="return">Round-trip</label>
-                        <input type="radio" id="one-way" value="OneWay" name="tab" <?php if ($airTripType === 'OneWay') echo 'checked'; ?>>
+                        <input type="radio" id="one-way" name="tab">
                         <label for="one-way">One-way</label>
-                      <!--  <input type="radio" id="multi-city" value="Circle" name="tab" <?php if ($airTripType === 'Circle') echo 'checked'; ?>>
-                        <label for="multi-city">Multi-city</label> -->
+                       
+
+                       
 
 
                         <div class="select-class-wrp">
-                            <select name="cabin-preference" class="select-class" id="cabin-preference" disabled>
+                            <select name="cabin-preference" class="select-class" id="cabin-preference">
                                 <option value="Y" <?php echo $cabinPreference == 'Y' ? 'selected' : ''; ?>>Economy</option>
                                 <option value="S" <?php echo $cabinPreference == 'S' ? 'selected' : ''; ?>>Premium</option>
                                 <option value="C" <?php echo $cabinPreference == 'C' ? 'selected' : ''; ?>>Business</option>
                                 <option value="F" <?php echo $cabinPreference == 'F' ? 'selected' : ''; ?>>First</option>
                             </select>
                         </div>
-                        <span class="person-select">
+                        <span class="person-select" onclick="return fetchAndAlert()">
                            <!-- <label for="" class="select-lbl">Traveller <span class="count"><?php echo $adultCount ?></span><span class="downarrow"></span></label> -->
                             <label for="" class="select-lbl">Traveller <span class="count"><?php echo $adultCount + $childCount + $infantCount  ?></span><span class="downarrow"></span></label>
                             <div class='select-dropbox'>
@@ -144,10 +147,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">12 years and above</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type="number" id="adult_count" name="adult" min="1" value=<?php echo $adultCount ?>>
-                                      <!--  <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                                 <span class="selectbox d-flex justify-content-between">
@@ -155,10 +157,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">2 - 11 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type='number' id="child-count" name="child" min=0 value=<?php echo $childCount ?>>
-                                      <!--  <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                                 <span class="selectbox d-flex justify-content-between">
@@ -166,10 +167,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">Under 2 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type='number' name="infant" min=0 value=<?php echo $infantCount ?>>
-                                     <!--   <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                             </div>
@@ -179,18 +179,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             <div class="search-box on row">
                                 <div class="form-fields col-md-3">
                                     <!-- <input type="text" class="form-control" placeholder="Departing From"> -->
-                                    <input type="text" id="airport-input-search" name="airport" class="form-control" placeholder="Departing From" disabled>
-                                    <input type="hidden" id="hiddenorigin" value="<?php echo $originLocationCode[0] ?>">
+                                    <input type="text" id="airport-input" name="airport" class="form-control" placeholder="Departing From" value="<?php echo $originLocationCode[0] ?>">
+                                    <!-- <input type="hidden" id="hiddenorigin" value="<?php echo $originLocationCode[0] ?>"> -->
                                 </div>
                                 <div class="form-fields col-md-3">
                                     <!-- <input type="text" class="form-control" placeholder="Going To"> -->
-                                    <input type="text" id="arrivalairport-input-search" name="arrivalairport" class="form-control" placeholder="Going To" disabled>
-                                    <input type="hidden" id="hiddendestination" value="<?php echo $destinationLocationCode[0] ?>">
+                                    <input type="text" id="arrivalairport-input" name="arrivalairport" class="form-control" placeholder="Going To" value="<?php echo $destinationLocationCode[0] ?>">
+                                    <!-- <input type="hidden" id="hiddendestination" value="<?php echo $destinationLocationCode[0] ?>"> -->
 
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
                                     <!-- <input type="text" class="form-control" id="from" name="from"> -->
-                                    <input type="text" class="form-control" id="from" name="from" value=<?php echo $departureDate ?> disabled>
+                                    <input type="text" class="form-control" id="from" name="from" value=<?php echo $departureDate ?>>
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
@@ -198,7 +198,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     </span>
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
-                                    <input type="text" class="form-control" id="to" name="to" value=<?php echo $returndepartureDate ?> disabled>
+                                    <input type="text" class="form-control" id="to" name="to" value=<?php echo $returndepartureDate ?>>
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
@@ -206,7 +206,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     </span>
                                 </div>
                                 <div class="form-fields col-md-2">
-                                   <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
+                                   <button class="btn btn-typ1 w-100 form-control">Search</button>
                                 </div>
 
                             </div>
@@ -251,7 +251,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                 <div class="col-md-2">
                                     <div class="form-fields">
-                                      <!--  <button class="btn btn-typ1 w-100 form-control">Search</button> -->
+                                       <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
                                     </div>
                                 </div>
                             </div>
@@ -338,16 +338,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                     ?>
                         <div class="col-12 light-border mb-3">
                             <ul class="flight-list">
-                                <li>
-                                    <ul class="form-row titlebar">
-                                        <li class="col-md-2 text-center">Airline</li>
-                                        <li class="col-md-1">Depart</li>
-                                        <li class="col-md-2">Stops</li>
-                                        <li class="col-md-2">Arrive</li>
-                                        <li class="col-md-3">Duration</li>
-                                        <li class="col-md-2 text-center">Price</li>
-                                    </ul>
-                                </li>
                                 <?php
 
                                 // foreach ($pricedItineraries as $pricedItinerary) {
@@ -471,41 +461,38 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 $stmtairline->bindParam(':code', $code);
                                 $stmtairline->execute();
                                 $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
-                                echo "Faretype:";
-                                echo $fareListRef['FareType'];
 
                                 ?>
-                                <li class="pt-4 contentbar">
-                                    <ul class="form-row mb-lg-5 mb-3">
+                                <br>
+                                    <span class="h5 px-3">Departure</span>
+                                <hr>
+                                <li class="contentbar">
+                                    <ul class="form-row mb-3 p-4 rounded shadow-sm">
                                         <?php
 
 
                                         ?>
-                                        <li data-th="Airline" class="main-dtls col-md-2 d-flex flex-column align-items-md-center justify-content-center mb-md-0 mb-2 ">
-                                            <span class="airImg airline-<?php echo $pricedItinerary['ValidatingCarrier']; ?>"></span>
-                                      
+                                        <li data-th="Airline" class="main-dtls col-md-2 d-flex flex-column align-items-center justify-content-center mb-2">
+                                            <small class="text-muted">Airline</small>
+                                            <span class="airImg airline-<?php echo $pricedItinerary['ValidatingCarrier']; ?> mb-2"></span>
                                         </li>
-                                        <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column justify-content-between depart-dtls fs-13 mb-md-0 mb-2">
-                                            <div class="">
+                                         <!-- Departure -->
+                                        <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column text-center mb-2">
+                                            <small class="text-muted">Departure</small>
+                                            <div class="font-weight-bold"><?php echo $segmentReturn['DepartureAirportLocationCode']; ?></div>
 
-                                                <?php echo $segment['DepartureAirportLocationCode']; ?>
-                                                <br>
-                                                <?php
+                                            <?php
                                                 $datetime = $segment['DepartureDateTime'];
                                                 list($date, $time) = explode("T", $datetime);
-                                                echo date("d F Y", strtotime($date)); ?>
-                                                <br>
-                                                <?php
-                                                echo $time;
-                                                ?>
-                                            </div>
-
+                                                 ?>
+                                            <div><?php echo date("d F Y", strtotime($date)); ?></div>
+                                            <div><?php echo $time; ?></div>
                                         </li>
-                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2">
-                                            <div>
-
-
-                                                <?php
+                                        <!-- Stops -->
+                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column text-center mb-2">
+                                            <small class="text-muted">Stops</small>
+                                            <span class="font-weight-bold">
+                                            <?php
 
                                                 if ($totalstop > 0) {
                                                     $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segment['ArrivalDateTime']);
@@ -521,14 +508,15 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 } else
                                                     echo "Direct";
 
-                                                ?>
-
-                                            </div>
-
+                                            ?>
+                                                
+                                            </span>
                                         </li>
-                                        <li data-th="Arrive" class="main-dtls col-md-2 d-flex flex-column justify-content-between arrive-dtls fs-13 mb-md-0 mb-2">
-                                            <div>
-                                                <?php
+                                        <!-- Arrival -->
+                                        <li data-th="Arrive" class="main-dtls col-md-2 d-flex flex-column text-center mb-2">
+                                            <small class="text-muted">Arrival</small>
+                                            <div class="font-weight-bold"><?php echo $segmentReturnArrival['ArrivalAirportLocationCode']; ?></div>
+                                            <?php
                                                 if ($totalstop > 0) {
                                                     $arrivallocation = $arrival;
                                                     $arrivaltime = $artime;
@@ -545,14 +533,12 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                 ?>
-                                                <?php echo  $arrivallocation; ?><br>
-                                                <?php echo date("d F Y", strtotime($date)); ?><br>
-                                                <?php echo $time; ?>
-                                            </div>
-
+                                            <div><?php echo date("d F Y", strtotime($date)); ?></div>
+                                            <div><?php echo $time; ?></div>
                                         </li>
-                                        <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column justify-content-between duration-dtls fs-13 mb-md-0 mb-2">
-                                            <div>
+                                        <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column text-center mb-2">
+                                            <small class="text-muted">Duration</small>
+                                            <span>
                                                 <?php
                                                 //Duration of flights with stops /connection flights 
                                                 if ($totalstop > 0) {
@@ -614,63 +600,64 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 // $remainingMinutes = $minutes % 60;
                                                 echo $hours . " h  " . $minutes . " m";
                                                 ?>
-                                            </div>
+                                            </span>
 
                                         </li>
                                         <?php
                                         if ($totalReturnStop < 0) {
                                         ?>
-                                            <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
-                                                <?php
-                                                $totalAdultfare = 0;
-                                                $totalChildfare = 0;
-                                                $totalInfantfare = 0;
-                                                // echo '<pre/>';
-                                                // print_r($fareListRef['PassengerFare']);
-                                                if (isset($adultCount) && $adultCount > 0) {
+                                        <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
+                                            <?php
+                                            $totalAdultfare = 0;
+                                            $totalChildfare = 0;
+                                            $totalInfantfare = 0;
+                                            // echo '<pre/>';
+                                            // print_r($fareListRef['PassengerFare']);
+                                            if (isset($adultCount) && $adultCount > 0) {
 
-                                                    $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
-                                                }
-                                                if (isset($childCount) && $childCount > 0) {
-                                                    $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
-                                                }
-                                                if (isset($infantCount) && $infantCount > 0) {
-                                                    $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
-                                                }
-                                                $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
-                                                if (isset($_SESSION['user_id'])) {
+                                                $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
+                                            }
+                                            if (isset($childCount) && $childCount > 0) {
+                                                $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
+                                            }
+                                            if (isset($infantCount) && $infantCount > 0) {
+                                                $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
+                                            }
+                                            $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
+                                            if (isset($_SESSION['user_id'])) {
 
-                                                    $id = $_SESSION['user_id'];
-                                                    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
-                                                    $stmt->execute(array('id' => $id));
-                                                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                $id = $_SESSION['user_id'];
+                                                $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+                                                $stmt->execute(array('id' => $id));
+                                                $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-                                                    $stmtmarkup->execute(array('role_id' => $user['role']));
-                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                } else {
-                                                    $stmtmarkup->execute(array('role_id' => 1));
-                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                }
-                                                // print_r($markup);
-                                                // $stmtmarkup->execute(array('role_id' => 1));
-                                                //     $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
-                                                $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                // echo $totalFareAPI;
-                                                // echo $markup['commission_percentage'];
-                                                // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
-                                                $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-// echo $markupPercentage;
-                                                ?>
-                                                <div class="price-dtls mb-md-0 mb-2">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div>
-                                                <form action="my-booking-step1.php" method="post">
-                                                    <input type="hidden" id="fscode" name="fscode" value="<?php echo $pricedItinerary['FareSourceCode']; ?>">
-                                                    <!-- <button type="submit" id="validate-flight" class="btn btn-typ3 w-100">BOOK</button> -->
-                                                    <button type="submit" class="btn btn-typ3 w-100">BOOK</button>
-                                                </form>
+                                                $stmtmarkup->execute(array('role_id' => $user['role']));
+                                                $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                            } else {
+                                                $stmtmarkup->execute(array('role_id' => 1));
+                                                $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                            }
+                                            // print_r($markup);
+                                            // $stmtmarkup->execute(array('role_id' => 1));
+                                            //     $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                            // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
+                                            $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                            // echo $totalFareAPI;
+                                            // echo $markup['commission_percentage'];
+                                            // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
+                                            $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                            // echo $markupPercentage;
+                                            ?>
+                                            <small class="text-muted">Price</small>
+                                            <span class="text-success font-weight-bold">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></span>
+                                            <form action="my-booking-step1.php" method="post">
+                                                <input type="hidden" id="fscode" name="fscode" value="<?php echo $pricedItinerary['FareSourceCode']; ?>">
+                                                <!-- <button type="submit" id="validate-flight" class="btn btn-typ3 w-100">BOOK</button> -->
+                                                <button type="submit" class="btn btn-typ3 w-100">BOOK</button>
+                                            </form>
 
 
-                                            </li>
+                                        </li>
 
                                         <?php } ?>
 
@@ -678,7 +665,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     <?php
                                     if ($totalReturnStop >= 0) {
                                     ?>
-                                        <hr>
                                         <span class="h5 px-3">Return</span>
                                         <hr>
                                         <ul class="form-row mb-lg-5 mb-3">
@@ -687,86 +673,52 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                             ?>
-                                            <li data-th="Airline" class="main-dtls col-md-2 d-flex flex-column align-items-md-center justify-content-center mb-md-0 mb-2">
-                                            <span class="airImg airline-<?php echo $pricedItinerary['ValidatingCarrier']; ?>"></span>
-                                           
+                                            <li data-th="Airline" class="main-dtls col-md-2 d-flex flex-column align-items-center justify-content-center mb-2">
+                                                <small class="text-muted">Airline</small>
+                                                <span class="airImg airline-<?php echo $pricedItinerary['ValidatingCarrier']; ?> mb-2"></span>
                                             </li>
-                                            <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column justify-content-between depart-dtls fs-13 mb-md-0 mb-2">
-                                                <div class="">
-
-                                                    <?php echo $segmentReturn['DepartureAirportLocationCode']; ?>
-                                                    <br>
-                                                    <?php
+                                            <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column text-center mb-2">
+                                                <small class="text-muted">Departure</small>
+                                                <div class="font-weight-bold"><?php echo $segmentReturn['DepartureAirportLocationCode']; ?></div>
+                                                <div><?php 
                                                     $datetime = $segmentReturn['DepartureDateTime'];
                                                     list($date, $time) = explode("T", $datetime);
-                                                    echo date("d F Y", strtotime($date)); ?>
-                                                    <br>
-                                                    <?php
-                                                    echo $time;
-                                                    ?>
-                                                </div>
-
+                                                    echo date("d F Y", strtotime($date)); ?></div>
+                                                <div><?php echo $time; ?></div>
                                             </li>
-                                            <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2">
-                                                <div>
-
-
-                                                    <?php
-
+                                            <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column text-center mb-2">
+                                                <small class="text-muted">Stops</small>
+                                                <span class="font-weight-bold">
+                                                <?php
                                                     if ($totalReturnStop > 0) {
-                                                        // $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segment['ArrivalDateTime']);
-                                                        // $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $deptime);
-                                                        // $interval =  $date1->diff($date2);
-
-
-                                                        // $hours = $interval->h;
-                                                        // $minutes = $interval->i;
                                                         echo $totalReturnStop . " Stop";
-                                                        // . "<br>" . $segment['ArrivalAirportLocationCode'] . "|" . $hours . "h " . $minutes . "m";
                                                     } else
                                                         echo "Direct";
-
                                                     ?>
-
-                                                </div>
-
+                                                </span>
                                             </li>
-                                            <li data-th="Arrive" class="main-dtls col-md-2 d-flex flex-column justify-content-between arrive-dtls fs-13 mb-md-0 mb-2">
-                                                <div>
-                                                    <?php
-
-
+                                            <li data-th="Arrive" class="main-dtls col-md-2 d-flex flex-column text-center mb-2">
+                                                <small class="text-muted">Arrival</small>
+                                                <div class="font-weight-bold"><?php echo $segmentReturnArrival['ArrivalAirportLocationCode']; ?></div>
+                                                <?php
                                                     $datetime = $segmentReturnArrival['ArrivalDateTime'];;
                                                     list($date, $time) = explode("T", $datetime);
-
-
                                                     ?>
-
-                                                    <?php echo  $segmentReturnArrival['ArrivalAirportLocationCode']; ?><br>
-                                                    <?php echo date("d F Y", strtotime($date)); ?><br>
-                                                    <?php echo $time; ?>
-                                                </div>
-
+                                                <div><?php echo date("d F Y", strtotime($date)); ?></div>
+                                                <div><?php echo $time; ?></div>
                                             </li>
-                                            <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column justify-content-between duration-dtls fs-13 mb-md-0 mb-2">
-                                                <div>
-                                                    <?php
+                                            <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column text-center mb-2">
+                                                <small class="text-muted">Duration</small>
+                                                <span><?php
+                                                $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturn['DepartureDateTime']);
+                                                $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturnArrival['ArrivalDateTime']);
+                                                $interval =  $date1->diff($date2);
 
-
-
-                                                    $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturn['DepartureDateTime']);
-                                                    $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturnArrival['ArrivalDateTime']);
-                                                    $interval =  $date1->diff($date2);
-
-                                                    // Get the difference in hours and minutes
-                                                    $hours = $interval->h;
-                                                    $minutes = $interval->i;
-
-
-                                                    echo $hours . " h  " . $minutes . " m";
-                                                    ?>
-                                                </div>
-
+                                                // Get the difference in hours and minutes
+                                                $hours = $interval->h;
+                                                $minutes = $interval->i;
+                                                echo $hours . " h  " . $minutes . " m";
+                                                ?></span>
                                             </li>
                                             <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
                                                 <?php
@@ -805,7 +757,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
 
                                                 ?>
-                                                <div class="price-dtls mb-md-0 mb-2">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div>
+                                                <small class="text-muted">Price</small>
+                                                <span class="text-success font-weight-bold">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></span>
                                                 <form action="my-booking-step1.php" method="post">
                                                     <input type="hidden" id="fscode" name="fscode" value="<?php echo $pricedItinerary['FareSourceCode']; ?>">
                                                     <!-- <button type="submit" id="validate-flight" class="btn btn-typ3 w-100">BOOK</button> -->
@@ -1641,7 +1594,12 @@ require_once("includes/footer.php");
     /*****************************************/
 
     $(document).ready(function() {
-
+        const airTripType = "<?php echo $airTripType; ?>";
+        if (airTripType === 'Return') {
+            $('#return').prop('checked', true);
+        } else if (airTripType === 'OneWay') {
+            $('#one-way').prop('checked', true);
+        }
 
         $('.select-class').select2();
         $('.stops-select').select2();
@@ -1792,9 +1750,18 @@ require_once("includes/footer.php");
         
         $('#closeButton1').click(function() {
         $('#errorModal').modal('hide');
+
     });
     
     });
+
+    // When button with ID 'modify-search-result-btn' is clicked
+    $('#modify-search-result-btn').click(function() {
+        // Show the element with ID 'modify-search-result'
+        $('#modify-search-result').show();
+    });
+
+ 
 </script>
 <!-- ============ To remove cickable behaviour of radio buttons for airtrip type selection on top ==== -->
 <style>

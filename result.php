@@ -1743,15 +1743,14 @@ require_once("includes/footer.php");
         }
 
         ?>
-        $('#closeButton').click(function() {
-        $('#errorModal').modal('hide');
-        });
+        var errorMessage = <?php echo json_encode($responseData['Message']); ?>; // Encode PHP message to JavaScript variable
 
-        
-        $('#closeButton1').click(function() {
-        $('#errorModal').modal('hide');
+        function redirectToErrorPage() {
+            $('#errorModal').modal('hide');
+            window.location.href = '404.php?error=' + encodeURIComponent(errorMessage);
+        }
 
-    });
+        $('#closeButton, #closeButton1').click(redirectToErrorPage);
     
     });
 

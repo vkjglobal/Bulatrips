@@ -176,7 +176,7 @@ else{
                             $originDestinations = $pricedItinerary['OriginDestinationOptions'];
                             $_SESSION['name-character-count'] = $pricedItinerary['PaxNameCharacterLimit'];
                         ?>
-
+                            <div class="h5 mb-3">Departure</div>
                             <div class="booking-step mb-4">
                                 <div class="d-flex row justify-content-between pb-3 bdr-b">
                                     <div class="col-md-8 dark-blue-txt fw-500 mb-md-0 mb-2">
@@ -1048,9 +1048,10 @@ else{
                     <?php $extraSrvice = $responseData['Data']['ExtraServices1_1']['Services'];?>
                     <input type="hidden" id="extraSrviceData" value="<?php echo htmlentities(json_encode($extraSrvice)); ?>">
 
-                    <div class="col-12">
-                        <div class="title-typ3 dark-blue-txt fw-500 mb-3 mt-5">Traveller Details</div>
-                        <form action="" method="post" id="booking-submit" class="form-row justify-content-center pt-lg-4 pb-lg-4 pt-3 pb-3 px-3">
+                    <br>
+                    <form action="" method="post" id="booking-submit" class="justify-content-center pt-lg-4 pb-lg-4 pt-3 pb-3 px-3">
+                        <div class="col-12">
+                            <div class="title-typ3 dark-blue-txt fw-500 mb-3 mt-5">Traveller Details</div>
                             <div class="col-lg-10">
                                 <p class="fs-15 fw-400 mb-3">Please enter travellers details exactly as on passport</p>
                                 <div id="adultcontainermain">
@@ -1064,96 +1065,111 @@ else{
 
                                     </div>
                                 </div>
-                                <div class="form-row pb-lg-3 pb-2 align-items-center">
-                                    <div class="col mb-md-0 mb-2">
-                                        <label for="" class="m-0 fw-500">Contact Details</label>
-                                    </div>
-                                    <div class="col-md-3 mb-4">
-                                        <input type="text" name="contactfirstname" id="contactfirstname" class="form-control" placeholder="First Name">
-                                    </div>
-                                    <div class="col-md-3 mb-4">
-                                        <input type="text" name="contactlastname" id="contactlastname" class="form-control" placeholder="Last Name">
-                                    </div>
-                                    <div class="col-md-3 mb-4">
-                                        <?php
-                                        $jsonData = file_get_contents('CountryCodes.json');
-
-                                        // Parse the JSON data into an array
-                                        $data = json_decode($jsonData, true);
-
-                                        // Check if the JSON data was parsed successfully
-                                        if ($data !== null) {
-                                            // Start creating the select box HTML
-                                            $selectBox = '<select name="contactcountry" id="contactcountry" class="form-control">';
-
-                                            // Iterate over the data array and create options
-                                            foreach ($data as $item) {
-                                                $name = $item['name'];
-                                                $dialCode = $item['dial_code'];
-                                                $code = $item['code'];
-
-                                                // Create an option element with the country name and dial code
-                                                $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
-
-                                                // Append the option to the select box HTML
-                                                $selectBox .= $option;
-                                            }
-
-                                            // Close the select box HTML
-                                            $selectBox .= '</select>';
-
-                                            // Output the select box
-                                            echo $selectBox;
-                                        } else {
-                                            // Handle the case when the JSON data couldn't be parsed
-                                            echo 'Error parsing JSON data.';
-                                        }
-                                        ?>
-                                    </div>
-                                    <div class="col-md-3 mb-4">
-                                        <input type="text" name="contactnumber" id="contactnumber" class="form-control" placeholder="Mobile Number">
-                                    </div>
-                                    <div class="col-md-4 mb-4">
-                                        <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address">
-                                    </div>
-                                    <div class="col-md-4 mb-4">
-                                        <input type="text" name="contactpostcode" id="contactpostcode" class="form-control" placeholder="Postcode">
-                                    </div>
-                                    <?php
-
-                                    ?>
-                                    <!-- <div class="col mb-md-0 mb-2">
-                                            <select name="contactcountry" id="" class="form-control select-location">
-                                                <option value="India">India</option>
-                                               
-                                            </select>
-                                        </div> -->
-                                </div>
-                                <!-- <div class="form-row chkbx mb-3">
-                                        <div class="col d-flex align-items-center">
-                                            <span for="" class="m-0 mr-2 fw-500">GST</span>
-                                            <input type="checkbox" id="gst" checked="">
-                                            <label for="gst" class="fz-13 fw-400">
-                                                <span class="chk-txt fs-13 fw-400">Use GSTIN for this booking</span>
-                                            </label>
-                                        </div>
-                                    </div> -->
-                                <?php
-                                $_SESSION['fsc'] = $pricedItinerary['AirItineraryPricingInfo']['FareSourceCode'];
-                                // echo '<pre/>';print_r($_SESSION);
-                                ?>
-                                <input type="hidden" name="adultCount" value="<?php echo $_SESSION['adultCount'] ?>">
-                                <input type="hidden" name="childCount" value="<?php echo $_SESSION['childCount'] ?>">
-                                <input type="hidden" name="infantCount" value="<?php echo $_SESSION['infantCount'] ?>">
-                                <input type="hidden" name="depdate" value="<?php echo $_SESSION['travel-depdate'] ?>">
-                                <input type="hidden" name="returndate" value="<?php echo $_SESSION['travel-return-depdate'] ?>">
-                                <input type="hidden" name="nameCharacterCount" value="<?php echo  $_SESSION['name-character-count'] ?>">
-                                <input type="hidden" name="pricedItineraries" value="<?php echo htmlspecialchars(json_encode($responseData['Data']['PricedItineraries'])); ?>">
-                                <input type="hidden" name="custId" value="<?php echo $_SESSION['customer_role-id']; ?>">
-                                <button class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" type="submit">CONTINUE</button>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="title-typ3 dark-blue-txt fw-500 mb-3 mt-5">Contact Details</div>
+                                <div class="col-lg-10">
+                                    <p class="fs-15 fw-400 mb-3">Please enter travellers details exactly as on passport</p>
+                                    <div id="adultcontainermain">
+                                        <div class="form-row pb-lg-3 pb-2 mb-3 align-items-center" id="adultcontainer">
+
+                                        </div>
+                                        <div class="form-row pb-lg-3 pb-2 mb-3 align-items-center" id="childcontainer">
+
+                                        </div>
+                                        <div class="form-row pb-lg-3 pb-2 mb-3 align-items-center" id="infantcontainer">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-row pb-lg-3 pb-2 align-items-center">
+                                        <div class="col-md-3 mb-4">
+                                            <input type="text" name="contactfirstname" id="contactfirstname" class="form-control" placeholder="First Name">
+                                        </div>
+                                        <div class="col-md-3 mb-4">
+                                            <input type="text" name="contactlastname" id="contactlastname" class="form-control" placeholder="Last Name">
+                                        </div>
+                                        <div class="col-md-3 mb-4">
+                                            <?php
+                                            $jsonData = file_get_contents('CountryCodes.json');
+
+                                            // Parse the JSON data into an array
+                                            $data = json_decode($jsonData, true);
+
+                                            // Check if the JSON data was parsed successfully
+                                            if ($data !== null) {
+                                                // Start creating the select box HTML
+                                                $selectBox = '<select name="contactcountry" id="contactcountry" class="form-control">';
+
+                                                // Iterate over the data array and create options
+                                                foreach ($data as $item) {
+                                                    $name = $item['name'];
+                                                    $dialCode = $item['dial_code'];
+                                                    $code = $item['code'];
+
+                                                    // Create an option element with the country name and dial code
+                                                    $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
+
+                                                    // Append the option to the select box HTML
+                                                    $selectBox .= $option;
+                                                }
+
+                                                // Close the select box HTML
+                                                $selectBox .= '</select>';
+
+                                                // Output the select box
+                                                echo $selectBox;
+                                            } else {
+                                                // Handle the case when the JSON data couldn't be parsed
+                                                echo 'Error parsing JSON data.';
+                                            }
+                                            ?>
+                                        </div>
+                                        <div class="col-md-3 mb-4">
+                                            <input type="text" name="contactnumber" id="contactnumber" class="form-control" placeholder="Mobile Number">
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address">
+                                        </div>
+                                        <div class="col-md-4 mb-4">
+                                            <input type="text" name="contactpostcode" id="contactpostcode" class="form-control" placeholder="Postcode">
+                                        </div>
+                                        <?php
+
+                                        ?>
+                                        <!-- <div class="col mb-md-0 mb-2">
+                                                <select name="contactcountry" id="" class="form-control select-location">
+                                                    <option value="India">India</option>
+                                                
+                                                </select>
+                                            </div> -->
+                                    </div>
+                                    <!-- <div class="form-row chkbx mb-3">
+                                            <div class="col d-flex align-items-center">
+                                                <span for="" class="m-0 mr-2 fw-500">GST</span>
+                                                <input type="checkbox" id="gst" checked="">
+                                                <label for="gst" class="fz-13 fw-400">
+                                                    <span class="chk-txt fs-13 fw-400">Use GSTIN for this booking</span>
+                                                </label>
+                                            </div>
+                                        </div> -->
+                                    <?php
+                                    $_SESSION['fsc'] = $pricedItinerary['AirItineraryPricingInfo']['FareSourceCode'];
+                                    // echo '<pre/>';print_r($_SESSION);
+                                    ?>
+                                    <input type="hidden" name="adultCount" value="<?php echo $_SESSION['adultCount'] ?>">
+                                    <input type="hidden" name="childCount" value="<?php echo $_SESSION['childCount'] ?>">
+                                    <input type="hidden" name="infantCount" value="<?php echo $_SESSION['infantCount'] ?>">
+                                    <input type="hidden" name="depdate" value="<?php echo $_SESSION['travel-depdate'] ?>">
+                                    <input type="hidden" name="returndate" value="<?php echo $_SESSION['travel-return-depdate'] ?>">
+                                    <input type="hidden" name="nameCharacterCount" value="<?php echo  $_SESSION['name-character-count'] ?>">
+                                    <input type="hidden" name="pricedItineraries" value="<?php echo htmlspecialchars(json_encode($responseData['Data']['PricedItineraries'])); ?>">
+                                    <input type="hidden" name="custId" value="<?php echo $_SESSION['customer_role-id']; ?>">
+                                    <button class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" type="submit">CONTINUE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

@@ -2109,6 +2109,7 @@ video {
 
 .light-border {
   border: 1px solid #D2D3DD;
+  border-radius: 20px
 }
 
 .flight-details-tab-wrap .nav-tabs .nav-item {
@@ -2187,6 +2188,8 @@ video {
 .booking-step-container {
   border: 1px solid #D2D3DD;
   padding: 30px;
+  border-radius: 20px;
+  background: aliceblue;
 }
 
 .details-popup-section {
@@ -2404,6 +2407,8 @@ video {
 
 .traveller-details form {
   border: 1px solid #D2D3DD;
+  border-radius: 20px;
+  background: aliceblue;
 }
 .traveller-details .select2-container .select2-selection--single {
   height: 35px;

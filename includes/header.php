@@ -31,6 +31,8 @@ include_once("includes/filterValidation.php");
     <link rel="stylesheet" href="css/airline.css">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     
     <?php
     if(!isset($_SESSION)){        

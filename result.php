@@ -1,5 +1,7 @@
 <?php
 
+
+
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -14,7 +16,6 @@ error_reporting(0);
 session_start();
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
-
 
 $searchValue = $_SESSION['search_values'];
 
@@ -32,6 +33,8 @@ if ($searchValue['infant'])
     $infantCount = $searchValue['infant'];
 else
     $infantCount = 0;
+
+    
 
 $originLocation = $searchValue['airport'];
 $originLocationCode = explode("-", $originLocation);
@@ -77,7 +80,9 @@ $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
 $stmtlocation->execute(array('airport_code' => $destinationLocationCode[0]));
 $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+
 if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
+    
     if (isset($responseData['Data']['Errors'])) {
 
 
@@ -90,11 +95,25 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         <section class="midbar-wrapper-inner pt-3 pb-3">
             <div class="flight-search-midbar container">
                 <div class="d-flex white-txt justify-content-center">
-                    <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name'] . ' ' . $airTripType . ' ' . date("D, d M", strtotime($fromDate)) . ' | ' . $adultCount + $childCount + $infantCount ?> passenger
+                    <div class="d-flex align-items-center">
+                        <span class="mr-3">
+                            <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name']; ?> 
+                            <?php echo $airTripType; ?> 
+                            <?php echo date("D, d M", strtotime($fromDate)); ?> | 
+                            <?php echo $adultCount + $childCount + $infantCount; ?> passenger
+                        </span>
+                        <button class="btn btn-typ1 ml-3" id="modify-search-result-btn">modify</button>
+                    </div>
                 </div>
-                <div class="row">
+
+                <div class="row" id="modify-search-result" style="display: none;">
                     <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
-                    <form class="flight-search col-12" id="flight-search" method="POST" action="">
+                    <form class="flight-search col-12" id="flight-search" method="post" action="search.php">
+
+                   
+
+                        
+                    <!-- <form class="flight-search col-12" id="flight-search" method="POST" action=""> -->
                         <span class="lbl">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <mask id="mask0_69_1529" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
@@ -112,30 +131,41 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             </svg>
                             FLIGHTS
                         </span>
-                        <!-- <input type="radio" id="return" name="tab" checked="checked">
-                <label for="return">Round-trip</label>
-                <input type="radio" id="one-way" name="tab">
-                <label for="one-way">One-way</label>
-                <input type="radio" id="multi-city" name="tab">
-                <label for="multi-city">Multi-city</label> -->
 
-                        <input type="radio" value="Return" id="return" name="tab" <?php if ($airTripType === 'Return') echo 'checked'; ?>>
+                        
+
+                        <input type="radio" id="return" name="tab" value="Return" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return" ) {echo "checked";} ?>>
                         <label for="return">Round-trip</label>
-                        <input type="radio" id="one-way" value="OneWay" name="tab" <?php if ($airTripType === 'OneWay') echo 'checked'; ?>>
+                        <input type="radio" id="one-way" name="tab" value="OneWay" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay" ) {echo "checked";} ?>>
                         <label for="one-way">One-way</label>
-                      <!--  <input type="radio" id="multi-city" value="Circle" name="tab" <?php if ($airTripType === 'Circle') echo 'checked'; ?>>
-                        <label for="multi-city">Multi-city</label> -->
+
+
+<!-- 
+                        <div class="d-flex align-items-center justify-content-center mb-md-0 mb-3">
+                            <input type="radio" value="Return" id="return" name="tab" checked="checked">
+                            <label for="return">Round-trip</label>
+                            <input type="radio" id="one-way" value="OneWay" name="tab">
+                            <label for="one-way">One-way</label>
+                        </div>
+                        -->
+
+
+                        
+
+
+
+                       
 
 
                         <div class="select-class-wrp">
-                            <select name="cabin-preference" class="select-class" id="cabin-preference" disabled>
+                            <select name="cabin-preference" class="select-class" id="cabin-preference">
                                 <option value="Y" <?php echo $cabinPreference == 'Y' ? 'selected' : ''; ?>>Economy</option>
                                 <option value="S" <?php echo $cabinPreference == 'S' ? 'selected' : ''; ?>>Premium</option>
                                 <option value="C" <?php echo $cabinPreference == 'C' ? 'selected' : ''; ?>>Business</option>
                                 <option value="F" <?php echo $cabinPreference == 'F' ? 'selected' : ''; ?>>First</option>
                             </select>
                         </div>
-                        <span class="person-select">
+                        <span class="person-select" onclick="return fetchAndAlert()">
                            <!-- <label for="" class="select-lbl">Traveller <span class="count"><?php echo $adultCount ?></span><span class="downarrow"></span></label> -->
                             <label for="" class="select-lbl">Traveller <span class="count"><?php echo $adultCount + $childCount + $infantCount  ?></span><span class="downarrow"></span></label>
                             <div class='select-dropbox'>
@@ -144,10 +174,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">12 years and above</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type="number" id="adult_count" name="adult" min="1" value=<?php echo $adultCount ?>>
-                                      <!--  <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                                 <span class="selectbox d-flex justify-content-between">
@@ -155,10 +184,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">2 - 11 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type='number' id="child-count" name="child" min=0 value=<?php echo $childCount ?>>
-                                      <!--  <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                                 <span class="selectbox d-flex justify-content-between">
@@ -166,10 +194,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <span class="fs-11">Under 2 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <!-- <input type='number' min=0 value=0> -->
                                         <input type='number' name="infant" min=0 value=<?php echo $infantCount ?>>
-                                     <!--   <span class='minus'>-</span>
-                                        <span class='add'>+</span> -->
+                                        <span class='minus'>-</span>
+                                        <span class='add'>+</span>
                                     </span>
                                 </span>
                             </div>
@@ -179,18 +206,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             <div class="search-box on row">
                                 <div class="form-fields col-md-3">
                                     <!-- <input type="text" class="form-control" placeholder="Departing From"> -->
-                                    <input type="text" id="airport-input-search" name="airport" class="form-control" placeholder="Departing From" disabled>
-                                    <input type="hidden" id="hiddenorigin" value="<?php echo $originLocationCode[0] ?>">
+                                    <input type="text" id="airport-input" name="airport" class="form-control" placeholder="Departing From" value="<?php echo $originLocationCode[0] ?>">
+                                    <!-- <input type="hidden" id="hiddenorigin" value="<?php echo $originLocationCode[0] ?>"> -->
                                 </div>
                                 <div class="form-fields col-md-3">
                                     <!-- <input type="text" class="form-control" placeholder="Going To"> -->
-                                    <input type="text" id="arrivalairport-input-search" name="arrivalairport" class="form-control" placeholder="Going To" disabled>
-                                    <input type="hidden" id="hiddendestination" value="<?php echo $destinationLocationCode[0] ?>">
+                                    <input type="text" id="arrivalairport-input" name="arrivalairport" class="form-control" placeholder="Going To" value="<?php echo $destinationLocationCode[0] ?>">
+                                    <!-- <input type="hidden" id="hiddendestination" value="<?php echo $destinationLocationCode[0] ?>"> -->
 
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
                                     <!-- <input type="text" class="form-control" id="from" name="from"> -->
-                                    <input type="text" class="form-control" id="from" name="from" value=<?php echo $departureDate ?> disabled>
+                                    <input type="text" class="form-control" id="from" name="from" value=<?php echo $departureDate ?>>
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
@@ -198,7 +225,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     </span>
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
-                                    <input type="text" class="form-control" id="to" name="to" value=<?php echo $returndepartureDate ?> disabled>
+                                    <input type="text" class="form-control" id="to" name="to" value=<?php echo $returndepartureDate ?>>
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
@@ -206,7 +233,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     </span>
                                 </div>
                                 <div class="form-fields col-md-2">
-                                   <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
+                                    <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
+                                   <!-- <input type="submit" class="btn btn-typ1 w-100 form-control">Searc 123 h</button> -->
                                 </div>
 
                             </div>
@@ -251,7 +279,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                 <div class="col-md-2">
                                     <div class="form-fields">
-                                      <!--  <button class="btn btn-typ1 w-100 form-control">Search</button> -->
+                                       <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
                                     </div>
                                 </div>
                             </div>
@@ -274,6 +302,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                 </div>
             </div>
         </section>
+       
+       
         <section>
             <div class="container">
                 <div class="form-row">
@@ -660,7 +690,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 // echo $markup['commission_percentage'];
                                                 // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
                                                 $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-// echo $markupPercentage;
                                                 ?>
                                                 <div class="price-dtls mb-md-0 mb-2">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div>
                                                 <form action="my-booking-step1.php" method="post">
@@ -1641,7 +1670,12 @@ require_once("includes/footer.php");
     /*****************************************/
 
     $(document).ready(function() {
-
+        const airTripType = "<?php echo $airTripType; ?>";
+        if (airTripType === 'Return') {
+            $('#return').prop('checked', true);
+        } else if (airTripType === 'OneWay') {
+            $('#one-way').prop('checked', true);
+        }
 
         $('.select-class').select2();
         $('.stops-select').select2();
@@ -1785,16 +1819,24 @@ require_once("includes/footer.php");
         }
 
         ?>
-        $('#closeButton').click(function() {
-        $('#errorModal').modal('hide');
-        });
+        var errorMessage = <?php echo json_encode($responseData['Message']); ?>; // Encode PHP message to JavaScript variable
 
-        
-        $('#closeButton1').click(function() {
-        $('#errorModal').modal('hide');
-    });
+        function redirectToErrorPage() {
+            $('#errorModal').modal('hide');
+            window.location.href = '404.php?error=' + encodeURIComponent(errorMessage);
+        }
+
+        $('#closeButton, #closeButton1').click(redirectToErrorPage);
     
     });
+
+    // When button with ID 'modify-search-result-btn' is clicked
+    $('#modify-search-result-btn').click(function() {
+        // Show the element with ID 'modify-search-result'
+        $('#modify-search-result').show();
+    });
+
+ 
 </script>
 <!-- ============ To remove cickable behaviour of radio buttons for airtrip type selection on top ==== -->
 <style>

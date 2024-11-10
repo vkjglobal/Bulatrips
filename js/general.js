@@ -1729,6 +1729,7 @@ $(document).ready(function () {
 
 
   $('#flight-search').submit(function (event) {
+    
     event.preventDefault();
     // Validate form data
     var cabin = $('#cabin-preference').val();
@@ -1801,8 +1802,9 @@ $(document).ready(function () {
       }
     }
 
-
+    
     if (!valid) {
+      
       return false;
     }
 
@@ -1825,7 +1827,8 @@ $(document).ready(function () {
     $('#dep-date').text(departureDate);
 
     
-
+    console.log("CALLEDs");
+    console.log(tripTypeValue);
     // Perform the form submission using AJAX
     if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
       $('#FlightSearchLoading').show();

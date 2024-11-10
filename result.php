@@ -1,5 +1,7 @@
 <?php
 
+
+
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -14,7 +16,6 @@ error_reporting(0);
 session_start();
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
-
 
 $searchValue = $_SESSION['search_values'];
 
@@ -32,6 +33,8 @@ if ($searchValue['infant'])
     $infantCount = $searchValue['infant'];
 else
     $infantCount = 0;
+
+    
 
 $originLocation = $searchValue['airport'];
 $originLocationCode = explode("-", $originLocation);
@@ -77,7 +80,9 @@ $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
 $stmtlocation->execute(array('airport_code' => $destinationLocationCode[0]));
 $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+
 if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
+    
     if (isset($responseData['Data']['Errors'])) {
 
 
@@ -103,7 +108,12 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                 <div class="row" id="modify-search-result" style="display: none;">
                     <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
-                    <form class="flight-search col-12" id="flight-search" method="POST" action="">
+                    <form class="flight-search col-12" id="flight-search" method="post" action="search.php">
+
+                   
+
+                        
+                    <!-- <form class="flight-search col-12" id="flight-search" method="POST" action=""> -->
                         <span class="lbl">
                             <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                 <mask id="mask0_69_1529" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="30" height="30">
@@ -121,11 +131,28 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             </svg>
                             FLIGHTS
                         </span>
-                        <input type="radio" id="return" name="tab">
+
+                        
+
+                        <input type="radio" id="return" name="tab" value="Return" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return" ) {echo "checked";} ?>>
                         <label for="return">Round-trip</label>
-                        <input type="radio" id="one-way" name="tab">
+                        <input type="radio" id="one-way" name="tab" value="OneWay" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay" ) {echo "checked";} ?>>
                         <label for="one-way">One-way</label>
-                       
+
+
+<!-- 
+                        <div class="d-flex align-items-center justify-content-center mb-md-0 mb-3">
+                            <input type="radio" value="Return" id="return" name="tab" checked="checked">
+                            <label for="return">Round-trip</label>
+                            <input type="radio" id="one-way" value="OneWay" name="tab">
+                            <label for="one-way">One-way</label>
+                        </div>
+                        -->
+
+
+                        
+
+
 
                        
 
@@ -206,7 +233,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     </span>
                                 </div>
                                 <div class="form-fields col-md-2">
-                                   <button class="btn btn-typ1 w-100 form-control">Search</button>
+                                    <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
+                                   <!-- <input type="submit" class="btn btn-typ1 w-100 form-control">Searc 123 h</button> -->
                                 </div>
 
                             </div>
@@ -274,6 +302,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                 </div>
             </div>
         </section>
+       
+       
         <section>
             <div class="container">
                 <div class="form-row">

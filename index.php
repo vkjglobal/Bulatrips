@@ -269,7 +269,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <div class="col-12">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 bx-mb">
+                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <div class="package-cat-slider owl-carousel owl-theme">
                                 <a href="#" class="cat-btn item">
@@ -285,12 +285,12 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <span>Singapore</span>
                                 </a>
                             </div>
-                            <!-- <a href="#" class="cat-btn">
+                            <a href="#" class="cat-btn">
                                     <img src="images/img8.png" alt="">
                                     <span>Dubai</span>
-                                </a> -->
+                                </a>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <a href="#" class="package-btn">
@@ -347,7 +347,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
+                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <a href="#" class="package-btn">
                                 <img src="images/img6.png" alt="">
@@ -391,12 +391,12 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                     <span>Paris</span>
                                 </a>
                             </div>
-                            <!-- <a href="#" class="cat-btn">
+                            <a href="#" class="cat-btn">
                                     <img src="images/img1.png" alt="">
                                     <span>Thailand</span>
-                                </a> -->
+                                </a>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -410,11 +410,10 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h4>Breathtaking Cities</h4>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
             </div>
-            <div class="col-12 video-wrapper">
+           
+            <div class="col-12 video-wrapper" style="display: none;">
                 <div class="video-container" id="video-container">
-                    <video id="video" preload="metadata" poster="//cdn.jsdelivr.net/npm/big-buck-bunny-1080p@0.0.6/poster.jpg">
-                        <source src="images/<?php echo $DBvideo[0]['video']; ?>" type="video/mp4">
-                    </video>
+                    <video id="video"></video>
                     <div class="play-button-wrapper">
                         <div title="Play video" class="play-gif" id="circle-play-b">
                             <svg width="23" height="25" viewBox="0 0 23 25" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -424,9 +423,92 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 </div>
             </div>
+            
         </div>  
     </div>
 </section>
+
+
+<form method="post" id="newsletter-subscribe" style="margin-bottom: 50px;">
+    <div class="row d-flex justify-content-center align-items-center rows" >
+        <div class="col-md-8">
+            <div class="card" style="border-radius: 10px;    border: 1px solid #121E7E;    padding-bottom: 20px;">
+                    <div class="text-center p-3 hd-wraper" style="max-width: 1000px;margin: 0 auto;">
+                        <img src="https://i.imgur.com/Dh7U4bp.png" width="100">
+                        <h4>Stay Updated with Exclusive Offers!</h4>
+                        <span class="d-block mt-3">Subscribe to our newsletter for the latest deals, exclusive promotions, and travel insights delivered straight to your inbox. Be the first to know about discounts and special offers on bookings!</span>
+                        <div class="mx-5">
+                            
+                            <div class="input-group mt-4">
+                                <input type="email" class="form-control" id="newsletter-email" name="newsletter-email"  placeholder="Enter email" style="height: 42px;">
+                                <button class="btn btn-primary" name="newsletter-submit" type="submit" style="border-top-left-radius: 0;border-bottom-left-radius: 0;height: 42px;background: #121E7E;border: 1px solid #121E7E;">Subscribe</button>
+                            </div>
+                            <p id="newsletter-email-error" style="text-align: left;font-size: 17px;"></p>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+<section class="travel-reviews">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 hd-wraper white-txt">
+                <!-- <strong>Read The Top</strong> -->
+                <h4>Reviews</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
+            </div>
+        </div>
+    </div>
+    <div class="review-slider-wrapper">
+        <div class="owl-carousel travel-reviews-carousel owl-theme owl-loaded">
+            <div class="owl-stage-outer">
+                <div class="owl-stage">
+                    <?php foreach($resultReview as $resultReviews){?>
+                        <div class="owl-item">
+                            <div class="review-item row">
+                                <div class="col-md-3">
+                                    <!-- <img src="images/lady-img1.png" alt=""> -->
+                                    <?php if($resultReviews['image'] == ''){ ?>
+                                        <img src="uploads/reviews/logo.png" alt="">
+                                    <?php }else{ ?>
+                                        <img src="uploads/reviews/<?php echo $resultReviews['image']; ?>" alt="">
+                                    <?php } ?>
+                               </div>
+                                <div class="review-info col-md-9">
+                                    <h5><?php echo $resultReviews['title']?></h5>
+                                    <ul>
+                                    <?php 
+                                        $rating = $resultReviews['rating'];
+                                        for ($i = 1; $i <= 5; $i++) {
+                                            if ($i <= $rating) {
+                                                echo '<li><span class="star-rate"></span></li>'; // Display a filled star if $i is less than or equal to $rating
+                                            } else {
+                                                echo '<li><span class="star-rate-white"></span></li>'; // Display an empty star if $i is greater than $rating
+                                            }
+                                        }
+                                    ?>
+                                        <!-- <li><span class="star-rate"></span></li>
+                                        <li><span class="star-rate"></span></li> -->
+                                   </ul>
+                                    <div class="txt-cntnt">
+                                        <?php echo $resultReviews['description']; ?>
+                                    </div>
+                                    <strong><?php echo $resultReviews['author']?></strong>
+                                </div>
+                            </div>
+                        </div>
+                    <?php } ?>    
+                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Button trigger modal -->
+
+
 <!-- <section class="choose-flight">
     <div class="container">
         <div class="row">
@@ -588,83 +670,8 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </section> -->
-<section class="travel-reviews">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 hd-wraper white-txt">
-                <strong>Read The Top</strong>
-                <h4>Travel Reviews</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
-            </div>
-        </div>
-    </div>
-    <div class="review-slider-wrapper">
-        <div class="owl-carousel travel-reviews-carousel owl-theme owl-loaded">
-            <div class="owl-stage-outer">
-                <div class="owl-stage">
-                    <?php foreach($resultReview as $resultReviews){?>
-                        <div class="owl-item">
-                            <div class="review-item row">
-                                <div class="col-md-3">
-                                    <!-- <img src="images/lady-img1.png" alt=""> -->
-                                    <?php if($resultReviews['image'] == ''){ ?>
-                                        <img src="uploads/reviews/logo.png" alt="">
-                                    <?php }else{ ?>
-                                        <img src="uploads/reviews/<?php echo $resultReviews['image']; ?>" alt="">
-                                    <?php } ?>
-                               </div>
-                                <div class="review-info col-md-9">
-                                    <h5><?php echo $resultReviews['title']?></h5>
-                                    <ul>
-                                    <?php 
-                                        $rating = $resultReviews['rating'];
-                                        for ($i = 1; $i <= 5; $i++) {
-                                            if ($i <= $rating) {
-                                                echo '<li><span class="star-rate"></span></li>'; // Display a filled star if $i is less than or equal to $rating
-                                            } else {
-                                                echo '<li><span class="star-rate-white"></span></li>'; // Display an empty star if $i is greater than $rating
-                                            }
-                                        }
-                                    ?>
-                                        <!-- <li><span class="star-rate"></span></li>
-                                        <li><span class="star-rate"></span></li> -->
-                                   </ul>
-                                    <div class="txt-cntnt">
-                                        <?php echo $resultReviews['description']; ?>
-                                    </div>
-                                    <strong><?php echo $resultReviews['author']?></strong>
-                                </div>
-                            </div>
-                        </div>
-                    <?php } ?>    
-                 </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Button trigger modal -->
 
-<form method="post" id="newsletter-subscribe"  >
-    <div class="row d-flex justify-content-center align-items-center rows" style="background: #121e7e;padding:35px;">
-        <div class="col-md-8">
-            <div class="card">
-                    <div class="text-center p-3">
-                        <img src="https://i.imgur.com/Dh7U4bp.png" width="100">
-                        <h3>Stay Updated with Exclusive Offers!</h3>
-                        <span class="d-block mt-3">Subscribe to our newsletter for the latest deals, exclusive promotions, and travel insights delivered straight to your inbox. Be the first to know about discounts and special offers on bookings!</span>
-                        <div class="mx-5">
-                            
-                            <div class="input-group mt-4">
-                                <input type="email" class="form-control" id="newsletter-email" name="newsletter-email"  placeholder="Enter email">
-                                <button class="btn btn-success border-rad" name="newsletter-submit" type="submit">Subscribe</button>
-                                <p id="newsletter-email-error"></p>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-</form>
+
 <!-- 
 
 <form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >

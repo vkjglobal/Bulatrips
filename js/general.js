@@ -3450,7 +3450,6 @@ $(document).ready(function () {
   //news letter script
 
   $('#newsletter-subscribe').submit(function (event) {
-    console.log("HURRAY");
     event.preventDefault();
     // Validate form data
     var email = $('#newsletter-email').val();
@@ -3460,11 +3459,11 @@ $(document).ready(function () {
 
     if (email == '' || !emailReg.test(email)) {
 
-      $('#newsletter-email-error').html('<sapan class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
+      $('#newsletter-email-error').html('<sapan class="text-danger position-absolute" >Enter valid Email Address.</span>')
       valid = false;
     }
     // if (name == '') {
-    //   $('#newsletter-name').after('<sapan class="text-danger fs-12 position-absolute" >Enter your Name.</span>')
+    //   $('#newsletter-name').after('<sapan class="text-danger position-absolute" >Enter your Name.</span>')
     //   valid = false;
     // }
 
@@ -3489,6 +3488,7 @@ $(document).ready(function () {
         $('#errorModal').modal('show');
         $(".close").click(function(){
           $(this).parents('.modal').modal('hide');
+          $("#newsletter-email").html("");
         });
        
 

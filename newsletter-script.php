@@ -10,7 +10,7 @@ require_once('includes/dbConnect.php');
 if (isset($_POST)) {
     // Get the submitted email address
     $email = $_POST['newsletter-email'];
-    $name = $_POST['newsletter-name'];
+    // $name = $_POST['newsletter-name'];
 
     // Database connection credentials
    
@@ -23,7 +23,7 @@ if (isset($_POST)) {
         $subscriber = new Newsletter($conn);
 
         // Subscribe the user and get the result message
-        $resultMessage = $subscriber->subscribe($email,$name);
+        $resultMessage = $subscriber->subscribe($email);
 
         // Output the result message
         echo $resultMessage;

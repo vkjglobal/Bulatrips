@@ -12,7 +12,7 @@ class Newsletter extends MyConnection
     }
     
 
-    public function subscribe($email,$name)
+    public function subscribe($email,$name="")
     {
         try {
             // Validate the email address
@@ -30,9 +30,8 @@ class Newsletter extends MyConnection
             }
 
             // Prepare and execute the SQL query to insert the email into the database
-            $stmt = $this->conn->prepare("INSERT INTO newsletter (email,name) VALUES (:email,:name)");
+            $stmt = $this->conn->prepare("INSERT INTO newsletter (email) VALUES (:email)");
             $stmt->bindParam(':email', $email);
-            $stmt->bindParam(':name', $name);
             $stmt->execute();
 
             return "Subscription successful. Thank you for subscribing!";

@@ -3483,15 +3483,22 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        // alert(response);
-        $('#errorMessage').text(response);
-        $('#errorModal').modal('show');
-        $(".close").click(function(){
-          $(this).parents('.modal').modal('hide');
-          $("#newsletter-email").html("");
-        });
-       
-
+        console.log(response)
+        if( response == 1 ) {
+          Swal.fire({
+            title: "Newsletter Subscribed!",
+            text: "Subscription successful. Thank you for subscribing!",
+            icon: "success"
+          });
+        } else {
+          Swal.fire({
+            title: "Error",
+            text: response,
+            icon: "error"
+          });
+        }
+        $("#newsletter-email").val("");
+        $("newsletter-email-error").html("");
 
       },
       error: function () {
@@ -3543,16 +3550,28 @@ $('#contactus-submit').submit(function (event) {
   $('#login_message').text("");
   var formData = new FormData(this);
   // Submit form via AJAX
+
   $.ajax({
     url: 'contactus-script.php',
     type: 'post',
-    data: formData,
-    processData: false,
-    contentType: false,
+    // data: formData,
+    data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "no" },
     success: function (response) {
       // alert(response);
       $('#errorMessage').text(response);
       $('#errorModal').modal('show');
+
+
+      $.ajax({
+        url: 'contactus-script.php',
+        type: 'post',
+        data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "yes" },
+        success: function (response) {
+        }
+      });
+
+
+
       $(".close").click(function(){
         $(this).parents('.modal').modal('hide');
         location.reload();

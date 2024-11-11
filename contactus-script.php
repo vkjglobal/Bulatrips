@@ -21,7 +21,10 @@ if (isset($_POST)) {
 
 
     // Database connection credentials
-
+    $email_flag = "";
+    if ( isset($_POST['email_flag'])) {
+      $email_flag    =   $_POST['email_flag'];
+    }
     // Create a PDO database connection
     try {
 
@@ -30,7 +33,8 @@ if (isset($_POST)) {
 
         $resultMessage = $contact->contact($email, $name, $subject, $message);
        // mail content
-        $toEmail = "aryaravi.reubro@gmail.com";
+        // $toEmail = "aryaravi.reubro@gmail.com";
+        $toEmail = "no-reply@bulatrips.com";
         $subject = "Contact Us - Bulatrips.com";
         $messageData = '
         <html>
@@ -71,7 +75,10 @@ if (isset($_POST)) {
        // echo $messageData;
 
     // mail($toEmail, $subject, $messageData, $headers);
-    contactUsMail($toEmail, $subject, $messageData);
+    if( $email_flag == "yes"  ) {
+        contactUsMail($toEmail, $subject, $messageData);
+    }
+    
 
         // Output the result message
         echo $resultMessage;

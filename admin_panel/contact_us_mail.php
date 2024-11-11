@@ -21,6 +21,13 @@ if(isset($_POST['email'])){
   $messageDatacontent = trim($_POST['message']);
   $email    =   trim($_POST['email']);
 
+  $email_flag = "";
+  if ( isset($_POST['email_flag'])) {
+    $email_flag    =   $_POST['email_flag'];
+  }
+
+  
+
       $headers="";
      // $toEmail = "soumya.reubro@gmail.com";
             //****************************
@@ -84,7 +91,12 @@ if(isset($_POST['email'])){
 
 
             //***************************
-      $contacts= confirmationMail($email,$subject, $messageDatacontent,$headers);
+    if( $email_flag == "yes"  ) {
+        $contacts= confirmationMail($email,$subject, $messageDatacontent,$headers,$email_flag);
+    } else {
+        $contacts = true;
+    }
+      
       echo $contacts ;exit;
       // echo 'success';exit; //email sent successfully
 

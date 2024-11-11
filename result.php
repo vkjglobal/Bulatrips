@@ -1,7 +1,4 @@
 <?php
-
-
-
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -92,6 +89,10 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         </div>
     <?php } else {
     ?>
+
+    
+
+
         <section class="midbar-wrapper-inner pt-3 pb-3">
             <div class="flight-search-midbar container">
                 <div class="d-flex white-txt justify-content-center">
@@ -102,15 +103,21 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             <?php echo date("D, d M", strtotime($fromDate)); ?> | 
                             <?php echo $adultCount + $childCount + $infantCount; ?> passenger
                         </span>
-                        <button class="btn btn-typ1 ml-3" id="modify-search-result-btn">modify</button>
+                        <button class="btn btn-typ7 ml-3 btn-primary" id="modify-search-result-btn">Modify Search</button>
                     </div>
                 </div>
+
+
+
+
+
+
 
                 <div class="row" id="modify-search-result" style="display: none;">
                     <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
                     <form class="flight-search col-12" id="flight-search" method="post" action="search.php">
 
-                   
+                    
 
                         
                     <!-- <form class="flight-search col-12" id="flight-search" method="POST" action=""> -->
@@ -140,20 +147,14 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                         <label for="one-way">One-way</label>
 
 
-<!-- 
-                        <div class="d-flex align-items-center justify-content-center mb-md-0 mb-3">
-                            <input type="radio" value="Return" id="return" name="tab" checked="checked">
-                            <label for="return">Round-trip</label>
-                            <input type="radio" id="one-way" value="OneWay" name="tab">
-                            <label for="one-way">One-way</label>
+
+                        <div class="select-class-wrp">
+                            <select name="cabin-preference" class="select-class" id="cabin-preference">
+                            <option value="Return">Select type</option>
+                                <option value="Return" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return" ) {echo "selected";} ?>>Round-trip</option>
+                                <option value="OneWay" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay" ) {echo "selected";} ?>>One-way</option>
+                            </select>
                         </div>
-                        -->
-
-
-                        
-
-
-
                        
 
 
@@ -363,21 +364,44 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             </li>
                         </ul>
                     </div>
+
+                    <div class="col-12 light-border" style="position: sticky;top: 155px;z-index: 99;">
+                        <ul class="flight-list">
+                            <li>
+                                <ul class="form-row titlebar">
+                                    <li class="col-md-2 text-center">Airline</li>
+                                    <li class="col-md-1">Depart</li>
+                                    <li class="col-md-2">Stops</li>
+                                    <li class="col-md-2">Arrive</li>
+                                    <li class="col-md-3">Duration</li>
+                                    <li class="col-md-2 text-center">Price</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
                     <?php
                     foreach ($currentPageFlights as $pricedItinerary) {
                     ?>
                         <div class="col-12 light-border mb-3">
+
+                        <!-- <ul class="flight-list">
+                            <li>
+                                <ul class="form-row titlebar">
+                                    <li class="col-md-2 text-center">Airline</li>
+                                    <li class="col-md-1">Depart</li>
+                                    <li class="col-md-2">Stops</li>
+                                    <li class="col-md-2">Arrive</li>
+                                    <li class="col-md-3">Duration</li>
+                                    <li class="col-md-2 text-center">Price</li>
+                                </ul>
+                            </li>
+                        </ul> -->
+
+
+                            <p style="background-color: red;;">Departure</p>
                             <ul class="flight-list">
-                                <li>
-                                    <ul class="form-row titlebar">
-                                        <li class="col-md-2 text-center">Airline</li>
-                                        <li class="col-md-1">Depart</li>
-                                        <li class="col-md-2">Stops</li>
-                                        <li class="col-md-2">Arrive</li>
-                                        <li class="col-md-3">Duration</li>
-                                        <li class="col-md-2 text-center">Price</li>
-                                    </ul>
-                                </li>
                                 <?php
 
                                 // foreach ($pricedItineraries as $pricedItinerary) {
@@ -1814,14 +1838,18 @@ require_once("includes/footer.php");
         <?php
         // if(empty($responseData['Data']['IsValid'])) {
             if(isset($responseData['Data']['Errors'])){
-             echo '$("#errorMessage").text("' . $responseData['Message'] . '");';
-            echo "$('#errorModal').modal('show');";
+            //  echo '$("#errorMessage").text("' . $responseData['Message'] . '");';
+            // echo "$('#errorModal').modal('show');";
+            ?>
+            alert();
+            window.location.href = '404.php?error=' + encodeURIComponent($responseData['Data']['Errors']);
+            <?php
         }
 
         ?>
         var errorMessage = <?php echo json_encode($responseData['Message']); ?>; // Encode PHP message to JavaScript variable
 
-        function redirectToErrorPage() {
+        function redirectToErrorPage(message) {
             $('#errorModal').modal('hide');
             window.location.href = '404.php?error=' + encodeURIComponent(errorMessage);
         }

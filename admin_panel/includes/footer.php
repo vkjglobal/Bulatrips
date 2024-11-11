@@ -21,7 +21,9 @@
     </div>
 
     <!-- JavaScript Libraries -->
-    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <script src="https://cdn.tiny.cloud/1/324g1qw8kre1n3ufyghsptr00quegxl494u9y6w8b6zvdbvk/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -44,15 +46,40 @@
 //   width: "700",
 //   height: "200"
 //  }); 
+
+tinymce.init({
+            selector: '#editor',  // Replace with the ID or class of your textarea
+            plugins: 'print preview importcss searchreplace autolink directionality visualblocks visualchars fullscreen link codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile link anchor codesample',
+            menubar: 'file edit view insert format tools table help',
+            height: 500,  // Optional: set the editor height
+            images_upload_url: 'upload.php',
+            file_picker_types: 'image',
+            automatic_uploads: true,
+            branding: false,  // Optional: remove TinyMCE branding
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            contextmenu: 'link image imagetools table',
+            content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        });
+
  
     var ps = new PerfectScrollbar('.sidebar');
 
-  CKEDITOR.replace('editor', {
-    height: 500,
-    allowedContent: true,
-    // extraAllowedContent: '*[*]',
-    versionCheck:false
-  });
+
+    tinymce.init({
+            selector: '#histogrameditor',  // Replace with the ID or class of your textarea
+            plugins: 'print preview importcss searchreplace autolink directionality visualblocks visualchars fullscreen link codesample table charmap hr pagebreak nonbreaking anchor insertdatetime advlist lists wordcount help charmap quickbars',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent | numlist bullist | forecolor backcolor removeformat | pagebreak | charmap emoticons | fullscreen preview save print | insertfile link anchor codesample',
+            menubar: 'file edit view insert format tools table help',
+            height: 500,  // Optional: set the editor height
+            images_upload_url: 'upload.php',
+            file_picker_types: 'image',
+            automatic_uploads: true,
+            branding: false,  // Optional: remove TinyMCE branding
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            contextmenu: 'link image imagetools table',
+            content_style: "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+        });
   
   CKEDITOR.replace('histogrameditor', {
     height: 200

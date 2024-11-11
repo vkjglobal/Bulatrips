@@ -34,7 +34,7 @@ class Newsletter extends MyConnection
             $stmt->bindParam(':email', $email);
             $stmt->execute();
 
-            return "Subscription successful. Thank you for subscribing!";
+            return 1;
         } catch (PDOException $e) {
             return "Error: " . $e->getMessage();
         }

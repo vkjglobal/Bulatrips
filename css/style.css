@@ -1298,7 +1298,13 @@ a.text-decoration:hover {
 .pckg-price-info button {
   font-size: 22px;
 }
-
+.flight_icon_small {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+    transform: rotate(45deg);
+    margin-right: 5px;
+}
 .book-dtls-desc {
   margin: 0;
   padding: 8px 15px;
@@ -1366,8 +1372,10 @@ a.text-decoration:hover {
 }
 
 .btn-typ7:hover {
-  background: #ffffff;
-  color: #000;
+  background: #ffffff !important;
+  /* background: transparent !important; */
+  color: #000 !important;
+  /* border: 1px solid #f57c00 !important; */
 }
 
 .btn-typ3 {
@@ -2126,8 +2134,17 @@ video {
   background: #009900;
 }
 
+/* .light-border {
+  border: 2px solid #070f4e;
+} */
+
 .light-border {
-  border: 1px solid #D2D3DD;
+  border: 2px solid #CCC;
+  border-top: 3px solid #0000ff;
+  background: #fff 0 0 no-repeat padding-box;
+  box-shadow: 2px 2px 10px #DDD;
+  color: #041d31;
+  border-radius: 8px;
 }
 
 .flight-details-tab-wrap .nav-tabs .nav-item {
@@ -2135,26 +2152,30 @@ video {
 }
 .flight-details-tab-wrap .nav-tabs .nav-item.active .nav-link {
   border: none;
-  color: #121E7E;
+  color: #f57c00;
   text-decoration: underline !important;
 }
 .flight-details-tab-wrap .nav-tabs .nav-link {
   padding: 0;
-  border: none;
-  font-size: 14px;
-  line-height: 18px;
-  font-weight: 600;
-  color: #78787A;
-  cursor: pointer;
+    border: none;
+    font-size: 17px;
+    line-height: 65px;
+    color: #ffffff;
+    cursor: pointer;
+    /* text-decoration: underline !important; */
+    font-weight: bold;
 }
 .flight-details-tab-wrap .nav-tabs .nav-link:focus, .flight-details-tab-wrap .nav-tabs .nav-link:hover, .flight-details-tab-wrap .nav-tabs .nav-link.active {
   border: none;
-  color: #121E7E;
+  color: #f57c00;
   text-decoration: underline !important;
 }
 .flight-details-tab-wrap .tab-content {
   background: #DDE0F3;
-  width: 100%;
+    width: 100%;
+    margin: 0px 5px 0px 5px;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
 }
 .flight-details-tab-wrap .tab-content .tab-pane {
   position: relative;
@@ -3438,3 +3459,7 @@ footer .form-group p {
     border-bottom: none;
   }
 }/*# sourceMappingURL=style.css.map */
+
+.modal {
+  background: #000000a3;
+}

@@ -85,7 +85,76 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 ?>
         <div class=" container">
-            <?php echo $responseData['Message']; ?>
+            <?php //echo $responseData['Message']; ?>
+            <style>
+                .bodycontant {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    background: url('images/home-banner1.jpg') center center/cover no-repeat; /* Use your background image here */
+                    color: white;
+                    text-align: center;
+                    position: relative;
+                    overflow: hidden;
+                }
+                .content {
+                    position: relative;
+                    z-index: 2;
+                    max-width: 600px;
+                    padding: 20px;
+                    padding: 20px;
+                    background: #121e7e;
+                    border-radius: 10px;
+                }
+
+        /* Headline Styling */
+        .content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        /* Subtext Styling */
+        .content p {
+            font-size: 18px;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+
+        /* Button Styling */
+        .content .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .content .btn:hover {
+            background-color: #121E7E;
+        }
+                </style>
+                <div class="bodycontant">
+                    <div class="content">
+                        <h1>Sorry!</h1>
+                        <p><?php
+                            if (isset($responseData['Message'])) {
+                                // echo "<p>Error: ".$responseData['Message']."</p>";
+                                echo "<p style='font-size:20px;'>We couldn't find any flights for the selected dates. Please try different dates or adjust your search criteria.</p>";
+                            } else {
+                                echo "<p>No error message provided.</p>";
+                            }
+                            ?>
+                        </p>
+                        <a href="index.php" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
+                    </div>
+                </div>
+
         </div>
     <?php } else {
     ?>
@@ -93,7 +162,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
     
 
 
-        <section class="midbar-wrapper-inner pt-3 pb-3">
+        <section class="midbar-wrapper-inner pt-3 pb-3" style="border-bottom: 2px solid #FFF;margin-bottom: 15px;position: sticky;top: 140px;z-index: 1;">
             <div class="flight-search-midbar container">
                 <div class="d-flex white-txt justify-content-center">
                     <div class="d-flex align-items-center">
@@ -290,7 +359,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                 </div>
             </div>
         </section>
-        <section>
+        <section style="margin-bottom: 10px;">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -305,12 +374,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         </section>
        
        
-        <section>
+        <section style="margin-bottom:20px;">
             <div class="container">
                 <div class="form-row">
-                    <div class="col-12">
-                        <h2 class="title-typ2 mb-3 mb-lg-5">All Flights</h2>
-                    </div>
                     <div class="col-12 d-none">
                         <ul class="filter-left">
                             <li>3 of 3 flights</li>
@@ -365,7 +431,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                         </ul>
                     </div>
 
-                    <div class="col-12 light-border" style="position: sticky;top: 155px;z-index: 99;">
+                    <!-- <div class="col-12 light-border" style="position: sticky;top: 155px;z-index: 99;">
                         <ul class="flight-list">
                             <li>
                                 <ul class="form-row titlebar">
@@ -378,13 +444,13 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 </ul>
                             </li>
                         </ul>
-                    </div>
+                    </div> -->
 
 
                     <?php
                     foreach ($currentPageFlights as $pricedItinerary) {
                     ?>
-                        <div class="col-12 light-border mb-3">
+                        <div class="col-12 light-border mb-3 p-0">
 
                         <!-- <ul class="flight-list">
                             <li>
@@ -400,7 +466,11 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                         </ul> -->
 
 
-                            <p style="background-color: red;;">Departure</p>
+                            <p style="padding:10px; font-size: 20px; color:#070f4e; text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center; border-bottom: 2px solid #ccc">
+                                <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg"/>
+                                <strong>Departure</strong>
+                            </p>
+                            
                             <ul class="flight-list">
                                 <?php
 
@@ -525,12 +595,12 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 $stmtairline->bindParam(':code', $code);
                                 $stmtairline->execute();
                                 $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
-                                echo "Faretype:";
-                                echo $fareListRef['FareType'];
+                                // echo "Faretype:";
+                                // echo $fareListRef['FareType'];
 
                                 ?>
-                                <li class="pt-4 contentbar">
-                                    <ul class="form-row mb-lg-5 mb-3">
+                                <li class="contentbar">
+                                    <ul class="form-row mb-lg-2">
                                         <?php
 
 
@@ -542,7 +612,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column justify-content-between depart-dtls fs-13 mb-md-0 mb-2">
                                             <div class="">
 
-                                                <?php echo $segment['DepartureAirportLocationCode']; ?>
+                                                <strong style="font-size:16px;"><?php echo $segment['DepartureAirportLocationCode']; ?></strong>
                                                 <br>
                                                 <?php
                                                 $datetime = $segment['DepartureDateTime'];
@@ -555,7 +625,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                             </div>
 
                                         </li>
-                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2">
+                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2" style="text-align:center;">
                                             <div>
 
 
@@ -569,6 +639,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                                     $hours = $interval->h;
                                                     $minutes = $interval->i;
+                                                    
                                                     echo $totalstop . " Stop";
 
                                                     // . "<br>" . $segment['ArrivalAirportLocationCode'] . "|" . $hours . "h " . $minutes . "m";
@@ -599,7 +670,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                 ?>
-                                                <?php echo  $arrivallocation; ?><br>
+                                                <strong style="font-size:16px;"><?php echo $arrivallocation; ?></strong>
+
+                                                <br>
                                                 <?php echo date("d F Y", strtotime($date)); ?><br>
                                                 <?php echo $time; ?>
                                             </div>
@@ -672,6 +745,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                         </li>
                                         <?php
+                                        /*
                                         if ($totalReturnStop < 0) {
                                         ?>
                                             <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
@@ -725,16 +799,19 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                             </li>
 
-                                        <?php } ?>
+                                        <?php }*/ ?>
 
                                     </ul>
                                     <?php
                                     if ($totalReturnStop >= 0) {
                                     ?>
-                                        <hr>
-                                        <span class="h5 px-3">Return</span>
-                                        <hr>
-                                        <ul class="form-row mb-lg-5 mb-3">
+                                            <p style="border-top:1px solid #CCC;border-bottom:1px solid #CCC;padding:10px; font-size: 20px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;">
+                                                <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg"/>
+                                                <strong>Return</strong>
+                                            </p>
+                                            
+                                            <!-- <span class="h5 px-3">Return</span> -->
+                                        <ul class="form-row mb-lg-2">
 
                                             <?php
 
@@ -746,8 +823,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                             </li>
                                             <li data-th="Depart" class="main-dtls col-md-1 d-flex flex-column justify-content-between depart-dtls fs-13 mb-md-0 mb-2">
                                                 <div class="">
-
-                                                    <?php echo $segmentReturn['DepartureAirportLocationCode']; ?>
+                                                    <strong style="font-size:16px;"><?php echo $segmentReturn['DepartureAirportLocationCode']; ?></strong>
                                                     <br>
                                                     <?php
                                                     $datetime = $segmentReturn['DepartureDateTime'];
@@ -794,8 +870,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                     ?>
-
-                                                    <?php echo  $segmentReturnArrival['ArrivalAirportLocationCode']; ?><br>
+                                                    
+                                                    <strong style="font-size:16px;"><?php echo $segmentReturnArrival['ArrivalAirportLocationCode']; ?></strong>
+                                                    <br>
                                                     <?php echo date("d F Y", strtotime($date)); ?><br>
                                                     <?php echo $time; ?>
                                                 </div>
@@ -821,8 +898,77 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 </div>
 
                                             </li>
-                                            <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
+                                            <!-- <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
                                                 <?php
+                                                /*
+                                                $totalAdultfare = 0;
+                                                $totalChildfare = 0;
+                                                $totalInfantfare = 0;
+                                                if (isset($adultCount) && $adultCount > 0) {
+
+                                                    $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
+                                                }
+                                                if (isset($childCount) && $childCount > 0) {
+                                                    $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
+                                                }
+                                                if (isset($infantCount) && $infantCount > 0) {
+                                                    $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
+                                                }
+                                                $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
+                                                if (isset($_SESSION['user_id'])) {
+
+                                                    $id = $_SESSION['user_id'];
+                                                    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+                                                    $stmt->execute(array('id' => $id));
+                                                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                    $stmtmarkup->execute(array('role_id' => $user['role']));
+                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                } else {
+                                                    $stmtmarkup->execute(array('role_id' => 1));
+                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                }
+                                                // $stmtmarkup->execute(array('role_id' => 1));
+                                                //     $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
+                                                $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
+                                                $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                                    */
+                                                ?>
+                                                <div class="price-dtls mb-md-0 mb-2">&#36; <strong><?php //echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div>
+                                                <form action="my-booking-step1.php" method="post">
+                                                    <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; ?>">
+                                                    <button type="submit" class="btn btn-typ3 w-100">BOOK</button>
+                                                </form>
+
+
+                                            </li> -->
+                                        </ul>
+                                    <?php
+                                    }
+                                    ?>
+            
+
+                                    <div class="form-row panel flight-details-tab-wrap">
+                                        <ul class="nav nav-tabs d-flex justify-content-around w-100" style="background: #070f4e;margin: 0px 5px -5px 4px;border-bottom-right-radius: 10px;border-bottom-left-radius: 10px;padding: 10px 0 5px 0;text-align: center;">
+                                            <li class="nav-item">
+                                                <a class="nav-link">
+                                                <span class="detail-icon" style="font-size: 18px;">✈️</span>Flight Details
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link">
+                                                    <span class="detail-icon" style="font-size: 18px;">💼</span> Fare Details
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link">
+                                                <span class="detail-icon" style="font-size: 18px;">📦</span>Baggage Details
+                                                </a>
+                                            </li>
+                                            <li>
+                                            <?php
                                                 $totalAdultfare = 0;
                                                 $totalChildfare = 0;
                                                 $totalInfantfare = 0;
@@ -858,36 +1004,15 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
 
                                                 ?>
-                                                <div class="price-dtls mb-md-0 mb-2">&#36; <strong><?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div>
+                                                <!-- <div class="price-dtls mb-md-0 mb-2"><strong><?php //echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong></div> -->
                                                 <form action="my-booking-step1.php" method="post">
                                                     <input type="hidden" id="fscode" name="fscode" value="<?php echo $pricedItinerary['FareSourceCode']; ?>">
                                                     <!-- <button type="submit" id="validate-flight" class="btn btn-typ3 w-100">BOOK</button> -->
-                                                    <button type="submit" class="btn btn-typ3 w-100">BOOK</button>
+                                                    <button type="submit" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
+                                                    $ <?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?> <br />   
+                                                    BOOK NOW
+                                                </button>
                                                 </form>
-
-
-                                            </li>
-                                        </ul>
-                                    <?php
-                                    }
-                                    ?>
-
-                                    <div class="form-row panel flight-details-tab-wrap">
-                                        <ul class="nav nav-tabs d-flex justify-content-around w-100 pb-3">
-                                            <li class="nav-item">
-                                                <a class="nav-link">
-                                                    Flight Details
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link">
-                                                    Fare Details
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link">
-                                                    Baggage Details
-                                                </a>
                                             </li>
                                         </ul>
                                         <div class="tab-content text-center">
@@ -1841,8 +1966,8 @@ require_once("includes/footer.php");
             //  echo '$("#errorMessage").text("' . $responseData['Message'] . '");';
             // echo "$('#errorModal').modal('show');";
             ?>
-            alert();
-            window.location.href = '404.php?error=' + encodeURIComponent($responseData['Data']['Errors']);
+            // var errorMessage = <?php echo json_encode($responseData['Message']); ?>;
+            // window.location.href = '404.php?error=' + encodeURIComponent(errorMessage);
             <?php
         }
 
@@ -1860,8 +1985,7 @@ require_once("includes/footer.php");
 
     // When button with ID 'modify-search-result-btn' is clicked
     $('#modify-search-result-btn').click(function() {
-        // Show the element with ID 'modify-search-result'
-        $('#modify-search-result').show();
+        $('#modify-search-result').slideToggle();
     });
 
  

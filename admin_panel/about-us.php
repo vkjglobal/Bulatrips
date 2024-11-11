@@ -24,7 +24,7 @@ if(isset($_POST['submit']))
            
             $title=$_POST['name'];
             $description   =$_POST['editor'];
-            $description    =  htmlentities($description);            
+            $description    =  htmlspecialchars($description);            
             $image=$_POST['p-image'];
              
         //print_r($_POST);

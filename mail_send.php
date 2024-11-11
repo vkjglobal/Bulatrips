@@ -16,6 +16,8 @@ function confirmationMail($to, $subject, $content, $headers = "")
         return; // Email has already been sent for this booking, do nothing
     }
     */
+
+    
     $mail = new PHPMailer(true);
     // $from = "no-reply@bulatrips.com";
    

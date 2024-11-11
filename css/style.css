@@ -1357,6 +1357,19 @@ a.text-decoration:hover {
   color: #4756CB;
 }
 
+.btn-typ7 {
+  background: #f57c00;
+  color: #FFFFFF;
+  border: 0px solid #ffffff !important;
+  padding-left: 29px;
+  padding-right: 29px;
+}
+
+.btn-typ7:hover {
+  background: #ffffff;
+  color: #000;
+}
+
 .btn-typ3 {
   background: #2391D1;
   border: 1px solid #2391D1;
@@ -2082,6 +2095,12 @@ video {
 }
 .titlebar li {
   padding: 14px;
+    color: #FFF;
+    background: #070f4e;
+    font-weight: bold;
+    border-right: 2px solid #FFF;
+    text-align: left !important;
+
 }
 
 .price-dtls {

@@ -7,7 +7,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 require_once('includes/dbConnect.php');
 
-function confirmationMail($to, $subject, $content, $headers = "",$bookingId)
+function confirmationMail($to, $subject, $content, $headers = "",$bookingId="")
 {
     // echo '12';
     // print_r($content);
@@ -182,8 +182,8 @@ function contactUsMail($to, $subject, $content)
         $mail->Port = 465; 
 
         //Recipients
-        $mail->setFrom('no-reply@bulatrips.com', 'bulatrips.com');
-        $mail->addAddress($to, '');     // Add a recipient
+        $mail->setFrom($to, '');
+        $mail->addAddress('no-reply@bulatrips.com', 'bulatrips.com');     // Add a recipient
         // $mail->addAddress('ellen@example.com');               // Name is optional
         // $mail->addReplyTo('no-reply@bulatrips.com', 'bulatrips.com');
         // $mail->addCC('cc@example.com');

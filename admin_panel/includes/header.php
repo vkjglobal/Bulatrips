@@ -46,6 +46,7 @@ header("Location: https://bulatrips.com/admin_panel/index.php");
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <script src="//cdn.ckeditor.com/4.5.5/standard/ckeditor.js"></script>
+
 </head>
 
 <body>

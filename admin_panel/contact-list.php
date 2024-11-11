@@ -184,32 +184,26 @@ if (!isset($_SESSION['adminid'])) {
             $.ajax({
                 url: 'contact_us_mail.php', // Replace with your form processing script
                 type: 'POST',
-                data: { subject: subject, message: message, email: email },
+                data: { subject: subject, message: message, email: email, email_flag: "no" },
                 success: function (response) {
-                    // alert(response);
-                    // if(response === 1){
-                    //     messageError.textContent = 'Successfully sent';
-
-                    //     // Refresh the form on modal close
-                    //     $('#' + modalId).on('hidden.bs.modal', function () {
-                    //         location.reload();
-                    //     });
-                    // }else {
-                    //     messageError.textContent = 'Failed to send';
-                    // }
                     if (parseInt(response) === 1) {
-                        messageError.textContent = 'Successfully sent';
+                        console.log("asd");
+                        messageError.textContent = 'Message sent Successfully';
+                        console.log("123");
                     
-                        // Refresh the form on modal close
-                        $('#' + modalId).on('hidden.bs.modal', function () {
-                            location.reload();
+                        $.ajax({
+                            url: 'contact_us_mail.php',
+                            type: 'POST',
+                            data: { subject: subject, message: message, email: email, email_flag: "yes" },
+                            success: function (response) {}
                         });
+
                     } else {
                         messageError.textContent = 'Failed to send';
                     }
                                     },
                 error: function (xhr, status, error) {
-                    console.log(error); // Log any AJAX errors
+                    console.log(error);
                 }
             });
         }

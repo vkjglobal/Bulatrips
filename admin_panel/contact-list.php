@@ -8,7 +8,7 @@ if (!isset($_SESSION['adminid'])) {
 } else {
     include "includes/dbConnect.php";
 
-    $query = "SELECT * FROM contact";
+    $query = "SELECT * FROM contact order by id desc";
     $rs_result = mysqli_query($conn, $query);
 
     ?>
@@ -33,6 +33,7 @@ if (!isset($_SESSION['adminid'])) {
                             <th scope="col">Customer Name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Subject</th>
+                            <th scope="col">Entry Date</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
@@ -54,6 +55,7 @@ if (!isset($_SESSION['adminid'])) {
                                     <td><?php echo $row['customer_name']; ?></td>
                                     <td><?php echo $row['email']; ?></td>
                                     <td><?php echo $row['subject']; ?></td>
+                                    <td><?php echo $row['created_at']; ?></td>
                                     <td>
                                         <button class="btn text-secondary view" data-bs-toggle="modal"
                                             data-bs-target="#<?php echo $contact_id; ?>" id="<?php echo $row['id']; ?>">

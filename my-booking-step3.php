@@ -34,7 +34,7 @@ if (isset($_SESSION['fsc'])) {
                                 <div class="col-md-3 position-relative">
                                     <div class="process-step-cont">
                                         <div class="process-step step-2"></div>
-                                        <span class="process-label"><span class="position-relative">Sign In<button></button></span></span>
+                                        <span class="process-label"><span class="position-relative">User Registration<button></button></span></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3 position-relative">

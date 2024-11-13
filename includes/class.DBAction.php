@@ -56,6 +56,12 @@ class DBAction
             $password = "Reubro@2023";
             $dbname = "bulatrips_db";
         }
+        if($_SERVER['HTTP_HOST'] == 'staging.bulatrips.com') {
+            $host = "localhost";
+            $username = "bulatrips_staging";
+            $password = "@]9E~IwT7k%L";
+            $dbname = "bulatrips_staging";
+        }
             //===================
         $this->host = $host;
         $this->dbname = $dbname;

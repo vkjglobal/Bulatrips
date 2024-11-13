@@ -1,6 +1,10 @@
 <?php
 session_start();
-error_reporting(0);
+
+ini_set('display_errors', 0);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
+
 
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
@@ -140,7 +144,7 @@ else{
                                 <div class="col-md-3 position-relative">
                                     <div class="process-step-cont">
                                         <div class="process-step step-2"></div>
-                                        <span class="process-label"><span class="position-relative">Sign In<button></button></span></span>
+                                        <span class="process-label"><span class="position-relative">User Registration<button></button></span></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3 position-relative">
@@ -665,7 +669,13 @@ else{
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php echo "$ ".round($penaltyAmount,3); ?></td>
+                                                                            <td> <?php
+                                                                                if( is_numeric($penaltyAmount) ) {
+                                                                                    echo "$ ".round($penaltyAmount,3);
+                                                                                } else {
+                                                                                    echo $penaltyAmount;
+                                                                                }
+                                                                                ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
@@ -701,8 +711,8 @@ else{
 
                                                                         //===================
 
-                                                                        $DateChangemarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE 	cancel_type =0 AND status=2 AND role_id = :role_id');
-
+                                                                        $DateChangemarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE cancel_type =0 AND status=2 AND role_id = :role_id');
+                                                                        
                                                                         $DateChangemarkup->execute(array('role_id' => $roleId));
 
                                                                         $DateChangemarkupInfo = $DateChangemarkup->fetch(PDO::FETCH_ASSOC);
@@ -710,7 +720,7 @@ else{
                                                                         
 
 
-
+                                                                        $markupDatechangePercentage = 0;
                                                                         if(!empty($penaltyChange['Amount'])){
 
                                                                             $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $penaltyChange['Amount'];
@@ -723,7 +733,15 @@ else{
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php echo "$ ".round($penaltyChangeAmount,3); ?></td>
+                                                                            <td> <?php
+                                                                                if( is_numeric($penaltyChangeAmount) ) {
+                                                                                    echo "$ ".round($penaltyChangeAmount,3);
+                                                                                } else {
+                                                                                    echo $penaltyChangeAmount;
+                                                                                }
+                                                                            
+                                                                                
+                                                                            ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
@@ -822,8 +840,7 @@ else{
                                     </div>
                                 </div>
                             </div>
-                            <!--<?php echo'<pre/>';
-                            print_r($pricedItinerary); ?>-->
+                            
                             <div class="booking-price-preview row pt-4 pb-4">
                                 <div class="col-md-6 d-flex justify-content-end">
                                     <div class="mb-3">

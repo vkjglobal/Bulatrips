@@ -30,8 +30,9 @@ if (isset($_POST)) {
 
 
         $contact = new Contact($conn);
-
-        $resultMessage = $contact->contact($email, $name, $subject, $message);
+        if( $email_flag != "yes"  ) {
+            $resultMessage = $contact->contact($email, $name, $subject, $message);
+        }
        // mail content
         // $toEmail = "aryaravi.reubro@gmail.com";
         $toEmail = "no-reply@bulatrips.com";

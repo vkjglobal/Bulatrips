@@ -539,10 +539,6 @@ section.choose-flight {
   }
 }
 /**********************************************************/
-.trvl-dtls .date strong {
-  font-size: 35px;
-}
-
 .flight-direction strong {
   font-size: 25px;
   font-weight: 500;
@@ -3341,7 +3337,7 @@ footer .form-group p {
     min-width: auto;
   }
   .trvl-dtls .date strong {
-    font-size: 30px;
+    font-size: 20px;
   }
   .refine-search .filter-right .select2-container {
     min-width: 100%;

@@ -1774,6 +1774,12 @@ $(document).ready(function () {
       $('#from').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Departure Date cannot be blank.</span>')
       valid = false;
     }
+    if (returnDate == '') {
+
+      $('#to').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
+      valid = false;
+    }
+    
     if (source === destination) {
       if ($('#airport-input').val()) {
           $('#airport-input').after('<span class="text-danger fs-12 position-absolute error-message" style="color:red">Source and Destination cannot be the same.</span>');
@@ -1823,6 +1829,8 @@ $(document).ready(function () {
     var totalpass = parseInt(adultCount) + parseInt(childCount);
     $('#pass-count').text(totalpass);
     $('#dep-date').text(departureDate);
+    $('#return-date').text(returnDate);
+    
 
     
 
@@ -3483,7 +3491,6 @@ $(document).ready(function () {
       processData: false,
       contentType: false,
       success: function (response) {
-        console.log(response)
         if( response == 1 ) {
           Swal.fire({
             title: "Newsletter Subscribed!",
@@ -3513,6 +3520,7 @@ $(document).ready(function () {
   
 
 $('#contactus-submit').submit(function (event) {
+  $("#contactus-submit-button").attr('disabled',true);
   event.preventDefault();
   // Validate form data
   var email = $('#contact-email').val();
@@ -3541,6 +3549,7 @@ $('#contactus-submit').submit(function (event) {
   }
 
   if (!valid) {
+    $("#contactus-submit-button").attr('disabled',false);
     return false;
   }
 
@@ -3560,25 +3569,24 @@ $('#contactus-submit').submit(function (event) {
       // alert(response);
       $('#errorMessage').text(response);
       $('#errorModal').modal('show');
-
-
-      $.ajax({
-        url: 'contactus-script.php',
-        type: 'post',
-        data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "yes" },
-        success: function (response) {
-        }
-      });
-
-
+      $("#contactus-submit-button").attr('disabled',false);
 
       $(".close").click(function(){
         $(this).parents('.modal').modal('hide');
         location.reload();
       });
+
+      $.ajax({
+        url: 'contactus-script.php',
+        type: 'post',
+        data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "yes" },
+        success: function (response) {}
+      });
+
     },
     error: function () {
       alert('Error submitting form');
+      $("#contactus-submit-button").attr('disabled',false);
     }
   });
 });

@@ -29,7 +29,7 @@
                             <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div> -->
                         <div class="row justify-content-center mb-5">
-                            <div class="col-lg-8 col-md-10">
+                            <div class="col-lg-12 col-md-12">
                                 <div class="row justify-content-between">
                                     <div class="col-4 justify-content-center">
                                         <div class="mb-4 d-flex justify-content-center">
@@ -39,11 +39,9 @@
                                             </svg>
                                         </div>
                                         <div class="trvl-dtls text-center fw-300">
-                                            <div class="label">Depart</div>
+                                            <div class="label fw-500" style="font-size: 25px;">Depart</div>
                                             <div class="date">
-                                                <strong class="fw-500" id="dep-date">
-                                                    <!-- 11 -->
-                                                </strong>
+                                                <strong id="dep-date"></strong>
                                                 <div >
                                                     <!-- Nov, 2022 <br>
                                                     Friday -->
@@ -52,7 +50,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!-- <div class="col-4 justify-content-center">
+                                    <div class="col-4 justify-content-center">
                                         <div class="mb-4 d-flex justify-content-center">
                                             <svg width="60" height="39" viewBox="0 0 60 39" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M13.5678 0.984076C15.9499 2.07045 19.6514 4.16828 23.8292 6.60326L43.8389 3.75621C44.9618 3.59067 46.1063 3.67241 47.1958 3.99596L51.5385 5.25466C51.905 5.25466 51.905 5.62927 51.5385 5.77912L34.8272 13.2714C40.4709 16.7178 45.4917 19.8646 47.6905 21.2881C48.0829 21.54 48.5248 21.7002 48.9848 21.7572C49.4447 21.8142 49.9113 21.7666 50.3512 21.6177L54.7269 20.2017C55.4217 19.9484 56.1813 19.951 56.8745 20.2092L59.6377 21.363L50.4025 29.2299C49.9382 29.628 49.3735 29.8842 48.7732 29.969C48.1729 30.0538 47.5614 29.9638 47.0089 29.7094C42.5965 27.694 30.9792 22.2246 22.3303 17.6169C3.1269 7.20265 1.00133 5.4045 1.00133 3.75621C1.00133 1.17138 8.33087 -1.48837 13.5715 0.984076H13.5678Z" fill="#969696" />
@@ -60,16 +58,18 @@
                                             </svg>
                                         </div>
                                         <div class="trvl-dtls text-center fw-300">
-                                            <div class="label">Return</div>
+                                            <div class="label fw-500" style="font-size: 25px;">Return</div>
                                             <div class="date">
-                                                <strong class="fw-500">19</strong>
+                                                <strong id="return-date">
+                                                    <!-- 19 -->
+                                                </strong>
                                                 <div>
-                                                    Nov, 2022 <br>
-                                                    Saturday
+                                                    <!-- Nov, 2022 <br>
+                                                    Saturday -->
                                                 </div>
                                             </div>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <div class="col-4 justify-content-center">
                                         <div class="mb-4 d-flex justify-content-center">
                                             <svg width="35" height="38" viewBox="0 0 35 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -77,9 +77,9 @@
                                             </svg>
                                         </div>
                                         <div class="trvl-dtls text-center fw-300">
-                                            <div class="label">Traveller</div>
+                                            <div class="label fw-500" style="font-size: 25px;">Traveller</div>
                                             <div class="date">
-                                                <strong class="fw-500" id="pass-count"></strong>
+                                                <strong id="pass-count"></strong>
                                                 <div>
                                                     <!-- 1 Adult -->
                                                 </div>

@@ -1,12 +1,16 @@
 
 <?php 
-// session_start(); 
+
+session_start(); 
 if(!isset($_SESSION['adminid'])){
 ?>
 	<script>
-    window.location="index.php"    </script>
-    <?php
+    window.location="index.php"
+  </script>
+  <?php
 }
+
+
  include_once "includes/header.php";
 include_once "includes/class.packages.php";
 $objPackage		= 	new Packages();

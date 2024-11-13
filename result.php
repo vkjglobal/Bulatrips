@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -9,7 +10,6 @@ if ($response !== false) {
     echo "Failed to retrieve data.";
 }
 
-error_reporting(0);
 session_start();
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
@@ -91,7 +91,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    height: 100vh;
+                    height: 70vh;
                     background: url('images/home-banner1.jpg') center center/cover no-repeat; /* Use your background image here */
                     color: white;
                     text-align: center;

@@ -105,7 +105,7 @@ if(isset($revalidData['mealService1'])){
                                 <div class="col-md-3 position-relative">
                                     <div class="process-step-cont">
                                         <div class="process-step step-2"></div>
-                                        <span class="process-label"><span class="position-relative">Sign In<button></button></span></span>
+                                        <span class="process-label"><span class="position-relative">User Registration<button></button></span></span>
                                     </div>
                                 </div>
                                 <div class="col-md-3 position-relative">
@@ -627,7 +627,13 @@ if(isset($revalidData['mealService1'])){
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php echo "$ ".round($penaltyAmount,3); ?></td>
+                                                                            <td> <?php
+                                                                                if( is_numeric($penaltyAmount) ) {
+                                                                                    echo "$ ".round($penaltyAmount,3);
+                                                                                } else {
+                                                                                    echo $penaltyAmount;
+                                                                                }
+                                                                             ?></td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
@@ -685,11 +691,24 @@ if(isset($revalidData['mealService1'])){
                                                                         ?>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                                            <td> <?php echo "$ ".round($penaltyChangeAmount,3); ?></td>
+                                                                            <td> <?php
+                                                                                if( is_numeric($penaltyChangeAmount) ) {
+                                                                                    echo "$ ".round($penaltyChangeAmount,3);
+                                                                                } else {
+                                                                                    echo $penaltyChangeAmount;
+                                                                                }
+                                                                                ?>
+                                                                            </td>
                                                                         </tr>
                                                                         <tr class="bdr">
                                                                             <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                                            <td> <?php echo "$ ".round($markupDatechangePercentage,3); ?></td>
+                                                                            <td> <?php
+                                                                                if( is_numeric($markupDatechangePercentage) ) {
+                                                                                    echo "$ ".round($markupDatechangePercentage,3);
+                                                                                } else {
+                                                                                    echo $markupDatechangePercentage;
+                                                                                }    
+                                                                                ?></td>
                                                                         </tr>
                                                                     </table>
                                                                 </li>

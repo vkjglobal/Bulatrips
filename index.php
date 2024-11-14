@@ -934,9 +934,9 @@ include_once('loading-popup.php');
         $(this).parents('.modal').modal('hide');
     });
 
-    $('#FlightSearchLoading').modal({
-        show: false
-    })
+    // $('#FlightSearchLoading').modal({
+    //     show: false
+    // })
 
     /**************Scroll To Top*****************/
     $(window).on('scroll', function() {

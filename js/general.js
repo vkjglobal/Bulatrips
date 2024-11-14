@@ -1883,7 +1883,7 @@ $(document).ready(function () {
           // Redirect to result.php after a delay
           setTimeout(function () {
               window.location.href = 'result.php';
-              $('#FlightSearchLoading').hide();
+              // $('#FlightSearchLoading').hide();
           }, 1000); // 1000 milliseconds = 1 second
       }
 

@@ -10,16 +10,17 @@ exit;
 }
 $userEmail  =   $_SESSION['email'];
 //echo "<pre/>";print_r($_SESSION);exit;
- error_reporting(0);
+error_reporting(0);
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
- include_once('includes/common_const.php');
+
+include_once('includes/common_const.php');
 include_once('sendmail.php');
 include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
- $endpoint   =   'v1.1/TripDetails/{MFRef}';
-     $apiEndpoint = APIENDPOINT.$endpoint;
-     $bearerToken   =   BEARER;
+$endpoint   =   'v1.1/TripDetails/{MFRef}';
+$apiEndpoint = APIENDPOINT.$endpoint;
+$bearerToken   =   BEARER;
 
 //echo 'helo';exit;
 $bookingId = $_GET['bookingid'];

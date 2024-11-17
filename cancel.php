@@ -96,7 +96,7 @@ else {
                             </table>
                         </div> -->
                         <input type="hidden" value="<?php echo $bookingId;?>" name="booking-id">
-                        <button type="submit" class="btn btn-typ3 mb-3">Cancel</button>
+                        <button type="submit" class="btn btn-typ3 mb-3 cancel_button_trip">Cancel</button>
                         <!-- <div class="row fs-13 mb-3 px-3">
                             <div class="col-12 px-0">
                                 <h6 class="text-left fw-700">Available Flights</h6>

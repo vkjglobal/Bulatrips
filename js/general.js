@@ -3322,6 +3322,10 @@ $(document).ready(function () {
   //----------------cancel booking---------------
 
   $('#cancel-booking').submit(function (event) {
+
+    $(".cancel_button_trip").attr('disabled', true);
+    $(".cancel_button_trip").html('Cancel <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
+
     event.preventDefault();
     var formData = new FormData(this);
     $.ajax({
@@ -3340,8 +3344,9 @@ $(document).ready(function () {
             window.location.href = 'user-dashboard.php';
           }
         }
-
-
+        
+        $(".cancel_button_trip").attr('disabled', false);
+        $(".cancel_button_trip").html('Cancel');
 
       },
       error: function () {

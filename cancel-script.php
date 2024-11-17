@@ -44,7 +44,7 @@
     
         $response = curl_exec($ch);
         curl_close($ch);
-    
+        
         // Process the API response
         if ($response === false) {
             // Error handling

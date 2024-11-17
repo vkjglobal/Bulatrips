@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $extra_service_total = $_SESSION['totalService'] ?? ''; //$extraServiceAmount from mybooking34.php page
     $total_paid = $_SESSION['Totalamount'] ?? ''; //the amount totally paid prior to booking
      $total_paid = str_replace(',', '', $total_paid);
-    $adminToemail   =   "soumya.reubro@gmail.com";
+    $adminToemail   =   "no-reply@bulatrips.com";
     //==============
      $pricedItineraries = json_decode($data['pricedItineraries'], true); 
    // echo json_encode($pricedItineraries);
@@ -1550,7 +1550,7 @@ if (isset($fsc)) {
                                             $messageData =   $objBook->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                        // $contacts= sendMail($email,$subject, $messageData,$headers);
 

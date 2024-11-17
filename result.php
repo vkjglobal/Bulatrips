@@ -14,6 +14,11 @@ session_start();
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
 
+// echo "<pre>";
+//     print_r($_SESSION);
+// echo "</pre>";
+
+
 $searchValue = $_SESSION['search_values'];
 
 $airTripType = $searchValue['tab'];

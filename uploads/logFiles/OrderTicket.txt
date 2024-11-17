@@ -519,3 +519,32 @@ REsponse Received\nArray
     [Success] => 1
 )
 
+-------------Thursday 14th of November 2024 06:06:40 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28774524
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28774524OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 7
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24111423-fdf4a95e-8874-4e0f-9a44-8eec7b44864e
+            [UniqueID] => MF28774524
+        )
+
+    [Success] => 1
+)
+

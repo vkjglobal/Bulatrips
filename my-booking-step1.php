@@ -21,6 +21,12 @@ require_once("includes/header.php");
 require_once('includes/dbConnect.php');
 include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
+
+// echo "<pre>";
+//     print_r($_POST);
+// echo "</pre>";
+
+
 //========== 
 $fsCode = $_POST['fscode'];
 // print_r($fsCode);
@@ -65,10 +71,17 @@ if(isset($fsCode)) {
     curl_close($ch);
 
     // Handle the API response
-
+//     echo "<pre>";
+//     print_r($response);
+// echo "</pre>";
+// die;
     if ($response) {
         $responseData = json_decode($response, true);
     }
+
+    
+
+
     $_SESSION['Revalidateresponse'] = $responseData;
     // $responseData  = $_SESSION['validateresponse'];
     // echo '<pre>';
@@ -97,7 +110,7 @@ else{
 
 // print_r($_POST);die();
 // if(isset( $pricedItineraries)){
-    if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Errors'])) {
+if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Errors'])) {
 // if (isset($responseData['Data']['Errors'])) {
 ?>
     <div class=" container">
@@ -1374,19 +1387,13 @@ require_once("includes/footer.php");
 
             if(!empty($responseData['Data']['Errors'])){
 
-             echo '$("#errorMessage").text("' .$responseData['Data']['Errors'][0]['Message'].'");';
-
-             echo "$('#errorModal').modal('show');";
-
-            // echo '$(".close").click(function(){ $(this).parents(".modal").modal("hide"); });';
-
-          echo  '$(".close").click(function() {
-
-     // Redirect to another page
-
-     window.location.href = "index.php";
-
- });';
+                echo '$("#errorMessage").text("' .$responseData['Data']['Errors'][0]['Message'].'");';
+                echo "$('#errorModal').modal('show');";
+                // echo '$(".close").click(function(){ $(this).parents(".modal").modal("hide"); });';
+                echo  '$(".close").click(function() {
+                // Redirect to another page
+                window.location.href = "result.php";
+            });';
 
              }
             ?>

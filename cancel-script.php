@@ -8,7 +8,7 @@
     $objBook    =   new BookScript();
     $objCancel    =   new Cancel();
      $bookingId = $_POST['booking-id'];
-     $adminToemail = "adqureshi@gmail.com";
+     $adminToemail = "no-reply@bulatrips.com";
     if(isset($bookingId)){
         $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
         $userId = $_SESSION['user_id'];

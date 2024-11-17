@@ -69,9 +69,9 @@ class Contents extends DbAction{
            //subject = "newsletter
             $message = "Please click the following link to reset your password: " . $resetLink;
             $headers = 'From: sooraj@reubrodesigns.com' . "\r\n" .
-           'Reply-To: soumya.reubro@gmail.com' . "\r\n" .
+           'Reply-To: no-reply@bulatrips.com' . "\r\n" .
            'X-Mailer: PHP/' . phpversion();
-       /*   if (mail('soumya.reubro@gmail.com',$subject, $message, $headers)) {
+       /*   if (mail('no-reply@bulatrips.com',$subject, $message, $headers)) {
                 echo "success";
           // echo 'Email sent successfully.';
             } else {

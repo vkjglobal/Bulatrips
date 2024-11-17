@@ -27,7 +27,7 @@ if(isset($_POST['id'])){
      $message           = html_entity_decode($message);
 
       $headers="";
-     // $toEmail = "soumya.reubro@gmail.com";
+     // $toEmail = "no-reply@bulatrips.com";
       $newsletter= confirmationMail($email_bulk,$subject, $message,$headers);
       echo 'success'. $newsletter;exit;
       // echo 'success';exit; //email sent successfully

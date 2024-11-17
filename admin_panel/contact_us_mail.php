@@ -29,7 +29,7 @@ if(isset($_POST['email'])){
   
 
       $headers="";
-     // $toEmail = "soumya.reubro@gmail.com";
+     // $toEmail = "no-reply@bulatrips.com";
             //****************************
              $messageData = '
         <html>

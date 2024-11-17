@@ -17,7 +17,7 @@ include_once __DIR__ . '/../includes/common_const.php';
 include_once __DIR__ . '/../mail_send.php';
 
  $objBookCron     =   new BookingCron();
-  $adminToemail  =   "soumya.reubro@gmail.com";
+  $adminToemail  =   "no-reply@bulatrips.com";
 
   //=================log write for book API ======
                    
@@ -192,7 +192,7 @@ include_once __DIR__ . '/../mail_send.php';
                                             $messageData =   $objBookCron->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                         $contacts= sendMail($email,$subject, $messageData,$headers);
 
@@ -210,7 +210,7 @@ include_once __DIR__ . '/../mail_send.php';
                                             $messageData =   $objBookCron->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                         $contacts= sendMail($email,$subject, $messageData,$headers);
 

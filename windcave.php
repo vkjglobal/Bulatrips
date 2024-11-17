@@ -40,7 +40,7 @@ $responsePay = array(  "status" => "success",
                                             $messageData =   $objBook->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                         $contacts= sendMail($email,$subject, $messageData,$headers);
 

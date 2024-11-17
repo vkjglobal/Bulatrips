@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
  $total_paid = str_replace(',', '', $total_paid);//because api response has comma inbetween
 
       
-    $adminToemail   =   "soumya.reubro@gmail.com";
+    $adminToemail   =   "no-reply@bulatrips.com";
     //==============
         // Validate the form data
         $errors = []; // Initialize an array to store validation errors
@@ -179,7 +179,7 @@ foreach ($pricedItineraries as $pricedItinerary) {
                                             $messageData =   $objBook->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                         $contacts= sendMail($email,$subject, $messageData,$headers);
 
@@ -1594,7 +1594,7 @@ if (isset($fsc)) {
                                             $messageData =   $objBook->getEmailContent($content);
                      // print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
          
                        // $contacts= sendMail($email,$subject, $messageData,$headers);
 

@@ -1,0 +1,102 @@
+-------------Sunday 17th of November 2024 05:50:06 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28784824
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28784824OR USERID=73
+userId is 73& MF# recieved 
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERCBK007
+                            [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+                        )
+
+                )
+
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 24111721-74e49430-bc94-4a04-b6a1-e5cae955ea55
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+)
+
+-------------Sunday 17th of November 2024 05:51:10 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28784824
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28784824OR USERID=73
+userId is 73& MF# recieved 
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERCBK007
+                            [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+                        )
+
+                )
+
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 24111721-74e49430-bc94-4a04-b6a1-e5cae955ea55
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+)
+
+-------------Sunday 17th of November 2024 05:52:36 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28784824
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28784824OR USERID=73
+userId is 73& MF# recieved 
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERCBK007
+                            [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+                        )
+
+                )
+
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 24111721-74e49430-bc94-4a04-b6a1-e5cae955ea55
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
+)
+

@@ -23,7 +23,11 @@ include_once("includes/filterValidation.php");
     <!--<link rel="stylesheet" href="css/owl.theme.default.min.css">-->
     <!--<link rel="stylesheet" href="css/select2.min.css">-->
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <!-- <link rel="stylesheet" href="css/font-awesome.min.css"> -->
+
     <!--<link rel="stylesheet" href="css/jquery-ui.css">-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--<link rel="stylesheet" href="css/aos.css">-->

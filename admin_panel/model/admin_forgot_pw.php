@@ -98,7 +98,7 @@
             //***************************
            
            $headers="";
-             $toEmail = "soumya.reubro@gmail.com";
+             $toEmail = "no-reply@bulatrips.com";
                confirmationMail($toEmail, $subject, $messageData,$headers);
 
           /*  if (mail($to, $subject, $message, $headers)) {

@@ -361,7 +361,7 @@ else {
   // print_r($onewaysegmentLast);
    // echo "***********************";
  //  print_r($returnsegmentLast); exit;
-  // $toEmail = "soumya.reubro@gmail.com";
+  // $toEmail = "no-reply@bulatrips.com";
     $toEmail = $userEmail;
    // echo $toEmail;exit;
    if(empty($ticketStatus)){
@@ -1738,7 +1738,7 @@ if( $errStatus  ==   1){
                                             $messageData =   $objBook->getEmailContent($content);
                       //print_r($messageData);exit;
                           $headers="";
-                         // $email = "soumya.reubro@gmail.com"; //Need ADMIN email here
+                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
                             $contacts =    confirmationMail($email, $subject, $messageData,$headers,$bookingId);
 
                        // $contacts= sendMail($email,$subject, $messageData,$headers);
@@ -1758,7 +1758,7 @@ if( $errStatus  ==   1){
                      // print_r($messageData);exit;
                          
                          // $email = $adminToemail; //Need ADMIN email here
-                        $adminToemail = "soumya.reubro@gmail.com";
+                        $adminToemail = "no-reply@bulatrips.com";
                         $contacts_Admin= confirmationMail($adminToemail,$subject_Admin, $messageData,$headers,$bookingId);
                       //  $contacts_Admin= sendMail($adminToemail,$subject_Admin, $messageData,$headers);
                         

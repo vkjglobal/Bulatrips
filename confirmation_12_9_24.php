@@ -307,7 +307,7 @@ else {
   // print_r($onewaysegmentLast);
    // echo "***********************";
  //  print_r($returnsegmentLast); exit;
-  // $toEmail = "soumya.reubro@gmail.com";
+  // $toEmail = "no-reply@bulatrips.com";
     $toEmail = $userEmail;
    // echo $toEmail;exit;
     $subject = "Booking Confirmation";

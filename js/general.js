@@ -3332,8 +3332,14 @@ $(document).ready(function () {
       contentType: false,
       dataType: 'json',
       success: function (response) {
-        // window.location.href = 'confirmation.php?bookingid='+ encodeURIComponent(response.bookingid);
-        alert("cancel booking");
+        res = JSON.parse(response);
+        // console.log(res)
+        if(res.Message){
+          alert(res.Message);
+          if(res.Success){
+            window.location.href = 'user-dashboard.php';
+          }
+        }
 
 
 

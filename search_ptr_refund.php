@@ -268,7 +268,7 @@ $cancel_status		=	1;
                         $messageData =   $objCancel->getEmailContent($content);
  // print_r($messageData);exit;
       $headers="";
-      $email = "soumya.reubro@gmail.com";
+      $email = "no-reply@bulatrips.com";
          
     $contacts= sendMail($email,$subject, $messageData,$headers);
   //echo $contacts ;exit;

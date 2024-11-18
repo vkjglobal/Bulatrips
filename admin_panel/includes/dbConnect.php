@@ -72,5 +72,22 @@ if ($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
 
 }
 
+if ($_SERVER['HTTP_HOST'] == 'staging.bulatrips.com') {
+    $servername = "localhost";
+    $username = "bulatrips_staging";
+    $password = "@]9E~IwT7k%L";
+    $db = "bulatrips_staging";
+
+    // Create connection
+    $conn = mysqli_connect($servername, $username, $password,$db);
+    // Check connection
+    if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+    }
+    //  echo "Connected successfully";
+
+}
+
+
 ?>
 

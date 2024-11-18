@@ -1,0 +1,78 @@
+-------------Sunday 17th of November 2024 06:17:50 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => Y3hTY3ZXODMyUUxiSW95MEVRRWF4T0dxaUc0cFo0eEN4WGI2ZlVNN2dkM2FNSTJKdG9FL3J2S09lVGxsd0tNQmN4T1U3REFNUHQrWFgrVjdQR0tuVElCYzhMRmJxK0hqU0pUNUtFcDhLSG56dkh2L210cGJDQS9iY0RQVzRpekpyVlhRMGdwdzlHSHhSL2dXVW03Zmd3PT0=
+    [ClientMarkup] => 44.3786
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => MISS
+                                    [PassengerFirstName] => Fulton
+                                    [PassengerLastName] => Hebert
+                                )
+
+                            [DateOfBirth] => 1991-06-04
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => Eveniet eos placea
+                                    [ExpiryDate] => 2035-03-17
+                                    [Country] => VU
+                                )
+
+                            [PassengerNationality] => DM
+                            [ExtraServices1_1] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ExtraServiceId] => 1
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [CountryCode] => 93
+            [PhoneNumber] => 295
+            [Email] => kejivyboh@mailinator.com
+            [PostCode] => Quas voluptas labore
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28785024OR USERID=73
+userId is 73BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 13
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-11-17T18:17:48
+            [TraceId] => 24111723-d180a6d6-6c9d-48a8-8017-0d2b73b95bde
+            [UniqueID] => MF28785024
+        )
+
+    [Success] => 1
+)
+
+Success in process Received\nBOOKINGINPROCESS

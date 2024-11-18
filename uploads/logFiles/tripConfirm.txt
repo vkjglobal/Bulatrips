@@ -1,0 +1,299 @@
+-------------Sunday 17th of November 2024 06:17:56 PM-------------
+MF refMF28785024
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF28785024
+                            [TripType] => Return
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 440389
+                                                    [IsMandatory] => 
+                                                    [Description] => 1 bags - 15Kg   
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 1
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 52.46
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [BookingStatus] => NotBooked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1991-06-04T00:00:00
+                                                    [EmailAddress] => kejivyboh@mailinator.com
+                                                    [PhoneNumber] => 295
+                                                    [PassportExpiresOn] => 2035-03-17T00:00:00
+                                                    [PassportNationality] => Ni-Vanuatu
+                                                    [PassengerNationality] => Dominican(Dominicana)
+                                                    [PostCode] => Quas voluptas labore
+                                                    [PassportIssuanceCountry] => Vanuatu
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MISS
+                                                            [PassengerFirstName] => FULTON
+                                                            [PassengerLastName] => HEBERT
+                                                        )
+
+                                                    [PassportNumber] => Evenieteosplacea
+                                                    [NameNumber] => 440389
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 467.46
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 166.52
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 633.98
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YRF 28.29,SG1 25.71,OO 10.33,OP 7.88
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-11-25T04:20:00
+                                                                    [ArrivalDateTime] => 2024-11-25T07:20:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 318
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 300
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 3
+                                                                    [OperatingAirlineCode] => XY
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => XY
+                                                                    [Baggage] => 
+                                                                    [FlightStatus] =>   
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHXY318ECONOMY LIGHTFLEX
+                                                                    [FareFamily] => ECONOMY LIGHTFLEX
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-11-25T13:05:00
+                                                                    [ArrivalDateTime] => 2024-11-25T15:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 19
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 120
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => XY
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => XY
+                                                                    [Baggage] => 
+                                                                    [FlightStatus] =>   
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDXY19ECONOMY LIGHTFLEX
+                                                                    [FareFamily] => ECONOMY LIGHTFLEX
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2024-11-28T17:15:00
+                                                                    [ArrivalDateTime] => 2024-11-28T18:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 46
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 95
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 5
+                                                                    [OperatingAirlineCode] => XY
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => XY
+                                                                    [Baggage] => 
+                                                                    [FlightStatus] =>   
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDRUHXY46ECONOMY LIGHTFLEX
+                                                                    [FareFamily] => ECONOMY LIGHTFLEX
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2024-11-28T21:40:00
+                                                                    [ArrivalDateTime] => 2024-11-29T03:30:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 317
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 230
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 3
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => XY
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => XY
+                                                                    [Baggage] => 
+                                                                    [FlightStatus] =>   
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHLHEXY317ECONOMY LIGHTFLEX
+                                                                    [FareFamily] => ECONOMY LIGHTFLEX
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-11-17T18:17:28.877
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 44.38
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-11-17T18:17:28
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+

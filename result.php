@@ -1,5 +1,6 @@
 <?php
 error_reporting(0);
+// ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;

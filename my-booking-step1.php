@@ -26,63 +26,57 @@ $objBook    =   new BookScript();
 //     print_r($_POST);
 // echo "</pre>";
 
+// echo "<pre>";
+//     print_r($_SESSION);
+// echo "</pre>";
+
+
+$airport_country = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code LIKE :code');
+$airport_country->bindParam(':code', $_SESSION['search_values']['airport']);
+$airport_country->execute();
+$AP_country_name_fetch = $airport_country->fetch(PDO::FETCH_ASSOC);
+$AP_country_id = $AP_country_name_fetch['id'];
+
 
 //========== 
-$fsCode = $_POST['fscode'];
-// print_r($fsCode);
-//print_r($fsCode);exit;
-// $_POST['fscode']    = "VFROTko4T1MrcmdnTTlvVkozZ09jVlQ1cytTaVZ0SkdqWkpTL1RyaFYrZFpVQ05YYlo2VjBXT0UrV3dUb1YyQ09NM25paEtsWkFPbWErRnFtb0djN0pXZEQ5SFFOWG5tSXBxWnhuNTU1TkZ2YWwyeThZU3FGZEY3SGJ2ZVQweTl4WEJ5R3BpSmNJTmRzWlpkWVd4NTJRPT0=";
-// $_POST['fscode']    = "dHdKbzk5UE8xbmZQdDBPMTY1eU9QRGI4ajlIMGhYZGJuMUpucWlQWWszOUlzSk9zYStueXRFNnJQQzh5TDdad1dwNXZIWmwwT2JhRkVaWHNUMDZqN01wY0ZXay9seDJqYW5MellwT0lpMXQrWExPUmtENmlORnc5dVNiQzhwbk1JWlFwbVgzNFNJM3ZCM1VaTXNIN1hnPT0=";
-//==================
-//$fsCode = $_POST['fscode'];
-if(isset($fsCode)) {
-   // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
-   // $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
 
-      $endpoint   =   'v1/Revalidate/Flight';
-     $apiEndpoint = APIENDPOINT.$endpoint;
-     $bearerToken   =   BEARER;
-     
+    $fsCode = $_POST['fscode'];
+    if (isset($_SESSION['last_fscode']) && $_SESSION['last_fscode'] === $fsCode) {
+    } else {
+        $_SESSION['last_fscode'] = $fsCode;
+        // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
+        // $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
 
+        $endpoint   =   'v1/Revalidate/Flight';
+        $apiEndpoint = APIENDPOINT.$endpoint;
+        $bearerToken   =   BEARER;
+        $requestData = array(
+            'FareSourceCode' => $fsCode,
+            'Target' => TARGET,
+            // 'ConversationId' => 'string',
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $bearerToken
+        ));
 
-    // Construct the API request payload
-    $requestData = array(
-        'FareSourceCode' => $fsCode,
-        'Target' => TARGET,
-        // 'ConversationId' => 'string',
-    );
-
-
-
-
-    // Send the API request
-
-    $ch = curl_init();
-    curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-        'Content-Type: application/json',
-        'Authorization: Bearer ' . $bearerToken
-    ));
-
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    // Handle the API response
-//     echo "<pre>";
-//     print_r($response);
-// echo "</pre>";
-// die;
-    if ($response) {
-        $responseData = json_decode($response, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        if ($response) {
+            $responseData = json_decode($response, true);
+        }
+        $_SESSION['Revalidateresponse'] = $responseData;
     }
 
-    
+if(isset($fsCode)) {
+    $responseData = $_SESSION['Revalidateresponse'];
 
 
-    $_SESSION['Revalidateresponse'] = $responseData;
     // $responseData  = $_SESSION['validateresponse'];
     // echo '<pre>';
     // print_r($responseData);
@@ -140,7 +134,9 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
   ?>
     <section class="bg-070F4E steps-indicator">
         <div class="container">
-      
+            
+        <input type="hidden" name="api_country_id" id="ap_country_id" value="<?php echo $AP_country_id;?>" />
+
             <div class="row justify-content-center">
                 <div class="col-md-9">
                     <div class="steps-bar-title white-txt fw-500 text-md-center">Book your Flight in 4 Simple Steps</div>
@@ -276,6 +272,10 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                     <?php
 
                                     foreach ($originDestinations as $index => $originDestination) {
+
+                                        
+
+
                                         $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
 
                                         $code = '%' . $pricedItinerary['ValidatingAirlineCode'] . '%';
@@ -891,7 +891,19 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                             </strong>
                                         </div>
                                         <div class="fs-13 mb-3">(Including Taxes) </div>
-                                        <button type="button" id="continueRevalidationButton" class="btn btn-typ3 fs-14 fw-500 pl-4 pr-4" style="display: block;">CONTINUE</button>
+                                        
+                                        <?php
+                                        if (isset($_SESSION['user_id'])) {?>
+                                            <button id="travellerContinueButton" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" data-value="<?php echo $pricedItinerary['AirItineraryPricingInfo']['FareSourceCode'] ?>" 
+                                            data-adult="<?php echo $_SESSION['adultCount'] ?>" data-child="<?php echo $_SESSION['childCount'] ?>" data-infant="<?php echo $_SESSION['infantCount'] ?>"
+                                            <?php if ($userData['role'] == 2) { echo ' data-uid="' . $_SESSION['user_id'] . '&&total=' . $Totalamount . '"'; } ?> >Continue to Traveller Details</button>
+                                            <?php
+                                        } else {?>
+                                            <button type="button"  data-toggle="modal" data-target="#LoginModal" class="btn btn-typ3 fs-14 fw-500 pl-4 pr-4" style="display: block;">Login to continue</button>
+                                        <?php
+                                        }
+                                        ?>
+                                        
                                     </div>
                                 </div>
                                 <div class="col-md-6 fare-details d-flex justify-content-end align-items-baseline">
@@ -1027,12 +1039,13 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
             </div>
         </div>
         <div class="container">
-
-            <div id="loginbookflight" style="display: none;">
-                <strong class="d-block fw-500 pt-md-4 pb-md-4 pt-3 pb-3">Before Booking! Sign in</strong>
+            <div id="loginbookflight" <?php if (isset($_SESSION['user_id'])) {echo 'style="display: block;"';} else {echo 'style="display: none;"';} ?> >
+                <!-- <strong class="d-block fw-500 pt-md-4 pb-md-4 pt-3 pb-3">Before Booking! Sign in</strong> -->
                
                 <?php if (isset($_SESSION['user_id'])) { ?>
                     <div id="logindiv">
+                        <?php
+                        /*
                         <div class="mb-4 fw-300">
                             You are loged in with below id. <br>
                             <?php
@@ -1044,16 +1057,18 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                             $_SESSION['customer_role-id'] = $userData['role'];
                             ?>
                             <strong class="fw-500"><?php echo $userData['email'] ?></strong>
-                            <!-- <a href="" class="txt-2391D1 text-decoration" id="loadLogin">change</a>     -->
                         </div>
-                        <!-- check the user role -->
                         <button id="travellerContinueButton" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" data-value="<?php echo $pricedItinerary['AirItineraryPricingInfo']['FareSourceCode'] ?>" 
                             data-adult="<?php echo $_SESSION['adultCount'] ?>" data-child="<?php echo $_SESSION['childCount'] ?>" data-infant="<?php echo $_SESSION['infantCount'] ?>"
                             <?php if ($userData['role'] == 2) { echo ' data-uid="' . $_SESSION['user_id'] . '&&total=' . $Totalamount . '"'; } ?> >CONTINUE</button>
-
+                            */
+                        ?>
                     </div>
                 <?php } else { ?>
+                    
                     <div id="login-form" style="display: block;">
+                        <?php
+                        /*
                         <form method="post" action="" id="booking-user-login">
                             <div class="form-row pb-lg-3 pb-2 ">
                                 <div class="col-md-3 mb-md-0 mb-2">
@@ -1069,11 +1084,14 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
 
                             </div>
                         </form>
+                        */
+                        ?>
                     </div>
                     <a href="registration.php" class="fs-14 text-below-button" target="_blank">New User ? Click Here to <span class="fw-600">Register</span></a>
                 <?php } ?>
 
-                <div class="traveller-details row" id="travellerDetails" style="display: none;">
+                <?php //if (isset($_SESSION['user_id'])) {echo 'style="display: block;"';} else {echo 'style="display: none;"';} ?>
+                <div class="traveller-details row" id="travellerDetails" style="display: none;" >
 
                     <?php $extraSrvice = $responseData['Data']['ExtraServices1_1']['Services'];?>
                     <input type="hidden" id="extraSrviceData" value="<?php echo htmlentities(json_encode($extraSrvice)); ?>">
@@ -1343,6 +1361,7 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
 
 <?php
 }
+$_SESSION['fscode_active'] = $_POST['fscode'];
 require_once("includes/footer.php");
 ?>
 <script>

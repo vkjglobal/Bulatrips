@@ -761,11 +761,11 @@ if(isset($responseData['Data']['Errors'])){
                                                         $refundAllowed=$penaltyListRef['Penaltydetails'][0]['RefundAllowed'];
                                                         if($refundAllowed == 1){
                                                         ?>
-                                                        <span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
+                                                        <span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
                                                         <?php 
                                                         }else{
                                                         ?>
-                                                        <span class="uppercase-txt white-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Not Refundable</span>
+                                                        <span class="uppercase-txt dark-black-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Not Refundable</span>
                                                         <?php 
                                                         }
                                                         ?>

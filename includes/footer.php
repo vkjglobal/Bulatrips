@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col-lg-12 footer-bottom-bar">
                     <div class="footer-info-left">
-                        <div class="copyright">&copy; 2022 Travelsite All rights reserved.</div>
+                        <div class="copyright">&copy; <?php echo date("Y"); ?> Travelsite All rights reserved.</div>
                         <ul class="ftr-lnks">
                             <li><a href="">Home</a></li>
                             <li><a href="">My Bookings</a></li>

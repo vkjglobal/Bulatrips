@@ -1593,9 +1593,9 @@ else {
                                         <li class="d-flex align-items-baseline p-1 bdr-b">
                                             <strong class="fs-14 fw-600">Penality Informations </strong>
                                             <?php if($penalityInfo == '1'){
-                                                echo '<span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>';
+                                                echo '<span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>';
                                             }else{
-                                                echo '<span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">NOT Refundable</span>';
+                                                echo '<span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">NOT Refundable</span>';
                                             } ?>
                                         </li>
                                         <ul>

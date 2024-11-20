@@ -472,12 +472,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                         </ul> -->
 
 
-                            <p style="padding:10px; font-size: 20px; color:#070f4e; text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center; border-bottom: 2px solid #ccc">
-                                <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg"/>
-                                <strong>Departure</strong>
-                            </p>
                             
-                            <ul class="flight-list">
                                 <?php
 
                                 // foreach ($pricedItineraries as $pricedItinerary) {
@@ -511,9 +506,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 //for direct flight $totalstops=0
                                 //stops inbetween itinerary $totalstops>0 
                                //echo "<pre/>";print_r($flightSegmentList);
+                        ?>
+                        
+                        
+                        <p style="padding:10px; font-size: 20px; color:#070f4e; text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center; border-bottom: 2px solid #ccc">
+                                <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg"/>
+                                <strong>Departure</strong>
+                                <span style="display: block;float: right;position: absolute;right: 18px;text-transform: capitalize;font-size: 15px;"><?php echo $fareListRef['FareType']; ?></span>
+                            </p>
+                            
+                            <ul class="flight-list">
+                        <?php
                                 if ($totalstop > 0) {
-
-
                                     $originDestinationsstops = $pricedItinerary['OriginDestinations'][$totalstop];
                                     $segmentRefstop = $originDestinationsstops['SegmentRef'];
 
@@ -1418,22 +1422,22 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                 $refundAllowed = $penaltyListRef['Penaltydetails'][0]['RefundAllowed'];
                                                                 if ($refundAllowed == 1) {
                                                                 ?>
-                                                                    <span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
+                                                                    <span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
                                                                 <?php
                                                                 } else {
                                                                 ?>
-                                                                    <span class="uppercase-txt white-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Not Refundable</span>
+                                                                    <span class="uppercase-txt dark-black-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Not Refundable</span>
                                                                 <?php
                                                                 }
                                                                 //DAte change allow or not 
                                                                 $DateChangeAllowed = $penaltyListRef['Penaltydetails'][0]['ChangeAllowed'];
                                                                 if ($DateChangeAllowed == 1) {
                                                                 ?>
-                                                                    <span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Date Change Allowed</span>
+                                                                    <span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Date Change Allowed</span>
                                                                 <?php
                                                                 } else {
                                                                 ?>
-                                                                    <span class="uppercase-txt white-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Date Change Not Allowed</span>
+                                                                    <span class="uppercase-txt dark-black-txt red-bg border-radius-5 ml-2 pl-1 pr-1"> Date Change Not Allowed</span>
                                                                 <?php
                                                                 }
                                                                 ?>

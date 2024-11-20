@@ -246,10 +246,12 @@ $(document).ready(function () {
           $('#email').val('');
           $('#password').val('');
         } else if (response == 'endsuccess') {
-          window.location.href = 'user-dashboard.php';
+          location.reload();
+          // window.location.href = 'user-dashboard.php';
         }
         else if (response == 'agentsuccess') {
-          window.location.href = 'agent-dashboard.php';
+          location.reload();
+          // window.location.href = 'agent-dashboard.php';
         } else if (response == 'agenterror') {
          // alert("approval is on progress..");
             $('#pwErr').text('');
@@ -1743,6 +1745,8 @@ $(document).ready(function () {
     var returnDate = $('#to').val();
     var destination = $('#arrivalairport-input').val();
     var tripType = document.querySelector('input[name="tab"]:checked');
+
+    
     var tripTypeValue = tripType.value;
     var totalcount = adultCount + childCount + infantCount;
    
@@ -1774,10 +1778,12 @@ $(document).ready(function () {
       $('#from').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Departure Date cannot be blank.</span>')
       valid = false;
     }
-    if (returnDate == '') {
 
-      $('#to').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
-      valid = false;
+    if (tripTypeValue === "Return") {
+      if (returnDate == '') {
+        $('#to').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
+        valid = false;
+      }
     }
     
     if (source === destination) {
@@ -1836,6 +1842,11 @@ $(document).ready(function () {
 
     // Perform the form submission using AJAX
     if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
+      if( tripTypeValue === "OneWay" ) {
+        $("#return_container").hide();
+      } else if( tripTypeValue === "Return" ) {
+        $("#return_container").show();
+      }
       $('#FlightSearchLoading').show();
       updateProgressBar(0);
 
@@ -2079,7 +2090,20 @@ $(document).ready(function () {
 
   $("#travellerContinueButton").click(function () {
     $("#travellerDetails").slideDown(1000);
+    
+    // $('html, body').animate({
+    //   scrollTop: $(window).scrollTop() - 50
+    // }, 1000);
+
+    var offset = $('#travellerDetails').offset();
+    var newTop = offset.top - 50;
+    $('html, body').animate({
+        scrollTop: newTop
+    }, 1000);
+
     var button = document.getElementById("travellerContinueButton");
+    $("#travellerContinueButton").hide();
+
     var adultCounter = button.getAttribute("data-adult");
     let childCounter = button.getAttribute("data-child");
     let infantCounter = button.getAttribute("data-infant");
@@ -2089,8 +2113,7 @@ $(document).ready(function () {
     if (userId) {
         var parts = userId.split("&&");
         var id = parts[0];
-        var total = parts[1].split("=")[1];
-        
+        var total = parts[1].split("=")[1];  
        // checkUserBalance(id, total, continueExecution);
         checkUserBalance(id, total);
     } else {
@@ -2677,6 +2700,9 @@ $(document).ready(function () {
   //-----------------------Booking Details Submitted to In House DB -----------------
 
   $('#booking-submit').submit(function (event) {
+
+    
+
     event.preventDefault();
     // Validate form data
     // let adultCounter = 2;
@@ -2752,6 +2778,16 @@ $(document).ready(function () {
       if (passportNoInput.value.trim() === "") {
         displayError(passportNoInput, `Passpoet number ${i} is required`);
         validationErrors.push(`Passpoet number ${i} is required`);
+      } else if(document.querySelector('input[name=api_country_id]').value == 1499) {
+        if (!/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(passportNoInput.value.trim())) {
+          displayError(passportNoInput, `must contain alphanumeric`);
+              validationErrors.push(`must contain alphanumeric`);
+          } else {
+            clearError(passportNoInput);
+          }
+      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInput.value.trim())) {
+          displayError(passportNoInput, `Max 9 characters allowed.`);
+          validationErrors.push(`Max 9 characters allowed.`);
       } else {
         clearError(passportNoInput);
       }

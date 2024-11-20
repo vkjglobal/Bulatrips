@@ -76,3 +76,152 @@ REsponse Received\nArray
 )
 
 Success in process Received\nBOOKINGINPROCESS
+-------------Wednesday 20th of November 2024 07:45:04 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => empqQU5Ua2t5TlZocEQrVEN0YXl3djl6M3RkNEJubmdXb2hsdEZVR0FHa2pzK1RkZU01ZkxCV0pZY0V1SXZYQkg2TS9pdnN0MlBFdURyM3RQZmlpdU5xTlVhaWYxYjlFUmdYcnR0OERqUTIxV3JkOThUMUpFanIyVllSemN2R1R1eDFuM3lneFN2NG50RzNpaWZCMWFZczZHNTMyRWRxMGt4TmlZQWo5Qlo0PQ==
+    [ClientMarkup] => 37.6719
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Samson
+                                    [PassengerLastName] => York
+                                )
+
+                            [DateOfBirth] => 1991-12-18
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => Sint omnis officia d
+                                    [ExpiryDate] => 2035-12-15
+                                    [Country] => NL
+                                )
+
+                            [PassengerNationality] => MW
+                        )
+
+                )
+
+            [CountryCode] => 1784
+            [PhoneNumber] => 863
+            [Email] => dikumuguvo@mailinator.com
+            [PostCode] => Fugiat porro quos mi
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28815324OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 15
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-11-21T07:44:45
+            [TraceId] => 24112012-54934232-a5d4-4067-b845-895e1307c56c
+            [UniqueID] => MF28815324
+        )
+
+    [Success] => 1
+)
+
+Success Received\nCONFIRMED
+-------------Wednesday 20th of November 2024 07:45:24 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => empqQU5Ua2t5TlZocEQrVEN0YXl3djl6M3RkNEJubmdXb2hsdEZVR0FHa2pzK1RkZU01ZkxCV0pZY0V1SXZYQkg2TS9pdnN0MlBFdURyM3RQZmlpdU5xTlVhaWYxYjlFUmdYcnR0OERqUTIxV3JkOThUMUpFanIyVllSemN2R1R1eDFuM3lneFN2NG50RzNpaWZCMWFZczZHNTMyRWRxMGt4TmlZQWo5Qlo0PQ==
+    [ClientMarkup] => 37.6719
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Samson
+                                    [PassengerLastName] => York
+                                )
+
+                            [DateOfBirth] => 1991-12-18
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => Sint omnis officia d
+                                    [ExpiryDate] => 2035-12-15
+                                    [Country] => NL
+                                )
+
+                            [PassengerNationality] => MW
+                        )
+
+                )
+
+            [CountryCode] => 1784
+            [PhoneNumber] => 863
+            [Email] => dikumuguvo@mailinator.com
+            [PostCode] => Fugiat porro quos mi
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 16
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+

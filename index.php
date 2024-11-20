@@ -265,7 +265,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-12 hd-wraper">
                 <strong>Choose Your</strong>
                 <h4>Perfect Holiday</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
+                <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p>
             </div>
             <div class="col-12">
                 <div class="row">
@@ -408,7 +408,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-12 hd-wraper white-txt">
                 <strong>Go & Discover</strong>
                 <h4>Breathtaking Cities</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
+                <p>Uncover the magic of the world’s most breathtaking cities! From iconic landmarks to hidden gems, your next adventure is just a click away. Let us help you explore vibrant destinations, immerse yourself in new cultures, and create memories that last a lifetime. Where will your journey take you next?</p>
             </div>
            
             <div class="col-12 video-wrapper" style="display: none;">
@@ -458,7 +458,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <div class="col-12 hd-wraper white-txt">
                 <!-- <strong>Read The Top</strong> -->
                 <h4>Reviews</h4>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aene an commodo ligula eget dolor. Aenean massa. Cum sociis the</p>
+                <p>Don’t just take our word for it! Hear from travelers like you who’ve explored the world with us. From seamless bookings to unforgettable trips, our customers share their experiences and stories. Your satisfaction is our priority, and your feedback inspires us to keep delivering excellence.</p>
             </div>
         </div>
     </div>

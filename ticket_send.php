@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 require_once 'vendor/autoload.php';
 include_once('includes/class.Airport.php');
 require_once('includes/dbConnect.php');
@@ -14,6 +15,9 @@ $booking_id=$_POST["bookingId"];
 
     $stmtbookingid->execute(array('bookingid' => $booking_id, 'userid' => $_SESSION['user_id']));
     $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
+
+
         if (isset($bookingData['mf_reference'])) {
 
         $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1.1/TripDetails/{MFRef}';
@@ -449,10 +453,20 @@ $ticket_content .=                            '</table>
         </td>
     </tr>
 </table>';
+
+
+
 $messageData="Your flight booking Ticket is attached";
 // $toEmail = "aryaravi.reubro@gmail.com";
-$toEmail = "nimmyev.reubro@gmail.com";
-$subject = "Flight Ticket";
+// $toEmail = "nimmyev.reubro@gmail.com";
+
+$userdetailsid = $conn->prepare('SELECT * FROM users WHERE id = :userid');
+$userdetailsid->execute(array('userid' => $bookingData['user_id']));
+$userData = $userdetailsid->fetch(PDO::FETCH_ASSOC);
+
+if( isset($userData['email']) && $userData['email'] != '' ) {
+    $toEmail = $userData['email'];
+    $subject = "Flight Ticket";
     $dompdf = new Dompdf();
         // var_dump($ticket_content);
 
@@ -470,5 +484,5 @@ $subject = "Flight Ticket";
         echo "error";
      }
 
-
+}
 ?>

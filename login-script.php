@@ -23,16 +23,19 @@ if ($stmt->rowCount() == 1) {
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['first_name'] = $user['first_name'];
     $_SESSION['email'] = $user['email'];
+    $_SESSION['customer_role-id'] = $user['role'];
     echo 'endsuccess';
   }else if($user['role'] == 2 && $user['agent_status'] == 'active' ){
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['first_name'] = $user['first_name'];
     $_SESSION['email'] = $user['email'];
+    $_SESSION['customer_role-id'] = $user['role'];
     echo 'agentsuccess';
   }else if($user['role'] == 2 && $user['agent_status'] == 'inactive' ){
     $_SESSION['user_id'] = $user['id'];
     $_SESSION['first_name'] = $user['first_name'];
     $_SESSION['email'] = $user['email'];
+    $_SESSION['customer_role-id'] = $user['role'];
     echo 'agenterror';
   }
 } else {

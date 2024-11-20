@@ -236,6 +236,11 @@ img {
   color: #121E7E !important;
 }
 
+.dark-black-txt {
+  color: #000 !important;
+  font-weight: bold;
+}
+
 .light-blue-txt {
   color: #4756CB !important;
 }

@@ -50,7 +50,12 @@ $pricedItinerariesData = $revalidData['pricedItineraries'];
 $pricedItineraries = json_decode($pricedItinerariesData, true);
  //echo '<pre/>'; print_r($pricedItineraries);
 
-$user['role'] = $revalidData['custId'];
+ if( isset($revalidData['custId']) && $revalidData['custId'] != '' ) {
+    $user['role'] = $revalidData['custId'];
+ } else if( isset($_SESSION['customer_role-id']) ) {
+    $user['role'] = $_SESSION['customer_role-id'];
+}
+
 $baggageService = '0';
 $mealService = '0';
 if(isset($revalidData['baggageService1'])){
@@ -867,9 +872,9 @@ if(isset($revalidData['mealService1'])){
                                         <input type="hidden" name="extraServiceAmount" value="<?php echo htmlspecialchars(json_encode($_SESSION['totalService'])); ?>">
                                         <input type="hidden" name="Totalamount" value="<?php echo $Totalamount; ?>">
 
-                                        <?php if ($revalidData['custId'] == '1') { ?>
+                                        <?php if ($user['role'] == '1') { ?>
                                             <button type="button" id="payButton" class="btn btn-typ3 fs-14 fw-500 pl-4 pr-4" style="display: block;" onclick="window.location.href='wind_payment.php';">PAY NOW</button>
-                                        <?php } else if ($revalidData['custId'] == '2') { ?>
+                                        <?php } else if ($user['role'] == '2') { ?>
                                             <button type="button" id="confirm" class="btn btn-typ3 fs-14 fw-500 pl-4 pr-4" style="display: block;">CONFIRM</button>
                                             <!-- Note: call book api after that redirect to confirm page -->
                                         <?php } else { ?>

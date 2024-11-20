@@ -1,0 +1,36 @@
+-------------Wednesday 20th of November 2024 07:45:15 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => 
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28815324OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 15
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERGEN007
+                            [Message] => An unexpected error occurred while processing the "TicketOrder" call. API Support notified!
+                        )
+
+                )
+
+            [Message] => 
+            [Success] => 
+            [Target] => Test
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => An unexpected error occurred while processing the "TicketOrder" call. API Support notified!
+)
+

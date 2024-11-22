@@ -2991,3 +2991,532 @@ d passengers is already in process.
 step end of void  ========= 
 step end of void  ========= 
 step end of void  ========= 
+-------------Friday 22nd of November 2024 10:52:55 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 10:52:55 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14460
+            [PTRType] => Void
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 120
+            [PTRStatus] => InProcess
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= Your Canellation is :InProcess This will update within 2 Hours
+-------------Friday 22nd of November 2024 10:53:31 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 10:53:31 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 10:56:20 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 10:56:20 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 10:56:55 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 10:56:55 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 10:57:22 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 10:57:22 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 10:59:13 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 10:59:13 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 11:07:20 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 11:07:21 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 11:07:25 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 11:07:25 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Friday 22nd of November 2024 11:10:25 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => 
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Please verify the request.
+)
+
+step data empty Please verify the request.
+step end of void  ========= Please verify the request.
+-------------Friday 22nd of November 2024 11:10:25 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted

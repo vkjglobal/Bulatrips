@@ -55,7 +55,12 @@
             // Handle the response data as needed
         }
         // Handle the API response
-    
+        
+        // echo "<pre>";
+        //     print_r($response);
+        // echo "</pre>";
+        // die;
+
         if ($response) {
             $responseData = json_decode($response, true);
 

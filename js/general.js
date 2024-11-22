@@ -38,48 +38,48 @@ $(document).ready(function () {
     }
     if (fname == '') {
 
-      // $('#userfname').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Country cannot be blank.</span>')
+      // $('#userfname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Country cannot be blank.</span>')
       document.getElementById("userfname").style.borderColor = "red";
       valid = false;
     }
     if (lname == '') {
-      //   $('#userlname').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Content cannot be blank</span>')
+      //   $('#userlname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Content cannot be blank</span>')
       document.getElementById("userlname").style.borderColor = "red";
       valid = false;
     }
     if (dialcode == '') {
-      //   $('#userphone').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+      //   $('#userphone').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("country_code").style.borderColor = "red";
 
 
       valid = false;
     }
     if (phone == '') {
-      //   $('#userphone').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+      //   $('#userphone').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("userphone").style.borderColor = "red";
 
       valid = false;
     }
     if (email == '') {
-      // $('#useremail').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+      // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("useremail").style.borderColor = "red";
 
       valid = false;
     }
     if (password == '') {
-      // $('#useremail').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+      // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("password").style.borderColor = "red";
 
       valid = false;
     }
     if (confirmpassword == '') {
-      // $('#useremail').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+      // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("confirmpassword").style.borderColor = "red";
 
       valid = false;
     }
     if (!policy.checked) {
-      $('#policyerror').after('<sapan class="text-danger fs-12 position-absolute" >Please accept the privacy policy</span>')
+      $('#policyerror').after('<span class="text-danger fs-12 position-absolute" >Please accept the privacy policy</span>')
       //  document.getElementById("logintab-user").style.border = "red";
 
       valid = false;
@@ -90,25 +90,25 @@ $(document).ready(function () {
       var state = $('#agencystate').val();
       var agencyname = $('#agency').val();
       if (address == '') {
-        // $('#agencyaddress').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+        // $('#agencyaddress').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
         document.getElementById("agencyaddress").style.borderColor = "red";
 
         valid = false;
       }
       if (country == '') {
-        // $('#agencycountry').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+        // $('#agencycountry').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
         document.getElementById("agencycountry").style.borderColor = "red";
 
         valid = false;
       }
       if (state == '') {
-        // $('#agencystate').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+        // $('#agencystate').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
         document.getElementById("agencystate").style.borderColor = "red";
 
         valid = false;
       }
       if (agencyname == '') {
-        // $('#agency').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+        // $('#agency').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
         document.getElementById("agency").style.borderColor = "red";
 
         valid = false;
@@ -1754,34 +1754,39 @@ $(document).ready(function () {
     
     valid = true;
     if (cabin == '') {
-
-      $('#cabin-preference').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Cabin Preference cannot be blank.</span>')
+      $('#cabin-preference').after('<span class="text-danger fs-12 position-absolute" style="color:red">Cabin Preference cannot be blank.</span>')
       valid = false;
     }
     if (adultCount == '') {
-      $('#arrivalairport-input').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">count must be greater than 1</span>')
+      $('#arrivalairport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">count must be greater than 1</span>')
       valid = false;
     }
     if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
     if (source == '') {
-
-      $('#airport-input').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Source cannot be blank.</span>')
+      $('#airport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">Source cannot be blank.</span>')
       valid = false;
+    } else {
+      $('#airport-input').next('span.text-danger').remove();
     }
     if (destination == '') {
 
-      $('#arrivalairport-input').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Destintion cannot be blank.</span>')
+      $('#arrivalairport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">Destintion cannot be blank.</span>')
       valid = false;
+    } else {
+      $('#arrivalairport-input').next('span.text-danger').remove();
     }
     if (departureDate == '') {
 
-      $('#from').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Departure Date cannot be blank.</span>')
+      $('#from').after('<span class="text-danger fs-12 position-absolute" style="color:red">Departure Date cannot be blank.</span>')
+      valid = false;
+    } else {
+      $('#from').next('span.text-danger').remove();
       valid = false;
     }
 
     if (tripTypeValue === "Return") {
       if (returnDate == '') {
-        $('#to').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
+        $('#to').next('span.text-danger').remove();
         valid = false;
       }
     }
@@ -1797,18 +1802,18 @@ $(document).ready(function () {
   }
     if (totalcount > 9) {
 
-      $('#errormessage').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Number of Valid Passenger count is maximum 9.</span>')
+      $('#errormessage').after('<span class="text-danger fs-12 position-absolute" style="color:red">Number of Valid Passenger count is maximum 9.</span>')
       valid = false;
     }
     if (adultCount < infantCount) {
 
-      $('#errormessage').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Number of Infant can not exceed number of Adult selected.</span>')
+      $('#errormessage').after('<span class="text-danger fs-12 position-absolute" style="color:red">Number of Infant can not exceed number of Adult selected.</span>')
       valid = false;
     }
     if (tripTypeValue === "Return") {
       if (returnDate == '') {
 
-        $('#to').after('<sapan class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
+        $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
         valid = false;
       }
     }
@@ -3126,32 +3131,32 @@ $(document).ready(function () {
     }
     if (contactfirstname == '') {
 
-      $('#contactfirstname').after('<sapan class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>')
+      $('#contactfirstname').after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>')
       valid = false;
     }
     if (contactlastname == '') {
 
-      $('#contactlastname').after('<sapan class="text-danger fs-12 position-absolute" >Last Name cannot be blank.</span>')
+      $('#contactlastname').after('<span class="text-danger fs-12 position-absolute" >Last Name cannot be blank.</span>')
       valid = false;
     }
     if (contactcountry == '') {
 
-      $('#contactcountry').after('<sapan class="text-danger fs-12 position-absolute" >Phone Code cannot be blank.</span>')
+      $('#contactcountry').after('<span class="text-danger fs-12 position-absolute" >Phone Code cannot be blank.</span>')
       valid = false;
     }
     if (contactnumber == '') {
 
-      $('#contactnumber').after('<sapan class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>')
+      $('#contactnumber').after('<span class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>')
       valid = false;
     }
     if (contactemail == '' || !emailReg.test($('#contactemail').val())) {
 
-      $('#contactemail').after('<sapan class="text-danger fs-12 position-absolute" >Enter valid Email Id</span>')
+      $('#contactemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id</span>')
       valid = false;
     }
     if (contactpostcode == '') {
 
-      $('#contactpostcode').after('<sapan class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>')
+      $('#contactpostcode').after('<span class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>')
       valid = false;
     }
 
@@ -3302,11 +3307,11 @@ $(document).ready(function () {
 
     if ($('#loginemail').val() == '' || !emailReg.test($('#loginemail').val())) {
 
-      $('#loginemail').after('<sapan class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
+      $('#loginemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
       valid = false;
     }
     if (password == '') {
-      $('#loginpassword').after('<sapan class="text-danger fs-12 position-absolute" >Enter your Password.</span>')
+      $('#loginpassword').after('<span class="text-danger fs-12 position-absolute" >Enter your Password.</span>')
       valid = false;
     }
 
@@ -3514,11 +3519,11 @@ $(document).ready(function () {
 
     if (email == '' || !emailReg.test(email)) {
 
-      $('#newsletter-email-error').html('<sapan class="text-danger position-absolute" >Enter valid Email Address.</span>')
+      $('#newsletter-email-error').html('<span class="text-danger position-absolute" >Enter valid Email Address.</span>')
       valid = false;
     }
     // if (name == '') {
-    //   $('#newsletter-name').after('<sapan class="text-danger position-absolute" >Enter your Name.</span>')
+    //   $('#newsletter-name').after('<span class="text-danger position-absolute" >Enter your Name.</span>')
     //   valid = false;
     // }
 
@@ -3579,19 +3584,19 @@ $('#contactus-submit').submit(function (event) {
 
   if (email == '' || !emailReg.test(email)) {
 
-    $('#contact-email').after('<sapan class="position-absolute text-danger fs-12" >Enter valid Email Id.</span>')
+    $('#contact-email').after('<span class="position-absolute text-danger fs-12" >Enter valid Email Id.</span>')
     valid = false;
   }
   if (name == '') {
-    $('#contact-name').after('<sapan class="position-absolute text-danger fs-12" >Enter your Password.</span>')
+    $('#contact-name').after('<span class="position-absolute text-danger fs-12" >Enter your Password.</span>')
     valid = false;
   }
   if (subject == '') {
-    $('#contact-subject').after('<sapan class="position-absolute text-danger fs-12" >Enter Subject.</span>')
+    $('#contact-subject').after('<span class="position-absolute text-danger fs-12" >Enter Subject.</span>')
     valid = false;
   }
   if (message == '') {
-    $('#contact-message').after('<sapan class="position-absolute text-danger fs-12" >Enter Message.</span>')
+    $('#contact-message').after('<span class="position-absolute text-danger fs-12" >Enter Message.</span>')
     valid = false;
   }
 

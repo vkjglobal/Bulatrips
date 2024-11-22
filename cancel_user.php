@@ -1,151 +1,145 @@
-<?php 
- /* error_reporting(0);
+<?php
+/* error_reporting(0);
 ini_set('display_errors', 0); */
 session_start();
 //$_SESSION['user_id'] =36;
-if(!isset($_SESSION['user_id'])){ //for test  environment 
+if (!isset($_SESSION['user_id'])) { //for test  environment 
 ?>
-   <script>
-   window.location="index.php"    </script>
-   <?php
-}
-else {
+    <script>
+        window.location = "index.php"
+    </script>
+<?php
+} else {
     //=========================================================================================
-     
-    require_once("includes/header.php");   
+
+    require_once("includes/header.php");
     include_once('includes/class.cancel.php');
     $void_eligible = 2;
-       $bookingId = $_GET['booking_id'];
-           $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
-           $bookingId   =   trim($bookingId);
-        $userId     =   $_SESSION['user_id'];
-         $currentTimestamp = time();
+    $bookingId = $_GET['booking_id'];
+    $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
+    $bookingId   =   trim($bookingId);
+    $userId     =   $_SESSION['user_id'];
+    $currentTimestamp = time();
 
     //    $bookingId  =   122;
-       //  $userId    =   9;
-    
-        $objCancel     =   new Cancel();
-         $bookCanusers      =   $objCancel->BookCancelUsers($bookingId,$userId); 
+    //  $userId    =   9;
+
+    $objCancel     =   new Cancel();
+    $bookCanusers      =   $objCancel->BookCancelUsers($bookingId, $userId);
     //   print_r($bookCanusers);exit;
-      
-     //preticketed cancel need only one row value to check ticketed or not 
-    
 
-
-//==================================================================================
+    //preticketed cancel need only one row value to check ticketed or not 
 
 
 
-    ?>
+    //==================================================================================
+
+
+
+?>
     <section>
         <div class="container">
             <h2 class="title-typ2 my-4"></h2>
             <div class="row my-4">
                 <div class="col-12 text-center">
                     <form action="" class="">
-                    <!-- pre ticket booking cancel starts
+                        <!-- pre ticket booking cancel starts
                     1.user under booked status and not in ticketed status 
                     2.within ticktime limit 
                     -->
-                     <div class="mb-3">
+                        <div class="mb-3">
                             <h6 class="text-left fw-700">Do you want to cancel your Booking?</h6>
-                      </div>
-                  
-                            </div>
                         </div>
-                        <div class="table-responsive mb-3">
-                            <h6 class="text-left fw-700">Select Travellers</h6>
-                            <table id="psngr" class="table table-bordered white-bg text-left fs-14" style="min-width: 500px;">
-                                <thead>
-                                    <tr class="dark-blue-bg white-txt">
-                                        <th style="width: 20px;">
-                                            <div class="chkbx">
-                                                <input type="checkbox" id="changeDateAll">
-                                                <label for="changeDateAll" class="mb-0"></label>
-                                            </div>
-                                        </th>
-                                         <th style="width: 33%;">Passenger Name</th>
-                                        <th style="width: 33%;">Ticket Status</th>
-                                       
-                                        <th style="width: 33%;">Departure Date</th>
-                                      
-                                    </tr>
-                                </thead>
-                                <tbody>
 
-                                <?php
-                                $i = 0;
-                                foreach($bookCanusers as $key =>$val){
-                                    $i++;
-                                    //*******************************************
-                                     $pre_booking_status        =   $val['booking_status'];
-                                     $pre_ticket_time_limit     =   $val['ticket_time_limit'];
-                                     $pre_mf_reference          =  $val['mf_reference'];
-                                     $pre_ticket_status         =   $val['ticket_status'];
-                                     $fare_type                  =   $val['fare_type'];
-                                     $VoidingWindow             =    $val['void_window'];
-                                     $precancelsts  =   0;
-                                    //echo $pre_mf_reference;exit;
-                                     //***************************
-                                   // $pre_mf_reference  =   "MF23675423";
-                                  // $VoidingWindow	    =  "2023-08-01T16:29:59.997";	
-                                  $VoidingWindow_limit =   strtotime($VoidingWindow);
+                </div>
+            </div>
+            <div class="table-responsive mb-3">
+                <h6 class="text-left fw-700">Select Travellers</h6>
+                <table id="psngr" class="table table-bordered white-bg text-left fs-14" style="min-width: 500px;">
+                    <thead>
+                        <tr class="dark-blue-bg white-txt">
+                            <th style="width: 20px;">
+                                <div class="chkbx">
+                                    <input type="checkbox" id="changeDateAll">
+                                    <label for="changeDateAll" class="mb-0"></label>
+                                </div>
+                            </th>
+                            <th style="width: 33%;">Passenger Name</th>
+                            <th style="width: 33%;">Ticket Status</th>
 
-     //***************************
+                            <th style="width: 33%;">Departure Date</th>
 
-                             // Convert the given date to a timestamp
-                             $pre_ticket_time_limit = strtotime($pre_ticket_time_limit);
-                             // Get the current timestamp
-                              //popn up for ticketnprocess
-                           //echo $pre_ticket_status;
-                           if(($fare_type == "Public") || ($fare_type == "Private")){
-                                if($pre_ticket_status  ==  trim("TktInProcess")){
-                                $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
-                                        echo '<script>';
-                                echo 'document.addEventListener("DOMContentLoaded", function() {';
-                                echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                                echo '    $("#Ticketinprocess").modal("show");';
-                                echo '});';
-                                echo '</script>';
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        $i = 0;
+                        foreach ($bookCanusers as $key => $val) {
+                            $i++;
+                            //*******************************************
+                            $pre_booking_status        =   $val['booking_status'];
+                            $pre_ticket_time_limit     =   $val['ticket_time_limit'];
+                            $pre_mf_reference          =  $val['mf_reference'];
+                            $pre_ticket_status         =   $val['ticket_status'];
+                            $fare_type                  =   $val['fare_type'];
+                            $VoidingWindow             =    $val['void_window'];
+                            $precancelsts  =   0;
+                            //echo $pre_mf_reference;exit;
+                            //***************************
+                            // $pre_mf_reference  =   "MF23675423";
+                            // $VoidingWindow	    =  "2023-08-01T16:29:59.997";	
+                            $VoidingWindow_limit =   strtotime($VoidingWindow);
+
+                            //***************************
+
+                            // Convert the given date to a timestamp
+                            $pre_ticket_time_limit = strtotime($pre_ticket_time_limit);
+                            // Get the current timestamp
+                            //popn up for ticketnprocess
+                            //echo $pre_ticket_status;
+                            if (($fare_type == "Public") || ($fare_type == "Private")) {
+                                if ($pre_ticket_status  ==  trim("TktInProcess")) {
+                                    $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
+                                    echo '<script>';
+                                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                    echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                    echo '    $("#Ticketinprocess").modal("show");';
+                                    echo '});';
+                                    echo '</script>';
                                     //   echo "KK";exit;
 
                                     //need to wait till ticked state to get cancelled 
-                                }       
-                                else if(($pre_ticket_status  !=  trim("Ticketed"))  &&  ($pre_ticket_status  !=  trim("TktInProcess")) &&  ($pre_ticket_status  !=  trim("cancelled"))) {
+                                } else if (($pre_ticket_status  !=  trim("Ticketed"))  &&  ($pre_ticket_status  !=  trim("TktInProcess")) &&  ($pre_ticket_status  !=  trim("cancelled"))) {
                                     //      pre ticket cancel api          
-                                     // Check if the _ticket_time_limit date is not expired
-                                     if($pre_ticket_time_limit > $currentTimestamp) {
-                                           $precancelsts  =   1;
-                                            //  echo "The date is not expired.";
-                                                //2023-07-09 09:39:00
-                                     } //if tick time limit is over ,ie either ticket autocancelled or goes to ticketed state inbetween
+                                    // Check if the _ticket_time_limit date is not expired
+                                    if ($pre_ticket_time_limit > $currentTimestamp) {
+                                        $precancelsts  =   1;
+                                        //  echo "The date is not expired.";
+                                        //2023-07-09 09:39:00
+                                    } //if tick time limit is over ,ie either ticket autocancelled or goes to ticketed state inbetween
 
-                                }
-                                else if($pre_ticket_status  ==  trim("Ticketed"))
-                                { 
-                                //if under ticketed state void/refund apis 
-            
-                                    if($VoidingWindow_limit > $currentTimestamp) {
+                                } else if ($pre_ticket_status  ==  trim("Ticketed")) {
+                                    //if under ticketed state void/refund apis 
+
+                                    if ($VoidingWindow_limit > $currentTimestamp) {
                                         $precancelsts  =   0;
                                         $void_eligible   =   1;
-                                    }
-                                    else{
+                                    } else {
                                         //refund api
-                                            $void_eligible   =   0;
+                                        $void_eligible   =   0;
                                     }
                                     //code for ticketed cancel PTR apis
                                     //user cancelled on same day of ticket issuance (within voidwindow time)
-                                }
-                                else if($pre_ticket_status  ==  trim("cancelled")){
-                                        $ticktinprocess_msg =   "Your Ticket is Already Cancelled";
-                                            echo '<script>';
-                                        echo 'document.addEventListener("DOMContentLoaded", function() {';
-                                        echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                                        echo '    $("#Ticketinprocess").modal("show");';
-                                        echo '});';
-                                        echo '</script>';
-                                }
-                                else{
+                                } else if ($pre_ticket_status  ==  trim("cancelled")) {
+                                    $ticktinprocess_msg =   "Your Ticket is Already Cancelled";
+                                    echo '<script>';
+                                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                    echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                    echo '    $("#Ticketinprocess").modal("show");';
+                                    echo '});';
+                                    echo '</script>';
+                                } else {
                                     //only booked "status" tickets can be cancelled 
                                     $ticktinprocess_msg =   "Your Ticket is Not Under Booked Status .Cannot Move for Cancellation ";
                                     echo '<script>';
@@ -154,84 +148,82 @@ else {
                                     echo '    $("#Ticketinprocess").modal("show");';
                                     echo '});';
                                     echo '</script>';
-
                                 }
+                            }
+                            if ($fare_type == "WebFare") {
+                                $ticktinprocess_msg =   "Your Ticket is WEb Fare Type .Cannot Move for Cancellation ";
+                                echo '<script>';
+                                echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                echo '    $("#Ticketinprocess").modal("show");';
+                                echo '});';
+                                echo '</script>';
+                                //webfare type not eligble for cancellation 
+                            }
+                            // var_dump($void_eligible);exit;
+                            // echo  $void_eligible .$fare_type;exit;
 
-                           }
-                        if($fare_type == "WebFare"){
-                           $ticktinprocess_msg =   "Your Ticket is WEb Fare Type .Cannot Move for Cancellation ";
-                                         echo '<script>';
-                            echo 'document.addEventListener("DOMContentLoaded", function() {';
-                            echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                            echo '    $("#Ticketinprocess").modal("show");';
-                            echo '});';
-                            echo '</script>';
-                           //webfare type not eligble for cancellation 
-                       }
-  // var_dump($void_eligible);exit;
- // echo  $void_eligible .$fare_type;exit;
+                            //rint_r($bookCanusers);echo "hi";exit;
+                            $objCancel->closeConnection();
+                            // This will close the database connection as well
+                            //******************************************
+                            $checkboxId =   "changeDate" . $i;
+                            $passenger_name  =   $val['title'] . " " . $val['first_name'] . " " . $val['last_name'];
+                            $dep_date     =   $val['dep_date'];
+                            $dateTime      = new DateTime($dep_date);
+                            $formattedDate = $dateTime->format('d F Y, H:i');
+                        ?>
+                            <tr>
+                                <td style="vertical-align: middle;">
+                                    <div class="chkbx">
+                                        <input type="checkbox" class="chkbox" id="<?php echo $checkboxId; ?>"
+                                            data-firstname="<?php echo $val['first_name']; ?>"
+                                            data-lastname="<?php echo $val['last_name']; ?>"
+                                            data-title="<?php echo $val['title']; ?>"
+                                            data-eticket="<?php echo $val['e_ticket_number']; ?>"
+                                            data-passengertype="<?php echo $val['passenger_type']; ?>">
+                                        <label for="<?php echo $checkboxId; ?>" class="mb-0"></label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align: middle;"><?php echo  $passenger_name; ?></td>
+                                <td style="vertical-align: middle;"><?php echo  $pre_ticket_status; ?></td>
+                                <td style="vertical-align: middle;"><?php echo $formattedDate; ?></td>
 
-   //rint_r($bookCanusers);echo "hi";exit;
-$objCancel->closeConnection();
-// This will close the database connection as well
-                                    //******************************************
-                                    $checkboxId =   "changeDate".$i;
-                                     $passenger_name  =   $val['title']." ".$val['first_name']." ".$val['last_name'];
-                                     $dep_date     =   $val['dep_date'];
-                                     $dateTime      = new DateTime($dep_date);
-                                    $formattedDate = $dateTime->format('d F Y, H:i');
-                                     ?>
-                                    <tr>
-                                        <td style="vertical-align: middle;">
-                                            <div class="chkbx">
-                                                <input type="checkbox" class="chkbox" id="<?php echo $checkboxId; ?>"
-                                                data-firstname="<?php echo $val['first_name']; ?>"
-                                                data-lastname="<?php echo $val['last_name']; ?>"
-                                                data-title="<?php echo $val['title']; ?>"                                                
-                                                data-eticket="<?php echo $val['e_ticket_number']; ?>"
-                                                data-passengertype="<?php echo $val['passenger_type']; ?>">
-                                                <label for="<?php echo $checkboxId; ?>" class="mb-0"></label>
-                                            </div>
-                                        </td>
-                                        <td style="vertical-align: middle;"><?php echo  $passenger_name ;?></td>
-                                        <td style="vertical-align: middle;"><?php echo  $pre_ticket_status;?></td>
-                                        <td style="vertical-align: middle;"><?php echo $formattedDate;?></td>
-                                       
-                                    </tr>
-                                    <?php } ?>
-                                   
-                                </tbody>
-                            </table>
-                        </div>
-                         <input type="hidden" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
-                       <input type="hidden" id="bookingId" value="<?php echo $bookingId; ?>">
-                        <input type="hidden" id="USerid" value="<?php echo $userId; ?>">
-                         <input type="hidden" id="precancelsts" value="<?php echo $precancelsts; ?>">
-                      <?php if( $precancelsts  ==  1) { ?>    
-                     <button type="button" class="btn btn-typ3 mb-3" id="precancel" onclick="precancelApi()">Cancel Your Flight</button>  <!-- pre ticket booking cancel ends  -->
-                     <?php } else if($void_eligible != 2) { //post ticket issuance today cancel to know refund amount by voidquote appi
-                   ?>                       
-                                             <?php if($void_eligible == 1) { //post ticket issuance today cancel to know refund amount by voidquote appi
-                   ?>  
-                                            <input type="hidden" id="void_eligible" value="<?php echo $void_eligible; ?>">
-                                                <button type="button" class="btn btn-typ3 mb-3" id="postcancel">
-                                                    Void Request
-                                                    <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
-                                                </button>
-                    <?php } else if($void_eligible == 0) { //post ticket issuance today cancel to know refund amount by voidquote appi
-                   ?>  
-                                                <button type="button" class="btn btn-typ3 mb-3" id="refundApiId">
-                                                    Refund Request
-                                                    <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
-                                                </button>
+                            </tr>
+                        <?php } ?>
 
-                                         <?php } 
-                                         } ?>
-
-<!-- end of post ticket booking cancel -->
-                    </form>
-                </div>
+                    </tbody>
+                </table>
             </div>
+            <input type="hidden" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
+            <input type="hidden" id="bookingId" value="<?php echo $bookingId; ?>">
+            <input type="hidden" id="USerid" value="<?php echo $userId; ?>">
+            <input type="hidden" id="precancelsts" value="<?php echo $precancelsts; ?>">
+            <?php if ($precancelsts  ==  1) { ?>
+                <button type="button" class="btn btn-typ3 mb-3" id="precancel" onclick="precancelApi()">Cancel Your Flight</button> <!-- pre ticket booking cancel ends  -->
+            <?php } else if ($void_eligible != 2) { //post ticket issuance today cancel to know refund amount by voidquote appi
+            ?>
+                <?php if ($void_eligible == 1) { //post ticket issuance today cancel to know refund amount by voidquote appi
+                ?>
+                    <input type="hidden" id="void_eligible" value="<?php echo $void_eligible; ?>">
+                    <button type="button" class="btn btn-typ3 mb-3" id="postcancel">
+                        Void Request
+                        <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
+                    </button>
+                <?php } else if ($void_eligible == 0) { //post ticket issuance today cancel to know refund amount by voidquote appi
+                ?>
+                    <button type="button" class="btn btn-typ3 mb-3" id="refundApiId">
+                        Refund Request
+                        <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
+                    </button>
+
+            <?php }
+            } ?>
+
+            <!-- end of post ticket booking cancel -->
+            </form>
+        </div>
+        </div>
         </div>
     </section>
     <!-- Modal -->
@@ -473,758 +465,796 @@ $objCancel->closeConnection();
     </div>
     <!--     popup ----- -->
     <div class="modal fade" id="errorModal" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
-</button>
-</div>
-<div class="modal-body">
-<p class="text-center" id="errorMessage">Your Refund amount is <span id="refundAmount"></span>.Do you want to continue with cancel ?</p>
-</div>
-<div class="modal-footer">
-<button type="button" id="close_errmodsal" class="btn btn-secondary" data-dismiss="modal">Close</button>
- <!-- post ticket issuance today cancel -->
-                        <input type="hidden" id="modal_precancelValue" value="<?php echo $pre_mf_reference; ?>">
-                       <input type="hidden" id="modal_bookingId" value="<?php echo $bookingId; ?>">
-                        <input type="hidden" id="modal_USerid" value="<?php echo $userId; ?>">
-                        <input type="hidden" id="modal_void_eligible" value="<?php echo $void_eligible; ?>">
-                        <input type="hidden" id="api_refundAmount" value="">
-                       
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center" id="errorMessage">Your Refund amount is <span id="refundAmount"></span>.Do you want to continue with cancel ?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="close_errmodsal" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <!-- post ticket issuance today cancel -->
+                    <input type="hidden" id="modal_precancelValue" value="<?php echo $pre_mf_reference; ?>">
+                    <input type="hidden" id="modal_bookingId" value="<?php echo $bookingId; ?>">
+                    <input type="hidden" id="modal_USerid" value="<?php echo $userId; ?>">
+                    <input type="hidden" id="modal_void_eligible" value="<?php echo $void_eligible; ?>">
+                    <input type="hidden" id="api_refundAmount" value="">
 
-                    <?php    if($void_eligible == 1) { ?>
-<button type="button" id="voidContinue" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" onclick="postCancelVoidAPiCall()">Continue>></button>
-<?php } else if($void_eligible == 0){ ?>
-<button type="button" id="refundContinue" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4">Continue>></button>
 
-<?php } ?>
-</div>
-</div>
-</div>
-</div>
-<!--     ============================================ -->
- <div class="modal fade" id="Ticketinprocess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" id="xclose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
-</button>
-</div>
-<div class="modal-body">
-<!-- <p class="text-center" id="TicketinMessage">Your Refund amount is <span id="refundAmount"></span>.Do you want to continue with cancel ?</p> -->
-<p class="text-center" id="TicketinMessage"></p>
+                    <?php if ($void_eligible == 1) { ?>
+                        <button type="button" id="voidContinue" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4" onclick="postCancelVoidAPiCall()">Continue>></button>
+                    <?php } else if ($void_eligible == 0) { ?>
+                        <button type="button" id="refundContinue" class="btn btn-typ3 fs-15 fw-600 pl-4 pr-4">Continue>></button>
 
-</div>
-<div class="modal-footer" id="TicketinMessage_div">
-<button type="button" id="close_ticketinprocess" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <?php } ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--     ============================================ -->
+    <div class="modal fade" id="Ticketinprocess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="xclose" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <p class="text-center" id="TicketinMessage">Your Refund amount is <span id="refundAmount"></span>.Do you want to continue with cancel ?</p> -->
+                    <p class="text-center" id="TicketinMessage"></p>
 
-</div>
-</div>
-</div>
-</div>
-<!--   =========================== -->
- <div class="modal fade" id="TicketinprocessErr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" id="xcloseErr" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
-</button>
-</div>
-<div class="modal-body">
-<p class="text-center" id="TicketinMessageErr"></p>
-</div>
-<div class="modal-footer" id="TicketinMessage_div">
-<button type="button" id="close_ticketinprocessErr" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+                <div class="modal-footer" id="TicketinMessage_div">
+                    <button type="button" id="close_ticketinprocess" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-</div>
-</div>
-</div>
-</div>
-<!-- void success pop up -->
-<!--   =========================== -->
- <div class="modal fade" id="voidsuccess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
-<div class="modal-dialog">
-<div class="modal-content">
-<div class="modal-header">
-<button type="button" class="close" id="xclose_voidsuccess" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
-</button>
-</div>
-<div class="modal-body">
-<p class="text-center" id="voidsuccess_text"></p>
-</div>
-<div class="modal-footer" id="TicketinMessage_div">
-<button type="button" id="close_voidsuccess" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--   =========================== -->
+    <div class="modal fade" id="TicketinprocessErr" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="xcloseErr" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center" id="TicketinMessageErr"></p>
+                </div>
+                <div class="modal-footer" id="TicketinMessage_div">
+                    <button type="button" id="close_ticketinprocessErr" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-</div>
-</div>
-</div>
-</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- void success pop up -->
+    <!--   =========================== -->
+    <div class="modal fade" id="voidsuccess" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" id="xclose_voidsuccess" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-center" id="voidsuccess_text"></p>
+                </div>
+                <div class="modal-footer" id="TicketinMessage_div">
+                    <button type="button" id="close_voidsuccess" class="btn btn-secondary" data-dismiss="modal">Close</button>
 
-    <?php
-        require_once("includes/footer.php");
-   
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php
+    require_once("includes/footer.php");
 }
-   ?>
-    <script>
-     $(document).ready(function() {
-    // Function to handle close button click
-            function handleModalClose() {
-              // Redirect to the dashboard page
-              window.location.href = 'index.php'; // Replace 'dashboard.php' with the actual URL of your dashboard page
+?>
+<script>
+    $(document).ready(function() {
+        // Function to handle close button click
+        function handleModalClose() {
+            // Redirect to the dashboard page
+            window.location.href = 'index.php'; // Replace 'dashboard.php' with the actual URL of your dashboard page
+        }
+
+        // Add event listener to the close button
+        $('#close_ticketinprocess').on('click', handleModalClose);
+        $('#xclose').on('click', handleModalClose);
+        //============================================
+        // Event listener for button click
+        /*  $("#postcancel").click(function() {
+              // Collect the selected passenger details from checked checkboxes
+              const selectedPassengers = [];
+              $(".chkbox:checked").each(function() {
+                  const firstname = $(this).data("firstname");
+                  const lastname = $(this).data("lastname");
+                  const title = $(this).data("title");
+                  const eticket = $(this).data("eticket");
+                  const passengertype = $(this).data("passengertype");
+
+                  selectedPassengers.push({
+                      firstname: firstname,
+                      lastname: lastname,
+                      title: title,
+                      eticket: eticket,
+                      passengertype: passengertype
+                  });
+              }); */
+
+        //************************************************************* */
+
+
+
+        $("#postcancel").on("click", function() {
+            let button = $(this);
+            button.attr('disabled', true);
+            button.html('Void Request <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
+
+            event.preventDefault(); // Prevent the form from submitting normally
+            if ($(".chkbox:checked").length === 0) {
+                $('#psngr-error').remove();
+                $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
+                button.html('Void Request');
+                button.attr('disabled', false);
+                return false;
             }
-
-    // Add event listener to the close button
-         $('#close_ticketinprocess').on('click', handleModalClose);
-          $('#xclose').on('click', handleModalClose);
-  //============================================
-   // Event listener for button click
-      /*  $("#postcancel").click(function() {
-            // Collect the selected passenger details from checked checkboxes
-            const selectedPassengers = [];
-            $(".chkbox:checked").each(function() {
-                const firstname = $(this).data("firstname");
-                const lastname = $(this).data("lastname");
-                const title = $(this).data("title");
-                const eticket = $(this).data("eticket");
-                const passengertype = $(this).data("passengertype");
-
-                selectedPassengers.push({
-                    firstname: firstname,
-                    lastname: lastname,
-                    title: title,
-                    eticket: eticket,
-                    passengertype: passengertype
-                });
-            }); */
-          
-   //************************************************************* */
-    $("#postcancel").on("click", function() {
-        this.attr('disabled', true);
-        this.html('Void Request <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
-        event.preventDefault(); // Prevent the form from submitting normally
-          if ($(".chkbox:checked").length === 0) {
-               $('#psngr-error').remove(); 
-          $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
-          return false;
-        }
-        $('#psngr-error').remove();
-      const selectedPassengers = getSelectedPassengers(); 
-      /* $(".chkbox:checked").each(function() {
-                const void-eligible  = $(this).data("void-eligible");
-                if(void-eligible ==0){
-                     postCancelRefundApi(selectedPassengers);
-                }
-                }); */
-
-       //  const jsonString = JSON.stringify(selectedPassengers);
-
-        //alert(jsonString); // This will display the contents of selectedPassengers as a JSON string
-       // return false;
-      postCancelApi(selectedPassengers);
-      this.html('Void Request');
-    });
-
-    $("#voidContinue").on("click", function() {
-        event.preventDefault(); // Prevent the form from submitting normally
-          if ($(".chkbox:checked").length === 0) {
-               $('#psngr-error').remove(); 
-          $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
-          return false;
-        }
-      const selectedPassengers = getSelectedPassengers();
-      postCancelVoidAPiCall(selectedPassengers);
-    });
-    $("#refundContinue").on("click", function() { 
-      const selectedPassengers = getSelectedPassengers();
-      postCancelRefundprocessAPiCall(selectedPassengers);
-    });
-     $("#refundApiId").on("click", function() { 
-     // const selectedPassengers = getSelectedPassengers();
-      
-      //=============
-      event.preventDefault(); // Prevent the form from submitting normally
-          if ($(".chkbox:checked").length === 0) {
-               $('#psngr-error').remove(); 
-          $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
-
-      //  alert("Please select at least one passenger.");
-        return false; // Prevent further execution
-    }
-         $('#psngr-error').remove(); 
-        const formData = $(this).serialize(); // Serialize the form data
-                     
-      const selectedPassengers = getSelectedPassengers();
-      // Remove error message when a checkbox is selected
-    $(".chkbox").on("change", function() {
-        if ($(".chkbox:checked").length > 0) {
-            $('#psngr-error').remove(); // Remove the error message
-        }
-    });
-   
-      //==============
-      postCancelRefundApi(selectedPassengers);
-    });
-    
-    
-    // Add more click event handlers for other buttons if needed
-
-    
-
-
-
-   //************************************************************************ */
-
-            // Call the function to handle the AJAX request with the selected passenger details
-         //   postCancelApi(selectedPassengers);
-           
-        
-  });
-  // Function to get selected passengers
-    function getSelectedPassengers() {
-       
-       const selectedPassengers = [];
-            $(".chkbox:checked").each(function() {
-                const firstname = $(this).data("firstname");
-                const lastname = $(this).data("lastname");
-                const title = $(this).data("title");
-                const eticket = $(this).data("eticket");
-                const passengertype = $(this).data("passengertype");
-              
-
-                selectedPassengers.push({
-                    firstname: firstname,
-                    lastname: lastname,
-                    title: title,
-                    eticket: eticket,
-                    passengertype: passengertype
-                });
-                 });
-                 return selectedPassengers;
-    }
-  
-  //==========================================
- 
-    function precancelApi() {
-  
-    var mfreNum = document.getElementById("precancelValue").value;
-    var bookingId = document.getElementById("bookingId").value;
-    var userId = document.getElementById("USerid").value;
-    var precancelsts = document.getElementById("precancelsts").value;
-
-    // Use the hiddenValue in your function logic
- alert(mfreNum);return false;
-    $.ajax({
-                url: 'cancel_ajax.php', 
-                type: 'POST',
-                 data: { mfreNum: mfreNum,bookingId: bookingId,userId: userId,precancelsts: precancelsts },
-                //data: $(this).serialize()+ '&amount=' +amountprev,
-                success: function(response) {
-                   const responseData = JSON.parse(response);               
-                  // alert(response);return false;
-                    // Handle the response here
-                    if (responseData.status === 'success') {
-                                             $('#TicketinprocessErr').modal('show');
-                          //  $('#TicketinMessage').text('$' + errorMessage);
-                            $('#TicketinMessageErr').html("Successfully Cancelled Your Booking");  
-
-                                   $("#xcloseErr").click(function() {
-                                  $(this).parents('.modal').modal('hide');
-                                });
-                                 $("#close_ticketinprocessErr").click(function() {
-                                  $(this).parents('.modal').modal('hide');
-                                });
-                         
-                    } else {
-                        const errorMessage = responseData.message;
-                             //  alert(errorMessage);
-                               var messageErr   =   "Error in cancellation";
-                              $('#TicketinprocessErr').modal('show');
-                          //  $('#TicketinMessage').text('$' + errorMessage);
-                            $('#TicketinMessageErr').html(errorMessage);  
-
-                                   $("#xcloseErr").click(function() {
-                                  $(this).parents('.modal').modal('hide');
-                                });
-                                 $("#close_ticketinprocessErr").click(function() {
-                                  $(this).parents('.modal').modal('hide');
-                                });
-                        
-                    }
-                },
-                error: function(xhr, status, error) {
-                    console.log(error); // Log any AJAX errors
-                }
-            
+            $('#psngr-error').remove();
+            const selectedPassengers = getSelectedPassengers();
+            postCancelApi(selectedPassengers);
+            // button.html('Void Request');
         });
 
-       }
+        $("#voidContinue").on("click", function() {
+            event.preventDefault(); // Prevent the form from submitting normally
+            if ($(".chkbox:checked").length === 0) {
+                $('#psngr-error').remove();
+                $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
+                return false;
+            }
+            const selectedPassengers = getSelectedPassengers();
+            postCancelVoidAPiCall(selectedPassengers);
+        });
+        $("#refundContinue").on("click", function() {
+            const selectedPassengers = getSelectedPassengers();
+            postCancelRefundprocessAPiCall(selectedPassengers);
+        });
+        $("#refundApiId").on("click", function() {
+            // const selectedPassengers = getSelectedPassengers();
 
-//======================================================
-function postCancelApi(selectedPassengers){
-   //  $('#errorModal').modal('show');return false;
-    var mfreNum = document.getElementById("precancelValue").value;
-    var bookingId = document.getElementById("bookingId").value;
-    var userId = document.getElementById("USerid").value;
-    var void_eligible = document.getElementById("void_eligible").value;
+            //=============
+            event.preventDefault(); // Prevent the form from submitting normally
+            if ($(".chkbox:checked").length === 0) {
+                $('#psngr-error').remove();
+                $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
 
-    // Use the hiddenValue in your function logic
-// alert(mfreNum);
-    $.ajax({
-                url: 'cancel_post_ticket.php',
-                type: 'POST',
-                 data: { mfreNum: mfreNum,bookingId: bookingId,userId: userId,void_eligible: void_eligible,passengers: selectedPassengers },
-                //data: $(this).serialize()+ '&amount=' +amountprev,
-                success: function(response) {
-                   //onsole.log(response);                   
+                //  alert("Please select at least one passenger.");
+                return false; // Prevent further execution
+            }
+            $('#psngr-error').remove();
+            const formData = $(this).serialize(); // Serialize the form data
+
+            const selectedPassengers = getSelectedPassengers();
+            // Remove error message when a checkbox is selected
+            $(".chkbox").on("change", function() {
+                if ($(".chkbox:checked").length > 0) {
+                    $('#psngr-error').remove(); // Remove the error message
+                }
+            });
+
+            //==============
+            postCancelRefundApi(selectedPassengers);
+        });
+
+
+        // Add more click event handlers for other buttons if needed
+
+
+
+
+
+        //************************************************************************ */
+
+        // Call the function to handle the AJAX request with the selected passenger details
+        //   postCancelApi(selectedPassengers);
+
+
+    });
+    // Function to get selected passengers
+    function getSelectedPassengers() {
+
+        const selectedPassengers = [];
+        $(".chkbox:checked").each(function() {
+            const firstname = $(this).data("firstname");
+            const lastname = $(this).data("lastname");
+            const title = $(this).data("title");
+            const eticket = $(this).data("eticket");
+            const passengertype = $(this).data("passengertype");
+
+
+            selectedPassengers.push({
+                firstname: firstname,
+                lastname: lastname,
+                title: title,
+                eticket: eticket,
+                passengertype: passengertype
+            });
+        });
+        return selectedPassengers;
+    }
+
+    //==========================================
+
+    function precancelApi() {
+
+        var mfreNum = document.getElementById("precancelValue").value;
+        var bookingId = document.getElementById("bookingId").value;
+        var userId = document.getElementById("USerid").value;
+        var precancelsts = document.getElementById("precancelsts").value;
+
+        // Use the hiddenValue in your function logic
+        alert(mfreNum);
+        return false;
+        $.ajax({
+            url: 'cancel_ajax.php',
+            type: 'POST',
+            data: {
+                mfreNum: mfreNum,
+                bookingId: bookingId,
+                userId: userId,
+                precancelsts: precancelsts
+            },
+            //data: $(this).serialize()+ '&amount=' +amountprev,
+            success: function(response) {
+                const responseData = JSON.parse(response);
+                // alert(response);return false;
+                // Handle the response here
+                if (responseData.status === 'success') {
+                    $('#TicketinprocessErr').modal('show');
+                    //  $('#TicketinMessage').text('$' + errorMessage);
+                    $('#TicketinMessageErr').html("Successfully Cancelled Your Booking");
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+
+                } else {
+                    const errorMessage = responseData.message;
+                    //  alert(errorMessage);
+                    var messageErr = "Error in cancellation";
+                    $('#TicketinprocessErr').modal('show');
+                    //  $('#TicketinMessage').text('$' + errorMessage);
+                    $('#TicketinMessageErr').html(errorMessage);
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+
+                }
+            },
+            error: function(xhr, status, error) {
+                console.log(error); // Log any AJAX errors
+            }
+
+        });
+
+    }
+
+    //======================================================
+    function postCancelApi(selectedPassengers) {
+        //  $('#errorModal').modal('show');return false;
+        var mfreNum = document.getElementById("precancelValue").value;
+        var bookingId = document.getElementById("bookingId").value;
+        var userId = document.getElementById("USerid").value;
+        var void_eligible = document.getElementById("void_eligible").value;
+
+        // Use the hiddenValue in your function logic
+        // alert(mfreNum);
+        $.ajax({
+            url: 'cancel_post_ticket.php',
+            type: 'POST',
+            data: {
+                mfreNum: mfreNum,
+                bookingId: bookingId,
+                userId: userId,
+                void_eligible: void_eligible,
+                passengers: selectedPassengers
+            },
+            //data: $(this).serialize()+ '&amount=' +amountprev,
+            success: function(response) {
+                //onsole.log(response);                   
                 //   alert(response);
                 //  return false;
-                    // Parse the JSON response
-        const responseData = JSON.parse(response);
+                // Parse the JSON response
+                const responseData = JSON.parse(response);
 
-        // Check the status of the response
-        if (responseData.status === 'success') {
-            // Show success popup
-            const successMessage = responseData.message;
-            const refundAmount = responseData.refundamount;
-            
-             $('#errorModal').modal('show');
-             $('#refundAmount').text('$' + refundAmount);
-               $(".close").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_errmodsal").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        
-        } else {
-            // Show error popup
-         
-            const errorMessage = responseData.message;
-           // alert(errorMessage);
-           var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(errorMessage);
+                // Check the status of the response
+                if (responseData.status === 'success') {
+                    $("#postcancel").html('Void Request');
+                    $("#postcancel").attr('disabled', false);
+                    // Show success popup
+                    const successMessage = responseData.message;
+                    const refundAmount = responseData.refundamount;
 
-      //  $('#TicketinMessage').html(`hiiihi`);
+                    $('#errorModal').modal('show');
+                    $('#refundAmount').text('$' + refundAmount);
+                    $(".close").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_errmodsal").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
 
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-    },
-    error: function(xhr, textStatus, errorThrown) {
-        // Handle AJAX error, if needed
-        alert("unexpected error");
+                } else {
+                    $("#postcancel").html('Void Request');
+                    $("#postcancel").attr('disabled', false);
+                    // Show error popup
+
+                    const errorMessage = responseData.message;
+                    // alert(errorMessage);
+                    var messageErr = "Error in cancellation";
+                    $('#TicketinprocessErr').modal('show');
+                    //  $('#TicketinMessage').text('$' + errorMessage);
+                    $('#TicketinMessageErr').html(errorMessage);
+
+                    //  $('#TicketinMessage').html(`hiiihi`);
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // Handle AJAX error, if needed
+                alert("unexpected error");
+            }
+        });
+
     }
-});
 
-}
+    function postCancelVoidAPiCall(selectedPassengers) {
+        var button_continue = $("#voidContinue");
+        button_continue.attr('disabled', true);
+        button_continue.html('Continue>> <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
+    
+        //calling void api after voidQuote 
+        var mfreNum = document.getElementById("modal_precancelValue").value;
+        var bookingId = document.getElementById("modal_bookingId").value;
+        var userId = document.getElementById("modal_USerid").value;
+        var void_eligible = document.getElementById("modal_void_eligible").value;
 
-function postCancelVoidAPiCall(selectedPassengers){ 
-    //calling void api after voidQuote 
-     var mfreNum = document.getElementById("modal_precancelValue").value;
-    var bookingId = document.getElementById("modal_bookingId").value;
-    var userId = document.getElementById("modal_USerid").value;
-    var void_eligible = document.getElementById("modal_void_eligible").value;
-
-    // Use the hiddenValue in your function logic
-// alert(mfreNum);return false;
-    $.ajax({
-                url: 'cancel_post_ticket_process_Void.php',
-                type: 'POST',
-                 data: { mfreNum: mfreNum,bookingId: bookingId,userId: userId,void_eligible: void_eligible,passengers: selectedPassengers },
-                //data: $(this).serialize()+ '&amount=' +amountprev,
-                success: function(response) {
-                   //onsole.log(response);                   
-               //  alert(response);
+        // Use the hiddenValue in your function logic
+        // alert(mfreNum);return false;
+        $.ajax({
+            url: 'cancel_post_ticket_process_Void.php',
+            type: 'POST',
+            data: {
+                mfreNum: mfreNum,
+                bookingId: bookingId,
+                userId: userId,
+                void_eligible: void_eligible,
+                passengers: selectedPassengers
+            },
+            //data: $(this).serialize()+ '&amount=' +amountprev,
+            success: function(response) {
+                button_continue.html('Continue>>');
+                button_continue.attr('disabled', false);
+                //onsole.log(response);                   
+                //  alert(response);
                 //  return false;
-                    // Parse the JSON response
-        const responseData = JSON.parse(response);
+                // Parse the JSON response
+                const responseData = JSON.parse(response);
 
-        // Check the status of the response
-        if (responseData.status === 'success') {
-            // Show success popup
-             $('#errorModal').modal('hide');
-		if (responseData.ptr_status === 'InProcess'){			
-		
-           const successMessage = responseData.message;
-          //const refundAmount = responseData.refundamount;
-             $('#voidsuccess').modal('show');
-             $('#voidsuccess_text').text( successMessage);
-               $("#xclose_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-		    window.location.href = "index.php";
+                // Check the status of the response
+                if (responseData.status === 'success') {
+                    // Show success popup
+                    $('#errorModal').modal('hide');
+                    if (responseData.ptr_status === 'InProcess') {
 
-            });
-             $("#close_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-			    window.location.href = "index.php";
+                        const successMessage = responseData.message;
+                        //const refundAmount = responseData.refundamount;
+                        $('#voidsuccess').modal('show');
+                        $('#voidsuccess_text').text(successMessage);
+                        $("#xclose_voidsuccess").click(function() {
+                            $(this).parents('.modal').modal('hide');
+                            window.location.href = "index.php";
 
-            });
-		return false;
-        }
-            //==============next search api ========
-                            // Additional data to be passed to the third AJAX call
-                  const ptr_id = responseData.ptr_id; // Replace 'responseData.ptr_id' with the actual property that holds the PTR ID
-                                
-                 const cancel_booking_Id = responseData.cancel_booking_Id; 
+                        });
+                        $("#close_voidsuccess").click(function() {
+                            $(this).parents('.modal').modal('hide');
+                            window.location.href = "index.php";
 
-                  // Call the third AJAX request with additional data
-                  $.ajax({
-                    url: 'search_ptr_void.php', // Replace 'third_api_url' with the URL of your third API
-                    type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
-                    data: {
-                      ptr_id: ptr_id,
-                      MFnum: mfreNum,
-                      bookingId: bookingId,
-                      userId: userId
-                    },                    
-                    success: function(responseData_New) {
-                        //   alert(responseData_New); return false;
-                          const responseDataNew = JSON.parse(responseData_New);
-                     //  alert('pppp');
-                         
-                      // Handle the response from the third API
-                      // This function will be executed when the third API call is successful
-                      // You can process the response here
-                      // Show success popup
-               if (responseDataNew.status === 'success') {
-            const successMessage = responseDataNew.message;
-            const refundAmount = responseDataNew.refundamount;
-          //  alert(successMessage);
-          //  alert(refundAmount);
-             $('#voidsuccess').modal('show');
-             $('#voidsuccess_text').text( successMessage);
-               $("#xclose_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-        else {
-            // Show error popup
-                     $('#errorModal').modal('hide');
-                  //   alert("KK");return false;
-            const errorMessage = responseDataNew.message;
-           // alert(errorMessage);
-           var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(messageErr);
-
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-                    },
-                    error: function(error) {
-                      // Handle errors from the third API
-                      // This function will be executed if there is an error in the third API call
-                      console.error('Error from third API:', error);
+                        });
+                        return false;
                     }
-                  });
-  //=================================================================
-        
-        } else {
-            // Show error popup
-                     $('#errorModal').modal('hide');
-                  //   alert("KK");return false;
-            const errorMessage = responseData.message;
-           // alert(errorMessage);
-           var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(messageErr);
+                    //==============next search api ========
+                    // Additional data to be passed to the third AJAX call
+                    const ptr_id = responseData.ptr_id; // Replace 'responseData.ptr_id' with the actual property that holds the PTR ID
 
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-    },
-    error: function(xhr, textStatus, errorThrown) {
-        // Handle AJAX error, if needed
-        alert("unexpected error");
+                    const cancel_booking_Id = responseData.cancel_booking_Id;
+
+                    // Call the third AJAX request with additional data
+                    $.ajax({
+                        url: 'search_ptr_void.php', // Replace 'third_api_url' with the URL of your third API
+                        type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
+                        data: {
+                            ptr_id: ptr_id,
+                            MFnum: mfreNum,
+                            bookingId: bookingId,
+                            userId: userId
+                        },
+                        success: function(responseData_New) {
+                            //   alert(responseData_New); return false;
+                            const responseDataNew = JSON.parse(responseData_New);
+                            //  alert('pppp');
+
+                            // Handle the response from the third API
+                            // This function will be executed when the third API call is successful
+                            // You can process the response here
+                            // Show success popup
+                            if (responseDataNew.status === 'success') {
+                                const successMessage = responseDataNew.message;
+                                const refundAmount = responseDataNew.refundamount;
+                                //  alert(successMessage);
+                                //  alert(refundAmount);
+                                $('#voidsuccess').modal('show');
+                                $('#voidsuccess_text').text(successMessage);
+                                $("#xclose_voidsuccess").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                                $("#close_voidsuccess").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                            } else {
+                                // Show error popup
+                                $('#errorModal').modal('hide');
+                                //   alert("KK");return false;
+                                const errorMessage = responseDataNew.message;
+                                // alert(errorMessage);
+                                var messageErr = "Error in cancellation";
+                                $('#TicketinprocessErr').modal('show');
+                                //  $('#TicketinMessage').text('$' + errorMessage);
+                                $('#TicketinMessageErr').html(messageErr);
+
+                                $("#xcloseErr").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                                $("#close_ticketinprocessErr").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                            }
+                        },
+                        error: function(error) {
+                            // Handle errors from the third API
+                            // This function will be executed if there is an error in the third API call
+                            console.error('Error from third API:', error);
+                        }
+                    });
+                    //=================================================================
+
+                } else {
+                    button_continue.html('Continue>>');
+                button_continue.attr('disabled', false);
+                    // Show error popup
+                    $('#errorModal').modal('hide');
+                    //   alert("KK");return false;
+                    const errorMessage = responseData.message;
+                    // alert(errorMessage);
+                    var messageErr = "Error in cancellation";
+                    $('#TicketinprocessErr').modal('show');
+                     $('#TicketinMessageErr').text(errorMessage);
+                    // $('#TicketinMessageErr').html(messageErr);
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                button_continue.html('Continue>>');
+                button_continue.attr('disabled', false);
+                // Handle AJAX error, if needed
+                alert("unexpected error");
+            }
+        });
+
     }
-});
 
-}
+    //==============================================================Refund api ================
+    function postCancelRefundApi(selectedPassengers) {
+        var mfreNum = document.getElementById("precancelValue").value;
+        var bookingId = document.getElementById("bookingId").value;
+        var userId = document.getElementById("USerid").value;
+        // var void_eligible = document.getElementById("void_eligible").value;
 
-//==============================================================Refund api ================
-    function postCancelRefundApi(selectedPassengers){
-         var mfreNum = document.getElementById("precancelValue").value;
-    var bookingId = document.getElementById("bookingId").value;
-    var userId = document.getElementById("USerid").value;
-   // var void_eligible = document.getElementById("void_eligible").value;
+        // Use the hiddenValue in your function logic
+        //alert(mfreNum); return false;
+        $.ajax({
+            url: 'refund_post_ticket.php',
+            type: 'POST',
+            data: {
+                mfreNum: mfreNum,
+                bookingId: bookingId,
+                userId: userId,
+                passengers: selectedPassengers
+            },
+            //data: $(this).serialize()+ '&amount=' +amountprev,
+            success: function(response) {
+                //   alert(response);
+                // return false;
+                // Parse the JSON response
+                const responseData = JSON.parse(response);
 
-    // Use the hiddenValue in your function logic
- //alert(mfreNum); return false;
-    $.ajax({
-                url: 'refund_post_ticket.php',
-                type: 'POST',
-                 data: { mfreNum: mfreNum,bookingId: bookingId,userId: userId,passengers: selectedPassengers },
-                //data: $(this).serialize()+ '&amount=' +amountprev,
-                success: function(response) {                                
-              //   alert(response);
-                  // return false;
-                    // Parse the JSON response
-        const responseData = JSON.parse(response);
+                // Check the status of the response
+                if (responseData.status === 'success') {
+                    // Show success popup
+                    const successMessage = responseData.message;
+                    const refundAmount = responseData.refundamount;
+                    const api_refundAmount = responseData.total_refund_api;
 
-        // Check the status of the response
-        if (responseData.status === 'success') {
-            // Show success popup
-            const successMessage = responseData.message;
-            const refundAmount = responseData.refundamount;
-            const api_refundAmount = responseData.total_refund_api;
-            
-             $('#errorModal').modal('show');
-             $('#refundAmount').text('$' + refundAmount);
-              $('#api_refundAmount').text('$' + api_refundAmount);
-               $(".close").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_errmodsal").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        
-        } else {
-            // Show error popup
-         
-            const errorMessage = responseData.message;
-           // alert(errorMessage);
-         //  var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(errorMessage);
+                    $('#errorModal').modal('show');
+                    $('#refundAmount').text('$' + refundAmount);
+                    $('#api_refundAmount').text('$' + api_refundAmount);
+                    $(".close").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_errmodsal").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
 
-      //  $('#TicketinMessage').html(`hiiihi`);
+                } else {
+                    // Show error popup
 
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-    },
-    error: function(xhr, textStatus, errorThrown) {
-        // Handle AJAX error, if needed
-        alert("unexpected error");
-    }
-});
+                    const errorMessage = responseData.message;
+                    // alert(errorMessage);
+                    //  var messageErr   =   "Error in cancellation";
+                    $('#TicketinprocessErr').modal('show');
+                    //  $('#TicketinMessage').text('$' + errorMessage);
+                    $('#TicketinMessageErr').html(errorMessage);
+
+                    //  $('#TicketinMessage').html(`hiiihi`);
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // Handle AJAX error, if needed
+                alert("unexpected error");
+            }
+        });
 
     }
     //========================================================Refund operation 
-    function postCancelRefundprocessAPiCall(selectedPassengers){
-    //    alert("ooo");
-         var mfreNum = document.getElementById("modal_precancelValue").value;
-    var bookingId = document.getElementById("modal_bookingId").value;
-    var userId = document.getElementById("modal_USerid").value;
-   //ar refundAmount = document.getElementById("refundAmount").value;
-//  var api_refundAmount = document.getElementById("api_refundAmount").value;
+    function postCancelRefundprocessAPiCall(selectedPassengers) {
+        //    alert("ooo");
+        var mfreNum = document.getElementById("modal_precancelValue").value;
+        var bookingId = document.getElementById("modal_bookingId").value;
+        var userId = document.getElementById("modal_USerid").value;
+        //ar refundAmount = document.getElementById("refundAmount").value;
+        //  var api_refundAmount = document.getElementById("api_refundAmount").value;
 
-var refundAmount  = document.getElementById("refundAmount").textContent;
-refundAmount    =   refundAmount.replace('$', '');
-//var api_refundAmount = document.getElementById("api_refundAmount").value;
+        var refundAmount = document.getElementById("refundAmount").textContent;
+        refundAmount = refundAmount.replace('$', '');
+        //var api_refundAmount = document.getElementById("api_refundAmount").value;
 
-    $.ajax({
-                url: 'refund_post_ticket_process.php',
-                type: 'POST',
-                 data: { mfreNum: mfreNum,bookingId: bookingId,userId: userId,passengers: selectedPassengers ,refundAmount: refundAmount },
-                //data: $(this).serialize()+ '&amount=' +amountprev,
-                success: function(response) {
-                   //onsole.log(response);                   
-         //  alert(response);
-              //return false;
-                    // Parse the JSON response
-        const responseData = JSON.parse(response);
+        $.ajax({
+            url: 'refund_post_ticket_process.php',
+            type: 'POST',
+            data: {
+                mfreNum: mfreNum,
+                bookingId: bookingId,
+                userId: userId,
+                passengers: selectedPassengers,
+                refundAmount: refundAmount
+            },
+            //data: $(this).serialize()+ '&amount=' +amountprev,
+            success: function(response) {
+                //onsole.log(response);                   
+                //  alert(response);
+                //return false;
+                // Parse the JSON response
+                const responseData = JSON.parse(response);
 
-        // Check the status of the response
-        if (responseData.status === 'success') {
-             const successMessage = responseData.message;
-         //    alert(message);
-            // Show success popup
-              $('#errorModal').modal('hide');
-		if (responseData.ptr_status === 'InProcess'){			
-		
-           const successMessage = responseData.message;
-          const refundAmount = responseData.refundamount;
-             $('#voidsuccess').modal('show');
-             $('#voidsuccess_text').text( successMessage);
-               $("#xclose_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-		    window.location.href = "index.php";
+                // Check the status of the response
+                if (responseData.status === 'success') {
+                    const successMessage = responseData.message;
+                    //    alert(message);
+                    // Show success popup
+                    $('#errorModal').modal('hide');
+                    if (responseData.ptr_status === 'InProcess') {
 
-            });
-             $("#close_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-			    window.location.href = "index.php";
+                        const successMessage = responseData.message;
+                        const refundAmount = responseData.refundamount;
+                        $('#voidsuccess').modal('show');
+                        $('#voidsuccess_text').text(successMessage);
+                        $("#xclose_voidsuccess").click(function() {
+                            $(this).parents('.modal').modal('hide');
+                            window.location.href = "index.php";
 
-            });
-		return false;
-	}
-            //==============next search api ========
-                            // Additional data to be passed to the third AJAX call
-                  const ptr_id = responseData.ptr_id; // Replace 'responseData.ptr_id' with the actual property that holds the PTR ID
-                                
-                 const cancel_booking_Id = responseData.cancel_booking_Id; 
+                        });
+                        $("#close_voidsuccess").click(function() {
+                            $(this).parents('.modal').modal('hide');
+                            window.location.href = "index.php";
 
-                  // Call the third AJAX request with additional data
-                  $.ajax({
-                    url: 'search_ptr_refund.php', // Replace 'third_api_url' with the URL of your third API
-                    type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
-                    data: {
-                      ptr_id: ptr_id,
-                      MFnum: mfreNum,
-                      bookingId: bookingId,
-                      userId: userId,
-                      refundAmount: refundAmount
-                    },                    
-                    success: function(responseData_New) {
-                      // alert(responseData_New); 
-                           
-                           //return false;
-                          const responseDataNew = JSON.parse(responseData_New);
-                     
-                         
-                      // Handle the response from the third API
-                      // This function will be executed when the third API call is successful
-                      // You can process the response here
-                      // Show success popup
-               if (responseDataNew.status === 'success') {
-               //  alert('pppp');
-            const successMessage = responseDataNew.message;
-            const refundAmount = responseDataNew.refundamount;
-          //  alert(successMessage);
-          //  alert(refundAmount);
-             $('#voidsuccess').modal('show');
-             $('#voidsuccess_text').text( successMessage);
-               $(".xclose_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_voidsuccess").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-        else {
-            // Show error popup
-                     $('#errorModal').modal('hide');
-                  //   alert("KK");return false;
-            const errorMessage = responseDataNew.message;
-           // alert(errorMessage);
-           var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(errorMessage);
-
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-                    },
-                    error: function(error) {
-                      // Handle errors from the third API
-                      // This function will be executed if there is an error in the third API call
-                      console.error('Error from third API:', error);
+                        });
+                        return false;
                     }
-                  });
-  //=================================================================
-        
-        } else {
-            // Show error popup
-                     $('#errorModal').modal('hide');
-                    //lert("KK");return false;
-            const errorMessage = responseData.message;
-           // alert(errorMessage);
-           var messageErr   =   "Error in cancellation";
-          $('#TicketinprocessErr').modal('show');
-      //  $('#TicketinMessage').text('$' + errorMessage);
-        $('#TicketinMessageErr').html(errorMessage);
+                    //==============next search api ========
+                    // Additional data to be passed to the third AJAX call
+                    const ptr_id = responseData.ptr_id; // Replace 'responseData.ptr_id' with the actual property that holds the PTR ID
 
-               $("#xcloseErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-             $("#close_ticketinprocessErr").click(function() {
-              $(this).parents('.modal').modal('hide');
-            });
-        }
-    },
-    error: function(xhr, textStatus, errorThrown) {
-        // Handle AJAX error, if needed
-        alert("unexpected error");
-    }
-});
+                    const cancel_booking_Id = responseData.cancel_booking_Id;
+
+                    // Call the third AJAX request with additional data
+                    $.ajax({
+                        url: 'search_ptr_refund.php', // Replace 'third_api_url' with the URL of your third API
+                        type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
+                        data: {
+                            ptr_id: ptr_id,
+                            MFnum: mfreNum,
+                            bookingId: bookingId,
+                            userId: userId,
+                            refundAmount: refundAmount
+                        },
+                        success: function(responseData_New) {
+                            // alert(responseData_New); 
+
+                            //return false;
+                            const responseDataNew = JSON.parse(responseData_New);
+
+
+                            // Handle the response from the third API
+                            // This function will be executed when the third API call is successful
+                            // You can process the response here
+                            // Show success popup
+                            if (responseDataNew.status === 'success') {
+                                //  alert('pppp');
+                                const successMessage = responseDataNew.message;
+                                const refundAmount = responseDataNew.refundamount;
+                                //  alert(successMessage);
+                                //  alert(refundAmount);
+                                $('#voidsuccess').modal('show');
+                                $('#voidsuccess_text').text(successMessage);
+                                $(".xclose_voidsuccess").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                                $("#close_voidsuccess").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                            } else {
+                                // Show error popup
+                                $('#errorModal').modal('hide');
+                                //   alert("KK");return false;
+                                const errorMessage = responseDataNew.message;
+                                // alert(errorMessage);
+                                var messageErr = "Error in cancellation";
+                                $('#TicketinprocessErr').modal('show');
+                                //  $('#TicketinMessage').text('$' + errorMessage);
+                                $('#TicketinMessageErr').html(errorMessage);
+
+                                $("#xcloseErr").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                                $("#close_ticketinprocessErr").click(function() {
+                                    $(this).parents('.modal').modal('hide');
+                                });
+                            }
+                        },
+                        error: function(error) {
+                            // Handle errors from the third API
+                            // This function will be executed if there is an error in the third API call
+                            console.error('Error from third API:', error);
+                        }
+                    });
+                    //=================================================================
+
+                } else {
+                    // Show error popup
+                    $('#errorModal').modal('hide');
+                    //lert("KK");return false;
+                    const errorMessage = responseData.message;
+                    // alert(errorMessage);
+                    var messageErr = "Error in cancellation";
+                    $('#TicketinprocessErr').modal('show');
+                    //  $('#TicketinMessage').text('$' + errorMessage);
+                    $('#TicketinMessageErr').html(errorMessage);
+
+                    $("#xcloseErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                    $("#close_ticketinprocessErr").click(function() {
+                        $(this).parents('.modal').modal('hide');
+                    });
+                }
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                // Handle AJAX error, if needed
+                alert("unexpected error");
+            }
+        });
 
     }
 
 
     //=============old code==================================
-     
-        $(".text-below-button").click(function () {
-            $(this).parents('.modal').modal('hide');
+
+    $(".text-below-button").click(function() {
+        $(this).parents('.modal').modal('hide');
+    });
+    $(".forgot-passward > button").click(function() {
+        $(this).parents('.modal').modal('hide');
+    });
+
+    $('#FlightSearchLoading').modal({
+        show: false
+    })
+
+    $(document).ready(function() {
+        /******************TAB WITHOUT ID*******************************/
+        $('.panel .nav-tabs').on('click', 'a', function(e) {
+            var tab = $(this).parent(),
+                tabIndex = tab.index(),
+                tabPanel = $(this).closest('.panel'),
+                tabPane = tabPanel.find('.tab-pane').eq(tabIndex);
+            tabPanel.find('.active').removeClass('active');
+            tab.addClass('active');
+            tabPane.addClass('active');
         });
-        $(".forgot-passward > button").click(function () {
-            $(this).parents('.modal').modal('hide');
+        $('.tab-pane').on('click', 'button', function(e) {
+            $(this).parent(".tab-pane").removeClass("active");
+            $(this).parents(".tab-content").siblings(".nav-tabs").children(".nav-item").removeClass("active");
         });
+        /***************************************************************/
+    })
 
-        $('#FlightSearchLoading').modal({
-            show: false
-        })
+    /**************Scroll To Top*****************/
+    $(window).on('scroll', function() {
+        if (window.scrollY > window.innerHeight) {
+            $('#scrollToTop').addClass('active')
+        } else {
+            $('#scrollToTop').removeClass('active')
+        }
+    })
 
-        $(document).ready(function(){
-            /******************TAB WITHOUT ID*******************************/
-            $('.panel .nav-tabs').on('click', 'a', function(e){
-                var tab  = $(this).parent(),
-                    tabIndex = tab.index(),
-                    tabPanel = $(this).closest('.panel'),
-                    tabPane = tabPanel.find('.tab-pane').eq(tabIndex);
-                tabPanel.find('.active').removeClass('active');
-                tab.addClass('active');
-                tabPane.addClass('active');
-            });
-            $('.tab-pane').on('click', 'button', function(e){
-                $(this).parent(".tab-pane").removeClass("active");
-                $(this).parents(".tab-content").siblings(".nav-tabs").children(".nav-item").removeClass("active");
-            });
-            /***************************************************************/ 
-        })
+    $('#scrollToTop').on('click', function() {
+        $("html, body").animate({
+            scrollTop: 0
+        }, 500);
+    })
+    /**************************Check All***********************/
+    var checkAll = document.getElementById('changeDateAll');
+    var checkboxes = document.getElementsByClassName('chkbox');
 
-        /**************Scroll To Top*****************/
-        $(window).on('scroll', function () {
-            if (window.scrollY > window.innerHeight) {
-                $('#scrollToTop').addClass('active')
-            } else {
-                $('#scrollToTop').removeClass('active')
-            }
-        })
-
-        $('#scrollToTop').on('click', function () {
-            $("html, body").animate({ scrollTop: 0 }, 500);
-        })
-        /**************************Check All***********************/
-        var checkAll = document.getElementById('changeDateAll');
-        var checkboxes = document.getElementsByClassName('chkbox');
-
-         checkAll.addEventListener('change', function () {
-             for (var i = 0; i < checkboxes.length; i++) {
-                checkboxes[i].checked = checkAll.checked;
-             }
-         });
-        /*********************************************************/
-    </script>
+    checkAll.addEventListener('change', function() {
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = checkAll.checked;
+        }
+    });
+    /*********************************************************/
+</script>
 </body>
 
 </html>

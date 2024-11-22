@@ -4836,3 +4836,903 @@ step data empty Please verify the Request.
 step end of void quote ========= Please verify the Request.
 Step 1Success Completed
 Step 1Success Completed
+-------------Friday 22nd of November 2024 10:35:42 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14452
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14452.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:45:40 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14453
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14453.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:46:25 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14454
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14454.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:46:58 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14455
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14455.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:49:19 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14456
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14456.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:51:09 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14457
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14457.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:51:19 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14458
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14458.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:51:33 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14459
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14459.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:53:29 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14461
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14461.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:56:16 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14462
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14462.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:56:53 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14463
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14463.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:57:19 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14464
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14464.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 10:59:06 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14465
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14465.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 11:07:02 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14466
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14466.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking
+-------------Friday 22nd of November 2024 11:10:23 AM-------------
+REsponse Received for MF:\nMF28846424
+userId is 73
+Booking ID is 89
+REquest Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF28846424
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kimberly
+                    [lastname] => Little
+                    [title] => Mr
+                    [eticket] => TKT441255
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 14467
+            [PTRType] => VoidQuote
+            [MFRef] => MF28846424
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2024-11-22T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kimberly
+                            [LastName] => Little
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => TKT441255
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 298.07
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 14467.
+        )
+
+)
+
+Step 1Success Completed
+step end of void quote ========= Successfully called voidquote for  Your Booking

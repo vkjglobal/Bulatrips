@@ -295,7 +295,7 @@ if (!isset($_SESSION['user_id'])) {
                                                 }
                                                 else{
                                                     ?>
-                                                    <a href="cancel_user.php?booking_id=<?php echo $bookingDatas['id']; ?>"
+                                                   <a href="cancel_user.php?booking_id=<?php echo $bookingDatas['id']; ?>"
                                                         class="btn btn-typ4 w-100 mb-2 btn-primary">
                                                         <!-- btn btn-typ7 ml-3  -->
 

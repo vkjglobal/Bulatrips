@@ -6,7 +6,7 @@
         parent::__construct(); // Call the constructor of the parent class (MyDatabaseClassPDO)
     }
 
-      public function insCncelSts($bookingId,$userId,$precancelsts,$errorCode='',$mfreNum,$traceId='',$http_code_response,$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='',$ticket_num ='',$AdminCharges='',$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status='',$meesage_new=''){
+      public function insCncelSts($bookingId,$userId,$precancelsts,$errorCode='',$mfreNum="",$traceId='',$http_code_response="",$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='',$ticket_num ='',$AdminCharges='',$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status='',$meesage_new=''){
     
         $tableName = "cancel_booking"; //cms table name
       //cho "**********************".$TotalRefundAmount;

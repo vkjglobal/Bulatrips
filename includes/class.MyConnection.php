@@ -1,6 +1,5 @@
 <?php
- include_once('includes/dbConnect.php');
- 
+include_once __DIR__ . '/../includes/dbConnect.php'; 
 class MyConnection {
    private $conn;
 

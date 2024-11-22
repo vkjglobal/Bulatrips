@@ -1,6 +1,6 @@
 <?php
-include_once __DIR__ . '/../includes/common_const.php';
-include_once __DIR__ . '/../includes/class.Db_clientCron.php';
+include_once __DIR__ . '/class.MyConnection.php';
+include_once __DIR__ . '/class.Db_clientCron.php';
  class SearchPtrCron  extends Db_clientCron{
 	public function __construct() {
         parent::__construct(); // Call the constructor of the parent class (MyDatabaseClassPDO)
@@ -73,7 +73,8 @@ include_once __DIR__ . '/../includes/class.Db_clientCron.php';
     
         $tableName = "temp_booking"; //cms table name
         $updateData = array(
-                    'ticket_status' => 'cancelled'
+                    'ticket_status' => 'cancelled',
+                    'booking_status' => 'cancelled'
                 );
             $condition = "`mf_reference` LIKE '%".$mfrefNum."%'";
          //    LIKE '%MF23720823%' 
@@ -95,8 +96,8 @@ include_once __DIR__ . '/../includes/class.Db_clientCron.php';
        
             // Validate the email address
             try {
-                $query = "SELECT * FROM cancel_booking WHERE mf_ref_num != '' AND (ptr_type = 'Refund' OR  ptr_type = 'Void') AND `ptr_type` = 'InProcess'";
-                                  
+                $query = "SELECT * FROM cancel_booking WHERE mf_ref_num != '' AND (ptr_type = 'Refund' OR  ptr_type = 'Void') AND `ptr_status` = 'InProcess'";
+
                 $stmt = $this->conn->prepare($query);
 
                 $stmt->execute();

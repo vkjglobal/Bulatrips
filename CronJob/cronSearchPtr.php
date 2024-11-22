@@ -130,10 +130,10 @@ foreach($resultBooking as $resultBookingdata){
                     
                     // $bookCanIns      =   $objBookCron->insCncelSts_Search($bookingId,$userId,$BookingStatus,$Resolution, $mfreNum,$ProcessingMethod,$PTRId,$PTRType,$CreditNoteNumber,$PTRStatus,$CreditNoteStatus, $ticket_num ,$pax_booking_id_transaction ,$PaxId,$TicketStatus,$TotalRefundAmount,$is_active_booking_status,$cancel_status);                                                   
                     }
-                    $count_ticketed_temp    =   $objCancel->count_ticketed__temp_book('travellers_details',$bookingId);
+                    $count_ticketed_temp    =   $objBookCron->count_ticketed__temp_book('travellers_details',$bookingId);
                     if($count_ticketed_temp == 0){
                             //  update tempbooking and traveller details tables with cancelled sts 
-                        $update_tempB_result           =   $objCancel->updateInDB_temp_book('temp_booking',$mfreNum);
+                        $update_tempB_result           =   $objBookCron->updateInDB_temp_book('temp_booking',$mfreNum);
                     }
                 }
             }

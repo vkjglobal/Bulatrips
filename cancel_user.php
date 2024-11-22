@@ -14,6 +14,7 @@ else {
      
     require_once("includes/header.php");   
     include_once('includes/class.cancel.php');
+    $void_eligible = 2;
        $bookingId = $_GET['booking_id'];
            $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
            $bookingId   =   trim($bookingId);
@@ -98,21 +99,20 @@ else {
                               //popn up for ticketnprocess
                            //echo $pre_ticket_status;
                            if(($fare_type == "Public") || ($fare_type == "Private")){
-                             if($pre_booking_status ==  trim("Booked")){ 
-                                 if($pre_ticket_status  ==  trim("TktInProcess")){
-                                    $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
-                                         echo '<script>';
-                            echo 'document.addEventListener("DOMContentLoaded", function() {';
-                            echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                            echo '    $("#Ticketinprocess").modal("show");';
-                            echo '});';
-                            echo '</script>';
-                                      //   echo "KK";exit;
+                                if($pre_ticket_status  ==  trim("TktInProcess")){
+                                $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
+                                        echo '<script>';
+                                echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                echo '    $("#Ticketinprocess").modal("show");';
+                                echo '});';
+                                echo '</script>';
+                                    //   echo "KK";exit;
 
-                                     //need to wait till ticked state to get cancelled 
-                                 }       
-                              else if(($pre_ticket_status  !=  trim("Ticketed"))  &&  ($pre_ticket_status  !=  trim("TktInProcess")) &&  ($pre_ticket_status  !=  trim("cancelled"))) {
-                               //      pre ticket cancel api          
+                                    //need to wait till ticked state to get cancelled 
+                                }       
+                                else if(($pre_ticket_status  !=  trim("Ticketed"))  &&  ($pre_ticket_status  !=  trim("TktInProcess")) &&  ($pre_ticket_status  !=  trim("cancelled"))) {
+                                    //      pre ticket cancel api          
                                      // Check if the _ticket_time_limit date is not expired
                                      if($pre_ticket_time_limit > $currentTimestamp) {
                                            $precancelsts  =   1;
@@ -120,42 +120,42 @@ else {
                                                 //2023-07-09 09:39:00
                                      } //if tick time limit is over ,ie either ticket autocancelled or goes to ticketed state inbetween
 
-                                 }
-                                 else if($pre_ticket_status  ==  trim("Ticketed"))
-                                 { //if under ticketed state void/refund apis 
-             
-                                     if($VoidingWindow_limit > $currentTimestamp) {
-                                           $precancelsts  =   0;
-                                       $void_eligible   =   1;
-                                   }
-                                   else{
-                                       //refund api
-                                        $void_eligible   =   0;
-                                   }
-                                     //code for ticketed cancel PTR apis
-                                     //user cancelled on same day of ticket issuance (within voidwindow time)
-                                 }
-                                  else if($pre_ticket_status  ==  trim("cancelled")){
-                                                 $ticktinprocess_msg =   "Your Ticket is Already Cancelled";
-                                         echo '<script>';
-                            echo 'document.addEventListener("DOMContentLoaded", function() {';
-                            echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                            echo '    $("#Ticketinprocess").modal("show");';
-                            echo '});';
-                            echo '</script>';
-                                            }
-                             }
-                             else{
-                                 //only booked "status" tickets can be cancelled 
-                                 $ticktinprocess_msg =   "Your Ticket is Not Under Booked Status .Cannot Move for Cancellation ";
-                                         echo '<script>';
-                            echo 'document.addEventListener("DOMContentLoaded", function() {';
-                            echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
-                            echo '    $("#Ticketinprocess").modal("show");';
-                            echo '});';
-                            echo '</script>';
+                                }
+                                else if($pre_ticket_status  ==  trim("Ticketed"))
+                                { 
+                                //if under ticketed state void/refund apis 
+            
+                                    if($VoidingWindow_limit > $currentTimestamp) {
+                                        $precancelsts  =   0;
+                                        $void_eligible   =   1;
+                                    }
+                                    else{
+                                        //refund api
+                                            $void_eligible   =   0;
+                                    }
+                                    //code for ticketed cancel PTR apis
+                                    //user cancelled on same day of ticket issuance (within voidwindow time)
+                                }
+                                else if($pre_ticket_status  ==  trim("cancelled")){
+                                        $ticktinprocess_msg =   "Your Ticket is Already Cancelled";
+                                            echo '<script>';
+                                        echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                        echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                        echo '    $("#Ticketinprocess").modal("show");';
+                                        echo '});';
+                                        echo '</script>';
+                                }
+                                else{
+                                    //only booked "status" tickets can be cancelled 
+                                    $ticktinprocess_msg =   "Your Ticket is Not Under Booked Status .Cannot Move for Cancellation ";
+                                    echo '<script>';
+                                    echo 'document.addEventListener("DOMContentLoaded", function() {';
+                                    echo '    $("#TicketinMessage").text("' . $ticktinprocess_msg . '");';
+                                    echo '    $("#Ticketinprocess").modal("show");';
+                                    echo '});';
+                                    echo '</script>';
 
-                             }
+                                }
 
                            }
                         if($fare_type == "WebFare"){
@@ -209,14 +209,24 @@ $objCancel->closeConnection();
                          <input type="hidden" id="precancelsts" value="<?php echo $precancelsts; ?>">
                       <?php if( $precancelsts  ==  1) { ?>    
                      <button type="button" class="btn btn-typ3 mb-3" id="precancel" onclick="precancelApi()">Cancel Your Flight</button>  <!-- pre ticket booking cancel ends  -->
-                     <?php } else if($void_eligible == 1) { //post ticket issuance today cancel to know refund amount by voidquote appi
+                     <?php } else if($void_eligible != 2) { //post ticket issuance today cancel to know refund amount by voidquote appi
                    ?>                       
+                                             <?php if($void_eligible == 1) { //post ticket issuance today cancel to know refund amount by voidquote appi
+                   ?>  
                                             <input type="hidden" id="void_eligible" value="<?php echo $void_eligible; ?>">
-                                          <button type="button" class="btn btn-typ3 mb-3" id="postcancel"  >Cancel Your Flight</button>
+                                                <button type="button" class="btn btn-typ3 mb-3" id="postcancel">
+                                                    Void Request
+                                                    <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
+                                                </button>
+                    <?php } else if($void_eligible == 0) { //post ticket issuance today cancel to know refund amount by voidquote appi
+                   ?>  
+                                                <button type="button" class="btn btn-typ3 mb-3" id="refundApiId">
+                                                    Refund Request
+                                                    <i class="fas fa-circle-notch fa-spin spinner d-none"></i>
+                                                </button>
+
                                          <?php } 
-                                          else if($void_eligible == 0){  //EXPIRED VOIDWINDOW ?>
-                                          <button type="button" class="btn btn-typ3 mb-3" id="refundApiId">Cancel Your Flight</button>
-                                         <?php } ?>
+                                         } ?>
 
 <!-- end of post ticket booking cancel -->
                     </form>
@@ -588,7 +598,16 @@ $objCancel->closeConnection();
             }); */
           
    //************************************************************* */
-    $("#postcancel").on("click", function() { 
+    $("#postcancel").on("click", function() {
+        this.attr('disabled', true);
+        this.html('Void Request <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
+        event.preventDefault(); // Prevent the form from submitting normally
+          if ($(".chkbox:checked").length === 0) {
+               $('#psngr-error').remove(); 
+          $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
+          return false;
+        }
+        $('#psngr-error').remove();
       const selectedPassengers = getSelectedPassengers(); 
       /* $(".chkbox:checked").each(function() {
                 const void-eligible  = $(this).data("void-eligible");
@@ -602,9 +621,16 @@ $objCancel->closeConnection();
         //alert(jsonString); // This will display the contents of selectedPassengers as a JSON string
        // return false;
       postCancelApi(selectedPassengers);
+      this.html('Void Request');
     });
 
-    $("#voidContinue").on("click", function() { 
+    $("#voidContinue").on("click", function() {
+        event.preventDefault(); // Prevent the form from submitting normally
+          if ($(".chkbox:checked").length === 0) {
+               $('#psngr-error').remove(); 
+          $('#psngr').after('<sapan id="psngr-error" class="" style="color:red">Please select at least one passenger.</span>')
+          return false;
+        }
       const selectedPassengers = getSelectedPassengers();
       postCancelVoidAPiCall(selectedPassengers);
     });

@@ -1,6 +1,6 @@
 <?php
-     $payentstatus="sucess";
-     $bookingId =$_POST['bookingid'];
+    $payentstatus="sucess";
+    $bookingId =$_POST['bookingid'];
 
     $response = array(
         'paymentstatus' => $payentstatus,

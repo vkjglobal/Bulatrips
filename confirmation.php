@@ -45,7 +45,7 @@ if (isset($bookingData['mf_reference'])) {
     // Set the MFRef value for the endpoint
     $mfRef = $bookingData['mf_reference'];
    
-       $apiEndpoint = str_replace('{MFRef}', $mfRef, $apiEndpoint);
+    $apiEndpoint = str_replace('{MFRef}', $mfRef, $apiEndpoint);
 
     // Send the API request
     $ch = curl_init();
@@ -1499,6 +1499,7 @@ else {
                                     
                                     // echo '<pre/>';
                                     // print_r($tripDetails['TripDetailsPTC_FareBreakdowns'][0]);
+                                    
                                     $penalityInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['IsPenaltyDetailsAvailable'];
                                     $cancellation = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['AirRefundCharges'];
                                     // echo '<pre/>';

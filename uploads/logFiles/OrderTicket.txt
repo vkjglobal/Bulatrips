@@ -34,3 +34,32 @@ REsponse Received\nArray
     [Message] => An unexpected error occurred while processing the "TicketOrder" call. API Support notified!
 )
 
+-------------Friday 22nd of November 2024 05:52:23 PM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF28855424
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28855424OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 91
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 24112223-b65d8b90-ad02-4899-a95a-52ad51fd6738
+            [UniqueID] => MF28855424
+        )
+
+    [Success] => 1
+)
+

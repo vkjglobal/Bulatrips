@@ -40,8 +40,10 @@ $AP_country_id = $AP_country_name_fetch['id'];
 
 //========== 
 
+
     $fsCode = $_POST['fscode'];
     if (isset($_SESSION['last_fscode']) && $_SESSION['last_fscode'] === $fsCode) {
+        
     } else {
         $_SESSION['last_fscode'] = $fsCode;
         // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
@@ -72,6 +74,7 @@ $AP_country_id = $AP_country_name_fetch['id'];
         }
         $_SESSION['Revalidateresponse'] = $responseData;
     }
+
 
 if(isset($fsCode)) {
     $responseData = $_SESSION['Revalidateresponse'];

@@ -1,29 +1,60 @@
 <?php
+date_default_timezone_set('Pacific/Fiji');
 $nar_msgType = "AR";
 $nar_merTxnTime = date('YmdHis');
 
-$nar_merId = "80012010";
-$nar_mcccode = "4772";
-$nar_merBankCode = "8001011";
+// MID=>80012010
+// SID=>8001011
+
+$nar_merId = "800120108001011";
+$nar_mcccode = "4722";
+$nar_merBankCode = "01";
 // Default Curreny should be in USD or FJD? Currently BSP provide default CURRENCY in FJD? I think we should ask them to make the USD default currency. and ask them the USD currency code
 
 
 $nar_orderNo = "ORD_" . $nar_merTxnTime;
-$nar_txnCurrency = "242"; // Currency code (static as per the table)
-$nar_txnAmount = "30.00"; // Example transaction amount, this can be dynamic as well
+$nar_txnCurrency = "242";
+$nar_txnAmount = "1.00";
+$nar_remitterEmail = "nafeesdroidor@gmail.com";
+$nar_remitterMobile = "92324031636";
+$nar_cardType = "EX";
+$nar_paymentDesc = "TestPayment";
+$nar_version = "1.0";
+// $nar_returnUrl = "https://staging.bulatrips.com/BSPPaymentResponse.php";
+$nar_returnUrl = "http://localhost/bulatrips/BSPPaymentResponse.php";
+$nar_Secure = "IPGSECURE";
 
-$nar_remitterEmail = "nafeesdroidor@gmail.com"; // Example email, dynamic value can be added
-$nar_remitterMobile = "+92324031636"; // Example mobile, dynamic value can be added
-$nar_cardType = "EX"; // Example card type (static as per the table)
-$nar_paymentDesc = "TestPayment"; // Static payment description
-$nar_version = "1.0"; // Static version as per the table
-$nar_returnUrl = "https://staging.bulatrips.com/BSPPaymentResponse.php"; // Static return URL
-$nar_Secure = "IPGSECURE"; // Can be dynamic as per requirements, but static here for now
 
-// Checksum Calculation: Combine dynamic data for checksum generation
 $checksum_data = $nar_cardType."|".$nar_merBankCode."|".$nar_merId."|".$nar_merTxnTime."|".$nar_msgType."|".$nar_orderNo."|".$nar_paymentDesc."|".$nar_remitterEmail."|".$nar_remitterMobile."|".$nar_txnAmount."|".$nar_txnCurrency."|".$nar_version."|".$nar_returnUrl;
 
-$nar_checkSum = hash('sha256', $checksum_data); // Use correct checksum logic based on your requirements
+$data =$checksum_data;
+$binary_signature = "";
+$fp=fopen("keys/Merchant_pvt.pem","r");
+$priv_key=fread($fp,8192);
+fclose($fp);
+$passphrase="!bulatrips!";
+$res = openssl_get_privatekey($priv_key,$passphrase);
+openssl_sign($data, $binary_signature, $res, OPENSSL_ALGO_SHA1);
+// openssl_free_key($res);
+$nar_checkSum = bin2hex($binary_signature);
+echo $nar_checkSum;
+
+/*
+    $fpq=fopen ("keys/merchant.ipg.yalamanchili.in-key-public.pem","r");
+    $pub_key=fread($fpq,8192);
+    fclose($fpq);
+    $pubs = openssl_get_publickey($pub_key);
+    $ok = openssl_verify($data, $bined, $pubs, OPENSSL_ALGO_SHA1);
+    echo "check #1: Verification ";
+    if ($ok == 1) {
+    echo "signature ok (as it should be)\n";
+    } elseif ($ok == 0) {
+    echo "bad (there's something wrong)\n";
+    } else {
+    echo "ugly, error checking signature\n";
+    }
+    die;
+*/
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +65,10 @@ $nar_checkSum = hash('sha256', $checksum_data); // Use correct checksum logic ba
     <title>Payment Form</title>
 </head>
 <body>
+
+
+    is there any lowest and maximum amount limit?
+
     <form name="myform" action="https://uat2.yalamanchili.in/MPI_v1/mercpg" method="post">
         <input type="text" id="nar_msgType" name="nar_msgType" value="<?php echo $nar_msgType; ?>"/>
         <input type="text" id="nar_merTxnTime" name="nar_merTxnTime" value="<?php echo $nar_merTxnTime; ?>"/>

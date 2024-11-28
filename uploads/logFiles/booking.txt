@@ -225,3 +225,170 @@ Error 1 Received\nArray
     [errCde] => ERBUK076
 )
 
+-------------Friday 22nd of November 2024 05:48:11 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => cWxmZXo1ZXlHM3ZGK0VJNkV0UEkzWkpnM0V2WEpzWER5bW0yMTNGQnZra0sxSkxpMkFhNDJlMFd1b1RweDI5ci9pYjNJUlVhVDUxVVZvWmRuRXYxR0tTdXFvNnpCVWhPT2g2ZFB5YnlxUnFiYmNTTkZWS1lqVXh6bVFUVnllbkdVTXVCTjdWUHloeXBtVzQzVFU3c3J3PT0=
+    [ClientMarkup] => 23.3128
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => MISS
+                                    [PassengerFirstName] => Deborah
+                                    [PassengerLastName] => Fry
+                                )
+
+                            [DateOfBirth] => 1991-02-01
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => asd
+                                    [ExpiryDate] => 2035-04-23
+                                    [Country] => KZ
+                                )
+
+                            [PassengerNationality] => AQ
+                            [ExtraServices1_1] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ExtraServiceId] => 1
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [ExtraServiceId] => 5
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [CountryCode] => 93
+            [PhoneNumber] => 815
+            [Email] => nimyhoseta@mailinator.com
+            [PostCode] => Itaque natus delenit
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 90
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+-------------Friday 22nd of November 2024 05:52:18 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => cVhhWmNlMkFsRDhmYWVxNEZreWxYZUZvRlVZNVhIVS9WZEdBeGlDSFNwRm5SZFIyaGp0RExlaWV5S1czTkE0NlZ5Z2F6WWNQN1FPL3BHVW5icXM2RFFkcHNucjR4TG9tSG9vMThLQzdZQ2k3UUxRRDdUVVdEODc5MG1ST3NtKzBXVzNubDlaZ0dFcXNyTm1MSUlCN1dGM0lPMEQ3ZDhjVm5xejJBcFpwS24wPQ==
+    [ClientMarkup] => 27.0676
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Ralph
+                                    [PassengerLastName] => Chaney
+                                )
+
+                            [DateOfBirth] => 1991-01-08
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 123
+                                    [ExpiryDate] => 2035-11-23
+                                    [Country] => MH
+                                )
+
+                            [PassengerNationality] => KY
+                        )
+
+                )
+
+            [CountryCode] => 57
+            [PhoneNumber] => 735
+            [Email] => qipeho@mailinator.com
+            [PostCode] => Delectus nostrum si
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28855424OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 91
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-11-22T20:51:53
+            [TraceId] => 24112223-b65d8b90-ad02-4899-a95a-52ad51fd6738
+            [UniqueID] => MF28855424
+        )
+
+    [Success] => 1
+)
+
+Success Received\nCONFIRMED

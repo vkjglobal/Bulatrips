@@ -1781,13 +1781,15 @@ $(document).ready(function () {
       valid = false;
     } else {
       $('#from').next('span.text-danger').remove();
-      valid = false;
     }
 
     if (tripTypeValue === "Return") {
       if (returnDate == '') {
-        $('#to').next('span.text-danger').remove();
+        $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
         valid = false;
+      } else {
+        $('#to').next('span.text-danger').remove();
+
       }
     }
     
@@ -1812,9 +1814,10 @@ $(document).ready(function () {
     }
     if (tripTypeValue === "Return") {
       if (returnDate == '') {
-
         $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
         valid = false;
+      } else {
+
       }
     }
 
@@ -3547,7 +3550,8 @@ $(document).ready(function () {
           Swal.fire({
             title: "Newsletter Subscribed!",
             text: "Subscription successful. Thank you for subscribing!",
-            icon: "success"
+            icon: "success",
+            confirmButtonText: "Close"
           });
         } else {
           Swal.fire({

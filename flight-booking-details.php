@@ -1,133 +1,763 @@
-<?php 
+<?php
 session_start();
+if (!isset($_SESSION['user_id'])) {
+?>
+    <script>
+        window.location = "index.php"
+    </script>    
+<?php
+exit;
+}
+$userEmail  =   $_SESSION['email'];
+//echo "<pre/>";print_r($_SESSION);exit;
 error_reporting(0);
-// $_SESSION['user_id'] =9;
+// ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+require_once("includes/header.php");
+require_once('includes/dbConnect.php');
 
-$url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
-$response = file_get_contents($url);
-$usd_converion_rate = 1;
-if ($response !== false) {
-    $data = json_decode($response, true); // Decode JSON to associative array
-    $usd_converion_rate = $data['conversion_rates']['USD'];
-} else {
-    echo "Failed to retrieve data.";
-}
+include_once('includes/common_const.php');
+include_once('sendmail.php');
+include_once('includes/class.BookScript.php');
+$objBook    =   new BookScript();
+$endpoint   =   'v1.1/TripDetails/{MFRef}';
+$apiEndpoint = APIENDPOINT.$endpoint;
+$bearerToken   =   BEARER;
 
+//echo 'helo';exit;
+$bookingId = $_GET['booking_id'];
+$stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
 
-if(!isset($_SESSION['user_id'])){
-?>
-   <script>
-   window.location="index.php"    </script>
-   <?php
-}
-else {
-    require_once("includes/header.php");
-    include('includes/dbConnect.php');
+$stmtbookingid->execute(array('bookingid' => $bookingId, 'userid' => $_SESSION['user_id']));
+$bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
 
-    // $id=$_SESSION['user_id'];
-    // $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
-    // $stmt->execute(array('id' => $id));
+//userinfo recent added 
+$stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+ $stmt->execute(array('id' => $id));
+$user = $stmt->fetch(PDO::FETCH_ASSOC);
+//echo "<pre/".$bookingId;print_r($bookingData);exit;
+$bookingStatus = $bookingData['booking_status'];
+  $totalPaid =   $bookingData['total_paid'];
+  $fromLoc =   $bookingData['dep_location'];
+  $ToLoc =   $bookingData['arrival_location'];
+if (isset($bookingData['mf_reference'])) {
+  //  $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1.1/TripDetails/{MFRef}';
+  //  $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
 
-    // $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    $bookingId = $_GET['booking_id'];
-
-    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
-
-        $stmtbookingid->execute(array('bookingid' => $bookingId,'userid' => $_SESSION['user_id']));
-        $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-
-    //fetch booking details
+    // Set the MFRef value for the endpoint
+    $mfRef = $bookingData['mf_reference'];
    
+    $apiEndpoint = str_replace('{MFRef}', $mfRef, $apiEndpoint);
+
+    // Send the API request
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);//for testing 
+
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+        'Content-Type: application/json',
+        'Authorization: Bearer ' . $bearerToken
+    ));
+
+    $response = curl_exec($ch);
+    curl_close($ch);
+    
+    // Process the API response
+    if ($response === false) {
+       
+        // Error handling
+       
+        echo 'Error: ' . curl_error($ch);
+        
+         $responseData = json_decode($response, true);
+    } else {
+       // var_dump($response);exit;
+        // Process the response data
+        
+        $responseData = json_decode($response, true);
+        // Handle the response data as needed
+        //var_dump($responseData);exit;
+    }
+    // Handle the API response
+   
+    if ($response) {
+        $responseData = json_decode($response, true);
+    }
+     //=================log write for Tripetails api  after booking API ======
+                   
+                    $logRes =   print_r($responseData, true);
+                  
+                    $objBook->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','tripConfirm.txt');
+                            $objBook->_writeLog('MF ref'.$mfRef,'tripConfirm.txt');
+                             // $objBook->_writeLog('userId is '.$userId. 'BOOKING STATUS IS '.$responseData['Data']['Status'],'tripConfirm.txt');
+                             // $objBook->_writeLog('Booking ID is '.$bookingID,'tripConfirm.txt');
+                     
+
+                $objBook->_writeLog('REsponse Received\n'.$logRes,'tripConfirm.txt');   
+               
+    //============ END log write for trip API ==========  
+    // echo '<pre/>';
+    // print_r($responseData);
+     
+    // echo '</pre>';
+    if((!empty($responseData)) && (($responseData['Success']))){
+        $tripDetails = $responseData['Data']['TripDetailsResult']['TravelItinerary'];
+        $tripDetailsAtaInfo = $tripDetails['ATAinfoList']; //fare attributes
+        $tripDetailsExtraServices = $tripDetails['ExtraServices']['Services']; //ExtraServices
+        $itinerariesDetail = $tripDetails['Itineraries'][0]['ItineraryInfo']['ReservationItems'];
+        $passengerDetail =  $tripDetails['PassengerInfos'];
+          $ticketStatus = $tripDetails['TicketStatus'];
+       // print_r($tripDetails);
+
+        $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_status = :bookingStatus,ticket_status = :ticketStatus,ticket_time_limit = :ticketTimeLimit,booking_date = :bookingDate,void_window =:voidWindow WHERE id = :id');
+
+        // Set the values
+                //for webfrae type booking status is not getting from api response after ticketed ,though it didnt mentioninside doc ,so considered booking since Already Ticketed status getting 
+
+        if(!isset($tripDetails['BookingStatus'])){
+           
+            if($ticketStatus == "Ticketed"){
+
+             $bookingStatus = "booked";
+            }
+        }
+        else{
+             $bookingStatus = $tripDetails['BookingStatus'];
+        }
+        
+      //  print_r( $bookingStatus );die();
+        $ticketTimeLimit = $tripDetails['TicketingTimeLimit'];
+        $bookingDate = $responseData['Data']['TripDetailsResult']['BookingCreatedOn'];
+      
+        if(isset($tripDetails['VoidingWindow'])){
+            $voidWindow = $tripDetails['VoidingWindow'];
+
+        }else{
+            $voidWindow=""; //because i didnt see this from testing but api doc said this will be available 
+        }
+       // $markup = $tripDetails['ClientMarkup']['Amount'];
+        $id = $bookingId;
+
+        // Bind the parameters
+        $stmtupdate->bindParam(':ticketTimeLimit', $ticketTimeLimit);
+        $stmtupdate->bindParam(':bookingStatus', $bookingStatus);
+        $stmtupdate->bindParam(':bookingDate', $bookingDate);
+        $stmtupdate->bindParam(':ticketStatus', $ticketStatus);
+        $stmtupdate->bindParam(':voidWindow', $voidWindow);
+       // $stmtupdate->bindParam(':markup', $markup);
+        $stmtupdate->bindParam(':id', $id);
+
+
+
+        // Execute the query
+        $stmtupdate->execute();
+
+
+        // $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus WHERE flight_booking_id  = :bookingId');
+            // $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
+        $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus,e_ticket_number=:ticketNumber WHERE flight_booking_id  = :bookingId and passport_number=:PassportNumber');
+
+        // Set the values
+        $ticketStatus = $tripDetails['TicketStatus'];
+        $id = $bookingId;
+        foreach ($passengerDetail as $passengerInfo) {
+        
+            if(isset($passengerInfo['ETickets'][0]['ETicketNumber'])){
+                            $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
+                            $ticketStatusType   =   $passengerInfo['ETickets'][0]['ETicketType'];
+                        }elseif(!empty($ticketStatus)){
+                            $ticketStatusType   = $ticketStatus;
+                             $ticketNumber="";
+                        }
+                        else{
+                            $ticketNumber="";
+                            $ticketStatusType ="";
+                        }
+            $PassportNumber = $passengerInfo['Passenger']['PassportNumber'];
+    
+            // Bind the parameters and execute the update statement
+            $stmtupdatetravellers->bindParam(':ticketNumber', $ticketNumber, PDO::PARAM_STR);
+            $stmtupdatetravellers->bindParam(':PassportNumber', $PassportNumber, PDO::PARAM_STR);
+            $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatus);
+            $stmtupdatetravellers->bindParam(':bookingId', $id);
+            $stmtupdatetravellers->execute();
+        }
+
+        // Bind the parameters
+        // $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatus);
+        // $stmtupdatetravellers->bindParam(':bookingId', $id);
+
+
+
+        // Execute the query
+        $stmtupdatetravellers->execute();
+
+ 
+
+
+
+        $tripDetailsfare = $responseData['Data']['TripDetailsResult']['TravelItinerary']['TripDetailsPTC_FareBreakdowns'];
+       // echo "<pre/>";print_r($tripDetailsfare);exit;
+        foreach ($tripDetailsfare as $tripDetailsfares) {
+            $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET basic_fare = :basicFare ,
+                total_pass_fare = :totalPassFare, tax = :tax ,free_checkin_baggage = :baggageInfo,free_cabin_baggage = :cabinBaggage WHERE flight_booking_id  = :bookingId and passenger_type =:passengerType');
+
+            $basicFare = $tripDetailsfares['TripDetailsPassengerFare']['EquiFare']['Amount'];
+            $tax = $tripDetailsfares['TripDetailsPassengerFare']['Tax']['Amount'];
+            $totalPassFare = $tripDetailsfares['TripDetailsPassengerFare']['TotalFare']['Amount'];
+            $passengerType = $tripDetailsfares['PassengerTypeQuantity']['Code'];
+            $baggageInfo = $tripDetailsfares['BaggageInfo'][0];
+            $cabinBaggage = $tripDetailsfares['CabinBaggageInfo'][0];
+            $bookingId = $bookingId;
+
+            // Bind the parameters
+            $stmtupdatetravellers->bindParam(':bookingId', $bookingId);
+
+            $stmtupdatetravellers->bindParam(':basicFare', $basicFare);
+            $stmtupdatetravellers->bindParam(':tax', $tax);
+            $stmtupdatetravellers->bindParam(':passengerType', $passengerType);
+            $stmtupdatetravellers->bindParam(':totalPassFare', $totalPassFare);
+            $stmtupdatetravellers->bindParam(':baggageInfo', $baggageInfo);
+            $stmtupdatetravellers->bindParam(':cabinBaggage', $cabinBaggage);
+
+
+
+            // Execute the query
+            $stmtupdatetravellers->execute();
+        }
+    }// end of not empty response process
+    // echo '<pre>';
+    // print_r($tripDetails);
+    // echo '</pre>';
+}
+//end of id mf number 
+//echo 'hhhhh<pre/>';
+    // print_r($responseData);exit;
+    $errStatus  =   0;
+    
+if (!empty($responseData['Data']['Errors'])) { 
 ?>
+    <div class=" container">
+        <?php echo $responseData['Message']; ?>
+        <?php
+                         $errStatus  =   1; // need to handle error case like repay mail etc
+                   $Errmessage = $responseData['Message']; 
+
+                       echo "<script>";
+        echo "document.addEventListener('DOMContentLoaded', function() {";
+        echo "    var emptypop = document.getElementById('errorModal');";
+        echo "    var errorMsgElement = document.getElementById('errorMessage');";
+        echo "    if (emptypop && errorMsgElement) {";
+        echo "        emptypop.classList.add('show');";
+        echo "        emptypop.style.display = 'block';";
+        echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
+        echo "    }";
+        echo "});";
+        echo "</script>";
+
+               // echo "update success ";
+           ?>
+    </div>
+<?php }
+else if((empty($responseData['Success'])) || (!$responseData['Success']))  { 
+   //  echo "yyyyy";
+    //  var_dump($responseData['sucess']); exit;?>
+    <div class=" container">
+
+        <?php
+                 $errStatus  =   1; // need to handle error case like repay mail etc
+                   $Errmessage = "Error Received from airline :".$responseData['Message']. "No results received to show here .Please search again or check with your dashboard Booking details"; 
+
+                       echo "<script>";
+        echo "document.addEventListener('DOMContentLoaded', function() {";
+        echo "    var emptypop = document.getElementById('errorModal');";
+        echo "    var errorMsgElement = document.getElementById('errorMessage');";
+        echo "    if (emptypop && errorMsgElement) {";
+        echo "        emptypop.classList.add('show');";
+        echo "        emptypop.style.display = 'block';";
+        echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
+        echo "    }";
+        echo "});";
+        echo "</script>";
+               // echo "update success ";
+           ?>
+    </div>
+<?php }
+elseif(empty($responseData)){
+     ?>
+    <div class=" container">
+             <?php
+                 $errStatus  =   1; // need to handle error case like repay mail etc
+                   $Errmessage = "No results received from airline to show here .Please search again or check with your dashboard Booking details"; 
+
+                       echo "<script>";
+        echo "document.addEventListener('DOMContentLoaded', function() {";
+        echo "    var emptypop = document.getElementById('errorModal');";
+        echo "    var errorMsgElement = document.getElementById('errorMessage');";
+        echo "    if (emptypop && errorMsgElement) {";
+        echo "        emptypop.classList.add('show');";
+        echo "        emptypop.style.display = 'block';";
+        echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
+        echo "    }";
+        echo "});";
+        echo "</script>";
+               // echo "update success ";
+           ?>
+        
+            </div><?php
+}
+elseif($bookingStatus == "NotBooked"){
+     ?>
+    <div class=" container">
+             <?php
+                 $errStatus  =   1; // need to handle error case like repay mail etc
+                   $Errmessage = "Latest status from AirLine Shows NotBooked .Please search again or check with your dashboard Booking details"; 
+
+                       echo "<script>";
+        echo "document.addEventListener('DOMContentLoaded', function() {";
+        echo "    var emptypop = document.getElementById('errorModal');";
+        echo "    var errorMsgElement = document.getElementById('errorMessage');";
+        echo "    if (emptypop && errorMsgElement) {";
+        echo "        emptypop.classList.add('show');";
+        echo "        emptypop.style.display = 'block';";
+        echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
+        echo "    }";
+        echo "});";
+        echo "</script>";
+               // echo "update success ";
+           ?>
+        
+            </div><?php
+}
+else { 
+   
+        $onewaysegment = [];
+        $returnsegment = [];
+      //  echo "<pre/>";print_r($itinerariesDetail);exit;
+        foreach ($itinerariesDetail as $index => $flight) {
+            if ($index < $bookingData['stops'] + 1) {
+                $onewaysegment[] = $flight;
+            }
+            if ($index > $bookingData['stops']) {
+                $returnsegment[] = $flight;
+            }
+        }
+        $onewaysegmentLast = end($onewaysegment);
+        $returnsegmentLast = end($returnsegment);
+    $cabin_class_mail    =    $onewaysegment[0]['CabinClass'];
+    if($cabin_class_mail == 'Y'){
+        $cabin_class_text   ="Economy";
+    }
+    elseif($cabin_class_mail == 'S'){
+        $cabin_class_text   ="Premium";
+    }
+    elseif($cabin_class_mail == 'C'){
+        $cabin_class_text   ="Business";
+    }
+     elseif($cabin_class_mail == 'F'){
+        $cabin_class_text   ="First";
+    }
+    ?>
+
     <section>
+      
         <div class="container">
-            <h2 class="title-typ2 my-4">Booking Details</h2>
+            <h2 class="title-typ2 my-4 text-center">Your booking is <?php echo  $bookingStatus; ?>.</h2>
             <div class="row my-4">
+                <div class="col-12 text-center fw-700">
+                    Booking Details  from airline  for the ordered ticket are as follows: 
+                </div>
                 <div class="col-12 text-center">
                     <div class="">
                         <div class="d-flex justify-content-md-between flex-md-row flex-column fs-15 fw-300 mb-4">
+
                             <?php
-                             $dateTime = new DateTime($bookingData['dep_date']);
+                            $segmentCount = count($itinerariesDetail);
+                            $segmentCount -= 1;
+                            // print_r( $segmentCount);
+                            $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $itinerariesDetail[0]['DepartureDateTime']);
+                            if ($segmentCount == "0") {
+                                $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $itinerariesDetail[0]['ArrivalDateTime']);
+                            } else {
+                                $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $itinerariesDetail[$segmentCount]['ArrivalDateTime']);
+                            }
 
-                             $formattedDate = $dateTime->format('d F Y, H:i');
+
+                            $diff = $date1->diff($date2);
+                            // Get the difference in hours and minutes
+                            $hours = $diff->h;
+                            $minutes = $diff->i;
+                            //  echo $hours ." h ".$minutes." m ";
+
+                            $datetime = $itinerariesDetail[0]['DepartureDateTime'];
+                            list($date, $time) = explode("T", $datetime);
                             ?>
-                        <div><?php echo $bookingData['dep_location']; ?> <span class="right-arrow-small arrow-000000"></span> <?php echo $bookingData['arrival_location'] . " " . $formattedDate?> 
-                                </div>
-                            <!-- <div>Total Duration: 22hr 45m</div> -->
+                            <div><?php echo $tripDetails['Origin']; ?> <span class="right-arrow-small arrow-000000"></span>
+                                <?php
+                                // print_r($onewaysegmentLast);
+                                echo $onewaysegmentLast['ArrivalAirportLocationCode'] . " " . date("d F Y", strtotime($date)); ?>
+                                <!-- echo $onewaysegmentLast['Destination'] . " " . date("d F Y", strtotime($date)); ?> -->
+                            </div>
+                            <!-- <div>Total Duration:<?php echo $hours . " hr " . $minutes . " m "; ?></div> -->
                         </div>
+
                         <?php
-                             $stmtflightsegment = $conn->prepare('SELECT * FROM flight_segment WHERE booking_id = :bookingId');
-                             $stmtflightsegment->execute(array('bookingId' => $bookingData['id']));
-                             $flightsegmentData = $stmtflightsegment->fetchAll(PDO::FETCH_ASSOC);
+                        //  ($itinerariesDetail as $index => $itinerariesDetails) {
+                        foreach ($onewaysegment as $index => $itinerariesDetails) {
+                           // echo "<pre/>";print_r($itinerariesDetails['FlightNumber']) ;
+                           //----------------
+                            $ATAinfoRef    =    $itinerariesDetails['ATAinfoRef'];
+                            $cabin_class_mail    =    $itinerariesDetails['CabinClass'];
+                            if($cabin_class_mail == 'Y'){
+                                $cabin_class_text   ="Economy";
+                            }
+                            elseif($cabin_class_mail == 'S'){
+                                $cabin_class_text   ="Premium";
+                            }
+                            elseif($cabin_class_mail == 'C'){
+                                $cabin_class_text   ="Business";
+                            }
+                             elseif($cabin_class_mail == 'F'){
+                                $cabin_class_text   ="First";
+                            }
+                           //---------------
+                            $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
 
-                             $stmtpassenger = $conn->prepare('SELECT * FROM travellers_details WHERE flight_booking_id = :bookingId');
-                             $stmtpassenger->execute(array('bookingId' => $bookingData['id']));
-                             $passengerDetail = $stmtpassenger->fetchAll(PDO::FETCH_ASSOC); 
-                        ?>
-                        <div class="d-flex row justify-content-between fs-15 fw-300 mb-4">
-                            <?php 
-                            foreach($flightsegmentData as $flightsegmentDatas){
-                                $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
-                                $stmtlocation->execute(array('airport_code' =>$flightsegmentDatas['dep_location'] ));
-                                $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
-
-
-                                $stmtlocation->execute(array('airport_code' =>$flightsegmentDatas['arrival_location'] ));
-                                $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
-
-                                $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
-
-                                $code = '%' . $flightsegmentDatas['airline_code'] . '%';
-                                $stmtairline->bindParam(':code', $code);
-                                $stmtairline->execute();
-                                $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
+                            $code = '%' . $itinerariesDetails['OperatingAirlineCode'] . '%';
+                            $stmtairline->bindParam(':code', $code);
+                            $stmtairline->execute();
+                            $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
+                            
                             ?>
-                            <ul class="col-lg-3 mb-3">
-                                <div class="text-left">
-                                    <strong class="fw-500 d-block"><?php echo  $airlineLocation['name']; ?></strong>
-                                    Flight No -<?php echo $flightsegmentDatas['flight_no'] . " " .$flightsegmentDatas['cabin_prefernece']?>
-                                </div>
-                            </ul>
-                            <div class="col-lg-7">
-                                <div class="d-flex row justify-content-between">
-                                    <div class="col-md-5 mb-md-0 mb-2 text-md-left">
-                                        <strong class="fw-500 d-block"><?php echo $airportLocation['city_name']. " " . date('H:i:s', strtotime($flightsegmentDatas['dep_date']))?> </strong>
-                                       <?php echo date('d F Y', strtotime($flightsegmentDatas['dep_date'])). " " . $airportLocation['airport_name']."," .$airportLocation['city_name'].",".$airportLocation['country_name'] ?> 
+                            <div class="d-flex row justify-content-between fs-15 fw-300 mb-4">
+
+                                <div class="col-lg-3 mb-3">
+                                    <div class="text-left">
+                                        <strong class="fw-500 d-block"><?php echo $airlineLocation['name'] ?></strong>
+                                        Flight No -<?php echo $itinerariesDetails['FlightNumber'] . " " . $cabin_class_text?>
+                                     <div>   AirlinePNR -<?php echo $itinerariesDetails['AirlinePNR']; ?></div>
                                     </div>
-                                    <div class="col-md-2 mb-md-0 mb-2">
-                                        <div class="d-flex flex-column align-items-center">
-                                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <path
-                                                    d="M10 0C4.486 0 0 4.486 0 10C0 15.514 4.486 20 10 20C15.514 20 20 15.514 20 10C20 4.486 15.514 0 10 0ZM13.293 14.707L9 10.414V4H11V9.586L14.707 13.293L13.293 14.707Z"
-                                                    fill="#959595"></path>
-                                            </svg>
+                                    <div class="d-flex flex-lg-column flex-row align-items-start fs-12 fw-500 mt-2">
+                                        <!--<strong class="fw-600">Baggage (per Adult/Child)-</strong> <?php echo "Ckeck-in:" . $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['BaggageInfo'][$index] . " Cabin: " . $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index] ?> -->
+                                    </div>
+                                    
+                                    
+
+                                </div>
+                                
+                                <div class="col-lg-7">
+                                    <?php
+                                    $datetime = $itinerariesDetails['DepartureDateTime'];
+                                    list($date, $time) = explode("T", $datetime);
+                                    $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
+
+                                    $stmtlocation->execute(array('airport_code' => $itinerariesDetails['DepartureAirportLocationCode']));
+                                    $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+                                    ?>
+                                    <div class="d-flex row justify-content-between">
+                                        <div class="col-md-5 mb-md-0 mb-2 text-md-left">
+                                            <strong class="fw-500 d-block"><?php echo $itinerariesDetails['DepartureAirportLocationCode'] . " " . $time ?></strong>
+                                            <?php echo date("d F Y", strtotime($date)) . " " . $airportLocation['airport_name'] . " , " . $airportLocation['city_name'] ?>
+                                        </div>
+                                        <div class="col-md-2 mb-md-0 mb-2">
+                                            <div class="d-flex flex-column align-items-center">
+                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M10 0C4.486 0 0 4.486 0 10C0 15.514 4.486 20 10 20C15.514 20 20 15.514 20 10C20 4.486 15.514 0 10 0ZM13.293 14.707L9 10.414V4H11V9.586L14.707 13.293L13.293 14.707Z" fill="#959595"></path>
+                                                </svg>
+                                                <?php
+                                                $minutes = $itinerariesDetails['JourneyDuration'];
+                                                $hours = floor($minutes / 60);
+                                                $remainingMinutes = $minutes % 60;
+                                                echo $hours . " h  " . $remainingMinutes . " m";
+                                                ?>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5 text-md-left">
                                             <?php
-                                            $minutes =$flightsegmentDatas['journey_duration'];
-                                                            $hours = floor($minutes / 60);
-                                                            $remainingMinutes = $minutes % 60;
-                                                            echo $hours . " hr  " . $remainingMinutes . " m";
+                                            $datetime = $itinerariesDetails['ArrivalDateTime'];
+                                            list($date, $time) = explode("T", $datetime);
+                                            // echo date("d F Y", strtotime($date));
+                                            $stmtlocation->execute(array('airport_code' => $itinerariesDetails['ArrivalAirportLocationCode']));
+                                            $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
                                             ?>
+                                            <strong class="fw-500 d-block"><?php echo $time . " " . $itinerariesDetails['ArrivalAirportLocationCode']; ?></strong>
+                                            <?php echo date("d F Y", strtotime($date)) . ", " . $airportLocation['airport_name'] . "," . $airportLocation['city_name'] . "," . $airportLocation['country_name'] ?>
                                         </div>
                                     </div>
-                                    <div class="col-md-5 text-md-left">
-                                        <strong class="fw-500 d-block"> <?php echo date('H:i:s', strtotime($flightsegmentDatas['arrival_date'])) . " " .$airportDestinationLocation['city_name']?></strong>
-                                        <?php echo date('d F Y', strtotime($flightsegmentDatas['dep_date'])). " " . $airportDestinationLocation['airport_name']."," .$airportDestinationLocation['city_name'].",".$airportDestinationLocation['country_name'] ?> 
-                                    </div>
                                 </div>
-                            </div>
-                            <?php } ?>
-                        </div>
-                        <!-- <div class="mb-3 bdr-b">
+                                </div>
+                                <?php
+                                    //ATAinfoList not in api doc but received while executing api response ===
+                                foreach($tripDetailsAtaInfo as $k => $vals){
+                                    if($vals['id'] == $ATAinfoRef){
+                                        $fareAttributes =   $vals['fareAttributes'];
+                                       
+                                    ?>
+                                   <!-- ========================= -->
+                                        <div class="table-responsive">
+                                    <h6 class="text-left fw-700">Fare Attributes</h6>
+                                    <table class="table table-bordered white-bg text-left fs-14" style="min-width: 800px;">
+                                        <thead>
+                                            <tr class="dark-blue-bg white-txt">
+                                                <th>Name</th>
+                                                <th>Applicability</th>
+                                                <!-- <th>Age group</th> -->
+                                               
+                                                <th>Message</th>
+                                              <!--  <th>CostType</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+
+                                             foreach($fareAttributes as $key => $farevals){
+                                                $farename = $farevals['name'];
+                                                $farecode = $farevals['code'];
+                                                $fareAppl = $farevals['applicability'];
+                                              //  $faredescription = $farevals['industrySubCodes']['description1'];
+                                                $faremessage = $farevals['conditions'][0]['message'];
+                                                $farecostType = $farevals['conditions'][0]['properties']['costType'];
+                                                if(($farecode == "CBNBGG") || (($farecode == "CHKBGG"))){ //since current array doesnt give value on weighteetc using baggage info from another array of response
+                                                    $fareweightPerPiece = $farevals['conditions'][1]['properties']['weightPerPiece'];
+                                                    $fareweightPerPiece .= $farevals['conditions'][1]['properties']['weightUnit'];
+                                                         
+                                                   
+                                                   if(empty($fareweightPerPiece)){
+                                                        $fareweightPerPiece = "No accurate  Weight values from Airline";
+                                                    }
+                                                   
+                                                    $farecostType   =  $fareweightPerPiece . $fareweightUnit;
+                                                }
+                                                
+                                                if(($farecode == "CHNGBL") || (($farecode == "REFUND"))){
+                                                    $fareweightPerPiece= $farevals['conditions'][0]['properties']['fee'];
+                                                   $fareweightPerPiece .= $farevals['conditions'][0]['properties']['currency'];
+
+                                                    if(empty($fareweightPerPiece)){
+                                                        $fareweightPerPiece = "No accurate Fee values from Airline";
+                                                    }
+                                                   // $farecostType   =  $fareweightPerPiece . $fareweightUnit;
+                                                }
+                                                
+                                            ?>
+                                                <tr>
+                                                <td><?php echo $farename ;?></td>
+                                                <td><?php echo $fareAppl; ?></td>
+                                                    
+                                                    <td><?php echo $faremessage; ?></td>
+                                                 <!--   <td><?php echo $farecostType ." ".$fareweightPerPiece; ?></td> -->
+                                                </tr>
+                                            <?php
+                                            } //eof farevals
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                   <!-- =========================== -->
+                                    
+                                   <?php
+                                       
+                                  } //eof if
+
+                                } //eo foreach atainfo
+                        
+
+
+                            //=================================
+                            ?>
+
+                            <?php
+                        }
+                         
+                            ?>
+                          
+                          
+
+                            <?php
+
+                            if ($returnsegment) {
+                            ?>
+                                <div class="text-left">
+                                    <hr>
+                                    <!-- <span>Return</Span> -->
+                                    <span class="h5 px-3">Return</span>
+                                    <hr>
+                                </div>
+                                <?php
+                                //  ($itinerariesDetail as $index => $itinerariesDetails) {
+                                foreach ($returnsegment as $index => $itinerariesDetails) {
+                                    //----------------
+                                        $ATAinfoRef    =    $itinerariesDetails['ATAinfoRef'];
+                                        $cabin_class_mail    =    $itinerariesDetails['CabinClass'];
+                                        if($cabin_class_mail == 'Y'){
+                                            $cabin_class_text   ="Economy";
+                                        }
+                                        elseif($cabin_class_mail == 'S'){
+                                            $cabin_class_text   ="Premium";
+                                        }
+                                        elseif($cabin_class_mail == 'C'){
+                                            $cabin_class_text   ="Business";
+                                        }
+                                         elseif($cabin_class_mail == 'F'){
+                                            $cabin_class_text   ="First";
+                                        }
+                           //---------------
+                                    $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
+
+                                    $code = '%' . $itinerariesDetails['OperatingAirlineCode'] . '%';
+                                    $stmtairline->bindParam(':code', $code);
+                                    $stmtairline->execute();
+                                    $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
+                                ?>
+                                    <div class="d-flex row justify-content-between fs-15 fw-300 mb-4">
+
+
+                                        <div class="col-lg-3 mb-3">
+                                            <div class="text-left">
+                                                <strong class="fw-500 d-block"><?php echo $airlineLocation['name'] ?></strong>
+                                                Flight No -<?php echo $itinerariesDetails['FlightNumber'] . " " . $cabin_class_text; ?>
+                                               <span>AirlinePNR -<?php echo $itinerariesDetails['AirlinePNR']; ?></span>
+                                            </div>
+                                          <!--  <strong>Baggage (per Adult/Child)-</strong> <?php echo "Ckeck-in:" . $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['BaggageInfo'][$index] . " Cabin: " . $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index] ?> -->
+
+
+                                        </div>
+
+                                        <div class="col-lg-7">
+                                            <?php
+                                            $datetime = $itinerariesDetails['DepartureDateTime'];
+                                            list($date, $time) = explode("T", $datetime);
+                                            $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
+
+                                            $stmtlocation->execute(array('airport_code' => $itinerariesDetails['DepartureAirportLocationCode']));
+                                            $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+                                            ?>
+                                            <div class="d-flex row justify-content-between">
+                                                <div class="col-md-5 mb-md-0 mb-2 text-md-left">
+                                                    <strong class="fw-500 d-block"><?php echo $itinerariesDetails['DepartureAirportLocationCode'] . " " . $time ?></strong>
+                                                    <?php echo date("d F Y", strtotime($date)) . " " . $airportLocation['airport_name'] . " , " . $airportLocation['city_name'] ?>
+                                                </div>
+                                                <div class="col-md-2 mb-md-0 mb-2">
+                                                    <div class="d-flex flex-column align-items-center">
+                                                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M10 0C4.486 0 0 4.486 0 10C0 15.514 4.486 20 10 20C15.514 20 20 15.514 20 10C20 4.486 15.514 0 10 0ZM13.293 14.707L9 10.414V4H11V9.586L14.707 13.293L13.293 14.707Z" fill="#959595"></path>
+                                                        </svg>
+                                                        <?php
+                                                        $minutes = $itinerariesDetails['JourneyDuration'];
+                                                        $hours = floor($minutes / 60);
+                                                        $remainingMinutes = $minutes % 60;
+                                                        echo $hours . " h  " . $remainingMinutes . " m";
+                                                        ?>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-5 text-md-left">
+                                                    <?php
+                                                    $datetime = $itinerariesDetails['ArrivalDateTime'];
+                                                    list($date, $time) = explode("T", $datetime);
+                                                    // echo date("d F Y", strtotime($date));
+                                                    $stmtlocation->execute(array('airport_code' => $itinerariesDetails['ArrivalAirportLocationCode']));
+                                                    $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+                                                    ?>
+                                                    <strong class="fw-500 d-block"><?php echo $time . " " . $itinerariesDetails['ArrivalAirportLocationCode']; ?></strong>
+                                                    <?php echo date("d F Y", strtotime($date)) . ", " . $airportLocation['airport_name'] . "," . $airportLocation['city_name'] . "," . $airportLocation['country_name'] ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        </div>
+                                        <!-- ======================= -->
+                                         <?php
+                                    //ATAinfoList not in api doc but received while executing api response ===
+                                foreach($tripDetailsAtaInfo as $k => $vals){
+                                    if($vals['id'] == $ATAinfoRef){
+                                        $fareAttributes =   $vals['fareAttributes'];
+                                       
+                                    ?>
+                                   <!-- ========================= -->
+                                        <div class="table-responsive">
+                                    <h6 class="text-left fw-700">Fare Attributes</h6>
+                                    <table class="table table-bordered white-bg text-left fs-14" style="min-width: 800px;">
+                                        <thead>
+                                            <tr class="dark-blue-bg white-txt">
+                                                <th>Name</th>
+                                                <th>Applicability</th>
+                                                <!-- <th>Age group</th> -->
+                                               
+                                                <th>Message</th>
+                                              <!--  <th>CostType</th> -->
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+
+                                             foreach($fareAttributes as $key => $farevals){
+                                                $farename = $farevals['name'];
+                                                $farecode = $farevals['code'];
+                                                $fareAppl = $farevals['applicability'];
+                                              //  $faredescription = $farevals['industrySubCodes']['description1'];
+                                                $faremessage = $farevals['conditions'][0]['message'];
+                                                $farecostType = $farevals['conditions'][0]['properties']['costType'];
+                                                if(($farecode == "CBNBGG") || (($farecode == "CHKBGG"))){
+                                                    $fareweightPerPiece = $farevals['conditions'][1]['properties']['weightPerPiece'];
+                                                     $fareweightPerPiece .= $farevals['conditions'][1]['properties']['weightUnit'];
+                                                    if(empty($fareweightPerPiece)){
+                                                        $fareweightPerPiece = "No accurate  Weight values from Airline";
+                                                    }
+                                                   
+                                                   // $farecostType   =  $fareweightPerPiece . $fareweightUnit;
+                                                }
+                                                if(($farecode == "CHNGBL") || (($farecode == "REFUND"))){
+                                                    $fareweightPerPiece= $farevals['conditions'][0]['properties']['fee'];
+                                                   $fareweightPerPiece .= $farevals['conditions'][0]['properties']['currency'];
+
+                                                    if(empty($fareweightPerPiece)){
+                                                        $fareweightPerPiece = "No accurate Fee values from Airline";
+                                                    }
+                                                   // $farecostType   =  $fareweightPerPiece . $fareweightUnit;
+                                                }
+                                                
+                                            ?>
+                                                <tr>
+                                                <td><?php echo $farename ;?></td>
+                                                <td><?php echo $fareAppl; ?></td>
+                                                    
+                                                    <td><?php echo $faremessage; ?></td>
+                                                  <!--  <td><?php echo $farecostType ." ".$fareweightPerPiece; ?></td> -->
+                                                </tr>
+                                            <?php
+                                            } //eof farevals
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                   <!-- =========================== -->
+                                    
+                                   <?php
+                                       
+                                  } //eof if
+
+                                } //eo foreach atainfo
+                        
+
+
+                            //=================================
+                            ?>
+                                        <!-- ============================ -->
+                                    <?php
+                                }
+                                   
+                            }
+                                ?>
+
+
+                                <!-- <div class="mb-3 bdr-b">
                             <h6 class="text-left fw-700">Baggage Details</h6>
                             <ul class="fs-13">
                                 <li class="">
                                     <ul class="row align-items-center pt-3 pb-3">
-                                        <li class="col-md-1 mb-md-0 mb-2">
+                                        <!-- <li class="col-md-1 mb-md-0 mb-2">
                                             <img src="images/emirates-logo.png" alt="">
-                                        </li>
-                                        <li class="col-md-2 flex-column text-left mb-md-0 mb-2">
+                                        </li> -->
+                                <!-- <li class="col-md-2 flex-column text-left mb-md-0 mb-2">
                                             <strong>Emirates</strong>
                                             <span class="uppercase-txt">cok <span
                                                     class="right-arrow-small arrow-000000"></span> dxb</span>
@@ -146,9 +776,7 @@ else {
                                         </li>
                                     </ul>
                                     <ul class="row align-items-center pt-3 pb-3">
-                                        <li class="col-md-1 mb-md-0 mb-2">
-                                            <img src="images/emirates-logo.png" alt="">
-                                        </li>
+                                       
                                         <li class="col-md-2 flex-column text-left mb-md-0 mb-2">
                                             <strong>Emirates</strong>
                                             <span class="uppercase-txt">cok <span
@@ -170,187 +798,376 @@ else {
                                 </li>
                             </ul>
                         </div> -->
-                        <div class="table-responsive">
-                            <h6 class="text-left fw-700">Traveller List</h6>
-                            <table class="table table-bordered white-bg text-left fs-14" style="min-width: 800px;">
-                                <thead>
-                                    <tr class="dark-blue-bg white-txt">
-                                        <th>Traveller Name</th>
-                                        <th>Age group</th>
-                                        <th>Ticket No.</th>
-                                        <th>Baggage</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                <?php
-                                        foreach($passengerDetail as  $passengerDetails){
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $passengerDetails['title']." " . $passengerDetails['first_name'] . " " . $passengerDetails['last_name']?></td>
-                                        <td><?php echo $passengerDetails['passenger_type'] ?></td>
-                                        <td><?php echo $passengerDetails['e_ticket_number'] ?></td>
-                                        <td><?php echo "Check-in: " .$passengerDetails['free_checkin_baggage']. " Cabin: ".$passengerDetails['free_cabin_baggage'] ?></td>
-                                        <td><?php echo $passengerDetails['ticket_status']?></td>
-                                    </tr>
-                                <?php 
-                                        }
-                                ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="row fs-13 mb-3">
-                            <div class="col-12">
-                                <h6 class="text-left fw-700">Fare Details</h6>
-                            </div>
-                            <div class="col-md-5 mb-md-0 mb-3">
-                                <ul>
-                                    <li class="d-flex justify-content-between p-1 bdr-b">
-                                        <strong class="fs-14 fw-600">Fare Breakup <span class="fw-400">(in $)</span></strong>
-                                        <!-- <span>1 adult</span> -->
+                                <div class="table-responsive">
+                                    <h6 class="text-left fw-700">Traveller List</h6>
+                                    <table class="table table-bordered white-bg text-left fs-14" style="min-width: 800px;">
+                                        <thead>
+                                            <tr class="dark-blue-bg white-txt">
+                                                <th>Title</th>
+                                                <th>Traveller Name</th>
+                                                <!-- <th>Age group</th> -->
+                                                <th>Ticket No.</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($passengerDetail as  $passengerDetails) {
+                                                $pssenger = $passengerDetails['Passenger']
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $pssenger['PaxName']['PassengerTitle'] ?></td>
+                                                    <td><?php echo $pssenger['PaxName']['PassengerFirstName'] . " " . $pssenger['PaxName']['PassengerLastName'] ?></td>
+
+                                                    <td>
+                                                        <?php echo ($pssenger['TicketStatus'] == "Ticketed") ? $passengerDetails['ETickets'][0]['ETicketNumber'] : "" ?>
+                                                    </td>
+                                                    <td><?php echo $pssenger['TicketStatus'] ?></td>
+
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- Extra services ===== -->
+                                <?php if(!empty($tripDetailsExtraServices)){ ?>
+                                  <div class="table-responsive">
+                                    <h6 class="text-left fw-700">Extra Services</h6>
+                                    <table class="table table-bordered white-bg text-left fs-14" style="min-width: 800px;">
+                                        <thead>
+                                            <tr class="dark-blue-bg white-txt">
+                                                <th>Type</th>
+                                                <th>Description</th>
+                                                 <th>Amount</th>
+                                                <th>Eligibility</th>
+                                                <th>CheckInType</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ($tripDetailsExtraServices as  $extraSerDetails) {
+                                                $extraType = $extraSerDetails['Type'];
+                                                $extraDescription = $extraSerDetails['Description'];
+                                                $Behavior = $extraSerDetails['Behavior'];
+                                                $extraAmnt = $extraSerDetails['ServiceCost']['Amount']." ".$extraSerDetails['ServiceCost']['CurrencyCode'];
+                                                //=======
+                                                if($Behavior == "PER_PAX"){
+                                                    $eligibility    =   "Extra service applicable for each passenger for entire trip Oneway / Return.";
+                                                }
+                                                elseif($Behavior == "PER_PAX_INBOUND"){
+                                                     $eligibility    =   "Extra service is applicable for each passenger for Inbound flights.";
+                                                    
+                                                }
+                                                elseif($Behavior == "PER_PAX_OUTBOUND"){
+                                                     $eligibility    =   "Extra service is applicable for each passenger for Oubound flights";
+                                                    
+                                                }
+                                                elseif($Behavior == "GROUP_PAX"){
+                                                     $eligibility    =   "Extra service applicable for all the passengers in a Booking for entire trip Oneway / Return.";
+                                                    
+                                                }
+                                                elseif($Behavior == "GROUP_PAX_INBOUND"){
+                                                     $eligibility    =   "Extra service applicable for all the passengers in a booking for Inbound flights.";
+                                                    
+                                                }
+                                                elseif($Behavior == "GROUP_PAX_OUTBOUND"){
+                                                     $eligibility    =   "Extra service applicable for all the passengers in a booking for Outbound flights.";
+                                                    
+                                                }
+                                               
+
+                                                //===========
+                                                $CheckInType = $extraSerDetails['CheckInType'];
+                                            ?>
+                                                <tr>
+                                                    <td><?php echo $extraType; ?></td>
+                                                    <td><?php echo $extraDescription;?></td>
+                                                    <td>
+                                                        <?php echo $extraAmnt; ?>
+                                                    </td>
+                                                    <td>
+                                                        <?php echo $eligibility; ?>
+                                                    </td>
+                                                    <td><?php echo $CheckInType;?></td>
+
+                                                </tr>
+                                            <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <?php } ?>
+                                <!-- extra services end  ==================== -->
+                                <div class="row fs-13 mb-3">
+                                    <div class="col-12">
+                                        <h6 class="text-left fw-700">Fare Details</h6>
+                                    </div>
+                                    <div class="col-md-5 mb-md-0 mb-3">
+                                        <ul>
+                                            <!-- <li class="d-flex justify-content-between p-1 bdr-b">
+                                        <strong class="fs-14 fw-600">Fare Breakup <span class="fw-400">(in ₹)</span></strong>
+                                        <span>1 adult</span>
                                     </li>
                                     <li>
                                         <ul class="bdr-b">
                                             <li class="text-left p-1"><strong class="fw-500">Base Fare</strong></li>
-                                            <?php
-                                              $countadult=0;
-                                              $countchild=0;
-                                              $totalFareadult=0;
-                                              $totalFarechild=0;
-                                              $countinfant=0;
-                                              $totalFareinfant=0;
-                                              $basefareadult=0;
-                                              $basefarechild=0;
-                                              $basefareinfant=0;
-                                              $tax=0;
-
-                                                foreach($passengerDetail as  $passengerDetails){
-                                                    if ($passengerDetails['passenger_type'] == 'ADT') {
-                                                        $countadult ++;
-                                                        $totalFareadult += $passengerDetails['total_pass_fare'];
-                                                        $basefareadult=$passengerDetails['basic_fare'];
-                                                      } elseif($passengerDetails['passenger_type'] == 'CHD') {
-                                                        $countchild ++;
-                                                        $totalFarechild += $passengerDetails['total_pass_fare'];
-                                                        $basefarechild=$passengerDetails['basic_fare'];
-                                                      }elseif($passengerDetails['passenger_type'] == 'INF'){
-                                                        $countinfant ++;
-                                                        $totalFareinfant += $passengerDetails['total_pass_fare'];
-                                                        $basefareinfant=$passengerDetails['basic_fare'];
-                                                      }
-                                                      $tax +=$passengerDetails['tax'];
-                                           
-                                           
-                                                }
-                                                if($countadult>0){
-                                                    $totaladult=$basefareadult*$countadult;
-                                                ?>
-                                                <!-- <li class="d-flex justify-content-between p-1"><span><?php echo "Adult" . " ( " . $basefareadult ." x ". $countadult ." ) "?> </span><span><?php echo $basefareadult*$countadult?></span></li> -->
-                                                 <?php }
-                                                 if($countchild>0) {
-                                                    $totalchild=$basefarechild*$countchild;
-                                                    ?>         
-    
-                                                <!-- <li class="d-flex justify-content-between p-1"><span><?php echo "Child" . " ( " . $basefarechild ." x " .$countchild . " ) " ?> </span><span><?php echo $basefarechild*$countchild?></span></li> -->
-                                                <?php }
-                                                if($countinfant > 0) {
-                                                    $totalinfant=$basefareinfant*$countinfant;
-                                                    ?>
-                                                <!-- <li class="d-flex justify-content-between p-1"><span><?php echo "Infant" . " ( " . $basefareinfant ." x " .$countinfant ." ) "?> </span><span><?php echo $basefareinfant*$countinfant?></span></li> -->
-                                                    <?php }
-                                                    
-                                                    
-                                                    ?>
-                                                 <li class="d-flex justify-content-between p-1"><span> </span><span><?php echo $totaladult+$totalchild+$totalinfant+$bookingData['markup']?></span></li>
-
-
-                                            <li class="d-flex justify-content-between p-1"><span>Airline Charges &amp; Taxes</span><span><?php echo $tax; ?></span></li>
-                                            <!-- <li class="d-flex justify-content-between pw-500 pl-1 pr-1 bdr-t"><span>Airline Fare</span><span>43818</span></li> -->
+                                            <li class="d-flex justify-content-between p-1"><span>Adult (38748x1)</span><span>38748</span></li>
+                                            <li class="d-flex justify-content-between p-1"><span>Airline Charges &amp; Taxes</span><span>5070</span></li>
+                                            <li class="d-flex justify-content-between pw-500 pl-1 pr-1 bdr-t"><span>Airline Fare</span><span>43818</span></li>
                                         </ul>
                                         <ul class="bdr-b">
-                                            <!-- <li class="d-flex justify-content-between p-1"><span>Discount</span><span>(-)0</span></li> -->
-                                            <!-- <li class="d-flex justify-content-between pl-1 pr-1 bdr-t"><span>Net Travel site Charges</span><span>0</span></li> -->
+                                            <li class="d-flex justify-content-between p-1"><span>Discount</span><span>(-)0</span></li>
+                                            <li class="d-flex justify-content-between pl-1 pr-1 bdr-t"><span>Net Thomas Cook Charges</span><span>0</span></li>
                                         </ul>
-                                    </li>
-                                    <li class="d-flex justify-content-between dark-blue-bg white-txt p-1 mt-1">
-                                    <?php
-                                                $total = $bookingData['total_fare'];
-                                                $totalmeal=0;
-                                                $totalbaggage=0;
-
-                                                foreach($flightsegmentData as $flightsegmentDatas){
-                                                    $totalmeal += $flightsegmentDatas['extrameal_amount'];
-                                                    $totalbaggage += $flightsegmentDatas['extrabaggage_amount'];
+                                    </li> -->
+                                            <li class="d-flex justify-content-between dark-blue-bg white-txt p-1 mt-1">
+                                                <?php
+                                                $total = 0;
+                                                foreach ($tripDetails['TripDetailsPTC_FareBreakdowns'] as $fareDetails) {
+                                                    $total += $fareDetails['TripDetailsPassengerFare']['TotalFare']['Amount'] * $fareDetails['PassengerTypeQuantity']['Quantity'];
                                                 }
-                                                $totalfare =$total+$totalmeal+ $totalbaggage;
+                                                $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
+                                                if (isset($_SESSION['user_id'])) {
 
+                                                    $id = $_SESSION['user_id'];
+                                                    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+                                                    $stmt->execute(array('id' => $id));
+                                                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                                    $stmtmarkup->execute(array('role_id' => $user['role']));
+                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                } else {
+                                                    $stmtmarkup->execute(array('role_id' => 1));
+                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                }
+                                                $totalFareAPI = $total;
+                                                // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
+                                                $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                                 ?>
-                                        <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo  $totaladult+$totalchild+$totalinfant+$totalmeal+ $totalbaggage+$tax+$bookingData['markup']; ?></strong>
-                                    </li>
+                                                <strong class="fw-600">Total Itinerary  Fare(Including Tax)</strong><strong>&#36; <?php echo number_format(round($total + $markupPercentage, 2), 2) ?></strong>
+                                            </li>
+                                             <?php if(!empty($tripDetailsExtraServices)){ 
+                                                 $airline_markup_amnt   = number_format(round($total + $markupPercentage, 2), 2);
+                                                 $extra_service_amnt    =  $totalPaid - (number_format(round($total + $markupPercentage, 2), 2) );?>
+                                            <li class="">
+                                        <div class="d-flex row justify-content-between dark-blue-bg white-txt p-1 mt-1 no-gutters">
+                                            <div class="col-lg-6 col-md-12 col-sm-6 text-left mb-lg-0 mb-2">
+                                                <strong class="fw-600">Total Extra Services Amount</strong>
+                                            </div>
+                                            <div class="col-lg-6 col-md-12 col-sm-6 text-right">
+                                                <strong class="fw-600">&#36;</strong><strong><?php echo $extra_service_amnt; ?></strong>
+                                            </div>
+                                        </div>
+                                    </li> 
                                     <li class="">
                                         <div class="d-flex row justify-content-between dark-blue-bg white-txt p-1 mt-1 no-gutters">
                                             <div class="col-lg-6 col-md-12 col-sm-6 text-left mb-lg-0 mb-2">
-                                                <strong class="fw-600">Paid via: <span>*************521</span></strong>
+                                                <strong class="fw-600">Total Paid Amount</strong>
                                             </div>
                                             <div class="col-lg-6 col-md-12 col-sm-6 text-right">
-                                               
-
-
-
-                                                
-                                                <strong class="fw-600">Total Fare:&nbsp;&nbsp;</strong><strong>&#36; <?php echo $totaladult+$totalchild+$totalinfant+$totalmeal+ $totalbaggage+$tax+$bookingData['markup'];?></strong>
+                                                <strong class="fw-600">&#36;</strong><strong><?php echo $totalPaid; ?></strong>
                                             </div>
                                         </div>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="col-md-7">
-                                <ul>
-                                    <li class="d-flex align-items-baseline p-1 bdr-b">
-                                        <strong class="fs-14 fw-600">Fare Rules </strong>
-                                        <span class="uppercase-txt white-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
-                                    </li>
-                                    <ul>
-                                        <li class="d-flex justify-content-between p-1 mt-1">
-                                            <strong class="fs-13 fw-600">Cancellation fee<span class="fw-400">(per passenger)</span></strong>
-                                            <span class="uppercase-txt">cok-dxb</span>
+                                    </li> 
+                                    <?php } ?>
+                                        </ul>
+                                    </div>
+                                    <!--fare rules start-->
+                                    <?php
+                                    
+                                    // echo '<pre/>';
+                                    // print_r($tripDetails['TripDetailsPTC_FareBreakdowns'][0]);
+                                    
+                                    $penalityInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['IsPenaltyDetailsAvailable'];
+                                    $cancellation = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['AirRefundCharges'];
+                                    // echo '<pre/>';
+                                    // print_r($cancellation);
+                                    
+                                    // -------------------cancellation amount---------------
+                                    //adding markup start ====
+                                        //get cancel and date change markeup of end user/agent  from marktable and calculate the % and this % add to penaltyfare
+                                          //Since 3 diff scenarios forcance markup taking cancel_type = 4,  meanse cancel on day after ticket issuance day
+                                         //status 1 means table entry for  for cancel markup,2 means date change entry
+                                         $Penaltymarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE 	cancel_type =4 AND status=1 AND role_id = :role_id');
+                                         $Penaltymarkup->execute(array('role_id' => $user['role']));
+                                         $markupPenaltyInfo = $Penaltymarkup->fetch(PDO::FETCH_ASSOC);
+                                    if($cancellation['IsRefundableBeforeDeparture'] == 'Yes'){
+                                        // echo '<pre/>';
+                                        // print_r($cancellation['RefundCharges']);
+                                        $hours = $cancellation['RefundCharges'][0]['ChargesBeforeDeparture'][0]['HoursBeforeDeparture'];
+                                        $amounta = $cancellation['RefundCharges'][0]['ChargesBeforeDeparture'][0]['Charges'];
+                                        //=============markup add ====
+                                        if(!empty($amounta)){
+                                        $markupPenaltyPercentage = ($markupPenaltyInfo['commission_percentage'] / 100) * $amounta;
+                                                                                   
+                                           $markupPenaltyPercentage    =    number_format(round($markupPenaltyPercentage));
+                                             $totRefundDisplay =   $amounta+$markupPenaltyPercentage;
+                                        }
+                                        else{
+                                           $totRefundDisplay ="Refundable amount is 0 from Airline";
+                                        }
+
+                                        //adding markup ends =======
+                                        $ptp = $cancellation['RefundCharges'][0]['PassengerType'];
+                                        $curr = $cancellation['RefundCharges'][0]['Currency'];
+                                    }
+                                    
+                                    if($cancellation['IsRefundableAfterDeparture'] == 'Yes'){
+                                        $amountb = $cancellation['RefundCharges'][0]['ChargesAfterDeparture'];
+
+                                        //=============markup add ====
+                                        if(!empty($amountb)){
+                                        $markupPenaltyPercentageb = ($markupPenaltyInfo['commission_percentage'] / 100) * $amountb;
+                                                                                   
+                                           $markupPenaltyPercentageb    =    number_format(round($markupPenaltyPercentageb));
+                                             $totRefundDisplayb =   $amounta+$markupPenaltyPercentageb;
+                                        }
+                                        else{
+                                           $totRefundDisplayb ="Refundable amount is 0 from Airline";
+                                        }
+
+                                        $ptp = $cancellation['RefundCharges'][0]['PassengerType'];
+                                        $currr = $cancellation['RefundCharges'][0]['Currency'];
+                                    }
+
+                                    
+                                    // ---------------------------exchange amount---------------
+                                    //Date change 
+                                      // date change markeup of end user/agent  from marktable and calculate the % and this % add to penaltyfare
+            	                       //markup taking cancel_type = 0,  meanse not cancel and Date change meant
+                                                                                                             //status 1 means table entry for  for cancel markup,2 means date change entry
+                                      $DateChangemarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE 	cancel_type =0 AND status=2 AND role_id = :role_id');
+                                       $DateChangemarkup->execute(array('role_id' =>  $user['role']));
+                                       $DateChangemarkupInfo = $DateChangemarkup->fetch(PDO::FETCH_ASSOC);
+                                                                                                         
+                                    $exchange = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['AirExchangeCharges'];
+                                    // echo '<pre/>';
+                                    // print_r($exchange);
+                                    
+                                    if($exchange['IsExchangeableBeforeDeparture'] == 'Yes'){
+                                        $amount1 = $exchange['ExchangeCharges'][0]['ChargeBeforeDeparture'];
+                                          $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $amount1;
+                                           $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
+                                           $totDisplayDate1 =   $amount1+$markupDatechangePercentage;
+                                    }
+                                    else{
+                                        $totDisplayDate1 =  "No value from Airline";
+                                    }
+                                    if($exchange['IsExchangeableAfterDeparture'] == 'Yes'){
+                                        $amount2 = $exchange['ExchangeCharges'][0]['ChargesAfterDeparture'];
+                                          $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $amount2;
+                                           $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
+                                           $totDisplayDate2 =   $amount2+$markupDatechangePercentage;
+                                    }
+                                    else{
+                                         $totDisplayDate2 =  "No value from Airline";
+                                    }
+                                    
+                                    
+                                        $typ = $exchange['ExchangeCharges'][0]['PassengerType'];
+                                        $currr = $exchange['ExchangeCharges'][0]['Currency'];
+                                    ?>
+                                    <div class="col-md-7">
+                                     <ul>
+                                        <li class="d-flex align-items-baseline p-1 bdr-b">
+                                            <strong class="fs-14 fw-600">Penality Informations </strong>
+                                            <?php if($penalityInfo == '1'){
+                                                echo '<span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>';
+                                            }else{
+                                                echo '<span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">NOT Refundable</span>';
+                                            } ?>
                                         </li>
-                                        <li class="text-left">
-                                            <table class="w-100">
-                                                <tbody><tr class="bdr">
-                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                    <td class="p-1">$ 500</td>
-                                                </tr>
-                                                <tr class="bdr">
-                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                    <td class="p-1">$ 500</td>
-                                                </tr>
-                                            </tbody></table>
-                                        </li>
-                                    </ul>
-                                    <ul>
+                                        <ul>
+                                            <li class="d-flex justify-content-between p-1 mt-1">
+                                                <strong class="fs-13 fw-600">Cancellation fee<span class="fw-400">(per passenger)</span></strong>
+                                                <span class="uppercase-txt"><?php echo $tripDetails['Origin']. '-' .$onewaysegmentLast['ArrivalAirportLocationCode']; ?></span>
+                                            </li>
+                                            <li class="text-left">
+                                                <table class="w-100">
+                                                    <tbody><tr class="bdr">
+                                                        <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee - <?php echo $hours. ' Hours before departure'; ?> ( <?php print_r($curr); ?>)</td>
+                                                        <td class="p-1"><?php 
+                                                        if($curr == 'USD'){ echo $ptp . ': $' . $totRefundDisplay;}else{ echo '';  } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php  if($cancellation['IsRefundableAfterDeparture'] == 'Yes'){ ?>
+                                                    <tr class="bdr">
+                                                        <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee - After departure (<?php print_r($curr); ?>)</td>
+                                                        <td class="p-1"><?php 
+                                                        if($curr == 'USD'){ echo $ptp . ': $' . $totRefundDisplayb;}else{ echo '';  } ?>
+                                                        </td>
+                                                    </tr>
+                                                    <?php } ?>
+                                                    <!--<tr class="bdr">-->
+                                                    <!--    <td class="bg-f0f3f5 p-1" style="width: 40%;">Thomas Cook Fee</td>-->
+                                                    <!--    <td class="p-1">₹ 500</td>-->
+                                                    <!--</tr>-->
+                                                </tbody></table>
+                                            </li>
+                                        </ul>
+                                     <ul>
                                         <li class="d-flex justify-content-between p-1 mt-1">
                                             <strong class="fs-13 fw-600">Date Change fee<span class="fw-400">(per passenger)</span></strong>
-                                            <span class="uppercase-txt">cok-dxb</span>
+                                            <span class="uppercase-txt"><?php echo $tripDetails['Origin']. '-' .$onewaysegmentLast['ArrivalAirportLocationCode']; ?></span>
                                         </li>
                                         <li class="text-left">
                                             <table class="w-100">
                                                 <tbody><tr class="bdr">
-                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
-                                                    <td class="p-1">$ 500</td>
+                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee - Before departure (<?php print_r($currr); ?>)</td>
+                                                    <td class="p-1"><?php
+                                                    if($currr == 'USD'){ echo $typ . ': $' . $totDisplayDate1;}else{ echo '';  } ?></td>
                                                 </tr>
-                                                <tr class="bdr">
-                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Travel Site Fee</td>
-                                                    <td class="p-1">$ 500</td>
+                                                <?php  if($exchange['IsExchangeableAfterDeparture'] == 'Yes'){ ?>
+                                                <tr>
+                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee - After departure (<?php print_r($currr); ?>)</td>
+                                                    <td class="p-1"><?php 
+                                                    if($currr == 'USD'){ echo $typ . ': $' . $totDisplayDate2;}else{ echo '';  } ?>
+                                                    </td>
                                                 </tr>
+                                                <?php } ?>
+                                                <!--<tr class="bdr">-->
+                                                <!--    <td class="bg-f0f3f5 p-1" style="width: 40%;">Thomas Cook Fee</td>-->
+                                                <!--    <td class="p-1">₹ 500</td>-->
+                                                <!--</tr>-->
                                             </tbody></table>
                                         </li>
-                                    </ul>
+                                      </ul>
+                                      <ul>
+                                        <li class="d-flex justify-content-between p-1 mt-1">
+                                            <strong class="fs-13 fw-600">Baggage Information<span class="fw-400">(per passenger)</span></strong>
+                                            <span class="uppercase-txt"><?php echo $tripDetails['Origin']. '-' .$onewaysegmentLast['ArrivalAirportLocationCode']; ?></span>
+                                        </li>
+                                        <li class="text-left">
+                                            <table class="w-100">
+                                                <tbody><tr class="bdr">
+                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">cabinBaggage</td>
+                                                    <td class="p-1"><?php
+                                                   echo $cabinBaggage; ?></td>
+                                                </tr>
+                                               
+                                                <tr>
+                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">CheckInBaggage</td>
+                                                    <td class="p-1"><?php 
+                                                   echo $baggageInfo; ?>
+                                                    </td>
+                                                </tr>
+                                              
+                                                <!--<tr class="bdr">-->
+                                                <!--    <td class="bg-f0f3f5 p-1" style="width: 40%;">Thomas Cook Fee</td>-->
+                                                <!--    <td class="p-1">₹ 500</td>-->
+                                                <!--</tr>-->
+                                            </tbody></table>
+                                        </li>
+                                      </ul>
 
-                                </ul>    
+                                    </ul>    
                             </div>
-                        </div>
-                        <div class="row fs-13 mb-3">
+                            <!--fare rules end-->
+                                </div>
+                                <div class="row fs-13 mb-3">
                             <div class="col-12">
                                 <h6 class="text-left fw-700">Contact Details</h6>
                             </div>
@@ -371,7 +1188,7 @@ else {
                         </div>
                         <div class="form-row mb-3">
                             <div class="col-lg col-sm-6 mb-lg-0 mb-2">
-                                <button class="btn btn-typ3 fs-14 w-100">Cancel Flight</button>
+                                <a href="cancel.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Cancel Flight</a>
                             </div>
                             <div class="col-lg col-sm-6 mb-lg-0 mb-2">
                                 <a href="dashboard-flight-reschedule-details.html" class="btn btn-typ3 fs-14 w-100">Reschedule</a>
@@ -393,6 +1210,20 @@ else {
                             </div>
                         <!-- </form> -->
                         </div>
+                                <!-- <div class="row mb-3">
+                            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <button class="btn btn-typ3 fs-14 w-100">Cancel Flight</button>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <a href="dashboard-flight-reschedule-details.html" class="btn btn-typ3 fs-14 w-100">Reschedule</a>
+                            </div>
+                            <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <button class="btn btn-typ3 fs-14 w-100">Download Invoice</button>
+                            </div>
+                            <div class="col-lg-3 col-sm-6">
+                                <button class="btn btn-typ3 fs-14 w-100">Download Ticket</button>
+                            </div>
+                        </div> -->
                     </div>
                 </div>
             </div>

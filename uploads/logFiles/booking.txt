@@ -392,3 +392,85 @@ REsponse Received\nArray
 )
 
 Success Received\nCONFIRMED
+-------------Thursday 28th of November 2024 05:33:53 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => Nk9JRWgyNDVhWW9sZXlzWmNITk4yYTFxVHdUVzFoeTVaeVlQZDV6cnllNlNXVmJ5eXZ5QUtsVG5UbWlHbzVsOEtIcHF3MGFNY0dlRzNYNmVMcGcvS29ueFRtbEpseTE5TzJFaDVlV1FqOFd0QUFISDNMSHhzM3Q3N0JpK3BsTFNqei9oRTJLSGhiR3FBZHo3SDkzY3NDaHRDd3lOS0ZaYlluZk9EbXJXNExVPQ==
+    [ClientMarkup] => 9.6333
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => U
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => MISS
+                                    [PassengerFirstName] => Kevyn
+                                    [PassengerLastName] => Bradshaw
+                                )
+
+                            [DateOfBirth] => 1971-11-04
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 123456789
+                                    [ExpiryDate] => 2035-04-23
+                                    [Country] => KH
+                                )
+
+                            [PassengerNationality] => KN
+                        )
+
+                )
+
+            [CountryCode] => 960
+            [PhoneNumber] => 778
+            [Email] => pybu@mailinator.com
+            [PostCode] => Ad laborum Velit su
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=72
+userId is 72BOOKING STATUS IS 
+Booking ID is 92
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+

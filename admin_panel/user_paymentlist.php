@@ -30,6 +30,7 @@ $i = 0;
         </div>
     
         <div class="table-responsive">
+            
             <table class="table text-start align-middle table-bordered table-hover mb-0" id="myTable">
                 <thead>
                     <tr class="text-dark">
@@ -52,9 +53,9 @@ $i = 0;
                             <td><?php echo $list['first_name'].' '.$list['last_name']; ?></td>
                             <td><?php echo $list['email']; ?></td>
                             <td><?php echo $list['mobile']; ?></td>
-                            <td><?php echo $list['payment_amount']; ?></td>
-                            <td><?php echo $list['currency']; ?></td>
-                            <td><?php echo $list['payment_date']; ?></td>
+                            <td><?php echo $list['total_paid']; ?></td>
+                            <td><?php echo "USD"; ?></td>
+                            <td><?php echo $list['created_at']; ?></td>
                             <td><?php echo 'success'; ?></td>
                         </tr>
                     <?php } ?>

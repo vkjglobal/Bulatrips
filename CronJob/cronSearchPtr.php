@@ -119,7 +119,7 @@ foreach($resultBooking as $resultBookingdata){
                                     $name   =   $userDetails['first_name']." ".$userDetails['last_name'];
                                     $content    =   '<p>Hello,</p>
                                                         <p>This agent , '. $name .', with email '.$userDetails['email'].' ptr request against booking id:'.$bookingId.'.The booking is response has been return as completed</p>';
-                                                    $messageData =   $objBook->getEmailContent($content);
+                                                    $messageData =   $objBookCron->getEmailContent($content);
                                 // print_r($messageData);exit;
                                     $headers="";
                                     $email = $adminToemail; //Need ADMIN email here

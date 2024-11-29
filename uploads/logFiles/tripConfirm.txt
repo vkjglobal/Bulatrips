@@ -5083,3 +5083,1305 @@ REsponse Received\nArray
 
 )
 
+-------------Friday 29th of November 2024 05:58:01 AM-------------
+MF refMF28265624
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [ATAinfoList] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => COKBLR6E897REGULAR FARE
+                                            [cabin] => 
+                                            [fareFamilyName] => REGULAR FARE
+                                            [fareAttributes] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [code] => CBNBGG
+                                                            [name] => Hand baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0LN
+                                                                    [group] => BG
+                                                                    [subGroup] => CY
+                                                                    [description1] => STANDARD BAGGAGE : Hand baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Hand baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Hand baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [1] => Array
+                                                        (
+                                                            [code] => CHKBGG
+                                                            [name] => Check-in baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0CC
+                                                                    [group] => BG
+                                                                    [description1] => STANDARD BAGGAGE : Check-in baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Check-in baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Check-in baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [2] => Array
+                                                        (
+                                                            [code] => CHNGBL
+                                                            [name] => Changeability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                    [description1] => CF - Change Fee
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Changeability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [3] => Array
+                                                        (
+                                                            [code] => REFUND
+                                                            [name] => Refundability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Refundability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [id] => BLRBOM6E5351REGULAR FARE
+                                            [cabin] => 
+                                            [fareFamilyName] => REGULAR FARE
+                                            [fareAttributes] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [code] => CBNBGG
+                                                            [name] => Hand baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0LN
+                                                                    [group] => BG
+                                                                    [subGroup] => CY
+                                                                    [description1] => STANDARD BAGGAGE : Hand baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Hand baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Hand baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [1] => Array
+                                                        (
+                                                            [code] => CHKBGG
+                                                            [name] => Check-in baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0CC
+                                                                    [group] => BG
+                                                                    [description1] => STANDARD BAGGAGE : Check-in baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Check-in baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Check-in baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [2] => Array
+                                                        (
+                                                            [code] => CHNGBL
+                                                            [name] => Changeability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                    [description1] => CF - Change Fee
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Changeability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [3] => Array
+                                                        (
+                                                            [code] => REFUND
+                                                            [name] => Refundability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Refundability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [MFRef] => MF28265624
+                            [TripType] => OneWay
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 432891
+                                                    [IsMandatory] => 
+                                                    [Description] => 1 bags - 15Kg   
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 3
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 0.00
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TicketStatus] => Ticketed
+                            [Origin] => COK
+                            [Destination] => BOM
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1988-11-03T00:00:00
+                                                    [EmailAddress] => riannannrino@gmail.com
+                                                    [PhoneNumber] => 1234567890
+                                                    [PassportExpiresOn] => 2025-05-30T00:00:00
+                                                    [PassportNationality] => Indian
+                                                    [PassengerNationality] => Indian
+                                                    [PostCode] => 123456
+                                                    [PassportIssuanceCountry] => India
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MRS
+                                                            [PassengerFirstName] => ANN
+                                                            [PassengerLastName] => ANN
+                                                        )
+
+                                                    [PassportNumber] => 123
+                                                    [NameNumber] => 432891
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 55L2BAZ
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 48.38
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 15.57
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 63.95
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => InformationNotAvailable
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 41.63
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => InformationNotAvailable
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 35.68
+                                                                    [HoursBeforeDeparture] => 3
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-11-30T10:40:00
+                                                                    [ArrivalDateTime] => 2024-11-30T11:45:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 897
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 65
+                                                                    [AirlinePNR] => 55L2BAZ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => COK
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => BLR
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => 1 bags - 1
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => COKBLR6E897REGULAR FARE
+                                                                    [FareFamily] => REGULAR FARE
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-11-30T15:15:00
+                                                                    [ArrivalDateTime] => 2024-11-30T17:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 5351
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 55L2BAZ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => BLR
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => BOM
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => 1 bags - 1
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => BLRBOM6E5351REGULAR FARE
+                                                                    [FareFamily] => REGULAR FARE
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                    [Transactions] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => Invoice
+                                                    [Number] => 21072276
+                                                    [Amount] => 63.95
+                                                    [Currency] => USD
+                                                    [PTRId] => NA
+                                                )
+
+                                        )
+
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-09-21T19:23:02.207
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 1.92
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-09-21T19:22:52
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Friday 29th of November 2024 06:01:49 AM-------------
+MF refMF28265624
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [ATAinfoList] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [id] => COKBLR6E897REGULAR FARE
+                                            [cabin] => 
+                                            [fareFamilyName] => REGULAR FARE
+                                            [fareAttributes] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [code] => CBNBGG
+                                                            [name] => Hand baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0LN
+                                                                    [group] => BG
+                                                                    [subGroup] => CY
+                                                                    [description1] => STANDARD BAGGAGE : Hand baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Hand baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Hand baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [1] => Array
+                                                        (
+                                                            [code] => CHKBGG
+                                                            [name] => Check-in baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0CC
+                                                                    [group] => BG
+                                                                    [description1] => STANDARD BAGGAGE : Check-in baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Check-in baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Check-in baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [2] => Array
+                                                        (
+                                                            [code] => CHNGBL
+                                                            [name] => Changeability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                    [description1] => CF - Change Fee
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Changeability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [3] => Array
+                                                        (
+                                                            [code] => REFUND
+                                                            [name] => Refundability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Refundability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [id] => BLRBOM6E5351REGULAR FARE
+                                            [cabin] => 
+                                            [fareFamilyName] => REGULAR FARE
+                                            [fareAttributes] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [code] => CBNBGG
+                                                            [name] => Hand baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0LN
+                                                                    [group] => BG
+                                                                    [subGroup] => CY
+                                                                    [description1] => STANDARD BAGGAGE : Hand baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Hand baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Hand baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [1] => Array
+                                                        (
+                                                            [code] => CHKBGG
+                                                            [name] => Check-in baggage
+                                                            [applicability] => included
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 0CC
+                                                                    [group] => BG
+                                                                    [description1] => STANDARD BAGGAGE : Check-in baggage
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Check-in baggage is with no charge
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => free
+                                                                                )
+
+                                                                        )
+
+                                                                    [1] => Array
+                                                                        (
+                                                                            [message] =>  piece of baggage : STANDARD BAGGAGE : Check-in baggage
+                                                                            [type] => baggage
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [pieces] => 0
+                                                                                    [weightPerPiece] => 0
+                                                                                    [weightUnit] => 
+                                                                                    [baggageType] => regular
+                                                                                    [sumofDimensions] => 0
+                                                                                    [lengthUnit] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [2] => Array
+                                                        (
+                                                            [code] => CHNGBL
+                                                            [name] => Changeability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                    [description1] => CF - Change Fee
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Changeability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                    [3] => Array
+                                                        (
+                                                            [code] => REFUND
+                                                            [name] => Refundability
+                                                            [applicability] => paid
+                                                            [industrySubCodes] => Array
+                                                                (
+                                                                    [subCode] => 055
+                                                                    [group] => BF
+                                                                    [subGroup] => VC
+                                                                )
+
+                                                            [conditions] => Array
+                                                                (
+                                                                    [0] => Array
+                                                                        (
+                                                                            [message] => Refundability is with a fee
+                                                                            [type] => cost
+                                                                            [properties] => Array
+                                                                                (
+                                                                                    [costType] => 
+                                                                                    [fee] => 
+                                                                                    [currency] => 
+                                                                                )
+
+                                                                        )
+
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [MFRef] => MF28265624
+                            [TripType] => OneWay
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 432891
+                                                    [IsMandatory] => 
+                                                    [Description] => 1 bags - 15Kg   
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 3
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 0.00
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TicketStatus] => Ticketed
+                            [Origin] => COK
+                            [Destination] => BOM
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1988-11-03T00:00:00
+                                                    [EmailAddress] => riannannrino@gmail.com
+                                                    [PhoneNumber] => 1234567890
+                                                    [PassportExpiresOn] => 2025-05-30T00:00:00
+                                                    [PassportNationality] => Indian
+                                                    [PassengerNationality] => Indian
+                                                    [PostCode] => 123456
+                                                    [PassportIssuanceCountry] => India
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MRS
+                                                            [PassengerFirstName] => ANN
+                                                            [PassengerLastName] => ANN
+                                                        )
+
+                                                    [PassportNumber] => 123
+                                                    [NameNumber] => 432891
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 55L2BAZ
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 48.38
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 15.57
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 63.95
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => InformationNotAvailable
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 41.63
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => InformationNotAvailable
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 35.68
+                                                                    [HoursBeforeDeparture] => 3
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-11-30T10:40:00
+                                                                    [ArrivalDateTime] => 2024-11-30T11:45:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 897
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 65
+                                                                    [AirlinePNR] => 55L2BAZ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => COK
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => BLR
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => 1 bags - 1
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => COKBLR6E897REGULAR FARE
+                                                                    [FareFamily] => REGULAR FARE
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-11-30T15:15:00
+                                                                    [ArrivalDateTime] => 2024-11-30T17:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 5351
+                                                                    [ResBookDesigCode] => 
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 55L2BAZ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => BLR
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => BOM
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => 1 bags - 1
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => BLRBOM6E5351REGULAR FARE
+                                                                    [FareFamily] => REGULAR FARE
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                    [Transactions] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => Invoice
+                                                    [Number] => 21072276
+                                                    [Amount] => 63.95
+                                                    [Currency] => USD
+                                                    [PTRId] => NA
+                                                )
+
+                                        )
+
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-09-21T19:23:02.207
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 1.92
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-09-21T19:22:52
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+

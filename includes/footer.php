@@ -91,24 +91,20 @@
             <div class="row">
                 <div class="col-lg-12 footer-bottom-bar">
                     <div class="footer-info-left">
-                        <div class="copyright">&copy; <?php echo date("Y"); ?> Travelsite All rights reserved.</div>
-                        <ul class="ftr-lnks">
+                        <div class="copyright">&copy; <?php //echo date("Y"); ?> Travelsite All rights reserved.</div>
+                        <!-- <ul class="ftr-lnks">
                             <li><a href="">Home</a></li>
                             <li><a href="">My Bookings</a></li>
                             <li><a href="about-us.php">About Us</a></li>
                             <li><a href="">Booking Support</a></li>
                             <?php
-                                // Check if the user is logged in
-                                    if (isset($_SESSION['user_id'])) {
-                                // User is logged in, don't display login link
-                                    } 
-                                    else {
-                                        // User is not logged in, display login link
-                                    echo '<li><a href="login-modal.php" data-toggle="modal" data-target="#LoginModal">Login</a></li>';
-                                    }
+                            /*
+                                if (isset($_SESSION['user_id'])) {} 
+                                else {echo '<li><a href="login-modal.php" data-toggle="modal" data-target="#LoginModal">Login</a></li>';}
+                            */
                             ?>
-                            
                         </ul>
+                         -->
                     </div>
                     <ul class="footer-info-right">
                         <li class="lng">                  

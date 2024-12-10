@@ -2,6 +2,14 @@
 error_reporting(0);
 session_start();
 
+require_once("includes/header.php");
+require_once('includes/dbConnect.php');
+include_once('includes/common_const.php');
+
+$airport_depart = getAirPortLocationsByAirportCode($_SESSION['search_values']['airport'], $conn);
+$airport_arrival = getAirPortLocationsByAirportCode($_SESSION['search_values']['arrivalairport'], $conn);
+
+
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -27,8 +35,6 @@ header("Cache-Control: post-check=0, pre-check=0", false);
 header("Pragma: no-cache");
 
 //-------
-require_once("includes/header.php");
-require_once('includes/dbConnect.php');
 include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
 // echo '<pre/>';
@@ -167,7 +173,7 @@ if(isset($revalidData['mealService1'])){
                                             </span><?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?> </span>
                                     </div>
                                     <div class="col-md-4 text-md-right fs-15 fw-300">
-                                        Total Duration: <?php
+                                        <strong>Total Duration:</strong> <?php
                                                         /*$date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[0]['FlightSegments'][0]['DepartureDateTime']);
                                                         $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[0]['FlightSegments'][$segmentCount]['ArrivalDateTime']);
                                                         $diff = $date1->diff($date2);
@@ -204,8 +210,21 @@ if(isset($revalidData['mealService1'])){
                                                         $minutes = floor(($diff % 3600) / 60); // Remaining seconds converted to minutes
 
 
-                                                        echo $hours . " h " . $minutes . " m ";
+                                                        // echo $hours . " h " . $minutes . " m ";
 
+                                                        
+                                                        $departureDateTime = $originDestinations[0]['FlightSegments'][0]['DepartureDateTime'];
+                                                        $arrivalDateTime = $originDestinations[0]['FlightSegments'][$segmentCount]['ArrivalDateTime'];
+                                                        
+                                                        $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                        $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
+
+                                                        $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                        $arrivalTimeZone = new DateTimeZone( $arrival_timezone[0]);
+                                                        $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                        $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                        $interval = $departure->diff($arrival);
+                                                        echo $interval->h . " hours and " . $interval->i . " minutes.<br />";
                                                         
 
                                                         //=================
@@ -384,7 +403,7 @@ if(isset($revalidData['mealService1'])){
                                                         </span><?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?> </span>
                                                 </div>
                                                 <div class="col-md-4 text-md-right fs-15 fw-300">
-                                                    Total Duration: <?php
+                                                <strong>Total Duration:</strong> <?php
                                                                     /* $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[$index]['FlightSegments'][0]['DepartureDateTime']);
 
                                                                     $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[$index]['FlightSegments'][$segmentCount]['ArrivalDateTime']);
@@ -431,7 +450,24 @@ if(isset($revalidData['mealService1'])){
 
                                                                         $minutes = floor(($diff % 3600) / 60); // Remaining seconds converted to minutes
 
-                                                                        echo $hours . " h " . $minutes . " m "; 
+                                                                        // echo $hours . " h " . $minutes . " m ";
+                                                                        
+                                                                        $departureDateTime = $originDestinations[$index]['FlightSegments'][0]['DepartureDateTime'];
+                                                                        $arrivalDateTime = $originDestinations[$index]['FlightSegments'][$segmentCount]['ArrivalDateTime'];
+
+                                                                        $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                                        $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
+
+                                                                        // echo $depart_timezone[0];
+                                                                        // echo $arrival_timezone[0];
+
+                                                                        
+                                                                        $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                                        $arrivalTimeZone = new DateTimeZone($arrival_timezone[0]);
+                                                                        $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                                        $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                                        $interval = $departure->diff($arrival);
+                                                                        echo $interval->h . " hours and " . $interval->i . " minutes.<br />";
 
 
                                                                     ?>
@@ -1074,9 +1110,7 @@ Login Modal -->
     <?php
     require_once("includes/forgot-modal.php");
     ?>
-<?php
-require_once("includes/footer.php");
-?>
+<?php require_once("includes/footer.php"); ?>
 <script>
     $(".text-below-button").click(function() {
         $(this).parents('.modal').modal('hide');

@@ -474,3 +474,251 @@ Error 1 Received\nArray
     [errCde] => ERBUK082
 )
 
+-------------Sunday 8th of December 2024 05:49:36 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => dHdKbzk5UE8xbmZQdDBPMTY1eU9QTzNPWUtSZWxNZDk1cEFXVkZBeXdtR0RWT09TMjZWV1I0R2I4ckwwcURjOUh1TDVHaE9Pd21xcG5TU1VJQ1MzQVZwbU4wQTFKZ2IrbHhla244NTVHNFJsOEJyaXI5Qmg3eFY3TkIyWGtZSmkwYTRWWjlYOWxqaStYN0EwVTZHTVlTVFlkeTBNNktMcmNSTGpiZTMwc1FNPQ==
+    [ClientMarkup] => 13.4099
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => Sloane
+                                    [PassengerLastName] => Dejesus
+                                )
+
+                            [DateOfBirth] => 1986-03-23
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 1567489
+                                    [ExpiryDate] => 2035-06-20
+                                    [Country] => CU
+                                )
+
+                            [PassengerNationality] => BL
+                            [ExtraServices1_1] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ExtraServiceId] => 14
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [ExtraServiceId] => 5
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [ExtraServiceId] => 20
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                    [3] => Array
+                                        (
+                                            [ExtraServiceId] => 4
+                                            [Quantity] => 1
+                                            [Key] => string
+                                        )
+
+                                )
+
+                        )
+
+                )
+
+            [CountryCode] => 266
+            [PhoneNumber] => 598
+            [Email] => rejyruho@mailinator.com
+            [PostCode] => Quasi omnis officia 
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28987124OR USERID=73
+userId is 73BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 93
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-12-08T17:49:36
+            [TraceId] => 24120812-3d6eac7f-5a6a-442e-a4bb-7469bb578cf0
+            [UniqueID] => MF28987124
+        )
+
+    [Success] => 1
+)
+
+Success in process Received\nBOOKINGINPROCESS
+-------------Sunday 8th of December 2024 06:15:23 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => MzB5MEI3dzB5QVJpOWw1RGNEeEFMd3QxSHprbUVxbDEzQ2NxbXJ2MlB1K0VOOGtXUWpRWTQyRHE1T1NLQ29IQ3R0R2JNTWg3WjNMNi9EZTZzUkFnU21zdDg3STFQOWpCZFM1bDFWQzR0S2VZUUdsTFpKRWk3NHB4YW5jSlBKeCsyYStBb0VRNTVPajRJQjYrVDlxWlZRPT0=
+    [ClientMarkup] => 15.3293
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => U
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => MISS
+                                    [PassengerFirstName] => Reuben
+                                    [PassengerLastName] => Bowers
+                                )
+
+                            [DateOfBirth] => 2000-09-06
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 12344
+                                    [ExpiryDate] => 2035-06-23
+                                    [Country] => MV
+                                )
+
+                            [PassengerNationality] => PN
+                        )
+
+                )
+
+            [CountryCode] => 44
+            [PhoneNumber] => 782
+            [Email] => debufucihy@mailinator.com
+            [PostCode] => Architecto adipisici
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 94
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+-------------Sunday 8th of December 2024 06:18:52 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => QzJ3ZmhEUnMvTTdUZFZGTFJPVWRIa3FUM3BxUHdaV0tZVlZpbnVDYWl3ZjFHSHBrNGM3NHUyTExHKzdTeUJQYmVWNzVaNFE2R2JjMHlhZ01LMHZBUHZEMUhMRUlUckYyaDIzM1Flb29yWE9xMDQrZWVyK09UN1h3NnFJYVhsTXVJK1U3MFlUR0FCaG1hQ1pOMm1oYkNnPT0=
+    [ClientMarkup] => 15.8809
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => F
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mrs
+                                    [PassengerFirstName] => Hedy
+                                    [PassengerLastName] => Whitaker
+                                )
+
+                            [DateOfBirth] => 2006-11-02
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 156489
+                                    [ExpiryDate] => 2035-01-05
+                                    [Country] => GA
+                                )
+
+                            [PassengerNationality] => LU
+                        )
+
+                )
+
+            [CountryCode] => 977
+            [PhoneNumber] => 879
+            [Email] => tete@mailinator.com
+            [PostCode] => Distinctio Et enim 
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF28987324OR USERID=73
+userId is 73BOOKING STATUS IS CONFIRMED
+Booking ID is 95
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-12-08T18:23:52
+            [TraceId] => 24120823-475b1fd8-8092-4869-a30e-72b6ba0f9956
+            [UniqueID] => MF28987324
+        )
+
+    [Success] => 1
+)
+
+Success Received\nCONFIRMED

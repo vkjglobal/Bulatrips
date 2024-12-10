@@ -1,7 +1,13 @@
 <?php
 session_start();
-
 ini_set('display_errors', 0);
+
+include_once('includes/common_const.php');
+require_once("includes/header.php");
+require_once('includes/dbConnect.php');
+$airport_depart = getAirPortLocationsByAirportCode($_SESSION['search_values']['airport'], $conn);
+$airport_arrival = getAirPortLocationsByAirportCode($_SESSION['search_values']['arrivalairport'], $conn);
+
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
@@ -16,9 +22,6 @@ if ($response !== false) {
     echo "Failed to retrieve data.";
 }
 
- include_once('includes/common_const.php');
-require_once("includes/header.php");
-require_once('includes/dbConnect.php');
 include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
 
@@ -216,7 +219,7 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                             </span><?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?> </span>
                                     </div>
                                     <div class="col-md-4 text-md-right fs-15 fw-300">
-                                        Total Duration: <?php
+                                        <strong>Total Duration:</strong> <?php
                                                         /*$date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[0]['FlightSegments'][0]['DepartureDateTime']);
                                                         $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[0]['FlightSegments'][$segmentCount]['ArrivalDateTime']);
                                                         $diff = $date1->diff($date2);
@@ -253,7 +256,41 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                                         $minutes = floor(($diff % 3600) / 60); // Remaining seconds converted to minutes
 
 
-                                                        echo $hours . " h " . $minutes . " m ";
+                                                        // echo $hours . " h " . $minutes . " m ";
+
+
+
+                                                        $departureDateTime = $originDestinations[0]['FlightSegments'][0]['DepartureDateTime'];
+                                                        $arrivalDateTime = $originDestinations[0]['FlightSegments'][$segmentCount]['ArrivalDateTime'];
+                                                        
+                                                        $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                        $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
+
+                                                        $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                        $arrivalTimeZone = new DateTimeZone( $arrival_timezone[0]);
+                                                        $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                        $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                        $interval = $departure->diff($arrival);
+
+                                                        if ($interval->d > 0) {
+                                                            if( $interval->d >= 2 ) {
+                                                                echo $interval->d . " days, ";
+                                                            } else {
+                                                                echo $interval->d . " day, ";
+                                                            }
+                                                        }
+                                                        if( $interval->h >= 2 ) {
+                                                            echo $interval->h . " hours, ";
+                                                        } else {
+                                                            echo $interval->h . " hour, ";
+                                                        }
+                                                        if( $interval->i >= 2 ) {
+                                                            echo $interval->i . " and minutes. ";
+                                                        } else {
+                                                            echo $interval->i . " and minute. ";
+                                                        }
+
+                                                        // echo $interval->h . " hours and " . $interval->i . " minutes.<br />";
 
                                                         
 
@@ -437,7 +474,7 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                                         </span><?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?> </span>
                                                 </div>
                                                 <div class="col-md-4 text-md-right fs-15 fw-300">
-                                                    Total Duration: <?php
+                                                    <strong>Total Duration:</strong> <?php
                                                                    /* $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[$index]['FlightSegments'][0]['DepartureDateTime']);
 
                                                                     $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $originDestinations[$index]['FlightSegments'][$segmentCount]['ArrivalDateTime']);
@@ -484,7 +521,26 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
 
                                                                      $minutes = floor(($diff % 3600) / 60); // Remaining seconds converted to minutes
 
-                                                                     echo $hours . " h " . $minutes . " m "; 
+                                                                    //  echo $hours . " h " . $minutes . " m "; 
+
+
+                                                                    $departureDateTime = $originDestinations[$index]['FlightSegments'][0]['DepartureDateTime'];
+                                                                    $arrivalDateTime = $originDestinations[$index]['FlightSegments'][$segmentCount]['ArrivalDateTime'];
+
+                                                                    $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                                    $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
+
+                                                                    // echo $depart_timezone[0];
+                                                                    // echo $arrival_timezone[0];
+
+                                                                    
+                                                                    $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                                    $arrivalTimeZone = new DateTimeZone($arrival_timezone[0]);
+                                                                    $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                                    $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                                    $interval = $departure->diff($arrival);
+                                                                    echo $interval->h . " hours and " . $interval->i . " minutes.<br />";
+
 
 
                                                                     ?>
@@ -1193,6 +1249,8 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                 $_SESSION['fsc'] = $pricedItinerary['AirItineraryPricingInfo']['FareSourceCode'];
                                 // echo '<pre/>';print_r($_SESSION);
                                 ?>
+                                
+                                <!-- <input type="hidden" name="paxNameCharacterLimit" value="<?php //echo $_SESSION['paxNameCharacterLimit'] ?>"> -->
                                 <input type="hidden" name="adultCount" value="<?php echo $_SESSION['adultCount'] ?>">
                                 <input type="hidden" name="childCount" value="<?php echo $_SESSION['childCount'] ?>">
                                 <input type="hidden" name="infantCount" value="<?php echo $_SESSION['infantCount'] ?>">

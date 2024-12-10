@@ -1840,7 +1840,7 @@ $(document).ready(function () {
     
     $('#dep-loading').text(source);
     $('#arrival-loading').text(destination);
-    var totalpass = parseInt(adultCount) + parseInt(childCount);
+    var totalpass = parseInt(adultCount) + parseInt(childCount) + parseInt(infantCount);
     $('#pass-count').text(totalpass);
     $('#dep-date').text(departureDate);
     $('#return-date').text(returnDate);
@@ -2461,7 +2461,7 @@ $(document).ready(function () {
                   <div class="col mb-lg-0 mb-2">
                       <label for="" class="m-0 fw-500">Child ${i}</label>
                   </div>
-                  <div class="col mb-lg-0 mb-4">
+                  <div class="col-lg-2 col-md-4 mb-4">
                   <label for="sirLableChild${i}"> Title:</label>
                       <select name="sirLableChild${i}" id="" class="form-control select-title">
                           <option value="MISS">MISS </option>
@@ -2601,7 +2601,7 @@ $(document).ready(function () {
                   <div class="col mb-lg-0 mb-4">
                       <label for="" class="m-0 fw-500">Infant ${i}</label>
                   </div>
-                  <div class="col mb-lg-0 mb-4">
+                  <div class="col-lg-2 col-md-4 mb-4">
                   <label for="sirLableInfant${i}"> Title:</label>
                       <select name="sirLableInfant${i}" id="" class="form-control select-title">
                         <option value="MISS">MISS </option>
@@ -2752,11 +2752,12 @@ $(document).ready(function () {
       // const sirLableInput = document.querySelector(`select[name=sirLable${i+1}]`);
       const sirLableSelect = document.querySelector(`select[name=sirLable${i}]`);
       const sirLableValue = sirLableSelect.value;
-        const characterCount = firstNameInput.value.length + lastNameInput.value.length + sirLableValue.length;
+        // const characterCount = firstNameInput.value.length + lastNameInput.value.length + sirLableValue.length;
+        const characterCount = firstNameInput.value.length + lastNameInput.value.length;
 
       const genderSelect = document.querySelector(`select[name=gender${i}]`);
       const genderValue = genderSelect.value;
-
+      
       if (firstNameInput.value.trim() === "") {
         displayError(firstNameInput, `First name ${i} is required`);
         validationErrors.push(`First name ${i} is required`);
@@ -2766,6 +2767,9 @@ $(document).ready(function () {
       } else if (characterCount > nameCharacterCount) {
           displayError(firstNameInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
           validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
+      } else if (firstNameInput.value.trim().length < 2) {
+        displayError(firstNameInput, `First name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
       } else {
         clearError(firstNameInput);
       }
@@ -2779,6 +2783,9 @@ $(document).ready(function () {
       } else if (lastNameInput.value.trim().length < 1) {
         displayError(lastNameInput, `Last name ${i} should have more than one character`);
         validationErrors.push(`Last name ${i} should have more than one character`);
+      } else if (lastNameInput.value.trim().length < 2) {
+        displayError(lastNameInput, `Last name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
       } else {
         clearError(lastNameInput);
       }
@@ -2814,19 +2821,21 @@ $(document).ready(function () {
       } else {
         clearError(genderSelect);
       }
-        if (genderValue == "M" && sirLableValue !== "Mr") {
-            displayError(sirLableSelect, `Title should be "Mr" for selected gender`);
-            validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
-        } else {
-            clearError(sirLableSelect);
-        }
-        // if (genderValue == "F" && (sirLableValue != "Mrs" || sirLableValue != "MISS") ) {
-        if (genderValue == "F" && sirLableValue === "Mr") {
-            displayError(sirLableSelect, `Title should be "Mrs or MISS" for selected gender`);
-            validationErrors.push(`Title for Female Adult ${i} should be "Mrs or MISS"`);
-        } else {
-            clearError(sirLableSelect);
-        }
+      
+      if (genderValue == "M" && sirLableValue !== "Mr") {
+          displayError(sirLableSelect, `Title should be "Mr" for selected gender`);
+          validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
+      } else {
+          clearError(sirLableSelect);
+      }
+      
+      // if (genderValue == "F" && (sirLableValue != "Mrs" || sirLableValue != "MISS") ) {
+      if (genderValue == "F" && sirLableValue === "Mr") {
+          displayError(sirLableSelect, `Title should be "Mrs or MISS" for selected gender`);
+          validationErrors.push(`Title for Female Adult ${i} should be "Mrs or MISS"`);
+      } else {
+          clearError(sirLableSelect);
+      }
 
       const dobDate = new Date(adultDOBInput.value.trim());
       const currentDate = new Date();
@@ -2875,20 +2884,20 @@ $(document).ready(function () {
       const genderSelect = document.querySelector(`select[name=genderChild${i}]`);
       const genderValue = genderSelect.value;
 
-        const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length + sirLableValue.length;
+        // const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length + sirLableValue.length;
+        const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length;
       if (firstNameChildInput.value.trim() === "") {
         displayError(firstNameChildInput, `First name ${i} is required`);
         validationErrors.push(`First name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(firstNameChildInput.value.trim())) {
         displayError(firstNameChildInput, `First name ${i} contains invalid characters`);
         validationErrors.push(`First name ${i} contains invalid characters`);
-      }
-      else if (characterCount > nameCharacterCount) {
-
+      } else if (characterCount > nameCharacterCount) {
           displayError(firstNameChildInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-
           validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-
+      } else if (firstNameChildInput.value.trim().length < 2) {
+        displayError(firstNameChildInput, `First name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
       } else {
         clearError(firstNameChildInput);
       }
@@ -2901,11 +2910,10 @@ $(document).ready(function () {
       } else if (!/^[a-zA-Z\s]+$/.test(lastNameChildInput.value.trim())) {
         displayError(lastNameChildInput, `Last name ${i} contains invalid characters`);
         validationErrors.push(`Last name ${i} contains invalid characters`);
-      } else if (lastNameChildInput.value.trim().length < 1) {
-        displayError(lastNameChildInput, `Last name ${i} should have more than one character`);
-        validationErrors.push(`Last name ${i} should have more than one character`);
-      }
-      else {
+      } else if (lastNameChildInput.value.trim().length < 2) {
+        displayError(lastNameChildInput, `Last name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
+      } else {
         clearError(lastNameChildInput);
       }
 
@@ -3007,7 +3015,8 @@ $(document).ready(function () {
 
       const genderSelect = document.querySelector(`select[name=genderInfant${i}]`);
         const genderValue = genderSelect.value;
-        const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length + sirLableValue.length;
+        // const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length + sirLableValue.length;
+        const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length;
 
       if (firstNameInfantInput.value.trim() === "") {
         displayError(firstNameInfantInput, `First name ${i} is required`);
@@ -3016,13 +3025,12 @@ $(document).ready(function () {
       else if (!/^[a-zA-Z\s]+$/.test(firstNameInfantInput.value.trim())) {
         displayError(firstNameInput, `First name ${i} contains invalid characters`);
         validationErrors.push(`First name ${i} contains invalid characters`);
-      }
-      else if (characterCount > nameCharacterCount) {
-
+      } else if (firstNameInfantInput.value.trim().length < 2) {
+        displayError(firstNameInfantInput, `First name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
+      } else if (characterCount > nameCharacterCount) {
           displayError(firstNameInfantInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-
           validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-
       } else {
         clearError(firstNameInfantInput);
       }
@@ -3033,11 +3041,10 @@ $(document).ready(function () {
       } else if (!/^[a-zA-Z\s]+$/.test(lastNameInfantInput.value.trim())) {
         displayError(lastNameInfantInput, `Last name ${i} contains invalid characters`);
         validationErrors.push(`Last name ${i} contains invalid characters`);
-      } else if (lastNameInfantInput.value.trim().length < 1) {
-        displayError(lastNameInfantInput, `Last name ${i} should have more than one character`);
-        validationErrors.push(`Last name ${i} should have more than one character`);
-      }
-      else {
+      } else if (lastNameInfantInput.value.trim().length < 2) {
+        displayError(lastNameInfantInput, `Last name ${i} must contain at least 2 characters.`);
+        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
+      } else {
         clearError(lastNameInfantInput);
       }
 
@@ -3127,7 +3134,12 @@ $(document).ready(function () {
     var contactnumber = $('#contactnumber').val();
     var contactemail = $('#contactemail').val();
     var contactpostcode = $('#contactpostcode').val();
-    emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
+    // emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
+    
+    // emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
+    // emailReg = /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
+    emailReg = /^(?!.*[._]{2})[a-zA-Z0-9]{2,}(?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
+
     valid = true;
     if (!valid) {
       event.preventDefault();
@@ -3152,13 +3164,31 @@ $(document).ready(function () {
       $('#contactnumber').after('<span class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>')
       valid = false;
     }
-    if (contactemail == '' || !emailReg.test($('#contactemail').val())) {
+    // if (contactemail == '' || emailReg.test($('#contactemail').val())) {
+    //   console.log("IF COND");
+    //   $('#contactemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id</span>')
+    //   valid = false;
+    // } else {
+    //   console.log("ELSE COD");
+    //   const nextElement = $('#contactemail')[0]?.nextElementSibling;;
+    //   if (nextElement && nextElement.matches('.text-danger')) {
+    //       nextElement.remove();
+    //   }
+    // }
 
-      $('#contactemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id</span>')
-      valid = false;
+
+    if ($('#contactemail').val() === '' || !emailReg.test($('#contactemail').val())) { 
+        const existingError = $('#contactemail').next('.text-danger');
+        $('#contactemail').after('<span class="text-danger fs-12 position-absolute">Enter valid Email Id</span>');
+        valid = false;
+    } else {
+        const nextElement = $('#contactemail').next('.text-danger');
+        if (nextElement.length) {
+            nextElement.remove();
+        }
     }
-    if (contactpostcode == '') {
 
+    if (contactpostcode == '') {
       $('#contactpostcode').after('<span class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>')
       valid = false;
     }

@@ -2,13 +2,10 @@
 
 // Start session
 require_once('includes/dbConnect.php');
-        $value=htmlspecialchars($_POST['fareSourceValue']);
-
-        
+        $value=htmlspecialchars("Nk9JRWgyNDVhWW9sZXlzWmNITk4yYTFxVHdUVzFoeTVaeVlQZDV6cnllNlNXVmJ5eXZ5QUtsVG5UbWlHbzVsOEtIcHF3MGFNY0dlRzNYNmVMcGcvS29ueFRtbEpseTE5TzJFaDVlV1FqOFd0QUFISDNMSHhzM3Q3N0JpK3BsTFNqei9oRTJLSGhiR3FBZHo3SDkzY3NDaHRDd3lOS0ZaYlluZk9EbXJXNExVPQ==");        
 
         $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/SeatMap/Flight';
         $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
-    
     
         // Construct the API request payload
         $requestData = array(          
@@ -16,10 +13,7 @@ require_once('includes/dbConnect.php');
             'Target' => 'Test',
             // 'ConversationId' => 'string',
         );
-       
-        
-      
-       
+
         // Send the API request
     
         $ch = curl_init();

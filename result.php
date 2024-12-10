@@ -1,6 +1,16 @@
 <?php
 error_reporting(0);
+session_start();
+
+require_once("includes/header.php");
+require_once('includes/dbConnect.php');
+require_once('includes/common_const.php');
+
+$airport_depart = getAirPortLocationsByAirportCode($_SESSION['search_values']['airport'], $conn);
+$airport_arrival = getAirPortLocationsByAirportCode($_SESSION['search_values']['arrivalairport'], $conn);
+
 // ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
+
 $url = "https://v6.exchangerate-api.com/v6/82190c2eeaf28578f89f52d7/latest/INR";
 $response = file_get_contents($url);
 $usd_converion_rate = 1;
@@ -11,9 +21,6 @@ if ($response !== false) {
     echo "Failed to retrieve data.";
 }
 
-session_start();
-require_once("includes/header.php");
-require_once('includes/dbConnect.php');
 
 // echo "<pre>";
 //     print_r($_SESSION);
@@ -452,7 +459,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                         </ul>
                     </div> -->
 
-
                     <?php
                     foreach ($currentPageFlights as $pricedItinerary) {
                     ?>
@@ -532,7 +538,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 }
 
                                 $segment = $flightSegmentList[$segmentRef];
-                                //echo "<pre/>";print_r($segment);
+                                // echo "<pre>";print_r($segment);echo "</pre>";
 
                                 //-------find total return stop and get return details information----
                                 $totalReturnStop = 0;
@@ -635,7 +641,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                             </div>
 
                                         </li>
-                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2" style="text-align:center;">
+                                        <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2 text-center">
                                             <div>
 
 
@@ -691,6 +697,42 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column justify-content-between duration-dtls fs-13 mb-md-0 mb-2">
                                             <div>
                                                 <?php
+                                                $departureDateTime = $segment['DepartureDateTime'];
+                                                $arrivalDateTime = $arrivaltime;
+                                                
+                                                $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
+
+                                                // echo $depart_timezone[0];
+                                                // echo $arrival_timezone[0];
+
+
+                                                $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                $arrivalTimeZone = new DateTimeZone( $arrival_timezone[0]);
+                                                $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                $interval = $departure->diff($arrival);
+                                                echo "Total duration:<br /> ";
+                                                if ($interval->d > 0) {
+                                                    if( $interval->d >= 2 ) {
+                                                        echo $interval->d . " days, ";
+                                                    } else {
+                                                        echo $interval->d . " day, ";
+                                                    }
+                                                }
+                                                if( $interval->h >= 2 ) {
+                                                    echo $interval->h . " hours, ";
+                                                } else {
+                                                    echo $interval->h . " hour, ";
+                                                }
+                                                if( $interval->i >= 2 ) {
+                                                    echo $interval->i . " and minutes. ";
+                                                } else {
+                                                    echo $interval->i . " and minute. ";
+                                                }
+                                                
+
+
                                                 //Duration of flights with stops /connection flights 
                                                 if ($totalstop > 0) {
 
@@ -704,9 +746,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                     // // Get the difference in hours and minutes
                                                     // $hours = $interval->h;
                                                     // $minutes = $interval->i;
-
-
-
 
                                                     $datetime1_str = $segment['DepartureDateTime'];
                                                     $datetime2_str = $artime;
@@ -725,13 +764,17 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                     // Step 4: Extract remaining minutes
                                                     $minutes = $time_difference->i;
                                                 } else {
+                                                    
                                                     //Duration for Direct Flights "TO" locations
                                                     //Caculated by time diff between DepartureDateTime and ArrivalDateTime of segments
                                                     //echo "reached hereeeeeeeeeeeeeeeee";
                                                     
-                                                    $datetime1_str = $segment['DepartureDateTime'];
-                                                    $datetime2_str = $segment['ArrivalDateTime'];
+                                                    
 
+
+
+                                                    $originDestinations = $pricedItinerary['OriginDestinations'][0];
+                        
                                                     // Step 1: Convert datetime strings to DateTime objects
                                                     $datetime1 = new DateTime($datetime1_str);
                                                     $datetime2 = new DateTime($datetime2_str);
@@ -749,7 +792,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 // $minutes = $segment['JourneyDuration'];
                                                 // $hours = floor($minutes / 60);
                                                 // $remainingMinutes = $minutes % 60;
-                                                echo $hours . " h  " . $minutes . " m";
+                                                // echo $hours . " h  " . $minutes . " m";
                                                 ?>
                                             </div>
 
@@ -846,7 +889,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 </div>
 
                                             </li>
-                                            <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2">
+                                            <li data-th="Stops" class="main-dtls col-md-2 d-flex flex-column justify-content-between stop-dtls fs-13 mb-md-0 mb-2 text-center">
                                                 <div>
 
 
@@ -891,19 +934,51 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                             <li data-th="Duration" class="main-dtls col-md-3 d-flex flex-column justify-content-between duration-dtls fs-13 mb-md-0 mb-2">
                                                 <div>
                                                     <?php
+                                                    $departureDateTime = $segmentReturn['DepartureDateTime'];
+                                                    $arrivalDateTime = $segmentReturnArrival['ArrivalDateTime'];
 
+                                                    $arrival_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_depart['country_code']));
+                                                    $depart_timezone = \DateTimeZone::listIdentifiers(\DateTimeZone::PER_COUNTRY, trim($airport_arrival['country_code']));
 
+                                                    // echo $depart_timezone[0];
+                                                    // echo $arrival_timezone[0];
 
+                                                    
+                                                    $departureTimeZone = new DateTimeZone($depart_timezone[0]);
+                                                    $arrivalTimeZone = new DateTimeZone($arrival_timezone[0]);
+                                                    $departure = new DateTime($departureDateTime, $departureTimeZone);
+                                                    $arrival = new DateTime($arrivalDateTime, $arrivalTimeZone);
+                                                    $interval = $departure->diff($arrival);
+
+                                                    echo "Total Duration: <br />";
+                                                    if ($interval->d > 0) {
+                                                        if( $interval->d >= 2 ) {
+                                                            echo $interval->d . " days, ";
+                                                        } else {
+                                                            echo $interval->d . " day, ";
+                                                        }
+                                                    }
+                                                    if( $interval->h >= 2 ) {
+                                                        echo $interval->h . " hours, ";
+                                                    } else {
+                                                        echo $interval->h . " hour, ";
+                                                    }
+                                                    if( $interval->i >= 2 ) {
+                                                        echo $interval->i . " and minutes, ";
+                                                    } else {
+                                                        echo $interval->i . " and minute, ";
+                                                    }
+                                                    // echo "Total Duration: <br />" . $interval->h . " hours and " . $interval->i . " minutes.<br />";
+                                                    
+
+                                                    /*
                                                     $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturn['DepartureDateTime']);
                                                     $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturnArrival['ArrivalDateTime']);
                                                     $interval =  $date1->diff($date2);
-
-                                                    // Get the difference in hours and minutes
                                                     $hours = $interval->h;
                                                     $minutes = $interval->i;
-
-
                                                     echo $hours . " h  " . $minutes . " m";
+                                                    */
                                                     ?>
                                                 </div>
 

@@ -102,7 +102,7 @@ if (!isset($_SESSION['user_id'])) {
                             <!--<button type="button" class="btn btn-typ4 fs-14 fw-500 pl-lg-4 pr-lg-4 pl-3 pr-3">My Account</button>-->
                         </div>
                         <label for="main-tab-1" class="maintab-label w-100 active">Manage Booking</label>
-                        <label for="main-tab-2" class="maintab-label w-100">Cancellation</label>
+                        <!-- <label for="main-tab-2" class="maintab-label w-100">Cancellation</label> -->
                         <label for="main-tab-3" class="maintab-label w-100">Profile</label>
                         <label for="main-tab-5" class="maintab-label w-100">Reviews</label>
                         <label for="main-tab-4" class="maintab-label w-100">Settings</label>
@@ -517,174 +517,174 @@ if (!isset($_SESSION['user_id'])) {
                 </div>
             </div>
             <!-- Tab Container 2 -->
-            <input class="tab-radio" id="main-tab-2" name="main-group" type="radio" />
-            <div class="tab-content col-md-9 pl-md-0">
-                <div class="row my-4">
-                    <div class="col-12">
-                        <h2 class="title-typ2 mb-0">Cancellation</h2>
-                    </div>
-                </div>
-                <div class="cancellation-container box-border p-4">
-                    <strong class="fs-16 fw-500 light-blue-txt mb-3 d-block">Cancellation</strong>
-                    <div class="d-flex flex-md-row flex-column-reverse justify-content-between">
-                        <ul id="filterOptionsFlight" class="cancellation-tab-filter d-flex flex-md-row flex-column-reverse">
-                            <li><a href="#" class="upcoming">Upcoming</a>
-                            </li>
-                            <li><a href="#" class="cancelled">Cancelled</a>
-                            </li>
-                            <li class="active"><a href="#" class="all">All</a>
-                            </li>
-                        </ul>
-                        <ul id="filterOptionsPackage"
-                            class="cancellation-tab-filter flex-md-row flex-column-reverse d-none">
-                            <li><a href="#" class="upcoming">Upcoming</a>
-                            </li>
-                            <li><a href="#" class="cancelled">Cancelled</a>
-                            </li>
-                            <li class="active"><a href="#" class="all">All</a>
-                            </li>
-                        </ul>
-                        <div class="position-relative slct-btn-wrp">
-                            <ul class="select-tab-item">
-                                <li class="active-btn">
-                                    <button type="button" data-target="#filterOptionsFlight"
-                                        class="btn filterOptionsFlight">Flight</button>
-                                    <button type="button" class="btn downbtn">Down</button>
-                                </li>
-                                <li>
-                                    <button type="button" data-target="#filterOptionsPackage"
-                                        class="btn filterOptionsPackage">Package</button>
-                                    <button type="button" class="btn downbtn">Down</button>
-                                </li>
-                            </ul>
+                <!-- <input class="tab-radio" id="main-tab-2" name="main-group" type="radio" />
+                <div class="tab-content col-md-9 pl-md-0">
+                    <div class="row my-4">
+                        <div class="col-12">
+                            <h2 class="title-typ2 mb-0">Cancellation</h2>
                         </div>
                     </div>
-                    <div id="FlightCancellationList" class="cancellation-tab-filter-content">
-                        <div class="item upcoming">
-                            <ul class="row align-items-center ml-0 mr-0">
-                                <li class="col-md-1 text-md-center mb-md-0 mb-2"><svg width="21" height="17"
-                                        viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.012 7.59L4.502 0.518L6.433 0L13.384 6.42L18.646 5.01C19.0303 4.9071 19.4397 4.96107 19.7842 5.16004C20.1287 5.35902 20.3801 5.6867 20.483 6.071C20.5859 6.4553 20.5319 6.86474 20.333 7.20924C20.134 7.55375 19.8063 7.8051 19.422 7.908L4.45 11.918L3.674 9.02L3.915 8.955L6.382 11.4L3.756 12.104C3.54067 12.1617 3.31221 12.1459 3.10693 12.0589C2.90165 11.9719 2.73132 11.8189 2.623 11.624L0 6.898L1.449 6.51L3.915 8.955L9.012 7.589V7.59ZM2.534 14.958H18.534V16.958H2.534V14.958Z"
-                                            fill="#2391D1"></path>
-                                    </svg></li>
-                                <li class="col-md-4 mb-md-0 mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <span class="">COK</span>
-                                        <div class="d-flex flex-column align-items-center direction-icon ml-2 mr-2">
-                                            <span class="oneway d-flex">
-                                                <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M29 6L19 0.226497V11.7735L29 6ZM0 7L20 7V5L0 5L0 7Z"
-                                                        fill="#A19595"></path>
-                                                </svg>
-                                            </span>
-                                            <span class="return d-flex">
-                                                <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 6L10 11.7735L10 0.226497L0 6ZM9 7L29 7V5L9 5V7Z"
-                                                        fill="#A19595"></path>
-                                                </svg>
-                                            </span>
+                    <div class="cancellation-container box-border p-4">
+                        <strong class="fs-16 fw-500 light-blue-txt mb-3 d-block">Cancellation</strong>
+                        <div class="d-flex flex-md-row flex-column-reverse justify-content-between">
+                            <ul id="filterOptionsFlight" class="cancellation-tab-filter d-flex flex-md-row flex-column-reverse">
+                                <li><a href="#" class="upcoming">Upcoming</a>
+                                </li>
+                                <li><a href="#" class="cancelled">Cancelled</a>
+                                </li>
+                                <li class="active"><a href="#" class="all">All</a>
+                                </li>
+                            </ul>
+                            <ul id="filterOptionsPackage"
+                                class="cancellation-tab-filter flex-md-row flex-column-reverse d-none">
+                                <li><a href="#" class="upcoming">Upcoming</a>
+                                </li>
+                                <li><a href="#" class="cancelled">Cancelled</a>
+                                </li>
+                                <li class="active"><a href="#" class="all">All</a>
+                                </li>
+                            </ul>
+                            <div class="position-relative slct-btn-wrp">
+                                <ul class="select-tab-item">
+                                    <li class="active-btn">
+                                        <button type="button" data-target="#filterOptionsFlight"
+                                            class="btn filterOptionsFlight">Flight</button>
+                                        <button type="button" class="btn downbtn">Down</button>
+                                    </li>
+                                    <li>
+                                        <button type="button" data-target="#filterOptionsPackage"
+                                            class="btn filterOptionsPackage">Package</button>
+                                        <button type="button" class="btn downbtn">Down</button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="FlightCancellationList" class="cancellation-tab-filter-content">
+                            <div class="item upcoming">
+                                <ul class="row align-items-center ml-0 mr-0">
+                                    <li class="col-md-1 text-md-center mb-md-0 mb-2"><svg width="21" height="17"
+                                            viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.012 7.59L4.502 0.518L6.433 0L13.384 6.42L18.646 5.01C19.0303 4.9071 19.4397 4.96107 19.7842 5.16004C20.1287 5.35902 20.3801 5.6867 20.483 6.071C20.5859 6.4553 20.5319 6.86474 20.333 7.20924C20.134 7.55375 19.8063 7.8051 19.422 7.908L4.45 11.918L3.674 9.02L3.915 8.955L6.382 11.4L3.756 12.104C3.54067 12.1617 3.31221 12.1459 3.10693 12.0589C2.90165 11.9719 2.73132 11.8189 2.623 11.624L0 6.898L1.449 6.51L3.915 8.955L9.012 7.589V7.59ZM2.534 14.958H18.534V16.958H2.534V14.958Z"
+                                                fill="#2391D1"></path>
+                                        </svg></li>
+                                    <li class="col-md-4 mb-md-0 mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <span class="">COK</span>
+                                            <div class="d-flex flex-column align-items-center direction-icon ml-2 mr-2">
+                                                <span class="oneway d-flex">
+                                                    <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M29 6L19 0.226497V11.7735L29 6ZM0 7L20 7V5L0 5L0 7Z"
+                                                            fill="#A19595"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="return d-flex">
+                                                    <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0 6L10 11.7735L10 0.226497L0 6ZM9 7L29 7V5L9 5V7Z"
+                                                            fill="#A19595"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <span class="">DXB</span>
                                         </div>
-                                        <span class="">DXB</span>
-                                    </div>
-                                    <div>Travel Start Date: <span>Thu, 15 Dec 2022</span></div>
-                                </li>
-                                <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
-                                    <span>Booking ID: <strong>FB00088951</strong></span>
-                                    <span>Booking Date : <span>Tue, 06 Dec 2022</span></span>
-                                </li>
-                                <li class="col-md-3">
-                                    <span class="status-not-booked">Not Booked</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item cancelled">
-                            <ul class="row align-items-center ml-0 mr-0">
-                                <li class="col-md-1 text-md-center mb-md-0 mb-2"><svg width="21" height="17"
-                                        viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M9.012 7.59L4.502 0.518L6.433 0L13.384 6.42L18.646 5.01C19.0303 4.9071 19.4397 4.96107 19.7842 5.16004C20.1287 5.35902 20.3801 5.6867 20.483 6.071C20.5859 6.4553 20.5319 6.86474 20.333 7.20924C20.134 7.55375 19.8063 7.8051 19.422 7.908L4.45 11.918L3.674 9.02L3.915 8.955L6.382 11.4L3.756 12.104C3.54067 12.1617 3.31221 12.1459 3.10693 12.0589C2.90165 11.9719 2.73132 11.8189 2.623 11.624L0 6.898L1.449 6.51L3.915 8.955L9.012 7.589V7.59ZM2.534 14.958H18.534V16.958H2.534V14.958Z"
-                                            fill="#2391D1"></path>
-                                    </svg></li>
-                                <li class="col-md-4 mb-md-0 mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <span class="">KCZ</span>
-                                        <div class="d-flex flex-column align-items-center direction-icon ml-2 mr-2">
-                                            <span class="oneway d-flex">
-                                                <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M29 6L19 0.226497V11.7735L29 6ZM0 7L20 7V5L0 5L0 7Z"
-                                                        fill="#A19595"></path>
-                                                </svg>
-                                            </span>
-                                            <span class="return d-flex">
-                                                <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 6L10 11.7735L10 0.226497L0 6ZM9 7L29 7V5L9 5V7Z"
-                                                        fill="#A19595"></path>
-                                                </svg>
-                                            </span>
+                                        <div>Travel Start Date: <span>Thu, 15 Dec 2022</span></div>
+                                    </li>
+                                    <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
+                                        <span>Booking ID: <strong>FB00088951</strong></span>
+                                        <span>Booking Date : <span>Tue, 06 Dec 2022</span></span>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <span class="status-not-booked">Not Booked</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item cancelled">
+                                <ul class="row align-items-center ml-0 mr-0">
+                                    <li class="col-md-1 text-md-center mb-md-0 mb-2"><svg width="21" height="17"
+                                            viewBox="0 0 21 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M9.012 7.59L4.502 0.518L6.433 0L13.384 6.42L18.646 5.01C19.0303 4.9071 19.4397 4.96107 19.7842 5.16004C20.1287 5.35902 20.3801 5.6867 20.483 6.071C20.5859 6.4553 20.5319 6.86474 20.333 7.20924C20.134 7.55375 19.8063 7.8051 19.422 7.908L4.45 11.918L3.674 9.02L3.915 8.955L6.382 11.4L3.756 12.104C3.54067 12.1617 3.31221 12.1459 3.10693 12.0589C2.90165 11.9719 2.73132 11.8189 2.623 11.624L0 6.898L1.449 6.51L3.915 8.955L9.012 7.589V7.59ZM2.534 14.958H18.534V16.958H2.534V14.958Z"
+                                                fill="#2391D1"></path>
+                                        </svg></li>
+                                    <li class="col-md-4 mb-md-0 mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <span class="">KCZ</span>
+                                            <div class="d-flex flex-column align-items-center direction-icon ml-2 mr-2">
+                                                <span class="oneway d-flex">
+                                                    <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M29 6L19 0.226497V11.7735L29 6ZM0 7L20 7V5L0 5L0 7Z"
+                                                            fill="#A19595"></path>
+                                                    </svg>
+                                                </span>
+                                                <span class="return d-flex">
+                                                    <svg width="29" height="12" viewBox="0 0 29 12" fill="none"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M0 6L10 11.7735L10 0.226497L0 6ZM9 7L29 7V5L9 5V7Z"
+                                                            fill="#A19595"></path>
+                                                    </svg>
+                                                </span>
+                                            </div>
+                                            <span class="">DXB</span>
                                         </div>
-                                        <span class="">DXB</span>
-                                    </div>
-                                    <div>Travel Start Date: <span>Sat, 17 Dec 2022</span></div>
-                                </li>
-                                <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
-                                    <span>Booking ID: <strong>FB00089094</strong></span>
-                                    <span>Booking Date : <span>Fri, 09 Dec 2022</span></span>
-                                </li>
-                                <li class="col-md-3">
-                                    <span class="status-not-booked">Not Booked</span>
-                                </li>
-                            </ul>
+                                        <div>Travel Start Date: <span>Sat, 17 Dec 2022</span></div>
+                                    </li>
+                                    <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
+                                        <span>Booking ID: <strong>FB00089094</strong></span>
+                                        <span>Booking Date : <span>Fri, 09 Dec 2022</span></span>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <span class="status-not-booked">Not Booked</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="PackageCancellationList" class="cancellation-tab-filter-content d-none">
+                            <div class="item upcoming">
+                                <ul class="row align-items-center ml-0 mr-0">
+                                    <li class="col-md-1 text-md-center mb-md-0 mb-2">
+                                        <img src="images/img22.png" alt="">
+                                    </li>
+                                    <li class="col-md-4 mb-md-0 mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <span class="">Crazy Deal Dubai - 5N Including Dubai Shopping Festival</span>
+                                        </div>
+                                        <div>Package Start Date: <span>Sat, 24 Dec 2022</span></div>
+                                    </li>
+                                    <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
+                                        <span>Booking ID: <strong>PB00086552</strong></span>
+                                        <span>Booking Date: <span>Sat, 10 Dec 2022</span></span>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <span class="status-not-booked">Not Booked</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="item cancelled">
+                                <ul class="row align-items-center ml-0 mr-0">
+                                    <li class="col-md-1 text-md-center mb-md-0 mb-2">
+                                        <img src="images/img20.png" alt="">
+                                    </li>
+                                    <li class="col-md-4 mb-md-0 mb-2">
+                                        <div class="d-flex align-items-center">
+                                            <span class="">Magical Dubai With Yas Island (Winter)</span>
+                                        </div>
+                                        <div>Package Start Date: <span>Mon, 12 Dec 2022</span></div>
+                                    </li>
+                                    <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
+                                        <span>Booking ID: <strong>PB00086551</strong></span>
+                                        <span>Booking Date: <span>Thu, 01 Dec 2022</span></span>
+                                    </li>
+                                    <li class="col-md-3">
+                                        <span class="status-not-booked">Not Booked</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
-                    <div id="PackageCancellationList" class="cancellation-tab-filter-content d-none">
-                        <div class="item upcoming">
-                            <ul class="row align-items-center ml-0 mr-0">
-                                <li class="col-md-1 text-md-center mb-md-0 mb-2">
-                                    <img src="images/img22.png" alt="">
-                                </li>
-                                <li class="col-md-4 mb-md-0 mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <span class="">Crazy Deal Dubai - 5N Including Dubai Shopping Festival</span>
-                                    </div>
-                                    <div>Package Start Date: <span>Sat, 24 Dec 2022</span></div>
-                                </li>
-                                <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
-                                    <span>Booking ID: <strong>PB00086552</strong></span>
-                                    <span>Booking Date: <span>Sat, 10 Dec 2022</span></span>
-                                </li>
-                                <li class="col-md-3">
-                                    <span class="status-not-booked">Not Booked</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item cancelled">
-                            <ul class="row align-items-center ml-0 mr-0">
-                                <li class="col-md-1 text-md-center mb-md-0 mb-2">
-                                    <img src="images/img20.png" alt="">
-                                </li>
-                                <li class="col-md-4 mb-md-0 mb-2">
-                                    <div class="d-flex align-items-center">
-                                        <span class="">Magical Dubai With Yas Island (Winter)</span>
-                                    </div>
-                                    <div>Package Start Date: <span>Mon, 12 Dec 2022</span></div>
-                                </li>
-                                <li class="col-md-4 d-flex flex-column mb-md-0 mb-2">
-                                    <span>Booking ID: <strong>PB00086551</strong></span>
-                                    <span>Booking Date: <span>Thu, 01 Dec 2022</span></span>
-                                </li>
-                                <li class="col-md-3">
-                                    <span class="status-not-booked">Not Booked</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                </div> -->
             <!-- Tab Container 3 -->
             <input class="tab-radio" id="main-tab-3" name="main-group" type="radio" />
             <div class="tab-content col-md-9 pl-md-0">

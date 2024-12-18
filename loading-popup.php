@@ -8,6 +8,7 @@
                         <div class="fs-16 fw-300 text-center mb-4">Please wait while we search for the cheapest fares for flights.</div>
                         <div class="form-row flight-direction align-items-center justify-content-center mb-4">
                             <strong class="col-md-5 text-md-right text-center mb-md-0 mb-2" id="dep-loading"></strong>
+
                             <div class="col-md-1 d-flex flex-md-column flex-column-reverse align-items-center direction-icon">
                                 <span class="oneway d-flex">
                                     <svg width="29" height="12" viewBox="0 0 29 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -21,7 +22,11 @@
                                 </span>
                             </div>
                             <strong class="col-md-5 text-md-left text-center mt-md-0 mt-2" id="arrival-loading"></strong>
+                            <strong style="padding: 0;margin:0;font-size: 22px;text-transform: capitalize;font-weight: normal;" id="cabiin_class_name" class="text-center mt-md-0 mt-2"></strong>
                         </div>
+
+                        
+
                         <div class="progress mb-5">
                             <div id="progress-bar" class="progress-bar" role="progressbar" style="width: 15%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>

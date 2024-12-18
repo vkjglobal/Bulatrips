@@ -722,3 +722,234 @@ REsponse Received\nArray
 )
 
 Success Received\nCONFIRMED
+-------------Friday 13th of December 2024 07:23:24 PM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => bW1DZEU2eWZ1ZEVHOVBFQVN4MXg3cW41UURDeklLaTh1ZG9EcTZmcGVxZjJxS1o1RERwOEc3Y0hGZStQeExGeXQxNDdHWVNPNVFvZDRUS25ObGFYbkk1NElkWG9vRm9Mc0x6V0Y2TVFlTklUcWFjU0VYVk9wWmtyV2xxRTA2bGdldk8xVUo3ZXlON3VNdVd3OUpudDYvVFVnc2ljVEVMS2c3VzUvRTdWTkNNPQ==
+    [ClientMarkup] => 47.6497
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => U
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => MISS
+                                    [PassengerFirstName] => Debra
+                                    [PassengerLastName] => Cantrell
+                                )
+
+                            [DateOfBirth] => 1970-10-09
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 15987
+                                    [ExpiryDate] => 2030-04-09
+                                    [Country] => AE
+                                )
+
+                            [PassengerNationality] => DE
+                        )
+
+                )
+
+            [CountryCode] => 297
+            [PhoneNumber] => 890
+            [Email] => surebace@mailinator.com
+            [PostCode] => Provident voluptate
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 99
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+-------------Monday 16th of December 2024 05:31:41 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => Nk9JRWgyNDVhWW9sZXlzWmNITk4yZHJjTjJmOGRaK05NY1NIRGFHSFdNUzBzRFJ2R3Bkd0NIZVJWTHRsWmUwcW4zR0FvaXBFT3k2OWxSL2lRdlg2SVZGY1NzSFRrdVUvRlk2TVNIczVhRjREdGdHeE5MbVFhY01Sam10UXk1YkE2R01LQVFqN2RzK0lHdkxHejRPSEg1dkJKT1RTYzh6ckFsN0Q1RTZhLzNFPQ==
+    [ClientMarkup] => 11.8587
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => Nafees
+                                    [PassengerLastName] => Khan
+                                )
+
+                            [DateOfBirth] => 1990-01-01
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 1598751
+                                    [ExpiryDate] => 2035-01-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 92
+            [PhoneNumber] => 923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 54000
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nOR USERID=73
+userId is 73BOOKING STATUS IS 
+Booking ID is 100
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+Error 1 Received\nArray
+(
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+-------------Monday 16th of December 2024 05:36:01 AM-------------
+Request Received\nArray
+(
+    [FareSourceCode] => V3F2QnhYV2Erd0U1Q0FNdG5JZzlrZjlqMVpKaG5zYkV4QmplamJoQ3NxNDFGczhGUnEydGtmZGY1VVE2OU9HR2tPak1LOVBLamd0YWtiOEZQZkUxOTRkMGpmOE5zNWRiMEdtUXJCeHczdEcyY1FPMTJEd0NNZGJJOUNaNlcxaXVWdUpNcUhIcHRKTDFoSHBSRURLK0Nia0tNeVdkSFFKT3NoMVNVZlo5a1hrPQ==
+    [ClientMarkup] => 19.6077
+    [TravelerInfo] => Array
+        (
+            [AirTravelers] => Array
+                (
+                    [0] => Array
+                        (
+                            [PassengerType] => ADT
+                            [Gender] => M
+                            [PassengerName] => Array
+                                (
+                                    [PassengerTitle] => Mr
+                                    [PassengerFirstName] => Nafees
+                                    [PassengerLastName] => Khan
+                                )
+
+                            [DateOfBirth] => 1990-01-01
+                            [Passport] => Array
+                                (
+                                    [PassportNumber] => 1598753
+                                    [ExpiryDate] => 2030-01-01
+                                    [Country] => PK
+                                )
+
+                            [PassengerNationality] => PK
+                        )
+
+                )
+
+            [CountryCode] => 92
+            [PhoneNumber] => 923244031636
+            [Email] => nafeesdroidor@gmail.com
+            [PostCode] => 54000
+        )
+
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF29025324OR USERID=73
+userId is 73BOOKING STATUS IS BOOKINGINPROCESS
+Booking ID is 101
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2024-12-16T05:36:00
+            [TraceId] => 24121611-e9b8c31e-8a13-4873-ad04-185ec71d384e
+            [UniqueID] => MF29025324
+        )
+
+    [Success] => 1
+)
+
+Success in process Received\nBOOKINGINPROCESS

@@ -2009,8 +2009,8 @@ video {
 }
 
 .breadcrumbs li {
-  font-size: 15px;
-  font-weight: 300;
+  font-size: 17px;
+  /* font-weight: 300; */
   color: #000000;
   display: inline-block;
 }
@@ -2019,14 +2019,17 @@ video {
   color: #000000;
 }
 .breadcrumbs li::after {
-  content: "";
-  background: url("../images/arrow-right.svg");
-  width: 15px;
-  height: 10px;
-  display: inline-block;
-  vertical-align: middle;
-  margin-left: 10px;
-  margin-right: 8px;
+  /* background: url("../images/arrow-right.svg"); */
+  content: "\2192";
+    width: 20px;
+    height: auto;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+    margin-right: 7px;
+    font-size: 19px;
+    font-weight: bold;
+    color: #0000ff;
 }
 .breadcrumbs li:last-child::after {
   display: none;
@@ -2217,7 +2220,7 @@ video {
 }
 
 .steps-indicator {
-  padding: 54px 0 39px;
+  padding: 54px 0 0px;
 }
 
 .steps-bar-title {
@@ -3463,4 +3466,9 @@ footer .form-group p {
 
 .modal {
   background: #000000a3;
+}
+ul#ui-id-1, ul#ui-id-2 {
+  height: 600px;
+  overflow-y: scroll;
+  
 }

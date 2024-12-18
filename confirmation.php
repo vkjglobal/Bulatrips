@@ -881,7 +881,7 @@ else {
     <section>
       
         <div class="container">
-            <h2 class="title-typ2 my-4 text-center">Your booking is <?php echo  $bookingStatus; ?>.</h2>
+            <h2 class="title-typ2 my-4 text-center">Your booking status has been <?php echo  $bookingStatus; ?>.</h2>
             <div class="row my-4">
                 <div class="col-12 text-center fw-700">
                     Booking Details  from airline  for the ordered ticket are as follows: 

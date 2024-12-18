@@ -112,7 +112,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <label for="return">Round-trip</label>
                         <input type="radio" id="one-way" value="OneWay" name="tab">
                         <label for="one-way">One-way</label>
-                       <!-- <input type="radio" id="multi-city" value="Circle" name="tab">
+                        <!-- <input type="radio" id="multi-city" value="Circle" name="tab">
                         <label for="multi-city">Multi-city</label> -->
                     </div>
                     <div class="d-flex align-items-center">
@@ -124,6 +124,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 <option value="F">First</option>
                             </select>
                         </div>
+                        <input type="hidden" id="selected_cabin_text" name="selected_cabin_text" value="Economy">
                         <span class="person-select" onclick="return fetchAndAlert()">
                             <label for="" class="select-lbl">Traveller <span id="totalCount" class="count">1</span><span class="downarrow"></span></label>
                             <div class='select-dropbox'>
@@ -160,6 +161,15 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </span>
                             </div>
                         </span>
+
+
+                        <div class="d-flex align-items-center justify-content-center mb-md-0 ml-3">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;">
+                                <label class="form-check-label" for="direct_flights" style="margin-left: 5px;"> Direct Flights</label>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -194,9 +204,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="form-fields col-md-2">
                             <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
                             <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
-
                         </div>
-
                     </div>
                     <div class="search-box row multi-city-search">
                         <div class="col-md-10">

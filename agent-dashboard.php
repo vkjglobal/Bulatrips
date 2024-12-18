@@ -85,7 +85,7 @@ if (!isset($_SESSION['user_id'])) {
                                 Account</button>
                         </div>
                         <label for="main-tab-1" class="maintab-label w-100 active">Manage Booking</label>
-                        <label for="main-tab-2" class="maintab-label w-100">Cancellation</label>
+                        <!-- <label for="main-tab-2" class="maintab-label w-100">Cancellation</label> -->
                         <label for="main-tab-3" class="maintab-label w-100">Profile</label>
                         <label for="main-tab-5" class="maintab-label w-100">Reviews</label>
                         <label for="main-tab-4" class="maintab-label w-100">Settings</label>
@@ -516,8 +516,8 @@ if (!isset($_SESSION['user_id'])) {
                     </div>
                 </div>
                 <!-- Tab Container 2 -->
-                <input class="tab-radio" id="main-tab-2" name="main-group" type="radio" />
-                <div class="tab-content col-md-9 pl-md-0">
+                <!-- <input class="tab-radio" id="main-tab-2" name="main-group" type="radio" /> -->
+                <!-- <div class="tab-content col-md-9 pl-md-0">
                     <div class="row my-4">
                         <div class="col-12">
                             <h2 class="title-typ2 mb-0">Cancellation</h2>
@@ -684,7 +684,7 @@ if (!isset($_SESSION['user_id'])) {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!-- Tab Container 3 -->
                 <input class="tab-radio" id="main-tab-3" name="main-group" type="radio" />
                 <div class="tab-content col-md-9 pl-md-0">

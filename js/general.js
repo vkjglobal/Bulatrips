@@ -121,7 +121,6 @@ $(document).ready(function () {
     }
   });
 
-
   $('#agencycountry').change(function () {
     var countryCode = $(this).val();
     if (countryCode != '') {
@@ -1740,6 +1739,9 @@ $(document).ready(function () {
     var adultCount = parseInt($('#adult_count').val());
     var childCount = parseInt($('#child-count').val());
     var infantCount = parseInt($('#infant-count').val());
+    var direct_flights = parseInt($('#direct_flights').val());
+    var selected_cabin_text = $('#selected_cabin_text').val();
+    
     var source = $('#airport-input').val();
     var departureDate = $('#from').val();
     var returnDate = $('#to').val();
@@ -1749,7 +1751,6 @@ $(document).ready(function () {
     
     var tripTypeValue = tripType.value;
     var totalcount = adultCount + childCount + infantCount;
-   
 
     
     valid = true;
@@ -1783,6 +1784,7 @@ $(document).ready(function () {
       $('#from').next('span.text-danger').remove();
     }
 
+    
     if (tripTypeValue === "Return") {
       if (returnDate == '') {
         $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
@@ -1844,9 +1846,7 @@ $(document).ready(function () {
     $('#pass-count').text(totalpass);
     $('#dep-date').text(departureDate);
     $('#return-date').text(returnDate);
-    
-
-    
+    $('#cabiin_class_name').html(selected_cabin_text);
 
     // Perform the form submission using AJAX
     if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
@@ -2099,10 +2099,6 @@ $(document).ready(function () {
   $("#travellerContinueButton").click(function () {
     $("#travellerDetails").slideDown(1000);
     
-    // $('html, body').animate({
-    //   scrollTop: $(window).scrollTop() - 50
-    // }, 1000);
-
     var offset = $('#travellerDetails').offset();
     var newTop = offset.top - 50;
     $('html, body').animate({
@@ -2192,6 +2188,7 @@ $(document).ready(function () {
     });
     return optionsHtml;
   }
+
   function generateExtraServiceOptionsChild(extraServiceData) {
     let optionsHtml = '<option value="">Select..</option>';
     extraServiceData.forEach((extraService) => {
@@ -3138,14 +3135,14 @@ $(document).ready(function () {
     
     // emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
     // emailReg = /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
-    emailReg = /^(?!.*[._]{2})[a-zA-Z0-9]{2,}(?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
+    // emailReg = /^(?!.*[._]{2})[a-zA-Z0-9]{2,}(?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
+    emailReg = /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
 
     valid = true;
     if (!valid) {
       event.preventDefault();
     }
     if (contactfirstname == '') {
-
       $('#contactfirstname').after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>')
       valid = false;
     }
@@ -3677,11 +3674,16 @@ $('#contactus-submit').submit(function (event) {
   });
 });
 
+$('#cabin-preference').on('change', function() {
+    var selectedText = $(this).find('option:selected').text();
+    $('#selected_cabin_text').val(selectedText);
+});
 
 
+});
 
-
-
-
-
+$(window).on("load", function () {
+  if ($("#travellerContinueButton").is(":visible")) {
+      $("#travellerContinueButton").click();
+  }
 });

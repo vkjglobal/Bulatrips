@@ -1,22 +1,14 @@
 <?php
-// error_reporting(0);
 session_start();
-// include('loading-popup.php');
 include_once('includes/common_const.php');
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
-// echo '<script>
-//     document.addEventListener("DOMContentLoaded", function() {
-//         showLoadingPopup();
-//     });
-// </script>';
-// if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//    print_r($_POST['tab']);die();
 
     $_SESSION['search_values'] = $_POST;
    
     $airTripType = $_POST['tab'];
     $cabinPreference = $_POST['cabin-preference'];
+    
     if($_POST['adult'])
     $adultCount = $_POST['adult'];
     else
@@ -29,6 +21,13 @@ require_once('includes/dbConnect.php');
     $infantCount = $_POST['infant'];
     else
     $infantCount=0;
+
+
+
+    $direct_flights = "All";
+    if( isset($_POST['direct_flights']) && $_POST['direct_flights'] != '' ) {
+        $direct_flights = $_POST['direct_flights'];
+    }
 
     $originLocation = $_POST['airport'];
     $originLocationCode = explode("-", $originLocation);
@@ -71,7 +70,8 @@ require_once('includes/dbConnect.php');
             'TravelPreferences' => array(
                 //   'MaxStopsQuantity' => 'Direct',
                 // 'MaxStopsQuantity' => 'OneStop',
-                  'MaxStopsQuantity' => 'All',
+                //   'MaxStopsQuantity' => 'All',
+                  'MaxStopsQuantity' => $direct_flights,
                 'CabinPreference' => $cabinPreference,
                 'AirTripType' => $airTripType
             ),

@@ -1032,3 +1032,15 @@ REsponse Received\nArray
 
 Booking status is Booked
 Request Received\nSuccessfully executed
+-------------Monday 16th of December 2024 05:39:41 AM-------------
+Request Received\nSuccessfully started
+REsponse Received for MF:\nMF29025324OR USERID=73
+Booking ID is 101
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Invalid Session
+)
+
+Booking status is 

@@ -9863,3 +9863,949 @@ REsponse Received\nArray
 
 )
 
+-------------Monday 16th of December 2024 05:36:10 AM-------------
+MF refMF29025324
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [ATAinfoList] => Array
+                                (
+                                )
+
+                            [MFRef] => MF29025324
+                            [TripType] => OneWay
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 443909
+                                                    [IsMandatory] => 
+                                                    [Description] => Check-in baggage - up to 30kg 
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 5
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 0.00
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TicketStatus] => TktInProcess
+                            [Origin] => BOM
+                            [Destination] => DXB
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1990-01-01T00:00:00
+                                                    [EmailAddress] => nafeesdroidor@gmail.com
+                                                    [PhoneNumber] => 923244031636
+                                                    [PassportExpiresOn] => 2030-01-01T00:00:00
+                                                    [PassportNationality] => Pakistani
+                                                    [PassengerNationality] => Pakistani
+                                                    [PostCode] => 54000
+                                                    [PassportIssuanceCountry] => Pakistan
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => NAFEES
+                                                            [PassengerLastName] => KHAN
+                                                        )
+
+                                                    [PassportNumber] => 1598753
+                                                    [NameNumber] => 443909
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 240.03
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 40.08
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 280.11
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => InformationNotAvailable
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 59.47
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => InformationNotAvailable
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 47.58
+                                                                    [HoursBeforeDeparture] => 3
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-12-17T00:45:00
+                                                                    [ArrivalDateTime] => 2024-12-17T02:40:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 549
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 115
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => BOM
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => COK
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 321
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => NN
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => BOMCOK6E549FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-12-17T18:25:00
+                                                                    [ArrivalDateTime] => 2024-12-17T21:15:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 15
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 260
+                                                                    [AirlinePNR] => 
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => COK
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 320
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => NN
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => COKDXB6E15FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-12-16T05:36:02.35
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 19.61
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-12-16T05:35:41
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 16th of December 2024 05:37:56 AM-------------
+MF refMF29025324
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => No connection is available to service this operation: GET 18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560
+)
+
+-------------Monday 16th of December 2024 05:38:10 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:21 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:31 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:33 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:44 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:54 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:38:58 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:39:17 AM-------------
+MF refMF29025324
+REsponse Received\n
+-------------Monday 16th of December 2024 05:41:38 AM-------------
+MF refMF29025324
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [ATAinfoList] => Array
+                                (
+                                )
+
+                            [MFRef] => MF29025324
+                            [TripType] => OneWay
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 443909
+                                                    [IsMandatory] => 
+                                                    [Description] => Check-in baggage - up to 30kg 
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 5
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 0.00
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TicketStatus] => Ticketed
+                            [Origin] => BOM
+                            [Destination] => DXB
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1990-01-01T00:00:00
+                                                    [EmailAddress] => nafeesdroidor@gmail.com
+                                                    [PhoneNumber] => 923244031636
+                                                    [PassportExpiresOn] => 2030-01-01T00:00:00
+                                                    [PassportNationality] => Pakistani
+                                                    [PassengerNationality] => Pakistani
+                                                    [PostCode] => 54000
+                                                    [PassportIssuanceCountry] => Pakistan
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => NAFEES
+                                                            [PassengerLastName] => KHAN
+                                                        )
+
+                                                    [PassportNumber] => 1598753
+                                                    [NameNumber] => 443909
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => WRVQPC
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 240.03
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 40.08
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 280.11
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => InformationNotAvailable
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 59.47
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => InformationNotAvailable
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 47.58
+                                                                    [HoursBeforeDeparture] => 3
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-12-17T00:45:00
+                                                                    [ArrivalDateTime] => 2024-12-17T02:40:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 549
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 115
+                                                                    [AirlinePNR] => WRVQPC
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => BOM
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => COK
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 321
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => BOMCOK6E549FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-12-17T18:25:00
+                                                                    [ArrivalDateTime] => 2024-12-17T21:15:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 15
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 260
+                                                                    [AirlinePNR] => WRVQPC
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => COK
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 320
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => COKDXB6E15FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-12-16T05:36:02.35
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 19.61
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-12-16T05:35:41
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 16th of December 2024 05:42:00 AM-------------
+MF refMF29025324
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [ATAinfoList] => Array
+                                (
+                                )
+
+                            [MFRef] => MF29025324
+                            [TripType] => OneWay
+                            [ExtraServices] => Array
+                                (
+                                    [Services] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => BAGGAGE
+                                                    [NameNumber] => 443909
+                                                    [IsMandatory] => 
+                                                    [Description] => Check-in baggage - up to 30kg 
+                                                    [Behavior] => PER_PAX_OUTBOUND
+                                                    [ServiceId] => 5
+                                                    [CheckInType] => AIRPORT
+                                                    [ServiceCost] => Array
+                                                        (
+                                                            [Amount] => 0.00
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TicketStatus] => Ticketed
+                            [Origin] => BOM
+                            [Destination] => DXB
+                            [FareType] => WebFare
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1990-01-01T00:00:00
+                                                    [EmailAddress] => nafeesdroidor@gmail.com
+                                                    [PhoneNumber] => 923244031636
+                                                    [PassportExpiresOn] => 2030-01-01T00:00:00
+                                                    [PassportNationality] => Pakistani
+                                                    [PassengerNationality] => Pakistani
+                                                    [PostCode] => 54000
+                                                    [PassportIssuanceCountry] => Pakistan
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => NAFEES
+                                                            [PassengerLastName] => KHAN
+                                                        )
+
+                                                    [PassportNumber] => 1598753
+                                                    [NameNumber] => 443909
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => WRVQPC
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 240.03
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 40.08
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 280.11
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => InformationNotAvailable
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 59.47
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => InformationNotAvailable
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 47.58
+                                                                    [HoursBeforeDeparture] => 3
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => No
+                                                    [AdminCharges] => 0
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2024-12-17T00:45:00
+                                                                    [ArrivalDateTime] => 2024-12-17T02:40:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 549
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 115
+                                                                    [AirlinePNR] => WRVQPC
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => BOM
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => COK
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 321
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => BOMCOK6E549FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2024-12-17T18:25:00
+                                                                    [ArrivalDateTime] => 2024-12-17T21:15:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 15
+                                                                    [ResBookDesigCode] => Y
+                                                                    [JourneyDuration] => 260
+                                                                    [AirlinePNR] => WRVQPC
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => COK
+                                                                    [DepartureTerminal] => 
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 
+                                                                    [OperatingAirlineCode] => 6E
+                                                                    [AirEquipmentType] => 320
+                                                                    [MarketingAirlineCode] => 6E
+                                                                    [Baggage] => Check-in b
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => COKDXB6E15FLEXIBLE FARE
+                                                                    [FareFamily] => FLEXIBLE FARE
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2024-12-16T05:36:02.35
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 19.61
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                            [IsVetted] => 
+                        )
+
+                    [BookingCreatedOn] => 2024-12-16T05:35:41
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+

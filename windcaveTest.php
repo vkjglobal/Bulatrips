@@ -1,51 +1,52 @@
 <!-- response tested -->
 <?php
-// if ($_SERVER["REQUEST_METHOD"] == "POST") {
-//     $cardNumber = $_POST['CardNumber'];
-//     $cardHolderName = $_POST['CardHolderName'];
-//     $expiryMonth = $_POST['ExpiryMonth'];
-//     $expiryYear = $_POST['ExpiryYear'];
-//     $cvc2 = $_POST['Cvc2'];
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $cardNumber = $_POST['CardNumber'];
+    $cardHolderName = $_POST['CardHolderName'];
+    $expiryMonth = $_POST['ExpiryMonth'];
+    $expiryYear = $_POST['ExpiryYear'];
+    $cvc2 = $_POST['Cvc2'];
 
-//     $url = "https://sec.windcave.com/api/v1/sessions";
-//     $headers = [
-//         "Content-Type: application/json",
-//         "Authorization: Basic ABC123"  // Replace with your actual authorization token
-//     ];
+    $url = "https://sec.windcave.com/api/v1/sessions";
+    $headers = [
+        "Content-Type: application/json",
+        "Authorization: Basic VktKR2xvYmFsX0Rldl9SRVNUOmNjNTgxZjdiNjllNzgxN2VlMTNmMjMyYjE4NzU2MDYzOTIzNmYyOWU4ZjJhOTY5Zjg3MTIyNTE3OGFhNmE3NGQ="  // Replace with your actual authorization token
+    ];
 
-//     $data = [
-//         "type" => "purchase",
-//         "amount" => "1.00",
-//         "currency" => "NZD",
-//         "merchantReference" => "1234ABC",
-//         "language" => "en",
-//         "methods" => ["card"],
-//         "callbackUrls" => [
-//             "approved" => "https://bulatrips.com/windcaveTest.php/success",
-//             "declined" => "https://bulatrips.com/windcaveTest.php/fail",
-//             "cancelled" => "https://bulatrips.com/windcaveTest.php/cancel"
-//         ],
-//         "notificationUrl" => "https://bulatrips.com/windcaveTest.php?123",
-//         "card" => [
-//             "number" => $cardNumber,
-//             "name" => $cardHolderName,
-//             "expiryMonth" => $expiryMonth,
-//             "expiryYear" => $expiryYear,
-//             "cvc2" => $cvc2
-//         ]
-//     ];
+    $data = [
+        "type" => "purchase",
+        "amount" => "1.00",
+        "currency" => "NZD",
+        "merchantReference" => "1234ABC",
+        "language" => "en",
+        "methods" => ["card"],
+        "callbackUrls" => [
+            "approved" => "https://bulatrips.com/windcaveTest.php/success",
+            "declined" => "https://bulatrips.com/windcaveTest.php/fail",
+            "cancelled" => "https://bulatrips.com/windcaveTest.php/cancel"
+        ],
+        "notificationUrl" => "https://bulatrips.com/windcaveTest.php?123",
+        "card" => [
+            "number" => $cardNumber,
+            "name" => $cardHolderName,
+            "expiryMonth" => $expiryMonth,
+            "expiryYear" => $expiryYear,
+            "cvc2" => $cvc2
+        ]
+    ];
 
-//     $ch = curl_init($url);
-//     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-//     curl_setopt($ch, CURLOPT_POST, 1);
-//     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
-//     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-//     $response = curl_exec($ch);
-//     curl_close($ch);
+    $response = curl_exec($ch);
+    curl_close($ch);
 
-//     echo $response;
-// }
+    echo $response;
+    die;
+}
 
 // response checking
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -58,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = "https://sec.windcave.com/api/v1/sessions/00001200030240010c9e7ceadd26a6d8";
     $headers = [
         "Content-Type: application/json",
-        "Authorization: Basic ABC123"  // Replace with your actual authorization token
+        "Authorization: Basic VktKR2xvYmFsX0Rldl9SRVNUOmNjNTgxZjdiNjllNzgxN2VlMTNmMjMyYjE4NzU2MDYzOTIzNmYyOWU4ZjJhOTY5Zjg3MTIyNTE3OGFhNmE3NGQ="  // Replace with your actual authorization token
     ];
     
 
@@ -134,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $url = "https://sec.windcave.com/api/v1/sessions";
     $headers = [
         "Content-Type: application/json",
-        "Authorization: Basic ABC123"  // Replace with your actual authorization token
+        "Authorization: Basic VktKR2xvYmFsX0Rldl9SRVNUOmNjNTgxZjdiNjllNzgxN2VlMTNmMjMyYjE4NzU2MDYzOTIzNmYyOWU4ZjJhOTY5Zjg3MTIyNTE3OGFhNmE3NGQ="  // Replace with your actual authorization token
     ];
 
     $data = [

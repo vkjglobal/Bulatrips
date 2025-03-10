@@ -43,7 +43,7 @@ if (isset($_POST)) {
                 <table width="500" border="0" align="center" cellpadding="1" cellspacing="1">
                 <tbody>
                     <tr>
-                        <td align="center"><img src="https://bulatrips.com/images/bulatrips-logo.png" width="209" height="70" alt="" class="CToWUd" data-bit="iit">
+                        <td align="center"><img src="https://bulatrips.com/images/Image-Logo-vec.png" width="209" height="70" alt="" class="CToWUd" data-bit="iit">
                             <hr>
                         </td>
                     </tr>

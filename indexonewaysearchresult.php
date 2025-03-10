@@ -80,7 +80,7 @@ if(isset($responseData['Data']['Errors'])){
         <?php echo $airportLocation['city_name'];?> To <?php echo $airportDestinationLocation['city_name'].' '.$airTripType .' '. date("D, d M", strtotime($fromDate)) . ' | '.$adultCount+$childCount+$infantCount?>  passenger 
         </div>
         <div class="row">
-            <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
+            <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="flights"> -->
             <form class="flight-search col-12" id="flight-search" method="POST" action="">
                 <span class="lbl">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">

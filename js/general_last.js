@@ -184,7 +184,7 @@ $(document).ready(function () {
 
   //   const formData = new FormData(loginForm);
 
-  //   fetch('login-script.php', {
+  //   fetch('login-script', {
   //     method: 'POST',
   //     body: formData
   //   })
@@ -192,7 +192,7 @@ $(document).ready(function () {
   //   .then(data => {
   //     if (data.success) {
   //       // loginModal.style.display = "none";
-  //       window.location.href = "user-dashboard.php";
+  //       window.location.href = "user-dashboard";
   //     } else {
   //       alert("Invalid username or password");
   //     }
@@ -231,7 +231,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'login-script.php',
+      url: 'login-script',
       type: 'post',
       data: formData,
       processData: false,
@@ -246,10 +246,10 @@ $(document).ready(function () {
           $('#email').val('');
           $('#password').val('');
         } else if (response == 'endsuccess') {
-          window.location.href = 'user-dashboard.php';
+          window.location.href = 'user-dashboard';
         }
         else if (response == 'agentsuccess') {
-          window.location.href = 'agent-dashboard.php';
+          window.location.href = 'agent-dashboard';
         } else if (response == 'agenterror') {
          // alert("approval is on progress..");
             $('#pwErr').text('');
@@ -305,7 +305,7 @@ $(document).ready(function () {
     // var dataString = 'firstname='+firstname+'&lastname='+lastname+'&phone='+phone+'&address='+address+'&country='+country+'&state='+state+'&city='+city+'&id='+id+'&zipcode='+zipcode;
     // Submit form via AJAX
     $.ajax({
-      url: 'enduser-update.php',
+      url: 'enduser-update',
       type: 'post',
       // data: dataString,
       data: formData,
@@ -508,7 +508,7 @@ $(document).ready(function () {
   //   // alert(zipcode);
   //   // Submit form via AJAX
   //   $.ajax({
-  //     url: 'agent-update.php',
+  //     url: 'agent-update',
   //     type: 'post',
   //     // data: dataString,
   //     data: formData,
@@ -638,7 +638,7 @@ $(document).ready(function () {
 
     // Submit form via AJAX
     $.ajax({
-        url: 'agent-update.php',
+        url: 'agent-update',
         type: 'post',
         data: formData,
         contentType: false,
@@ -729,7 +729,7 @@ $(document).ready(function () {
     // alert(zipcode);
     // Submit form via AJAX
     $.ajax({
-      url: 'change-password-script.php',
+      url: 'change-password-script',
       type: 'post',
       // data: dataString,
       data: formData,
@@ -742,7 +742,7 @@ $(document).ready(function () {
           // $('#password').val('');
         } 
         if(response == 'success') {
-          //  window.location.href = 'logout.php';
+          //  window.location.href = 'logout';
           // Show the modal
           $('.bd-example-modal-sm').modal('show');
           
@@ -808,7 +808,7 @@ $(document).ready(function () {
 
         // Submit form via AJAX
         $.ajax({
-            url: 'change-password-script.php',
+            url: 'change-password-script',
             type: 'post',
             data: formData,
             contentType: false,
@@ -817,7 +817,7 @@ $(document).ready(function () {
                 if (response === 'error') {
                     alert("Current password is incorrect");
                 } else if (response === 'success') {
-                    // window.location.href = 'logout.php';
+                    // window.location.href = 'logout';
                     // Show the modal
                     $('.bd-example-modal-sm').modal('show');
                 } else {
@@ -1042,7 +1042,7 @@ $(document).ready(function () {
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
+      url: 'fetch_airports',
       method: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -1113,7 +1113,7 @@ $(document).ready(function () {
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
+      url: 'fetch_airports',
       method: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -1182,7 +1182,7 @@ $(document).ready(function () {
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
+      url: 'fetch_airports',
       method: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -1263,7 +1263,7 @@ $(document).ready(function () {
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
+      url: 'fetch_airports',
       method: 'GET',
       dataType: 'json',
       success: function (data) {
@@ -1341,7 +1341,7 @@ $(document).ready(function () {
   //Reissue deoarture air[port location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
+    url: 'fetch_airports',
     method: 'GET',
     dataType: 'json',
     success: function (data) {
@@ -1419,7 +1419,7 @@ $(document).ready(function () {
 //Reissue arrival airport location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
+    url: 'fetch_airports',
     method: 'GET',
     dataType: 'json',
     success: function (data) {
@@ -1498,7 +1498,7 @@ $(document).ready(function () {
   //Reissue Return arrival airport location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
+    url: 'fetch_airports',
     method: 'GET',
     dataType: 'json',
     success: function (data) {
@@ -1615,7 +1615,7 @@ $(document).ready(function () {
   //Reissue airline autoselect
   //-----------------------------start-----------------------------
   // $.ajax({
-  //   url: 'fetch_airline.php',
+  //   url: 'fetch_airline',
   //   method: 'GET',
   //   dataType: 'json',
   //   success: function (data) {
@@ -1687,7 +1687,7 @@ $(document).ready(function () {
 
 
   $.ajax({
-        url: 'fetch_airline.php',
+        url: 'fetch_airline',
         method: 'GET',
         dataType: 'json',
         success: function(data) {
@@ -1837,7 +1837,7 @@ $(document).ready(function () {
       }, 8000);
     $.ajax({
 
-      url: 'search.php',
+      url: 'flights',
       type: 'POST',
       data: formData,
       // processData: false,
@@ -1861,7 +1861,7 @@ $(document).ready(function () {
       success: function (response) {
         // if (response) {
 
-        //   window.location.href = 'result.php';
+        //   window.location.href = 'flights';
         //   $('#FlightSearchLoading').hide();
         // }
         if (response) {
@@ -1871,9 +1871,9 @@ $(document).ready(function () {
           // Set the progress bar to 100% and complete
           updateProgressBar(100, true);
 
-          // Redirect to result.php after a delay
+          // Redirect to flights after a delay
           setTimeout(function () {
-              window.location.href = 'result.php';
+              window.location.href = 'flights';
               $('#FlightSearchLoading').hide();
           }, 1000); // 1000 milliseconds = 1 second
       }
@@ -1906,14 +1906,14 @@ $(document).ready(function () {
       $.ajax({
 
 
-        url: 'search-multicity.php',
+        url: 'search-multicity',
         type: 'POST',
         data: requestData,
         dataType: 'json',
         success: function (response) {
           if (response) {
   
-            // window.location.href = 'multicity-result.php';
+            // window.location.href = 'multicity-result';
             // $('#FlightSearchLoading').hide();
           }
   
@@ -1960,13 +1960,13 @@ $(document).ready(function () {
     var formData = new FormData();
     formData.append('fsc', fsc);
     $.ajax({
-      url: 'revalidate.php',
+      url: 'revalidate',
       type: 'POST',
       data: formData,
       contentType: false,
       processData: false,
       success: function (response) {
-        window.location.href = 'my-booking-step1.php';
+        window.location.href = 'my-booking-step1';
         // $('#FlightSearchLoading').hide();
 
 
@@ -1999,7 +1999,7 @@ $(document).ready(function () {
     // $('#login_message').text("");
 
     // $.ajax({
-    //   url: 'farerule.php',
+    //   url: 'farerule',
     //   type: 'post',
     //   data: formData,
     //   contentType: false,
@@ -2614,7 +2614,7 @@ $(document).ready(function () {
     // var formData = new FormData();
     // formData.append('fareSourceValue', fareSourceValue);
     // $.ajax({
-    //   url: 'seatmap.php',
+    //   url: 'seatmap',
     //   type: 'post',
     //   data: formData,
     //   contentType: false,
@@ -3090,7 +3090,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
     if (validationErrors.length === 0 && valid == true) {
       $.ajax({
-        url: 'booking-script.php',
+        url: 'booking-script',
         type: 'post',
         data: formData,
         processData: false,
@@ -3104,7 +3104,7 @@ $(document).ready(function () {
           if (response.faretype == "WebFare") {
             if (response.orderstatus) {
               if (response.orderstatus === "order success") {
-                const redirectURL = 'my-booking-step3.php';
+                const redirectURL = 'my-booking-step3';
                 window.location.href = redirectURL;
 
               }else {
@@ -3112,12 +3112,12 @@ $(document).ready(function () {
               }
             }
 
-            // const redirectURL = 'my-booking-step3.php';
+            // const redirectURL = 'my-booking-step3';
             // window.location.href = redirectURL;
           } else {
             if (response.orderstatus && response.ticketstatus) {
               if (response.orderstatus == "order success" && response.ticketstatus == "ticket sucess") {
-                const redirectURL = 'my-booking-step3.php';
+                const redirectURL = 'my-booking-step3';
                 window.location.href = redirectURL;
 
               } else if (response.orderstatus != "order success") {
@@ -3162,14 +3162,14 @@ $(document).ready(function () {
     // alert("testccccccccccc");
     var formData = new FormData(this);
     $.ajax({
-      url: 'payment-script.php',
+      url: 'payment-script',
       type: 'post',
       data: formData,
       processData: false,
       contentType: false,
       dataType: 'json',
       success: function (response) {
-        window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
+        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
         // alert("Booking successfully Completed");
 
 
@@ -3228,7 +3228,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'login-script.php',
+      url: 'login-script',
       type: 'post',
       data: formData,
       processData: false,
@@ -3269,14 +3269,14 @@ $(document).ready(function () {
     event.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: 'cancel-script.php',
+      url: 'cancel-script',
       type: 'post',
       data: formData,
       processData: false,
       contentType: false,
       dataType: 'json',
       success: function (response) {
-        // window.location.href = 'confirmation.php?bookingid='+ encodeURIComponent(response.bookingid);
+        // window.location.href = 'confirmation?bookingid='+ encodeURIComponent(response.bookingid);
         alert("cancel booking");
 
 
@@ -3429,7 +3429,7 @@ $(document).ready(function () {
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'newsletter-script.php',
+      url: 'newsletter-script',
       type: 'post',
       data: formData,
       processData: false,
@@ -3495,7 +3495,7 @@ $('#contactus-submit').submit(function (event) {
   var formData = new FormData(this);
   // Submit form via AJAX
   $.ajax({
-    url: 'contactus-script.php',
+    url: 'contactus-script',
     type: 'post',
     data: formData,
     processData: false,

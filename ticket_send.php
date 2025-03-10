@@ -89,7 +89,7 @@ $booking_id=$_POST["bookingId"];
                                         <strong style="font-size: 30px; line-height: 1.2;">Ticket &nbsp;&nbsp;</strong>
                                     </td>
                                     <td style="text-align: right;">
-                                       <img src="https://bulatrips.com/images/bulatrips-logo.png" style="width:140px;">
+                                       <img src="https://bulatrips.com/images/Image-Logo-vec.png" style="width:140px;">
                                     </td>
                                 </tr>
                             </table>

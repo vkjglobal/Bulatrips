@@ -32,7 +32,7 @@ $(document).ready(function() {
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-        url:'model/adminlogin.php',
+        url:'model/adminlogin',
       type: 'post',
       data: formData,
       processData: false,
@@ -90,7 +90,7 @@ $(document).ready(function() {
             var forgotpw = new FormData(this);
             // Submit form via AJAX
             $.ajax({
-                url: 'https://bulatrips.com/admin_panel/model/admin_forgot_pw.php',
+                url: 'model/admin_forgot_pw',
                 type: 'post',
                 data: forgotpw,
                 processData: false,
@@ -114,7 +114,7 @@ $(document).ready(function() {
                     }
                     else if ($.trim(response) == 'error15') {
                         $('#email1').val('');
-                        $('#email1').after('<span id="errorlogin1" class="errortext" style="color:red">Please check your Email to Reset Password</span>');
+                        $('#email1').after('<span id="errorlogin1" class="errortext" style="color:red">Please check your email for instructions to reset your password.</span>');
                         // Redirect to another page after 3 seconds
                         setTimeout(function () {
                             window.location = 'index.php'; // Replace 'another-page.html' with your desired page URL
@@ -158,7 +158,7 @@ $(document).ready(function() {
             var resetpw = new FormData(this);
             // Submit form via AJAX
             $.ajax({
-                url: 'https://bulatrips.com/admin_panel/model/admin_reset_pw.php',
+                url: 'model/admin_reset_pw.php',
                 type: 'post',
                 data: resetpw,
                 processData: false,

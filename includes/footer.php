@@ -20,13 +20,14 @@
 <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-5 mb-lg-0 mb-md-5">
+                <div class="col-lg-5 col-md-6 mb-5 mb-lg-0 mb-md-5">
                     <div class="footer-logo">
-                    <img src="images/Bulatrips-white.png" alt="" class="img-fluid">                            
+                    <img src="images/Image-Logo-vec.png" alt="" class="img-fluid">                            
                     </div>
-                    <p class="footer-text">Travelsite is a leading online travel agency providing competitive fares, cutting edge technology and best in class customer service.</p>
-                    <ul class="ctct-info">
-                        <li>
+                    <p class="footer-text">Bulatrips combines cutting edge technology with multiple options and competitive prices, connecting you to hundreds of service providers for seamless global bookings.</p>
+                    <div class="copyright">&copy; <?php echo date("Y"); ?> Bulatrips All rights reserved.</div>
+                    <!-- <ul class="ctct-info"> -->
+                        <!-- <li>
                             <a href="mailto:travelsite@example.com">
                                 <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M20 2C20 0.9 19.1 0 18 0H2C0.9 0 0 0.9 0 2V14C0 15.1 0.9 16 2 16H18C19.1 16 20 15.1 20 14V2ZM18 2L10 7L2 2H18ZM18 14H2V4L10 9L18 4V14Z" fill="white"/>
@@ -39,7 +40,7 @@
                                 <path d="M3 0H9C9.79565 0 10.5587 0.31607 11.1213 0.87868C11.6839 1.44129 12 2.20435 12 3V17C12 17.7956 11.6839 18.5587 11.1213 19.1213C10.5587 19.6839 9.79565 20 9 20H3C2.20435 20 1.44129 19.6839 0.87868 19.1213C0.31607 18.5587 0 17.7956 0 17L0 3C0 2.20435 0.31607 1.44129 0.87868 0.87868C1.44129 0.31607 2.20435 0 3 0V0ZM3 2C2.73478 2 2.48043 2.10536 2.29289 2.29289C2.10536 2.48043 2 2.73478 2 3V17C2 17.2652 2.10536 17.5196 2.29289 17.7071C2.48043 17.8946 2.73478 18 3 18H9C9.26522 18 9.51957 17.8946 9.70711 17.7071C9.89464 17.5196 10 17.2652 10 17V3C10 2.73478 9.89464 2.48043 9.70711 2.29289C9.51957 2.10536 9.26522 2 9 2H3ZM6 17C5.73478 17 5.48043 16.8946 5.29289 16.7071C5.10536 16.5196 5 16.2652 5 16C5 15.7348 5.10536 15.4804 5.29289 15.2929C5.48043 15.1054 5.73478 15 6 15C6.26522 15 6.51957 15.1054 6.70711 15.2929C6.89464 15.4804 7 15.7348 7 16C7 16.2652 6.89464 16.5196 6.70711 16.7071C6.51957 16.8946 6.26522 17 6 17Z" fill="white"/>
                                 </svg>
                                 1 562 867 5309</a>
-                        </li>
+                        </li> -->
                         <!-- <li>
                             <a href="">
                                 <svg width="18" height="22" viewBox="0 0 18 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,10 +49,52 @@
                                 </svg>                                
                                 Broadway & Morris St, New York</a>
                         </li> -->
+                    <!-- </ul> -->
+                </div>
+                <div class="col-lg-1 col-md-1 form-group">
+                </div>
+                <div class="col-lg-3 col-md-6 form-group">
+                    <ul class="footer-links">
+                        <!-- <li class="link-title">Our Service</li> -->
+                        <li class="link-item"><a href="aboutUs">About Us</a></li>
+                        <li class="link-item"><a href="terms.php">Terms & Conditions</a></li>
+                        <li class="link-item"><a href="privacy.php">Privacy Policy</a></li>
+                        <li class="link-item"><a href="contactUs">Customer Support</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-3 col-md-6 form-group"></div>
                 <div class="col-lg-2 col-md-6 mb-5 mb-lg-0 mb-md-5">
+                    <ul class="footer-links">
+                        <!-- <li class="link-title">Social Platforms</li> -->
+                        <li class="link-item">
+                            <a href="facebook.com/bulatrips">
+                                <img src="images/fb_icon.png" style="width: 25px; margin-right: 12px;" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="images/ig_icon.png" style="width: 33px; margin-right: 12px;" />
+                            </a>
+                            <a href="linkedin.com/bulatrips">
+                                <img src="images/li_icon.png" style="width: 25px; margin-right: 12px;" />
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="footer-links" style="margin-top: 50px;">
+                        <!-- <li class="link-title">Social Platforms</li> -->
+                        <li class="link-item">
+                            <a href="facebook.com/bulatrips">
+                                <img src="images/master.png" style="width: 50px; margin-right: 12px;" />
+                            </a>
+                            <a href="javascript:void(0);">
+                                <img src="images/visa.png" style="width: 50px; margin-right: 12px;" />
+                            </a>
+                            <a href="linkedin.com/bulatrips">
+                                <img src="images/american express.png" style="width: 50px; margin-right: 12px;" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- <div class="col-lg-2 col-md-6 mb-5 mb-lg-0 mb-md-5">
                     <ul class="footer-links">
                         <li class="link-title">Our Service</li>
                         <li class="link-item"><a href="">Dubai Tours</a></li>
@@ -76,7 +119,7 @@
                         <li class="link-item"><a href="">The Green Planet Dubai</a></li>
                         <li class="link-item"><a href="">Dhow Cruise Dinner Marina</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <!-- <form method="post" action="" class="col-lg-3 col-md-6 form-group" id="newsletter-subscribe"  >
                     <ul class="footer-links">
                         <li class="link-title">Subscribe to our Newsletter</li>
@@ -91,7 +134,7 @@
             <div class="row">
                 <div class="col-lg-12 footer-bottom-bar">
                     <div class="footer-info-left">
-                        <div class="copyright">&copy; <?php //echo date("Y"); ?> Travelsite All rights reserved.</div>
+                        <!-- <div class="copyright">&copy; <?php //echo date("Y"); ?> Travelsite All rights reserved.</div> -->
                         <!-- <ul class="ftr-lnks">
                             <li><a href="">Home</a></li>
                             <li><a href="">My Bookings</a></li>
@@ -107,13 +150,13 @@
                          -->
                     </div>
                     <ul class="footer-info-right">
-                        <li class="lng">                  
+                        <!-- <li class="lng">                  
                             <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 0C8.22391 0 9.87721 0.684819 11.0962 1.90381C12.3152 3.12279 13 4.77609 13 6.5C13 8.22391 12.3152 9.87721 11.0962 11.0962C9.87721 12.3152 8.22391 13 6.5 13C4.77609 13 3.12279 12.3152 1.90381 11.0962C0.684819 9.87721 0 8.22391 0 6.5C0 4.77609 0.684819 3.12279 1.90381 1.90381C3.12279 0.684819 4.77609 0 6.5 0ZM11.394 4C10.7526 2.75301 9.66128 1.79641 8.341 1.324C8.785 2.164 9.106 3.064 9.294 4H11.394ZM11.976 6.995C11.992 6.83049 12 6.66529 12 6.5C11.999 5.99253 11.9273 5.48768 11.787 5H9.445C9.477 5.331 9.5 5.664 9.5 6C9.49793 6.67185 9.42892 7.34183 9.294 8H11.787C11.882 7.671 11.945 7.335 11.977 6.995H11.976ZM8.441 6.995L8.447 6.944C8.48112 6.63047 8.49881 6.31538 8.5 6C8.49329 5.66551 8.46791 5.33166 8.424 5H4.576C4.53172 5.33162 4.50635 5.66549 4.5 6C4.50244 6.67329 4.5806 7.34418 4.733 8H8.267C8.344 7.668 8.402 7.333 8.441 6.995ZM8.249 4C8.0134 2.94235 7.58821 1.93611 6.994 1.03C6.83 1.016 6.666 1 6.5 1C6.39583 1.00051 6.29174 1.00551 6.188 1.015L6.006 1.03L6 1.04C5.40893 1.94346 4.98581 2.94621 4.751 4H8.249ZM3.706 4C3.89781 3.06465 4.22314 2.16174 4.672 1.319C3.34598 1.7898 2.24946 2.74863 1.606 4H3.706ZM1.213 5C1.07289 5.48773 1.00121 5.99255 1 6.5C1.00121 7.00745 1.07289 7.51227 1.213 8H3.706C3.57043 7.34193 3.50141 6.67189 3.5 6C3.5 5.664 3.523 5.331 3.555 5H1.213ZM3.967 9H1.607C1.98501 9.73838 2.52472 10.382 3.18594 10.8829C3.84716 11.3838 4.61285 11.729 5.426 11.893C4.78599 11.0142 4.29322 10.0371 3.967 9ZM6.5 11.644C7.13944 10.8531 7.63928 9.95897 7.978 9H5.022C5.36074 9.95896 5.86057 10.8531 6.5 11.644ZM9.033 9C8.70677 10.0371 8.214 11.0142 7.574 11.893C8.3871 11.7289 9.15273 11.3836 9.81393 10.8827C10.4751 10.3818 11.0149 9.73829 11.393 9H9.033Z" fill="white"/>
                             </svg>    
                             English(US) <span>&dollar; USD</span>
-                        </li>
-                        <li class="scl-lnks">
+                        </li> -->
+                        <!-- <li class="scl-lnks">
                             <ul class="d-flex">
                                 <li>
                                     <a href="#">
@@ -144,7 +187,7 @@
                                     </a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -195,6 +238,7 @@
     
     
 <script>
+    /*
     // Get the current date
     const currentDate = new Date();
     const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
@@ -253,7 +297,7 @@
 
     function showError(error) {
         console.log(`Error getting location: ${error.message}`);
-    }
+    }*/
 </script>
 <style>       
         #loaderIcons {

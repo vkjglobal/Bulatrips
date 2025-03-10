@@ -1,6 +1,7 @@
 <?php
 session_start();    
 //get tocken value
+
 if (!isset($_GET['token']))
 {
     header('Location:index.php'); // Redirect to the dashboard page
@@ -20,7 +21,7 @@ $token = $_GET['token'];
 
 <head>
     <meta charset="utf-8">
-    <title>Travel Site</title>
+    <title>Bulatrips.com</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">

@@ -18,37 +18,40 @@ $('#forgot-form').submit(function (event) {
         var forgotpw = new FormData(this);
         // alert(forgotpw);
         // Submit form via AJAX
+        $("#forgot_sub_btn").attr("disabled", true);
+        $("#forgot_sub_btn").html("Submit &nbsp;<i class='fas fa-spinner fa-spin'></i>");
+
         $.ajax({
             type: 'POST',
-            url: 'forget_password.php',
+            url: 'forget_password',
             data: forgotpw,
             processData: false,
             contentType: false,
             success: function (response) {
                 // alert(response); return false;
                 if (($.trim(response)=='error12') || ($.trim(response)=='error13')) {
-                    // alert("iiiii"); exit;
-                    //     if email not in valid format or email not found in DB                             
+                    $("#forgot_sub_btn").attr("disabled", false);
+                    $("#forgot_sub_btn").html("Submit");
                     $('#RegisterInputEmail1').val('');                        
                     $('#RegisterInputEmail1').after('<span id="errorlogin" class="errortext" style="color:red">Invalid Email</span>');
                     return false;
 
                 }
                 else if ($.trim(response)=='error14') {
-                   // alert("failed to sent email"); exit;             
+                    $("#forgot_sub_btn").attr("disabled", false);
+                    $("#forgot_sub_btn").html("Submit");
                     $('#RegisterInputEmail1').val('');                       
-                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:red">Failed to send Email</span>');
+                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:red">Failed to send Email. Please try again.</span>');
                     return false;
 
                 }
                 else if ($.trim(response)=='error15') {
+                    $("#forgot_sub_btn").html("Submit");
                     $('#RegisterInputEmail1').val('');
-                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:Green">Please check your Email to Reset Password</span>');
-                    // Redirect to another page after 3 seconds
-                    setTimeout(function () {
-                        window.location = 'index.php'; // Replace 'another-page.html' with your desired page URL
-                    }, 3000); // 3000 milliseconds = 3 seconds
-                   
+                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:Green">Please check your email for instructions to reset your password.</span>');
+                    // setTimeout(function () {
+                    //     window.location = 'index.php';
+                    // }, 3000);
                 }
 
             },
@@ -56,7 +59,7 @@ $('#forgot-form').submit(function (event) {
                 alert('Error submitting form'); return false;
             }
         });
-        //window.location.href = 'forgot-password.php';
+
     }
 });
 
@@ -87,7 +90,7 @@ $('#reset_form').submit(function (event) {
         // alert(resetpw);exit;
         $.ajax({
             // url: 'https://localhost/Travelsite/Travelsite/user_reset_pwd.php',
-            url: 'user_reset_pwd.php',
+            url: 'user_reset_pwd',
             type: 'POST',
             data: resetpw,
             processData: false,
@@ -100,17 +103,16 @@ $('#reset_form').submit(function (event) {
                     $('#password').after('<sapan class="errortext" style="color:red">Password is too short.Minimum 8 characters required</span>')
                     return false;// Password is too short
                 }
-                else if (!regex.test(new_pwd)) {
-                    $('#confirm_password').val('');
-                    $('#password').val('');
-                    $('#password').after('<sapan class="errortext" style="color:red">Password  requires at least one lowercase letter, one uppercase letter, one digit, and one special character </span>')
-                     return false; // Password does not meet complexity requirements
-                
-                }
+                // else if (!regex.test(new_pwd)) {
+                //     $('#confirm_password').val('');
+                //     $('#password').val('');
+                //     $('#password').after('<sapan class="errortext" style="color:red">Password  requires at least one lowercase letter, one uppercase letter, one digit, and one special character </span>')
+                //      return false; // Password does not meet complexity requirements
+                // }
                 else if ($.trim(response) == 'error21') {                                    
                      $('#confirm_password').val('');
                      $('#password').val('');
-                     $('#confirm_password').after('<span id="errorlogin1" class="errortext" style="color:red">Please fill both the username and password fields!</span>');
+                     $('#confirm_password').after('<span id="errorlogin1" class="errortext" style="color:red">Please fill both the password and confirm password fields.</span>');
                     return false;
 
                 }

@@ -46,7 +46,8 @@ session_start();
                             <!--</p>-->
                         </div>
                         <div class="col-md-6">
-                            <img src="images/<?php echo $image; ?>" alt="">
+                            <!-- <img src="images/<?php //echo $image; ?>" alt=""> -->
+                            <img src="images/A350_fly-over-scaled-e1722987701816.jpg" alt="">
                         </div>
                     </div>
                 </div>

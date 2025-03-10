@@ -26,7 +26,7 @@ $reviews = new Reviews($conn);
 $resultReview = $reviews->getReviesDetails();//Fetch review details form rview table.
 // echo $resultReview;
 
-$query = "SELECT airport_code,airport_name,country_name FROM airportlocations";
+$query = "SELECT airport_code,airport_name,city_name,country_name FROM airportlocations";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -45,6 +45,10 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $DBvideo = $newObj->get_video();
     // print_r($DBvideo);
 ?>
+
+
+
+
 <section class="midbar-wrapper">
     <div id="MidbarCarousel" class="midbar-carousel carousel slide carousel-fade d-none d-md-block" data-ride="carousel">
         <div class="carousel-inner">
@@ -91,8 +95,10 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     </div>
     <div class="container flight-search-midbar">
         <div class="row p-md-0 p-3">
-            <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="search.php"> -->
-            <form class="flight-search col-12" id="flight-search" method="post" action="search.php">
+            <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="flights"> -->
+            <form class="flight-search col-12" id="flight-search" method="post" action="flights">
+
+            
 
                 <span class="lbl">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -117,7 +123,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                     <div class="d-flex align-items-center">
                         <div class="select-class-wrp">
-                            <select name="cabin-preference" class="select-class" id="cabin-preference">
+                            <select name="cabin-preference" id="cabin-preference" style="width: 97px;color: #121E7E;border: none;">
                                 <option value="Y">Economy</option>
                                 <option value="S">Premium</option>
                                 <option value="C">Business</option>
@@ -125,16 +131,18 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             </select>
                         </div>
                         <input type="hidden" id="selected_cabin_text" name="selected_cabin_text" value="Economy">
-                        <span class="person-select" onclick="return fetchAndAlert()">
-                            <label for="" class="select-lbl">Traveller <span id="totalCount" class="count">1</span><span class="downarrow"></span></label>
-                            <div class='select-dropbox'>
+                        <!-- <span class="person-select" onclick="return fetchAndAlert()"> -->
+                        <span class="person-select">
+                            <!-- <label for="" class="select-lbl">Traveller <span id="totalCount" class="count">1</span><span class="downarrow"></span></label> -->
+                            <label for="" class="select-lbl">Traveller(s)<span class="downarrow"></span></label>
+                            <div class='select-dropbox passenger_container'>
                                 <span class="selectbox d-flex justify-content-between">
                                     <label class="fs-13 fw-600" for="">Adults
                                         <span class="fs-11">12 years and above</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
                                         <!-- <input type='number' name="adult" min=1 value=1> -->
-                                        <input type="number" id="adult_count" name="adult" min="1" value=1>
+                                        <input type="number" id="adult_count" name="adult" min="1" value='1' readonly class="disabled">
                                         <span class='minus'>-</span>
                                         <span class='add'>+</span>
                                     </span>
@@ -144,7 +152,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <span class="fs-11">2 - 11 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <input type='number' id="child-count" name="child" min=0 value=0>
+                                        <input type='number' id="child-count" name="child" min='0' value='0' readonly class="disabled">
                                         <span class='minus'>-</span>
                                         <span class='add'>+</span>
                                     </span>
@@ -154,7 +162,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                         <span class="fs-11">Under 2 years</span>
                                     </label>
                                     <span class="selec-wrp d-inline-flex align-items-center">
-                                        <input type='number' id="infant-count" name="infant" min=0 value=0>
+                                        <input type='number' id="infant-count" name="infant" min='0' value='0' readonly class="disabled">
                                         <span class='minus'>-</span>
                                         <span class='add'>+</span>
                                     </span>
@@ -166,7 +174,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <div class="d-flex align-items-center justify-content-center mb-md-0 ml-3">
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;">
-                                <label class="form-check-label" for="direct_flights" style="margin-left: 5px;"> Direct Flights</label>
+                                <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #121E7E;"> Direct Flights only</label>
                             </div>
                         </div>
 
@@ -175,30 +183,27 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 <div class="srch-fld">
                     <div class="search-box on row">
-                        <div class="form-fields col-md-3">
-                            <input type="text" id="airport-input" name="airport" class="form-control" placeholder="Departing From">
+                        <div class="form-fields departure_container col-md-3">
+                        
+                            <select id="airport-input" name="airport" class="select-class airport_location_finder form-control" placeholder="Departing From"></select>
+                            <p class="error_codes"></p>
+                            <!-- <input type="text" id="airport-input" name="airport" class="form-control" placeholder="Departing From"> -->
                             <!-- <input type="text" id="airportInput" name="airport" class="form-control" autocomplete="off"> -->
                         </div>
-                        <div class="form-fields col-md-3">
+                        <div class="form-fields arrival_container col-md-3">
+                            <select id="arrivalairport-input" name="arrivalairport" class="select-class airport_location_finder form-control"></select>
+                            <p class="error_codes"></p>
                             <!-- <input type="text" class="form-control" placeholder="Going To"> -->
-                            <input type="text" id="arrivalairport-input" name="arrivalairport" class="form-control" placeholder="Going To">
+                            <!-- <input type="text" id="arrivalairport-input" name="arrivalairport" class="form-control" placeholder="Going To"> -->
 
                         </div>
-                        <div class="form-fields col-md-2 calndr-icon">
-                            <input type="text" class="form-control" id="from" name="from">
-                            <span class="icon">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
-                                </svg>
-                            </span>
+                        <div class="form-fields col-md-2 calndr-icon from_container">
+                            <input type="text" class="form-control" id="from" name="from" autocomplete="off" value="<?php echo date('m/d/Y');?>">
+                            <p class="error_codes"></p>
                         </div>
-                        <div class="form-fields col-md-2 calndr-icon">
-                            <input type="text" class="form-control" id="to" name="to">
-                            <span class="icon">
-                                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path id="Vector" d="M3.25 0C2.38805 0 1.5614 0.34241 0.951903 0.951903C0.34241 1.5614 0 2.38805 0 3.25V14.75C0 15.612 0.34241 16.4386 0.951903 17.0481C1.5614 17.6576 2.38805 18 3.25 18H14.75C15.612 18 16.4386 17.6576 17.0481 17.0481C17.6576 16.4386 18 15.612 18 14.75V3.25C18 2.38805 17.6576 1.5614 17.0481 0.951903C16.4386 0.34241 15.612 0 14.75 0H3.25ZM1.5 5.5H16.5V14.75C16.5 15.2141 16.3156 15.6592 15.9874 15.9874C15.6592 16.3156 15.2141 16.5 14.75 16.5H3.25C2.78587 16.5 2.34075 16.3156 2.01256 15.9874C1.68437 15.6592 1.5 15.2141 1.5 14.75V5.5ZM13.25 11.5C12.9185 11.5 12.6005 11.6317 12.3661 11.8661C12.1317 12.1005 12 12.4185 12 12.75C12 13.0815 12.1317 13.3995 12.3661 13.6339C12.6005 13.8683 12.9185 14 13.25 14C13.5815 14 13.8995 13.8683 14.1339 13.6339C14.3683 13.3995 14.5 13.0815 14.5 12.75C14.5 12.4185 14.3683 12.1005 14.1339 11.8661C13.8995 11.6317 13.5815 11.5 13.25 11.5V11.5ZM9 11.5C8.66848 11.5 8.35054 11.6317 8.11612 11.8661C7.8817 12.1005 7.75 12.4185 7.75 12.75C7.75 13.0815 7.8817 13.3995 8.11612 13.6339C8.35054 13.8683 8.66848 14 9 14C9.33152 14 9.64946 13.8683 9.88388 13.6339C10.1183 13.3995 10.25 13.0815 10.25 12.75C10.25 12.4185 10.1183 12.1005 9.88388 11.8661C9.64946 11.6317 9.33152 11.5 9 11.5V11.5ZM13.25 7.5C12.9185 7.5 12.6005 7.6317 12.3661 7.86612C12.1317 8.10054 12 8.41848 12 8.75C12 9.08152 12.1317 9.39946 12.3661 9.63388C12.6005 9.8683 12.9185 10 13.25 10C13.5815 10 13.8995 9.8683 14.1339 9.63388C14.3683 9.39946 14.5 9.08152 14.5 8.75C14.5 8.41848 14.3683 8.10054 14.1339 7.86612C13.8995 7.6317 13.5815 7.5 13.25 7.5ZM9 7.5C8.66848 7.5 8.35054 7.6317 8.11612 7.86612C7.8817 8.10054 7.75 8.41848 7.75 8.75C7.75 9.08152 7.8817 9.39946 8.11612 9.63388C8.35054 9.8683 8.66848 10 9 10C9.33152 10 9.64946 9.8683 9.88388 9.63388C10.1183 9.39946 10.25 9.08152 10.25 8.75C10.25 8.41848 10.1183 8.10054 9.88388 7.86612C9.64946 7.6317 9.33152 7.5 9 7.5V7.5ZM4.75 7.5C4.41848 7.5 4.10054 7.6317 3.86612 7.86612C3.6317 8.10054 3.5 8.41848 3.5 8.75C3.5 9.08152 3.6317 9.39946 3.86612 9.63388C4.10054 9.8683 4.41848 10 4.75 10C5.08152 10 5.39946 9.8683 5.63388 9.63388C5.8683 9.39946 6 9.08152 6 8.75C6 8.41848 5.8683 8.10054 5.63388 7.86612C5.39946 7.6317 5.08152 7.5 4.75 7.5ZM3.25 1.5H14.75C15.716 1.5 16.5 2.284 16.5 3.25V4H1.5V3.25C1.5 2.284 2.284 1.5 3.25 1.5Z" fill="#6D759C" />
-                                </svg>
-                            </span>
+                        <div class="form-fields col-md-2 calndr-icon to_container">
+                            <input type="text" class="form-control" id="to" name="to" autocomplete="off" value="<?php echo date('m/d/Y');?>">
+                            <p class="error_codes"></p>
                         </div>
                         <span id="errormessage"></span>
                         <div class="form-fields col-md-2">
@@ -206,6 +211,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
                         </div>
                     </div>
+                    
                     <div class="search-box row multi-city-search">
                         <div class="col-md-10">
                             <div class="row">
@@ -219,6 +225,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
+                                    
                                     <input type="date" class="form-control date-multy-city" id="departure_date_1" name="departure_date_1">
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -234,7 +241,6 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <div class="form-fields col-md-4">
                                     <input type="text" id="arrival_to_2" name="arrival_to_2" class="form-control" placeholder="Going To">
-
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
                                     <input type="date" class="form-control date-multy-city" id="departure_date_2" name="departure_date_2">
@@ -270,13 +276,13 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <section class="holiday-section">
     <div class="container">
         <div class="row">
-            <div class="col-12 hd-wraper">
+            <!-- <div class="col-12 hd-wraper">
                 <strong>Choose Your</strong>
                 <h4>Perfect Holiday</h4>
                 <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p>
-            </div>
-            <div class="col-12">
-                <div class="row">
+            </div> -->
+            <!-- <div class="col-12">
+                <div class="row"> -->
                     <!-- <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <div class="package-cat-slider owl-carousel owl-theme">
@@ -299,7 +305,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </a>
                         </div>
                     </div> -->
-                    <div class="col-lg-3 col-md-4 bx-mb">
+                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <a href="#" class="package-btn">
                                 <img src="images/img8.png" alt="">
@@ -354,7 +360,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </span>
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     <!-- <div class="col-lg-3 col-md-4 bx-mb">
                         <div class="btn-wrp">
                             <a href="#" class="package-btn">
@@ -405,8 +411,8 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                 </a>
                         </div>
                     </div> -->
-                </div>
-            </div>
+                <!-- </div>
+            </div> -->
         </div>
     </div>
 </section>
@@ -437,13 +443,14 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </section>
 
 
-<form method="post" id="newsletter-subscribe" style="margin-bottom: 50px;">
-    <div class="row d-flex justify-content-center align-items-center rows" >
-        <div class="col-md-8">
-            <div class="card" style="border-radius: 10px;    border: 1px solid #121E7E;    padding-bottom: 20px;">
+<!-- <form method="post" id="newsletter-subscribe" style="margin-bottom: 50px;">
+    <div class="container">
+        <div class="row d-flex justify-content-center align-items-center rows" >
+            <div class="col-md-8">
+                <div class="card" style="border-radius: 10px;    border: 1px solid #121E7E;    padding-bottom: 20px;">
                     <div class="text-center p-3 hd-wraper" style="max-width: 1000px;margin: 0 auto;">
                         <img src="https://i.imgur.com/Dh7U4bp.png" width="100">
-                        <h4>Stay Updated with Exclusive Offers!</h4>
+                        <h4>Stay Updated with Offers!</h4>
                         <span class="d-block mt-3">Subscribe to our newsletter for the latest deals, exclusive promotions, and travel insights delivered straight to your inbox. Be the first to know about discounts and special offers on bookings!</span>
                         <div class="mx-5">
                             
@@ -454,10 +461,11 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <p id="newsletter-email-error" style="text-align: left;font-size: 17px;"></p>
                         </div>
                     </div>
+                </div>
             </div>
         </div>
     </div>
-</form>
+</form> -->
 
 
 <section class="travel-reviews">
@@ -880,6 +888,28 @@ include_once('loading-popup.php');
 
         $('.select-class').select2();
 
+        $(document).ready(function() {
+            $('.airport_location_finder').select2({
+                placeholder: 'Search for a Airport Location',
+                ajax: {
+                    url: 'includes/airport_location_finder',
+                    type: 'GET',
+                    dataType: 'json',
+                    delay: 500,
+                    data: function(params) {
+                        return {
+                            q: params.term
+                        };
+                    },
+                    processResults: function(data) {
+                        return {
+                            results: data
+                        };
+                    },
+                    cache: true
+                }
+            });
+        });
         // $('[name=tab]').each(function(i,d){
         //     var p = $(this).prop('checked');
         //     //   console.log(p);
@@ -899,18 +929,7 @@ include_once('loading-popup.php');
         //     $('.search-box').eq(i).addClass('on');
         // });
 
-        $('.flight-search input').click(function() {
-            if ($('#return').is(':checked')) {
-                $("#to").show().next(".icon").show()
-            } else(
-                $("#to").hide().next(".icon").hide()
-            )
-            if ($('#multi-city').is(':checked')) {
-                $(".search-box.multi-city-search").css("display", "flex").siblings().hide()
-            } else(
-                $(".search-box.multi-city-search").hide().siblings().show()
-            )
-        })
+        
 
 
         // $('#multi-city').click(function() {
@@ -976,6 +995,17 @@ include_once('loading-popup.php');
         // alert("Adults: " + adultCount + "\nChildren: " + childCount + "\nInfants: " + infantCount + "\nTotal: " + totalCount);
         
    }
+   $(document).on('click', function (event) {
+    // Check if the clicked element is not inside allowed classes
+    if (!$(event.target).closest('.passenger_container, .person-select.open, .select-lbl').length) {
+        $('.passenger_container').hide(); // Hide the container
+    }
+});
+
+// To prevent the container from hiding when clicked inside allowed elements
+$('.passenger_container, .person-select.open, .select-lbl').on('click', function (event) {
+    event.stopPropagation();
+});
 </script>
 
 

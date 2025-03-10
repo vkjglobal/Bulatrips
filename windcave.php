@@ -2,53 +2,101 @@
 session_start();
 include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
-  include_once('mail_send.php');
+include_once('mail_send.php');
+include_once('includes/common_const.php');
 header('Content-Type: application/json');
 
+
+$booking_id = $_POST['booking_id'];
+
+$url = WC_URL."sessions";
+$username = WC_USERNAME;
+$password = WC_PASSWORD;
+
+$data = [
+    "type" => "auth",
+    "amount" => $_SESSION['session_total_amount'],
+    "currency" => "USD",
+    "merchantReference" => $booking_id,
+    "callbackUrls" => [
+        "approved" => ENVIRONMENT_VAR."WindcavePaymentResponse",
+        "declined" => ENVIRONMENT_VAR."WindcavePaymentResponse",
+        "cancelled" => ENVIRONMENT_VAR."WindcavePaymentResponse"
+    ]
+    // ,"notificationUrl" => ENVIRONMENT_VAR."WindcavePaymentResponse?123"
+];
+
+$jsonData = json_encode($data);
+$ch = curl_init($url);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    'Content-Type: application/json',
+    'Authorization: Basic ' . base64_encode("$username:$password")
+]);
+
+$response = curl_exec($ch);
+$httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+curl_close($ch);
+
+$responseArray = json_decode($response, true);
+$secondHref = null;
+if (isset($responseArray['links']) && is_array($responseArray['links']) && count($responseArray['links']) > 1) {
+    $secondLink = $responseArray['links'][1];
+    if (isset($secondLink['href']) && !empty($secondLink['href'])) {
+        $secondHref=$secondLink['href'];
+    }
+}
+$responsePay = array("status" => "success", "url" => $secondHref);
+echo json_encode($responsePay);
+exit;
+
+// echo "<pre>";
+//     print_r($_POST);
+    // print_r($_SESSION);
+// echo "</pre>";
+// die;
+
 $currency   =   "USD";
-$userId =   $_SESSION['user_id'];
-$email  =   $_SESSION['email'];
-$firstname  =   $_SESSION['first_name'];
+$userId = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : "";
+$email  =   $_SESSION['revalidationApi']['contactemail'];
+// $email  =   $_SESSION['email'];
+// $firstname  =   $_SESSION['first_name'];
+$firstname  =   $_SESSION['revalidationApi']['contactfirstname']." ".$_SESSION['revalidationApi']['contactlastname'];
 $fsc       =   $_SESSION['fsc'];
-$payStatus =1;
+$payStatus = 1;
+
+// $_SESSION['revalidationApi']
+// $_SESSION['fsc']
+// $_SESSION['session_total_amount']
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $Totalamount = $_POST['Totalamount'];
+    $Totalamount = $_SESSION['session_total_amount'];
 }
 $_SESSION['Totalamount']    =   $Totalamount;
-  //echo json_encode($fsc);exit;
-  //.$userId.$payStatus.$Totalamount.$currency;
- //insert into paymentuser table
-$insPay     =   $objBook->insPaySts($fsc,$userId,$payStatus,$Totalamount,$currency);
-$responsePay = array(  "status" => "success",
-                        "Totalamount" =>$Totalamount
-                            );
-                            
-                         /*   $responsePay = array(  "status" => "Failed",
-                            "message" => "Card Error"
-                            );
-                            */
-//mail send to user .db insert into pay table
 
- //==========email to USer  about Payment======
- if($payStatus == 1){
-                     $subject = "Bulatrips Payment Success Info for new booking ";                  
+$insPay     =   $objBook->insPaySts($fsc, $payStatus, $Totalamount, $currency);
+$responsePay = array("status" => "success", "Totalamount" => $Totalamount);
 
-                            $email=   $email;
-                            $name   =   $firstname;
-                            $content    =   '<p>Hello '. $name .',</p>
-                                                <p>Your Payment with Bulatrips is successful .Please proceed to Booking</p>';
-                                            $messageData =   $objBook->getEmailContent($content);
-                     // print_r($messageData);exit;
-                          $headers="";
-                         // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
-         
-                        $contacts= sendMail($email,$subject, $messageData,$headers);
 
- }
-                    //====================================email to agent ======
+//echo json_encode($_SESSION);exit;//NEED to change after payment integration
+echo json_encode($responsePay);
+exit; //NEED to change after payment integration
 
- //echo json_encode($_SESSION);exit;//NEED to change after payment integration
- echo json_encode($responsePay);exit;//NEED to change after payment integration
+
+//==========email to USer  about Payment======
+if ($payStatus == 1) {
+    $subject = "Bulatrips Payment Success Info for new booking ";
+    $email =   $email;
+    $name   =   $firstname;
+    $content    =   '<p>Hello ' . $name . ',</p><p>Your Payment with Bulatrips is successful.</p>';
+    $messageData =   $objBook->getEmailContent($content);
+    $headers = "";
+    $contacts = sendMail($email, $subject, $messageData, $headers);
+}
+//====================================email to agent ======
+
 
 /*try {
     // Decode the JSON input
@@ -146,4 +194,3 @@ $responsePay = array(  "status" => "success",
     ]);
 }
 */
-?>

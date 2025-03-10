@@ -20,7 +20,7 @@ class DbAction {
             $host = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "bulatrips_db";
+            $dbname = "travelsite";
         }
         else if($_SERVER['HTTP_HOST'] == 'travelsite.reubrosample.tk') {
             $host = "localhost";
@@ -35,7 +35,6 @@ class DbAction {
             $dbname = "reubroco_travelsite";
         }
         else if ($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
-
             $host = "localhost";
             $username = "bulatrips_db";
             $password = "Reubro@2023";
@@ -68,10 +67,14 @@ class DbAction {
         $params = [$id];
         return $this->executeQuery($query, $params);
     }
-     public function selectBystatus($tableName, $status) {
+    public function selectBystatus($tableName, $status) {
         $query = "SELECT * FROM $tableName WHERE status = ?";
         $params = [$status];
         return $this->executeQuery($query, $params);
+    }
+    public function selectAllRecords($tableName) {
+        $query = "SELECT * FROM $tableName";
+        return $this->executeQuery($query);
     }
     public function countTableRows($tableName) {
         $query = "SELECT COUNT(id) AS recordCount FROM $tableName";
@@ -223,6 +226,22 @@ public function updateAgentBalance($agentId,$amountnew){
         $params = [$role];
         return $this->executeQuery($query, $params);
     }
+    
+
+    public function updatesettingpvalue($tableName1,$markupId,$param,$paramval){
+       
+        $query = "UPDATE $tableName1 SET $param = ? WHERE id = ?";
+        $params = [$paramval,$markupId];
+
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+            return true;
+        } catch (PDOException $e) {
+            die("Error executing query: " . $e->getMessage());
+        }
+    }
+    
     public function updateMarkupvalue($tableName1,$markupId,$param,$paramval){
        
         $query = "UPDATE $tableName1 SET $param = ? WHERE id = ?";

@@ -34,10 +34,8 @@ include_once __DIR__ . '/../mail_send.php';
     // Subscribe the user and get the result message
     $resultBooking = $objBookCron->getBookCronIDs();
 
-     // echo "<pre/>";print_r($resultBooking);exit;
+    //  echo "<pre/>";print_r($resultBooking);exit;
     foreach($resultBooking as $resultBookingdata){
-
-        // print_r($resultBookingdata);
         $userId =    $resultBookingdata['user_id'];
         $bookingID  =   $resultBookingdata['id'];
         $bookingStatus  =   $resultBookingdata['booking_status'];
@@ -102,15 +100,14 @@ include_once __DIR__ . '/../mail_send.php';
             $bookSts    =   $tripDetails['BookingStatus']; //for webfare type this bookstatus not see on response
               $objBookCron->_writeLog('Booking status is '.$bookSts,'bookingCron.txt');
            //$bookSts = 'NotBooked';
-           $userDetails = $objBookCron->getUserDetails($userId);
-           $roleId         =  $userDetails['role'];
-             if($roleId ==  1){
-                $role="user";
-             }
-             else{
-                  $role="agent";
-             }
 
+           
+            $userDetails = array(
+                "email" => $resultBookingdata['contact_email'],
+                "first_name" => $resultBookingdata['contact_first_name'],
+                "last_name" => $resultBookingdata['contact_last_name']
+            );
+            $role="user";
 
             //================
 
@@ -126,7 +123,7 @@ include_once __DIR__ . '/../mail_send.php';
 
                 $ticketTimeLimit = $tripDetails['TicketingTimeLimit'];
                 $bookingDate = $responseData['Data']['TripDetailsResult']['BookingCreatedOn'];
-                $ticketStatus = $tripDetails['TicketStatus'];
+                $ticketStatus = @$tripDetails['TicketStatus'];
                 if(isset($tripDetails['VoidingWindow'])){
                     $voidWindow = $tripDetails['VoidingWindow'];
 

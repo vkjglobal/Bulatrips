@@ -61,6 +61,15 @@ class MyConnection {
             return null;
         }
     }
+
+    public function getIPGMarkup() {
+        $stmt = $this->conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+        $stmt->bindValue(':key', "ipg_transaction_percentage");
+        $stmt->execute();
+        $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $setting;
+    }
+    
     public function getUsersbyId($user_id) {
         try {
             $stmt = $this->conn->prepare("SELECT * FROM users WHERE id = :user_id");

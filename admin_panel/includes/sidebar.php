@@ -96,6 +96,11 @@
                     <div class="nav-item dropdown">
                         <a href="contact-list.php" class="nav-link <?= ($activePage == 'contact-list') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Contact Us</a>    
                     </div>
+
+                    <div class="nav-item dropdown">
+                        <a href="settings.php" class="nav-link <?= ($activePage == 'settings') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Settings</a>    
+                    </div>
+
                 </div>
             </nav>
         </div>

@@ -1,29 +1,33 @@
 <?php
-  include_once('includes/common_const.php');
- include_once('includes/class.Db_client.php');
- class BookScript  extends Db_client{
-	public function __construct() {
+include_once('includes/common_const.php');
+include_once('includes/class.Db_client.php');
+class BookScript  extends Db_client
+{
+    public function __construct()
+    {
         parent::__construct(); // Call the constructor of the parent class (MyDatabaseClassPDO)
     }
-    public function _writeLog($content	=	"",$filename	=	"log.txt")
-	{		
-		$fp 	=	fopen('uploads/logFiles/'.$filename, "a+");			
-		fputs($fp,$content);		
-		fputs($fp, "\r\n");
-		fclose($fp);	
-	}
-    public function calculateHoursFromSLAMinutes($slaMinutes) {
-    // Divide the SLA minutes by 60 to get hours
-    $hours = $slaMinutes / 60;
+    public function _writeLog($content    =    "", $filename    =    "log.txt")
+    {
+        $fp     =    fopen('uploads/logFiles/' . $filename, "a+");
+        fputs($fp, $content);
+        fputs($fp, "\r\n");
+        fclose($fp);
+    }
+    public function calculateHoursFromSLAMinutes($slaMinutes)
+    {
+        // Divide the SLA minutes by 60 to get hours
+        $hours = $slaMinutes / 60;
 
-    return $hours;
+        return $hours;
     }
     // Function to debit bookingamount from total balance of agent
-    public function debitAmount($totalBalance, $amountToDebit) {
+    public function debitAmount($totalBalance, $amountToDebit)
+    {
         // Perform the debit operation
-            // Remove commas from the amountToDebit
+        // Remove commas from the amountToDebit
 
-         $amountToDebit = str_replace(',', '', $amountToDebit);
+        $amountToDebit = str_replace(',', '', $amountToDebit);
 
         // Convert the cleaned string to a float
         $amountToDebit = floatval($amountToDebit);
@@ -35,24 +39,26 @@
         // Return the new balance
         return $newBalance;
     }
-     public function updateInUserAgentCredit($userId,$new_credit_agent){
-    
+    public function updateInUserAgentCredit($userId, $new_credit_agent)
+    {
+
         $tableName = "users"; //cms table name
         $updateData = array(
-                    'credit_balance' => $new_credit_agent
-                );
-                $condition = "`id` = ".$userId;
-             //    LIKE '%MF23720823%' 
-     
-        $result =   $this->update($tableName, $updateData, $condition);
-      //print_r($result);exit;
-       return $result;		
-       }
-       //mail content 
-    public function getEmailContent($content){
+            'credit_balance' => $new_credit_agent
+        );
+        $condition = "`id` = " . $userId;
+        //    LIKE '%MF23720823%' 
 
-                            $messageDatacontent =   $content;
-                                 $messageData      = '
+        $result =   $this->update($tableName, $updateData, $condition);
+        //print_r($result);exit;
+        return $result;
+    }
+    //mail content 
+    public function getEmailContent($content)
+    {
+
+        $messageDatacontent =   $content;
+        $messageData      = '
                                 <html>
                                 <body>
                                 <table style="width:100%">
@@ -66,11 +72,7 @@
                                                             <tr>
                                                                 <td style="text-align:center;padding-bottom:15px;padding-top:15px">
                                                                     <h2 style="margin-top:0;margin-bottom:0">
-                                                                        <img width="125" height="30"
-                                                                            src="https://bulatrips.com/images/bulatrips-logo.png"
-                                                                            alt="Bulatrip" title="Bulatrip"
-                                                                            style="height:30px;width:125px;display:inline-block;margin-top:0;margin-bottom:0"
-                                                                            class="CToWUd" data-bit="iit">
+                                                                        <img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrip" title="Bulatrip" style="height: 50px;margin-top: 20px;margin-bottom: 20px;" class="CToWUd" data-bit="iit">
                                                                     </h2>
                                                                 </td>
                                                             </tr>
@@ -93,7 +95,7 @@
                                                                     <div align="center" style="padding:0 10px;padding-bottom:5px">
                                                                         <p
                                                                             style="font-family:Arial,sans-serif;color:#000000;letter-spacing:-0.5px;text-align:center;margin-top:0;margin-bottom:0">
-                                                                            '.$messageDatacontent.'
+                                                                            ' . $messageDatacontent . '
                                                                         </p>
                                                                     </div>
                                                                 </td>
@@ -108,158 +110,164 @@
                              </body>
                                 </html>';
 
-                                return   $messageData;
-     }
+        return   $messageData;
+    }
 
 
-     public function insPaySts($fsc,$userId,$payStatus,$amount,$currency){
-    
+    public function insPaySts($fsc, $payStatus, $amount, $currency)
+    {
+
         $tableName = "payment_user"; //payment table name
-      //cho "**********************".$TotalRefundAmount;
-        $params = ['user_id'=>$userId,'currency'=>$currency,'amount'=>$amount,'fsc'=>$fsc,'payment_status'=>$payStatus];
-   // print_r($params);exit;
-        $result =   $this->insertInto($tableName, $params) ;
-      //print_r($result);exit;
-       return $result;		
-       }
-      public function getExtraserviceAmoount($data){
+        //cho "**********************".$TotalRefundAmount;
+        $params = ['currency' => $currency, 'amount' => $amount, 'fsc' => $fsc, 'payment_status' => $payStatus];
+        // print_r($params);exit;
+        $result =   $this->insertInto($tableName, $params);
+        //print_r($result);exit;
+        return $result;
+    }
+
+    public function insertUserPayment($data)
+    {
+        $tableName = "payment_user";
+        $result =   $this->insertInto($tableName, $data);
+        return $result;
+    }
+    
+    public function getExtraserviceAmoount($data)
+    {
         $adultCount =   $data['adultCount'];
         $childCount =   $data['childCount'];
         //$adultCount =   $revalidData['adultCount'];
         $TotserviceAmnt =   0;
         for ($i = 1; $i <= $adultCount; $i++) {
             if (isset($data['baggageService' . $i])) {
-                    $baggageServiceData = explode('/', $data['baggageService' . $i]);
-                    if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {
-                        $baggageID = $baggageServiceData[0];
-                        $baggageDescription = $baggageServiceData[1];
-                        $baggageAmount = $baggageServiceData[2];
-                       $TotserviceAmnt += isset($baggageServiceData[2]) ? (float) $baggageServiceData[2] : 0;
-
-                    } else {
-                        $baggageID = "";
-                        $baggageDescription = "";
-                        $baggageAmount = "";
-                         $TotserviceAmnt +=  0;
-                    }
-            } else {
+                $baggageServiceData = explode('/', $data['baggageService' . $i]);
+                if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {
+                    $baggageID = $baggageServiceData[0];
+                    $baggageDescription = $baggageServiceData[1];
+                    $baggageAmount = $baggageServiceData[2];
+                    $TotserviceAmnt += isset($baggageServiceData[2]) ? (float) $baggageServiceData[2] : 0;
+                } else {
                     $baggageID = "";
                     $baggageDescription = "";
                     $baggageAmount = "";
-                     $TotserviceAmnt +=  0;
-             }
-                
+                    $TotserviceAmnt +=  0;
+                }
+            } else {
+                $baggageID = "";
+                $baggageDescription = "";
+                $baggageAmount = "";
+                $TotserviceAmnt +=  0;
+            }
 
-                if (isset($data['mealService' . $i])) {
+
+            if (isset($data['mealService' . $i])) {
                 $mealServiceData = explode('/', $data['mealService' . $i]);
                 if (isset($mealServiceData[0]) && isset($mealServiceData[1]) && isset($mealServiceData[2])) {
 
                     $mealId = $mealServiceData[0];
                     $mealDescription = $mealServiceData[1];
                     $mealAmount = $mealServiceData[2];
-                                $TotserviceAmnt += isset($mealServiceData[2]) ? (float) $mealServiceData[2] : 0;
-
-                    } else{
-                        $mealId = "";
-                        $mealDescription = "";
-                        $mealAmount ="";
-                        $TotserviceAmnt +=   0;
-                    }
+                    $TotserviceAmnt += isset($mealServiceData[2]) ? (float) $mealServiceData[2] : 0;
                 } else {
                     $mealId = "";
                     $mealDescription = "";
-                    $mealAmount ="";
+                    $mealAmount = "";
                     $TotserviceAmnt +=   0;
                 }
+            } else {
+                $mealId = "";
+                $mealDescription = "";
+                $mealAmount = "";
+                $TotserviceAmnt +=   0;
+            }
 
-                //return extra services
-                if (isset($data['baggageServiceReturn' . $i])) {
-                    $baggageServiceDataReturn = explode('/', $data['baggageServiceReturn' . $i]);
-                    if (isset($baggageServiceDataReturn[0]) && isset($baggageServiceDataReturn[1]) && isset($baggageServiceDataReturn[2])) {
-                        $baggageReturnID = $baggageServiceDataReturn[0];
-                        $baggageReturnDescription = $baggageServiceDataReturn[1];
-                        $baggageReturnAmount = $baggageServiceDataReturn[2];
-                                   $TotserviceAmnt += isset($baggageServiceDataReturn[2]) ? (float) $baggageServiceDataReturn[2] : 0;
-
-                    } else {
-                        $baggageReturnID = "";
-                        $baggageReturnDescription = "";
-                        $baggageReturnAmount = "";
-                         $TotserviceAmnt +=   0;
-                    }
+            //return extra services
+            if (isset($data['baggageServiceReturn' . $i])) {
+                $baggageServiceDataReturn = explode('/', $data['baggageServiceReturn' . $i]);
+                if (isset($baggageServiceDataReturn[0]) && isset($baggageServiceDataReturn[1]) && isset($baggageServiceDataReturn[2])) {
+                    $baggageReturnID = $baggageServiceDataReturn[0];
+                    $baggageReturnDescription = $baggageServiceDataReturn[1];
+                    $baggageReturnAmount = $baggageServiceDataReturn[2];
+                    $TotserviceAmnt += isset($baggageServiceDataReturn[2]) ? (float) $baggageServiceDataReturn[2] : 0;
                 } else {
                     $baggageReturnID = "";
                     $baggageReturnDescription = "";
                     $baggageReturnAmount = "";
-                     $TotserviceAmnt +=   0;
+                    $TotserviceAmnt +=   0;
                 }
-                
+            } else {
+                $baggageReturnID = "";
+                $baggageReturnDescription = "";
+                $baggageReturnAmount = "";
+                $TotserviceAmnt +=   0;
+            }
 
-                if (isset($data['mealServiceReturn' . $i])) {
+
+            if (isset($data['mealServiceReturn' . $i])) {
                 $mealServiceDataReturn = explode('/', $data['mealServiceReturn' . $i]);
                 if (isset($mealServiceDataReturn[0]) && isset($mealServiceDataReturn[1]) && isset($mealServiceDataReturn[2])) {
 
                     $mealReturnId = $mealServiceDataReturn[0];
                     $mealReturnDescription = $mealServiceDataReturn[1];
                     $mealReturnAmount = $mealServiceDataReturn[2];
-                                $TotserviceAmnt += isset($mealServiceDataReturn[2]) ? (float) $mealServiceDataReturn[2] : 0;
-
-                    } else{
-                        $mealReturnId = "";
-                        $mealReturnDescription = "";
-                        $mealReturnAmount ="";
-                         $TotserviceAmnt +=   0;
-                    }
+                    $TotserviceAmnt += isset($mealServiceDataReturn[2]) ? (float) $mealServiceDataReturn[2] : 0;
                 } else {
                     $mealReturnId = "";
                     $mealReturnDescription = "";
-                    $mealReturnAmount ="";
-                     $TotserviceAmnt +=   0;
+                    $mealReturnAmount = "";
+                    $TotserviceAmnt +=   0;
                 }
-        }//close of adult for loop
+            } else {
+                $mealReturnId = "";
+                $mealReturnDescription = "";
+                $mealReturnAmount = "";
+                $TotserviceAmnt +=   0;
+            }
+        } //close of adult for loop
         //childservice amnt
-        if($childCount > 0){
-             for ($i = 1; $i <= $childCount; $i++) {
-                  if (isset($data['baggageServiceChild' . $i])) {
+        if ($childCount > 0) {
+            for ($i = 1; $i <= $childCount; $i++) {
+                if (isset($data['baggageServiceChild' . $i])) {
                     $baggageServiceData = explode('/', $data['baggageServiceChild' . $i]);
-                        if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {
-                            $baggageID = $baggageServiceData[0];
-                            $baggageDescription = $baggageServiceData[1];
-                            $baggageAmount = $baggageServiceData[2];
-                            $TotserviceAmnt += isset($baggageServiceData[2]) ? (float) $baggageServiceData[2] : 0;
-                        } else {
-                            $baggageID = "";
-                            $baggageDescription = "";
-                            $baggageAmount = "";
-                             $TotserviceAmnt +=  0;
-                        }
-                   } else {
+                    if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {
+                        $baggageID = $baggageServiceData[0];
+                        $baggageDescription = $baggageServiceData[1];
+                        $baggageAmount = $baggageServiceData[2];
+                        $TotserviceAmnt += isset($baggageServiceData[2]) ? (float) $baggageServiceData[2] : 0;
+                    } else {
                         $baggageID = "";
                         $baggageDescription = "";
                         $baggageAmount = "";
-                         $TotserviceAmnt +=  0;
+                        $TotserviceAmnt +=  0;
                     }
-                
+                } else {
+                    $baggageID = "";
+                    $baggageDescription = "";
+                    $baggageAmount = "";
+                    $TotserviceAmnt +=  0;
+                }
+
 
                 if (isset($data['mealServiceChild' . $i])) {
                     $mealServiceData = explode('/', $data['mealServiceChild' . $i]);
                     if (isset($mealServiceData[0]) && isset($mealServiceData[1]) && isset($mealServiceData[2])) {
 
-                    $mealId = $mealServiceData[0];
-                    $mealDescription = $mealServiceData[1];
-                    $mealAmount = $mealServiceData[2];
-                     $TotserviceAmnt += isset($mealServiceData[2]) ? (float) $mealServiceData[2] : 0;
-                    } else{
+                        $mealId = $mealServiceData[0];
+                        $mealDescription = $mealServiceData[1];
+                        $mealAmount = $mealServiceData[2];
+                        $TotserviceAmnt += isset($mealServiceData[2]) ? (float) $mealServiceData[2] : 0;
+                    } else {
                         $mealId = "";
                         $mealDescription = "";
-                        $mealAmount ="";
-                         $TotserviceAmnt +=  0;
+                        $mealAmount = "";
+                        $TotserviceAmnt +=  0;
                     }
                 } else {
                     $mealId = "";
                     $mealDescription = "";
-                    $mealAmount ="";
-                     $TotserviceAmnt +=  0;
+                    $mealAmount = "";
+                    $TotserviceAmnt +=  0;
                 }
                 //Extra service return
 
@@ -269,49 +277,48 @@
                         $baggageReturnID = $baggageServiceDataReturn[0];
                         $baggageReturnDescription = $baggageServiceDataReturn[1];
                         $baggageReturnAmount = $baggageServiceDataReturn[2];
-                         $TotserviceAmnt += isset($baggageServiceDataReturn[2]) ? (float) $baggageServiceDataReturn[2] : 0;
+                        $TotserviceAmnt += isset($baggageServiceDataReturn[2]) ? (float) $baggageServiceDataReturn[2] : 0;
                     } else {
                         $baggageReturnID = "";
                         $baggageReturnDescription = "";
                         $baggageReturnAmount = "";
-                         $TotserviceAmnt +=  0;
+                        $TotserviceAmnt +=  0;
                     }
                 } else {
                     $baggageReturnID = "";
                     $baggageReturnDescription = "";
                     $baggageReturnAmount = "";
-                     $TotserviceAmnt +=  0;
+                    $TotserviceAmnt +=  0;
                 }
-                
+
 
                 if (isset($data['mealServiceChildReturn' . $i])) {
-                $mealServiceDataReturn = explode('/', $data['mealServiceChildReturn' . $i]);
+                    $mealServiceDataReturn = explode('/', $data['mealServiceChildReturn' . $i]);
                     if (isset($mealServiceDataReturn[0]) && isset($mealServiceDataReturn[1]) && isset($mealServiceDataReturn[2])) {
 
                         $mealReturnId = $mealServiceDataReturn[0];
                         $mealReturnDescription = $mealServiceDataReturn[1];
                         $mealReturnAmount = $mealServiceDataReturn[2];
-                          $TotserviceAmnt += isset($mealServiceDataReturn[2]) ? (float) $mealServiceDataReturn[2] : 0;
-                        } else{
-                            $mealReturnId = "";
-                            $mealReturnDescription = "";
-                            $mealReturnAmount ="";
-                             $TotserviceAmnt +=  0;
-                        }
+                        $TotserviceAmnt += isset($mealServiceDataReturn[2]) ? (float) $mealServiceDataReturn[2] : 0;
                     } else {
                         $mealReturnId = "";
                         $mealReturnDescription = "";
-                        $mealReturnAmount ="";
-                         $TotserviceAmnt +=  0;
+                        $mealReturnAmount = "";
+                        $TotserviceAmnt +=  0;
                     }
+                } else {
+                    $mealReturnId = "";
+                    $mealReturnDescription = "";
+                    $mealReturnAmount = "";
+                    $TotserviceAmnt +=  0;
                 }
-
-             }//eod child for loop
-         //$amountToDebit = str_replace(',', '', $amountToDebit);
-       return  $TotserviceAmnt ;
+            }
+        } //eod child for loop
+        //$amountToDebit = str_replace(',', '', $amountToDebit);
+        return  $TotserviceAmnt;
         // echo "here";exit;
-       }
- /*
+    }
+    /*
        //===
        public function insCncelSts_Search($bookingId,$userId,$BookingStatus,$Resolution, $mfreNum,$ProcessingMethod,$PTRId,$PTRType,$CreditNoteNumber,$PTRStatus,$CreditNoteStatus, $ticket_num ,$pax_booking_id_transaction ,$PaxId,$TicketStatus,$TotalRefundAmount,$Currency,$is_active_booking_status,$cancel_status,$message=''){
     
@@ -456,7 +463,4 @@ public function getUSerDetails($tblname,$userId){
 }
 
     */
-
 }
-
-?>

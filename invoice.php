@@ -1,33 +1,28 @@
 <?php
-// ob_start(); // Start output buffering
 // download_ticket.php
-
 // Include the database configuration file
-
 // Include the dompdf autoload file
 session_start();
+error_reporting(0);
 require_once('includes/dbConnect.php');
 require_once 'vendor/autoload.php';
 include_once('includes/class.Airport.php');
 include_once('includes/class.Booking.php');
 
-
 use Dompdf\Dompdf;
-
-
-// Set timezone to Fiji Time
 // date_default_timezone_set('Pacific/Fiji');
-
-// Check if the booking ID is provided as a parameter in the URL
-// $booking_id= 238;
 $booking_id= $_GET['value'];
-// $value = $_GET['value'];
-// Function to get ticket content based on booking ID
-function getInvoiceContent($booking_id,$conn ) {
-    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
 
-    $stmtbookingid->execute(array('bookingid' => $booking_id, 'userid' => $_SESSION['user_id']));
+$stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
+$stmtbookingid->execute(array('bookingid' => $booking_id));
+$bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
+function getInvoiceContent($booking_id,$conn ) {
+    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
+
+    $stmtbookingid->execute(array('bookingid' => $booking_id));
     $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+    
     if (isset($bookingData['mf_reference'])) {
 
         $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1.1/TripDetails/{MFRef}';
@@ -63,10 +58,7 @@ function getInvoiceContent($booking_id,$conn ) {
         if ($response) {
             $responseData = json_decode($response, true);
         }
-//         echo '<pre>';
-// print_r($responseData);
-// echo '</pre>';
-    
+
        
         $tripDetails = $responseData['Data']['TripDetailsResult']['TravelItinerary'];
         $itinerariesDetail = $tripDetails['Itineraries'][0]['ItineraryInfo']['ReservationItems'];
@@ -86,6 +78,7 @@ function getInvoiceContent($booking_id,$conn ) {
         $onewaysegmentLast = end($onewaysegment);
         $returnsegmentLast = end($returnsegment);
     }
+
     $bookingdate = $responseData['Data']['TripDetailsResult']['BookingCreatedOn'];
     list($date, $time) = explode("T", $bookingdate);
     $date=date("d F Y", strtotime($date));
@@ -95,18 +88,9 @@ function getInvoiceContent($booking_id,$conn ) {
     $dateTravel=date("d F Y", strtotime($dateTravel));
     //booking details
     $booking = new Booking($conn);
-    $resultBooking = $booking->getBookingDetailsbyId($booking_id);
-    // print_r($resultBooking);
+    $resultBooking = $booking->getBookingDetailsbyId($bookingData['id']);
     
-    // content avoid content - nimmi
-    // <td style="text-align: left; font-weight: normal; font-size: 14px; width: 33%;">
-    //                                                     Sahakar Bhavan Sub Post Office, 10th Floor, R City Mall, Lal Bahadur
-    //                                                     Shastri Marg, Ghatkopar West, Mumbai, Mumbai Suburban,
-    //                                                     Maharashtra - 400086 <br>
-    //                                                     Tel No: +91 9595333333 <br>
-    //                                                     Website : www.bulatrips.com
-    //                                                 </td>
-   $ticket_content = '<table style="width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.2;">
+    $ticket_content = '<table style="width: 100%; text-align: center; font-family: Arial, Helvetica, sans-serif; font-size: 14px; line-height: 1.2;">
         <tr>
             <td>
                 <table style="width: 700px; margin: 0 auto; border: 1px solid #000000; border-collapse: collapse;">
@@ -116,7 +100,7 @@ function getInvoiceContent($booking_id,$conn ) {
                                 <table style="width: 100%;">
                                     <tr>
                                         <td style="text-align: left;">
-                                        <img src="https://bulatrips.com/images/bulatrips-logo.png" style="width:140px;">
+                                        <img src="https://bulatrips.com/images/Image-Logo-vec.png" style="width:140px;">
 
                                             </svg>
                                         </td>
@@ -322,30 +306,26 @@ function getInvoiceContent($booking_id,$conn ) {
     return $ticket_content;
 }
 
-if (isset($booking_id)) {
-    $booking_id = $booking_id;
+if (isset($bookingData['id'])) {
+    
+    $booking_id = $bookingData['id'];
+    $reference_id = $bookingData['mf_reference'];
 
     // Retrieve ticket content from the database
-    $ticket_content = getInvoiceContent($booking_id,$conn);
+    $ticket_content = getInvoiceContent($reference_id,$conn);
 
     // Create a new Dompdf instance
     $dompdf = new Dompdf();
 
     $dompdf = new Dompdf(['isRemoteEnabled' => true]);
-
-    // Load the ticket content into Dompdf
-     //var_dump($ticket_content);
+    
+    // var_dump($ticket_content);
     $dompdf->loadHtml($ticket_content);
-
-    // (Optional) Set PDF options, e.g., paper size, orientation, etc.
     $dompdf->setPaper('A4', 'portrait');
-
-    // Render the PDF content
     $dompdf->render();
-
-    // Set appropriate headers for download
+    
     header("Content-Type: application/pdf");
-    header("Content-Disposition: attachment; filename=invoice_$booking_id.pdf");
+    header("Content-Disposition: attachment; filename=invoice_$reference_id.pdf");
 
     // Output the PDF to the browser
     $dompdf->stream();

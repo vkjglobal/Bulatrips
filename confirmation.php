@@ -3,12 +3,12 @@ session_start();
 if (!isset($_SESSION['user_id'])) {
 ?>
     <script>
-        window.location = "index.php"
+        // window.location = "index.php"
     </script>    
 <?php
-exit;
+// exit;
 }
-$userEmail  =   $_SESSION['email'];
+$userEmail = isset($_SESSION['email']) ? $_SESSION['email'] : "";
 //echo "<pre/>";print_r($_SESSION);exit;
 error_reporting(0);
 require_once("includes/header.php");
@@ -24,15 +24,28 @@ $bearerToken   =   BEARER;
 
 //echo 'helo';exit;
 $bookingId = $_GET['bookingid'];
-$stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
+$stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
 
-$stmtbookingid->execute(array('bookingid' => $bookingId, 'userid' => $_SESSION['user_id']));
+$stmtbookingid->execute(array('bookingid' => $bookingId));
 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-
 //userinfo recent added 
-$stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
- $stmt->execute(array('id' => $id));
-$user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
+    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+    $stmt->execute(array('id' => $_SESSION['user_id']));
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+} else {
+    $user = array(
+        "email" => $bookingData['contact_email'],
+        "first_name" => $bookingData['contact_first_name'],
+        "last_name" => $bookingData['contact_last_name']
+    );
+    $userEmail = $bookingData['contact_email'];
+}
+
+
+
+
 //echo "<pre/".$bookingId;print_r($bookingData);exit;
 $bookingStatus = $bookingData['booking_status'];
   $totalPaid =   $bookingData['total_paid'];
@@ -44,6 +57,7 @@ if (isset($bookingData['mf_reference'])) {
 
     // Set the MFRef value for the endpoint
     $mfRef = $bookingData['mf_reference'];
+
    
     $apiEndpoint = str_replace('{MFRef}', $mfRef, $apiEndpoint);
 
@@ -95,17 +109,13 @@ if (isset($bookingData['mf_reference'])) {
                 $objBook->_writeLog('REsponse Received\n'.$logRes,'tripConfirm.txt');   
                
     //============ END log write for trip API ==========  
-    // echo '<pre/>';
-    // print_r($responseData);
-     
-    // echo '</pre>';
     if((!empty($responseData)) && (($responseData['Success']))){
         $tripDetails = $responseData['Data']['TripDetailsResult']['TravelItinerary'];
         $tripDetailsAtaInfo = $tripDetails['ATAinfoList']; //fare attributes
         $tripDetailsExtraServices = $tripDetails['ExtraServices']['Services']; //ExtraServices
         $itinerariesDetail = $tripDetails['Itineraries'][0]['ItineraryInfo']['ReservationItems'];
         $passengerDetail =  $tripDetails['PassengerInfos'];
-          $ticketStatus = $tripDetails['TicketStatus'];
+        $ticketStatus = $tripDetails['TicketStatus'];
        // print_r($tripDetails);
 
         $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_status = :bookingStatus,ticket_status = :ticketStatus,ticket_time_limit = :ticketTimeLimit,booking_date = :bookingDate,void_window =:voidWindow WHERE id = :id');
@@ -383,21 +393,16 @@ else {
                                     <tr>
                                         <td style="text-align:center;padding-bottom:15px;padding-top:15px">
                                             <h2 style="margin-top:0;margin-bottom:0">
-                                                <img width="125" height="30"
-                                                    src="https://bulatrips.com/images/bulatrips-logo.png"
-                                                    alt="Bulatrip" title="Bulatrip"
-                                                    style="height:30px;width:125px;display:inline-block;margin-top:0;margin-bottom:0"
-                                                    class="CToWUd" data-bit="iit">
+                                                <img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrip" title="Bulatrip" style="height: 50px;margin-top: 20px;margin-bottom: 20px;" class="CToWUd" data-bit="iit">
                                             </h2>
                                         </td>
                                     </tr>
-    
-    
+
                                     <tr>
                                         <td bgcolor="#ffffff" style="padding-top:20px;text-align:center">
     
                                             <div width="100%"
-                                                style="max-width:480px;padding:5pt 0;background-color:#eff5fc;border-radius:10px;margin:0 auto;width:calc(100% - 32px);margin-bottom:24px">
+                                                style="max-width:700px;padding:5pt 0;background-color:#eff5fc;border-radius:10px;margin:0 auto;width:calc(100% - 32px);margin-bottom:24px">
                                                    </div>
     
     
@@ -410,7 +415,7 @@ else {
                                                 </h6>
                                             </div>
     
-                                            <table width="355" style="width:355px;margin-left:auto;margin-right:auto">
+                                            <table width="700" style="width:700px;margin-left:auto;margin-right:auto">
                                                 <tbody>
                                                     <tr>
                                                         <td>
@@ -473,7 +478,14 @@ else {
                                                                                         <tr>
                                                                                             <td align="left" rowspan="2"
                                                                                                 style="padding-right:5px">
-                                                                                              
+                                                                                                <img src="https://ci4.googleusercontent.com/proxy/-EGpQDC-pTRN3jU27z8y-Zzb0Yc-RgQRBcn7nWuLlJrJ6IrDN0AxHM2YxhQHBN866kfmuA9EGEc4al7vES_8IivrgRs=s0-d-e1-ft#https://ui.cltpstatic.com/images/air_logos/QP.gif"
+                                                                                                    width="24px;"
+                                                                                                    height="24px;"
+                                                                                                    title="Akasa Air"
+                                                                                                    alt="Akasa Air"
+                                                                                                    style="vertical-align:top;display:block"
+                                                                                                    class="CToWUd"
+                                                                                                    data-bit="iit">
                                                                                             </td>
     
                                                                                             <td align="left"
@@ -821,10 +833,13 @@ else {
                                                                     Amount paid $ '.$totalPaid.' </h1>
                                                                 
                                                             </div>
-    
-    
-    
-    
+
+                                                            <div style=" margin-top:25px;padding:20px 10px 0 10px;margin-bottom:20px;border-top:1px solid #cccccc;">
+                                                            
+                                                                <a href="'.ENVIRONMENT_VAR.'flight-booking-details?booking_id='.$mfRef.'" style="background: #f57c00;color: #FFFFFF;border: 0px solid #ffffff !important;font-weight: bold;font-size: 16px;border-radius: 10px;padding: 15px 40px;text-decoration: none;">
+                                                                    <span class="book_now_text"> Manage your Booking</span>
+                                                                </a>
+                                                            </div>
     
     
                                                             <div
@@ -881,11 +896,11 @@ else {
     <section>
       
         <div class="container">
-            <h2 class="title-typ2 my-4 text-center">Your booking status has been <?php echo  $bookingStatus; ?>.</h2>
+            <h2 class="title-typ2 my-4 text-center">Your Flight Has Been <?php echo  $bookingStatus; ?>!</h2>
             <div class="row my-4">
-                <div class="col-12 text-center fw-700">
+                <!-- <div class="col-12 text-center fw-700">
                     Booking Details  from airline  for the ordered ticket are as follows: 
-                </div>
+                </div> -->
                 <div class="col-12 text-center">
                     <div class="">
                         <div class="d-flex justify-content-md-between flex-md-row flex-column fs-15 fw-300 mb-4">
@@ -1449,19 +1464,10 @@ else {
                                                     $total += $fareDetails['TripDetailsPassengerFare']['TotalFare']['Amount'] * $fareDetails['PassengerTypeQuantity']['Quantity'];
                                                 }
                                                 $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
-                                                if (isset($_SESSION['user_id'])) {
-
-                                                    $id = $_SESSION['user_id'];
-                                                    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
-                                                    $stmt->execute(array('id' => $id));
-                                                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                                                    $stmtmarkup->execute(array('role_id' => $user['role']));
-                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                } else {
+                                                
                                                     $stmtmarkup->execute(array('role_id' => 1));
                                                     $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                }
+                                               
                                                 $totalFareAPI = $total;
                                                 // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
                                                 $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
@@ -1794,7 +1800,7 @@ if( $errStatus  ==   1){
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center w-100 fw-400" id="loginModalLongTitle">Welcome to the <strong class="fw-500">Travel website</strong></h5>
+                    <h5 class="modal-title text-center w-100 fw-400" id="loginModalLongTitle">Welcome to the <strong class="fw-500">Bulatrips</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -1828,7 +1834,7 @@ if( $errStatus  ==   1){
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title text-center w-100 fw-400" id="RegisterModalLongTitle">Welcome to the <strong class="fw-500">Travel website</strong></h5>
+                    <h5 class="modal-title text-center w-100 fw-400" id="RegisterModalLongTitle">Welcome to the <strong class="fw-500">Bulatrips</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -1997,10 +2003,10 @@ if( $errStatus  ==   1){
     function backhomepage(role) {
        
         if(role == 2){
-            window.location = "agent-dashboard.php";
+            window.location = "agent-dashboard";
         }
         else{
-             window.location = "user-dashboard.php";
+             window.location = "user-dashboard";
         }
      }
     </script>

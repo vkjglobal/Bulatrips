@@ -668,7 +668,7 @@ $objCancel->closeConnection();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-center w-100 fw-400" id="loginModalLongTitle">Welcome to the <strong
-                            class="fw-500">Travel website</strong></h5>
+                            class="fw-500">Bulatrips</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">
@@ -710,7 +710,7 @@ $objCancel->closeConnection();
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title text-center w-100 fw-400" id="RegisterModalLongTitle">Welcome to the <strong
-                            class="fw-500">Travel website</strong></h5>
+                            class="fw-500">Bulatrips</strong></h5>
                 </div>
                 <div class="modal-body">
                     <div class="row">

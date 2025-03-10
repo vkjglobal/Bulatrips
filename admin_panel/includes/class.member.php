@@ -10,7 +10,7 @@
 include "class.DbAction.php";
 class Member extends DbAction{
 	public function __construct(){
-       $this->db = new DbAction();
+       @$this->db = new DbAction();
 				
 	}
 	public function getAdminProfile($id){			

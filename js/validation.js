@@ -32,7 +32,7 @@ $('#user_password_form').submit(function (event) {
     formData.append('newPassword', new_pwd);
 
     $.ajax({
-        url: 'change-password-script.php',
+        url: 'change-password-script',
         type: 'POST',
         // data: dataString,
         data: formData,
@@ -45,7 +45,7 @@ $('#user_password_form').submit(function (event) {
             } 
             if(response == 'success') {
             //  alert("Password changed successfully.");
-            window.location.href = 'logout.php';
+            window.location.href = 'logout';
             
             }
 
@@ -70,7 +70,7 @@ $('#enuserupdate').click(function (event) {
     var zipcode = $("#zipcode").val();
     // var image = $("#p-image").val();
     var id = $("#uid").val();
-    var image = $("#p-image")[0].files[0];
+    // var image = $("#p-image")[0].files[0];
 
     // validation
     valid = true;
@@ -121,13 +121,13 @@ $('#enuserupdate').click(function (event) {
         formData.append('city', city);
         formData.append('zipcode', zipcode);
         formData.append('id', id);
-        formData.append('image', image);
+        // formData.append('image', image);
 
         // Set up form data for submission
         $('#login_message').text("");
 
         $.ajax({
-            url: 'enduser-update.php',
+            url: 'enduser-update',
             type: 'post',
             // data: dataString,
             data: formData,
@@ -148,9 +148,9 @@ $('#enuserupdate').click(function (event) {
                         </div>
                         `);
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
-                    setTimeout(function () {
                     location.reload();
-                    }, 3000);
+                    // setTimeout(function () {
+                    // }, 3000);
                 }
             },
             error: function () {
@@ -306,7 +306,7 @@ $('#review_valid').click(function (event) {
 // alert(formdata);
 
     $.ajax({
-        url: 'review_add.php',
+        url: 'review_add',
         type: 'POST',
         data: formData,
         contentType: false,
@@ -325,7 +325,7 @@ $('#review_valid').click(function (event) {
             //         </div>
             //         `);
             //     $('html, body').animate({ scrollTop: 0 }, 'slow');
-            //     window.location.href = 'user-dashboard.php';
+            //     window.location.href = 'user-dashboard';
             // }
         },
         error: function () {
@@ -344,7 +344,7 @@ $('#review_delete').on('click', function() {
     // Perform the AJAX request
     $.ajax({
         type: 'POST',
-        url: 'delete-review.php',
+        url: 'delete-review',
         data: { userID: userID },
         success: function(response) {
             console.log('Server Response:', response);  // Log the response from the server
@@ -384,7 +384,7 @@ $('#requestForm').submit(function (event) {
     // console.log('Form data:', [...formData.entries()]);
 
     $.ajax({
-        url: 'credit_request.php',
+        url: 'credit_request',
         type: 'POST',
         data: formData,
         contentType: false,
@@ -395,7 +395,7 @@ $('#requestForm').submit(function (event) {
                 showMessageModal("Error", "Error in request. Please try again later!");
             } else if (response.trim() === 'success') {
                 showMessageModal("Success", "Request submitted successfully.");
-                // window.location.href = 'agent-dashboard.php'; 
+                // window.location.href = 'agent-dashboard'; 
             } else if (response.trim() === 'already_submitted') {
                 showMessageModal("Info", "Request already submitted. Please wait for request approval.", false);
             } else {
@@ -488,189 +488,7 @@ $('#cardExpmon').on('blur', function() {
     }
 });
 
-$('#paymentForm').submit(function(event) {
-    event.preventDefault();
-    // var formDataBook = $('#paymentForm').serialize();
-    var totalAmount = $('input[name="Totalamount"]').val(); // Get the Totalamount value
-    let errorMsg = '';
-    const cardHolderName = $('#custName').val();
-    const cardType = $('#cardType').val();
-    const cardNumber = $('#cardNo').val().replace(/\s+/g, ''); // Remove spaces for validation
-    const cardExpy = $('#cardExpyear').val();
-    const cardExpm = $('#cardExpmon').val();
-    const cvv = $('#cvv').val();
-    const checkTerms = $('#checkTerms').is(':checked');
 
-    if (!cardHolderName) {
-        errorMsg = 'Card Holder Name is required';
-    } else if (!cardType) {
-        errorMsg = 'Card Type is required';
-    } else if (!cardNumber || isNaN(cardNumber) || cardNumber.length < 14 || cardNumber.length > 16) {
-        errorMsg = 'Card Number is invalid';
-    } else if (!cardExpy || isNaN(cardExpy) || cardExpy.length !== 4) {
-        errorMsg = 'Card Expiry Year is invalid';
-    } else if (!cardExpm || isNaN(cardExpm) || parseInt(cardExpm) < 1 || parseInt(cardExpm) > 12) {
-        errorMsg = 'Card Expiry Month is invalid';
-    } else if (!cvv || isNaN(cvv) || cvv.length < 3 || cvv.length > 4) {
-        errorMsg = 'CVV is invalid';
-    } else if (!checkTerms) {
-        errorMsg = 'You must agree to the terms and conditions';
-    }
-
-    const formData = {
-        Name: cardHolderName,
-        cardType: cardType,
-        cardNumber: cardNumber,
-        cardExpy: cardExpy,
-        cardExpm: cardExpm,
-        cvv: cvv
-    };
-    errorMsg = '';//NEED to change after payment integration
-    if (errorMsg) {
-        $('#errorModalBody').text(errorMsg);
-        $('#errorModal').modal('show');
-    } else {
-        $("#loaderIcon").show();
-        $.ajax({
-           
-            url: 'windcave.php',
-            method: 'POST',
-            contentType: 'application/json',
-            contentType: 'application/x-www-form-urlencoded; charset=UTF-8', // Set the correct content type
-            // data: JSON.stringify(formData),
-            data: { Totalamount: totalAmount }, // Send only Totalamount
-            dataType: 'json',
-            success: function(response) {
-                console.log(response);
-                // alert("reached"); return false;
-                $("#loaderIcon").hide();
-                if (response.status === 'success') {
-                  //  alert("Payment Successful"); 
-                    $('#successModalBody').html("Your Payment Successful,and we are proceeding to Booking PRocess");
-                    $('#successModal').modal('show');
-                    $(".close").click(function () {
-                        $(this).parents('.modal').modal('hide');
-                       // window.location.href = "'user-booking-script.php";
-                        // Use history.replaceState to replace the current entry in the browser's history
-                       // history.replaceState(null, null, 'user-booking-script.php');
-                    });
-                    $("#ok").click(function () {
-                        $(this).parents('.modal').modal('hide');
-                    });
-                    $('#successModal').on('hidden.bs.modal', function () {
-                        $("#loaderIcon").show();
-                        // Additional actions to perform when the modal is hidden
-                      //  alert('Modal closed');
-                        // You can add more actions here if needed
-                        $.ajax({
-                            url: 'user-booking-script.php',
-                            type: 'post',
-                            data: {
-                                requestId: response.requestId,
-                                timestamp: response.timestamp
-                            },
-                            dataType: 'json',
-                            success: function (response) {
-                                console.log(response);
-                                $("#loaderIcon").hide();
-                               // alert(response); return false;
-                                if (response.errors && response.errors.length > 0) {
-                                    // alert("Errors found");
-                                    // alert(JSON.stringify(response.errors));
-                                    $('#errorMessage').html("Your Booking is :" + response.BookStatus + "</br>Airline Error:" + response.errors + "</br> After Verification,Your Debited amount will be Repayed within 7 days ");
-                                    // $('#errorMessage').text("Your Debited amount will be Repayed withing 7 days ");
-                                    // $('#errorMessage').text(response.errors);
-                                    $('#UsererrorModal').modal('show');
-                                    $(".close").click(function () {
-                                        $(this).parents('.modal').modal('hide');
-                                        window.location.href = "index.php";
-                                        // Use history.replaceState to replace the current entry in the browser's history
-                                        history.replaceState(null, null, 'index.php');
-                                    });
-
-                                }
-                                else {
-                                    // alert("llllll");
-                                    // alert(response.ticketstatus);
-                                    if (response.ticketstatus) {
-                                        if (response.ticketstatus == "ticket sucess") {
-                                            //  alert("uuuu");
-                                            //  $('#errorMessage').text(response.BookStatus);
-                                            $('#errorMessage').html("Your Booking status is :" + response.BookStatus + "</br>You can check our site for further updates");
-                                            $('#UsererrorModal').modal('show');
-                                            $(".close").click(function () {
-                                                $(this).parents('.modal').modal('hide');
-                                                window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
-                                                // Use history.replaceState to replace the current entry in the browser's history
-                                                history.replaceState(null, null, 'confirmation.php');
-                                            });
-
-                                            // alert("Booking successfully Completed");
-
-                                        }
-                                        /*  else if (response.ticketstatus == "Failed") {
-                                              $('#errorMessage').text("Your Booking is :" + response.BookStatus + "Ticket Generation Failed");
-                                              $('#errorModal').modal('show');
-                                              $(".close").click(function () {
-                                                  $(this).parents('.modal').modal('hide');
-                                              });
-                                              window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
-                                              // alert("Booking successfully Completed");
-                      
-                      
-                                          }
-                                          else {
-                                              alert("here"); 
-                                          }
-                                          */
-                                    }
-
-                                }
-                              
-                            },
-                            error: function () {
-                                $('#errorMessage').text('Error submitting form');
-                                $('#UsererrorModal').modal('show');
-                                $(".close").click(function () {
-                                    $(this).parents('.modal').modal('hide');
-                                });
-                                $("#loaderIcon").hide();
-                            }
-                        });
-                    });
-                   
-                } else {
-
-                   // alert("reaching error condition"); 
-                  
-                    $('#errorModalBody').html("Your Transaction Failed with an  Error: " + response.message + "</br> Please Try agin later");
-                    
-                    $('#errorModal').modal('show');
-                    $(".close").click(function () {
-                        $(this).parents('.modal').modal('hide');
-                        window.location.href = "index.php";
-                        // Use history.replaceState to replace the current entry in the browser's history
-                        history.replaceState(null, null, 'index.php');
-                    });
-                }
-            },
-            error: function(xhr, status, error) {
-                console.error("AJAX Error:", error);
-                console.error("Status:", status);
-                console.error("XHR:", xhr);
-                $("#loaderIcon").hide();
-                try {
-                    let jsonResponse = JSON.parse(xhr.responseText);
-                    console.error("Response:", jsonResponse);
-                } catch (e) {
-                    console.error("Failed to parse response as JSON:", xhr.responseText);
-                }
-            }
-        });
-    }
-
-    return false;
-});
 
 //agent booking confirm button
 $('#confirm').click(function (event) {
@@ -679,7 +497,7 @@ $('#confirm').click(function (event) {
     var formData = $('#bookingForm').serialize();
     $("#loaderIcon").show();
     $.ajax({
-        url: 'booking-script.php',
+        url: 'booking-script',
         type: 'POST',
         data: formData,
         dataType: 'json',
@@ -703,16 +521,16 @@ $('#confirm').click(function (event) {
                 $('#errorModal').modal('show');
                 $(".close").click(function () {
                     $(this).parents('.modal').modal('hide');
-                    window.location.href = "index.php";
+                    window.location.href = "index";
                     // Use history.replaceState to replace the current entry in the browser's history
-                    history.replaceState(null, null, 'index.php');
+                    history.replaceState(null, null, 'index');
                 });
 
             }
             else if (response.balance && response.balance.length > 0) {
                 
                 $('#balanceissueModal').modal('show');
-                history.replaceState(null, null, 'index.php');
+                history.replaceState(null, null, 'index');
             }
             else {
                // alert("llllll");
@@ -725,7 +543,7 @@ $('#confirm').click(function (event) {
                         $('#errorModal').modal('show');
                         $(".close").click(function () {
                             $(this).parents('.modal').modal('hide');
-                            window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
+                            window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
                         });
                         
                         // alert("Booking successfully Completed");
@@ -737,7 +555,7 @@ $('#confirm').click(function (event) {
                         $(".close").click(function () {
                             $(this).parents('.modal').modal('hide');
                         });
-                        window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
+                        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
                         // alert("Booking successfully Completed");
 
 

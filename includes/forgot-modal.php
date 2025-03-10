@@ -14,7 +14,7 @@
                                         <input type="email" class="form-control" id="RegisterInputEmail1" aria-describedby="emailHelp" placeholder="Email" name="forgot_email">
                                     </div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn border-radius-5 btn-typ1 fs-15 fw-400 w-100">Submit</button>
+                                        <button type="submit" class="btn border-radius-5 btn-typ1 fs-15 fw-400 w-100" id="forgot_sub_btn">Submit</button>
                                     </div>
                                 </div>
                             </div>

@@ -2,16 +2,19 @@
 session_start();
 error_reporting(0);
 
-if(!isset($_SESSION['user_id'])){
+// if(!isset($_SESSION['user_id'])){
 ?>
    <script>
-   window.location="index.php"    </script>
+//    window.location="index.php"    </script>
    <?php
-}
-else {
+// } else {
     require_once("includes/header.php");
     include('includes/dbConnect.php');
     $bookingId = $_GET['booking_id'];
+
+    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
+    $stmtbookingid->execute(array('bookingid' => $bookingId));
+    $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
 
     ?>
     <section>
@@ -33,9 +36,9 @@ else {
                                             // $stmtpassenger = $conn->prepare('SELECT * FROM travellers_details WHERE flight_booking_id = :bookingId');
                                             $stmtpassenger = $conn->prepare('SELECT travellers_details.id, travellers_details.first_name, travellers_details.last_name FROM travellers_details 
                                             LEFT JOIN temp_booking ON travellers_details.flight_booking_id = temp_booking.id
-                                            WHERE travellers_details.flight_booking_id = :bookingId and temp_booking.user_id = :userId');
+                                            WHERE travellers_details.flight_booking_id = :bookingId');
                                                         
-                                            $stmtpassenger->execute(array('bookingId' => $bookingId,'userId' => $_SESSION['user_id']));
+                                            $stmtpassenger->execute(array('bookingId' => $bookingData['id']));
                                             $passengerDetail = $stmtpassenger->fetchAll(PDO::FETCH_ASSOC);
                                             foreach($passengerDetail as $index => $passengerDetails) { ?>
                                             <li class="col-lg-3 col-md-4 col-6 form-group chkbx mb-2">
@@ -91,11 +94,12 @@ else {
                                         <td style="vertical-align: middle;">
                                             <input type="date" class="form-control">
                                         </td>
+                                        
                                     </tr>
                                 </tbody>
                             </table>
                         </div> -->
-                        <input type="hidden" value="<?php echo $bookingId;?>" name="booking-id">
+                        <input type="hidden" value="<?php echo $bookingData['id'];?>" name="booking-id">
                         <button type="submit" class="btn btn-typ3 mb-3 cancel_button_trip">Cancel</button>
                         <!-- <div class="row fs-13 mb-3 px-3">
                             <div class="col-12 px-0">
@@ -600,7 +604,7 @@ else {
     <?php
         require_once("includes/footer.php");
    
-}
+// }
    ?>
     <script>
 

@@ -74,7 +74,7 @@
         }
 
         .content .btn:hover {
-            background-color: ##121E7E;
+            background-color: #121E7E;
         }
     </style>
 </head>
@@ -97,7 +97,7 @@
             }
             ?>
         </p>
-        <a href="index.php" class="btn">SEARCH AGAIN</a> <!-- Link back to your search page -->
+        <a href="index" class="btn">SEARCH AGAIN</a> <!-- Link back to your search page -->
     </div>
 
 </body>

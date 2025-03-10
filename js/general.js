@@ -1,179 +1,218 @@
 $(document).ready(function () {
-  $('input[name="userType"]').change(function () {
-
-    if ($(this).val() === "agent") {
-      $('#agency-field').show();
-      $('#agency-address').show();
-      $('#agency-country').show();
-      $('#agency-state').show();
-      $('#agency-city').show();
-    } else {
-      $('#agency-field').hide();
-      $('#agency-address').hide();
-      $('#agency-country').hide();
-      $('#agency-state').hide();
-      $('#agency-city').hide();
-    }
-  });
-
-
-  $('#user-signup').submit(function (event) {
-
-    // event.preventDefault();
+  $("#user-signup").submit(function (event) {
+    event.preventDefault();
+    
+    var $button = $("button[name='usersignup']");
+    $button.prop("disabled", true).html('<i class="fa fa-spinner fa-spin"></i> Registering...');
+    
     // Validate form data
-    var fname = $('#userfname').val();
-    var lname = $('#userlname').val();
-    var phone = $('#userphone').val();
-    var dialcode = $('#country_code').val();
-    var email = $('#useremail').val();
-    var password = $('#password').val();
-    var confirmpassword = $('#confirmpassword').val();
-    var userType = document.querySelector('input[name="userType"]:checked').value;
-    var signeddate = $('#signed-date').val();
+    var fname = $("#userfname").val();
+    var lname = $("#userlname").val();
+    var phone = $("#userphone").val();
+    var dialcode = $("#country_code").val();
+    var email = $("#useremail").val();
+    var password = $("#password").val();
+    var confirmpassword = $("#confirmpassword").val();
+    
+    var signeddate = $("#signed-date").val();
     var policy = document.getElementById("logintab-user");
 
     valid = true;
-    if (!valid) {
-      event.preventDefault();
-    }
-    if (fname == '') {
-
+    if (fname == "") {
       // $('#userfname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Country cannot be blank.</span>')
       document.getElementById("userfname").style.borderColor = "red";
       valid = false;
+    } else {
+      document.getElementById("userfname").style.borderColor = "#CCC";
     }
-    if (lname == '') {
+    if (lname == "") {
       //   $('#userlname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Content cannot be blank</span>')
       document.getElementById("userlname").style.borderColor = "red";
       valid = false;
+    } else {
+      document.getElementById("userlname").style.borderColor = "#CCC";
     }
-    if (dialcode == '') {
-      //   $('#userphone').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+
+    if (dialcode == "") {
       document.getElementById("country_code").style.borderColor = "red";
-
-
       valid = false;
     }
-    if (phone == '') {
-      //   $('#userphone').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
+    else {
+      document.getElementById("country_code").style.borderColor = "#CCC";
+    }
+
+    if (phone == "") {
       document.getElementById("userphone").style.borderColor = "red";
-
       valid = false;
     }
-    if (email == '') {
+    else {
+      document.getElementById("userphone").style.borderColor = "#CCC";
+    }
+
+    if (email == "") {
       // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("useremail").style.borderColor = "red";
 
       valid = false;
     }
-    if (password == '') {
+    else {
+      document.getElementById("useremail").style.borderColor = "#CCC";
+    }
+
+    if (password == "") {
       // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("password").style.borderColor = "red";
 
       valid = false;
     }
-    if (confirmpassword == '') {
+    else {
+      document.getElementById("password").style.borderColor = "#CCC";
+    }
+    if (confirmpassword == "") {
       // $('#useremail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
       document.getElementById("confirmpassword").style.borderColor = "red";
 
       valid = false;
     }
-    if (!policy.checked) {
-      $('#policyerror').after('<span class="text-danger fs-12 position-absolute" >Please accept the privacy policy</span>')
-      //  document.getElementById("logintab-user").style.border = "red";
-
-      valid = false;
+    else {
+      document.getElementById("confirmpassword").style.borderColor = "#CCC";
     }
-    if (userType == 'agent') {
-      var address = $('#agencyaddress').val();
-      var country = $('#agencycountry').val();
-      var state = $('#agencystate').val();
-      var agencyname = $('#agency').val();
-      if (address == '') {
-        // $('#agencyaddress').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
-        document.getElementById("agencyaddress").style.borderColor = "red";
-
-        valid = false;
-      }
-      if (country == '') {
-        // $('#agencycountry').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
-        document.getElementById("agencycountry").style.borderColor = "red";
-
-        valid = false;
-      }
-      if (state == '') {
-        // $('#agencystate').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
-        document.getElementById("agencystate").style.borderColor = "red";
-
-        valid = false;
-      }
-      if (agencyname == '') {
-        // $('#agency').after('<span class="text-danger fs-12 position-absolute" style="color:red">Date cannot be blank</span>')
-        document.getElementById("agency").style.borderColor = "red";
-
-        valid = false;
-      }
-
+    if (!policy.checked) {
+      $("#policyerror").after(
+        '<p class="text-danger fs-12 position-absolute" >Please accept the Privacy Policy and Terms of Use</p>'
+      );
+      valid = false;
     }
 
     if (!valid) {
+      $button.prop("disabled", false).html("Register");
       return false;
+
     }
+
+    var formData = $(this).serialize();
+    $.ajax({
+      url: "register-script",
+      type: "POST",
+      data: formData,
+      success: function (response) {
+        if( response == "flights_redirectation" ) {
+          Swal.fire({
+            title: "Registration Success",
+            text: "You have signed up successfully.",
+            icon: "success",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00", 
+            allowOutsideClick: false, 
+          }).then((result) => {
+                  window.location.href = "fligtsRulesRevalidation";
+          });
+        } else if (response == "registered") {
+            Swal.fire({
+              title: "Registration Success",
+              text: "You have signed up successfully.",
+              icon: "success",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00", 
+              allowOutsideClick: false, 
+          }).then((result) => {
+                  window.location.href = "index";
+          });
+        
+        } else if(response == "email_error") {
+            document.getElementById("useremail").style.borderColor = "red";
+            Swal.fire({
+              title: "Error Registration",
+              text: "Email address is already registered. please change your email address.",
+              icon: "error",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+          });
+        } else {
+          Swal.fire({
+              title: "Something went wrong",
+              text: "Could not register a user",
+              icon: "error",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+          });
+        }
+        $button.prop("disabled", false).html("Register");
+      },
+      error: function () {
+        alert("Error submitting form");
+        $button.prop("disabled", false).html("Register");
+      },
+    });
+
+
   });
 
-  $('#agencycountry').change(function () {
+  
+  $("#agencycountry").change(function () {
     var countryCode = $(this).val();
-    if (countryCode != '') {
+    if (countryCode != "") {
       $.ajax({
-        url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+        url:
+          "https://api.countrystatecity.in/v1/countries/" +
+          countryCode +
+          "/states",
         headers: {
-          'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "X-CSCAPI-KEY":
+            "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        method: 'GET',
+        method: "GET",
         success: function (result) {
           var states = result;
-          $('#agencystate').empty();
-          $('#agencystate').append('<option value="">Select State</option>');
+          $("#agencystate").empty();
+          $("#agencystate").append('<option value="">Select State</option>');
           $.each(states, function (index, state) {
-            $('#agencystate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+            $("#agencystate").append(
+              '<option value="' + state.iso2 + '">' + state.name + "</option>"
+            );
           });
         },
         error: function () {
           // alert('Error retrieving states.');
-          $('#agencystate').empty();
-          $('#agencystate').append('<option value="">Select State</option>');
-        }
+          $("#agencystate").empty();
+          $("#agencystate").append('<option value="">Select State</option>');
+        },
       });
     } else {
-      $('#agencystate').empty();
-      $('#agencystate').append('<option value="">Select State</option>');
+      $("#agencystate").empty();
+      $("#agencystate").append('<option value="">Select State</option>');
     }
   });
 
+  
   $.ajax({
-    url: 'https://api.countrystatecity.in/v1/countries',
+    url: "https://api.countrystatecity.in/v1/countries",
     headers: {
-      'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      "X-CSCAPI-KEY":
+        "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
-    method: 'GET',
+    method: "GET",
     success: function (result) {
       var countries = result;
-      $('#agencycountry').empty();
-      $('#agencycountry').append('<option value="">Select Country</option>');
+      $("#agencycountry").empty();
+      $("#agencycountry").append('<option value="">Select Country</option>');
       $.each(countries, function (index, country) {
-        $('#agencycountry').append('<option value="' + country.iso2 + '">' + country.name + '</option>');
+        $("#agencycountry").append(
+          '<option value="' + country.iso2 + '">' + country.name + "</option>"
+        );
       });
     },
     error: function () {
       // alert('Error retrieving countries.');
-      $('#agencycountry').empty();
-      $('#agencycountry').append('<option value="">Select Country</option>');
-    }
+      $("#agencycountry").empty();
+      $("#agencycountry").append('<option value="">Select Country</option>');
+    },
   });
+
 
   //  ---------------------------Login---------------------------
 
@@ -183,7 +222,7 @@ $(document).ready(function () {
 
   //   const formData = new FormData(loginForm);
 
-  //   fetch('login-script.php', {
+  //   fetch('login-script', {
   //     method: 'POST',
   //     body: formData
   //   })
@@ -191,7 +230,7 @@ $(document).ready(function () {
   //   .then(data => {
   //     if (data.success) {
   //       // loginModal.style.display = "none";
-  //       window.location.href = "user-dashboard.php";
+  //       window.location.href = "user-dashboard";
   //     } else {
   //       alert("Invalid username or password");
   //     }
@@ -201,21 +240,28 @@ $(document).ready(function () {
   //   });
   // });
 
-  $('#user-login').submit(function (event) {
+  $("#user-login").submit(function (event) {
     event.preventDefault();
     // Validate form data
-    var email = $('#loginemail').val();
-    var password = $('#loginpassword').val();
+    var email = $("#loginemail").val();
+    var searchFlightsFlag = $("#searchFlights").val();
+    var password = $("#loginpassword").val();
     emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     valid = true;
 
-    if ($('#loginemail').val() == '' || !emailReg.test($('#loginemail').val())) {
-
-        $('#loginemail').after('<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>')
+    if (
+      $("#loginemail").val() == "" ||
+      !emailReg.test($("#loginemail").val())
+    ) {
+      $("#loginemail").after(
+        '<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>'
+      );
       valid = false;
     }
-    if (password == '') {
-        $('#loginpassword').after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">Enter your Password.</span>')
+    if (password == "") {
+      $("#loginpassword").after(
+        '<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">Enter your Password.</span>'
+      );
       valid = false;
     }
 
@@ -223,221 +269,278 @@ $(document).ready(function () {
       return false;
     }
 
-
-
     // Set up form data for submission
-    $('#login_message').text("");
+    $("#login_message").text("");
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'login-script.php',
-      type: 'post',
+      url: "login-script",
+      type: "post",
       data: formData,
       processData: false,
       contentType: false,
       success: function (response) {
-        if (response == 'error') {
-         // alert("invalid email or password");
-            $('#pwErr').text('');
+        if (response == "error") {
+          // alert("invalid email or password");
+          $("#pwErr").text("");
 
-            $('#loginpassword').after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">invalid email or password</span>')
+          $("#loginpassword").after(
+            '<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">invalid email or password</span>'
+          );
 
-          $('#email').val('');
-          $('#password').val('');
-        } else if (response == 'endsuccess') {
+          $("#email").val("");
+          $("#password").val("");
+        } else if (response == "endsuccess") {
+          if( searchFlightsFlag == "true" ) {
+            $("#LoginModal").modal('hide');
+            // $("#payment_modal").modal('show');
+            $("#booking-submit").submit();
+          } else {
+            location.reload();
+          }
+          
+          // window.location.href = 'user-dashboard';
+        } else if (response == "agentsuccess") {
           location.reload();
-          // window.location.href = 'user-dashboard.php';
+          // window.location.href = 'agent-dashboard';
+        } else if (response == "agenterror") {
+          // alert("approval is on progress..");
+          $("#pwErr").text("");
+          $("#loginpassword").after(
+            '<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">approval is on progress..</span>'
+          );
         }
-        else if (response == 'agentsuccess') {
-          location.reload();
-          // window.location.href = 'agent-dashboard.php';
-        } else if (response == 'agenterror') {
-         // alert("approval is on progress..");
-            $('#pwErr').text('');
-            $('#loginpassword').after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">approval is on progress..</span>')
-
-        }
-
-
       },
       error: function () {
-        alert('Error submitting form');
-      }
+        alert("Error submitting form");
+      },
+    });
+  });
+
+
+  $("#continue_as_login_form").submit(function (event) {
+    event.preventDefault();
+    var password = $("#loginpassword").val();
+    emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
+    valid = true;
+
+    if ($("#loginemail").val() == "" || !emailReg.test($("#loginemail").val())) {
+      $("#loginemail").after('<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>');
+      return false;
+    }
+    if (password == "") {
+      $("#loginpassword").after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">Enter your Password.</span>');
+      return false;
+    }
+    
+    var formData = new FormData(this);
+    $.ajax({
+      url: "login-script",
+      type: "post",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        if (response == "error") {
+          $("#pwErr").text("");
+          $("#loginpassword").after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">invalid email or password</span>');
+          $("#email").val("");
+          $("#password").val("");
+        } else if (response == "endsuccess") {
+
+        }
+      },
+      error: function () {
+        alert("Error submitting form");
+      },
     });
   });
 
   //////////User profile update---------------
 
-  $('#enuserupdate').click(function (event) {
-    event.preventDefault();
+  // $("#enuserupdate").click(function (event) {
+  //   event.preventDefault();
 
-    var firstname = $("#fname").val();
-    var lastname = $("#lname").val();
-    var phone = $("#mobile").val();
-    var address = $("#address").val();
-    var country = $("#endusercountry").val();
-    var state = $("#enduserstate").val();
-    var city = $("#endusercity").val();
-    var zipcode = $("#zipcode").val();
-    // var image = $("#p-image").val();
-    var id = $("#uid").val();
-    var image = $("#p-image")[0].files[0];
+  //   var firstname = $("#fname").val();
+  //   var lastname = $("#lname").val();
+  //   var phone = $("#mobile").val();
+  //   var address = $("#address").val();
+  //   var country = $("#endusercountry").val();
+  //   var state = $("#enduserstate").val();
+  //   var city = $("#endusercity").val();
+  //   var zipcode = $("#zipcode").val();
+  //   // var image = $("#p-image").val();
+  //   var id = $("#uid").val();
+  //   // var image = $("#p-image")[0].files[0];
 
-    var formData = new FormData();
-    formData.append('firstname', firstname);
-    formData.append('lastname', lastname);
-    formData.append('phone', phone);
-    formData.append('address', address);
-    formData.append('country', country);
-    formData.append('state', state);
-    formData.append('city', city);
-    formData.append('zipcode', zipcode);
-    formData.append('id', id);
-    formData.append('image', image);
+  //   var formData = new FormData();
+  //   formData.append("firstname", firstname);
+  //   formData.append("lastname", lastname);
+  //   formData.append("phone", phone);
+  //   formData.append("address", address);
+  //   formData.append("country", country);
+  //   formData.append("state", state);
+  //   formData.append("city", city);
+  //   formData.append("zipcode", zipcode);
+  //   formData.append("id", id);
+  //   // formData.append("image", image);
 
-
-
-
-    // Set up form data for submission
-    $('#login_message').text("");
-    // var formData = new FormData(this);
-    // var dataString = 'firstname='+firstname+'&lastname='+lastname+'&phone='+phone+'&address='+address+'&country='+country+'&state='+state+'&city='+city+'&id='+id+'&zipcode='+zipcode;
-    // Submit form via AJAX
-    $.ajax({
-      url: 'enduser-update.php',
-      type: 'post',
-      // data: dataString,
-      data: formData,
-      contentType: false,
-      processData: false,
-      success: function (response) {
-        if (response == 'error') {
-          alert("Data not updated");
-          $('#email').val('');
-          $('#password').val('');
-        } else {
-          $('#alert-container').html(`
-              <div class="alert alert-success alert-dismissible fade show" role="alert">
-                Form submitted successfully!
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </div>
-              `);
-          $('html, body').animate({ scrollTop: 0 }, 'slow');
-          setTimeout(function () {
-            location.reload();
-          }, 3000);
-        }
-
-
-
-      },
-      error: function () {
-        alert('Error submitting form');
-      }
-    });
-  });
-
+  //   // Set up form data for submission
+  //   $("#login_message").text("");
+  //   // var formData = new FormData(this);
+  //   // var dataString = 'firstname='+firstname+'&lastname='+lastname+'&phone='+phone+'&address='+address+'&country='+country+'&state='+state+'&city='+city+'&id='+id+'&zipcode='+zipcode;
+  //   // Submit form via AJAX
+  //   $.ajax({
+  //     url: "enduser-update",
+  //     type: "post",
+  //     // data: dataString,
+  //     data: formData,
+  //     contentType: false,
+  //     processData: false,
+  //     success: function (response) {
+  //       if (response == "error") {
+  //         alert("Data not updated");
+  //         $("#email").val("");
+  //         $("#password").val("");
+  //       } else {
+  //         $("#alert-container").html(`
+  //             <div class="alert alert-success alert-dismissible fade show" role="alert">
+  //               Form submitted successfully!
+  //               <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  //               <span aria-hidden="true">&times;</span>
+  //               </div>
+  //             `);
+  //         $("html, body").animate({ scrollTop: 0 }, "slow");
+  //         setTimeout(function () {
+  //           location.reload();
+  //         }, 3000);
+  //       }
+  //     },
+  //     error: function () {
+  //       alert("Error submitting form");
+  //     },
+  //   });
+  // });
 
   /////end user personal information country and state
   //code for load state if exist in db
 
+  
   var countryCode = $("#hcountry").val();
-  if (countryCode != '') {
+  if (countryCode != "") {
     $.ajax({
-      url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+      url:
+        "https://api.countrystatecity.in/v1/countries/" +
+        countryCode +
+        "/states",
       headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "X-CSCAPI-KEY":
+          "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      method: 'GET',
+      method: "GET",
       success: function (result) {
         var states = result;
-        $('#enduserstate').empty();
-        $('#enduserstate').append('<option value="">Select State</option>');
+        $("#enduserstate").empty();
+        $("#enduserstate").append('<option value="">Select State</option>');
         $.each(states, function (index, state) {
-          $('#enduserstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+          $("#enduserstate").append(
+            '<option value="' + state.iso2 + '">' + state.name + "</option>"
+          );
         });
         var currentState = $("#hstate").val();
 
-        $('#enduserstate option').each(function () {
+        $("#enduserstate option").each(function () {
           if ($(this).val() === currentState) {
-            $(this).prop('selected', true);
+            $(this).prop("selected", true);
           }
         });
       },
       error: function () {
         // alert('Error retrieving states.');
-        $('#enduserstate').empty();
-        $('#enduserstate').append('<option value="">Select State</option>');
-      }
+        $("#enduserstate").empty();
+        $("#enduserstate").append('<option value="">Select State</option>');
+      },
     });
   }
+  
   //endcode for load state if exist in db
 
-  $('#endusercountry').change(function () {
+  
+  $("#endusercountry").change(function () {
     var countryCode = $(this).val();
-    if (countryCode != '') {
+    if (countryCode != "") {
       $.ajax({
-        url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+        url:
+          "https://api.countrystatecity.in/v1/countries/" +
+          countryCode +
+          "/states",
         headers: {
-          'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "X-CSCAPI-KEY":
+            "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        method: 'GET',
+        method: "GET",
         success: function (result) {
           var states = result;
-          $('#enduserstate').empty();
-          $('#enduserstate').append('<option value="">Select State</option>');
+          $("#enduserstate").empty();
+          $("#enduserstate").append('<option value="">Select State</option>');
           $.each(states, function (index, state) {
-            $('#enduserstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+            $("#enduserstate").append(
+              '<option value="' + state.iso2 + '">' + state.name + "</option>"
+            );
           });
         },
         error: function () {
           // alert('Error retrieving states.');
-          $('#enduserstate').empty();
-          $('#enduserstate').append('<option value="">Select State</option>');
-        }
+          $("#enduserstate").empty();
+          $("#enduserstate").append('<option value="">Select State</option>');
+        },
       });
     } else {
-      $('#enduserstate').empty();
-      $('#enduserstate').append('<option value="">Select State</option>');
+      $("#enduserstate").empty();
+      $("#enduserstate").append('<option value="">Select State</option>');
     }
   });
 
+
+
   $.ajax({
-    url: 'https://api.countrystatecity.in/v1/countries',
+    url: "https://api.countrystatecity.in/v1/countries",
     headers: {
-      'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      "X-CSCAPI-KEY":
+        "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
-    method: 'GET',
+    method: "GET",
     success: function (result) {
       var countries = result;
-      $('#endusercountry').empty();
-      $('#endusercountry').append('<option value="">Select Country</option>');
+      $("#endusercountry").empty();
+      $("#endusercountry").append('<option value="">Select Country</option>');
       $.each(countries, function (index, country) {
-        $('#endusercountry').append('<option value="' + country.iso2 + '">' + country.name + '</option>');
+        $("#endusercountry").append(
+          '<option value="' + country.iso2 + '">' + country.name + "</option>"
+        );
       });
       var currentCountry = $("#hcountry").val();
 
       // Set the selected attribute on the option whose value matches currentCountry
-      $('#endusercountry option').each(function () {
+      $("#endusercountry option").each(function () {
         if ($(this).val() === currentCountry) {
-          $(this).prop('selected', true);
+          $(this).prop("selected", true);
         }
       });
     },
     error: function () {
       // alert('Error retrieving countries.');
-      $('#endusercountry').empty();
-      $('#endusercountry').append('<option value="">Select Country</option>');
-    }
+      $("#endusercountry").empty();
+      $("#endusercountry").append('<option value="">Select Country</option>');
+    },
   });
-
+  
 
   //agent profuile update
 
@@ -470,8 +573,6 @@ $(document).ready(function () {
   //   var tan = $("#tan").val();
   //   var kycimage = $("#ky-image")[0].files[0];;
 
-
-
   //   var formData = new FormData();
   //   formData.append('firstname', firstname);
   //   formData.append('lastname', lastname);
@@ -497,9 +598,6 @@ $(document).ready(function () {
   //   formData.append('tan', tan);
   //   formData.append('kycimage', kycimage);
 
-
-
-
   //   // Set up form data for submission
   //   $('#login_message').text("");
   //   // var formData = new FormData(this);
@@ -507,7 +605,7 @@ $(document).ready(function () {
   //   // alert(zipcode);
   //   // Submit form via AJAX
   //   $.ajax({
-  //     url: 'agent-update.php',
+  //     url: 'agent-update',
   //     type: 'post',
   //     // data: dataString,
   //     data: formData,
@@ -534,29 +632,29 @@ $(document).ready(function () {
 
   //       }
 
-
-
   //     },
   //     error: function () {
   //       alert('Error submitting form');
   //     }
   //   });
   // });
-  $('#agentupdate').click(function (event) {
+  $("#agentupdate").click(function (event) {
     event.preventDefault();
 
     // Remove existing error messages
-    $('.error-message').remove();
+    $(".error-message").remove();
 
     // Validation flag
     var isValid = true;
 
     // Validation function for checking if a field is empty and display error message
     function validateField(field, errorMessage) {
-        if (!field.val() || field.val().trim() === '') {
-            isValid = false;
-            field.after(`<div class="error-message" style="color:red;">${errorMessage}</div>`);
-        }
+      if (!field.val() || field.val().trim() === "") {
+        isValid = false;
+        field.after(
+          `<div class="error-message" style="color:red;">${errorMessage}</div>`
+        );
+      }
     }
 
     // Get field values
@@ -582,7 +680,7 @@ $(document).ready(function () {
     var kycnumber = $("#kycnumber");
     var tan = $("#tan");
     var kycimage = $("#ky-image")[0].files[0];
-    
+
     // Validate fields
     validateField(firstname, "Please enter First Name");
     validateField(lastname, "Please enter Last Name");
@@ -605,74 +703,72 @@ $(document).ready(function () {
 
     // Check if all fields are valid
     if (!isValid) {
-        return; // Exit function if any field is invalid
+      return; // Exit function if any field is invalid
     }
 
     var formData = new FormData();
-    formData.append('firstname', firstname.val());
-    formData.append('lastname', lastname.val());
-    formData.append('phone', phone.val());
-    formData.append('address', address.val());
-    formData.append('country', country.val());
-    formData.append('state', state.val());
-    formData.append('city', city.val());
-    formData.append('zipcode', zipcode.val());
-    formData.append('id', id.val());
-    formData.append('image', image);
-    formData.append('agencyname', agencyname.val());
-    formData.append('agencyaddress', agencyaddress.val());
-    formData.append('agencycountry', agencycountry.val());
-    formData.append('agencystate', agencystate.val());
-    formData.append('agencycity', agencycity.val());
-    formData.append('agencyzip', agencyzip.val());
-    formData.append('ownername', ownername.val());
-    formData.append('dob', dob.val());
-    formData.append('kycid', kycid.val());
-    formData.append('kycnumber', kycnumber.val());
-    formData.append('tan', tan.val());
-    formData.append('kycimage', kycimage);
+    formData.append("firstname", firstname.val());
+    formData.append("lastname", lastname.val());
+    formData.append("phone", phone.val());
+    formData.append("address", address.val());
+    formData.append("country", country.val());
+    formData.append("state", state.val());
+    formData.append("city", city.val());
+    formData.append("zipcode", zipcode.val());
+    formData.append("id", id.val());
+    formData.append("image", image);
+    formData.append("agencyname", agencyname.val());
+    formData.append("agencyaddress", agencyaddress.val());
+    formData.append("agencycountry", agencycountry.val());
+    formData.append("agencystate", agencystate.val());
+    formData.append("agencycity", agencycity.val());
+    formData.append("agencyzip", agencyzip.val());
+    formData.append("ownername", ownername.val());
+    formData.append("dob", dob.val());
+    formData.append("kycid", kycid.val());
+    formData.append("kycnumber", kycnumber.val());
+    formData.append("tan", tan.val());
+    formData.append("kycimage", kycimage);
 
     // Set up form data for submission
-    $('#login_message').text("");
+    $("#login_message").text("");
 
     // Submit form via AJAX
     $.ajax({
-        url: 'agent-update.php',
-        type: 'post',
-        data: formData,
-        contentType: false,
-        processData: false,
-        success: function (response) {
-          // alert(response);return false;
-            if (response == 'error') {
-                alert("Data not updated");
-                $('#email').val('');
-                $('#password').val('');
-            } else {
-                $('#alert-container').html(`
+      url: "agent-update",
+      type: "post",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        // alert(response);return false;
+        if (response == "error") {
+          alert("Data not updated");
+          $("#email").val("");
+          $("#password").val("");
+        } else {
+          $("#alert-container").html(`
                     <div class="alert alert-success alert-dismissible fade show" role="alert">
                         Form submitted successfully!
                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </div>
                 `);
-                $('html, body').animate({ scrollTop: 0 }, 'slow');
-                setTimeout(function () {
-                    location.reload();
-                }, 3000);
-            }
-        },
-        error: function () {
-            alert('Error submitting form');
+          $("html, body").animate({ scrollTop: 0 }, "slow");
+          setTimeout(function () {
+            location.reload();
+          }, 3000);
         }
+      },
+      error: function () {
+        alert("Error submitting form");
+      },
     });
-});
-
-
+  });
 
   //change password agent code
 
-  $('#change-password').click(function (event) {
+  $("#change-password").click(function (event) {
     event.preventDefault();
 
     var currentPassword = $("#current-password").val();
@@ -680,372 +776,420 @@ $(document).ready(function () {
     var newVerifyPassword = $("#new-varify-password").val();
 
     // Clear previous error messages
-    $(".error-message").text('');
+    $(".error-message").text("");
     var hasError = false;
 
     // Validate input fields
-    if (currentPassword === '') {
+    if (currentPassword === "") {
       $("#current-password-error").text("Current passwords cannot be blank.");
       hasError = true;
-  }
-    if (newPassword === '') {
-        $("#new-password-error").text("New passwords cannot be blank.");
-        hasError = true;
-    }else{
-      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
-      if(!regex.test(newPassword))
-       {
-         $("#new-password-error").text("Password should contains at least one lowercase letter and one uppercase letter, one digit, and one special character");
-           hasError = true;
-       }
     }
-    if (newVerifyPassword === '') {
-        $("#verify-password-error").text("Please enter new password for verification.");
+    if (newPassword === "") {
+      $("#new-password-error").text("New passwords cannot be blank.");
+      hasError = true;
+    } else {
+      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+      if (!regex.test(newPassword)) {
+        $("#new-password-error").text(
+          "Password should contains at least one lowercase letter and one uppercase letter, one digit, and one special character"
+        );
         hasError = true;
+      }
+    }
+    if (newVerifyPassword === "") {
+      $("#verify-password-error").text(
+        "Please enter new password for verification."
+      );
+      hasError = true;
     }
     if (newPassword !== newVerifyPassword) {
-        $("#verify-password-error").text("New passwords do not match.");
-        hasError = true;
+      $("#verify-password-error").text("New passwords do not match.");
+      hasError = true;
     }
 
     // Proceed only if there are no validation errors
     if (hasError) {
-        return;
+      return;
     }
-  //   if (newPassword !== newVerifyPassword) {
-  //     alert("New passwords do not match.");
-  //     return;
-  // }
+    //   if (newPassword !== newVerifyPassword) {
+    //     alert("New passwords do not match.");
+    //     return;
+    // }
 
     var formData = new FormData();
-    formData.append('currentPassword', currentPassword);
-    formData.append('newPassword', newPassword);
-   
+    formData.append("currentPassword", currentPassword);
+    formData.append("newPassword", newPassword);
+
     // Set up form data for submission
-    $('#login_message').text("");
+    $("#login_message").text("");
     // var formData = new FormData(this);
     // var dataString = 'firstname='+firstname+'&lastname='+lastname+'&phone='+phone+'&address='+address+'&country='+country+'&state='+state+'&city='+city+'&id='+id+'&zipcode='+zipcode;
     // alert(zipcode);
     // Submit form via AJAX
     $.ajax({
-      url: 'change-password-script.php',
-      type: 'post',
+      url: "change-password-script",
+      type: "post",
       // data: dataString,
       data: formData,
       contentType: false,
       processData: false,
       success: function (response) {
-        if (response == 'error') {
+        if (response == "error") {
           alert("Current password is incorrect");
           // $('#email').val('');
           // $('#password').val('');
-        } 
-        if(response == 'success') {
-          //  window.location.href = 'logout.php';
+        }
+        if (response == "success") {
+          //  window.location.href = 'logout';
           // Show the modal
-          $('.bd-example-modal-sm').modal('show');
-          
+          $(".bd-example-modal-sm").modal("show");
         } else {
           alert("Unexpected response: " + response);
-      }
+        }
       },
       error: function () {
-        alert('Error submitting form');
-      }
+        alert("Error submitting form");
+      },
     });
   });
 
+  $("#change-user-password").click(function (event) {
+    event.preventDefault();
 
-     $('#change-user-password').click(function(event) {
-        event.preventDefault();
+    var currentPassword = $("#user-current-password").val();
+    var newPassword = $("#user-new-password").val();
+    var newVerifyPassword = $("#user-new-varify-password").val();
 
-        var currentPassword = $("#user-current-password").val();
-        var newPassword = $("#user-new-password").val();
-        var newVerifyPassword = $("#user-new-varify-password").val();
+    // Clear previous error messages
+    $(".error-message").text("");
+    var hasError = false;
 
-        // Clear previous error messages
-        $(".error-message").text('');
-        var hasError = false;
+    // Validate input fields
+    if (currentPassword === "") {
+      $("#current-password-error").text("Current passwords cannot be blank.");
+      hasError = true;
+    }
+    if (newPassword === "") {
+      $("#new-password-error").text("New passwords cannot be blank.");
+      hasError = true;
+    } else {
+      var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
+      if (!regex.test(newPassword)) {
+        $("#new-password-error").text(
+          "Password must include at least one lowercase letter, one uppercase letter, one digit, and one special character."
+        );
+        hasError = true;
+      }
+    }
+    if (newVerifyPassword === "") {
+      $("#verify-password-error").text(
+        "Please enter new password for verification."
+      );
+      hasError = true;
+    }
+    if (newPassword !== newVerifyPassword) {
+      $("#verify-password-error").text("New passwords do not match.");
+      hasError = true;
+    }
 
-        // Validate input fields
-        if (currentPassword === '') {
-          $("#current-password-error").text("Current passwords cannot be blank.");
-          hasError = true;
-        }
-        if (newPassword === '') {
-            $("#new-password-error").text("New passwords cannot be blank.");
-            hasError = true;
-        }else{
-          var regex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{6,}$/;
-          if(!regex.test(newPassword))
-          {
-            $("#new-password-error").text("Password should contains at least one lowercase letter and one uppercase letter, one digit, and one special character");
-              hasError = true;
-          }
-        }
-        if (newVerifyPassword === '') {
-            $("#verify-password-error").text("Please enter new password for verification.");
-            hasError = true;
-        }
-        if (newPassword !== newVerifyPassword) {
-            $("#verify-password-error").text("New passwords do not match.");
-            hasError = true;
-        }
-        
-        // Proceed only if there are no validation errors
-        if (hasError) {
-            return;
-        }
+    // Proceed only if there are no validation errors
+    if (hasError) {
+      return;
+    }
 
-        // Set up form data for submission
-        var formData = new FormData();
-        formData.append('currentPassword', currentPassword);
-        formData.append('newPassword', newPassword);
+    // Set up form data for submission
+    var formData = new FormData();
+    formData.append("currentPassword", currentPassword);
+    formData.append("newPassword", newPassword);
 
-        // Clear any previous login messages
-        $('#login_message').text("");
+    // Clear any previous login messages
+    $("#login_message").text("");
 
-        // Submit form via AJAX
-        $.ajax({
-            url: 'change-password-script.php',
-            type: 'post',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function(response) {
-                if (response === 'error') {
-                    alert("Current password is incorrect");
-                } else if (response === 'success') {
-                    // window.location.href = 'logout.php';
-                    // Show the modal
-                    $('.bd-example-modal-sm').modal('show');
-                } else {
-                    alert("Unexpected response: " + response);
+    // Submit form via AJAX
+    $.ajax({
+      url: "change-password-script",
+      type: "post",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function (response) {
+        if (response === "error") {
+          Swal.fire({
+              title: "Invalid Password",
+              text: "The entered current password is incorrect.",
+              icon: "error",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+          });
+        } else if (response === "success") {
+            Swal.fire({
+                title: "Password Changed Successfully",
+                text: "Your password has been updated. You will now be logged out and need to log in again with the updated password.",
+                icon: "success",
+                confirmButtonText: "Close",
+                confirmButtonColor: "#f57c00",
+                allowOutsideClick: false,
+                allowEscapeKey: false,
+                allowEnterKey: false,
+                stopKeydownPropagation: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = 'logout';
                 }
-            },
-            error: function() {
-                alert('Error submitting form');
-            }
-        });
+            });
+        }
+      }
     });
-
+  });
 
   ///// Agent user personal information country and state
   //code for load state if exist in db
 
   var countryCode = $("#hagentcountry").val();
-  if (countryCode != '') {
+  if (countryCode != "") {
     $.ajax({
-      url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+      url:
+        "https://api.countrystatecity.in/v1/countries/" +
+        countryCode +
+        "/states",
       headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "X-CSCAPI-KEY":
+          "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      method: 'GET',
+      method: "GET",
       success: function (result) {
         var states = result;
-        $('#agentuserstate').empty();
-        $('#agentuserstate').append('<option value="">Select State</option>');
+        $("#agentuserstate").empty();
+        $("#agentuserstate").append('<option value="">Select State</option>');
         $.each(states, function (index, state) {
-          $('#agentuserstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+          $("#agentuserstate").append(
+            '<option value="' + state.iso2 + '">' + state.name + "</option>"
+          );
         });
         var currentState = $("#hagentstate").val();
 
-        $('#agentuserstate option').each(function () {
+        $("#agentuserstate option").each(function () {
           if ($(this).val() === currentState) {
-            $(this).prop('selected', true);
+            $(this).prop("selected", true);
           }
         });
       },
       error: function () {
         // alert('Error retrieving states.');
-        $('#agentuserstate').empty();
-        $('#agentuserstate').append('<option value="">Select State</option>');
-      }
+        $("#agentuserstate").empty();
+        $("#agentuserstate").append('<option value="">Select State</option>');
+      },
     });
   }
+    
   //endcode for load state if exist in db
 
-  $('#agentusercountry').change(function () {
+  $("#agentusercountry").change(function () {
     var countryCode = $(this).val();
-    if (countryCode != '') {
+    if (countryCode != "") {
       $.ajax({
-        url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+        url:
+          "https://api.countrystatecity.in/v1/countries/" +
+          countryCode +
+          "/states",
         headers: {
-          'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "X-CSCAPI-KEY":
+            "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        method: 'GET',
+        method: "GET",
         success: function (result) {
           var states = result;
-          $('#agentuserstate').empty();
-          $('#agentuserstate').append('<option value="">Select State</option>');
+          $("#agentuserstate").empty();
+          $("#agentuserstate").append('<option value="">Select State</option>');
           $.each(states, function (index, state) {
-            $('#agentuserstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+            $("#agentuserstate").append(
+              '<option value="' + state.iso2 + '">' + state.name + "</option>"
+            );
           });
         },
         error: function () {
           // alert('Error retrieving states.');
-          $('#agentuserstate').empty();
-          $('#agentuserstate').append('<option value="">Select State</option>');
-        }
+          $("#agentuserstate").empty();
+          $("#agentuserstate").append('<option value="">Select State</option>');
+        },
       });
     } else {
-      $('#agentuserstate').empty();
-      $('#agentuserstate').append('<option value="">Select State</option>');
+      $("#agentuserstate").empty();
+      $("#agentuserstate").append('<option value="">Select State</option>');
     }
   });
-
+  
+  
   $.ajax({
-    url: 'https://api.countrystatecity.in/v1/countries',
+    url: "https://api.countrystatecity.in/v1/countries",
     headers: {
-      'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      "X-CSCAPI-KEY":
+        "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
-    method: 'GET',
+    method: "GET",
     success: function (result) {
       var countries = result;
-      $('#agentusercountry').empty();
-      $('#agentusercountry').append('<option value="">Select Country</option>');
+      $("#agentusercountry").empty();
+      $("#agentusercountry").append('<option value="">Select Country</option>');
       $.each(countries, function (index, country) {
-        $('#agentusercountry').append('<option value="' + country.iso2 + '">' + country.name + '</option>');
+        $("#agentusercountry").append(
+          '<option value="' + country.iso2 + '">' + country.name + "</option>"
+        );
       });
       var currentCountry = $("#hagentcountry").val();
 
       // Set the selected attribute on the option whose value matches currentCountry
-      $('#agentusercountry option').each(function () {
+      $("#agentusercountry option").each(function () {
         if ($(this).val() === currentCountry) {
-          $(this).prop('selected', true);
+          $(this).prop("selected", true);
         }
       });
     },
     error: function () {
       // alert('Error retrieving countries.');
-      $('#agentusercountry').empty();
-      $('#agentusercountry').append('<option value="">Select Country</option>');
-    }
+      $("#agentusercountry").empty();
+      $("#agentusercountry").append('<option value="">Select Country</option>');
+    },
   });
-
+  
 
   ////agency update country state in agent dashboard
 
   var countryCode = $("#hagencycountry").val();
-  if (countryCode != '') {
+  if (countryCode != "") {
     $.ajax({
-      url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+      url:
+        "https://api.countrystatecity.in/v1/countries/" +
+        countryCode +
+        "/states",
       headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
+        "X-CSCAPI-KEY":
+          "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+        "Content-Type": "application/json",
+        Accept: "application/json",
       },
-      method: 'GET',
+      method: "GET",
       success: function (result) {
         var states = result;
-        $('#agencyupdatstate').empty();
-        $('#agencyupdatstate').append('<option value="">Select State</option>');
+        $("#agencyupdatstate").empty();
+        $("#agencyupdatstate").append('<option value="">Select State</option>');
         $.each(states, function (index, state) {
-          $('#agencyupdatstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+          $("#agencyupdatstate").append(
+            '<option value="' + state.iso2 + '">' + state.name + "</option>"
+          );
         });
         var currentState = $("#hagencystate").val();
 
-        $('#agencyupdatstate option').each(function () {
+        $("#agencyupdatstate option").each(function () {
           if ($(this).val() === currentState) {
-            $(this).prop('selected', true);
+            $(this).prop("selected", true);
           }
         });
       },
       error: function () {
         // alert('Error retrieving states.');
-        $('#agencyupdatstate').empty();
-        $('#agencyupdatstate').append('<option value="">Select State</option>');
-      }
+        $("#agencyupdatstate").empty();
+        $("#agencyupdatstate").append('<option value="">Select State</option>');
+      },
     });
   }
+    
   //endcode for load state if exist in db
 
-  $('#agencyupdatecountry').change(function () {
+  $("#agencyupdatecountry").change(function () {
     var countryCode = $(this).val();
-    if (countryCode != '') {
+    if (countryCode != "") {
       $.ajax({
-        url: 'https://api.countrystatecity.in/v1/countries/' + countryCode + '/states',
+        url:
+          "https://api.countrystatecity.in/v1/countries/" +
+          countryCode +
+          "/states",
         headers: {
-          'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-          'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          "X-CSCAPI-KEY":
+            "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+          "Content-Type": "application/json",
+          Accept: "application/json",
         },
-        method: 'GET',
+        method: "GET",
         success: function (result) {
           var states = result;
-          $('#agencyupdatstate').empty();
-          $('#agencyupdatstate').append('<option value="">Select State</option>');
+          $("#agencyupdatstate").empty();
+          $("#agencyupdatstate").append(
+            '<option value="">Select State</option>'
+          );
           $.each(states, function (index, state) {
-            $('#agencyupdatstate').append('<option value="' + state.iso2 + '">' + state.name + '</option>');
+            $("#agencyupdatstate").append(
+              '<option value="' + state.iso2 + '">' + state.name + "</option>"
+            );
           });
         },
         error: function () {
           // alert('Error retrieving states.');
-          $('#agencyupdatstate').empty();
-          $('#agencyupdatstate').append('<option value="">Select State</option>');
-        }
+          $("#agencyupdatstate").empty();
+          $("#agencyupdatstate").append(
+            '<option value="">Select State</option>'
+          );
+        },
       });
     } else {
-      $('#agencyupdatstate').empty();
-      $('#agencyupdatstate').append('<option value="">Select State</option>');
+      $("#agencyupdatstate").empty();
+      $("#agencyupdatstate").append('<option value="">Select State</option>');
     }
   });
+  
 
+  
   $.ajax({
-    url: 'https://api.countrystatecity.in/v1/countries',
+    url: "https://api.countrystatecity.in/v1/countries",
     headers: {
-      'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-      'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      "X-CSCAPI-KEY":
+        "N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==",
+      "Content-Type": "application/json",
+      Accept: "application/json",
     },
-    method: 'GET',
+    method: "GET",
     success: function (result) {
       var countries = result;
-      $('#agencyupdatecountry').empty();
-      $('#agencyupdatecountry').append('<option value="">Select Country</option>');
+      $("#agencyupdatecountry").empty();
+      $("#agencyupdatecountry").append(
+        '<option value="">Select Country</option>'
+      );
       $.each(countries, function (index, country) {
-        $('#agencyupdatecountry').append('<option value="' + country.iso2 + '">' + country.name + '</option>');
+        $("#agencyupdatecountry").append(
+          '<option value="' + country.iso2 + '">' + country.name + "</option>"
+        );
       });
       var currentCountry = $("#hagencycountry").val();
 
       // Set the selected attribute on the option whose value matches currentCountry
-      $('#agencyupdatecountry option').each(function () {
+      $("#agencyupdatecountry option").each(function () {
         if ($(this).val() === currentCountry) {
-          $(this).prop('selected', true);
+          $(this).prop("selected", true);
         }
       });
     },
     error: function () {
       // alert('Error retrieving countries.');
-      $('#agencyupdatecountry').empty();
-      $('#agencyupdatecountry').append('<option value="">Select Country</option>');
-    }
+      $("#agencyupdatecountry").empty();
+      $("#agencyupdatecountry").append(
+        '<option value="">Select Country</option>'
+      );
+    },
   });
-
-  
-
-
- 
-
-
-
- 
-
 
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
-      method: 'GET',
-      dataType: 'json',
+      url: "fetch_airports",
+      method: "GET",
+      dataType: "json",
       success: function (data) {
-
         var airportsByCountry = {}; // Object to store airports grouped by country
 
         // Group airports by country
@@ -1064,16 +1208,16 @@ $(document).ready(function () {
 
           // Create an object with the airport code as the label and value
           var airportObject = {
-            label: code + ' - ' + name + ' - ' + city + ' - ' + country,
+            label: code + " - " + name + " - " + city + " - " + country,
             // value: code + ' - ' + name
-            value: code
+            value: code,
           };
 
           airportsByCountry[country].push(airportObject);
         }
 
         // Get the input element
-        var inputElement = $('#airport-input');
+        var inputElement = $("#airport-input");
 
         // Initialize the input element as an autocomplete
         inputElement.autocomplete({
@@ -1095,26 +1239,23 @@ $(document).ready(function () {
 
             response(results);
           },
-          minLength: 3
+          minLength: 3,
         });
       },
       error: function (xhr, status, error) {
         console.log(error);
-      }
+      },
     });
   });
-
-
 
   //------------------Destination auto select----------------------
 
-
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
-      method: 'GET',
-      dataType: 'json',
+      url: "fetch_airports",
+      method: "GET",
+      dataType: "json",
       success: function (data) {
         var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1134,16 +1275,16 @@ $(document).ready(function () {
 
           // Create an object with the airport code as the label and value
           var airportObject = {
-            label: code + ' - ' + name + ' - ' + city + ' - ' + country,
+            label: code + " - " + name + " - " + city + " - " + country,
             // value: code + ' - ' + name
-            value: code
+            value: code,
           };
 
           airportsByCountry[country].push(airportObject);
         }
 
         // Get the input element
-        var inputElement = $('#arrivalairport-input');
+        var inputElement = $("#arrivalairport-input");
 
         // Initialize the input element as an autocomplete
         inputElement.autocomplete({
@@ -1165,25 +1306,23 @@ $(document).ready(function () {
 
             response(results);
           },
-          minLength: 3
+          minLength: 3,
         });
       },
       error: function (xhr, status, error) {
         console.log(error);
-      }
+      },
     });
   });
-
-
 
   // -------------departure autocomplete in search page-----------
 
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
-      method: 'GET',
-      dataType: 'json',
+      url: "fetch_airports",
+      method: "GET",
+      dataType: "json",
       success: function (data) {
         var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1203,15 +1342,15 @@ $(document).ready(function () {
 
           // Create an object with the airport code as the label and value
           var airportObject = {
-            label: code + ' - ' + name + ' - ' + city + ' - ' + country,
-            value: code
+            label: code + " - " + name + " - " + city + " - " + country,
+            value: code,
           };
 
           airportsByCountry[country].push(airportObject);
         }
 
         // Get the input element
-        var inputElement = $('#airport-input-search');
+        var inputElement = $("#airport-input-search");
 
         // Initialize the input element as an autocomplete
         inputElement.autocomplete({
@@ -1239,21 +1378,19 @@ $(document).ready(function () {
             // Set the selected airport code as the value
             inputElement.val(ui.item.value);
             return false; // Prevent the default behavior
-          }
+          },
         });
 
         // Retrieve the departure airport code from the $_POST['airport']
-        var departureAirportCode = $('#hiddenorigin').val();
+        var departureAirportCode = $("#hiddenorigin").val();
         // Set the initial value of the input field
         inputElement.val(departureAirportCode);
       },
       error: function (xhr, status, error) {
         console.log(error);
-      }
+      },
     });
   });
-
-
 
   //----------
 
@@ -1262,9 +1399,9 @@ $(document).ready(function () {
   $(document).ready(function () {
     // Fetch airport data from the database using AJAX
     $.ajax({
-      url: 'fetch_airports.php',
-      method: 'GET',
-      dataType: 'json',
+      url: "fetch_airports",
+      method: "GET",
+      dataType: "json",
       success: function (data) {
         var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1284,15 +1421,15 @@ $(document).ready(function () {
 
           // Create an object with the airport code as the label and value
           var airportObject = {
-            label: code + ' - ' + name + ' - ' + city + ' - ' + country,
-            value: code
+            label: code + " - " + name + " - " + city + " - " + country,
+            value: code,
           };
 
           airportsByCountry[country].push(airportObject);
         }
 
         // Get the input element
-        var inputElement = $('#arrivalairport-input-search');
+        var inputElement = $("#arrivalairport-input-search");
 
         // Initialize the input element as an autocomplete
         inputElement.autocomplete({
@@ -1320,29 +1457,28 @@ $(document).ready(function () {
             // Set the selected airport code as the value
             inputElement.val(ui.item.value);
             return false; // Prevent the default behavior
-          }
+          },
         });
 
         // Retrieve the departure airport code from the $_POST['airport']
-        var departureAirportCode = $('#hiddendestination').val();
+        var departureAirportCode = $("#hiddendestination").val();
         // Set the initial value of the input field
         inputElement.val(departureAirportCode);
       },
       error: function (xhr, status, error) {
         console.log(error);
-      }
+      },
     });
   });
-
 
   //-------------------------------
 
   //Reissue deoarture air[port location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
-    method: 'GET',
-    dataType: 'json',
+    url: "fetch_airports",
+    method: "GET",
+    dataType: "json",
     success: function (data) {
       var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1362,15 +1498,15 @@ $(document).ready(function () {
 
         // Create an object with the airport code as the label and value
         var airportObject = {
-          label: code + ' - ' + name + ' - ' + city + ' - ' + country,
-          value: code
+          label: code + " - " + name + " - " + city + " - " + country,
+          value: code,
         };
 
         airportsByCountry[country].push(airportObject);
       }
 
       // Get the input element
-      var inputElement = $('#airport-input-reissue');
+      var inputElement = $("#airport-input-reissue");
 
       // Initialize the input element as an autocomplete
       inputElement.autocomplete({
@@ -1398,29 +1534,26 @@ $(document).ready(function () {
           // Set the selected airport code as the value
           inputElement.val(ui.item.value);
           return false; // Prevent the default behavior
-        }
+        },
       });
 
       // Retrieve the departure airport code from the $_POST['airport']
-      var departureAirportCode = $('#airport-input-reissue-value').val();
+      var departureAirportCode = $("#airport-input-reissue-value").val();
       // Set the initial value of the input field
       inputElement.val(departureAirportCode);
     },
     error: function (xhr, status, error) {
       console.log(error);
-    }
+    },
   });
-
-
-
 
   //------------------------------------------end-----------------
-//Reissue arrival airport location autoselect
+  //Reissue arrival airport location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
-    method: 'GET',
-    dataType: 'json',
+    url: "fetch_airports",
+    method: "GET",
+    dataType: "json",
     success: function (data) {
       var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1440,15 +1573,15 @@ $(document).ready(function () {
 
         // Create an object with the airport code as the label and value
         var airportObject = {
-          label: code + ' - ' + name + ' - ' + city + ' - ' + country,
-          value: code
+          label: code + " - " + name + " - " + city + " - " + country,
+          value: code,
         };
 
         airportsByCountry[country].push(airportObject);
       }
 
       // Get the input element
-      var inputElement = $('#arrivalairport-input-reissue');
+      var inputElement = $("#arrivalairport-input-reissue");
 
       // Initialize the input element as an autocomplete
       inputElement.autocomplete({
@@ -1476,30 +1609,27 @@ $(document).ready(function () {
           // Set the selected airport code as the value
           inputElement.val(ui.item.value);
           return false; // Prevent the default behavior
-        }
+        },
       });
 
       // Retrieve the departure airport code from the $_POST['airport']
-      var departureAirportCode = $('#arrivalairport-input-reissue-value').val();
+      var departureAirportCode = $("#arrivalairport-input-reissue-value").val();
       // Set the initial value of the input field
       inputElement.val(departureAirportCode);
     },
     error: function (xhr, status, error) {
       console.log(error);
-    }
+    },
   });
-
-
-
 
   //------------------------------------------end-----------------
   //***************************************************************** */
   //Reissue Return arrival airport location autoselect
   //-----------------------------start-----------------------------
   $.ajax({
-    url: 'fetch_airports.php',
-    method: 'GET',
-    dataType: 'json',
+    url: "fetch_airports",
+    method: "GET",
+    dataType: "json",
     success: function (data) {
       var airportsByCountry = {}; // Object to store airports grouped by country
 
@@ -1519,15 +1649,15 @@ $(document).ready(function () {
 
         // Create an object with the airport code as the label and value
         var airportObject = {
-          label: code + ' - ' + name + ' - ' + city + ' - ' + country,
-          value: code
+          label: code + " - " + name + " - " + city + " - " + country,
+          value: code,
         };
 
         airportsByCountry[country].push(airportObject);
       }
 
       // Get the input element
-      var inputElement = $('#arrivalairport-input-reissue_return');
+      var inputElement = $("#arrivalairport-input-reissue_return");
 
       // Initialize the input element as an autocomplete
       inputElement.autocomplete({
@@ -1555,66 +1685,65 @@ $(document).ready(function () {
           // Set the selected airport code as the value
           inputElement.val(ui.item.value);
           return false; // Prevent the default behavior
-        }
+        },
       });
 
       // Retrieve the departure airport code from the $_POST['airport']
-      var departureAirportCode = $('#arrivalairport-input-reissue-value_return').val();
+      var departureAirportCode = $(
+        "#arrivalairport-input-reissue-value_return"
+      ).val();
       // Set the initial value of the input field
-        inputElement.val(departureAirportCode);
+      inputElement.val(departureAirportCode);
       //*******************dep return airport auto select****************** */
-        // Get the input element
-        var inputElement_return = $('#airport-input-reissue_return');
+      // Get the input element
+      var inputElement_return = $("#airport-input-reissue_return");
 
-        // Initialize the input element as an autocomplete
-        inputElement_return.autocomplete({
-            source: function (request, response) {
-                var term = request.term.toLowerCase();
-                var results = [];
+      // Initialize the input element as an autocomplete
+      inputElement_return.autocomplete({
+        source: function (request, response) {
+          var term = request.term.toLowerCase();
+          var results = [];
 
-                // Search within airports grouped by country
-                Object.keys(airportsByCountry).forEach(function (country) {
-                    var countryAirports = airportsByCountry[country];
+          // Search within airports grouped by country
+          Object.keys(airportsByCountry).forEach(function (country) {
+            var countryAirports = airportsByCountry[country];
 
-                    // Filter airports based on the search term
-                    var filteredAirports = countryAirports.filter(function (airport) {
-                        return airport.label.toLowerCase().indexOf(term) !== -1;
-                    });
+            // Filter airports based on the search term
+            var filteredAirports = countryAirports.filter(function (airport) {
+              return airport.label.toLowerCase().indexOf(term) !== -1;
+            });
 
-                    results.push.apply(results, filteredAirports);
-                });
+            results.push.apply(results, filteredAirports);
+          });
 
-                response(results);
-            },
-            minLength: 3,
-            autoFocus: true,
-            select: function (event, ui) {
-                // Set the selected airport code as the value
-                inputElement_return.val(ui.item.value);
-                return false; // Prevent the default behavior
-            }
-        });
+          response(results);
+        },
+        minLength: 3,
+        autoFocus: true,
+        select: function (event, ui) {
+          // Set the selected airport code as the value
+          inputElement_return.val(ui.item.value);
+          return false; // Prevent the default behavior
+        },
+      });
 
-        // Retrieve the departure airport code from the $_POST['airport']
-        var departureAirportCode = $('#airport-input-reissue-value_return').val();
-        // Set the initial value of the input field
-        inputElement_return.val(departureAirportCode);
+      // Retrieve the departure airport code from the $_POST['airport']
+      var departureAirportCode = $("#airport-input-reissue-value_return").val();
+      // Set the initial value of the input field
+      inputElement_return.val(departureAirportCode);
       //************************************ */
     },
     error: function (xhr, status, error) {
       console.log(error);
-    }
+    },
   });
-
-
-
 
   //------------------------------------------end-----------------
   //******************************************************************** */
   //Reissue airline autoselect
   //-----------------------------start-----------------------------
   // $.ajax({
-  //   url: 'fetch_airline.php',
+  //   url: 'fetch_airline',
   //   method: 'GET',
   //   dataType: 'json',
   //   success: function (data) {
@@ -1631,7 +1760,7 @@ $(document).ready(function () {
 
   //       var name = airline.name.trim();
   //       var code = airline.code.trim();
-       
+
   //       // Create an object with the airport code as the label and value
   //       var airlineObject = {
   //         label: code + ' - ' + name,
@@ -1684,151 +1813,156 @@ $(document).ready(function () {
   //   }
   // });
 
-
   $.ajax({
-        url: 'fetch_airline.php',
-        method: 'GET',
-        dataType: 'json',
-        success: function(data) {
-          var airlines = [];
-  
-          // Parse each row and extract the airport name, code, and city
-          for (var i = 0; i < data.length; i++) {
-            var airline = data[i];
-            var name = airline.name.trim();
-            var code = airline.code.trim();
-  
-            // Create an object with the airport code as the label and value
-            var airlineObject = {
-              label: code + ' - ' + name,
-              value: code + ' - ' + name
-            };
-  
-            // Add the airport object to the airports array
-            airlines.push(airlineObject);
-          }
-  
-          // Get the input element
-          var inputElement = $('#airline-reissue');
-  
-          // Initialize the input element as an autocomplete
-          inputElement.autocomplete({
-            source: airlines,
-            minLength: 2
-          });
-          var airlinecode =$('#airline-reissue-value').val();
-        // Set the initial value of the input field
-        inputElement.val(airlinecode);
-        },
-        error: function(xhr, status, error) {
-          console.log(error);
-        }
+    url: "fetch_airline",
+    method: "GET",
+    dataType: "json",
+    success: function (data) {
+      var airlines = [];
+
+      // Parse each row and extract the airport name, code, and city
+      for (var i = 0; i < data.length; i++) {
+        var airline = data[i];
+        var name = airline.name.trim();
+        var code = airline.code.trim();
+
+        // Create an object with the airport code as the label and value
+        var airlineObject = {
+          label: code + " - " + name,
+          value: code + " - " + name,
+        };
+
+        // Add the airport object to the airports array
+        airlines.push(airlineObject);
+      }
+
+      // Get the input element
+      var inputElement = $("#airline-reissue");
+
+      // Initialize the input element as an autocomplete
+      inputElement.autocomplete({
+        source: airlines,
+        minLength: 2,
       });
+      var airlinecode = $("#airline-reissue-value").val();
+      // Set the initial value of the input field
+      inputElement.val(airlinecode);
+    },
+    error: function (xhr, status, error) {
+      console.log(error);
+    },
+  });
 
   //-------------------------------End ---------------------------------
 
 
+  $('.flight-search input').click(function() {
+    if ($('#return').is(':checked')) {
+        $("#to").show().next(".icon").show()
+    } else(
+        $("#to").hide().next(".icon").hide()
+    )
+    if ($('#multi-city').is(':checked')) {
+        $(".search-box.multi-city-search").css("display", "flex").siblings().hide()
+    } else(
+        $(".search-box.multi-city-search").hide().siblings().show()
+    )
+})
 
-  $('#flight-search').submit(function (event) {
+
+  $("#flight-search").submit(function (event) {
     event.preventDefault();
-    // Validate form data
-    var cabin = $('#cabin-preference').val();
-    // var adultCount = $('#adult_count').val();
-    // var childCount = $('#child-count').val();
-    // var infant = $('#infant').val();
-    var adultCount = parseInt($('#adult_count').val());
-    var childCount = parseInt($('#child-count').val());
-    var infantCount = parseInt($('#infant-count').val());
-    var direct_flights = parseInt($('#direct_flights').val());
-    var selected_cabin_text = $('#selected_cabin_text').val();
-    
-    var source = $('#airport-input').val();
-    var departureDate = $('#from').val();
-    var returnDate = $('#to').val();
-    var destination = $('#arrivalairport-input').val();
+
+    var cabin = $("#cabin-preference").val();
+    var adultCount = parseInt($("#adult_count").val());
+    var childCount = parseInt($("#child-count").val());
+    var infantCount = parseInt($("#infant-count").val());
+    var direct_flights = parseInt($("#direct_flights").val());
+    var selected_cabin_text = $("#selected_cabin_text").val();
+
+    var source = $("#airport-input option:selected").val();
+    var departureDate = $("#from").val();
+    var returnDate = $("#to").val();
+    var destination = $("#arrivalairport-input option:selected").val();
     var tripType = document.querySelector('input[name="tab"]:checked');
 
-    
     var tripTypeValue = tripType.value;
     var totalcount = adultCount + childCount + infantCount;
 
-    
     valid = true;
-    if (cabin == '') {
-      $('#cabin-preference').after('<span class="text-danger fs-12 position-absolute" style="color:red">Cabin Preference cannot be blank.</span>')
+    if (source == "" || source == undefined) {
+      $(".departure_container p.error_codes").html(
+        '<span class="text-danger fs-8">Departure Airport is required.</span>'
+      );
       valid = false;
-    }
-    if (adultCount == '') {
-      $('#arrivalairport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">count must be greater than 1</span>')
-      valid = false;
-    }
-    if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
-    if (source == '') {
-      $('#airport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">Source cannot be blank.</span>')
-      valid = false;
+      return;
     } else {
-      $('#airport-input').next('span.text-danger').remove();
-    }
-    if (destination == '') {
-
-      $('#arrivalairport-input').after('<span class="text-danger fs-12 position-absolute" style="color:red">Destintion cannot be blank.</span>')
-      valid = false;
-    } else {
-      $('#arrivalairport-input').next('span.text-danger').remove();
-    }
-    if (departureDate == '') {
-
-      $('#from').after('<span class="text-danger fs-12 position-absolute" style="color:red">Departure Date cannot be blank.</span>')
-      valid = false;
-    } else {
-      $('#from').next('span.text-danger').remove();
+      $(".departure_container p.error_codes").html("");
     }
 
-    
+    if (destination == "" || destination == undefined) {
+      $(".arrival_container p.error_codes").html(
+        '<span class="text-danger fs-8">Arrival Airport is required.</span>'
+      );
+      valid = false;
+      return;
+    } else {
+      $(".arrival_container p.error_codes").html("");
+    }
+
+
+    if (departureDate == "" || departureDate == undefined) {
+      $(".from_container p.error_codes").html('<span class="text-danger fs-8">Departure Date is required.</span>');
+      valid = false;
+      return;
+    } else {
+      $(".from_container p.error_codes").html("");
+    }
+
     if (tripTypeValue === "Return") {
-      if (returnDate == '') {
-        $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
+      
+      if (returnDate == "" || returnDate == undefined) {
+        $(".to_container p.error_codes").html('<span class="text-danger fs-8">Return Date is required.</span>');
         valid = false;
+        return;
       } else {
-        $('#to').next('span.text-danger').remove();
-
+        $(".to_container p.error_codes").html("");
       }
     }
-    
+
     if (source === destination) {
-      if ($('#airport-input').val()) {
-          $('#airport-input').after('<span class="text-danger fs-12 position-absolute error-message" style="color:red">Source and Destination cannot be the same.</span>');
-      } else {
-        alert('Source and Destination cannot be the same.');
-      }
+      $(".departure_container p.error_codes").html('<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>');
+      $(".arrival_container p.error_codes").html('<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>');
       valid = false;
+      return;
+    } else {
+      $(".departure_container p.error_codes").html('');
+      $(".arrival_container p.error_codes").html('');
     }
-  }
+
+
     if (totalcount > 9) {
-
-      $('#errormessage').after('<span class="text-danger fs-12 position-absolute" style="color:red">Number of Valid Passenger count is maximum 9.</span>')
+      Swal.fire({
+        title: "Passenger Limit Exceeded",
+        text: "Maximum 9 passengers are allowed.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
       valid = false;
+      return;
     }
+
     if (adultCount < infantCount) {
-
-      $('#errormessage').after('<span class="text-danger fs-12 position-absolute" style="color:red">Number of Infant can not exceed number of Adult selected.</span>')
+      Swal.fire({
+        title: "Infant Limit Exceeded",
+        text: "The number of infants cannot exceed the number of adults selected.",
+        icon: "error",
+        confirmButtonText: "Close",
+      });
       valid = false;
+      return;
     }
-    if (tripTypeValue === "Return") {
-      if (returnDate == '') {
-        $('#to').after('<span class="text-danger fs-12 position-absolute" style="color:red">Return Date cannot be blank.</span>')
-        valid = false;
-      } else {
-
-      }
-    }
-
-
-    if (!valid) {
-      return false;
-    }
-
-    // var formData = new FormData();
+    
     var formData = $(this).serialize();
 
     // if (tripTypeValue === "Circle") {
@@ -1839,88 +1973,44 @@ $(document).ready(function () {
     //     formData: formData
     //   };
     //   }
+
+    $("#dep-loading").text(source);
+    $("#arrival-loading").text(destination);
     
-    $('#dep-loading').text(source);
-    $('#arrival-loading').text(destination);
     var totalpass = parseInt(adultCount) + parseInt(childCount) + parseInt(infantCount);
-    $('#pass-count').text(totalpass);
-    $('#dep-date').text(departureDate);
-    $('#return-date').text(returnDate);
-    $('#cabiin_class_name').html(selected_cabin_text);
+    $("#pass-count").text(totalpass);
+    $("#dep-date").text(departureDate);
+    $("#return-date").text(returnDate);
+    $("#cabiin_class_name").html(selected_cabin_text);
 
     // Perform the form submission using AJAX
-    if(tripTypeValue === "OneWay" || tripTypeValue === "Return"){
-      if( tripTypeValue === "OneWay" ) {
+    if (tripTypeValue === "OneWay" || tripTypeValue === "Return") {
+      if (tripTypeValue === "OneWay") {
         $("#return_container").hide();
-      } else if( tripTypeValue === "Return" ) {
+      } else if (tripTypeValue === "Return") {
         $("#return_container").show();
       }
-      $('#FlightSearchLoading').show();
-      updateProgressBar(0);
-
-      var intervalId;
-      intervalId = setInterval(function () {
-        // This code will be executed every second
-        // Youcan add code here to update the progress bar during the search
-      }, 8000);
-    $.ajax({
-
-      url: 'search.php',
-      type: 'POST',
-      data: formData,
-      // processData: false,
-      // contentType: false,
-      xhr: function () {
-        var xhr = new window.XMLHttpRequest();
-
-            // Listen for progress events
-            xhr.upload.addEventListener("progress", function (evt) {
-              if (evt.lengthComputable) {
-                  // Calculate the percentage completed
-                  var percentage = (evt.loaded / evt.total) * 100;
-                  // Update the progress bar
-                  updateProgressBar(percentage);
-              }
-          }, false);
-
-
-        return xhr;
-    },
-      success: function (response) {
-        // if (response) {
-// console.log(response);
-        //   window.location.href = 'result.php';
-        //   $('#FlightSearchLoading').hide();
-        // }
-        if (response) {
-          // Clear the interval
-          clearInterval(intervalId);
-
-          // Set the progress bar to 100% and complete
-          updateProgressBar(100, true);
-
-          // Redirect to result.php after a delay
-          setTimeout(function () {
-              window.location.href = 'result.php';
-              // $('#FlightSearchLoading').hide();
-          }, 1000); // 1000 milliseconds = 1 second
-      }
-
-      },
-      error: function () {
-        // Handle error cases here
-
-        // Hide the loading popup
-        $('#loading-popup').hide();
-      }
-    });
-   
-  }
-    //multicity search ajax call 
-    if(tripTypeValue === "Circle"){
-      const departureInputs = document.querySelectorAll('input[name^="departure_from_"]');
-      const tripCout =  departureInputs.length;
+      $("#FlightSearchLoading").show();
       
+      $.ajax({
+        url: "search",
+        type: "POST",
+        data: formData,
+        success: function (response) {
+          if (response) {
+              window.location.href = "flights";
+          }
+        },
+      });
+    }
+    
+    //multicity search ajax call
+    if (tripTypeValue === "Circle") {
+      const departureInputs = document.querySelectorAll(
+        'input[name^="departure_from_"]'
+      );
+      const tripCout = departureInputs.length;
+
       //collect the trip details dynamically
       const tripDetails = collectTripDetails(tripCout);
       const tripDetailsJson = JSON.stringify(tripDetails);
@@ -1928,37 +2018,28 @@ $(document).ready(function () {
       //pass trip details and form data
       const requestData = {
         tripDetails: sanitizedTripDetailsJson,
-        formData: formData
+        formData: formData,
       };
       alert(tripDetailsJson);
       $.ajax({
-
-
-        url: 'search-multicity.php',
-        type: 'POST',
+        url: "search-multicity",
+        type: "POST",
         data: requestData,
-        dataType: 'json',
+        dataType: "json",
         success: function (response) {
           if (response) {
-  
-            // window.location.href = 'multicity-result.php';
+            // window.location.href = 'multicity-result';
             // $('#FlightSearchLoading').hide();
           }
-  
         },
         error: function () {
           // Handle error cases here
-  
+
           // Hide the loading popup
-          $('#loading-popup').hide();
-        }
+          $("#loading-popup").hide();
+        },
       });
     }
-
-
-
-
-
   });
 
   // function updateProgressBar(percentage) {
@@ -1967,113 +2048,96 @@ $(document).ready(function () {
   //   $('#progress-bar').attr('aria-valuenow', percentage);
   // }
   function updateProgressBar(percentage, complete) {
-    $('#progress-bar').css('width', percentage + '%');
-    $('#progress-bar').attr('aria-valuenow', percentage);
+    $("#progress-bar").css("width", percentage + "%");
+    $("#progress-bar").attr("aria-valuenow", percentage);
 
     if (complete) {
-        $('#progress-bar').addClass('progress-bar-striped');
-        $('#progress-bar').removeClass('active');
-        $('#progress-bar').removeClass('progress-bar-animated');
-        $('#progress-bar').css('width', '100%');
+      $("#progress-bar").addClass("progress-bar-striped");
+      $("#progress-bar").removeClass("active");
+      $("#progress-bar").removeClass("progress-bar-animated");
+      $("#progress-bar").css("width", "100%");
     }
-}
- 
+  }
 
   //Revalidation API
 
-  $('#validate-flight').click(function (event) {
-
+  $("#validate-flight").click(function (event) {
     event.preventDefault();
-    var fsc = $('#fscode').val();
+    var fsc = $("#fscode").val();
     var formData = new FormData();
-      formData.append('fsc', fsc);
-     // $("#loaderIcon").show();
+    formData.append("fsc", fsc);
+    // $("#loaderIcon").show();
     $.ajax({
-      url: 'revalidate.php',
-      type: 'POST',
+      url: "revalidate",
+      type: "POST",
       data: formData,
       contentType: false,
       processData: false,
-        success: function (response) {
-          //  $("#loaderIcon").hide();
-        window.location.href = 'my-booking-step1.php';
+      success: function (response) {
+        //  $("#loaderIcon").hide();
+        window.location.href = "my-booking-step1";
         // $('#FlightSearchLoading').hide();
-
-
       },
       error: function () {
         //  $("#loaderIcon").hide();
         // $('#loading-popup').hide();
-      }
+      },
     });
   });
-
 
   //Fare Rule Api call
 
   // $('#fareRuleApi').click(function (event) {
-    // event.preventDefault();
-    // var buttonFare = document.getElementById("fareRuleApi");
-    // var value = buttonFare.getAttribute("data-value");
-    // var count = buttonFare.getAttribute("data-count-value");
+  // event.preventDefault();
+  // var buttonFare = document.getElementById("fareRuleApi");
+  // var value = buttonFare.getAttribute("data-value");
+  // var count = buttonFare.getAttribute("data-count-value");
 
+  // var formData = new FormData();
+  // formData.append('value', value);
+  // formData.append('count', count);
 
+  // $('#login_message').text("");
 
-    // var formData = new FormData();
-    // formData.append('value', value);
-    // formData.append('count', count);
+  // $.ajax({
+  //   url: 'farerule',
+  //   type: 'post',
+  //   data: formData,
+  //   contentType: false,
+  //   processData: false,
+  //   dataType: 'json',
+  //   success: function (response) {
+  //     if (response) {
 
+  //       console.log(response.fareRules);
+  //       var fareRules = response.fareRules[0]['RuleDetails'];
 
+  //       fareRules.forEach(function (rule, index) {
+  //         var category = rule.Category;
+  //         var rules = rule.Rules;
 
+  //         // Check if the category is "Penalty" or "Return"
+  //         // if (category === "PENALTIES" || category === "TICKET ENDORSEMENTS") {
+  //         if (category === "PENALTIES") {
+  //           // Create a heading for the category
+  //           // var categoryHeading = category;
+  //           // $('#fareresult').append(categoryHeading);
 
-    // $('#login_message').text("");
+  //           // Create a paragraph for the rules
+  //           var rulesParagraph = rules;
+  //           $('#fareresult').append(rulesParagraph);
+  //         }
+  //       });
+  //     } else {
 
-    // $.ajax({
-    //   url: 'farerule.php',
-    //   type: 'post',
-    //   data: formData,
-    //   contentType: false,
-    //   processData: false,
-    //   dataType: 'json',
-    //   success: function (response) {
-    //     if (response) {
+  //     }
 
-    //       console.log(response.fareRules);
-    //       var fareRules = response.fareRules[0]['RuleDetails'];
-
-    //       fareRules.forEach(function (rule, index) {
-    //         var category = rule.Category;
-    //         var rules = rule.Rules;
-
-    //         // Check if the category is "Penalty" or "Return"
-    //         // if (category === "PENALTIES" || category === "TICKET ENDORSEMENTS") {
-    //         if (category === "PENALTIES") {
-    //           // Create a heading for the category
-    //           // var categoryHeading = category;
-    //           // $('#fareresult').append(categoryHeading);
-
-    //           // Create a paragraph for the rules
-    //           var rulesParagraph = rules;
-    //           $('#fareresult').append(rulesParagraph);
-    //         }
-    //       });
-    //     } else {
-
-    //     }
-
-
-
-    //   },
-    //   error: function () {
-    //     alert('Error submitting form');
-    //   }
-    // });
+  //   },
+  //   error: function () {
+  //     alert('Error submitting form');
+  //   }
   // });
-
-
-
-
-
+  // });
 
   //   document.addEventListener("DOMContentLoaded", function() {
   //     // Retrieve the button element
@@ -2090,20 +2154,33 @@ $(document).ready(function () {
   //     });
   // });
 
-
-
   $("#continueRevalidationButton").click(function () {
     $("#loginbookflight").slideDown(1000);
   });
 
   $("#travellerContinueButton").click(function () {
+    // $(document).ready(function () {  
+    //   const isLoggedIn = $("#user_id_loggedin").val();
+        
+    //     if (isLoggedIn) {
+    //         $("#travellerDetails").slideDown(1000).css("display", "block");
+    //     } else {
+    //         $("#travellerDetails").css("display", "none");
+    //         return;
+    //     }
+    // });
+
     $("#travellerDetails").slideDown(1000);
     
-    var offset = $('#travellerDetails').offset();
+
+    var offset = $("#travellerDetails").offset();
     var newTop = offset.top - 50;
-    $('html, body').animate({
-        scrollTop: newTop
-    }, 1000);
+    $("html, body").animate(
+      {
+        scrollTop: newTop,
+      },
+      1000
+    );
 
     var button = document.getElementById("travellerContinueButton");
     $("#travellerContinueButton").hide();
@@ -2111,219 +2188,240 @@ $(document).ready(function () {
     var adultCounter = button.getAttribute("data-adult");
     let childCounter = button.getAttribute("data-child");
     let infantCounter = button.getAttribute("data-infant");
-    var extraSrviceData = JSON.parse(document.getElementById("extraSrviceData").value);
+    var extraSrviceData = JSON.parse(
+      document.getElementById("extraSrviceData").value
+    );
     var userId = button.getAttribute("data-uid");
 
     if (userId) {
-        var parts = userId.split("&&");
-        var id = parts[0];
-        var total = parts[1].split("=")[1];  
-       // checkUserBalance(id, total, continueExecution);
-        checkUserBalance(id, total);
+      var parts = userId.split("&&");
+      var id = parts[0];
+      var total = parts[1].split("=")[1];
+      // checkUserBalance(id, total, continueExecution);
+      checkUserBalance(id, total);
     } else {
-        continueExecution();
+      continueExecution();
     }
 
     function checkUserBalance(id, total) {
-        var formData = new FormData();
-        formData.append('uid', id);
-        formData.append('total', total);
-        $.ajax({
-            url: 'check_balance.php',
-            type: 'POST',
-            data: formData,
-            contentType: false,
-            processData: false,
-            success: function (response) {
-                if (response === 'success') {
-                  continueExecution();
-                } else {
-                    $('#balanceissueModal').modal('show');
-                }
-            },
-            error: function () {
-                window.location.href = 'my-booking-step1.php';
-            }
-        });
+      var formData = new FormData();
+      formData.append("uid", id);
+      formData.append("total", total);
+      $.ajax({
+        url: "check_balance",
+        type: "POST",
+        data: formData,
+        contentType: false,
+        processData: false,
+        success: function (response) {
+          if (response === "success") {
+            continueExecution();
+          } else {
+            $("#balanceissueModal").modal("show");
+          }
+        },
+        error: function () {
+          window.location.href = "my-booking-step1";
+        },
+      });
     }
     // .....................................................................................
     function continueExecution() {
-     // const extraServiceInbound = [];
-     if (extraSrviceData != null) {
-      //  const extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
-      // const extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
-        if ( extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND').length > 0) {
-          var extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
-        } 
-        else {
-          var extraServiceInbound=[];
+      // const extraServiceInbound = [];
+      if (extraSrviceData != null) {
+        //  const extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
+        // const extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
+        if (
+          extraSrviceData.filter(
+            (service) => service.Behavior === "PER_PAX_INBOUND"
+          ).length > 0
+        ) {
+          var extraServiceInbound = extraSrviceData.filter(
+            (service) => service.Behavior === "PER_PAX_INBOUND"
+          );
+        } else {
+          var extraServiceInbound = [];
         }
-        console.log(extraServiceInbound); 
-    
-   }
-  //  else{
-  //   const extraServiceInbound=[];
-  //  }
-  
- 
-//   if (extraServiceInbound.length > 0) {
-//     extraServiceInbound=extraServiceInbound;
-// } else {
-//   extraServiceInbound="";
-// }
-// alert(extraServiceInbound);
-  addAdult();
-  addChild();
-  addInfant();
-  function generateExtraServiceOptions(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'BAGGAGE' && extraService['Behavior'] === 'PER_PAX_OUTBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+        console.log(extraServiceInbound);
       }
-    });
-    return optionsHtml;
-  }
+      //  else{
+      //   const extraServiceInbound=[];
+      //  }
 
-  function generateExtraServiceOptionsChild(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'BAGGAGE' && extraService['Behavior'] === 'PER_PAX_OUTBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+      //   if (extraServiceInbound.length > 0) {
+      //     extraServiceInbound=extraServiceInbound;
+      // } else {
+      //   extraServiceInbound="";
+      // }
+      // alert(extraServiceInbound);
+
+      addAdult();
+      addChild();
+      addInfant();
+
+      function generateExtraServiceOptions(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "BAGGAGE" &&
+            extraService["Behavior"] === "PER_PAX_OUTBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
-  function generateExtraMealServiceOptions(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'Meal' && extraService['Behavior'] === 'PER_PAX_OUTBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
 
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
-
+      function generateExtraServiceOptionsChild(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "BAGGAGE" &&
+            extraService["Behavior"] === "PER_PAX_OUTBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
-  function generateExtraMealServiceOptionsChild(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'Meal' && extraService['Behavior'] === 'PER_PAX_OUTBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
+      function generateExtraMealServiceOptions(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "Meal" &&
+            extraService["Behavior"] === "PER_PAX_OUTBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
 
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
-
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
+      function generateExtraMealServiceOptionsChild(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "Meal" &&
+            extraService["Behavior"] === "PER_PAX_OUTBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
 
-  function generateExtraServiceOptionsReturn(extraServiceData) {
-   
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'BAGGAGE' && extraService['Behavior'] === 'PER_PAX_INBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
 
-  function generateExtraMealServiceOptionsReturn(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'Meal' && extraService['Behavior'] === 'PER_PAX_INBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
-
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
-
+      function generateExtraServiceOptionsReturn(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "BAGGAGE" &&
+            extraService["Behavior"] === "PER_PAX_INBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
 
-  function generateExtraMealServiceOptionsChildReturn(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'Meal' && extraService['Behavior'] === 'PER_PAX_INBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
+      function generateExtraMealServiceOptionsReturn(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "Meal" &&
+            extraService["Behavior"] === "PER_PAX_INBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
 
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
-
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
-  function generateExtraServiceOptionsChildReturn(extraServiceData) {
-    let optionsHtml = '<option value="">Select..</option>';
-    extraServiceData.forEach((extraService) => {
-      if (extraService['Type'] === 'BAGGAGE' && extraService['Behavior'] === 'PER_PAX_INBOUND') {
-        const description = extraService['Description'];
-        const serviceID = extraService['ServiceId'];
-        const amount = extraService['ServiceCost']['Amount'];
-        // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-        optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+
+      function generateExtraMealServiceOptionsChildReturn(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "Meal" &&
+            extraService["Behavior"] === "PER_PAX_INBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
       }
-    });
-    return optionsHtml;
-  }
+      function generateExtraServiceOptionsChildReturn(extraServiceData) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "BAGGAGE" &&
+            extraService["Behavior"] === "PER_PAX_INBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
+      }
 
+      function addAdult() {
+        const adultContainer = document.getElementById("adultcontainer");
 
-  function addAdult() {
-    const adultContainer = document.getElementById('adultcontainer');
-    const endpoint = 'https://api.countrystatecity.in/v1/countries';
-
-    fetch(endpoint, {
-      headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // const countryData = data.map(country => country.name,countryid => country.iso2);
-        const countryData = data.map(country => ({
-          name: country.name,
-          iso2: country.iso2
-        }));
-        $faretype = "return";
-        for (let i = 1; i <= adultCounter; i++) {
-          const div = document.createElement("div");
-          div.classList.add("form-row", "pb-lg-3", "pb-2", "bdr-b", "mb-3", "align-items-center");
-          div.innerHTML = `
-                  
-
-
-                    <div class="col mb-lg-0 mb-2">
+        const endpoint = "includes/getCountriesList";
+        
+        fetch(endpoint)
+          .then((response) => response.json())
+          .then((data) => {
+            var countryData = data.map((country) => ({
+              name: country.name,
+              iso2: country.iso2,
+            }));
+       
+            $faretype = "return";
+            for (let i = 1; i <= adultCounter; i++) {
+              const div = document.createElement("div");
+              div.classList.add(
+                "form-row",
+                "p-0",
+                "m-0",
+              );
+              div.innerHTML = `
+                    <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                         <label for="" class="m-0 fw-500">Adult ${i}</label>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="col-lg-1 col-md-4 mb-4">
                       <label for="title${i}">Title:</label>
                         <select name="sirLable${i}" id="" class="form-control select-title">
                           
@@ -2371,94 +2469,133 @@ $(document).ready(function () {
                         <span id="pasprtExpError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-2 mb-2">
                     <label for="issuingCountry${i}">Passport Issuing Country:</label>
                       <select name="issuingCountry${i}" class="form-control">
-                        ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                        ${countryData
+                          .map(
+                            (country) =>
+                              `<option value="${country.iso2}">${country.name}</option>`
+                          )
+                          .join("")}
                       </select>
                       <span id="countryError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
 
-                    <div class="col-md-4 mb-4">
+                    <div class="col-md-2 mb-2">
                       <label for="nationality${i}">Nationality:</label>
                       <select name="nationality${i}" class="form-control">
-                        ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                        ${countryData
+                          .map(
+                            (country) =>
+                              `<option value="${country.iso2}">${country.name}</option>`
+                          )
+                          .join("")}
                       </select>
                       <span id="nationalityError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
 
-                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraSrviceData.length > 0 ? '' : 'style="display: none;"'}>
+                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                      extraSrviceData && extraSrviceData.length > 0
+                        ? ""
+                        : 'style="display: none;"'
+                    }>
                       <label for="baggageService${i}">Baggage Service:</label>
                       <select name="baggageService${i}" id="baggageService${i}" class="form-control">
-                      ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraServiceOptions(extraSrviceData) : ''}
+                      ${
+                        extraSrviceData && extraSrviceData.length > 0
+                          ? generateExtraServiceOptions(extraSrviceData)
+                          : ""
+                      }
                       </select>
                     </div>
                   
 
-                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraSrviceData.length > 0 ? '' : 'style="display: none;"'}>
+                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                      extraSrviceData && extraSrviceData.length > 0
+                        ? ""
+                        : 'style="display: none;"'
+                    }>
                       <label for="mealService${i}">Meal Service:</label>
                       <select name="mealService${i}" id="mealService${i}" class="form-control">
-                        ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraMealServiceOptions(extraSrviceData) : ''}
+                        ${
+                          extraSrviceData && extraSrviceData.length > 0
+                            ? generateExtraMealServiceOptions(extraSrviceData)
+                            : ""
+                        }
                       </select>
                     </div>
                   
                    
-                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraServiceInbound.length > 0 ? '' : 'style="display: none;"'}>
+                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                      extraSrviceData && extraServiceInbound.length > 0
+                        ? ""
+                        : 'style="display: none;"'
+                    }>
                       <label for="baggageServiceReturn${i}">Return Baggage Service:</label>
                       <select name="baggageServiceReturn${i}" id="baggageServiceReturn${i}" class="form-control">
-                      ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraServiceOptionsReturn(extraSrviceData) : ''}
+                      ${
+                        extraSrviceData && extraSrviceData.length > 0
+                          ? generateExtraServiceOptionsReturn(extraSrviceData)
+                          : ""
+                      }
                       </select>
                     </div>
 
-                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraServiceInbound.length > 0 ? '' : 'style="display: none;"'}>
+                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                      extraSrviceData && extraServiceInbound.length > 0
+                        ? ""
+                        : 'style="display: none;"'
+                    }>
                       <label for="mealServiceReturn${i}">Return Meal Service :</label>
                       <select name="mealServiceReturn${i}" id="mealServiceReturn${i}" class="form-control">
-                        ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraMealServiceOptionsReturn(extraSrviceData) : ''}
+                        ${
+                          extraSrviceData && extraSrviceData.length > 0
+                            ? generateExtraMealServiceOptionsReturn(
+                                extraSrviceData
+                              )
+                            : ""
+                        }
                       </select>
                     </div>
                   
 
                 `;
 
-          adultContainer.appendChild(div);
-        }
-      });
-    // adultCounter++;
-  }
+              adultContainer.appendChild(div);
+            }
+          });
+        // adultCounter++;
+      }
 
+      //child details
+      function addChild() {
+        const adultContainer = document.getElementById("childcontainer");
 
-  //child details
-  function addChild() {
-    const adultContainer = document.getElementById('childcontainer');
+        const endpoint = "includes/getCountriesList";
+        fetch(endpoint)
+          .then((response) => response.json())
+          .then((data) => {
+            var countryData = data.map((country) => ({
+              name: country.name,
+              iso2: country.iso2,
+            }));
 
-    const endpoint = 'https://api.countrystatecity.in/v1/countries';
-
-    fetch(endpoint, {
-      headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-    })
-      .then(response => response.json())
-      .then(data => {
-        // const countryData = data.map(country => country.name,countryid => country.iso2);
-        const countryData = data.map(country => ({
-          name: country.name,
-          iso2: country.iso2
-        }));
-
-        for (let i = 1; i <= childCounter; i++) {
-          const div = document.createElement("div");
-          div.classList.add("form-row", "pb-lg-3", "pb-2", "bdr-b", "mb-3", "align-items-center");
-          div.innerHTML = `
+            for (let i = 1; i <= childCounter; i++) {
+              const div = document.createElement("div");
+              div.classList.add(
+                "form-row",
+                "p-0",
+                "m-0",
+              );
+              div.innerHTML = `
                 
 
 
-                  <div class="col mb-lg-0 mb-2">
+                  <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Child ${i}</label>
                   </div>
-                  <div class="col-lg-2 col-md-4 mb-4">
+                  <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableChild${i}"> Title:</label>
                       <select name="sirLableChild${i}" id="" class="form-control select-title">
                           <option value="MISS">MISS </option>
@@ -2506,48 +2643,96 @@ $(document).ready(function () {
                       <span id="pasprtExpChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
-                  <div class="col-md-4 mb-4">
+                  <div class="col-md-2 mb-2">
                   <label for="issuingcountryChild${i}">Passport Issuing Country:</label>
                     <select name="issuingcountryChild${i}" class="form-control">
-                      ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                      ${countryData
+                        .map(
+                          (country) =>
+                            `<option value="${country.iso2}">${country.name}</option>`
+                        )
+                        .join("")}
                     </select>
                     <span id="issuingcountryChild${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
 
-                  <div class="col-md-4 mb-4">
+                  <div class="col-md-2 mb-2">
                     <label for="nationalityChild${i}">Nationality:</label>
                     <select name="nationalityChild${i}" class="form-control">
-                      ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                      ${countryData
+                        .map(
+                          (country) =>
+                            `<option value="${country.iso2}">${country.name}</option>`
+                        )
+                        .join("")}
                     </select>
                     <span id="nationalityChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
 
-                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraSrviceData.length > 0 ? '' : 'style="display: none;"'}>
+                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                    extraSrviceData && extraSrviceData.length > 0
+                      ? ""
+                      : 'style="display: none;"'
+                  }>
                     <label for="baggageServiceChild${i}">Baggage Service:</label>
                     <select name="baggageServiceChild${i}" id="baggageServiceChild${i}" class="form-control">
-                    ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraServiceOptionsChild(extraSrviceData) : ''}
+                    ${
+                      extraSrviceData && extraSrviceData.length > 0
+                        ? generateExtraServiceOptionsChild(extraSrviceData)
+                        : ""
+                    }
                     </select>
                   </div>
                 
 
-                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraSrviceData.length > 0 ? '' : 'style="display: none;"'}>
+                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                    extraSrviceData && extraSrviceData.length > 0
+                      ? ""
+                      : 'style="display: none;"'
+                  }>
                     <label for="mealServiceChild${i}">Meal Service:</label>
                     <select name="mealServiceChild${i}" id="mealServiceChild${i}" class="form-control">
-                      ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraMealServiceOptionsChild(extraSrviceData) : ''}
+                      ${
+                        extraSrviceData && extraSrviceData.length > 0
+                          ? generateExtraMealServiceOptionsChild(
+                              extraSrviceData
+                            )
+                          : ""
+                      }
                     </select>
                   </div>
 
-                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraServiceInbound.length > 0 ? '' : 'style="display: none;"'}>
+                  <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                    extraSrviceData && extraServiceInbound.length > 0
+                      ? ""
+                      : 'style="display: none;"'
+                  }>
                       <label for="baggageServiceChildReturn${i}">Return Baggage Service:</label>
                       <select name="baggageServiceChildReturn${i}" id="baggageServiceChildReturn${i}" class="form-control">
-                      ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraServiceOptionsChildReturn(extraSrviceData) : ''}
+                      ${
+                        extraSrviceData && extraSrviceData.length > 0
+                          ? generateExtraServiceOptionsChildReturn(
+                              extraSrviceData
+                            )
+                          : ""
+                      }
                       </select>
                     </div>
 
-                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${extraSrviceData && extraServiceInbound.length > 0 ? '' : 'style="display: none;"'}>
+                    <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
+                      extraSrviceData && extraServiceInbound.length > 0
+                        ? ""
+                        : 'style="display: none;"'
+                    }>
                       <label for="mealServiceChildReturn${i}">Return Meal Service :</label>
                       <select name="mealServiceChildReturn${i}" id="mealServiceChildReturn${i}" class="form-control">
-                        ${extraSrviceData && extraSrviceData.length > 0 ? generateExtraMealServiceOptionsChildReturn(extraSrviceData) : ''}
+                        ${
+                          extraSrviceData && extraSrviceData.length > 0
+                            ? generateExtraMealServiceOptionsChildReturn(
+                                extraSrviceData
+                              )
+                            : ""
+                        }
                       </select>
                     </div>
 
@@ -2558,47 +2743,41 @@ $(document).ready(function () {
 
               `;
 
-          adultContainer.appendChild(div);
-        }
-      });
-    // adultCounter++;
-  }
+              adultContainer.appendChild(div);
+            }
+          });
+        // adultCounter++;
+      }
 
-  //Add Infant data
+      //Add Infant data
 
-  function addInfant() {
-    const adultContainer = document.getElementById('infantcontainer');
+      function addInfant() {
+        const adultContainer = document.getElementById("infantcontainer");
 
-    const endpoint = 'https://api.countrystatecity.in/v1/countries';
+        const endpoint = "includes/getCountriesList";
+        fetch(endpoint)
+          .then((response) => response.json())
+          .then((data) => {
+            var countryData = data.map((country) => ({
+              name: country.name,
+              iso2: country.iso2,
+            }));
 
-    fetch(endpoint, {
-      headers: {
-        'X-CSCAPI-KEY': 'N3FnUFJkMnJCaFZhQmRWUDlHRGRQR2lLQ2dFU2wzVDhJaDVBNlF2SQ==',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-    })
-      .then(response => response.json())
-      // .then(data => {
-      //         const countryData = data.map(country => country.name);
-      .then(data => {
-        // const countryData = data.map(country => country.name,countryid => country.iso2);
-        const countryData = data.map(country => ({
-          name: country.name,
-          iso2: country.iso2
-        }));
-
-        for (let i = 1; i <= infantCounter; i++) {
-          const div = document.createElement("div");
-          div.classList.add("form-row", "pb-lg-3", "pb-2", "bdr-b", "mb-3", "align-items-center");
-          div.innerHTML = `
+            for (let i = 1; i <= infantCounter; i++) {
+              const div = document.createElement("div");
+              div.classList.add(
+                "form-row",
+                "p-0",
+                "m-0",
+              );
+              div.innerHTML = `
                 
 
 
-                  <div class="col mb-lg-0 mb-4">
+                  <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Infant ${i}</label>
                   </div>
-                  <div class="col-lg-2 col-md-4 mb-4">
+                  <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableInfant${i}"> Title:</label>
                       <select name="sirLableInfant${i}" id="" class="form-control select-title">
                         <option value="MISS">MISS </option>
@@ -2644,17 +2823,27 @@ $(document).ready(function () {
                       <span id="pasprtExpInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
 
                   </div>
-                  <div class="col-md-4 mb-4">
+                  <div class="col-md-2 mb-2">
                   <label for="issuingcountryInfant${i}">  Passport Issuing Country:</label>
                     <select name="issuingcountryInfant${i}" class="form-control">
-                      ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                      ${countryData
+                        .map(
+                          (country) =>
+                            `<option value="${country.iso2}">${country.name}</option>`
+                        )
+                        .join("")}
                     </select>
                     <span id="countryError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
-                  <div class="col-md-4 mb-4">
+                  <div class="col-md-2 mb-2">
                     <label for="nationalityInfant${i}">Nationality:</label>
                     <select name="nationalityinfant${i}" class="form-control">
-                      ${countryData.map(country => `<option value="${country.iso2}">${country.name}</option>`).join('')}
+                      ${countryData
+                        .map(
+                          (country) =>
+                            `<option value="${country.iso2}">${country.name}</option>`
+                        )
+                        .join("")}
                     </select>
                     <span id="nationalityChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
@@ -2666,48 +2855,39 @@ $(document).ready(function () {
 
               `;
 
-          adultContainer.appendChild(div);
-        }
-      });
-    // adultCounter++;
-  }
+              adultContainer.appendChild(div);
+            }
+          });
+        // adultCounter++;
+      }
 
-  // var button = document.getElementById("travellerContinueButton");
-  // var fareSourceValue = button.getAttribute("data-value");
-  // var formData = new FormData();
-  // formData.append('fareSourceValue', fareSourceValue);
-  // $.ajax({
-  //   url: 'seatmap.php',
-  //   type: 'post',
-  //   data: formData,
-  //   contentType: false,
-  //   processData: false,
-  //   dataType: 'json',
-  //   success: function (response) {
+      // var button = document.getElementById("travellerContinueButton");
+      // var fareSourceValue = button.getAttribute("data-value");
+      // var formData = new FormData();
+      // formData.append('fareSourceValue', fareSourceValue);
+      // $.ajax({
+      //   url: 'seatmap',
+      //   type: 'post',
+      //   data: formData,
+      //   contentType: false,
+      //   processData: false,
+      //   dataType: 'json',
+      //   success: function (response) {
 
-
-
-  //   },
-  //   error: function () {
-  //     alert('Error submitting form');
-  //   }
-  // });
-}
+      //   },
+      //   error: function () {
+      //     alert('Error submitting form');
+      //   }
+      // });
+    }
   });
 
-
-  $('.select-title').select2();
-  $('.select-location').select2();
-
-
-
+  $(".select-title").select2();
+  $(".select-location").select2();
 
   //-----------------------Booking Details Submitted to In House DB -----------------
 
-  $('#booking-submit').submit(function (event) {
-
-    
-
+  $("#booking-submit").submit(function (event) {
     event.preventDefault();
     // Validate form data
     // let adultCounter = 2;
@@ -2720,53 +2900,77 @@ $(document).ready(function () {
     var childCounter = childCountInput.value;
     var infantCountInput = document.querySelector('input[name="infantCount"]');
     var infantCounter = infantCountInput.value;
-      //----------------------
-      var depdatevalue = document.querySelector('input[name="depdate"]');
-      var depdate = depdatevalue.value;
-      var returndatevalue = document.querySelector('input[name="returndate"]');
-      var returndate = returndatevalue.value;
-      if (returndate.trim() === '') {
-          // The value is empty
-          currentDatevalue = depdate;
-      } else {
-          // The value is not empty
-          currentDatevalue = returndate;
-      }
-      var nameCharactereValue = document.querySelector('input[name="nameCharacterCount"]');
-      var nameCharacterCount = nameCharactereValue.value;
-      //alert(nameCharacterCount);
+    //----------------------
+    var depdatevalue = document.querySelector('input[name="depdate"]');
+    var depdate = depdatevalue.value;
+    var returndatevalue = document.querySelector('input[name="returndate"]');
+    var returndate = returndatevalue.value;
+    if (returndate.trim() === "") {
+      // The value is empty
+      currentDatevalue = depdate;
+    } else {
+      // The value is not empty
+      currentDatevalue = returndate;
+    }
+    var nameCharactereValue = document.querySelector(
+      'input[name="nameCharacterCount"]'
+    );
+    var nameCharacterCount = nameCharactereValue.value;
+    //alert(nameCharacterCount);
 
-      //----------------------
+    //----------------------
     const validationErrors = []; // Array to store validation errors
 
     // Loop through the dynamically generated fields
     for (let i = 1; i <= adultCounter; i++) {
-      const firstNameInput = document.querySelector(`input[name=firstName${i}]`);
+      const firstNameInput = document.querySelector(
+        `input[name=firstName${i}]`
+      );
       const lastNameInput = document.querySelector(`input[name=lastName${i}]`);
-      const passportNoInput = document.querySelector(`input[name=passportNo${i}]`);
+      const passportNoInput = document.querySelector(
+        `input[name=passportNo${i}]`
+      );
       const adultDOBInput = document.querySelector(`input[name=adultDOB${i}]`);
-      const pasprtExpInput = document.querySelector(`input[name=pasprtExp${i}]`);
+      const pasprtExpInput = document.querySelector(
+        `input[name=pasprtExp${i}]`
+      );
       // const sirLableInput = document.querySelector(`select[name=sirLable${i+1}]`);
-      const sirLableSelect = document.querySelector(`select[name=sirLable${i}]`);
+      const sirLableSelect = document.querySelector(
+        `select[name=sirLable${i}]`
+      );
       const sirLableValue = sirLableSelect.value;
-        // const characterCount = firstNameInput.value.length + lastNameInput.value.length + sirLableValue.length;
-        const characterCount = firstNameInput.value.length + lastNameInput.value.length;
+      // const characterCount = firstNameInput.value.length + lastNameInput.value.length + sirLableValue.length;
+      const characterCount =
+        firstNameInput.value.length + lastNameInput.value.length;
 
       const genderSelect = document.querySelector(`select[name=gender${i}]`);
       const genderValue = genderSelect.value;
-      
+
       if (firstNameInput.value.trim() === "") {
         displayError(firstNameInput, `First name ${i} is required`);
         validationErrors.push(`First name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(firstNameInput.value.trim())) {
-        displayError(firstNameInput, `First name ${i} contains invalid characters`);
+        displayError(
+          firstNameInput,
+          `First name ${i} contains invalid characters`
+        );
         validationErrors.push(`First name ${i} contains invalid characters`);
       } else if (characterCount > nameCharacterCount) {
-          displayError(firstNameInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-          validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
+        displayError(
+          firstNameInput,
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
+        validationErrors.push(
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
       } else if (firstNameInput.value.trim().length < 2) {
-        displayError(firstNameInput, `First name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
+        displayError(
+          firstNameInput,
+          `First name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `First name ${i} must contain at least 2 characters.`
+        );
       } else {
         clearError(firstNameInput);
       }
@@ -2775,14 +2979,27 @@ $(document).ready(function () {
         displayError(lastNameInput, `Last name ${i} is required`);
         validationErrors.push(`Last name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(lastNameInput.value.trim())) {
-        displayError(lastNameInput, `First name ${i} contains invalid characters`);
+        displayError(
+          lastNameInput,
+          `First name ${i} contains invalid characters`
+        );
         validationErrors.push(`First name ${i} contains invalid characters`);
       } else if (lastNameInput.value.trim().length < 1) {
-        displayError(lastNameInput, `Last name ${i} should have more than one character`);
-        validationErrors.push(`Last name ${i} should have more than one character`);
+        displayError(
+          lastNameInput,
+          `Last name ${i} should have more than one character`
+        );
+        validationErrors.push(
+          `Last name ${i} should have more than one character`
+        );
       } else if (lastNameInput.value.trim().length < 2) {
-        displayError(lastNameInput, `Last name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
+        displayError(
+          lastNameInput,
+          `Last name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `Last name ${i} must contain at least 2 characters.`
+        );
       } else {
         clearError(lastNameInput);
       }
@@ -2790,20 +3007,25 @@ $(document).ready(function () {
       if (passportNoInput.value.trim() === "") {
         displayError(passportNoInput, `Passpoet number ${i} is required`);
         validationErrors.push(`Passpoet number ${i} is required`);
-      } else if(document.querySelector('input[name=api_country_id]').value == 1499) {
-        if (!/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(passportNoInput.value.trim())) {
+      } else if (
+        document.querySelector("input[name=api_country_id]").value == 1499
+      ) {
+        if (
+          !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
+            passportNoInput.value.trim()
+          )
+        ) {
           displayError(passportNoInput, `must contain alphanumeric`);
-              validationErrors.push(`must contain alphanumeric`);
-          } else {
-            clearError(passportNoInput);
-          }
+          validationErrors.push(`must contain alphanumeric`);
+        } else {
+          clearError(passportNoInput);
+        }
       } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInput.value.trim())) {
-          displayError(passportNoInput, `Max 9 characters allowed.`);
-          validationErrors.push(`Max 9 characters allowed.`);
+        displayError(passportNoInput, `Max 9 characters allowed.`);
+        validationErrors.push(`Max 9 characters allowed.`);
       } else {
         clearError(passportNoInput);
       }
-
 
       if (sirLableValue === "") {
         displayError(sirLableSelect, `Select a value for Sir/Madam option`);
@@ -2818,30 +3040,25 @@ $(document).ready(function () {
       } else {
         clearError(genderSelect);
       }
-      
+
       if (genderValue == "M" && sirLableValue !== "Mr") {
-          displayError(sirLableSelect, `Title should be "Mr" for selected gender`);
-          validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
+        displayError(sirLableSelect,`Title should be "Mr" for selected gender`);
+        validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
+      } else if (genderValue == "F" && sirLableValue === "Mr") {
+        displayError( sirLableSelect, `Title should be "Mrs or MISS" for selected gender`);
+        validationErrors.push(`Title for Female Adult ${i} should be "Mrs or MISS"`);
       } else {
-          clearError(sirLableSelect);
-      }
-      
-      // if (genderValue == "F" && (sirLableValue != "Mrs" || sirLableValue != "MISS") ) {
-      if (genderValue == "F" && sirLableValue === "Mr") {
-          displayError(sirLableSelect, `Title should be "Mrs or MISS" for selected gender`);
-          validationErrors.push(`Title for Female Adult ${i} should be "Mrs or MISS"`);
-      } else {
-          clearError(sirLableSelect);
+        clearError(sirLableSelect);
       }
 
       const dobDate = new Date(adultDOBInput.value.trim());
       const currentDate = new Date();
-        const pasexpcheckdate = new Date(currentDatevalue);
+      const pasexpcheckdate = new Date(currentDatevalue);
       // Calculate the age difference in years
-        // const ageDifferenceInMilliseconds = currentDate - dobDate;
-        const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
-      const ageDifferenceInYears = ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
-
+      // const ageDifferenceInMilliseconds = currentDate - dobDate;
+      const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
+      const ageDifferenceInYears =
+        ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
 
       if (adultDOBInput.value.trim() === "") {
         displayError(adultDOBInput, `Select DOB`);
@@ -2849,8 +3066,7 @@ $(document).ready(function () {
       } else if (ageDifferenceInYears < 18) {
         displayError(adultDOBInput, `Age should be at least 18 years`);
         validationErrors.push(`Age for Adult ${i} should be at least 18 years`);
-      }
-      else {
+      } else {
         clearError(adultDOBInput);
       }
 
@@ -2861,55 +3077,83 @@ $(document).ready(function () {
       } else if (passportExpiryDate <= pasexpcheckdate) {
         displayError(pasprtExpInput, `Invalid Exp Date`);
         validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      }
-      else {
+      } else {
         clearError(pasprtExpInput);
       }
-
-
-
     }
 
     for (let i = 1; i <= childCounter; i++) {
-      const firstNameChildInput = document.querySelector(`input[name=firstNameChild${i}]`);
-      const lastNameChildInput = document.querySelector(`input[name=lastNameChild${i}]`);
-      const passportNoChildInput = document.querySelector(`input[name=passportNoChild${i}]`);
+      const firstNameChildInput = document.querySelector(
+        `input[name=firstNameChild${i}]`
+      );
+      const lastNameChildInput = document.querySelector(
+        `input[name=lastNameChild${i}]`
+      );
+      const passportNoChildInput = document.querySelector(
+        `input[name=passportNoChild${i}]`
+      );
       const childDOBInput = document.querySelector(`input[name=childDOB${i}]`);
-      const pasprtExpChildInput = document.querySelector(`input[name=pasprtExpChild${i}]`);
-      const sirLableSelect = document.querySelector(`select[name=sirLableChild${i}]`);
+      const pasprtExpChildInput = document.querySelector(
+        `input[name=pasprtExpChild${i}]`
+      );
+      const sirLableSelect = document.querySelector(
+        `select[name=sirLableChild${i}]`
+      );
       const sirLableValue = sirLableSelect.value;
-      const genderSelect = document.querySelector(`select[name=genderChild${i}]`);
+      const genderSelect = document.querySelector(
+        `select[name=genderChild${i}]`
+      );
       const genderValue = genderSelect.value;
 
-        // const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length + sirLableValue.length;
-        const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length;
+      // const characterCount = firstNameChildInput.value.length + lastNameChildInput.value.length + sirLableValue.length;
+      const characterCount =
+        firstNameChildInput.value.length + lastNameChildInput.value.length;
       if (firstNameChildInput.value.trim() === "") {
         displayError(firstNameChildInput, `First name ${i} is required`);
         validationErrors.push(`First name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(firstNameChildInput.value.trim())) {
-        displayError(firstNameChildInput, `First name ${i} contains invalid characters`);
+        displayError(
+          firstNameChildInput,
+          `First name ${i} contains invalid characters`
+        );
         validationErrors.push(`First name ${i} contains invalid characters`);
       } else if (characterCount > nameCharacterCount) {
-          displayError(firstNameChildInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-          validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
+        displayError(
+          firstNameChildInput,
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
+        validationErrors.push(
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
       } else if (firstNameChildInput.value.trim().length < 2) {
-        displayError(firstNameChildInput, `First name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
+        displayError(
+          firstNameChildInput,
+          `First name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `First name ${i} must contain at least 2 characters.`
+        );
       } else {
         clearError(firstNameChildInput);
       }
-
-
 
       if (lastNameChildInput.value.trim() === "") {
         displayError(lastNameChildInput, `Last name ${i} is required`);
         validationErrors.push(`Last name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(lastNameChildInput.value.trim())) {
-        displayError(lastNameChildInput, `Last name ${i} contains invalid characters`);
+        displayError(
+          lastNameChildInput,
+          `Last name ${i} contains invalid characters`
+        );
         validationErrors.push(`Last name ${i} contains invalid characters`);
       } else if (lastNameChildInput.value.trim().length < 2) {
-        displayError(lastNameChildInput, `Last name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
+        displayError(
+          lastNameChildInput,
+          `Last name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `Last name ${i} must contain at least 2 characters.`
+        );
       } else {
         clearError(lastNameChildInput);
       }
@@ -2934,54 +3178,55 @@ $(document).ready(function () {
       } else {
         clearError(genderSelect);
       }
-        //gender validation
+      //gender validation
 
-        if (genderValue == "M" && sirLableValue !== "MSTR") {
+      if (genderValue == "M" && sirLableValue !== "MSTR") {
+        displayError(
+          sirLableSelect,
+          `Title should be "MSTR" for selected gender`
+        );
 
-            displayError(sirLableSelect, `Title should be "MSTR" for selected gender`);
+        validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
+      } else {
+        clearError(sirLableSelect);
+      }
 
-            validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
+      if (genderValue == "F" && sirLableValue != "MISS") {
+        displayError(
+          sirLableSelect,
+          `Title should be "MISS" for selected gender`
+        );
 
-        } else {
-
-            clearError(sirLableSelect);
-
-        }
-
-
-
-        if (genderValue == "F" && sirLableValue != "MISS") {
-
-            displayError(sirLableSelect, `Title should be "MISS" for selected gender`);
-
-            validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
-
-        } else {
-
-            clearError(sirLableSelect);
-
-        }
+        validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
+      } else {
+        clearError(sirLableSelect);
+      }
 
       const dobDate = new Date(childDOBInput.value.trim());
       const currentDate = new Date();
-        const pasexpcheckdate = new Date(currentDatevalue);
+      const pasexpcheckdate = new Date(currentDatevalue);
 
-        // alert(currentDatevalue);
+      // alert(currentDatevalue);
       // Calculate the age difference in years
-        // const ageDifferenceInMilliseconds = currentDate - dobDate;
-        const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
-      const ageDifferenceInYears = ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+      // const ageDifferenceInMilliseconds = currentDate - dobDate;
+      const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
+      const ageDifferenceInYears =
+        ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
 
       if (childDOBInput.value.trim() === "") {
         displayError(childDOBInput, `Select DOB`);
         validationErrors.push(`DOB option for Child ${i} is required`);
       } else if (ageDifferenceInYears < 0 || ageDifferenceInYears > 12) {
-        displayError(childDOBInput, `Age should be less than or exactly 12 years`);
-        validationErrors.push(`Age for Child ${i} should be less than or exactly 12 years`);
+        displayError(
+          childDOBInput,
+          `Age should be less than or exactly 12 years`
+        );
+        validationErrors.push(
+          `Age for Child ${i} should be less than or exactly 12 years`
+        );
       } else {
         clearError(childDOBInput);
       }
-
 
       const passportExpiryDate = new Date(pasprtExpChildInput.value.trim());
       if (pasprtExpChildInput.value.trim() === "") {
@@ -2990,44 +3235,65 @@ $(document).ready(function () {
       } else if (passportExpiryDate <= pasexpcheckdate) {
         displayError(pasprtExpChildInput, `Invalid Exp Date`);
         validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      }
-      else {
+      } else {
         clearError(pasprtExpChildInput);
       }
-
-
-
-
     }
 
-
     for (let i = 1; i <= infantCounter; i++) {
-      const firstNameInfantInput = document.querySelector(`input[name=firstNameInfant${i}]`);
-      const lastNameInfantInput = document.querySelector(`input[name=lastNameInfant${i}]`);
-      const passportNoInfantInput = document.querySelector(`input[name=passportNoInfant${i}]`);
-      const infantDOBInput = document.querySelector(`input[name=infantDOB${i}]`);
-      const pasprtExpInfantInput = document.querySelector(`input[name=pasprtExpInfant${i}]`);
-      const sirLableSelect = document.querySelector(`select[name=sirLableInfant${i}]`);
+      const firstNameInfantInput = document.querySelector(
+        `input[name=firstNameInfant${i}]`
+      );
+      const lastNameInfantInput = document.querySelector(
+        `input[name=lastNameInfant${i}]`
+      );
+      const passportNoInfantInput = document.querySelector(
+        `input[name=passportNoInfant${i}]`
+      );
+      const infantDOBInput = document.querySelector(
+        `input[name=infantDOB${i}]`
+      );
+      const pasprtExpInfantInput = document.querySelector(
+        `input[name=pasprtExpInfant${i}]`
+      );
+      const sirLableSelect = document.querySelector(
+        `select[name=sirLableInfant${i}]`
+      );
       const sirLableValue = sirLableSelect.value;
 
-      const genderSelect = document.querySelector(`select[name=genderInfant${i}]`);
-        const genderValue = genderSelect.value;
-        // const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length + sirLableValue.length;
-        const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length;
+      const genderSelect = document.querySelector(
+        `select[name=genderInfant${i}]`
+      );
+      const genderValue = genderSelect.value;
+      // const characterCount = firstNameInfantInput.value.length + lastNameInfantInput.value.length + sirLableValue.length;
+      const characterCount =
+        firstNameInfantInput.value.length + lastNameInfantInput.value.length;
 
       if (firstNameInfantInput.value.trim() === "") {
         displayError(firstNameInfantInput, `First name ${i} is required`);
         validationErrors.push(`First name ${i} is required`);
-      }
-      else if (!/^[a-zA-Z\s]+$/.test(firstNameInfantInput.value.trim())) {
-        displayError(firstNameInput, `First name ${i} contains invalid characters`);
+      } else if (!/^[a-zA-Z\s]+$/.test(firstNameInfantInput.value.trim())) {
+        displayError(
+          firstNameInput,
+          `First name ${i} contains invalid characters`
+        );
         validationErrors.push(`First name ${i} contains invalid characters`);
       } else if (firstNameInfantInput.value.trim().length < 2) {
-        displayError(firstNameInfantInput, `First name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`First name ${i} must contain at least 2 characters.`);
+        displayError(
+          firstNameInfantInput,
+          `First name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `First name ${i} must contain at least 2 characters.`
+        );
       } else if (characterCount > nameCharacterCount) {
-          displayError(firstNameInfantInput, `count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
-          validationErrors.push(`count of firstname,last name and title should not exceed  ${nameCharacterCount}`);
+        displayError(
+          firstNameInfantInput,
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
+        validationErrors.push(
+          `count of firstname,last name and title should not exceed  ${nameCharacterCount}`
+        );
       } else {
         clearError(firstNameInfantInput);
       }
@@ -3036,11 +3302,19 @@ $(document).ready(function () {
         displayError(lastNameInfantInput, `Last name ${i} is required`);
         validationErrors.push(`Last name ${i} is required`);
       } else if (!/^[a-zA-Z\s]+$/.test(lastNameInfantInput.value.trim())) {
-        displayError(lastNameInfantInput, `Last name ${i} contains invalid characters`);
+        displayError(
+          lastNameInfantInput,
+          `Last name ${i} contains invalid characters`
+        );
         validationErrors.push(`Last name ${i} contains invalid characters`);
       } else if (lastNameInfantInput.value.trim().length < 2) {
-        displayError(lastNameInfantInput, `Last name ${i} must contain at least 2 characters.`);
-        validationErrors.push(`Last name ${i} must contain at least 2 characters.`);
+        displayError(
+          lastNameInfantInput,
+          `Last name ${i} must contain at least 2 characters.`
+        );
+        validationErrors.push(
+          `Last name ${i} must contain at least 2 characters.`
+        );
       } else {
         clearError(lastNameInfantInput);
       }
@@ -3064,51 +3338,53 @@ $(document).ready(function () {
         validationErrors.push(`select gender Adult ${i} is required`);
       } else {
         clearError(genderSelect);
-        }
-        //gender validation
+      }
+      //gender validation
 
-        if (genderValue == "M" && sirLableValue !== "MSTR") {
+      if (genderValue == "M" && sirLableValue !== "MSTR") {
+        displayError(
+          sirLableSelect,
+          `Title should be "MSTR" for selected gender`
+        );
 
-            displayError(sirLableSelect, `Title should be "MSTR" for selected gender`);
+        validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
+      } else {
+        clearError(sirLableSelect);
+      }
 
-            validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
+      if (genderValue == "F" && sirLableValue != "MISS") {
+        displayError(
+          sirLableSelect,
+          `Title should be "MISS" for selected gender`
+        );
 
-        } else {
-
-            clearError(sirLableSelect);
-
-        }
-
-        if (genderValue == "F" && sirLableValue != "MISS") {
-
-            displayError(sirLableSelect, `Title should be "MISS" for selected gender`);
-
-            validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
-
-        } else {
-
-            clearError(sirLableSelect);
-
-        }
+        validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
+      } else {
+        clearError(sirLableSelect);
+      }
       const dobDate = new Date(infantDOBInput.value.trim());
       const currentDate = new Date();
-        const pasexpcheckdate = new Date(currentDatevalue);//passsport exp comprison date and dob comparison date
+      const pasexpcheckdate = new Date(currentDatevalue); //passsport exp comprison date and dob comparison date
       // Calculate the age difference in years
-       // const ageDifferenceInMilliseconds = currentDate - dobDate;
-        const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
-      const ageDifferenceInYears = ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
+      // const ageDifferenceInMilliseconds = currentDate - dobDate;
+      const ageDifferenceInMilliseconds = pasexpcheckdate - dobDate;
+      const ageDifferenceInYears =
+        ageDifferenceInMilliseconds / (1000 * 60 * 60 * 24 * 365);
 
       if (infantDOBInput.value.trim() === "") {
         displayError(infantDOBInput, `Select DOB`);
         validationErrors.push(`DOB option for Infant ${i} is required`);
       } else if (ageDifferenceInYears < 0 || ageDifferenceInYears >= 2) {
-        displayError(infantDOBInput, `Age should be less than or exactly 2 years`);
-        validationErrors.push(`Age for Infant ${i} should be less than or exactly 2 years`);
+        displayError(
+          infantDOBInput,
+          `Age should be less than or exactly 2 years`
+        );
+        validationErrors.push(
+          `Age for Infant ${i} should be less than or exactly 2 years`
+        );
       } else {
         clearError(infantDOBInput);
       }
-
-
 
       const passportExpiryDate = new Date(pasprtExpInfantInput.value.trim());
       if (pasprtExpInfantInput.value.trim() === "") {
@@ -3117,106 +3393,107 @@ $(document).ready(function () {
       } else if (passportExpiryDate <= pasexpcheckdate) {
         displayError(pasprtExpInfantInput, `Invalid Exp Date`);
         validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      }
-      else {
+      } else {
         clearError(pasprtExpInfantInput);
       }
-
-
     }
 
-    var contactfirstname = $('#contactfirstname').val();
-    var contactlastname = $('#contactlastname').val();
-    var contactcountry = $('#contactcountry').val();
-    var contactnumber = $('#contactnumber').val();
-    var contactemail = $('#contactemail').val();
-    var contactpostcode = $('#contactpostcode').val();
+    var contactfirstname = $("#contactfirstname").val();
+    var contactlastname = $("#contactlastname").val();
+    var contactcountry = $("#contactcountry").val();
+    var contactnumber = $("#contactnumber").val();
+    var contactemail = $("#contactemail").val();
+    var contactpostcode = $("#contactpostcode").val();
     // emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
-    
+
     // emailReg = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
     // emailReg = /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?!con)$/;
     // emailReg = /^(?!.*[._]{2})[a-zA-Z0-9]{2,}(?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
-    emailReg = /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
+    emailReg =
+      /^(?!.*[._]{2})[a-zA-Z0-9](?!.*[._@]$)[a-zA-Z0-9._%+-]*@[a-zA-Z0-9-]{2,}\.[a-zA-Z]{2,}(?!con)$/;
 
     valid = true;
     if (!valid) {
       event.preventDefault();
     }
-    if (contactfirstname == '') {
-      $('#contactfirstname').after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>')
+    if (contactfirstname == "") {
+      $("#contactfirstname").after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>');
       valid = false;
-    }
-    if (contactlastname == '') {
-
-      $('#contactlastname').after('<span class="text-danger fs-12 position-absolute" >Last Name cannot be blank.</span>')
-      valid = false;
-    }
-    if (contactcountry == '') {
-
-      $('#contactcountry').after('<span class="text-danger fs-12 position-absolute" >Phone Code cannot be blank.</span>')
-      valid = false;
-    }
-    if (contactnumber == '') {
-
-      $('#contactnumber').after('<span class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>')
-      valid = false;
-    }
-    // if (contactemail == '' || emailReg.test($('#contactemail').val())) {
-    //   console.log("IF COND");
-    //   $('#contactemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id</span>')
-    //   valid = false;
-    // } else {
-    //   console.log("ELSE COD");
-    //   const nextElement = $('#contactemail')[0]?.nextElementSibling;;
-    //   if (nextElement && nextElement.matches('.text-danger')) {
-    //       nextElement.remove();
-    //   }
-    // }
-
-
-    if ($('#contactemail').val() === '' || !emailReg.test($('#contactemail').val())) { 
-        const existingError = $('#contactemail').next('.text-danger');
-        $('#contactemail').after('<span class="text-danger fs-12 position-absolute">Enter valid Email Id</span>');
-        valid = false;
     } else {
-        const nextElement = $('#contactemail').next('.text-danger');
-        if (nextElement.length) {
-            nextElement.remove();
-        }
+      
     }
 
-    if (contactpostcode == '') {
-      $('#contactpostcode').after('<span class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>')
+    if (contactlastname == "") {
+      $("#contactlastname").after(
+        '<span class="text-danger fs-12 position-absolute" >Last Name cannot be blank.</span>'
+      );
       valid = false;
     }
+    if (contactcountry == "") {
+      $("#contactcountry").after(
+        '<span class="text-danger fs-12 position-absolute" >Phone Code cannot be blank.</span>'
+      );
+      valid = false;
+    }
+    if (contactnumber == "") {
+      $("#contactnumber").after(
+        '<span class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>'
+      );
+      valid = false;
+    }
+    if (
+      $("#contactemail").val() === "" ||
+      !emailReg.test($("#contactemail").val())
+    ) {
+      const existingError = $("#contactemail").next(".text-danger");
+      $("#contactemail").after(
+        '<span class="text-danger fs-12 position-absolute">Enter valid Email Id</span>'
+      );
+      valid = false;
+    } else {
+      const nextElement = $("#contactemail").next(".text-danger");
+      if (nextElement.length) {
+        nextElement.remove();
+      }
+    }
 
+    if (contactpostcode == "") {
+      $("#contactpostcode").after(
+        '<span class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>'
+      );
+      valid = false;
+    }
 
     // Set up form data for submission
     var formData = new FormData(this);
     if (validationErrors.length === 0 && valid == true) {
       $.ajax({
-        type: 'POST',
-        url: 'fetchData.php',
+        type: "POST",
+        url: "fetchData",
         data: formData,
         contentType: false,
         processData: false,
-        success: function(response) {
-          console.log('Response:', response);
-          if (response.success) { // Checking for success response
-              window.location.href = 'my-booking-step34.php';
+        success: function (response) {
+          if (response.success) {
+              const isLoggedIn = $("#user_id_loggedin").val();    
+              if (isLoggedIn) {
+                $("#payment_modal").modal("show");
+              } else {
+                $("#how_to_proceed_login").modal("show");
+              }
           } else {
-              alert('Error in fetch values');
+            alert("Error in fetch values");
           }
         },
-        error: function(jqXHR, textStatus, errorThrown) {
-            console.error('Error submitting form: ', textStatus, errorThrown);
-            console.error('Response text: ', jqXHR.responseText);
-        }
+        error: function (jqXHR, textStatus, errorThrown) {
+          console.error("Error submitting form: ", textStatus, errorThrown);
+          console.error("Response text: ", jqXHR.responseText);
+        },
       });
       // ----------------------end------------------------
-      
+
       // $.ajax({
-      //   url: 'booking-script.php',
+      //   url: 'booking-script',
       //   type: 'post',
       //   data: formData,
       //   processData: false,
@@ -3231,7 +3508,7 @@ $(document).ready(function () {
       //     if (response.faretype == "webfare") {
       //       if (response.orderstatus) {
       //         if (response.orderstatus == "order success") {
-      //           const redirectURL = 'my-booking-step3.php';
+      //           const redirectURL = 'my-booking-step3';
       //           window.location.href = redirectURL;
 
       //         } else {
@@ -3239,12 +3516,12 @@ $(document).ready(function () {
       //         }
       //       }
 
-      //       // const redirectURL = 'my-booking-step3.php';
+      //       // const redirectURL = 'my-booking-step3';
       //       // window.location.href = redirectURL;
       //     } else {
       //       if (response.orderstatus && response.ticketstatus) {
       //         if (response.orderstatus == "order success" && response.ticketstatus == "ticket sucess") {
-      //           const redirectURL = 'my-booking-step3.php';
+      //           const redirectURL = 'my-booking-step3';
       //           window.location.href = redirectURL;
 
       //         } else if (response.orderstatus != "order success") {
@@ -3266,8 +3543,6 @@ $(document).ready(function () {
 
       //     }
 
-
-
       //   },
       //   error: function () {
       //     // alert('Error submitting form');
@@ -3279,37 +3554,49 @@ $(document).ready(function () {
     }
   });
 
-
   //------------------------------------END ----------------------------------
 
 
+  $("#continue_as_guest").click(function () {
+    $("#how_to_proceed_login").modal("hide");
+    $("#payment_modal").modal("show");
+  });
+  $("#continue_as_login").click(function () {
+    $("#how_to_proceed_login").modal("hide");
+    $("#LoginModal").modal("show");
+  });
+  $("#continue_as_register").click(function () {
+    window.location.href ="registration?searchFlights=true";
+  });
+  
+  
+
+
   // -------------payment submit--------------------
-  $('#payment-booking').submit(function (event) {
+  $("#payment-booking").submit(function (event) {
     event.preventDefault();
 
     var formData = new FormData(this);
     $.ajax({
-      url: 'payment-script.php',
-      type: 'post',
+      url: "payment-script",
+      type: "post",
       data: formData,
       processData: false,
       contentType: false,
-      dataType: 'json',
+      dataType: "json",
       success: function (response) {
-        window.location.href = 'confirmation.php?bookingid=' + encodeURIComponent(response.bookingid);
+        window.location.href =
+          "confirmation?bookingid=" +
+          encodeURIComponent(response.bookingid);
         // alert("Booking successfully Completed");
-
-
-
       },
       error: function () {
         // alert('Error submitting form');
         console.log();
-      }
+      },
     });
   });
   //------------end------------------------------
-
 
   function displayError(input, errorMessage) {
     const errorSpan = input.nextElementSibling;
@@ -3321,27 +3608,30 @@ $(document).ready(function () {
     errorSpan.textContent = "";
   }
 
-
-
   //////////////////Load Login form at the time of book flight------------------
 
-  $('#booking-user-login').submit(function (event) {
-
+  $("#booking-user-login").submit(function (event) {
     event.preventDefault();
     // Validate form data
 
-    var email = $('#loginemail').val();
-    var password = $('#loginpassword').val();
+    var email = $("#loginemail").val();
+    var password = $("#loginpassword").val();
     emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     valid = true;
 
-    if ($('#loginemail').val() == '' || !emailReg.test($('#loginemail').val())) {
-
-      $('#loginemail').after('<span class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>')
+    if (
+      $("#loginemail").val() == "" ||
+      !emailReg.test($("#loginemail").val())
+    ) {
+      $("#loginemail").after(
+        '<span class="text-danger fs-12 position-absolute" >Enter valid Email Id.</span>'
+      );
       valid = false;
     }
-    if (password == '') {
-      $('#loginpassword').after('<span class="text-danger fs-12 position-absolute" >Enter your Password.</span>')
+    if (password == "") {
+      $("#loginpassword").after(
+        '<span class="text-danger fs-12 position-absolute" >Enter your Password.</span>'
+      );
       valid = false;
     }
 
@@ -3349,90 +3639,76 @@ $(document).ready(function () {
       return false;
     }
 
-
-
     // Set up form data for submission
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'login-script.php',
-      type: 'post',
+      url: "login-script",
+      type: "post",
       data: formData,
       processData: false,
       contentType: false,
       success: function (response) {
-        if (response == 'error') {
+        if (response == "error") {
           alert("invalid email or password");
-          $('#email').val('');
-          $('#password').val('');
-        } else if (response == 'endsuccess') {
+          $("#email").val("");
+          $("#password").val("");
+        } else if (response == "endsuccess") {
           // document.getElementById('logindiv').style.display = 'block';
           // document.getElementById('login-form').style.display = 'none';
           location.reload(true);
-        }
-        else if (response == 'agentsuccess') {
+        } else if (response == "agentsuccess") {
           // document.getElementById('logindiv').style.display = 'block';
           // document.getElementById('login-form').style.display = 'none';
           location.reload(true);
-        } else if (response == 'agenterror') {
+        } else if (response == "agenterror") {
           alert("approval is on progress..");
         }
-
-
       },
       error: function () {
-        alert('Error submitting form');
-      }
+        alert("Error submitting form");
+      },
     });
-
-
   });
-
-
 
   //----------------cancel booking---------------
 
-  $('#cancel-booking').submit(function (event) {
-
-    $(".cancel_button_trip").attr('disabled', true);
-    $(".cancel_button_trip").html('Cancel <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>');
+  $("#cancel-booking").submit(function (event) {
+    $(".cancel_button_trip").attr("disabled", true);
+    $(".cancel_button_trip").html(
+      'Cancel <br /> <i class="fas fa-circle-notch fa-spin spinner"></i>'
+    );
 
     event.preventDefault();
     var formData = new FormData(this);
     $.ajax({
-      url: 'cancel-script.php',
-      type: 'post',
+      url: "cancel-script",
+      type: "post",
       data: formData,
       processData: false,
       contentType: false,
-      dataType: 'json',
+      dataType: "json",
       success: function (response) {
         res = JSON.parse(response);
         // console.log(res)
-        if(res.Message){
+        if (res.Message) {
           alert(res.Message);
-          if(res.Success){
-            window.location.href = 'user-dashboard.php';
+          if (res.Success) {
+            window.location.href = "user-dashboard";
           }
         }
-        
-        $(".cancel_button_trip").attr('disabled', false);
-        $(".cancel_button_trip").html('Cancel');
 
+        $(".cancel_button_trip").attr("disabled", false);
+        $(".cancel_button_trip").html("Cancel");
       },
       error: function () {
         // alert('Error submitting form');
         console.log();
-      }
+      },
     });
   });
 
-
   //-------------------Multicity add trip form---------------
-
-
-
-
 
   let tripNum = 2; // Initialize tripNum with 2 since we already have two trips (1 and 2) in the form
   let totalTrips = 2; // Counter for the total number of trips
@@ -3442,16 +3718,16 @@ $(document).ready(function () {
   // });
 
   function addNewTripField() {
-      const maxTrips = 6;
-      if (totalTrips < maxTrips) {
-          tripNum++;
-          totalTrips++;
+    const maxTrips = 6;
+    if (totalTrips < maxTrips) {
+      tripNum++;
+      totalTrips++;
 
-          const newTripDiv = document.createElement('div');
-          newTripDiv.classList.add('row', 'mt-md-2');
-          newTripDiv.id = `trip_${tripNum}`;
+      const newTripDiv = document.createElement("div");
+      newTripDiv.classList.add("row", "mt-md-2");
+      newTripDiv.id = `trip_${tripNum}`;
 
-          newTripDiv.innerHTML = `
+      newTripDiv.innerHTML = `
               <div class="form-fields col-md-4">
                   <input type="text" class="form-control" name="departure_from_${tripNum}" placeholder="Departing From" >
               </div>
@@ -3471,47 +3747,59 @@ $(document).ready(function () {
               </div>
           `;
 
-          document.getElementById('additional_trips').appendChild(newTripDiv);
-          document.getElementById('add_trip_button').disabled = totalTrips === maxTrips;
-          addCloseButtonEventListener(tripNum);
-      }
+      document.getElementById("additional_trips").appendChild(newTripDiv);
+      document.getElementById("add_trip_button").disabled =
+        totalTrips === maxTrips;
+      addCloseButtonEventListener(tripNum);
+    }
   }
 
   function addCloseButtonEventListener(tripNum) {
-      const closeButton = document.querySelector(`[data-tripnum="${tripNum}"]`);
-      closeButton.addEventListener('click', function() {
-          const tripNumToRemove = this.getAttribute('data-tripnum');
-          removeTrip(tripNumToRemove);
-      });
+    const closeButton = document.querySelector(`[data-tripnum="${tripNum}"]`);
+    closeButton.addEventListener("click", function () {
+      const tripNumToRemove = this.getAttribute("data-tripnum");
+      removeTrip(tripNumToRemove);
+    });
   }
 
   function removeTrip(tripNumToRemove) {
-      const tripToRemove = document.getElementById('trip_' + tripNumToRemove);
-      tripToRemove.remove();
+    const tripToRemove = document.getElementById("trip_" + tripNumToRemove);
+    tripToRemove.remove();
 
-      // Update the totalTrips counter and enable the "Add Trip" button after removing a trip
-      totalTrips--;
-      document.getElementById('add_trip_button').disabled = totalTrips === maxTrips - 1;
+    // Update the totalTrips counter and enable the "Add Trip" button after removing a trip
+    totalTrips--;
+    document.getElementById("add_trip_button").disabled =
+      totalTrips === maxTrips - 1;
 
-      // Remove the trip details from the form submission data
-      const departureInput = document.querySelector(`input[name="departure_from_${tripNumToRemove}"]`);
-      const arrivalInput = document.querySelector(`input[name="arrival_to_${tripNumToRemove}"]`);
-      const departureDateInput = document.querySelector(`input[name="departure_date_${tripNumToRemove}"]`);
+    // Remove the trip details from the form submission data
+    const departureInput = document.querySelector(
+      `input[name="departure_from_${tripNumToRemove}"]`
+    );
+    const arrivalInput = document.querySelector(
+      `input[name="arrival_to_${tripNumToRemove}"]`
+    );
+    const departureDateInput = document.querySelector(
+      `input[name="departure_date_${tripNumToRemove}"]`
+    );
 
-      if (departureInput) departureInput.remove();
-      if (arrivalInput) arrivalInput.remove();
-      if (departureDateInput) departureDateInput.remove();
+    if (departureInput) departureInput.remove();
+    if (arrivalInput) arrivalInput.remove();
+    if (departureDateInput) departureDateInput.remove();
   }
-    
-
 
   function collectTripDetails($tripCout) {
     const tripDetails = [];
-   
+
     for (let i = 1; i <= $tripCout; i++) {
-      const departureInput = document.querySelector(`input[name="departure_from_${i}"]`);
-      const arrivalInput = document.querySelector(`input[name="arrival_to_${i}"]`);
-      const departureDateInput = document.querySelector(`input[name="departure_date_${i}"]`);
+      const departureInput = document.querySelector(
+        `input[name="departure_from_${i}"]`
+      );
+      const arrivalInput = document.querySelector(
+        `input[name="arrival_to_${i}"]`
+      );
+      const departureDateInput = document.querySelector(
+        `input[name="departure_date_${i}"]`
+      );
 
       const departureFromValue = departureInput.value;
       const arrivalToValue = arrivalInput.value;
@@ -3530,26 +3818,25 @@ $(document).ready(function () {
       // }
       tripDetails.push(tripDetailObj);
     }
-   
-    console.log(tripDetails)
+
+    console.log(tripDetails);
     return tripDetails;
   }
 
-
- 
   //news letter script
 
-  $('#newsletter-subscribe').submit(function (event) {
+  $("#newsletter-subscribe").submit(function (event) {
     event.preventDefault();
     // Validate form data
-    var email = $('#newsletter-email').val();
+    var email = $("#newsletter-email").val();
     // var name = $('#newsletter-name').val();
     emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     valid = true;
 
-    if (email == '' || !emailReg.test(email)) {
-
-      $('#newsletter-email-error').html('<span class="text-danger position-absolute" >Enter valid Email Address.</span>')
+    if (email == "" || !emailReg.test(email)) {
+      $("#newsletter-email-error").html(
+        '<span class="text-danger position-absolute" >Enter valid Email Address.</span>'
+      );
       valid = false;
     }
     // if (name == '') {
@@ -3561,129 +3848,366 @@ $(document).ready(function () {
       return false;
     }
 
-
     // Set up form data for submission
-    $('#login_message').text("");
+    $("#login_message").text("");
     var formData = new FormData(this);
     // Submit form via AJAX
     $.ajax({
-      url: 'newsletter-script.php',
-      type: 'post',
+      url: "newsletter-script",
+      type: "post",
       data: formData,
       processData: false,
       contentType: false,
       success: function (response) {
-        if( response == 1 ) {
+        if (response == 1) {
           Swal.fire({
             title: "Newsletter Subscribed!",
             text: "Subscription successful. Thank you for subscribing!",
             icon: "success",
-            confirmButtonText: "Close"
+            confirmButtonText: "Close",
           });
         } else {
           Swal.fire({
             title: "Error",
             text: response,
-            icon: "error"
+            icon: "error",
           });
         }
         $("#newsletter-email").val("");
         $("newsletter-email-error").html("");
-
       },
       error: function () {
-        alert('Error submitting form');
-      }
+        alert("Error submitting form");
+      },
     });
   });
 
-
   //==============================
   //----------------------------Contact Us Submit-------------------
-  
 
-$('#contactus-submit').submit(function (event) {
-  $("#contactus-submit-button").attr('disabled',true);
-  event.preventDefault();
-  // Validate form data
-  var email = $('#contact-email').val();
-  var name = $('#contact-name').val();
-  var subject = $('#contact-subject').val();
-  var message = $('#contact-message').val();
-  emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
-  valid = true;
+  $("#contactus-submit").submit(function (event) {
+    $("#contactus-submit-button").attr("disabled", true);
+    event.preventDefault();
+    // Validate form data
+    var email = $("#contact-email").val();
+    var name = $("#contact-name").val();
+    var subject = $("#contact-subject").val();
+    var message = $("#contact-message").val();
+    emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
+    valid = true;
 
-  if (email == '' || !emailReg.test(email)) {
-
-    $('#contact-email').after('<span class="position-absolute text-danger fs-12" >Enter valid Email Id.</span>')
-    valid = false;
-  }
-  if (name == '') {
-    $('#contact-name').after('<span class="position-absolute text-danger fs-12" >Enter your Password.</span>')
-    valid = false;
-  }
-  if (subject == '') {
-    $('#contact-subject').after('<span class="position-absolute text-danger fs-12" >Enter Subject.</span>')
-    valid = false;
-  }
-  if (message == '') {
-    $('#contact-message').after('<span class="position-absolute text-danger fs-12" >Enter Message.</span>')
-    valid = false;
-  }
-
-  if (!valid) {
-    $("#contactus-submit-button").attr('disabled',false);
-    return false;
-  }
-
-
-
-  // Set up form data for submission
-  $('#login_message').text("");
-  var formData = new FormData(this);
-  // Submit form via AJAX
-
-  $.ajax({
-    url: 'contactus-script.php',
-    type: 'post',
-    // data: formData,
-    data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "no" },
-    success: function (response) {
-      // alert(response);
-      $('#errorMessage').text(response);
-      $('#errorModal').modal('show');
-      $("#contactus-submit-button").attr('disabled',false);
-
-      $(".close").click(function(){
-        $(this).parents('.modal').modal('hide');
-        location.reload();
-      });
-
-      $.ajax({
-        url: 'contactus-script.php',
-        type: 'post',
-        data: { "contact-email": email, "contact-name": name, "contact-subject": subject, "contact-message": message, "email_flag": "yes" },
-        success: function (response) {}
-      });
-
-    },
-    error: function () {
-      alert('Error submitting form');
-      $("#contactus-submit-button").attr('disabled',false);
+    if (email == "" || !emailReg.test(email)) {
+      $("#contact-email").after(
+        '<span class="position-absolute text-danger fs-12" >Enter valid Email Id.</span>'
+      );
+      valid = false;
     }
+    if (name == "") {
+      $("#contact-name").after(
+        '<span class="position-absolute text-danger fs-12" >Enter your Password.</span>'
+      );
+      valid = false;
+    }
+    if (subject == "") {
+      $("#contact-subject").after(
+        '<span class="position-absolute text-danger fs-12" >Enter Subject.</span>'
+      );
+      valid = false;
+    }
+    if (message == "") {
+      $("#contact-message").after(
+        '<span class="position-absolute text-danger fs-12" >Enter Message.</span>'
+      );
+      valid = false;
+    }
+
+    if (!valid) {
+      $("#contactus-submit-button").attr("disabled", false);
+      return false;
+    }
+
+    // Set up form data for submission
+    $("#login_message").text("");
+    var formData = new FormData(this);
+    // Submit form via AJAX
+
+    $.ajax({
+      url: "contactus-script",
+      type: "post",
+      // data: formData,
+      data: {
+        "contact-email": email,
+        "contact-name": name,
+        "contact-subject": subject,
+        "contact-message": message,
+        email_flag: "no",
+      },
+      success: function (response) {
+        // alert(response);
+        $("#errorMessage").text(response);
+        $("#errorModal").modal("show");
+        $("#contactus-submit-button").attr("disabled", false);
+
+        $(".close").click(function () {
+          $(this).parents(".modal").modal("hide");
+          location.reload();
+        });
+
+        $.ajax({
+          url: "contactus-script",
+          type: "post",
+          data: {
+            "contact-email": email,
+            "contact-name": name,
+            "contact-subject": subject,
+            "contact-message": message,
+            email_flag: "yes",
+          },
+          success: function (response) {},
+        });
+      },
+      error: function () {
+        alert("Error submitting form");
+        $("#contactus-submit-button").attr("disabled", false);
+      },
+    });
   });
-});
 
-$('#cabin-preference').on('change', function() {
-    var selectedText = $(this).find('option:selected').text();
-    $('#selected_cabin_text').val(selectedText);
-});
-
-
+  $("#cabin-preference").on("change", function () {
+    var selectedText = $(this).find("option:selected").text();
+    $("#selected_cabin_text").val(selectedText);
+  });
 });
 
 $(window).on("load", function () {
   if ($("#travellerContinueButton").is(":visible")) {
-      $("#travellerContinueButton").click();
+    $("#travellerContinueButton").click();
   }
+});
+
+
+$(document).ready(function () {
+    $('#paymentFormCC').submit(function(event) {
+      
+      event.preventDefault();
+      /*
+      // var formDataBook = $('#paymentForm').serialize();
+      // var totalAmount = $('input[name="Totalamount"]').val();
+      
+      let errorMsg = '';
+      const cardHolderName = $('#custName').val();
+      const cardType = $('#cardType').val();
+      const cardNumber = $('#cardNo').val().replace(/\s+/g, ''); // Remove spaces for validation
+      const cardExpy = $('#cardExpyear option:selected').val();
+      console.log(cardExpy);
+      const cardExpm = $('#cardExpmon option:selected').val();
+      console.log(cardExpm);
+      const cvv = $('#cvv').val();
+      const checkTerms = $('#checkTerms').is(':checked');
+
+      if (!cardHolderName) {
+          errorMsg = 'Card Holder Name is required';
+          $(".error_paymentcust_name").html(errorMsg);
+          return false;
+      }
+      //  else if (!cardType) {
+      //     errorMsg = 'Card Type is required';
+      //     $(".error_paymentcard_type").html(errorMsg);
+      //     $(".error_paymentcust_name").html("");
+      //     return false;
+      // } 
+      else if (!cardNumber || isNaN(cardNumber) || cardNumber.length < 14 || cardNumber.length > 16) {
+          errorMsg = 'Card Number is invalid';
+          $(".error_paymentcard_no").html(errorMsg);
+          $(".error_paymentcust_name").html("");
+          $(".error_paymentcard_type").html("");
+          return false;
+      } else if (!cardExpm || isNaN(cardExpm) || parseInt(cardExpm) < 1 || parseInt(cardExpm) > 12) {
+        errorMsg = 'Card Expiry Month is invalid';
+        $(".error_paymentcardexpmon").html(errorMsg);
+        $(".error_paymentcard_expiry").html("");
+        $(".error_paymentcard_no").html("");
+        $(".error_paymentcust_name").html("");
+        $(".error_paymentcard_type").html("");
+        return false;
+    } else if (!cardExpy || isNaN(cardExpy) || cardExpy.length !== 4) {
+          errorMsg = 'Card Expiry Year is invalid';
+          $(".error_paymentcard_expiry").html(errorMsg);
+          $(".error_paymentcardexpmon").html("");
+          $(".error_paymentcard_no").html("");
+          $(".error_paymentcust_name").html("");
+          $(".error_paymentcard_type").html("");
+          return false;
+      } else if (!cvv || isNaN(cvv) || cvv.length < 3 || cvv.length > 4) {
+          errorMsg = 'CVV is invalid';
+          $(".error_paymentcvc").html(errorMsg);
+          $(".error_paymentcardexpmon").html("");
+          $(".error_paymentcard_expiry").html("");
+          $(".error_paymentcard_no").html("");
+          $(".error_paymentcust_name").html("");
+          $(".error_paymentcard_type").html("");
+          return false;
+      }
+      $(".error_paymentcvc").html("");
+      $(".error_paymentcardexpmon").html("");
+      $(".error_paymentcard_expiry").html("");
+      $(".error_paymentcard_no").html("");
+      $(".error_paymentcust_name").html("");
+      $(".error_paymentcard_type").html("");
+      //  else if (!checkTerms) {
+      //     errorMsg = 'You must agree to the terms and conditions';
+      //     $(".error_paymentcust_name").html(errorMsg);
+      //     return;
+      // }
+
+      const formData = {
+          Name: cardHolderName,
+          // cardType: cardType,
+          cardNumber: cardNumber,
+          cardExpy: cardExpy,
+          cardExpm: cardExpm,
+          cvv: cvv
+      };
+      */
+        $("#loaderIcon").show();
+        $(".submit_payment_btn").attr("disabled", true);
+        $(".submit_payment_btn").html('<i class="fas fa-circle-notch fa-spin spinner"></i>');
+        $(".close_payment_btn").attr("disabled", true);
+        $(".close_payment_btn").hide();
+
+        $.ajax({
+          url: 'temp_booking_save',
+          type: 'post',
+          dataType: 'json',
+          success: function (response) {
+            console.log(response.booking_id);
+            if( response.booking_id != '' ) {
+              
+              $.ajax({
+                    url: 'windcave',
+                    method: 'POST',
+                    contentType: 'application/json',
+                    data: {"booking_id":response.booking_id},
+                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                    dataType: 'json',
+                    success: function(response) {
+                        document.location.href = response.url;
+                        return false;
+                        $("#loaderIcon").hide();
+                        if (response.status === 'success') {
+                            $('#errorMessagePayment').html("Thank you for your patience! Please don't refresh or close this page while we process your payment and booking.");
+                                // $('#errorMessagePayment').html("Your payment was successful, and we are proceeding with the booking process.");
+                                $.ajax({
+                                    url: 'user-booking-script',
+                                    type: 'post',
+                                    data: {
+                                        requestId: response.requestId,
+                                        timestamp: response.timestamp
+                                    },
+                                    dataType: 'json',
+                                    success: function (response) {
+                                        $("#loaderIcon").hide();
+                                        if (response.errors && response.errors.length > 0) {
+                                            // $('#errorMessagePayment').html("Your Booking is :" + response.BookStatus + "</br>Airline Error:" + response.errors + "</br> After Verification,Your Debited amount will be Repayed within 7 days ");
+                                            // window.location.href = "index";
+        
+                                            Swal.fire({
+                                              title: "Booking Failed",
+                                              text: "Airline Error:" + response.errors + " After Verification,Your Debited amount will be Repayed within 7 days ",
+                                              icon: "error",
+                                              confirmButtonText: "Close",
+                                              confirmButtonColor: "#f57c00", 
+                                              allowOutsideClick: false, 
+                                            }).then((result) => {
+                                                    window.location.href = "index";
+                                            });
+        
+        
+                                        } else {
+                                            if (response.ticketstatus) {
+                                                if (response.BookStatus == "CONFIRMED") {
+                                                  let countdown = 5;
+                                                    Swal.fire({
+                                                      title: "Booking Confirmed",
+                                                      html: `Your flight booking and ticket have been successfully confirmed. <br>
+                                                            Kindly proceed to the confirmation page in <strong id="countdown">${countdown}</strong> seconds.`,
+                                                      icon: "success",
+                                                      confirmButtonText: "Navigate to the confirmation page now",
+                                                      confirmButtonColor: "#f57c00",
+                                                      allowOutsideClick: false
+                                                    }).then(() => {
+                                                      window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                    });
+                                                    const interval = setInterval(() => {
+                                                      countdown--;
+                                                      document.getElementById("countdown").textContent = countdown;
+                                                      if (countdown <= 0) {
+                                                        clearInterval(interval);
+                                                        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                      }
+                                                    }, 1000);
+                                                } else if ((response.BookStatus == "PENDING") && (response.bookingid != '' && response.bookingid != undefined)) {
+                                                    Swal.fire({
+                                                      title: "Your booking is currently in progress.",
+                                                      text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
+                                                      icon: "info",
+                                                      confirmButtonText: "Close",
+                                                      confirmButtonColor: "#f57c00", 
+                                                      allowOutsideClick: false, 
+                                                    }).then((result) => {
+                                                        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                    });
+                                                } else if ((response.BookStatus == "PENDING") && (response.bookingid == '' || response.bookingid == undefined)) {
+                                                  Swal.fire({
+                                                    title: "Booking Failed",
+                                                    text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
+                                                    icon: "error",
+                                                    confirmButtonText: "Close",
+                                                    confirmButtonColor: "#f57c00", 
+                                                    allowOutsideClick: false, 
+                                                  }).then((result) => {
+                                                      window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                  });
+                                              } else if ((response.BookStatus == "BookingInProcess") && (response.bookingid == '' || response.bookingid == undefined)) {
+                                                Swal.fire({
+                                                  title: "Booking in Process",
+                                                  text: "Your booking is currently being processed. The final confirmation depends on the airline. It may either get confirmed or unconfirmed. We recommend checking back later for updates.",
+                                                  icon: "warning",
+                                                  confirmButtonText: "Close",
+                                                  confirmButtonColor: "#f57c00", 
+                                                  allowOutsideClick: false, 
+                                                }).then((result) => {
+                                                    window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                });
+                                            }
+                                              
+                                                // else if (response.ticketstatus == "Failed") {
+                                                //       $('#errorMessagePayment').text("Your Booking is :" + response.BookStatus + "Ticket Generation Failed");
+                                                //       $('#errorModal').modal('show');
+                                                //       $(".close").click(function () {
+                                                //           $(this).parents('.modal').modal('hide');
+                                                //       });
+                                                //       window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                                                //   }
+                                            }
+                                        }
+                                    }
+                                });
+                        } else {
+                            $('#errorMessagePayment').html("Your Transaction Failed with an  Error: " + response.message + "</br> Please Try agin later");
+                        }
+                    }
+                });
+
+
+
+
+
+
+
+
+            }
+          }
+      });
+    });
 });

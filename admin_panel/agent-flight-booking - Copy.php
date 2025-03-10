@@ -61,7 +61,7 @@ foreach ($listBooking as $row) {
                                     <td><span class="badge bg-success">Completed</span></td>
                                     <td>26/05/2023</td>
                                     <td>
-                                        <a href="agent-flight-booking-details.php"><i class="fa fa-eye">&nbsp;</i></a>
+                                        <a href="agent-flight-booking-details"><i class="fa fa-eye">&nbsp;</i></a>
                                     </td>
                                 </tr>
                             </tbody>

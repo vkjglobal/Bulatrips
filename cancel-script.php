@@ -10,9 +10,9 @@
      $bookingId = $_POST['booking-id'];
      $adminToemail = "no-reply@bulatrips.com";
     if(isset($bookingId)){
-        $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid and user_id = :userid');
+        $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid');
         $userId = $_SESSION['user_id'];
-        $stmtbookingid->execute(array('bookingid' => $bookingId,'userid' => $userId ));
+        $stmtbookingid->execute(array('bookingid' => $bookingId ));
         $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
         $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Booking/Cancel';
         $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';

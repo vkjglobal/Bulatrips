@@ -1,6 +1,6 @@
 
 <?php
-error_reporting(0);
+error_reporting(1);
 session_start();
 
 require_once("includes/header.php");
@@ -24,10 +24,10 @@ if ($response !== false) {
 if (!isset($_SESSION['user_id'])) {
 ?>
     <script>
-        window.location = "index.php"
+       // window.location = "index.php"
     </script>
 <?php
-exit;
+
 }
 //---------
 // Prevent caching
@@ -148,7 +148,7 @@ if(isset($revalidData['mealService1'])){
                     <div class="col-12">
                         <ul class="breadcrumbs">
                             <li><a href="index.php" style="text-decoration: underline !important;">Home</a></li>
-                            <li><a href="result.php" style="text-decoration: underline !important;">Search Flights</a></li>
+                            <li><a href="flights" style="text-decoration: underline !important;">Search Flights</a></li>
                             <li> Flight Details</li>
                         </ul>
                     </div>

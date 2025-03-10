@@ -46,7 +46,7 @@ if(isset($_POST['email'])){
                                         <td style="text-align:center;padding-bottom:15px;padding-top:15px">
                                             <h2 style="margin-top:0;margin-bottom:0">
                                                 <img width="125" height="30"
-                                                    src="https://bulatrips.com/images/bulatrips-logo.png"
+                                                    src="https://bulatrips.com/images/Image-Logo-vec.png"
                                                     alt="Bulatrip" title="Bulatrip"
                                                     style="height:30px;width:125px;display:inline-block;margin-top:0;margin-bottom:0"
                                                     class="CToWUd" data-bit="iit">

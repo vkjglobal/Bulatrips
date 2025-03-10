@@ -26,7 +26,7 @@ include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
 
 // echo "<pre>";
-//     print_r($_POST);
+    // print_r($_POST);
 //     print_r($_REQUEST);
 //     print_r($_GET);
 // echo "</pre>";
@@ -47,10 +47,11 @@ $AP_country_id = $AP_country_name_fetch['id'];
 
 
     $fsCode = $_POST['fscode'];
-    if (isset($_SESSION['last_fscode']) && $_SESSION['last_fscode'] === $fsCode) {
+    // if (isset($_SESSION['last_fscode']) && $_SESSION['last_fscode'] === $fsCode) {
         
-    } else {
-        $_SESSION['last_fscode'] = $fsCode;
+    // } else {
+    //     $_SESSION['last_fscode'] = $fsCode;
+    
         // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
         // $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
 
@@ -78,7 +79,7 @@ $AP_country_id = $AP_country_name_fetch['id'];
             $responseData = json_decode($response, true);
         }
         $_SESSION['Revalidateresponse'] = $responseData;
-    }
+    // }
 
 
 if(isset($fsCode)) {
@@ -91,7 +92,7 @@ if(isset($fsCode)) {
     // echo '</pre>';
     //=================log write for revalidate API ======
                    
-                    $logRes =   print_r($responseData, true);
+                    $logRes =   print_r($responseData, true); 
                   $logReQ =   print_r($requestData, true);
                     $objBook->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','revalidate.txt');
                     $objBook->_writeLog('Request Received\n'.$logReQ,'revalidate.txt');
@@ -140,6 +141,16 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
 
     
   ?>
+
+<div class="full-page-spinner">
+  <div class="spinner-border" role="status">
+    <video autoplay muted loop>
+        <source src="images/video/airoplane_loading.mp4" type="video/mp4">
+    </video>
+
+  </div>
+</div>
+
     <section class="bg-070F4E" style="margin-bottom: 18px;">
         <div class="container p-3">
             
@@ -191,8 +202,8 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                 <div class="row">
                     <div class="col-12">
                         <ul class="breadcrumbs">
-                            <li><a href="index.php" style="text-decoration: underline !important;">Home</a></li>
-                            <li><a href="result.php" style="text-decoration: underline !important;">Search Flights</a></li>
+                            <li><a href="index" style="text-decoration: underline !important;">Home</a></li>
+                            <li><a href="result" style="text-decoration: underline !important;">Search Flights</a></li>
                             <li> Flight Details</li>
                         </ul>
                     </div>
@@ -767,7 +778,12 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                                                                     <ul class="row">
                                                                         <li class="col-4">Cabin</li>
                                                                         <!-- <li class="col-4">1 pcs/person</li> -->
-                                                                        <li class="col-4"><?php echo  $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index] ?></li>
+                                                                        <li class="col-4">
+                                                                                <?php if (strtolower($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index]) == "sb") {
+                                                                                                    echo "Standard Baggage";
+                                                                                                } else {
+                                                                                                    echo $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index];
+                                                                                                } ?>
                                                                     </ul>
                                                                     <?php
                                                                     // }
@@ -1020,7 +1036,7 @@ if(isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Error
                         */
                         ?>
                     </div>
-                    <a href="registration.php" class="fs-14 text-below-button" target="_blank">New User ? Click Here to <span class="fw-600">Register</span></a>
+                    <a href="registration" class="fs-14 text-below-button" target="_blank">New User ? Click Here to <span class="fw-600">Register</span></a>
                 <?php } ?>
 
                 <?php //if (isset($_SESSION['user_id'])) {echo 'style="display: block;"';} else {echo 'style="display: none;"';} ?>
@@ -1346,7 +1362,7 @@ require_once("includes/footer.php");
                 // echo '$(".close").click(function(){ $(this).parents(".modal").modal("hide"); });';
                 echo  '$(".close").click(function() {
                 // Redirect to another page
-                window.location.href = "result.php";
+                window.location.href = "result";
             });';
 
              }
@@ -1378,7 +1394,7 @@ require_once("includes/footer.php");
     $('#login_message').text("");
    // $("#loaderIcon").show();
     $.ajax({
-      url: 'farerule.php',
+      url: 'farerule',
       type: 'post',
       data: formData,
       contentType: false,
@@ -1387,25 +1403,26 @@ require_once("includes/footer.php");
       success: function (response) {
          // $("#loaderIcon").hide();
         if (response) {
+          var fareRules = response.fareRules;
+          fareRules.forEach(function (key, index) {
+            console.log(key['RuleDetails']);
+            key['RuleDetails'].forEach(function (rule, index_inner) {
+                    var category = rule.Category;
+                    var rules = rule.Rules;
+                    // Check if the category is "Penalty" or "Return"
+                    // if (category === "PENALTIES" || category === "TICKET ENDORSEMENTS") {
+                    if (category === "PENALTIES") {
+                    // Create a heading for the category
+                    // var categoryHeading = category;
+                    // $('#fareresult').append(categoryHeading);
 
-          console.log(response.fareRules);
-          var fareRules = response.fareRules[0]['RuleDetails'];
-
-          fareRules.forEach(function (rule, index) {
-            var category = rule.Category;
-            var rules = rule.Rules;
-            // Check if the category is "Penalty" or "Return"
-            // if (category === "PENALTIES" || category === "TICKET ENDORSEMENTS") {
-            if (category === "PENALTIES") {
-              // Create a heading for the category
-              // var categoryHeading = category;
-              // $('#fareresult').append(categoryHeading);
-
-              // Create a paragraph for the rules
-              var rulesParagraph = rules;
-              $('#fareresult').append(rulesParagraph);
-            }
-          });
+                    // Create a paragraph for the rules
+                    var rulesParagraph = rules;
+                    $('#fareresult').append(rulesParagraph);
+                    }
+                });
+            
+            });
         } else {
 
         }

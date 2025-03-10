@@ -15,4 +15,8 @@ class Markup extends MyConnection {
         $result = $this->getMarkbyUserid($role);
         return $result;
     }
+    public function getSettingDetails() {
+        $result = $this->getIPGMarkup();
+        return $result;
+    }
 }

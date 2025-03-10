@@ -134,62 +134,40 @@ require_once('includes/dbConnect.php');
         $response = curl_exec($ch);
         curl_close($ch);
 
-        // Handle the API response
-       
         if ($response) {
             $responseData = json_decode($response, true);
             $_SESSION['response'] = $responseData;
-            // echo '<pre>';
-            // print_r($responseData);
-            // echo '</pre>';
-
-
-            if ($responseData['Success'] == 1) {
-                if (isset($responseData['Data']['PricedItineraries'])) {
-                    $pricedItineraries = $responseData['Data']['PricedItineraries'];
-                } else {
-                    echo "PricedItineraries key is missing in the API response.";
-                }
-            } else {
-                echo "API response indicates an error.";
-            }
+         
+            // if ($responseData['Success'] == 1) {
+            //     if (isset($responseData['Data']['PricedItineraries'])) {
+            //         $pricedItineraries = $responseData['Data']['PricedItineraries'];
+            //     } else {
+            //         echo "PricedItineraries key is missing in the API response.";
+            //     }
+            // } else {
+            //     echo "API response indicates an error.";
+            // }
         }
-    // }
-
-   
 
 
+// $totalFlights = count($pricedItineraries);
 
-    // echo '<pre>';
-    // print_r($responseData);
-    // echo '</pre>';
+// $flightsPerPage = 15;
 
+// $totalPages = ceil($totalFlights / $flightsPerPage);
 
-// Determine the total number of flights
-$totalFlights = count($pricedItineraries);
+// $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 
-// Set the number of flights to display per page
-$flightsPerPage = 15;
+// $startIndex = ($page - 1) * $flightsPerPage;
 
-// Calculate the total number of pages
-$totalPages = ceil($totalFlights / $flightsPerPage);
-
-// Retrieve the current page number from the request or use a default value
-$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
-
-// Calculate the starting index of the flights to display on the current page
-$startIndex = ($page - 1) * $flightsPerPage;
-
-// Get the flights for the current page
-$currentPageFlights = array_slice($pricedItineraries, $startIndex, $flightsPerPage);
-// print_r($_SESSION['search_values']);
-$stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
-$stmtlocation->execute(array('airport_code' =>$originLocationCode[0] ));
-$airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+// $currentPageFlights = array_slice($pricedItineraries, $startIndex, $flightsPerPage);
+// $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
+// $stmtlocation->execute(array('airport_code' =>$originLocationCode[0] ));
+// $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
 
-$stmtlocation->execute(array('airport_code' =>$destinationLocationCode[0] ));
-$airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
+// $stmtlocation->execute(array('airport_code' =>$destinationLocationCode[0] ));
+// $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
  
 ?>
 

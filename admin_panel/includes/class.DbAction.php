@@ -36,9 +36,9 @@ class DbAction {
         }
         else if ($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
             $host = "localhost";
-            $username = "bulatrips_db";
-            $password = "Reubro@2023";
-            $dbname = "bulatrips_db";   
+            $username = "amhyywehvb";
+            $password = "PJusRbyr72";
+            $dbname = "amhyywehvb";   
         } else if ($_SERVER['HTTP_HOST'] == 'staging.bulatrips.com') {
             $host = "localhost";
             $username = "bulatrips_staging";

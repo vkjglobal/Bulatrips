@@ -59,9 +59,9 @@ if ($_SERVER['HTTP_HOST'] == 'travelsite.reubro.com') {
 
 if ($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
     $servername = "localhost";
-    $username = "bulatrips_db";
-    $password = "Reubro@2023";
-    $db = "bulatrips_db";
+    $username = "amhyywehvb";
+    $password = "PJusRbyr72";
+    $db = "amhyywehvb";   
     // Create connection
     $conn = mysqli_connect($servername, $username, $password,$db);
     // Check connection

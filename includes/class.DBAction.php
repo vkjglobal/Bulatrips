@@ -52,9 +52,9 @@ class DBAction
         }
         if($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
             $host = "localhost";
-            $username = "bulatrips_db";
-            $password = "Reubro@2023";
-            $dbname = "bulatrips_db";
+            $username = "amhyywehvb";
+            $password = "PJusRbyr72";
+            $dbname = "amhyywehvb";   
         }
         if($_SERVER['HTTP_HOST'] == 'staging.bulatrips.com') {
             $host = "localhost";

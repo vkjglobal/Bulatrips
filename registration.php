@@ -106,9 +106,36 @@ include('includes/dbConnect.php');
 <div class="container-jumbotron">
     <div class="bodycontant">
         <div class="content">
+            <!-- BREADCRUMB STARTS HERE -->
+        <section style="margin-bottom: 10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="breadcrumbs">
+                            <li><a href="index" style="text-decoration: underline !important;">Home</a></li>
+                            <?php
+                
+                                if( isset($_SERVER["HTTP_REFERER"]) && $_SERVER["HTTP_REFERER"] != "" ) {
+                                    $referrer = $_SERVER["HTTP_REFERER"];
+                                    $fileName = basename(parse_url($referrer, PHP_URL_PATH));
+                                    if( $fileName != "index" && $fileName != '' ) {?>
+                                        <li><a href="<?php echo $fileName;?>" style="text-decoration: underline !important;"><?php echo ucfirst($fileName);?></a></li>
+                                        <?php
+                                    }
+                                }
+                            ?>
+                            <li> Registration </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB STARTS HERE -->
             <div class="container">
                 <div class="row justify-content-center">
-                    
+
+                        
+
                         <div class="text-center mb-4">
                             <h1 class="fw-bold" style="color: rgb(0 0 255); font-size: 26px;">User Registration Form</h1>
                         </div>
@@ -199,7 +226,7 @@ include('includes/dbConnect.php');
                                                 <label for="logintab-user" class="fz-13 fw-400" id="policyerror">
                                                     <span class="chk-txt fs-13 fw-400">By continuing, I agree to Bulatrips
                                                         <a href="privacy" target="_blank" class="text-primary">Privacy Policy</a> and 
-                                                        <a href="terms" target="_blank" class="text-primary">Terms of Conditions</a></span>
+                                                        <a href="terms" target="_blank" class="text-primary">Terms & Conditions</a></span>
                                                 </label>
                                             </div>
 

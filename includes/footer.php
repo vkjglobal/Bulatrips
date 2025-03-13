@@ -22,7 +22,7 @@
             <div class="row">
                 <div class="col-lg-5 col-md-6 mb-5 mb-lg-0 mb-md-5">
                     <div class="footer-logo">
-                    <img src="images/Image-Logo-vec.png" alt="" class="img-fluid">                            
+                    <img src="images/Bulatrips_logo_white.png" alt="" class="img-fluid">                            
                     </div>
                     <p class="footer-text">Bulatrips combines cutting edge technology with multiple options and competitive prices, connecting you to hundreds of service providers for seamless global bookings.</p>
                     <div class="copyright">&copy; <?php echo date("Y"); ?> Bulatrips All rights reserved.</div>

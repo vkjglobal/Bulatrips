@@ -2715,7 +2715,7 @@ a.text-decoration:hover {
 
 /*****************************************************/
 footer {
-  background: #34495e;
+  background: #2a3d4f;
   color: #ffffff;
   padding-top: 50px;
 }
@@ -3569,5 +3569,8 @@ li.contentbar_one_way {
   opacity: 1;
 }
 .footer-links li a {
+  color: #FFF;
+}
+.footer-links li a:hover {
   color: #ff9d3f;
 }

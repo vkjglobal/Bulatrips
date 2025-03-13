@@ -41,14 +41,14 @@ $('#forgot-form').submit(function (event) {
                     $("#forgot_sub_btn").attr("disabled", false);
                     $("#forgot_sub_btn").html("Submit");
                     $('#RegisterInputEmail1').val('');                       
-                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:red">Failed to send Email. Please try again.</span>');
+                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:red">The email address you entered is not registered with us. Please check your email and try again, or create a new account.</span>');
                     return false;
 
                 }
                 else if ($.trim(response)=='error15') {
                     $("#forgot_sub_btn").html("Submit");
                     $('#RegisterInputEmail1').val('');
-                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:Green">Please check your email for instructions to reset your password.</span>');
+                    $('#RegisterInputEmail1').after('<span id="errorlogin1" class="errortext" style="color:Green">A password reset link has been sent to your email address. Please check your inbox and follow the instructions to reset your password.</span>');
                     // setTimeout(function () {
                     //     window.location = 'index.php';
                     // }, 3000);

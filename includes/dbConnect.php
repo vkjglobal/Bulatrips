@@ -35,9 +35,9 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080') {
     }
 } else if ($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
     define('DB_HOST', 'localhost'); // Host name
-    define('DB_USER', 'bulatrips_db'); // db user name
-    define('DB_PASS', 'Reubro@2023'); // db user password name
-    define('DB_NAME', 'bulatrips_db'); // db name
+    define('DB_USER', 'amhyywehvb'); // db user name
+    define('DB_PASS', 'PJusRbyr72'); // db user password name
+    define('DB_NAME', 'amhyywehvb'); // db name
     // Establish database connection.
     try {
         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
@@ -48,9 +48,9 @@ if ($_SERVER['HTTP_HOST'] == 'localhost:8080') {
 
 else if ($_SERVER['HTTP_HOST'] == 'staging.bulatrips.com') {
     define('DB_HOST', 'localhost'); // Host name
-    define('DB_USER', 'amhyywehvb'); // db user name
-    define('DB_PASS', 'PJusRbyr72'); // db user password name
-    define('DB_NAME', 'amhyywehvb'); // db name
+    define('DB_USER', 'bulatrips_staging'); // db user name
+    define('DB_PASS', '@]9E~IwT7k%L'); // db user password name
+    define('DB_NAME', 'bulatrips_staging'); // db name
     // Establish database connection.
     try {
         $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);

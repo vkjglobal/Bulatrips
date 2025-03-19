@@ -3,7 +3,25 @@
     require_once("includes/header.php");
 ?>
 
+<!-- BREADCRUMB STARTS HERE -->
+<section style="margin-top:20px;margin-bottom: 10px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <ul class="breadcrumbs">
+                            <li><a href="index" style="text-decoration: underline !important;">Home</a></li>
+                            <li> About Us </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BREADCRUMB STARTS HERE -->
+
     <section class="pt-5">
+
+        
+
         <div class="container">
             <div class="row">
                 <div class="col-12 mb-4">

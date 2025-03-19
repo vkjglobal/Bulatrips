@@ -59,13 +59,13 @@
                         </div>
                     </div>
 
-                    <div class="nav-item dropdown">
-                        <a href="markup-list.php" class="nav-link dropdown-toggle <?php if($activePage == 'markup-list' || $activePage == 'edit-markup'){echo 'active';}?>" data-bs-toggle="dropdown">Mark up</a>  
+                    <!-- <div class="nav-item dropdown">
+                        <a href="markup-list.php" class="nav-link dropdown-toggle <?php //if($activePage == 'markup-list' || $activePage == 'edit-markup'){echo 'active';}?>" data-bs-toggle="dropdown">Mark up</a>  
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="markup-list.php" class="dropdown-item <?php if($activePage == 'markup-list' || $activePage == 'edit-markup'){echo 'active';}?>">Booking Mark Up</a>   
-                            <a href="cancel_markup-list.php" class="dropdown-item <?php if($activePage == 'cancel_markup-list' || $activePage == 'edit_cancel_markup-list'){echo 'active';}?>"> Cancel Mark Up </a>  
+                            <a href="markup-list.php" class="dropdown-item <?php //if($activePage == 'markup-list' || $activePage == 'edit-markup'){echo 'active';}?>">Booking Mark Up</a>
+                            <a href="cancel_markup-list.php" class="dropdown-item <?php //if($activePage == 'cancel_markup-list' || $activePage == 'edit_cancel_markup-list'){echo 'active';}?>"> Cancel Mark Up </a>  
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="nav-item dropdown">
                         <a href="newsletter.php" class="nav-link <?= ($activePage == 'newsletter') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Newsletter</a>
@@ -98,7 +98,7 @@
                     </div>
 
                     <div class="nav-item dropdown">
-                        <a href="settings.php" class="nav-link <?= ($activePage == 'settings') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Settings</a>    
+                        <a href="setting_edit.php" class="nav-link <?= ($activePage == 'settings') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Settings</a>    
                     </div>
 
                 </div>

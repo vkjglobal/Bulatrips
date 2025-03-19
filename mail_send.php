@@ -1,12 +1,10 @@
 <?php
+require 'vendor/autoload.php';
+require_once('includes/dbConnect.php');
 
-// Programmer	::> Soumya's mail part
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
- 
-require 'vendor/autoload.php';
-require_once('includes/dbConnect.php');
 
 function confirmationMail($to, $subject, $content, $headers = "")
 {
@@ -37,11 +35,13 @@ function confirmationMail($to, $subject, $content, $headers = "")
 
         $mail->isSMTP();                                      // Set mailer to use SMTP
         $mail->Host = 'smtp.elasticemail.com';                   // Specify the SMTP server
-        $mail->SMTPAuth = 'Plain';                               // Enable SMTP authentication
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
         $mail->Username = '6721C7FB7781F74A3582F7E6DE01DF018A3A89BB6CBA3BBBE5954963378EA4030CC914C622F68953B864990D6573C2D9';           // SMTP username
         $mail->Password = '6721C7FB7781F74A3582F7E6DE01DF018A3A89BB6CBA3BBBE5954963378EA4030CC914C622F68953B864990D6573C2D9';                      // SMTP password
-        $mail->SMTPSecure = 'TLS';                            // Enable TLS encryption, `ssl` also accepted
+        $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
         $mail->Port = 587; 
+
+
 
         //Recipients
         $mail->setFrom('no-reply@bulatrips.com', 'bulatrips.com');

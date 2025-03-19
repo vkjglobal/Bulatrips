@@ -66,13 +66,13 @@
                     <ul class="footer-links">
                         <!-- <li class="link-title">Social Platforms</li> -->
                         <li class="link-item">
-                            <a href="facebook.com/bulatrips">
+                            <a href="https://www.facebook.com/bulatrips">
                                 <img src="images/fb_icon.png" style="width: 25px; margin-right: 12px;" />
                             </a>
-                            <a href="javascript:void(0);">
+                            <a href="https://www.instagram.com/bulatrips">
                                 <img src="images/ig_icon.png" style="width: 33px; margin-right: 12px;" />
                             </a>
-                            <a href="linkedin.com/bulatrips">
+                            <a href="https://www.linkedin.com/bulatrips">
                                 <img src="images/li_icon.png" style="width: 25px; margin-right: 12px;" />
                             </a>
                         </li>
@@ -81,13 +81,13 @@
                     <ul class="footer-links" style="margin-top: 50px;">
                         <!-- <li class="link-title">Social Platforms</li> -->
                         <li class="link-item">
-                            <a href="facebook.com/bulatrips">
+                            <a href="javascript:void(0);">
                                 <img src="images/master.png" style="width: 50px; margin-right: 12px;" />
                             </a>
                             <a href="javascript:void(0);">
                                 <img src="images/visa.png" style="width: 50px; margin-right: 12px;" />
                             </a>
-                            <a href="linkedin.com/bulatrips">
+                            <a href="javascript:void(0);">
                                 <img src="images/american express.png" style="width: 50px; margin-right: 12px;" />
                             </a>
                         </li>

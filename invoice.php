@@ -111,7 +111,7 @@ function getInvoiceContent($booking_id,$conn ) {
                                                 <tr>
                                                     <td style="text-align: left; font-weight: normal; font-size: 14px; width: 33%;">
                                                         Xpay Global Pte. Ltd.<br>
-                                                        Email Id: contact@bulatrips.com<br>
+                                                        Email Id: booking@bulatrips.com<br>
                                                         Tel No: 1 562 867 5309 <br>
                                                         Website : www.bulatrips.com
                                                     </td>

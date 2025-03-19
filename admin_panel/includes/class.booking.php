@@ -41,10 +41,10 @@ class Booking extends DbAction
       return $result;
    }
 
-   public function getSettings()
+   public function getSettings($id)
    {
       $tableName1 = "settings";
-      $result =   $this->db->selectAllRecords($tableName1);
+      $result =   $this->db->selectBystatus($tableName1, $id);
       return $result;
    }
 
@@ -55,7 +55,7 @@ class Booking extends DbAction
       $result =   $this->db->selectById($tableName1, $markupId);
       return $result;
    }
-
+   
    public function getmarkupInfo($markupId)
    {
       $tableName1 = "markup_commission";

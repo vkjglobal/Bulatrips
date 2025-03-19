@@ -6,19 +6,31 @@ include('includes/dbConnect.php');
 ?>
 <script>
     function checkEmailAvailability() {
-        $("#loaderIcon").show();
+        var email = $("#useremail").val();
+        if (!isValidEmail(email)) {
+            $("#email-availability-status").html('<span style="color: red;">Invalid email format</span>');
+            return; // Stop execution if email is invalid
+        }
+        
+        // $("#loaderIcon").show();
         jQuery.ajax({
-            url: "check_availability",
-            data: 'email=' + $("#useremail").val(),
+        url: "check_availability",
+            data: 'email=' + email,
             type: "POST",
             success: function(data) {
                 $("#email-availability-status").html(data);
-                $("#loaderIcon").hide();
+                // $("#loaderIcon").hide();
             },
             error: function() {
+                $("#loaderIcon").hide();
                 event.preventDefault();
             }
         });
+    }
+
+    function isValidEmail(email) {
+        var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        return emailPattern.test(email);
     }
 
     function checkPasswords() {
@@ -103,11 +115,18 @@ include('includes/dbConnect.php');
     }
 </style>
 
+
+    
+
 <div class="container-jumbotron">
+    
     <div class="bodycontant">
+        
         <div class="content">
-            <!-- BREADCRUMB STARTS HERE -->
-        <section style="margin-bottom: 10px;">
+       
+       
+        <!-- BREADCRUMB STARTS HERE -->
+    <section style="margin-bottom: 10px; text-align:left">
             <div class="container">
                 <div class="row">
                     <div class="col-12">
@@ -131,6 +150,10 @@ include('includes/dbConnect.php');
             </div>
         </section>
         <!-- BREADCRUMB STARTS HERE -->
+
+
+
+
             <div class="container">
                 <div class="row justify-content-center">
 

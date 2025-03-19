@@ -79,30 +79,59 @@ $stmtlocation->execute(array('airport_code' => $destinationLocationCode[0]));
 $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
 $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
-if (isset($_SESSION['user_id'])) {
+$stmtmarkup->execute(array('role_id' => 1));
+$markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
 
-    $id = $_SESSION['user_id'];
-    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
-    $stmt->execute(array('id' => $id));
-    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    $stmtmarkup->execute(array('role_id' => $user['role']));
-    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-} else {
-    $stmtmarkup->execute(array('role_id' => 1));
-    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-}
 $stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
 $stmt->bindValue(':key', "ipg_transaction_percentage");
 $stmt->execute();
 $setting = $stmt->fetch(PDO::FETCH_ASSOC);
 $ipg_percentage = 0;
 
+$ticketing_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$ticketing_fee->bindValue(':key', "ticketing_fee");
+$ticketing_fee->execute();
+$ticketing_fee_setting = $ticketing_fee->fetch(PDO::FETCH_ASSOC);
+$ticketing_fee = 0;
+
+$reissue_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$reissue_fee->bindValue(':key', "reissue_fee");
+$reissue_fee->execute();
+$reissue_fee_setting = $reissue_fee->fetch(PDO::FETCH_ASSOC);
+$reissue_fee = 0;
+
+$reissue_addition_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$reissue_addition_fee->bindValue(':key', "reissue_addition");
+$reissue_addition_fee->execute();
+$reissue_addition_fee_setting = $reissue_addition_fee->fetch(PDO::FETCH_ASSOC);
+$reissue_addition_fee = 0;
+
+$refund_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$refund_fee->bindValue(':key', "refund_fee");
+$refund_fee->execute();
+$refund_fee_setting = $refund_fee->fetch(PDO::FETCH_ASSOC);
+
+$refund_addition_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$refund_addition_fee->bindValue(':key', "refund_addition");
+$refund_addition_fee->execute();
+$refund_addition_fee_setting = $refund_addition_fee->fetch(PDO::FETCH_ASSOC);
+
+
+
+if( isset($setting['value']) && $setting['value'] != '' ) {
+    $ipg_percentage = $setting['value'];
+}
+
+if( isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '' ) {
+    $ticketing_fee = $ticketing_fee_setting['value'];
+}
+
 if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
     if (isset($responseData['Data']['Errors'])) {
         require_once('includes/no_result_found.php');
     } else { ?>
 
+    
         <!-- TOP BAR DETAILED AND SEARCH AGAIN SECTION STARTS -->
         <section class="midbar-wrapper-inner pt-3 pb-3" style="border-bottom: 2px solid #FFF;margin-bottom: 15px;position: sticky;top: 85px;z-index: 10;">
             <div class="flight-search-midbar container">
@@ -720,18 +749,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                             }
                                                             
                                                             $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                            
-                                                            $ipg_percentage = 0;
-                                                            if( isset($setting['value']) && $setting['value'] != '' ) {
-                                                                $ipg_percentage = $setting['value'];
-                                                            }
-                                                            
-                                                            $markupPercentage = ( ($ipg_percentage + $markup['commission_percentage']) / 100) * $totalFareAPI;?>
+                                                            $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                                            $markupPercentage += $ticketing_fee;
+                                                            $total_price = $markupPercentage + $totalFareAPI;
+                                                            $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                                            $total_price += $ipg_trasaction_percentage;
+                                                            ?>
+
                                                             
                                                     <!-- <form action="my-booking-step1" method="post" style="margin-top:4px;"> -->
                                                         <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; ?>"> -->
                                                         <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
-                                                            $<?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
+                                                            $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
                                                         </button>
                                                     <!-- </form> -->
                                                 </li>
@@ -948,10 +977,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 <div class="tab-pane p-lg-5 pt-5 p-3 pane2 ">
                                                     <button class="close"><span>&times;</span></button>
                                                     <div class="row fs-13 mb-3">
-                                                        <div class="col-md-5 mb-md-0 mb-3">
+                                                        <div class="col-md-12 mb-md-0 mb-3">
                                                             <ul>
                                                                 <li class="d-flex justify-content-between p-1 bdr-b">
-                                                                    <!-- <strong class="fs-14 fw-600">Fare Breakup <span class="fw-400">(in &#8377;)</span></strong> -->
                                                                     <strong class="fs-14 fw-600">Fare Breakup <span class="fw-400">(in USD)</span></strong>
                                                                     <?php if (isset($adultCount) && $adultCount > 0) { ?>
                                                                         <span><?php echo $adultCount; ?> adult</span><?php } ?>
@@ -960,10 +988,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     <?php if (isset($infantCount) && $infantCount > 0) { ?>
                                                                         <span><?php echo $infantCount; ?> infant</span><?php } ?>
                                                                 </li>
-                                                                <!-- <li> -->
-                                                                <!-- <ul class="bdr-b"> -->
-
-                                                                <!-- <li class="text-left p-1"><strong class="fw-500">Base Fare</strong></li> -->
                                                                 <?php
                                                                 $totalTax = 0;
                                                                 $totalAdultfare = 0;
@@ -1010,28 +1034,24 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                                                                     $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
                                                                                 }
-                                                                                //get markeup of end user from marktable and calculate the % and this % add to total fare
                                                                                 $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
-                                                                                if (isset($_SESSION['user_id'])) {
-                                                                                    $id = $_SESSION['user_id'];
-                                                                                    $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
-                                                                                    $stmt->execute(array('id' => $id));
-                                                                                    $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-                                                                                    $stmtmarkup->execute(array('role_id' => $user['role']));
-                                                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                                                } else {
-                                                                                    $stmtmarkup->execute(array('role_id' => 1));
-                                                                                    $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                                                }
+                                                                                $stmtmarkup->execute(array('role_id' => 1));
+                                                                                $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
 
 
                                                                                 // $stmtmarkup->execute(array('role_id' => 1));
                                                                                 // $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
                                                                                 // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
                                                                                 $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                                                // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
                                                                                 $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+
+                                                                                $markupPercentage += $ticketing_fee;
+                                                                                $total_price = $markupPercentage + $totalFareAPI;
+
+                                                                                $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+
+                                                                                $total_price += $ipg_trasaction_percentage;
+
 
                                                                                 ?>
 
@@ -1040,11 +1060,11 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                 // echo $totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax+$markupPercentage;
                                                                 ?>
                                                             </strong> -->
-                                                                                <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo number_format(round($totalAdultfare + $totalChildfare + $totalInfantfare + $markupPercentage, 2), 2); ?></strong>
+                                                                                <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo number_format(round($total_price, 2), 2); ?></strong>
                                                                             </li>
                                                             </ul>
                                                         </div>
-                                                        <div class="col-md-7">
+                                                        <div class="col-md-12">
                                                             <ul>
                                                                 <li class="d-flex align-items-baseline p-1 bdr-b">
                                                                     <strong class="fs-14 fw-600">Fare Rules </strong>
@@ -1084,7 +1104,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                         <li class="text-left">
                                                                             <table class="w-100">
                                                                                 <tr class="bdr" id="firstRow">
-                                                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee+Site Fee</td>
+                                                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee + Bulatrips fee</td>
 
                                                                                     <?php
                                                                                     $penalityList = $penaltyListRef['Penaltydetails'];
@@ -1108,16 +1128,13 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                             if ($val['PaxType'] == 'INF') {
                                                                                                 $passengerType = "Infant";
                                                                                             }
-                                                                                            $Penaltymarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE cancel_type = 4 AND status=1 AND role_id = :role_id');
-                                                                                            $Penaltymarkup->execute(array('role_id' => $roleId));
-                                                                                            $markupPenaltyInfo = $Penaltymarkup->fetch(PDO::FETCH_ASSOC);
-                                                                                            if (!empty($val['RefundPenaltyAmount'])) {
-                                                                                                $markupPenaltyPercentage = ($markupPenaltyInfo['commission_percentage'] / 100) * $val['RefundPenaltyAmount'];
+                                                                                            
+                                                                                            $total_refund = $refund_addition_fee_setting['value'] + $refund_fee_setting['value'];
 
-                                                                                                $markupPenaltyPercentage    =    number_format(round($markupPenaltyPercentage));
-                                                                                                $totDisplay =   $val['RefundPenaltyAmount'] + $markupPenaltyPercentage;
+                                                                                            if (!empty($val['RefundPenaltyAmount'])) {
+                                                                                                $totDisplay =   ($val['RefundPenaltyAmount'] * $usd_converion_rate) + $total_refund;
                                                                                     ?>
-                                                                                                <td><?php echo $passengerType . ": $ " . round(($totDisplay * $usd_converion_rate), 2); ?></td>
+                                                                                                <td><?php echo $passengerType . ": $ " . round(($totDisplay), 2); ?></td>
                                                                                             <?php
                                                                                             } else {
                                                                                             ?>
@@ -1144,7 +1161,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                             <table class="w-100">
 
                                                                                 <tr class="bdr">
-                                                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee + Site Fee </td>
+                                                                                    <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee + Bulatrips fee </td>
                                                                                     <!-- start of date change Penalty fee ---- -->
                                                                                     <?php
                                                                                     foreach ($penalityList as $k => $val) {
@@ -1158,17 +1175,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                         if ($val['PaxType'] == 'INF') {
                                                                                             $passengerType = "Infant";
                                                                                         }
-                                                                                        $DateChangemarkup = $conn->prepare('SELECT * FROM markup_commission_refund WHERE 	cancel_type =0 AND status=2 AND role_id = :role_id');
-                                                                                        $DateChangemarkup->execute(array('role_id' => $roleId));
-                                                                                        $DateChangemarkupInfo = $DateChangemarkup->fetch(PDO::FETCH_ASSOC);
 
 
                                                                                         if (!empty($val['ChangePenaltyAmount'])) {
-                                                                                            $markupDatechangePercentage = ($DateChangemarkupInfo['commission_percentage'] / 100) * $val['ChangePenaltyAmount'];
-                                                                                            $markupDatechangePercentage    =    number_format(round($markupDatechangePercentage));
-                                                                                            $totDisplayDate =   $val['ChangePenaltyAmount'] + $markupDatechangePercentage;
+                                                                                            
+                                                                                            $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
+                                                                                            $totDisplay =   ($val['ChangePenaltyAmount'] * $usd_converion_rate) + $total_refund;
+
+                                                                                            $ipg_trasaction_percentage = ($ipg_percentage / 100) * $totDisplay;
+                                                                                            $totDisplay += $ipg_trasaction_percentage;
+
                                                                                     ?>
-                                                                                            <td><?php echo $passengerType . ": $ " . round(($totDisplayDate * $usd_converion_rate), 2); ?></td>
+                                                                                            <td><?php echo $passengerType . ": $ " . round(($totDisplay), 2); ?></td>
                                                                                         <?php
                                                                                         } else {
                                                                                         ?>
@@ -1344,14 +1362,14 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                     ?>
                 </div>
+
                 <div class="pagination-bottom w-100 p-4">
                     <?php
-
-                    for ($i = 1; $i < $totalPages; $i++) {
-                        $activeClass = ($i == $page) ? 'active' : '';
-                        $activeUrl = ($i == $page) ? 'javascript:void(0);' : '?page=' . $i;
-                        echo '<a href="' . $activeUrl . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
-                    }
+                        for ($i = 1; $i < $totalPages; $i++) {
+                            $activeClass = ($i == $page) ? 'active' : '';
+                            $activeUrl = ($i == $page) ? 'javascript:void(0);' : '?page=' . $i;
+                            echo '<a href="' . $activeUrl . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
+                        }
                     ?>
                 </div>
             </div>
@@ -1629,10 +1647,8 @@ require_once("includes/footer.php");
     });
 
     $('.select-class').select2();
-    $(document).ready(function () {
-
-        
-        preSelectedValue1 = 'LHE';
+    $(document).ready(function () {        
+        preSelectedValue1 = "<?php echo $airportLocation['airport_code'];?>";
     var select2 = $('.airport_location_finder_depature').select2({
         placeholder: 'Search for an Airport Location',
         ajax: {
@@ -1654,7 +1670,7 @@ require_once("includes/footer.php");
     });
 
         
-    var preSelectedValue2 = 'JED';
+    var preSelectedValue2 = "<?php echo $airportDestinationLocation['airport_code'];?>";
     var select = $('.airport_location_finder_arrival').select2({
         placeholder: 'Search for an Airport Location',
         ajax: {

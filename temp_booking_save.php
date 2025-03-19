@@ -1,4 +1,5 @@
 <?php
+error_reporting();
 //User booking call 
 include_once('includes/common_const.php');
 require_once('includes/dbConnect.php');
@@ -66,7 +67,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $objMarkup = new Markup();
         $markupDetails = $objMarkup->getMarkupDetails(1);
         $markupIPGDetails = $objMarkup->getSettingDetails();
-        $markup =  (($markupIPGDetails['value']+$markupDetails['commission_percentage']) / 100) * $totalFare;
+
+        $ipg_percentage = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+        $ipg_percentage->bindValue(':key', "ipg_transaction_percentage");
+        $ipg_percentage->execute();
+        $ipg_percentage_setting = $ipg_percentage->fetch(PDO::FETCH_ASSOC);
+
+        $ticketing_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+        $ticketing_fee->bindValue(':key', "ticketing_fee");
+        $ticketing_fee->execute();
+        $ticketing_fee_setting = $ticketing_fee->fetch(PDO::FETCH_ASSOC);
+
+        $markupPercentage = ($markupDetails['commission_percentage'] / 100) * $totalFare;
+        $markupPercentage += $ticketing_fee_setting['value'];
+        $total_price = $markupPercentage + $totalFare;
+        $ipg_trasaction_percentage = ($ipg_percentage_setting['value'] / 100) * $total_price;
+        $markupPercentage += $ipg_trasaction_percentage;
+        
+        $markup =  $markupPercentage;
     
         // $markup =  ($markupDetails['commission_percentage'] / 100) * $totalFare;
 
@@ -123,18 +141,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         $amountToDebit  =   $total_paid;
         
-        // include_once('mail_send.php');
-
-        // $subject = "BulaTrips User Booking and Payment Information";
-        // $email =   $userDetails['email'];
-        // $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-        // $content    =   '<p>Hello,</p><p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>';
-        // $messageData =   $objBook->getEmailContent($content);
-        // $headers = "";
-        // $email = $adminToemail;
-        // $contacts = sendMail($email, $subject, $messageData, $headers);
-        //=====================email ends for admin=======
-
 
         $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :booking_id');
         $stmtbookingid->execute(array('booking_id' => $tempBookingId));
@@ -639,331 +645,368 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // }
     }
 
+    //---------------------------------booking API--------------------------------
+    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode and id= :id');
 
-    // unset($_SESSION['search_values']);
-    // unset($_SESSION['response']);
-    // unset($_SESSION['Revalidateresponse']);
-    // unset($_SESSION['name-character-count']);
-    // unset($_SESSION['travel-depdate']);
-    // unset($_SESSION['fsc']);
-    // unset($_SESSION['totalService']);
-    // unset($_SESSION['travel-return-depdate']);
-    // unset($_SESSION['adultCount']);
-    // unset($_SESSION['revalidationApi']);
+    $stmtbookingid->execute(array('farecode' => $_SESSION['fsc'], 'id' => $tempBookingId));
+    $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+    $fsc = $bookingData['fare_source_code'];
 
-    header('Content-Type: application/json');
-    $response = array(
-        'booking_id' => $tempBookingId
-    );
-    echo json_encode($response);
+    if (isset($fsc)) {
+        $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
+        $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
+        $stmt->execute(array('bookingId' => $bookingData['id']));
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-    exit;
-    // Breaking the Code for after payment Starts.
-    /*
-        $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode and id= :id');
-        $stmtbookingid->execute(array('farecode' => $_SESSION['fsc'], 'id' => $tempBookingId));
-        $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-        $fsc = $bookingData['fare_source_code'];
-    
-        if (isset($fsc)) {
-            // $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode and user_id = :userid');
-
-            // $stmtbookingid->execute(array('farecode' => $_SESSION['fsc'],'userid' => $_SESSION['user_id']));
-            // $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-            $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
-
-            $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
-            $stmt->execute(array('bookingId' => $bookingData['id']));
-            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-
-            // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Book/Flight';
-            //$bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
-            $endpoint   =   'v1/Book/Flight';
-            $apiEndpoint = APIENDPOINT . $endpoint;
-            $bearerToken   =   BEARER;
-
-            // $requestData = array(          
-            //     'FareSourceCode' => $fsc,
-            //     'PassengerTypeQuantities' => array(
-            //         'AirTravelers' => array(
-            //             array(
-            //             'Code' => 'ADT',
-            //             'Quantity' => $adultCount
-            //             )
-            //         )
-            //     ),
-            //     'Target' => 'Test',
-            // );
-
-
-            foreach ($result as $row) {
-
-                $extraMealId = $row['extrameal_id'];
-                $extraBaggageId = $row['extrabaggage_id'];
-                $extraMealReturnId = $row['extrameal_return_id'];
-                $extraBaggageReturnId = $row['extrabaggage_return_id'];
-                $extraServices = [];
-
-                if ($extraMealId != 0) {
-                    $extraServices[] = array(
-                        "ExtraServiceId" => $extraMealId,
-                        "Quantity" => 1,
-                        "Key" => "string"
-                    );
-                }
-
-                if ($extraBaggageId != 0) {
-                    $extraServices[] = array(
-                        "ExtraServiceId" => $extraBaggageId,
-                        "Quantity" => 1,
-                        "Key" => "string"
-                    );
-                }
-                if ($extraMealReturnId != 0) {
-                    $extraServices[] = array(
-                        "ExtraServiceId" => $extraMealReturnId,
-                        "Quantity" => 1,
-                        "Key" => "string"
-                    );
-                }
-                if ($extraBaggageReturnId != 0) {
-                    $extraServices[] = array(
-                        "ExtraServiceId" => $extraBaggageReturnId,
-                        "Quantity" => 1,
-                        "Key" => "string"
-                    );
-                }
-
-                $passenger = array(
-                    "PassengerType" => $row['passenger_type'],
-                    "Gender" => $row['gender'],
-                    // "Gender" => "F",
-                    "PassengerName" => array(
-                        "PassengerTitle" => $row['title'],
-                        "PassengerFirstName" => $row['first_name'],
-                        "PassengerLastName" => $row['last_name']
-                    ),
-                    "DateOfBirth" => $row['dob'],
-                    "Passport" => array(
-                        "PassportNumber" => $row['passport_number'],
-                        "ExpiryDate" => $row['passport_expiry_date'],
-                        "Country" => $row['issuing_country'],
-                        // "Country" => "IN",
-                    ),
-                    // "ExtraServices1_1"=> array(
-                    //     array(
-                    //       "ExtraServiceId"=> 11,
-                    //       "Quantity"=> 1,
-                    //       "Key"=> "string"
-                    //     )
-                    // ),
-
-                    // "ExtraServices1_1" => $extraServices,
-                    // "PassengerNationality" => "IN",
-                    "PassengerNationality" => $row['nationality'],
+        $endpoint   =   'v1/Book/Flight';
+        $apiEndpoint = APIENDPOINT . $endpoint;
+        $bearerToken   =   BEARER;
+        foreach ($result as $row) {
+            $extraMealId = $row['extrameal_id'];
+            $extraBaggageId = $row['extrabaggage_id'];
+            $extraMealReturnId = $row['extrameal_return_id'];
+            $extraBaggageReturnId = $row['extrabaggage_return_id'];
+            $extraServices = [];
+            if ($extraMealId != 0) {
+                $extraServices[] = array(
+                    "ExtraServiceId" => $extraMealId,
+                    "Quantity" => 1,
+                    "Key" => "string"
                 );
-                if (!empty($extraServices) &&  $bookingData['fare_type'] == "WebFare") {
-                    $passenger["ExtraServices1_1"] = $extraServices;
-                }
-                $passengerDetails[] = $passenger;
             }
 
-            ////////////////////////////////////
-
-
-            $requestData = array(
-                "FareSourceCode" =>  $fsc,
-                "ClientMarkup" => $markup,
-                "TravelerInfo" => array(
-                    "AirTravelers" => $passengerDetails,
-                    "CountryCode" => $codeWithoutPlus,
-                    // "AreaCode" => "080",
-                    "PhoneNumber" => $bookingData['contact_number'],
-                    "Email" => $bookingData['contact_email'],
-                    "PostCode" => $bookingData['contact_postcode']
+            if ($extraBaggageId != 0) {
+                $extraServices[] = array(
+                    "ExtraServiceId" => $extraBaggageId,
+                    "Quantity" => 1,
+                    "Key" => "string"
+                );
+            }
+            if ($extraMealReturnId != 0) {
+                $extraServices[] = array(
+                    "ExtraServiceId" => $extraMealReturnId,
+                    "Quantity" => 1,
+                    "Key" => "string"
+                );
+            }
+            if ($extraBaggageReturnId != 0) {
+                $extraServices[] = array(
+                    "ExtraServiceId" => $extraBaggageReturnId,
+                    "Quantity" => 1,
+                    "Key" => "string"
+                );
+            }
+            $passenger = array(
+                "PassengerType" => $row['passenger_type'],
+                "Gender" => $row['gender'],
+                "PassengerName" => array(
+                    "PassengerTitle" => $row['title'],
+                    "PassengerFirstName" => $row['first_name'],
+                    "PassengerLastName" => $row['last_name']
                 ),
-
-                // "ExtraServices1_1" => $extraServices,
-                "Target" => TARGET,
-                // "ConversationId" => "sai",
-                // "LccHoldBooking" => true
+                "DateOfBirth" => $row['dob'],
+                "Passport" => array(
+                    "PassportNumber" => $row['passport_number'],
+                    "ExpiryDate" => $row['passport_expiry_date'],
+                    "Country" => $row['issuing_country'],
+                ),
+                "PassengerNationality" => $row['nationality'],
             );
-            // echo "<pre/>";
-            //  print_r($requestData);
-
-
-
-            // Send the API request
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $bearerToken
-            ));
-
-            $response = curl_exec($ch);
-            curl_close($ch);
-
-            // Handle the API response
-
-            if ($response) {
-                $responseData = json_decode($response, true);
+            if (!empty($extraServices) &&  $bookingData['fare_type'] == "WebFare") {
+                $passenger["ExtraServices1_1"] = $extraServices;
             }
+            $passengerDetails[] = $passenger;
         }
-        
-        $logRes = print_r($responseData, true);
-        $logReQ =  print_r($requestData, true);
-        $objBook->_writeLog('-------------' . date('l jS \of F Y h:i:s A') . '-------------', 'booking.txt');
-        $objBook->_writeLog('Request Received\n' . $logReQ, 'booking.txt');
-        $objBook->_writeLog('REsponse Received for MF:\n' . $responseData['Data']['UniqueID'] . 'OR USERID=' . $userId, 'booking.txt');
-        $objBook->_writeLog('userId is ' . $userId . 'BOOKING STATUS IS ' . $responseData['Data']['Status'], 'booking.txt');
-        $objBook->_writeLog('Booking ID is ' . $bookingID, 'booking.txt');
-        $objBook->_writeLog('REsponse Received\n' . $logRes, 'booking.txt');
+        $requestData = array(
+            "FareSourceCode" =>  $fsc,
+            "ClientMarkup" => $markup,
+            "TravelerInfo" => array(
+                "AirTravelers" => $passengerDetails,
+                "CountryCode" => $codeWithoutPlus,
+                "PhoneNumber" => $bookingData['contact_number'],
+                "Email" => $bookingData['contact_email'],
+                "PostCode" => $bookingData['contact_postcode']
+            ),
+            "Target" => TARGET,
+        );
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $bearerToken
+        ));
+        $response = curl_exec($ch);
+        curl_close($ch);
+        if ($response) {
+            $responseData = json_decode($response, true);
+        }
+    }
 
-        $resSuccess  = $responseData['Data']['Success'];
+    $resSuccess  = $responseData['Data']['Success'];
+    $fairtype = $bookingData['fare_type'];
+    if (!empty($responseData['Data']['Errors'])) {
+        $errMsg = $responseData['Data']['Errors'][0]['Message'];
+        $errCDE = $responseData['Data']['Errors'][0]['Code'];
+        if (empty($errMsg)) {
+            $errMsg = $responseData['Data']['Errors']['Message'];
+            $errCDE = $responseData['Data']['Errors']['Code'];
+        }
+        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+        $booking_date = date('Y-m-d H:i:s');
+        $mfreference = $responseData['Data']['UniqueID'];
+        $traceId = $responseData['Data']['TraceId'];
+        $booking_status = $responseData['Data']['Status'];
+        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+        $id = $bookingData['id'];
+        $stmtupdate->bindParam(':mfreference', $mfreference);
+        $stmtupdate->bindParam(':traceId', $traceId);
+        $stmtupdate->bindParam(':booking_status', $booking_status);
+        $stmtupdate->bindParam(':booking_date', $booking_date);
+        $stmtupdate->bindParam(':markup', $markup);
+        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+        $stmtupdate->bindParam(':id', $id);
+        $stmtupdate->execute();
+        $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+        $err_code = $errCDE;
         $fairtype = $bookingData['fare_type'];
+        $booking_status = $responseData['Data']['Status'];
+        $ticket_status = $responseData['Data']['Status'];
+        $id = $bookingData['id'];
+        $stmtInsert->bindParam(':book_id', $id);
+        $stmtInsert->bindParam(':err_code', $err_code);
+        $stmtInsert->bindParam(':err_msg', $errMsg);
+        $stmtInsert->bindParam(':fare_type', $fairtype);
+        $stmtInsert->bindParam(':book_status', $booking_status);
+        $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+        $stmtInsert->execute();
         
+        $response = array(
+            'bookingid' => $tempBookingId,
+            'BookStatus' => "Failed",
+            'ticketstatus' => "Failed",
+            'faretype' => $fairtype,
+            'errors' => $errMsg,
+            'errCde' => $errCDE
+        );
+        // $logResErr =   print_r($response, true);
+        // $objBook->_writeLog('Error 1 Received\n' . $logResErr, 'booking.txt');
+        echo json_encode($response);
+        exit;
+    } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
+        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+
+        $booking_date = date('Y-m-d H:i:s');
+        $mfreference = $responseData['Data']['UniqueID'];
+        $traceId = $responseData['Data']['TraceId'];
+        $booking_status = $responseData['Data']['Status'];
+        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+        $id = $bookingData['id'];
+
+        $stmtupdate->bindParam(':mfreference', $mfreference);
+        $stmtupdate->bindParam(':traceId', $traceId);
+        $stmtupdate->bindParam(':booking_status', $booking_status);
+        $stmtupdate->bindParam(':booking_date', $booking_date);
+        $stmtupdate->bindParam(':markup', $markup);
+        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+        $stmtupdate->bindParam(':id', $id);
+        $stmtupdate->execute();
+
+        $orderstatus = $responseData['Data']['Success'];
+        $response = array(
+            'BookStatus' => $booking_status,
+            'faretype' => $fairtype,
+            'bookingid' => $tempBookingId,
+        );
+    
+        echo json_encode($response);
+        exit;
+        // $logResSus =   $booking_status;
+        // $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
+    } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "BOOKINGINPROCESS")) {
+        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+        $booking_date = date('Y-m-d H:i:s');
+        $mfreference = $responseData['Data']['UniqueID'];
+        $traceId = $responseData['Data']['TraceId'];
+        $booking_status = $responseData['Data']['Status'];
+        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+        $id = $bookingData['id'];
+        $stmtupdate->bindParam(':mfreference', $mfreference);
+        $stmtupdate->bindParam(':traceId', $traceId);
+        $stmtupdate->bindParam(':booking_status', $booking_status);
+        $stmtupdate->bindParam(':booking_date', $booking_date);
+        $stmtupdate->bindParam(':markup', $markup);
+        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+        $stmtupdate->bindParam(':id', $id);
+        $stmtupdate->execute();
+
+        $orderstatus = $responseData['Data']['Success'];
+        // $logResSus =   $booking_status;
+        // $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
+        $response = array(
+                'BookStatus' => $booking_status,
+                'faretype' => $fairtype,
+                'bookingid' => $tempBookingId,
+            );
+        
+            echo json_encode($response);
+            exit;
+        
+    } elseif (empty($responseData['Data']['Success'])) {
+        $errCDE = '';
+        $errMsg = '';
         if (!empty($responseData['Data']['Errors'])) {
             $errMsg = $responseData['Data']['Errors'][0]['Message'];
             $errCDE = $responseData['Data']['Errors'][0]['Code'];
             if (empty($errMsg)) {
-                $errMsg = $responseData['Data']['Errors']['Message'];
-                $errCDE = $responseData['Data']['Errors']['Code'];
+                $errMsg = $responseData['Data']['Message'];
             }
+        }
+        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+        $booking_date = date('Y-m-d H:i:s');
+        $mfreference = $responseData['Data']['UniqueID'];
+        $traceId = $responseData['Data']['TraceId'];
+        $booking_status = $responseData['Data']['Status'];
+        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+        $id = $bookingData['id'];
 
-            // db update
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+        $stmtupdate->bindParam(':mfreference', $mfreference);
+        $stmtupdate->bindParam(':traceId', $traceId);
+        $stmtupdate->bindParam(':booking_status', $booking_status);
+        $stmtupdate->bindParam(':booking_date', $booking_date);
+        $stmtupdate->bindParam(':markup', $markup);
+        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+        $stmtupdate->bindParam(':id', $id);
+        $stmtupdate->execute();
+        $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
 
-            // Set the values
-            // Set the current datetime for booking_date
-            $booking_date = date('Y-m-d H:i:s');
-            $mfreference = $responseData['Data']['UniqueID'];
-            $traceId = $responseData['Data']['TraceId'];
-            $booking_status = $responseData['Data']['Status'];
+        $err_code = $errCDE;
+        $fairtype = $bookingData['fare_type'];
+        $booking_status = $responseData['Data']['Status'];
+        $ticket_status = $responseData['Data']['Status'];
 
-            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-            $id = $bookingData['id'];
+        $id = $bookingData['id'];
+        if (empty($errMsg)) {
+            $errMsg = "Null Status Received from Airline";
+            $errCDE = "000";
+        }
+        $stmtInsert->bindParam(':book_id', $id);
+        $stmtInsert->bindParam(':err_code', $err_code);
+        $stmtInsert->bindParam(':err_msg', $errMsg);
+        $stmtInsert->bindParam(':fare_type', $fairtype);
+        $stmtInsert->bindParam(':book_status', $booking_status);
+        $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+        $stmtInsert->execute();
 
-            // Bind the parameters
-            $stmtupdate->bindParam(':mfreference', $mfreference);
-            $stmtupdate->bindParam(':traceId', $traceId);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
+        $response = array(
+            'bookingid' => $tempBookingId,
+            'BookStatus' => "Failed",
+            'ticketstatus' => "Failed",
+            'faretype' => $fairtype,
+            'errors' => $errMsg,
+            'status' => $responseData['Data']['Status'],
+            'errCde' => $errCDE
+        );
+        
+        // $logResErr =   print_r($response, true);
+        // $objBook->_writeLog('Error NULL Success Received\n' . $logResErr, 'booking.txt');
+        header('Content-Type: application/json');
+        echo json_encode($response);
+        exit;       
+    } else {
+        $booking_date = date('Y-m-d H:i:s');
+        $mfreference = $responseData['Data']['UniqueID'];
+        $traceId = $responseData['Data']['TraceId'];
+        $booking_status = $responseData['Data']['Status'];
+
+        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+        $id = $bookingData['id'];
+
+        if (empty($mfreference) && ($booking_status == "PENDING")) {
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+
             $stmtupdate->bindParam(':booking_date', $booking_date);
             $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':id', $id);
-
-
-
-            // Execute the query
+            if (empty($errMsg)) {
+                $errMsg = "Pending without MF number Direct failure as per api Received";
+                $errCDE = "001";
+            }
             $stmtupdate->execute();
-            //=====================insrt into booking err table======
-            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-            // Set the values
-            // Set the current datetime for booking_date
-
-            $err_code = $errCDE;
-            $fairtype = $bookingData['fare_type'];
-
-            $booking_status = $responseData['Data']['Status'];
-            $ticket_status = $responseData['Data']['Status'];
-
-            $id = $bookingData['id'];
-
-            // Bind the parameters
-            $stmtInsert->bindParam(':book_id', $id);
-            $stmtInsert->bindParam(':err_code', $err_code);
-            $stmtInsert->bindParam(':err_msg', $errMsg);
-            $stmtInsert->bindParam(':fare_type', $fairtype);
-            $stmtInsert->bindParam(':book_status', $booking_status);
-            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-            // Execute the query
-            $stmtInsert->execute();
-            //====================email send code to admin regrding booking failure and amount need to repay======
-
-            //  include_once('mail_send.php');
-
-            $subject = "Bulatrips User Booking attempt Failure and Balance need to credit Info";
-
-            $email =   $userDetails['email'];
-            $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-            $content    =   '<p>Hello,</p>
-                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-            $messageData =   $objBook->getEmailContent($content);
-            // print_r($messageData);exit;
-            $headers = "";
-            $email = $adminToemail; //Need ADMIN email here
-
-            $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-            //=====================email ends for admin=======
-            //====================================================
-
             $response = array(
+                'bookingid' => $tempBookingId,
                 'BookStatus' => "Failed",
                 'ticketstatus' => "Failed",
                 'faretype' => $fairtype,
                 'errors' => $errMsg,
                 'errCde' => $errCDE
             );
-            //========
-            $logResErr =   print_r($response, true);
-            $objBook->_writeLog('Error 1 Received\n' . $logResErr, 'booking.txt');
-            //echo json_encode("yyy");exit;
-            // header('Content-Type: application/json');
+            
+            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+            $err_code = $errCDE;
+            $fairtype = $bookingData['fare_type'];
+            $booking_status = $responseData['Data']['Status'];
+            $ticket_status = $responseData['Data']['Status'];
+            $id = $bookingData['id'];
+            $stmtInsert->bindParam(':book_id', $id);
+            $stmtInsert->bindParam(':err_code', $err_code);
+            $stmtInsert->bindParam(':err_msg', $errMsg);
+            $stmtInsert->bindParam(':fare_type', $fairtype);
+            $stmtInsert->bindParam(':book_status', $booking_status);
+            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+            $stmtInsert->execute();
+
+            // $logResErr =   print_r($response, true);
+            // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
+            header('Content-Type: application/json');
             echo json_encode($response);
             exit;
-            //===========  
+        }else if (empty($mfreference) && ($booking_status == "NotBooked")) {
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
 
-        }elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) { //"Confirmed" with MF Number: Please consider it as a successful transaction
-            // echo $responseData['Data']['Status'];  
-            //log write ,booking sts update ,booking date ,markup value
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-
-            // Set the values
-            // Set the current datetime for booking_date
-            $booking_date = date('Y-m-d H:i:s');
-
-
-
-            $mfreference = $responseData['Data']['UniqueID'];
-            $traceId = $responseData['Data']['TraceId'];
-            $booking_status = $responseData['Data']['Status'];
-
-            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-            $id = $bookingData['id'];
-
-            // Bind the parameters
-            $stmtupdate->bindParam(':mfreference', $mfreference);
-            $stmtupdate->bindParam(':traceId', $traceId);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
             $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':id', $id);
-
-
-
-            // Execute the query
+            if (empty($errMsg)) {
+                $errMsg = "Not Booked, Direct failure as per api Received";
+                $errCDE = "002";
+            }
             $stmtupdate->execute();
-            // $orderstatus = "order success";
-            $orderstatus = $responseData['Data']['Success']; //hope this will pass true always 
-            //========
-            $logResSus =   $booking_status;
-            $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
+            $response = array(
+                'bookingid' => $tempBookingId,
+                'BookStatus' => "Failed",
+                'ticketstatus' => "Failed",
+                'faretype' => $fairtype,
+                'errors' => $errMsg,
+                'errCde' => $errCDE
+            );
+            
+            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
 
-            //echo "jjj";exit;
-            //============
-        } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "BOOKINGINPROCESS")) { //"BOOKINGINPROCESS" and the booking might get conformed or unconfirmed based on the Airline's confirmation
+            $err_code = $errCDE;
+            $fairtype = $bookingData['fare_type'];
+            $booking_status = $responseData['Data']['Status'];
+            $ticket_status = $responseData['Data']['Status'];
+            $id = $bookingData['id'];
+
+            $stmtInsert->bindParam(':book_id', $id);
+            $stmtInsert->bindParam(':err_code', $err_code);
+            $stmtInsert->bindParam(':err_msg', $errMsg);
+            $stmtInsert->bindParam(':fare_type', $fairtype);
+            $stmtInsert->bindParam(':book_status', $booking_status);
+            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+            $stmtInsert->execute();
+            // $logResErr =   print_r($response, true);
+            // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            exit;
+        }elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
+
             // echo $responseData['Data']['Status'];  
             //log write ,booking sts update ,booking date ,markup value
             $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
@@ -984,7 +1027,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Bind the parameters
             $stmtupdate->bindParam(':mfreference', $mfreference);
             $stmtupdate->bindParam(':traceId', $traceId);
-            $stmtupdate->bindParam(':booking_status', $booking_status); //BOOKINGINPROCESS
+            $stmtupdate->bindParam(':booking_status', $booking_status); //
             $stmtupdate->bindParam(':booking_date', $booking_date);
             $stmtupdate->bindParam(':markup', $markup);
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
@@ -999,606 +1042,84 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             //=============
             $logResSus =   $booking_status;
             $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
-            //echo "yyy";exit;
-            //==============
+            $response = array(
+                    'BookStatus' => $booking_status,
+                    'faretype' => $fairtype,
+                    'bookingid' => $tempBookingId,
+                );
+            
+                echo json_encode($response);
+                exit;
 
-        } elseif (empty($responseData['Data']['Success'])) { //failure case
-            $errCDE = '';
-            $errMsg = '';
-            if (!empty($responseData['Data']['Errors'])) {
-                $errMsg = $responseData['Data']['Errors'][0]['Message'];
-                $errCDE = $responseData['Data']['Errors'][0]['Code'];
-                if (empty($errMsg)) {
-                    $errMsg = $responseData['Data']['Message'];
-                }
-            }
-
-            // db update
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-
-            // Set the values
-            // Set the current datetime for booking_date
-            $booking_date = date('Y-m-d H:i:s');
-
-
-
-            $mfreference = $responseData['Data']['UniqueID'];
-            $traceId = $responseData['Data']['TraceId'];
-            $booking_status = $responseData['Data']['Status'];
-
-            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-            $id = $bookingData['id'];
-
-            // Bind the parameters
-            $stmtupdate->bindParam(':mfreference', $mfreference);
-            $stmtupdate->bindParam(':traceId', $traceId);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
+        }else {
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
             $stmtupdate->bindParam(':booking_date', $booking_date);
             $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':id', $id);
-
-
-
+            if (empty($errMsg)) {
+                $errMsg = $booking_status;
+                $errCDE = "003"; //custom error codes
+            }
             // Execute the query
             $stmtupdate->execute();
-            //=====================insrt into booking err table======
-            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-            // Set the values
-            // Set the current datetime for booking_date
-
-            $err_code = $errCDE;
-            $fairtype = $bookingData['fare_type'];
-
-            $booking_status = $responseData['Data']['Status'];
-            $ticket_status = $responseData['Data']['Status'];
-
-            $id = $bookingData['id'];
-            if (empty($errMsg)) {
-                $errMsg = "Null Status Received from Airline";
-                $errCDE = "000";
-            }
-
-            // Bind the parameters
-            $stmtInsert->bindParam(':book_id', $id);
-            $stmtInsert->bindParam(':err_code', $err_code);
-            $stmtInsert->bindParam(':err_msg', $errMsg);
-            $stmtInsert->bindParam(':fare_type', $fairtype);
-            $stmtInsert->bindParam(':book_status', $booking_status);
-            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-            // Execute the query
-            $stmtInsert->execute();
-
-            //====================================================
-
             $response = array(
+                'bookingid' => $tempBookingId,
                 'BookStatus' => "Failed",
                 'ticketstatus' => "Failed",
                 'faretype' => $fairtype,
                 'errors' => $errMsg,
                 'errCde' => $errCDE
             );
-            //========
-            $logResErr =   print_r($response, true);
-            $objBook->_writeLog('Error NULL Success Received\n' . $logResErr, 'booking.txt');
-            //====================email send code to admin regrding booking failure and amount need to repay======                     
+            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
 
-            $subject = "Bulatrips User Booking attempt Failure and Balance need to credit Info";
-
-            $email =   $userDetails['email'];
-            $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-            $content    =   '<p>Hello,</p>
-                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-            $messageData =   $objBook->getEmailContent($content);
-            // print_r($messageData);exit;
-            $headers = "";
-            $email = $adminToemail; //Need ADMIN email here
-
-            $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-            //=====================email ends for admin=======
-            //====================================================
-            // echo "tttt";exit;
+            $err_code = $errCDE;
+            $fairtype = $bookingData['fare_type'];
+            $booking_status = $responseData['Data']['Status'];
+            $ticket_status = $responseData['Data']['Status'];
+            $id = $bookingData['id'];
+            
+            $stmtInsert->bindParam(':book_id', $id);
+            $stmtInsert->bindParam(':err_code', $err_code);
+            $stmtInsert->bindParam(':err_msg', $errMsg);
+            $stmtInsert->bindParam(':fare_type', $fairtype);
+            $stmtInsert->bindParam(':book_status', $booking_status);
+            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+            $stmtInsert->execute();
+            
+            // $logResSus =   $booking_status;
+            // $logResErr =   print_r($response, true);
+            // $objBook->_writeLog(' status else case with booking status\n' . $logResSus, 'booking.txt');
             header('Content-Type: application/json');
             echo json_encode($response);
             exit;
-            //===========          
-
-        } else {
-            //whatever response from api call update it into db 
-            // Set the values
-            // Set the current datetime for booking_date
-            $booking_date = date('Y-m-d H:i:s');
-            $mfreference = $responseData['Data']['UniqueID'];
-            $traceId = $responseData['Data']['TraceId'];
-            $booking_status = $responseData['Data']['Status'];
-
-            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-            $id = $bookingData['id'];
-
-            //=======Pending without MF number Direct failure as per api doc===
-            if (empty($mfreference) && ($booking_status == "PENDING")) {
-                // $booking_status = "Failed";
-                // db update to failed 
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-
-                $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
-                $stmtupdate->bindParam(':booking_status', $booking_status);
-                $stmtupdate->bindParam(':id', $id);
-                if (empty($errMsg)) {
-                    $errMsg = "Pending without MF number Direct failure as per api Received";
-                    $errCDE = "001";
-                }
-                // Execute the query
-                $stmtupdate->execute();
-                $response = array(
-                    'BookStatus' => "Failed",
-                    'ticketstatus' => "Failed",
-                    'faretype' => $fairtype,
-                    'errors' => $errMsg,
-                    'errCde' => $errCDE
-                );
-                //==========
-                //=====================insrt into booking err table======
-                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-                // Set the values
-                // Set the current datetime for booking_date
-
-                $err_code = $errCDE;
-                $fairtype = $bookingData['fare_type'];
-
-                $booking_status = $responseData['Data']['Status'];
-                $ticket_status = $responseData['Data']['Status'];
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-                $stmtInsert->bindParam(':book_id', $id);
-                $stmtInsert->bindParam(':err_code', $err_code);
-                $stmtInsert->bindParam(':err_msg', $errMsg);
-                $stmtInsert->bindParam(':fare_type', $fairtype);
-                $stmtInsert->bindParam(':book_status', $booking_status);
-                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-                // Execute the query
-                $stmtInsert->execute();
-                //====================email send code to admin regrding booking failure and amount need to repay======
-
-                //  include_once('mail_send.php');
-
-                $subject = "Bulatrips User Booking attempt Failure and Balance need to credit Info";
-
-                $email =   $userDetails['email'];
-                $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-                $content    =   '<p>Hello,</p>
-                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-                $messageData =   $objBook->getEmailContent($content);
-                // print_r($messageData);exit;
-                $headers = "";
-                $email = $adminToemail; //Need ADMIN email here
-
-                $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-                //=====================email ends for admin=======
-                //========
-                $logResErr =   print_r($response, true);
-                $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
-                // echo "tttt";exit;
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit;
-            } //close of pending without mf
-            //==========================Not Booked status -failure====
-            else if (empty($mfreference) && ($booking_status == "NotBooked")) {
-                // $booking_status = "Failed";
-                // db update to failed 
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-
-                $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
-                $stmtupdate->bindParam(':booking_status', $booking_status);
-                $stmtupdate->bindParam(':id', $id);
-                if (empty($errMsg)) {
-                    $errMsg = "Not Booked, Direct failure as per api Received";
-                    $errCDE = "002"; //custom error codes
-                }
-                // Execute the query
-                $stmtupdate->execute();
-                $response = array(
-                    'BookStatus' => "Failed",
-                    'ticketstatus' => "Failed",
-                    'faretype' => $fairtype,
-                    'errors' => $errMsg,
-                    'errCde' => $errCDE
-                );
-                //==========
-                //=====================insrt into booking err table======
-                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-                // Set the values
-                // Set the current datetime for booking_date
-
-                $err_code = $errCDE;
-                $fairtype = $bookingData['fare_type'];
-
-                $booking_status = $responseData['Data']['Status'];
-                $ticket_status = $responseData['Data']['Status'];
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-                $stmtInsert->bindParam(':book_id', $id);
-                $stmtInsert->bindParam(':err_code', $err_code);
-                $stmtInsert->bindParam(':err_msg', $errMsg);
-                $stmtInsert->bindParam(':fare_type', $fairtype);
-                $stmtInsert->bindParam(':book_status', $booking_status);
-                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-                // Execute the query
-                $stmtInsert->execute();
-                //====================email send code to admin regrding booking failure and amount need to repay======
-
-                //  include_once('mail_send.php');
-
-                $subject = "Bulatrips User Booking attempt Failure and Balance need to credit Info";
-
-                $email =   $userDetails['email'];
-                $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-                $content    =   '<p>Hello,</p>
-                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-                $messageData =   $objBook->getEmailContent($content);
-                // print_r($messageData);exit;
-                $headers = "";
-                $email = $adminToemail; //Need ADMIN email here
-
-                $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-                //=====================email ends for admin=======
-                //========
-                $logResErr =   print_r($response, true);
-                $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
-                // echo "tttt";exit;
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit;
-            } //==========================End of Not Booked Failure=========
-            //==============Ticketed,booked,Ticketin process statuses may need cron =======
-            elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
-
-                // echo $responseData['Data']['Status'];  
-                //log write ,booking sts update ,booking date ,markup value
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-
-                // Set the values
-                // Set the current datetime for booking_date
-                $booking_date = date('Y-m-d H:i:s');
-
-
-
-                $mfreference = $responseData['Data']['UniqueID'];
-                $traceId = $responseData['Data']['TraceId'];
-                $booking_status = $responseData['Data']['Status'];
-
-                $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-                $stmtupdate->bindParam(':mfreference', $mfreference);
-                $stmtupdate->bindParam(':traceId', $traceId);
-                $stmtupdate->bindParam(':booking_status', $booking_status); //
-                $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
-                $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
-                $stmtupdate->bindParam(':id', $id);
-
-
-
-                // Execute the query
-                $stmtupdate->execute();
-                //$orderstatus = "order success"; //but cron needed for finalised status
-                $orderstatus = $responseData['Data']['Success'];
-                //=============
-                $logResSus =   $booking_status;
-                $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
-                //echo "yyy";exit;
-                //==============
-
-            } //==================end of ticketed,booked,ticketinprocess statuses=====
-            else {
-                //============consider failure booking on else 
-                // $booking_status = "Failed";
-                // db update to failed 
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-
-                $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
-                $stmtupdate->bindParam(':booking_status', $booking_status);
-                $stmtupdate->bindParam(':id', $id);
-                if (empty($errMsg)) {
-                    $errMsg = $booking_status;
-                    $errCDE = "003"; //custom error codes
-                }
-                // Execute the query
-                $stmtupdate->execute();
-                $response = array(
-                    'BookStatus' => "Failed",
-                    'ticketstatus' => "Failed",
-                    'faretype' => $fairtype,
-                    'errors' => $errMsg,
-                    'errCde' => $errCDE
-                );
-                //==========
-                //=====================insrt into booking err table======
-                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-                // Set the values
-                // Set the current datetime for booking_date
-
-                $err_code = $errCDE;
-                $fairtype = $bookingData['fare_type'];
-
-                $booking_status = $responseData['Data']['Status'];
-                $ticket_status = $responseData['Data']['Status'];
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-                $stmtInsert->bindParam(':book_id', $id);
-                $stmtInsert->bindParam(':err_code', $err_code);
-                $stmtInsert->bindParam(':err_msg', $errMsg);
-                $stmtInsert->bindParam(':fare_type', $fairtype);
-                $stmtInsert->bindParam(':book_status', $booking_status);
-                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-                // Execute the query
-                $stmtInsert->execute();
-                //====================email send code to admin regrding booking failure and amount need to repay======
-
-                //  include_once('mail_send.php');
-
-                $subject = "Bulatrips User Booking attempt Failure and Balance need to credit Info";
-
-                $email =   $userDetails['email'];
-                $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-                $content    =   '<p>Hello,</p>
-                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-                $messageData =   $objBook->getEmailContent($content);
-                // print_r($messageData);exit;
-                $headers = "";
-                $email = $adminToemail; //Need ADMIN email here
-
-                $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-                //=====================email ends for admin=======
-                $logResSus =   $booking_status;
-                //========
-                $logResErr =   print_r($response, true);
-                $objBook->_writeLog(' status else case with booking status\n' . $logResSus, 'booking.txt');
-                // echo "tttt";exit;
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit;
-            } 
         }
+    }
 
-        if ($bookingData['fare_type'] != "WebFare") {
-            $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode');
+    // $response = array(
+    //     'BookStatus' => $booking_status,
+    //     'faretype' => $fairtype,
+    //     'bookingid' => $tempBookingId,
+    // );
 
-            $stmtbookingid->execute(array('farecode' => $_SESSION['fsc']));
-            $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-            //$apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/OrderTicket';
-            // $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';
-            $endpoint   =   'v1/OrderTicket';
-            $apiEndpoint = APIENDPOINT . $endpoint;
-            $bearerToken   =   BEARER;
+    // echo json_encode($response);
+    // exit;
 
+    // unset($_SESSION['search_values']);
+    // unset($_SESSION['response']);
+    // unset($_SESSION['Revalidateresponse']);
+    // unset($_SESSION['name-character-count']);
+    // unset($_SESSION['travel-depdate']);
+    // unset($_SESSION['fsc']);
+    // unset($_SESSION['totalService']);
+    // unset($_SESSION['travel-return-depdate']);
+    // unset($_SESSION['adultCount']);
+    // unset($_SESSION['revalidationApi']);
 
-            // Construct the API request payload
-            $requestData = array(
-                'UniqueID' => $bookingData['mf_reference'],
-                'Target' => TARGET,
-                // 'ConversationId' => 'string',
-            );
-
-
-
-
-            // Send the API request
-
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
-            curl_setopt($ch, CURLOPT_POST, true);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json',
-                'Authorization: Bearer ' . $bearerToken
-            ));
-
-            $responseTicket = curl_exec($ch);
-            curl_close($ch);
-
-            // Handle the API response
-
-            if ($response) {
-                $responseTicketData = json_decode($responseTicket, true);
-            }
-
-
-            //=================log write for OrderTicket API ======
-            $logRes =   print_r($responseTicketData, true);
-            $logReQ =   print_r($requestData, true);
-            $objBook->_writeLog('-------------' . date('l jS \of F Y h:i:s A') . '-------------', 'OrderTicket.txt');
-            $objBook->_writeLog('Request Received\n' . $logReQ, 'OrderTicket.txt');
-            $objBook->_writeLog('REsponse Received for MF:\n' . $responseData['Data']['UniqueID'] . 'OR USERID=' . $userId, 'OrderTicket.txt');
-            $objBook->_writeLog('userId is ' . $userId . 'BOOKING STATUS IS ' . $responseData['Data']['Status'], 'OrderTicket.txt');
-            $objBook->_writeLog('Booking ID is ' . $bookingID, 'OrderTicket.txt');
-
-
-            $objBook->_writeLog('REsponse Received\n' . $logRes, 'OrderTicket.txt');
-            //$responseTicketData['Data']['Success'] = 1 means orderticket success ,empty means failurre
-
-            //============ END log write for  API ==========
-            //  header('Content-Type: application/json');
-            // echo json_encode($responseTicketData); //alert 
-            // exit;
-            //
-            if (!empty($responseData['Data']['Errors'])) { //if orderticket failure ,it means direct failure of booking as per api team 
-                $errMsg = $responseData['Data']['Errors'][0]['Message'];
-                $errCDE = $responseData['Data']['Errors'][0]['Code'];
-                if (empty($errMsg)) {
-                    $errMsg = $responseData['Data']['Errors']['Message'];
-                    $errCDE = $responseData['Data']['Errors']['Code'];
-                }
-
-                // db update
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET ticket_status = :ticket_status WHERE id = :id');
-
-                // Set the values
-                // Set the current datetime for booking_date
-
-                $ticket_status = $responseTicketData['Data']['Success'];
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-
-                $stmtupdate->bindParam(':ticket_status', $ticket_status);
-
-                $stmtupdate->bindParam(':id', $id);
-
-
-
-                // Execute the query
-                $stmtupdate->execute();
-                //=====================insrt into booking err table======
-                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-                // Set the values
-                // Set the current datetime for booking_date
-
-                $err_code = $errCDE;
-                $fairtype = $bookingData['fare_type'];
-
-                $booking_status = $booking_status;
-
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-                $stmtInsert->bindParam(':book_id', $id);
-                $stmtInsert->bindParam(':err_code', $err_code);
-                $stmtInsert->bindParam(':err_msg', $errMsg);
-                $stmtInsert->bindParam(':fare_type', $fairtype);
-                $stmtInsert->bindParam(':book_status', $booking_status);
-                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-                // Execute the query
-                $stmtInsert->execute();
-                //====================email send code to admin regrding booking failure and amount need to repay======
-
-                //  include_once('mail_send.php');
-
-                $subject = "Bulatrips User Booking attempt Failure due to OrderTicket api failure and Balance need to credit Info";
-
-                $email =   $userDetails['email'];
-                $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-                $content    =   '<p>Hello,</p>
-                                                                    <p>This user , ' . $name . ', with email ' . $userDetails['email'] . ' had a  transaction for booking id:' . $tempBookingId . '.The amount used is :$' . $amountToDebit . '</p>
-                                                                    <p>Since this booking attempt failed due to :' . $errMsg . ',Please credit back the same amount </p>';
-                $messageData =   $objBook->getEmailContent($content);
-                // print_r($messageData);exit;
-                $headers = "";
-                $email = $adminToemail; //Need ADMIN email here
-
-                $contacts = sendMail($email, $subject, $messageData, $headers);
-
-
-
-                //=====================email ends for admin=======
-                $response = array(
-                    'BookStatus' => "Failed",
-                    'ticketstatus' => "Failed",
-                    'faretype' => $fairtype,
-                    'errors' => $errMsg,
-                    'errCde' => $errCDE
-                );
-                //====================================================
-
-                
-                header('Content-Type: application/json');
-                echo json_encode($response);
-                exit;
-            } else {
-                // db update
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET ticket_status = :ticket_status WHERE id = :id');
-
-                // Set the values
-                // Set the current datetime for booking_date
-                $ticket_status = $responseTicketData['Data']['Success'];      //may be 1  on success        
-
-                $id = $bookingData['id'];
-
-                // Bind the parameters
-
-                $stmtupdate->bindParam(':ticket_status', $ticket_status);
-
-                $stmtupdate->bindParam(':id', $id);
-
-
-
-                // Execute the query
-                $stmtupdate->execute();
-                $ticketstatus = "ticket sucess";
-            }
-            // echo '<pre>';
-            // print_r($responseTicketData);
-            // echo '</pre>';
-
-        } else {
-            $ticketstatus = "ticket sucess"; //means like webfare type always assuming success status for tickets instant generation 
-            //mail to agent on confirmation sts
-            //==========email to agent about debit amount======
-            $subject = "Bulatrips booking Success ";
-
-            $email =   $userDetails['email'];
-            $name   =   $userDetails['first_name'] . " " . $userDetails['last_name'];
-            $content    =   '<p>Hello ' . $name . ',</p>
-                                                    <p>Your Booking on Bulatrips from:' . $depLocation . ' to ' . $arrivalLocation . ' is ' . $booking_status . '</p>';
-            $messageData =   $objBook->getEmailContent($content);
-            // print_r($messageData);exit;
-            $headers = "";
-            // $email = "no-reply@bulatrips.com"; //Need ADMIN email here
-
-            // $contacts= sendMail($email,$subject, $messageData,$headers);
-
-
-            //====================================email to agent ======
-        }
-
-        $fairtype = $bookingData['fare_type'];
-        $messageNew = '';
-        $response = array(
-            'BookStatus' => $booking_status,
-            'ticketstatus' => $ticketstatus,
-            'faretype' => $fairtype,
-            'bookingid' => $mfreference,
-            'messageNew' => $messageNew
-        );
-
-        echo json_encode($response);
-        exit;
-    */
-    // Breaking the Code for after payment Ends.
+    // header('Content-Type: application/json');
+    // $response = array(
+    //     'booking_id' => $tempBookingId
+    // );
+    // echo json_encode($response);
+    // exit;
 }

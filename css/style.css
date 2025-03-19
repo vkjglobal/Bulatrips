@@ -715,6 +715,7 @@ input[type=number] {
 
 .select2-container--default {
   font-size: 13px;
+  z-index: 10;
 }
 .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
   background-color: #121E7E;
@@ -837,7 +838,7 @@ input[type=number] {
   position: absolute;
   top: 100%;
   right: -30px;
-  z-index: 10;
+  z-index: 11;
   border: 1px solid #AEB3DF;
   background: #ffffff;
   border-radius: 8px;

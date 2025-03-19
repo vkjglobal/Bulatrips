@@ -5,6 +5,10 @@ $('#forgot-form').submit(function (event) {
     var emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     var valid = true;
 
+    
+    $('.errortext').html('');
+    $('.text-danger').html('');
+
     if (email == '' || !emailReg.test(email)) {
         $('#RegisterInputEmail1').after('<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>');
         valid = false;
@@ -21,6 +25,8 @@ $('#forgot-form').submit(function (event) {
         $("#forgot_sub_btn").attr("disabled", true);
         $("#forgot_sub_btn").html("Submit &nbsp;<i class='fas fa-spinner fa-spin'></i>");
 
+
+
         $.ajax({
             type: 'POST',
             url: 'forget_password',
@@ -35,7 +41,6 @@ $('#forgot-form').submit(function (event) {
                     $('#RegisterInputEmail1').val('');                        
                     $('#RegisterInputEmail1').after('<span id="errorlogin" class="errortext" style="color:red">Invalid Email</span>');
                     return false;
-
                 }
                 else if ($.trim(response)=='error14') {
                     $("#forgot_sub_btn").attr("disabled", false);

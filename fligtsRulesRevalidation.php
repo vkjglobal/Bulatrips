@@ -730,7 +730,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                     }
 
                                     $totalFareAPI = $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
-                                    $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI; ?>
+                                    $markupPercentage = $markup['commission_percentage']?>
 
                                     <!-- <span>Bulatrips Platform fee(<?php //echo $markup['commission_percentage'] . "%"; ?>)</span><span>
                                         <?php
@@ -750,14 +750,28 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                     $ipg_percentage = 0;
                                     if( isset($setting['value']) && $setting['value'] != '' ) {
                                         $ipg_percentage = $setting['value'];
-                                    }?>
+                                    }
+                                    
+                                    $ticketing_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+                                    $ticketing_fee->bindValue(':key', "ticketing_fee");
+                                    $ticketing_fee->execute();
+                                    $ticketing_fee_setting = $ticketing_fee->fetch(PDO::FETCH_ASSOC);
+
+                                    $ticketing_fee = 0;
+                                    if( isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '' ) {
+                                        $ticketing_fee = $ticketing_fee_setting['value'];
+                                    }
+                                    
+                                    ?>
 
                                 <!-- <li class="d-flex justify-content-between bdr-t bdr-b pt-2 pb-2" style="font-weight: bold;"><span>Credit Card bank transaction fee(<?php //echo $ipg_percentage;?>%)</span><span> -->
                                         <?php
                                         $totalFareAPI = $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
-                                        // $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-                                        $markupPercentage_cc = ( $ipg_percentage / 100) * $totalFareAPI;
-                                        // echo "$" . number_format($markupPercentage_cc, 2);
+                                        $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                        $markupPercentage += $ticketing_fee;
+                                        $total_price = $markupPercentage + $totalFareAPI;
+                                        $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                        $total_price += $ipg_trasaction_percentage;
                                         ?>
 
                                     <!-- </span></li> -->
@@ -770,11 +784,11 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                     <strong class="fw-600">Total Fare Price</strong>
                                 </li>
                                 <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
-                                    <strong class="fw-600">
+                                    <strong class="fw-600 main_price_view">
                                         <?php
                                         // echo $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
-                                        $_SESSION['session_total_amount'] = round($totalFareAPI + $markupPercentage + $markupPercentage_cc, 2);
-                                        echo "$" . number_format(round($totalFareAPI + $markupPercentage + $markupPercentage_cc, 2), 2);
+                                        $_SESSION['session_total_amount'] = $total_price;
+                                        echo "$" . number_format(round($total_price, 2), 2);
                                         ?>
                                     </strong>
                                     <br />
@@ -868,7 +882,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                             <div class="col-lg-12">
                                 <div class="col-lg-12 p-0" style="border: 1px solid #fac187;">
                                     <p style="color: #000000;font-size: 18px;text-transform: capitalize;background-color: #f57c0078;padding: 10px;    margin-bottom: 0;">
-                                        <strong>Traveller Details: <span style="font-weight: normal; font-size:12px;"><br />Please enter the travelers' details exactly as they appear on the passport.</span></strong>
+                                        <strong>Traveller Details: <span style="font-weight: normal; font-size:12px;"><br />Please enter the details exactly as they appear in the passport:</span></strong>
                                     </p>
                                     <div id="adultcontainermain">
                                         <div id="adultcontainer">
@@ -1084,7 +1098,7 @@ require_once("includes/footer.php");
                                                             <strong class="fw-600">Total Fare Price</strong>
                                                         </li>
                                                         <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
-                                                            <strong class="fw-600">
+                                                            <strong class="fw-600 main_price_view">
                                                                 <?php echo "$" . number_format($_SESSION['session_total_amount'],2);?>
                                                             </strong>
                                                             <br />

@@ -1,4 +1,38 @@
 $(document).ready(function () {
+  
+// Function to set a cookie (renamed to setUserDataCookie)
+function setUserDataCookie(cookieName, value, days) {
+  let expires = "";
+  if (days) {
+      let date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+  }
+  document.cookie = cookieName + "=" + encodeURIComponent(value) + expires + "; path=/";
+}
+
+// Function to get a cookie value (renamed to getUserDataCookie)
+function getUserDataCookie(cookieName) {
+  let nameEQ = cookieName + "=";
+  let ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+  }
+  return null;
+}
+
+
+
+  var adultsArray = [];
+  var childArray = [];
+  var infantArray = [];
+  var contactDetailsData = [];
+  
+ 
+  
+
   $("#user-signup").submit(function (event) {
     event.preventDefault();
     
@@ -2259,7 +2293,24 @@ $(document).ready(function () {
       addChild();
       addInfant();
 
-      function generateExtraServiceOptions(extraServiceData) {
+      function generateExtraServiceOptions(extraServiceData, arrayofservice=[]) {
+        let optionsHtml = '<option value="">Select..</option>';
+        extraServiceData.forEach((extraService) => {
+          if (
+            extraService["Type"] === "BAGGAGE" &&
+            extraService["Behavior"] === "PER_PAX_OUTBOUND"
+          ) {
+            const description = extraService["Description"];
+            const serviceID = extraService["ServiceId"];
+            const amount = extraService["ServiceCost"]["Amount"];
+            
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+          }
+        });
+        return optionsHtml;
+      }
+      
+      function generateExtraServiceOptionsChild(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2270,29 +2321,13 @@ $(document).ready(function () {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-
-      function generateExtraServiceOptionsChild(extraServiceData) {
-        let optionsHtml = '<option value="">Select..</option>';
-        extraServiceData.forEach((extraService) => {
-          if (
-            extraService["Type"] === "BAGGAGE" &&
-            extraService["Behavior"] === "PER_PAX_OUTBOUND"
-          ) {
-            const description = extraService["Description"];
-            const serviceID = extraService["ServiceId"];
-            const amount = extraService["ServiceCost"]["Amount"];
-            // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
-          }
-        });
-        return optionsHtml;
-      }
-      function generateExtraMealServiceOptions(extraServiceData) {
+      
+      function generateExtraMealServiceOptions(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2304,12 +2339,13 @@ $(document).ready(function () {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      function generateExtraMealServiceOptionsChild(extraServiceData) {
+     
+      function generateExtraMealServiceOptionsChild(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2321,13 +2357,13 @@ $(document).ready(function () {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-
-      function generateExtraServiceOptionsReturn(extraServiceData) {
+      
+      function generateExtraServiceOptionsReturn(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2338,13 +2374,13 @@ $(document).ready(function () {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-
-      function generateExtraMealServiceOptionsReturn(extraServiceData) {
+      
+      function generateExtraMealServiceOptionsReturn(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2356,13 +2392,13 @@ $(document).ready(function () {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-
-      function generateExtraMealServiceOptionsChildReturn(extraServiceData) {
+      
+      function generateExtraMealServiceOptionsChildReturn(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2374,12 +2410,12 @@ $(document).ready(function () {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
-      }
-      function generateExtraServiceOptionsChildReturn(extraServiceData) {
+      } 
+      function generateExtraServiceOptionsChildReturn(extraServiceData, arrayofservice=[]) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2390,12 +2426,13 @@ $(document).ready(function () {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}">${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
 
+      // Nafees
       function addAdult() {
         const adultContainer = document.getElementById("adultcontainer");
 
@@ -2408,8 +2445,33 @@ $(document).ready(function () {
               name: country.name,
               iso2: country.iso2,
             }));
-       
+            console.log(adultCounter);
             $faretype = "return";
+            
+            
+            let savedAdultsData = getUserDataCookie("adultsData");
+            let adultsArray = savedAdultsData ? JSON.parse(savedAdultsData) : [];
+            console.log("Retrieved Adults Data:", adultsArray);
+
+
+            let contactDetailsData = getUserDataCookie("contactDetailsData");
+            let contactDetailsDataArray = contactDetailsData ? JSON.parse(contactDetailsData) : [];
+            console.log("Retrieved contactDetailsDataArray Data:", contactDetailsDataArray);
+            let contactsavedData = contactDetailsDataArray || {};
+            
+
+            
+            $("#contactfirstname").val(contactsavedData.contactfirstname);
+            $("#contactlastname").val(contactsavedData.contactlastname);
+            if ($("#contactcountry option[value='" + contactsavedData.contactcountry + "']").length > 0) {
+              $("#contactcountry").val(contactsavedData.contactcountry).change();
+            }
+            $("#contactnumber").val(contactsavedData.contactnumber);
+            $("#contactemail").val(contactsavedData.contactemail);
+            $("#contactpostcode").val(contactsavedData.contactpostcode);
+
+
+            
             for (let i = 1; i <= adultCounter; i++) {
               const div = document.createElement("div");
               div.classList.add(
@@ -2417,6 +2479,9 @@ $(document).ready(function () {
                 "p-0",
                 "m-0",
               );
+              
+              let savedData = adultsArray[i - 1] || {};
+              console.log("Saved Data: "+savedData.title);
               div.innerHTML = `
                     <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                         <label for="" class="m-0 fw-500">Adult ${i}</label>
@@ -2425,47 +2490,47 @@ $(document).ready(function () {
                       <label for="title${i}">Title:</label>
                         <select name="sirLable${i}" id="" class="form-control select-title">
                           
-                            <option value="Mr">MR</option>
-                            <option value="Mrs">MRS</option>
-                            <option value="MISS">MISS</option>
+                            <option value="Mr" ${savedData.title === "Mr" ? "selected" : ""}>MR</option>
+                            <option value="Mrs" ${savedData.title === "Mrs" ? "selected" : ""}>MRS</option>
+                            <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS</option>
                         </select>
                         <span id="sirLableError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="firstName${i}">First Name:</label>
-                        <input type="text" name="firstName${i}" class="form-control" placeholder="Adult ${i} First name">
+                        <input type="text" name="firstName${i}" class="form-control" placeholder="Adult ${i} First name" value="${savedData.firstName || "" }">
                         <span id="firstNameError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="lastName${i}">Last Name:</label>
-                        <input type="text" name="lastName${i}" class="form-control" placeholder="Adult ${i} Last Name">
+                        <input type="text" name="lastName${i}" class="form-control" placeholder="Adult ${i} Last Name" value="${savedData.lastName || "" }">
                         <span id="lastNameError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="gender${i}">Gender:</label>
                       <select name="gender${i}" class="form-control">
                         <option value="">Select Gender</option>
-                        <option value="M">Male</option>
-                        <option value="F">Female</option>
-                        <option value="U">Other</option>
+                        <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
+                        <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
+                        <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
                       </select>
                       <span id="genderError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                     <label for="adultDOB${i}">DOB:</label>
-                        <input type="date" name="adultDOB${i}" class="form-control" placeholder="Adult ${i} Date of Birth" onfocus="(this.type='date')" >
+                        <input type="date" name="adultDOB${i}" class="form-control" placeholder="Adult ${i} Date of Birth" onfocus="(this.type='date')"   value="${savedData.dob}">
                         <span id="adultDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="passportNo${i}">Passport Number:</label>
-                        <input type="text" class="form-control" name="passportNo${i}" placeholder="Adult ${i} Passport No.">
+                        <input type="text" class="form-control" name="passportNo${i}" placeholder="Adult ${i} Passport No."  value="${savedData.passportNo || "" }">
                         <span id="passportNoError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
                     <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                       <label for="pasprtExp${i}">Passport Expiry:</label>
-                        <input type="date" name="pasprtExp${i}" class="form-control" placeholder="Adult ${i} Expiry Date" onfocus="(this.type='date')" >
+                        <input type="date" name="pasprtExp${i}" class="form-control" placeholder="Adult ${i} Expiry Date" onfocus="(this.type='date')"  value="${savedData.passportExpiry}" >
                         <span id="pasprtExpError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
@@ -2475,7 +2540,7 @@ $(document).ready(function () {
                         ${countryData
                           .map(
                             (country) =>
-                              `<option value="${country.iso2}">${country.name}</option>`
+                              `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
                           )
                           .join("")}
                       </select>
@@ -2488,7 +2553,7 @@ $(document).ready(function () {
                         ${countryData
                           .map(
                             (country) =>
-                              `<option value="${country.iso2}">${country.name}</option>`
+                              `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
                           )
                           .join("")}
                       </select>
@@ -2504,7 +2569,7 @@ $(document).ready(function () {
                       <select name="baggageService${i}" id="baggageService${i}" class="form-control">
                       ${
                         extraSrviceData && extraSrviceData.length > 0
-                          ? generateExtraServiceOptions(extraSrviceData)
+                          ? generateExtraServiceOptions(extraSrviceData, savedData)
                           : ""
                       }
                       </select>
@@ -2520,7 +2585,7 @@ $(document).ready(function () {
                       <select name="mealService${i}" id="mealService${i}" class="form-control">
                         ${
                           extraSrviceData && extraSrviceData.length > 0
-                            ? generateExtraMealServiceOptions(extraSrviceData)
+                            ? generateExtraMealServiceOptions(extraSrviceData, savedData)
                             : ""
                         }
                       </select>
@@ -2536,7 +2601,7 @@ $(document).ready(function () {
                       <select name="baggageServiceReturn${i}" id="baggageServiceReturn${i}" class="form-control">
                       ${
                         extraSrviceData && extraSrviceData.length > 0
-                          ? generateExtraServiceOptionsReturn(extraSrviceData)
+                          ? generateExtraServiceOptionsReturn(extraSrviceData, savedData)
                           : ""
                       }
                       </select>
@@ -2552,7 +2617,7 @@ $(document).ready(function () {
                         ${
                           extraSrviceData && extraSrviceData.length > 0
                             ? generateExtraMealServiceOptionsReturn(
-                                extraSrviceData
+                                extraSrviceData, savedData
                               )
                             : ""
                         }
@@ -2567,7 +2632,7 @@ $(document).ready(function () {
           });
         // adultCounter++;
       }
-
+      
       //child details
       function addChild() {
         const adultContainer = document.getElementById("childcontainer");
@@ -2588,58 +2653,61 @@ $(document).ready(function () {
                 "p-0",
                 "m-0",
               );
+
+              let savedAdultsData = getUserDataCookie("childData");
+              let childArray = savedAdultsData ? JSON.parse(savedAdultsData) : [];
+              console.log("Retrieved Child Data:", childArray);
+              let savedData = childArray[i - 1] || {};
+              console.log("Saved Data: "+savedData.title);
+
+
               div.innerHTML = `
-                
-
-
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Child ${i}</label>
                   </div>
                   <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableChild${i}"> Title:</label>
                       <select name="sirLableChild${i}" id="" class="form-control select-title">
-                          <option value="MISS">MISS </option>
-                          <option value="MSTR">MSTR</option>
-                          
+                          <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS</option>
+                          <option value="MSTR" ${savedData.title === "MSTR" ? "selected" : ""}>MSTR</option>
                       </select>
                       <span id="sirLableChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
-
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                     <label for="firstNameChild${i}"> First Name:</label>
-                      <input type="text" name="firstNameChild${i}" class="form-control" placeholder="Child ${i} First name">
+                      <input type="text" name="firstNameChild${i}" class="form-control" placeholder="Child ${i} First name" value="${savedData.firstName || "" }">
                       <span id="firstNameChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="lastNameChild${i}"> Last Name:</label>
-                      <input type="text" name="lastNameChild${i}" class="form-control" placeholder="Child ${i} Last Name">
+                      <input type="text" name="lastNameChild${i}" class="form-control" placeholder="Child ${i} Last Name" value="${savedData.lastName || "" }">
                       <span id="lastNameChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="genderChild${i}"> Gender:</label>
                   <select name="genderChild${i}" class="form-control">
                     <option value="">Select Gender</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="U">Other</option>
+                    <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
+                    <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
+                    <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
                   </select>
                   <span id="genderChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                 </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="childDOB${i}"> DOB:</label>
-                      <input type="date" name="childDOB${i}" class="form-control" placeholder="Child ${i} Date of Birth" onfocus="(this.type='date')"  >
+                      <input type="date" name="childDOB${i}" class="form-control" placeholder="Child ${i} Date of Birth" onfocus="(this.type='date')"  value="${savedData.dob}" >
 
                       <span id="childDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="passportNoChild${i}">Passport Number:</label>
-                      <input type="text" class="form-control" name="passportNoChild${i}" placeholder="Child ${i} Passport No.">
+                      <input type="text" class="form-control" name="passportNoChild${i}" placeholder="Child ${i} Passport No." value="${savedData.passportNo || "" }">
                       <span id="passportNoChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="pasprtExpChild${i}">Passport Expiry:</label>
-                      <input type="date" name="pasprtExpChild${i}" class="form-control" placeholder="Child ${i} Expiry Date" onfocus="(this.type='date')" >
+                      <input type="date" name="pasprtExpChild${i}" class="form-control" placeholder="Child ${i} Expiry Date" onfocus="(this.type='date')" value="${savedData.passportExpiry}" >
                       <span id="pasprtExpChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
@@ -2649,7 +2717,7 @@ $(document).ready(function () {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}">${country.name}</option>`
+                            `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2662,7 +2730,7 @@ $(document).ready(function () {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}">${country.name}</option>`
+                            `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2678,7 +2746,7 @@ $(document).ready(function () {
                     <select name="baggageServiceChild${i}" id="baggageServiceChild${i}" class="form-control">
                     ${
                       extraSrviceData && extraSrviceData.length > 0
-                        ? generateExtraServiceOptionsChild(extraSrviceData)
+                        ? generateExtraServiceOptionsChild(extraSrviceData, savedData)
                         : ""
                     }
                     </select>
@@ -2695,7 +2763,7 @@ $(document).ready(function () {
                       ${
                         extraSrviceData && extraSrviceData.length > 0
                           ? generateExtraMealServiceOptionsChild(
-                              extraSrviceData
+                              extraSrviceData, savedData
                             )
                           : ""
                       }
@@ -2712,7 +2780,7 @@ $(document).ready(function () {
                       ${
                         extraSrviceData && extraSrviceData.length > 0
                           ? generateExtraServiceOptionsChildReturn(
-                              extraSrviceData
+                              extraSrviceData, savedData
                             )
                           : ""
                       }
@@ -2729,7 +2797,7 @@ $(document).ready(function () {
                         ${
                           extraSrviceData && extraSrviceData.length > 0
                             ? generateExtraMealServiceOptionsChildReturn(
-                                extraSrviceData
+                                extraSrviceData, savedData
                               )
                             : ""
                         }
@@ -2770,56 +2838,60 @@ $(document).ready(function () {
                 "p-0",
                 "m-0",
               );
+
+              let savedinfantData = getUserDataCookie("infantData");
+              let infantArray = savedinfantData ? JSON.parse(savedinfantData) : [];
+              console.log("Retrieved Infant Data:", infantArray);
+              let savedData = infantArray[i - 1] || {};
+              console.log("Saved Data: "+savedData.title);
+
               div.innerHTML = `
-                
-
-
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Infant ${i}</label>
                   </div>
                   <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableInfant${i}"> Title:</label>
                       <select name="sirLableInfant${i}" id="" class="form-control select-title">
-                        <option value="MISS">MISS </option>
-                        <option value="MSTR">MSTR</option>
+                        <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS </option>
+                        <option value="MSTR" ${savedData.title === "MSTR" ? "selected" : ""}>MSTR</option>
                       </select>
                       <span id="sirLableInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="firstNameInfant${i}"> First Name:</label>
-                      <input type="text" name="firstNameInfant${i}" class="form-control" placeholder="Infant ${i} First name">
+                      <input type="text" name="firstNameInfant${i}" class="form-control" placeholder="Infant ${i} First name" value="${savedData.firstName || "" }">
                       <span id="firstNameInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="lastNameInfant${i}"> Last Name:</label>
-                      <input type="text" name="lastNameInfant${i}" class="form-control" placeholder="Infant ${i} Last Name">
+                      <input type="text" name="lastNameInfant${i}" class="form-control" placeholder="Infant ${i} Last Name" value="${savedData.lastName || "" }">
                       <span id="lastNameInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="genderInfant${i}">  Gender:</label>
                   <select name="genderInfant${i}" class="form-control">
                     <option value="">Select Gender</option>
-                    <option value="M">Male</option>
-                    <option value="F">Female</option>
-                    <option value="U">Other</option>
+                    <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
+                    <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
+                    <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
                   </select>
                   <span id="genderError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                 </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="infantDOB${i}">  DOB:</label>
-                      <input type="date" name="infantDOB${i}" class="form-control" placeholder="Infant ${i} Date of Birth" onfocus="(this.type='date')" >
+                      <input type="date" name="infantDOB${i}" class="form-control" placeholder="Infant ${i} Date of Birth" onfocus="(this.type='date')"  value="${savedData.dob}" >
                       <span id="infantDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="passportNoInfant${i}">  Passport Number:</label>
-                      <input type="text" class="form-control" name="passportNoInfant${i}" placeholder="Infant ${i} Passport No.">
+                      <input type="text" class="form-control" name="passportNoInfant${i}" placeholder="Infant ${i} Passport No." value="${savedData.passportNo || "" }">
                       <span id="passportNoInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="pasprtExpInfant${i}">  Passport Expiry:</label>
-                      <input type="date" name="pasprtExpInfant${i}" class="form-control" placeholder="Infant ${i} Expiry Date" onfocus="(this.type='date')" >
+                      <input type="date" name="pasprtExpInfant${i}" class="form-control" placeholder="Infant ${i} Expiry Date" onfocus="(this.type='date')" value="${savedData.passportExpiry}" >
                       <span id="pasprtExpInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
 
                   </div>
@@ -2829,7 +2901,7 @@ $(document).ready(function () {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}">${country.name}</option>`
+                            `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2841,7 +2913,7 @@ $(document).ready(function () {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}">${country.name}</option>`
+                            `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -3158,9 +3230,26 @@ $(document).ready(function () {
         clearError(lastNameChildInput);
       }
 
+
       if (passportNoChildInput.value.trim() === "") {
         displayError(passportNoChildInput, `Passpoet number ${i} is required`);
         validationErrors.push(`Passpoet number ${i} is required`);
+      } else if (
+        document.querySelector("input[name=api_country_id]").value == 1499
+      ) {
+        if (
+          !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
+            passportNoChildInput.value.trim()
+          )
+        ) {
+          displayError(passportNoChildInput, `must contain alphanumeric`);
+          validationErrors.push(`must contain alphanumeric`);
+        } else {
+          clearError(passportNoChildInput);
+        }
+      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoChildInput.value.trim())) {
+        displayError(passportNoChildInput, `Max 9 characters allowed.`);
+        validationErrors.push(`Max 9 characters allowed.`);
       } else {
         clearError(passportNoChildInput);
       }
@@ -3181,22 +3270,10 @@ $(document).ready(function () {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MSTR" for selected gender`
-        );
-
+        displayError(sirLableSelect,`Title should be "MSTR" for selected gender`);
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
-      } else {
-        clearError(sirLableSelect);
-      }
-
-      if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MISS" for selected gender`
-        );
-
+      } else if (genderValue == "F" && sirLableValue != "MISS") {
+        displayError( sirLableSelect, `Title should be "MISS" for selected gender`);
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
@@ -3322,6 +3399,22 @@ $(document).ready(function () {
       if (passportNoInfantInput.value.trim() === "") {
         displayError(passportNoInfantInput, `Passpoet number ${i} is required`);
         validationErrors.push(`Passpoet number ${i} is required`);
+      } else if (
+        document.querySelector("input[name=api_country_id]").value == 1499
+      ) {
+        if (
+          !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
+            passportNoInfantInput.value.trim()
+          )
+        ) {
+          displayError(passportNoInfantInput, `must contain alphanumeric`);
+          validationErrors.push(`must contain alphanumeric`);
+        } else {
+          clearError(passportNoInfantInput);
+        }
+      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInfantInput.value.trim())) {
+        displayError(passportNoInfantInput, `Max 9 characters allowed.`);
+        validationErrors.push(`Max 9 characters allowed.`);
       } else {
         clearError(passportNoInfantInput);
       }
@@ -3342,26 +3435,15 @@ $(document).ready(function () {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MSTR" for selected gender`
-        );
-
+        displayError(sirLableSelect, `Title should be "MSTR" for selected gender`);
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
-      } else {
-        clearError(sirLableSelect);
-      }
-
-      if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MISS" for selected gender`
-        );
-
+      } else if (genderValue == "F" && sirLableValue != "MISS") {
+        displayError(sirLableSelect,`Title should be "MISS" for selected gender`);
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
       }
+      
       const dobDate = new Date(infantDOBInput.value.trim());
       const currentDate = new Date();
       const pasexpcheckdate = new Date(currentDatevalue); //passsport exp comprison date and dob comparison date
@@ -3464,6 +3546,7 @@ $(document).ready(function () {
       valid = false;
     }
 
+    
     // Set up form data for submission
     var formData = new FormData(this);
     if (validationErrors.length === 0 && valid == true) {
@@ -3475,6 +3558,83 @@ $(document).ready(function () {
         processData: false,
         success: function (response) {
           if (response.success) {
+              
+            $(".main_price_view").html(response.total_updated_price);
+            // Nafees
+            for (let i = 1; i <= adultCounter; i++) {
+                let adultData = {
+                    title: document.querySelector(`[name="sirLable${i}"]`).value,
+                    firstName: document.querySelector(`[name="firstName${i}"]`).value,
+                    lastName: document.querySelector(`[name="lastName${i}"]`).value,
+                    gender: document.querySelector(`[name="gender${i}"]`).value,
+                    dob: document.querySelector(`[name="adultDOB${i}"]`).value,
+                    passportNo: document.querySelector(`[name="passportNo${i}"]`).value,
+                    passportExpiry: document.querySelector(`[name="pasprtExp${i}"]`).value,
+                    issuingCountry: document.querySelector(`[name="issuingCountry${i}"]`).value,
+                    nationality: document.querySelector(`[name="nationality${i}"]`).value,
+                    baggageService: document.querySelector(`[name="baggageService${i}"]`) ? document.querySelector(`[name="baggageService${i}"]`).value : "",
+                    mealService: document.querySelector(`[name="mealService${i}"]`) ? document.querySelector(`[name="mealService${i}"]`).value : "",
+                    baggageServiceReturn: document.querySelector(`[name="baggageServiceReturn${i}"]`) ? document.querySelector(`[name="baggageServiceReturn${i}"]`).value : "",
+                    mealServiceReturn: document.querySelector(`[name="mealServiceReturn${i}"]`) ? document.querySelector(`[name="mealServiceReturn${i}"]`).value : ""
+                };
+                adultsArray.push(adultData);
+            }
+            setUserDataCookie("adultsData", JSON.stringify(adultsArray), 7);
+            
+
+          // Nafees
+            for (let i = 1; i <= childCounter; i++) {
+              let childData = {
+                  title: document.querySelector(`[name="sirLableChild${i}"]`).value,
+                  firstName: document.querySelector(`[name="firstNameChild${i}"]`).value,
+                  lastName: document.querySelector(`[name="lastNameChild${i}"]`).value,
+                  gender: document.querySelector(`[name="genderChild${i}"]`).value,
+                  dob: document.querySelector(`[name="childDOB${i}"]`).value,
+                  passportNo: document.querySelector(`[name="passportNoChild${i}"]`).value,
+                  passportExpiry: document.querySelector(`[name="pasprtExpChild${i}"]`).value,
+                  issuingCountry: document.querySelector(`[name="issuingcountryChild${i}"]`).value,
+                  nationality: document.querySelector(`[name="nationalityChild${i}"]`).value,
+                  baggageService: document.querySelector(`[name="baggageServiceChild${i}"]`) ? document.querySelector(`[name="baggageServiceChild${i}"]`).value : "",
+                  mealService: document.querySelector(`[name="mealServiceChild${i}"]`) ? document.querySelector(`[name="mealServiceChild${i}"]`).value : "",
+                  baggageServiceReturn: document.querySelector(`[name="baggageServiceChildReturn${i}"]`) ? document.querySelector(`[name="baggageServiceChildReturn${i}"]`).value : "",
+                  mealServiceReturn: document.querySelector(`[name="mealServiceChildReturn${i}"]`) ? document.querySelector(`[name="mealServiceChildReturn${i}"]`).value : ""
+              };
+              childArray.push(childData);
+            }
+             setUserDataCookie("childData", JSON.stringify(childArray), 7);
+
+        // Nafees
+        for (let i = 1; i <= infantCounter; i++) {
+          let infantData = {
+              title: document.querySelector(`[name="sirLableInfant${i}"]`).value,
+              firstName: document.querySelector(`[name="firstNameInfant${i}"]`).value,
+              lastName: document.querySelector(`[name="lastNameInfant${i}"]`).value,
+              gender: document.querySelector(`[name="genderInfant${i}"]`).value,
+              dob: document.querySelector(`[name="infantDOB${i}"]`).value,
+              passportNo: document.querySelector(`[name="passportNoInfant${i}"]`).value,
+              passportExpiry: document.querySelector(`[name="pasprtExpInfant${i}"]`).value,
+              issuingCountry: document.querySelector(`[name="issuingcountryInfant${i}"]`).value,
+              nationality: document.querySelector(`[name="nationalityinfant${i}"]`).value,
+              baggageService: document.querySelector(`[name="baggageServiceInfant${i}"]`) ? document.querySelector(`[name="baggageServiceInfant${i}"]`).value : "",
+              mealService: document.querySelector(`[name="mealServiceInfant${i}"]`) ? document.querySelector(`[name="mealServiceInfant${i}"]`).value : "",
+              baggageServiceReturn: document.querySelector(`[name="baggageServiceReturnInfant${i}"]`) ? document.querySelector(`[name="baggageServiceReturnInfant${i}"]`).value : "",
+              mealServiceReturn: document.querySelector(`[name="mealServiceReturnInfant${i}"]`) ? document.querySelector(`[name="mealServiceReturnInfant${i}"]`).value : ""
+          };
+          infantArray.push(infantData);
+        }
+        setUserDataCookie("infantData", JSON.stringify(infantArray), 7);
+
+
+          let contactDetailsData = {
+              contactfirstname: document.querySelector(`[name="contactfirstname"]`).value,
+              contactlastname: document.querySelector(`[name="contactlastname"]`).value,
+              contactcountry: document.querySelector(`[name="contactcountry"]`).value,
+              contactnumber: document.querySelector(`[name="contactnumber"]`).value,
+              contactemail: document.querySelector(`[name="contactemail"]`).value,
+              contactpostcode: document.querySelector(`[name="contactpostcode"]`).value,
+          };
+          setUserDataCookie("contactDetailsData", JSON.stringify(contactDetailsData), 7);
+
               const isLoggedIn = $("#user_id_loggedin").val();    
               if (isLoggedIn) {
                 $("#payment_modal").modal("show");
@@ -4069,6 +4229,7 @@ $(document).ready(function () {
           cvv: cvv
       };
       */
+
         $("#loaderIcon").show();
         $(".submit_payment_btn").attr("disabled", true);
         $(".submit_payment_btn").html('<i class="fas fa-circle-notch fa-spin spinner"></i>');
@@ -4080,9 +4241,79 @@ $(document).ready(function () {
           type: 'post',
           dataType: 'json',
           success: function (response) {
-            console.log(response.booking_id);
+              $('#errorMessagePayment').html("Thank you for your patience! Please don't refresh or close this page while we process your booking.");
+              $("#loaderIcon").hide();
+              if (response.errors && response.errors.length > 0) {
+                  Swal.fire({
+                    title: "Booking Failed",
+                    text: "Airline Error:" + response.errors + " After Verification,Your Debited amount will be Repayed within 7 days ",
+                    icon: "error",
+                    confirmButtonText: "Close",
+                    confirmButtonColor: "#f57c00", 
+                    allowOutsideClick: false, 
+                  }).then((result) => {
+                          window.location.href = "index";
+                  });
+              } else {
+                      if (response.BookStatus == "CONFIRMED") {
+                          $.ajax({
+                              url: 'windcave',
+                              method: 'POST',
+                              contentType: 'application/json',
+                              data: {"booking_id":response.bookingid},
+                              contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+                              dataType: 'json',
+                              success: function(response) {
+                                  document.location.href = response.url;
+                              }
+                          });
+                      } else if ((response.BookStatus == "PENDING") && (response.bookingid != '' && response.bookingid != undefined)) {
+                          Swal.fire({
+                            title: "Booking Hold failed!",
+                            text: "We could not hold the booking for this booking. please try to search again.",
+                            icon: "info",
+                            confirmButtonText: "Close",
+                            confirmButtonColor: "#f57c00", 
+                            allowOutsideClick: false, 
+                          }).then((result) => {
+                              window.location.href = 'index';
+                          });
+                      } else if ((response.BookStatus == "PENDING") && (response.bookingid == '' || response.bookingid == undefined)) {
+                        Swal.fire({
+                          title: "Booking Hold failed!",
+                          text: "We could not hold the booking for this booking. please try to search again.",
+                          icon: "info",
+                          confirmButtonText: "Close",
+                          confirmButtonColor: "#f57c00", 
+                          allowOutsideClick: false, 
+                        }).then((result) => {
+                            window.location.href = 'index';
+                        });
+                      } else if ((response.BookStatus == "BookingInProcess") && (response.bookingid == '' || response.bookingid == undefined)) {
+                        Swal.fire({
+                          title: "Booking Hold failed!",
+                          text: "We could not hold the booking for this booking. please try to search again.",
+                          icon: "info",
+                          confirmButtonText: "Close",
+                          confirmButtonColor: "#f57c00", 
+                          allowOutsideClick: false, 
+                        }).then((result) => {
+                            window.location.href = 'index';
+                        });
+                      }
+              }
+            
+
+
+
+
+
+
+
+            console.log(response);
+            return;
+
             if( response.booking_id != '' ) {
-              
               $.ajax({
                     url: 'windcave',
                     method: 'POST',
@@ -4194,20 +4425,19 @@ $(document).ready(function () {
                                     }
                                 });
                         } else {
-                            $('#errorMessagePayment').html("Your Transaction Failed with an  Error: " + response.message + "</br> Please Try agin later");
+                            $('#errorMessagePayment').html("Your Transaction Failed with an  Error: " + response.errors + "</br> Please Try agin later");
                         }
                     }
                 });
-
-
-
-
-
-
-
-
             }
           }
       });
     });
+
+
+
+
+
+
 });
+

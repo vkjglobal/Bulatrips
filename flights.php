@@ -75,6 +75,8 @@ $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_cod
 $stmtlocation->execute(array('airport_code' => $originLocationCode[0]));
 $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
+$airport_code_chosesn = $airportLocation['airport_code'];
+
 $stmtlocation->execute(array('airport_code' => $destinationLocationCode[0]));
 $airportDestinationLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
 
@@ -139,6 +141,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                 <div class="d-flex white-txt justify-content-center">
                     <div class="d-flex align-items-center">
                         <span class="mr-3">
+                            
                             <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name']; ?> |
                             <?php echo date("d M", strtotime($fromDate)); ?> 
                             <?php
@@ -1648,7 +1651,8 @@ require_once("includes/footer.php");
 
     $('.select-class').select2();
     $(document).ready(function () {        
-        preSelectedValue1 = "<?php echo $airportLocation['airport_code'];?>";
+    preSelectedValue1 = "<?php echo $airport_code_chosesn;?>";
+    console.log(preSelectedValue1);
     var select2 = $('.airport_location_finder_depature').select2({
         placeholder: 'Search for an Airport Location',
         ajax: {
@@ -1671,6 +1675,7 @@ require_once("includes/footer.php");
 
         
     var preSelectedValue2 = "<?php echo $airportDestinationLocation['airport_code'];?>";
+    console.log(preSelectedValue2);
     var select = $('.airport_location_finder_arrival').select2({
         placeholder: 'Search for an Airport Location',
         ajax: {

@@ -626,15 +626,16 @@ section.choose-flight {
   font-family: "Lobster";
   font-style: normal;
   font-weight: 400;
-  font-size: 75px;
-  line-height: 94px;
+  font-size: 60px;
+  line-height: 10px;
+  margin-bottom: 50px;
 }
 .carousel-caption h3 {
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 700;
-  font-size: 100px;
-  line-height: 125px;
+  font-size: 60px;
+    line-height: 70px;
 }
 
 .flight-search-midbar {
@@ -1869,7 +1870,7 @@ a.text-decoration:hover {
   background: url(../images/banner8.jpg) no-repeat;
   background-size: cover;
   padding-bottom: 81px;
-  margin-bottom: 0;
+  /* background: #000; */
 }
 
 .review-item img {
@@ -1878,9 +1879,10 @@ a.text-decoration:hover {
 }
 
 .owl-theme.travel-reviews-carousel.owl-carousel .owl-item {
-  padding: 34px 30px 42px;
+  padding: 15px;
   background: #ffffff;
   border-radius: 15px;
+  min-height: 230px;
 }
 .owl-theme.travel-reviews-carousel.owl-theme .owl-dots {
   margin-top: 44px;

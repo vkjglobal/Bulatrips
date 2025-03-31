@@ -303,8 +303,14 @@ public function updateAgentBalance($agentId,$amountnew){
     //homebanner edit
     public function updateHomeBanner($tableName,$homeId,$firstEdit,$secondEdit,$bannerImageEdit){
    
-        $query = "UPDATE $tableName SET first_title = ? ,second_title = ?,image = ?  WHERE id = ?";
-        $params = [$firstEdit,$secondEdit,$bannerImageEdit,$homeId];
+        if( $bannerImageEdit != '' ) {
+            $query = "UPDATE $tableName SET first_title = ? ,second_title = ?,image = ?  WHERE id = ?";
+            $params = [$firstEdit,$secondEdit,$bannerImageEdit,$homeId];
+        } else {
+            $query = "UPDATE $tableName SET first_title = ? ,second_title = ?  WHERE id = ?";
+            $params = [$firstEdit,$secondEdit,$homeId];
+        }
+        
 
         try {
             $stmt = $this->conn->prepare($query);

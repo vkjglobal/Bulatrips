@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 // Store all POST values in a single session variable
 
 $_POST['total_extra_service_fee'] = getExtraserviceAmoount($_POST);

@@ -126,7 +126,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                         list($date, $time) = explode("T", $datetime);
                                         ?>
 
-                                        <p style="color: #000000;font-size: 14px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;padding: 5px 10px;background-color: #f57c0078;padding: 12px;">
+                                        <p style="color: #000000;font-size: 14px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;padding: 5px 10px;background-color: #f57c0078;padding: 12px; flex-wrap: wrap;">
                                             <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg" />
                                             <strong>Departure</strong>
                                             <span class="ml-3">
@@ -135,7 +135,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                 <?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?>
                                             </span>
 
-                                            <span class="fw-500 " style="display: block;float: right;position: absolute;right: 18px;text-transform: capitalize;font-size: 15px;">
+                                            <span class="fw-500 " style="display: block;float: right;right: 18px;text-transform: capitalize;font-size: 15px; text-align:right; width:100%;">
                                                 Total Duration:
                                                 <?php
                                                 $origin_total_duration = 0;
@@ -172,7 +172,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                             Flight No - <?php echo $flightSegment['FlightNumber'] . " " . $flightSegment['CabinClassText'] ?>
                                                         </li>
                                                         <li class="col-xl-8 col-md-8">
-                                                            <div class="d-flex form-row justify-content-between align-items-center" style="    word-break: break-all;">
+                                                            <div class="d-flex form-row justify-content-between align-items-center" style="    word-break: break-word;">
                                                                 <div class="col-md-4 mb-md-0 mb-2 text-md-right">
                                                                     <?php
                                                                     $datetime = $flightSegment['DepartureDateTime'];
@@ -181,7 +181,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
                                                                     ?>
                                                                     <strong class="fw-500 d-block"><?php echo $flightSegment['DepartureAirportLocationCode'] . " " . $time ?></strong>
-                                                                    <?php echo date("d M Y", strtotime($date)) . " " . $airportLocation['airport_name'] . " , " . $airportLocation['city_name'] . " " . $airportLocation['country_name'] ?>
+                                                                    <?php echo date("d F Y", strtotime($date)) . " <br />  " . $airportLocation['airport_name'] . ", " . $airportLocation['city_name'] . " " . $airportLocation['country_name'] ?>
                                                                 </div>
                                                                 <div class="col-md-3 mb-md-0 mb-2">
                                                                     <div class="d-flex flex-column align-items-center">
@@ -206,7 +206,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
                                                                     ?>
                                                                     <strong class="fw-500 d-block"><?php echo $flightSegment['ArrivalAirportLocationCode'] . " " . $time; ?></strong>
-                                                                    <?php echo date("d M Y", strtotime($date)) . ", " . $airportLocation['airport_name'] . "," . $airportLocation['city_name'] . "," . $airportLocation['country_name'] ?>
+                                                                    <?php echo date("d F Y", strtotime($date)) . " <br />  " . $airportLocation['airport_name'] . ", " . $airportLocation['city_name'] . " " . $airportLocation['country_name'] ?>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -259,7 +259,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                     list($date, $time) = explode("T", $datetime);
                                                     ?>
 
-                                                    <p style="color: #000000;font-size: 14px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;padding: 5px 10px;background-color: #f57c0078;padding: 12px;">
+                                                    <p style="color: #000000;font-size: 14px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;padding: 5px 10px;background-color: #f57c0078;padding: 12px; flex-wrap: wrap;">
                                                         <img class="flight_icon_small_return" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg" />
                                                         <strong>Return</strong>
                                                         <span class="ml-3">
@@ -268,7 +268,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                             <?php echo $destinationData . " " . date("d F Y", strtotime($date)); ?>
                                                         </span>
 
-                                                        <span class="fw-500 " style="display: block;float: right;position: absolute;right: 18px;text-transform: capitalize;font-size: 15px;">
+                                                        <span class="fw-500 " style="display: block;float: right;right: 18px;text-transform: capitalize;font-size: 15px; text-align:right; width:100%;">
                                                             Total Duration:
                                                             <?php
                                                             $origin_total_duration = 0;
@@ -296,7 +296,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                             Flight No - <?php echo $flightSegment['FlightNumber'] . " " . $flightSegment['CabinClassText'] ?>
                                                         </li>
                                                         <li class="col-xl-8 col-md-8">
-                                                            <div class="d-flex form-row justify-content-between align-items-center" style="word-break: break-all;">
+                                                            <div class="d-flex form-row justify-content-between align-items-center" style="word-break: break-word;">
                                                                 <div class="col-md-4 mb-md-0 mb-2 text-md-right">
                                                                     <?php
                                                                     $datetime = $flightSegment['DepartureDateTime'];
@@ -305,7 +305,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
                                                                     ?>
                                                                     <strong class="fw-500 d-block"><?php echo $flightSegment['DepartureAirportLocationCode'] . " " . $time ?></strong>
-                                                                    <?php echo date("d M Y", strtotime($date)) . " " . $airportLocation['airport_name'] . " , " . $airportLocation['city_name'] ?>
+                                                                    <?php echo date("d F Y", strtotime($date)) . " <br />  " . $airportLocation['airport_name'] . ", " . $airportLocation['city_name'] . " " . $airportLocation['country_name'] ?>
                                                                 </div>
                                                                 <div class="col-md-3 mb-md-0 mb-2">
                                                                     <div class="d-flex flex-column align-items-center">
@@ -330,7 +330,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     $airportLocation = $stmtlocation->fetch(PDO::FETCH_ASSOC);
                                                                     ?>
                                                                     <strong class="fw-500 d-block"><?php echo $time . " " . $flightSegment['ArrivalAirportLocationCode']; ?></strong>
-                                                                    <?php echo date("d F Y", strtotime($date)) . ", " . $airportLocation['airport_name'] . "," . $airportLocation['city_name'] . "," . $airportLocation['country_name'] ?>
+                                                                    <?php echo date("d F Y", strtotime($date)) . " <br />  " . $airportLocation['airport_name'] . ", " . $airportLocation['city_name'] . " " . $airportLocation['country_name'] ?>
                                                                 </div>
                                                             </div>
                                                         </li>
@@ -900,15 +900,31 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                         <p style="color: #000000;font-size: 18px;text-transform: capitalize;background-color: #f57c0078;padding: 10px;    margin-bottom: 0;"><strong>Contact Details</strong></p>
 
                                         <div class="form-row pb-lg-3 pb-2 align-items-center p-2">
-                                            
+
+                                        <?php
+                                        if (isset($_SESSION['user_id'])) {
+                                            $id = $_SESSION['user_id'];
+                                            $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
+                                            $stmt->execute(array('id' => $id));
+                                            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+                                            $first_name = $user['first_name'];
+                                            $last_name = $user['last_name'];
+                                            $country = $user['country'];
+                                            $mobile = $user['mobile'];
+                                            $email = $user['email'];
+                                            $zip_code = $user['zip_code'];
+                                        }
+                                        ?>
+
                                             <!-- <div class="col mb-md-0 mb-2">
                                                 <label for="" class="m-0 fw-500">Contact Details</label>
                                             </div> -->
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactfirstname" id="contactfirstname" class="form-control" placeholder="First Name">
+                                                <input type="text" name="contactfirstname" id="contactfirstname" class="form-control" placeholder="First Name" value="<?php echo $first_name;?>">
                                             </div>
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactlastname" id="contactlastname" class="form-control" placeholder="Last Name">
+                                                <input type="text" name="contactlastname" id="contactlastname" class="form-control" placeholder="Last Name" value="<?php echo $last_name;?>">
                                             </div>
                                             <div class="col-md-2 mb-4">
                                                 <?php
@@ -927,9 +943,12 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                         $name = $item['name'];
                                                         $dialCode = $item['dial_code'];
                                                         $code = $item['code'];
-
-                                                        // Create an option element with the country name and dial code
-                                                        $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
+                                                        if( $country == $code ) {
+                                                            $option = "<option selected value=\"$dialCode\">$name ($dialCode)</option>";
+                                                        } else {
+                                                            // Create an option element with the country name and dial code
+                                                            $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
+                                                        }
 
                                                         // Append the option to the select box HTML
                                                         $selectBox .= $option;
@@ -947,13 +966,13 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                 ?>
                                             </div>
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactnumber" id="contactnumber" class="form-control" placeholder="Mobile Number">
+                                                <input type="text" name="contactnumber" id="contactnumber" class="form-control" placeholder="Mobile Number" value="<?php echo $mobile;?>">
                                             </div>
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address">
+                                                <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address" value="<?php echo $email;?>">
                                             </div>
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactpostcode" id="contactpostcode" class="form-control" placeholder="Postcode">
+                                                <input type="text" name="contactpostcode" id="contactpostcode" class="form-control" placeholder="Postcode" value="<?php echo $zip_code;?>">
                                             </div>
                                             <?php
 

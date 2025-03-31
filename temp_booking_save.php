@@ -652,433 +652,138 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
     $fsc = $bookingData['fare_source_code'];
 
-    if (isset($fsc)) {
-        $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
-        $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
-        $stmt->execute(array('bookingId' => $bookingData['id']));
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $endpoint   =   'v1/Book/Flight';
-        $apiEndpoint = APIENDPOINT . $endpoint;
-        $bearerToken   =   BEARER;
-        foreach ($result as $row) {
-            $extraMealId = $row['extrameal_id'];
-            $extraBaggageId = $row['extrabaggage_id'];
-            $extraMealReturnId = $row['extrameal_return_id'];
-            $extraBaggageReturnId = $row['extrabaggage_return_id'];
-            $extraServices = [];
-            if ($extraMealId != 0) {
-                $extraServices[] = array(
-                    "ExtraServiceId" => $extraMealId,
-                    "Quantity" => 1,
-                    "Key" => "string"
-                );
-            }
-
-            if ($extraBaggageId != 0) {
-                $extraServices[] = array(
-                    "ExtraServiceId" => $extraBaggageId,
-                    "Quantity" => 1,
-                    "Key" => "string"
-                );
-            }
-            if ($extraMealReturnId != 0) {
-                $extraServices[] = array(
-                    "ExtraServiceId" => $extraMealReturnId,
-                    "Quantity" => 1,
-                    "Key" => "string"
-                );
-            }
-            if ($extraBaggageReturnId != 0) {
-                $extraServices[] = array(
-                    "ExtraServiceId" => $extraBaggageReturnId,
-                    "Quantity" => 1,
-                    "Key" => "string"
-                );
-            }
-            $passenger = array(
-                "PassengerType" => $row['passenger_type'],
-                "Gender" => $row['gender'],
-                "PassengerName" => array(
-                    "PassengerTitle" => $row['title'],
-                    "PassengerFirstName" => $row['first_name'],
-                    "PassengerLastName" => $row['last_name']
-                ),
-                "DateOfBirth" => $row['dob'],
-                "Passport" => array(
-                    "PassportNumber" => $row['passport_number'],
-                    "ExpiryDate" => $row['passport_expiry_date'],
-                    "Country" => $row['issuing_country'],
-                ),
-                "PassengerNationality" => $row['nationality'],
-            );
-            if (!empty($extraServices) &&  $bookingData['fare_type'] == "WebFare") {
-                $passenger["ExtraServices1_1"] = $extraServices;
-            }
-            $passengerDetails[] = $passenger;
-        }
-        $requestData = array(
-            "FareSourceCode" =>  $fsc,
-            "ClientMarkup" => $markup,
-            "TravelerInfo" => array(
-                "AirTravelers" => $passengerDetails,
-                "CountryCode" => $codeWithoutPlus,
-                "PhoneNumber" => $bookingData['contact_number'],
-                "Email" => $bookingData['contact_email'],
-                "PostCode" => $bookingData['contact_postcode']
-            ),
-            "Target" => TARGET,
-        );
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-            'Content-Type: application/json',
-            'Authorization: Bearer ' . $bearerToken
-        ));
-        $response = curl_exec($ch);
-        curl_close($ch);
-        if ($response) {
-            $responseData = json_decode($response, true);
-        }
-    }
-
-    $resSuccess  = $responseData['Data']['Success'];
-    $fairtype = $bookingData['fare_type'];
-    if (!empty($responseData['Data']['Errors'])) {
-        $errMsg = $responseData['Data']['Errors'][0]['Message'];
-        $errCDE = $responseData['Data']['Errors'][0]['Code'];
-        if (empty($errMsg)) {
-            $errMsg = $responseData['Data']['Errors']['Message'];
-            $errCDE = $responseData['Data']['Errors']['Code'];
-        }
-        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-        $booking_date = date('Y-m-d H:i:s');
-        $mfreference = $responseData['Data']['UniqueID'];
-        $traceId = $responseData['Data']['TraceId'];
-        $booking_status = $responseData['Data']['Status'];
-        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-        $id = $bookingData['id'];
-        $stmtupdate->bindParam(':mfreference', $mfreference);
-        $stmtupdate->bindParam(':traceId', $traceId);
-        $stmtupdate->bindParam(':booking_status', $booking_status);
-        $stmtupdate->bindParam(':booking_date', $booking_date);
-        $stmtupdate->bindParam(':markup', $markup);
-        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
-        $stmtupdate->bindParam(':id', $id);
-        $stmtupdate->execute();
-        $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-        $err_code = $errCDE;
-        $fairtype = $bookingData['fare_type'];
-        $booking_status = $responseData['Data']['Status'];
-        $ticket_status = $responseData['Data']['Status'];
-        $id = $bookingData['id'];
-        $stmtInsert->bindParam(':book_id', $id);
-        $stmtInsert->bindParam(':err_code', $err_code);
-        $stmtInsert->bindParam(':err_msg', $errMsg);
-        $stmtInsert->bindParam(':fare_type', $fairtype);
-        $stmtInsert->bindParam(':book_status', $booking_status);
-        $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-        $stmtInsert->execute();
-        
-        $response = array(
-            'bookingid' => $tempBookingId,
-            'BookStatus' => "Failed",
-            'ticketstatus' => "Failed",
-            'faretype' => $fairtype,
-            'errors' => $errMsg,
-            'errCde' => $errCDE
-        );
-        // $logResErr =   print_r($response, true);
-        // $objBook->_writeLog('Error 1 Received\n' . $logResErr, 'booking.txt');
-        echo json_encode($response);
-        exit;
-    } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
-        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-
-        $booking_date = date('Y-m-d H:i:s');
-        $mfreference = $responseData['Data']['UniqueID'];
-        $traceId = $responseData['Data']['TraceId'];
-        $booking_status = $responseData['Data']['Status'];
-        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-        $id = $bookingData['id'];
-
-        $stmtupdate->bindParam(':mfreference', $mfreference);
-        $stmtupdate->bindParam(':traceId', $traceId);
-        $stmtupdate->bindParam(':booking_status', $booking_status);
-        $stmtupdate->bindParam(':booking_date', $booking_date);
-        $stmtupdate->bindParam(':markup', $markup);
-        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
-        $stmtupdate->bindParam(':id', $id);
-        $stmtupdate->execute();
-
-        $orderstatus = $responseData['Data']['Success'];
-        $response = array(
-            'BookStatus' => $booking_status,
-            'faretype' => $fairtype,
-            'bookingid' => $tempBookingId,
-        );
+    if( $bookingData['fare_type'] != 'WebFare' ) {
+        if (isset($fsc)) {
+            $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
+            $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
+            $stmt->execute(array('bookingId' => $bookingData['id']));
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     
-        echo json_encode($response);
-        exit;
-        // $logResSus =   $booking_status;
-        // $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
-    } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "BOOKINGINPROCESS")) {
-        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-        $booking_date = date('Y-m-d H:i:s');
-        $mfreference = $responseData['Data']['UniqueID'];
-        $traceId = $responseData['Data']['TraceId'];
-        $booking_status = $responseData['Data']['Status'];
-        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-        $id = $bookingData['id'];
-        $stmtupdate->bindParam(':mfreference', $mfreference);
-        $stmtupdate->bindParam(':traceId', $traceId);
-        $stmtupdate->bindParam(':booking_status', $booking_status);
-        $stmtupdate->bindParam(':booking_date', $booking_date);
-        $stmtupdate->bindParam(':markup', $markup);
-        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
-        $stmtupdate->bindParam(':id', $id);
-        $stmtupdate->execute();
-
-        $orderstatus = $responseData['Data']['Success'];
-        // $logResSus =   $booking_status;
-        // $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
-        $response = array(
-                'BookStatus' => $booking_status,
-                'faretype' => $fairtype,
-                'bookingid' => $tempBookingId,
+            $endpoint   =   'v1/Book/Flight';
+            $apiEndpoint = APIENDPOINT . $endpoint;
+            $bearerToken   =   BEARER;
+            foreach ($result as $row) {
+                $extraMealId = $row['extrameal_id'];
+                $extraBaggageId = $row['extrabaggage_id'];
+                $extraMealReturnId = $row['extrameal_return_id'];
+                $extraBaggageReturnId = $row['extrabaggage_return_id'];
+                $extraServices = [];
+                if ($extraMealId != 0) {
+                    $extraServices[] = array(
+                        "ExtraServiceId" => $extraMealId,
+                        "Quantity" => 1,
+                        "Key" => "string"
+                    );
+                }
+    
+                if ($extraBaggageId != 0) {
+                    $extraServices[] = array(
+                        "ExtraServiceId" => $extraBaggageId,
+                        "Quantity" => 1,
+                        "Key" => "string"
+                    );
+                }
+                if ($extraMealReturnId != 0) {
+                    $extraServices[] = array(
+                        "ExtraServiceId" => $extraMealReturnId,
+                        "Quantity" => 1,
+                        "Key" => "string"
+                    );
+                }
+                if ($extraBaggageReturnId != 0) {
+                    $extraServices[] = array(
+                        "ExtraServiceId" => $extraBaggageReturnId,
+                        "Quantity" => 1,
+                        "Key" => "string"
+                    );
+                }
+                $passenger = array(
+                    "PassengerType" => $row['passenger_type'],
+                    "Gender" => $row['gender'],
+                    "PassengerName" => array(
+                        "PassengerTitle" => $row['title'],
+                        "PassengerFirstName" => $row['first_name'],
+                        "PassengerLastName" => $row['last_name']
+                    ),
+                    "DateOfBirth" => $row['dob'],
+                    "Passport" => array(
+                        "PassportNumber" => $row['passport_number'],
+                        "ExpiryDate" => $row['passport_expiry_date'],
+                        "Country" => $row['issuing_country'],
+                    ),
+                    "PassengerNationality" => $row['nationality'],
+                );
+                if (!empty($extraServices) &&  $bookingData['fare_type'] == "WebFare") {
+                    $passenger["ExtraServices1_1"] = $extraServices;
+                }
+                $passengerDetails[] = $passenger;
+            }
+            $requestData = array(
+                "FareSourceCode" =>  $fsc,
+                "ClientMarkup" => $markup,
+                "TravelerInfo" => array(
+                    "AirTravelers" => $passengerDetails,
+                    "CountryCode" => $codeWithoutPlus,
+                    "PhoneNumber" => $bookingData['contact_number'],
+                    "Email" => $bookingData['contact_email'],
+                    "PostCode" => $bookingData['contact_postcode']
+                ),
+                "Target" => TARGET,
             );
-        
-            echo json_encode($response);
-            exit;
-        
-    } elseif (empty($responseData['Data']['Success'])) {
-        $errCDE = '';
-        $errMsg = '';
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
+            curl_setopt($ch, CURLOPT_POST, true);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $bearerToken
+            ));
+            $response = curl_exec($ch);
+            curl_close($ch);
+            if ($response) {
+                $responseData = json_decode($response, true);
+                $objBook->_writeLog('-------------Public/Private Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                $objBook->_writeLog("API URL Response: ".$apiEndpoint, 'temp_booking_save.txt');
+                $objBook->_writeLog(print_r($responseData, true), 'temp_booking_save.txt');
+                $objBook->_writeLog("", 'temp_booking_save.txt');
+                $objBook->_writeLog('-------------Public/Private Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+
+            }
+        }
+
+
+        $resSuccess  = $responseData['Data']['Success'];
+        $fairtype = $bookingData['fare_type'];
         if (!empty($responseData['Data']['Errors'])) {
             $errMsg = $responseData['Data']['Errors'][0]['Message'];
             $errCDE = $responseData['Data']['Errors'][0]['Code'];
             if (empty($errMsg)) {
-                $errMsg = $responseData['Data']['Message'];
+                $errMsg = $responseData['Data']['Errors']['Message'];
+                $errCDE = $responseData['Data']['Errors']['Code'];
             }
-        }
-        $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-        $booking_date = date('Y-m-d H:i:s');
-        $mfreference = $responseData['Data']['UniqueID'];
-        $traceId = $responseData['Data']['TraceId'];
-        $booking_status = $responseData['Data']['Status'];
-        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-        $id = $bookingData['id'];
-
-        $stmtupdate->bindParam(':mfreference', $mfreference);
-        $stmtupdate->bindParam(':traceId', $traceId);
-        $stmtupdate->bindParam(':booking_status', $booking_status);
-        $stmtupdate->bindParam(':booking_date', $booking_date);
-        $stmtupdate->bindParam(':markup', $markup);
-        $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
-        $stmtupdate->bindParam(':id', $id);
-        $stmtupdate->execute();
-        $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-        $err_code = $errCDE;
-        $fairtype = $bookingData['fare_type'];
-        $booking_status = $responseData['Data']['Status'];
-        $ticket_status = $responseData['Data']['Status'];
-
-        $id = $bookingData['id'];
-        if (empty($errMsg)) {
-            $errMsg = "Null Status Received from Airline";
-            $errCDE = "000";
-        }
-        $stmtInsert->bindParam(':book_id', $id);
-        $stmtInsert->bindParam(':err_code', $err_code);
-        $stmtInsert->bindParam(':err_msg', $errMsg);
-        $stmtInsert->bindParam(':fare_type', $fairtype);
-        $stmtInsert->bindParam(':book_status', $booking_status);
-        $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-        $stmtInsert->execute();
-
-        $response = array(
-            'bookingid' => $tempBookingId,
-            'BookStatus' => "Failed",
-            'ticketstatus' => "Failed",
-            'faretype' => $fairtype,
-            'errors' => $errMsg,
-            'status' => $responseData['Data']['Status'],
-            'errCde' => $errCDE
-        );
-        
-        // $logResErr =   print_r($response, true);
-        // $objBook->_writeLog('Error NULL Success Received\n' . $logResErr, 'booking.txt');
-        header('Content-Type: application/json');
-        echo json_encode($response);
-        exit;       
-    } else {
-        $booking_date = date('Y-m-d H:i:s');
-        $mfreference = $responseData['Data']['UniqueID'];
-        $traceId = $responseData['Data']['TraceId'];
-        $booking_status = $responseData['Data']['Status'];
-
-        $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
-        $id = $bookingData['id'];
-
-        if (empty($mfreference) && ($booking_status == "PENDING")) {
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-
-            $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
-            $stmtupdate->bindParam(':id', $id);
-            if (empty($errMsg)) {
-                $errMsg = "Pending without MF number Direct failure as per api Received";
-                $errCDE = "001";
-            }
-            $stmtupdate->execute();
-            $response = array(
-                'bookingid' => $tempBookingId,
-                'BookStatus' => "Failed",
-                'ticketstatus' => "Failed",
-                'faretype' => $fairtype,
-                'errors' => $errMsg,
-                'errCde' => $errCDE
-            );
-            
-            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-            $err_code = $errCDE;
-            $fairtype = $bookingData['fare_type'];
-            $booking_status = $responseData['Data']['Status'];
-            $ticket_status = $responseData['Data']['Status'];
-            $id = $bookingData['id'];
-            $stmtInsert->bindParam(':book_id', $id);
-            $stmtInsert->bindParam(':err_code', $err_code);
-            $stmtInsert->bindParam(':err_msg', $errMsg);
-            $stmtInsert->bindParam(':fare_type', $fairtype);
-            $stmtInsert->bindParam(':book_status', $booking_status);
-            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-            $stmtInsert->execute();
-
-            // $logResErr =   print_r($response, true);
-            // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
-            header('Content-Type: application/json');
-            echo json_encode($response);
-            exit;
-        }else if (empty($mfreference) && ($booking_status == "NotBooked")) {
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-
-            $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
-            $stmtupdate->bindParam(':id', $id);
-            if (empty($errMsg)) {
-                $errMsg = "Not Booked, Direct failure as per api Received";
-                $errCDE = "002";
-            }
-            $stmtupdate->execute();
-            $response = array(
-                'bookingid' => $tempBookingId,
-                'BookStatus' => "Failed",
-                'ticketstatus' => "Failed",
-                'faretype' => $fairtype,
-                'errors' => $errMsg,
-                'errCde' => $errCDE
-            );
-            
-            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
-            $err_code = $errCDE;
-            $fairtype = $bookingData['fare_type'];
-            $booking_status = $responseData['Data']['Status'];
-            $ticket_status = $responseData['Data']['Status'];
-            $id = $bookingData['id'];
-
-            $stmtInsert->bindParam(':book_id', $id);
-            $stmtInsert->bindParam(':err_code', $err_code);
-            $stmtInsert->bindParam(':err_msg', $errMsg);
-            $stmtInsert->bindParam(':fare_type', $fairtype);
-            $stmtInsert->bindParam(':book_status', $booking_status);
-            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
-            $stmtInsert->execute();
-            // $logResErr =   print_r($response, true);
-            // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
-            header('Content-Type: application/json');
-            echo json_encode($response);
-            exit;
-        }elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
-
-            // echo $responseData['Data']['Status'];  
-            //log write ,booking sts update ,booking date ,markup value
             $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-
-            // Set the values
-            // Set the current datetime for booking_date
             $booking_date = date('Y-m-d H:i:s');
-
-
-
             $mfreference = $responseData['Data']['UniqueID'];
             $traceId = $responseData['Data']['TraceId'];
             $booking_status = $responseData['Data']['Status'];
-
             $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
             $id = $bookingData['id'];
-
-            // Bind the parameters
             $stmtupdate->bindParam(':mfreference', $mfreference);
             $stmtupdate->bindParam(':traceId', $traceId);
-            $stmtupdate->bindParam(':booking_status', $booking_status); //
+            $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
             $stmtupdate->bindParam(':markup', $markup);
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
             $stmtupdate->bindParam(':id', $id);
-
-
-
-            // Execute the query
             $stmtupdate->execute();
-            //$orderstatus = "order success"; //but cron needed for finalised status
-            $orderstatus = $responseData['Data']['Success'];
-            //=============
-            $logResSus =   $booking_status;
-            $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
-            $response = array(
-                    'BookStatus' => $booking_status,
-                    'faretype' => $fairtype,
-                    'bookingid' => $tempBookingId,
-                );
-            
-                echo json_encode($response);
-                exit;
-
-        }else {
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-            $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
-            $stmtupdate->bindParam(':booking_status', $booking_status);
-            $stmtupdate->bindParam(':id', $id);
-            if (empty($errMsg)) {
-                $errMsg = $booking_status;
-                $errCDE = "003"; //custom error codes
-            }
-            // Execute the query
-            $stmtupdate->execute();
-            $response = array(
-                'bookingid' => $tempBookingId,
-                'BookStatus' => "Failed",
-                'ticketstatus' => "Failed",
-                'faretype' => $fairtype,
-                'errors' => $errMsg,
-                'errCde' => $errCDE
-            );
             $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-
             $err_code = $errCDE;
             $fairtype = $bookingData['fare_type'];
             $booking_status = $responseData['Data']['Status'];
             $ticket_status = $responseData['Data']['Status'];
             $id = $bookingData['id'];
-            
             $stmtInsert->bindParam(':book_id', $id);
             $stmtInsert->bindParam(':err_code', $err_code);
             $stmtInsert->bindParam(':err_msg', $errMsg);
@@ -1087,13 +792,362 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtInsert->bindParam(':ticket_sts', $ticket_status);
             $stmtInsert->execute();
             
-            // $logResSus =   $booking_status;
-            // $logResErr =   print_r($response, true);
-            // $objBook->_writeLog(' status else case with booking status\n' . $logResSus, 'booking.txt');
-            header('Content-Type: application/json');
+            $response = array(
+                'bookingid' => $tempBookingId,
+                'BookStatus' => "Failed",
+                'ticketstatus' => "Failed",
+                'faretype' => $fairtype,
+                'errors' => $errMsg,
+                'errCde' => $errCDE
+            );
+            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
             echo json_encode($response);
             exit;
+        } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+    
+            $booking_date = date('Y-m-d H:i:s');
+            $mfreference = $responseData['Data']['UniqueID'];
+            $traceId = $responseData['Data']['TraceId'];
+            $booking_status = $responseData['Data']['Status'];
+            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+            $id = $bookingData['id'];
+    
+            $stmtupdate->bindParam(':mfreference', $mfreference);
+            $stmtupdate->bindParam(':traceId', $traceId);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
+            $stmtupdate->bindParam(':booking_date', $booking_date);
+            $stmtupdate->bindParam(':markup', $markup);
+            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':id', $id);
+            $stmtupdate->execute();
+    
+            $orderstatus = $responseData['Data']['Success'];
+            $response = array(
+                'BookStatus' => $booking_status,
+                'faretype' => $fairtype,
+                'bookingid' => $tempBookingId,
+            );
+            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            $objBook->_writeLog("Booking Confirmed: ", 'temp_booking_save.txt');
+            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            echo json_encode($response);
+            exit;
+            // $logResSus =   $booking_status;
+            // $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
+        } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "BOOKINGINPROCESS")) {
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $booking_date = date('Y-m-d H:i:s');
+            $mfreference = $responseData['Data']['UniqueID'];
+            $traceId = $responseData['Data']['TraceId'];
+            $booking_status = $responseData['Data']['Status'];
+            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+            $id = $bookingData['id'];
+            $stmtupdate->bindParam(':mfreference', $mfreference);
+            $stmtupdate->bindParam(':traceId', $traceId);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
+            $stmtupdate->bindParam(':booking_date', $booking_date);
+            $stmtupdate->bindParam(':markup', $markup);
+            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':id', $id);
+            $stmtupdate->execute();
+    
+            $orderstatus = $responseData['Data']['Success'];
+            $response = array(
+                'BookStatus' => $booking_status,
+                'faretype' => $fairtype,
+                'bookingid' => $tempBookingId,
+            );
+            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            $objBook->_writeLog("Booking BOOKINGINPROCESS: ", 'temp_booking_save.txt');
+            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+        
+            echo json_encode($response);
+            exit;
+            
+        } elseif (empty($responseData['Data']['Success'])) {
+            $errCDE = '';
+            $errMsg = '';
+            if (!empty($responseData['Data']['Errors'])) {
+                $errMsg = $responseData['Data']['Errors'][0]['Message'];
+                $errCDE = $responseData['Data']['Errors'][0]['Code'];
+                if (empty($errMsg)) {
+                    $errMsg = $responseData['Data']['Message'];
+                }
+            }
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $booking_date = date('Y-m-d H:i:s');
+            $mfreference = $responseData['Data']['UniqueID'];
+            $traceId = $responseData['Data']['TraceId'];
+            $booking_status = $responseData['Data']['Status'];
+            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+            $id = $bookingData['id'];
+    
+            $stmtupdate->bindParam(':mfreference', $mfreference);
+            $stmtupdate->bindParam(':traceId', $traceId);
+            $stmtupdate->bindParam(':booking_status', $booking_status);
+            $stmtupdate->bindParam(':booking_date', $booking_date);
+            $stmtupdate->bindParam(':markup', $markup);
+            $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+            $stmtupdate->bindParam(':id', $id);
+            $stmtupdate->execute();
+            $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+    
+            $err_code = $errCDE;
+            $fairtype = $bookingData['fare_type'];
+            $booking_status = $responseData['Data']['Status'];
+            $ticket_status = $responseData['Data']['Status'];
+    
+            $id = $bookingData['id'];
+            if (empty($errMsg)) {
+                $errMsg = "Null Status Received from Airline";
+                $errCDE = "000";
+            }
+            $stmtInsert->bindParam(':book_id', $id);
+            $stmtInsert->bindParam(':err_code', $err_code);
+            $stmtInsert->bindParam(':err_msg', $errMsg);
+            $stmtInsert->bindParam(':fare_type', $fairtype);
+            $stmtInsert->bindParam(':book_status', $booking_status);
+            $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+            $stmtInsert->execute();
+    
+            $response = array(
+                'bookingid' => $tempBookingId,
+                'BookStatus' => "Failed",
+                'ticketstatus' => "Failed",
+                'faretype' => $fairtype,
+                'errors' => $errMsg,
+                'status' => $responseData['Data']['Status'],
+                'errCde' => $errCDE
+            );
+            
+            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+            $objBook->_writeLog("", 'temp_booking_save.txt');
+            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+
+            header('Content-Type: application/json');
+            echo json_encode($response);
+            exit;       
+        } else {
+            $booking_date = date('Y-m-d H:i:s');
+            $mfreference = $responseData['Data']['UniqueID'];
+            $traceId = $responseData['Data']['TraceId'];
+            $booking_status = $responseData['Data']['Status'];
+    
+            $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+            $id = $bookingData['id'];
+    
+            if (empty($mfreference) && ($booking_status == "PENDING")) {
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+    
+                $stmtupdate->bindParam(':booking_date', $booking_date);
+                $stmtupdate->bindParam(':markup', $markup);
+                $stmtupdate->bindParam(':booking_status', $booking_status);
+                $stmtupdate->bindParam(':id', $id);
+                if (empty($errMsg)) {
+                    $errMsg = "Pending without MF number Direct failure as per api Received";
+                    $errCDE = "001";
+                }
+                $stmtupdate->execute();
+                $response = array(
+                    'bookingid' => $tempBookingId,
+                    'BookStatus' => "Failed",
+                    'ticketstatus' => "Failed",
+                    'faretype' => $fairtype,
+                    'errors' => $errMsg,
+                    'errCde' => $errCDE
+                );
+                
+                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+                $err_code = $errCDE;
+                $fairtype = $bookingData['fare_type'];
+                $booking_status = $responseData['Data']['Status'];
+                $ticket_status = $responseData['Data']['Status'];
+                $id = $bookingData['id'];
+                $stmtInsert->bindParam(':book_id', $id);
+                $stmtInsert->bindParam(':err_code', $err_code);
+                $stmtInsert->bindParam(':err_msg', $errMsg);
+                $stmtInsert->bindParam(':fare_type', $fairtype);
+                $stmtInsert->bindParam(':book_status', $booking_status);
+                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+                $stmtInsert->execute();
+    
+                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                $objBook->_writeLog("Empty Reference Number + status PENDING", 'temp_booking_save.txt');
+                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+                $objBook->_writeLog("", 'temp_booking_save.txt');
+                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                
+                header('Content-Type: application/json');
+                echo json_encode($response);
+                exit;
+            }else if (empty($mfreference) && ($booking_status == "NotBooked")) {
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+    
+                $stmtupdate->bindParam(':booking_date', $booking_date);
+                $stmtupdate->bindParam(':markup', $markup);
+                $stmtupdate->bindParam(':booking_status', $booking_status);
+                $stmtupdate->bindParam(':id', $id);
+                if (empty($errMsg)) {
+                    $errMsg = "Not Booked, Direct failure as per api Received";
+                    $errCDE = "002";
+                }
+                $stmtupdate->execute();
+                $response = array(
+                    'bookingid' => $tempBookingId,
+                    'BookStatus' => "Failed",
+                    'ticketstatus' => "Failed",
+                    'faretype' => $fairtype,
+                    'errors' => $errMsg,
+                    'errCde' => $errCDE
+                );
+                
+                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+    
+                $err_code = $errCDE;
+                $fairtype = $bookingData['fare_type'];
+                $booking_status = $responseData['Data']['Status'];
+                $ticket_status = $responseData['Data']['Status'];
+                $id = $bookingData['id'];
+    
+                $stmtInsert->bindParam(':book_id', $id);
+                $stmtInsert->bindParam(':err_code', $err_code);
+                $stmtInsert->bindParam(':err_msg', $errMsg);
+                $stmtInsert->bindParam(':fare_type', $fairtype);
+                $stmtInsert->bindParam(':book_status', $booking_status);
+                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+                $stmtInsert->execute();
+                
+                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
+                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+                $objBook->_writeLog("", 'temp_booking_save.txt');
+                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+
+                header('Content-Type: application/json');
+                echo json_encode($response);
+                exit;
+            }elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
+    
+                // echo $responseData['Data']['Status'];  
+                //log write ,booking sts update ,booking date ,markup value
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+    
+                // Set the values
+                // Set the current datetime for booking_date
+                $booking_date = date('Y-m-d H:i:s');
+    
+    
+    
+                $mfreference = $responseData['Data']['UniqueID'];
+                $traceId = $responseData['Data']['TraceId'];
+                $booking_status = $responseData['Data']['Status'];
+    
+                $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
+                $id = $bookingData['id'];
+    
+                // Bind the parameters
+                $stmtupdate->bindParam(':mfreference', $mfreference);
+                $stmtupdate->bindParam(':traceId', $traceId);
+                $stmtupdate->bindParam(':booking_status', $booking_status); //
+                $stmtupdate->bindParam(':booking_date', $booking_date);
+                $stmtupdate->bindParam(':markup', $markup);
+                $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
+                $stmtupdate->bindParam(':id', $id);
+    
+    
+    
+                // Execute the query
+                $stmtupdate->execute();
+                //$orderstatus = "order success"; //but cron needed for finalised status
+                $orderstatus = $responseData['Data']['Success'];
+                //=============
+                $logResSus =   $booking_status;
+                $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
+                $response = array(
+                        'BookStatus' => $booking_status,
+                        'faretype' => $fairtype,
+                        'bookingid' => $tempBookingId,
+                    );
+                    $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                    $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
+                    $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+                    $objBook->_writeLog("", 'temp_booking_save.txt');
+                    $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                    echo json_encode($response);
+                    exit;
+    
+            }else {
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+                $stmtupdate->bindParam(':booking_date', $booking_date);
+                $stmtupdate->bindParam(':markup', $markup);
+                $stmtupdate->bindParam(':booking_status', $booking_status);
+                $stmtupdate->bindParam(':id', $id);
+                if (empty($errMsg)) {
+                    $errMsg = $booking_status;
+                    $errCDE = "003"; //custom error codes
+                }
+                // Execute the query
+                $stmtupdate->execute();
+                $response = array(
+                    'bookingid' => $tempBookingId,
+                    'BookStatus' => "Failed",
+                    'ticketstatus' => "Failed",
+                    'faretype' => $fairtype,
+                    'errors' => $errMsg,
+                    'errCde' => $errCDE
+                );
+                $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
+    
+                $err_code = $errCDE;
+                $fairtype = $bookingData['fare_type'];
+                $booking_status = $responseData['Data']['Status'];
+                $ticket_status = $responseData['Data']['Status'];
+                $id = $bookingData['id'];
+                
+                $stmtInsert->bindParam(':book_id', $id);
+                $stmtInsert->bindParam(':err_code', $err_code);
+                $stmtInsert->bindParam(':err_msg', $errMsg);
+                $stmtInsert->bindParam(':fare_type', $fairtype);
+                $stmtInsert->bindParam(':book_status', $booking_status);
+                $stmtInsert->bindParam(':ticket_sts', $ticket_status);
+                $stmtInsert->execute();
+                
+                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
+                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+                $objBook->_writeLog("", 'temp_booking_save.txt');
+                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                header('Content-Type: application/json');
+                echo json_encode($response);
+                exit;
+            }
+            
         }
+    } else {
+        $response = array(
+            'bookingid' => $tempBookingId,
+            'BookStatus' => "CONFIRMED",
+            'ticketstatus' => "Failed",
+            'errors' => ""
+        );
+        $objBook->_writeLog('-------------Webfare holding temp Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+        $objBook->_writeLog(" ", 'temp_booking_save.txt');
+        $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+        $objBook->_writeLog("", 'temp_booking_save.txt');
+        $objBook->_writeLog('-------------Webfare holding temp Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+        echo json_encode($response);
+        exit;
     }
 
     // $response = array(

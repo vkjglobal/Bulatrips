@@ -48,7 +48,7 @@ class DBAction
             $host = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "bulatrips_db";
+            $dbname = "travelsite";
         }
         if($_SERVER['HTTP_HOST'] == 'bulatrips.com') {
             $host = "localhost";

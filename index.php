@@ -23,7 +23,7 @@ include_once("includes/header.php");
 include_once('includes/dbConnect.php');
 include_once('includes/class.Reviews.php');
 $reviews = new Reviews($conn);
-$resultReview = $reviews->getReviesDetails();//Fetch review details form rview table.
+$resultReview = $reviews->getReviesDetails(); //Fetch review details form rview table.
 // echo $resultReview;
 
 $query = "SELECT airport_code,airport_name,city_name,country_name FROM airportlocations";
@@ -33,17 +33,18 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // nimmi - 15-04-2024 : display home banner image 
 
-    include_once 'includes/class.Data.php';
+include_once 'includes/class.Data.php';
 
-    $newObj = new Data();
-    
-    // get banner image from db
-    $bannerImage = $newObj->get_banner();
-    // print_r($bannerImage);
+$newObj = new Data();
 
-    //get vedio from db
-    $DBvideo = $newObj->get_video();
-    // print_r($DBvideo);
+// get banner image from db
+$bannerImage = $newObj->get_banner();
+// echo "<pre>";
+// print_r($bannerImage);
+
+//get vedio from db
+$DBvideo = $newObj->get_video();
+// print_r($DBvideo);
 ?>
 
 
@@ -53,22 +54,21 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div id="MidbarCarousel" class="midbar-carousel carousel slide carousel-fade d-none d-md-block" data-ride="carousel">
         <div class="carousel-inner">
             <?php
-            if($bannerImage)
-            {
+            if ($bannerImage) {
                 $first = true; // Initialize a variable to check if it's the first item
-                foreach($bannerImage as $banner) { ?>
+                foreach ($bannerImage as $banner) { ?>
                     <div class="carousel-item <?php echo $first ? 'active' : ''; ?>">
-                        <img src="images/<?php echo $banner['image']; ?>" class="d-block w-100" alt="...">
+                        <img src="images/homepage_banner/<?php echo $banner['image']; ?>" class="d-block w-100" alt="...">
                         <div class="carousel-caption d-none d-md-block">
                             <h2><?php echo $banner['first_title']; ?></h2>
                             <h3><?php echo $banner['second_title']; ?></h3>
                         </div>
                     </div>
-                <?php 
+                <?php
                     $first = false; // Set $first to false after the first iteration
                 }
-            }else{ ?>
-            <!--static data - if db value not available display static data-->
+            } else { ?>
+                <!--static data - if db value not available display static data-->
                 <div class="carousel-item active">
                     <img src="images/home-banner1.jpg" class="d-block w-100" alt="...">
                     <div class="carousel-caption d-none d-md-block">
@@ -98,7 +98,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
             <!-- <form class="flight-search col-12" id="flight-search" method="POST" action="flights"> -->
             <form class="flight-search col-12" id="flight-search" method="post" action="flights">
 
-            
+
 
                 <span class="lbl">
                     <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -184,7 +184,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <div class="srch-fld">
                     <div class="search-box on row">
                         <div class="form-fields departure_container col-md-3">
-                        
+
                             <select id="airport-input" name="airport" class="select-class airport_location_finder form-control" placeholder="Departing From"></select>
                             <p class="error_codes"></p>
                             <!-- <input type="text" id="airport-input" name="airport" class="form-control" placeholder="Departing From"> -->
@@ -198,11 +198,11 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                         </div>
                         <div class="form-fields col-md-2 calndr-icon from_container">
-                            <input type="text" class="form-control" id="from" name="from" autocomplete="off" value="<?php echo date('m/d/Y');?>">
+                            <input type="text" class="form-control" id="from" name="from" autocomplete="off" value="<?php echo date('m/d/Y'); ?>">
                             <p class="error_codes"></p>
                         </div>
                         <div class="form-fields col-md-2 calndr-icon to_container">
-                            <input type="text" class="form-control" id="to" name="to" autocomplete="off" value="<?php echo date('m/d/Y');?>">
+                            <input type="text" class="form-control" id="to" name="to" autocomplete="off" value="<?php echo date('m/d/Y'); ?>">
                             <p class="error_codes"></p>
                         </div>
                         <span id="errormessage"></span>
@@ -211,7 +211,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                             <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
                         </div>
                     </div>
-                    
+
                     <div class="search-box row multi-city-search">
                         <div class="col-md-10">
                             <div class="row">
@@ -225,7 +225,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon">
-                                    
+
                                     <input type="date" class="form-control date-multy-city" id="departure_date_1" name="departure_date_1">
                                     <span class="icon">
                                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,149 +273,311 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
         </div>
     </div>
 </section>
+
 <section class="holiday-section">
-    <div class="container">
-        <div class="row">
-            <!-- <div class="col-12 hd-wraper">
-                <strong>Choose Your</strong>
-                <h4>Perfect Holiday</h4>
-                <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p>
-            </div> -->
-            <!-- <div class="col-12">
-                <div class="row"> -->
-                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <div class="package-cat-slider owl-carousel owl-theme">
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/img8.png" alt="">
-                                    <span>Dubai</span>
-                                </a>
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/malaysia.jpg" alt="">
-                                    <span>Malaysia</span>
-                                </a>
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/Singapore.jpg" alt="">
-                                    <span>Singapore</span>
-                                </a>
-                            </div>
-                            <a href="#" class="cat-btn">
-                                    <img src="images/img8.png" alt="">
-                                    <span>Dubai</span>
-                                </a>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img8.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
+    <div class="container py-5">
+        <div class="container">
+            <div class="col-12 hd-wraper">
+                <strong>Why Book with Bulatrips?</strong>
+                <!-- <h4>Why Book with Bulatrips?</h4> -->
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🔍</div>
+                        <h5><strong>Smart Search</strong></h5>
+                        <p>Best routes across airlines</p>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img3.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">💰</div>
+                        <h5><strong>No Hidden Fees</strong></h5>
+                        <p>Transparent pricing</p>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img4.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🌍</div>
+                        <h5><strong>Global Coverage</strong></h5>
+                        <p>100+ countries worldwide</p>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img5.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
-                    </div> -->
-                    <!-- <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img6.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🤖</div>
+                        <h5><strong>Automated Support</strong></h5>
+                        <p>Self-service changes</p>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <a href="#" class="package-btn">
-                                <img src="images/img7.png" alt="">
-                                <span class="package-info">
-                                    <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
-                                    <span class="priceInfo">
-                                        <span class="fs-13 fw-400">From</span>
-                                        <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
-                                    </span>
-                                </span>
-                            </a>
-                        </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">📊</div>
+                        <h5><strong>Multiple Options</strong></h5>
+                        <p>Various airlines and times</p>
                     </div>
-                    <div class="col-lg-3 col-md-4 bx-mb">
-                        <div class="btn-wrp">
-                            <div class="package-cat-slider owl-carousel owl-theme">
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/img1.png" alt="">
-                                    <span>Thailand</span>
-                                </a>
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/MachuPicchu-Peru.jpg" alt="">
-                                    <span>Peru</span>
-                                </a>
-                                <a href="#" class="cat-btn item">
-                                    <img src="images/Paris.jpg" alt="">
-                                    <span>Paris</span>
-                                </a>
-                            </div>
-                            <a href="#" class="cat-btn">
-                                    <img src="images/img1.png" alt="">
-                                    <span>Thailand</span>
-                                </a>
-                        </div>
-                    </div> -->
-                <!-- </div>
-            </div> -->
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🏆</div>
+                        <h5><strong>Frequent Flyer</strong></h5>
+                        <p>Apply your existing memberships</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
+
+<section>
+    <div class="container">
+
+        <style>
+            .section-heading {
+                text-align: center;
+                margin: 40px 0 10px;
+            }
+
+            .card {
+
+                border: 1px solid #CCC;
+            }
+
+            .card img {
+                height: 180px;
+                object-fit: cover;
+            }
+
+            .card-title {
+                font-weight: bold;
+                font-size: 1.1rem;
+            }
+
+            .card-text {
+                color: #ccc;
+            }
+
+            .feature-icon {
+                font-size: 2.5rem;
+                margin-bottom: 10px;
+            }
+
+            .feature-box {
+                text-align: center;
+                padding: 20px;
+                background-color: #EEE;
+                /* light gray-blue background */
+                border-radius: 10px;
+                transition: 0.3s;
+            }
+
+            .feature-box:hover {
+                background-color: #ff6c00;
+                color: #FFF;
+            }
+
+            #card_holders .card:hover {
+                background: #121E7E;
+                color: #FFF;
+            }
+        </style>
+
+
+        <div class="container">
+            <div class="col-12 hd-wraper" style="padding: 0;">
+                <strong>Book worldwide flights in minutes</strong>
+                <h4>Breathtaking Global Destinations</h4>
+                <!-- <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p> -->
+            </div>
+
+            <div class="row" id="card_holders">
+                <!-- Card 1 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Eiffel_Tower.jpg" class="card-img-top" alt="Eiffel Tower">
+                        <div class="card-body text-center">
+                            <h5>Eiffel Tower</h5>
+                            <p>Paris, France</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Colosseum_Rome.png" class="card-img-top" alt="Colosseum">
+                        <div class="card-body text-center">
+                            <h5>Colosseum</h5>
+                            <p>Rome, Italy</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Tokyo.jpg" class="card-img-top" alt="Tokyo">
+                        <div class="card-body text-center">
+                            <h5>Tokyo</h5>
+                            <p>Japan</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Mysore.jpg" class="card-img-top" alt="Mysore Palace">
+                        <div class="card-body text-center">
+                            <h5>Mysore Palace</h5>
+                            <p>India</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Santorini_Greece.jpg" class="card-img-top" alt="Santorini">
+                        <div class="card-body text-center">
+                            <h5>Santorini</h5>
+                            <p>Greece</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Great_Wall.jpg" class="card-img-top" alt="Great Wall">
+                        <div class="card-body text-center">
+                            <h5>Great Wall</h5>
+                            <p>China</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Pyramids.jpg" class="card-img-top" alt="Pyramids of Giza">
+                        <div class="card-body text-center">
+                            <h5>Pyramids of Giza</h5>
+                            <p>Egypt</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <div class="card">
+                        <img src="images/trips/Marina_Bay.jpg " class="card-img-top" alt="Marina Bay">
+                        <div class="card-body text-center">
+                            <h5>Marina Bay</h5>
+                            <p>Singapore</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- <div class="row">
+                <div class="col-12 hd-wraper">
+                    <strong>Choose Your</strong>
+                    <h4>Perfect Holiday</h4>
+                    <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p>
+                </div>
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-4 bx-mb">
+                            <div class="btn-wrp">
+                                <a href="#" class="package-btn">
+                                    <img src="images/img3.png" alt="">
+                                    <span class="package-info">
+                                        <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
+                                        <span class="priceInfo">
+                                            <span class="fs-13 fw-400">From</span>
+                                            <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 bx-mb">
+                            <div class="btn-wrp">
+                                <a href="#" class="package-btn">
+                                    <img src="images/img5.png" alt="">
+                                    <span class="package-info">
+                                        <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
+                                        <span class="priceInfo">
+                                            <span class="fs-13 fw-400">From</span>
+                                            <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 bx-mb">
+                            <div class="btn-wrp">
+                                <a href="#" class="package-btn">
+                                    <img src="images/img6.png" alt="">
+                                    <span class="package-info">
+                                        <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
+                                        <span class="priceInfo">
+                                            <span class="fs-13 fw-400">From</span>
+                                            <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-4 bx-mb">
+                            <div class="btn-wrp">
+                                <a href="#" class="package-btn">
+                                    <img src="images/img7.png" alt="">
+                                    <span class="package-info">
+                                        <strong class="packageName fs-16 fw-600">Museum of the <br> Future</strong>
+                                        <span class="priceInfo">
+                                            <span class="fs-13 fw-400">From</span>
+                                            <strong class="fs-13 fw-700"><span>₹</span> 3222.22</strong>
+                                        </span>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div> -->
+    </div>
+</section>
+<!-- 
 <section class="video-banner">
     <div class="container">
         <div class="row">
@@ -424,7 +586,7 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                 <h4>Breathtaking Cities</h4>
                 <p>Uncover the magic of the world’s most breathtaking cities! From iconic landmarks to hidden gems, your next adventure is just a click away. Let us help you explore vibrant destinations, immerse yourself in new cultures, and create memories that last a lifetime. Where will your journey take you next?</p>
             </div>
-           
+
             <div class="col-12 video-wrapper" style="display: none;">
                 <div class="video-container" id="video-container">
                     <video id="video"></video>
@@ -437,10 +599,10 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     </div>
                 </div>
             </div>
-            
-        </div>  
+
+        </div>
     </div>
-</section>
+</section> -->
 
 
 <!-- <form method="post" id="newsletter-subscribe" style="margin-bottom: 50px;">
@@ -468,58 +630,74 @@ $airports = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </form> -->
 
 
-<section class="travel-reviews">
+<section class="travel-reviews" style="padding-bottom: 40px;">
+    
     <div class="container">
         <div class="row">
-            <div class="col-12 hd-wraper white-txt">
-                <!-- <strong>Read The Top</strong> -->
-                <h4>Reviews</h4>
+            <div class="col-12 hd-wraper white-txt" style="padding: 30px;">
+                <h4>What Our Customers Say</h4>
                 <p>Don’t just take our word for it! Hear from travelers like you who’ve explored the world with us. From seamless bookings to unforgettable trips, our customers share their experiences and stories. Your satisfaction is our priority, and your feedback inspires us to keep delivering excellence.</p>
             </div>
         </div>
     </div>
-    <div class="review-slider-wrapper">
-        <div class="owl-carousel travel-reviews-carousel owl-theme owl-loaded">
-            <div class="owl-stage-outer">
-                <div class="owl-stage">
-                    <?php foreach($resultReview as $resultReviews){?>
-                        <div class="owl-item">
-                            <div class="review-item row">
-                                <div class="col-md-3">
-                                    <!-- <img src="images/lady-img1.png" alt=""> -->
-                                    <?php if($resultReviews['image'] == ''){ ?>
-                                        <img src="uploads/reviews/logo.png" alt="">
-                                    <?php }else{ ?>
-                                        <img src="uploads/reviews/<?php echo $resultReviews['image']; ?>" alt="">
-                                    <?php } ?>
-                               </div>
-                                <div class="review-info col-md-9">
-                                    <h5><?php echo $resultReviews['title']?></h5>
-                                    <ul>
-                                    <?php 
-                                        $rating = $resultReviews['rating'];
-                                        for ($i = 1; $i <= 5; $i++) {
-                                            if ($i <= $rating) {
-                                                echo '<li><span class="star-rate"></span></li>'; // Display a filled star if $i is less than or equal to $rating
-                                            } else {
-                                                echo '<li><span class="star-rate-white"></span></li>'; // Display an empty star if $i is greater than $rating
-                                            }
-                                        }
-                                    ?>
-                                        <!-- <li><span class="star-rate"></span></li>
-                                        <li><span class="star-rate"></span></li> -->
-                                   </ul>
-                                    <div class="txt-cntnt">
-                                        <?php echo $resultReviews['description']; ?>
-                                    </div>
-                                    <strong><?php echo $resultReviews['author']?></strong>
-                                </div>
-                            </div>
+
+    <div class="container">
+        <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">John Doe</h5>
+                            <p class="text-warning mb-2">★★★★★</p>
+                            <p class="card-text text-muted">
+                                "Great experience! Smart search made it super easy to find the best deal. Highly recommend!"
+                            </p>
                         </div>
-                    <?php } ?>    
-                 </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Ayesha Khan</h5>
+                            <p class="text-warning mb-2">★★★★☆</p>
+                            <p class="card-text text-muted">
+                                "Loved the transparent pricing and quick support. A few more payment options would be great."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Liam Smith</h5>
+                            <p class="text-warning mb-2">★★★★★</p>
+                            <p class="card-text text-muted">
+                                "Booking was smooth, and I could use my frequent flyer points. Will definitely book again!"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#reviewCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#reviewCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+
         </div>
+
     </div>
 </section>
 <!-- Button trigger modal -->
@@ -730,7 +908,7 @@ include_once('loading-popup.php');
     });
 
     $('.midbar-carousel').carousel({
-        interval: 2000,
+        interval: 5000,
         pause: false,
     })
     /************Datepicker******************/
@@ -793,23 +971,6 @@ include_once('loading-popup.php');
     //     })
     // });
     /************Custom Play Button**********/
-    const video = document.getElementById("video");
-    const circlePlayButton = document.getElementById("circle-play-b");
-    function togglePlay() {
-        if (video.paused || video.ended) {
-            video.play();
-        } else {
-            video.pause();
-        }
-    }
-
-    circlePlayButton.addEventListener("click", togglePlay);
-    video.addEventListener("playing", function() {
-        circlePlayButton.style.opacity = 0;
-    });
-    video.addEventListener("pause", function() {
-        circlePlayButton.style.opacity = 1;
-    });
     /***************************************/
     $(document).ready(function() {
         $('.package-cat-slider').owlCarousel({
@@ -929,7 +1090,7 @@ include_once('loading-popup.php');
         //     $('.search-box').eq(i).addClass('on');
         // });
 
-        
+
 
 
         // $('#multi-city').click(function() {
@@ -983,7 +1144,6 @@ include_once('loading-popup.php');
 </script>
 
 <script>
-    
     // Fetching values and displaying them using alert
     function fetchAndAlert() {
         var adultCount = parseInt(document.getElementById("adult_count").value, 10);
@@ -993,19 +1153,19 @@ include_once('loading-popup.php');
 
         document.getElementById("totalCount").innerText = totalCount;
         // alert("Adults: " + adultCount + "\nChildren: " + childCount + "\nInfants: " + infantCount + "\nTotal: " + totalCount);
-        
-   }
-   $(document).on('click', function (event) {
-    // Check if the clicked element is not inside allowed classes
-    if (!$(event.target).closest('.passenger_container, .person-select.open, .select-lbl').length) {
-        $('.passenger_container').hide(); // Hide the container
-    }
-});
 
-// To prevent the container from hiding when clicked inside allowed elements
-$('.passenger_container, .person-select.open, .select-lbl').on('click', function (event) {
-    event.stopPropagation();
-});
+    }
+    $(document).on('click', function(event) {
+        // Check if the clicked element is not inside allowed classes
+        if (!$(event.target).closest('.passenger_container, .person-select.open, .select-lbl').length) {
+            $('.passenger_container').hide(); // Hide the container
+        }
+    });
+
+    // To prevent the container from hiding when clicked inside allowed elements
+    $('.passenger_container, .person-select.open, .select-lbl').on('click', function(event) {
+        event.stopPropagation();
+    });
 </script>
 
 

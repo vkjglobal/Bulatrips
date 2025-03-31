@@ -382,6 +382,12 @@ if( $cookie_exists || $user_loggedin_status ) {
             <div class="container">
                 <!-- <h2 class="title-typ2 my-4 text-center">Your booking status has been <?php //echo $bookingStatus; ?>.</h2> -->
                 <h2 class="title-typ2 my-4 text-center">Booking Details</h2>
+                <div class="text-left">
+                    <hr>
+                    <!-- <span>Return</Span> -->
+                    <span class="h5 px-3">Departure</span>
+                    <hr>
+                </div>
                 <div class="row my-4">
                     <!-- <div class="col-12 text-center fw-700">
                         Booking Details from airline  for the ordered ticket are as follows: 

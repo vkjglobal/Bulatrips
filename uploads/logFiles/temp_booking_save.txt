@@ -1,0 +1,82 @@
+-------------Public/Private Open Sunday 30th of March 2025 12:56:00 PM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-01T12:55:51
+            [TraceId] => 25033018-521390c6-ada7-4cbe-8176-1f9bf9aa5ca3
+            [UniqueID] => MF29718425
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Sunday 30th of March 2025 12:56:00 PM-------------
+-------------If there are errors Open Sunday 30th of March 2025 12:56:00 PM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 86
+)
+
+
+-------------If there are errors Close Sunday 30th of March 2025 12:56:00 PM-------------
+-------------Public/Private Open Sunday 30th of March 2025 12:56:43 PM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+
+-------------Public/Private Close Sunday 30th of March 2025 12:56:43 PM-------------
+-------------If there are errors Open Sunday 30th of March 2025 12:56:43 PM-------------
+
+Array
+(
+    [bookingid] => 87
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+
+-------------If there are errors Close Sunday 30th of March 2025 12:56:43 PM-------------

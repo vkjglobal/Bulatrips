@@ -21,7 +21,7 @@ $data = [
     "callbackUrls" => [
         "approved" => ENVIRONMENT_VAR."WindcavePaymentResponse",
         "declined" => ENVIRONMENT_VAR."WindcavePaymentResponse",
-        "cancelled" => ENVIRONMENT_VAR."WindcavePaymentResponse"
+        "cancelled" => ENVIRONMENT_VAR."fligtsRulesRevalidation"
     ]
     // ,"notificationUrl" => ENVIRONMENT_VAR."WindcavePaymentResponse?123"
 ];

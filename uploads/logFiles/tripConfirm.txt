@@ -75577,3 +75577,2116 @@ REsponse Received\nArray
 -------------Sunday 16th of March 2025 01:43:59 AM-------------
 MF ref
 REsponse Received\n
+-------------Tuesday 25th of March 2025 01:26:23 AM-------------
+MF ref
+REsponse Received\n
+-------------Tuesday 25th of March 2025 01:26:31 AM-------------
+MF refMF29674725
+REsponse Received\nArray
+(
+    [data] => 
+    [Success] => 
+    [Message] => Invalid MFRef.
+    [Data] => 
+)
+
+-------------Tuesday 25th of March 2025 02:18:14 AM-------------
+MF ref
+REsponse Received\n
+-------------Tuesday 25th of March 2025 02:35:31 AM-------------
+MF ref
+REsponse Received\n
+-------------Tuesday 25th of March 2025 02:47:46 AM-------------
+MF refMF29675425
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29675425
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1991-08-19T00:00:00
+                                                    [EmailAddress] => kikapi@mailinator.com
+                                                    [PhoneNumber] => 604
+                                                    [PassportExpiresOn] => 2030-06-03T00:00:00
+                                                    [PassportNationality] => Marshallese
+                                                    [PassengerNationality] => Hungarian
+                                                    [PostCode] => Rerum nihil sed rem 
+                                                    [PassportIssuanceCountry] => Marshall Islands
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => JORDAN
+                                                            [PassengerLastName] => MASSEY
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 451978
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 411.82
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 107.11
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 518.93
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 21.08,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 1PC
+                                                    [1] => 1PC
+                                                    [2] => 1PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 93.18
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 212.99
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 53.25
+                                                                    [ChargesAfterDeparture] => 212.99
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T02:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T06:00:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 739
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 310
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHEJEDSV739BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-04T08:00:00
+                                                                    [ArrivalDateTime] => 2025-04-04T09:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1022
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 5
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 787
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDRUHSV1022BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-04T13:05:00
+                                                                    [ArrivalDateTime] => 2025-04-04T19:10:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 736
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 245
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 4
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHLHESV736BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-26T02:46:30.863
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 54.24
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-25T02:46:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Tuesday 25th of March 2025 03:12:01 AM-------------
+MF refMF29675425
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29675425
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1991-08-19T00:00:00
+                                                    [EmailAddress] => kikapi@mailinator.com
+                                                    [PhoneNumber] => 604
+                                                    [PassportExpiresOn] => 2030-06-03T00:00:00
+                                                    [PassportNationality] => Marshallese
+                                                    [PassengerNationality] => Hungarian
+                                                    [PostCode] => Rerum nihil sed rem 
+                                                    [PassportIssuanceCountry] => Marshall Islands
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => JORDAN
+                                                            [PassengerLastName] => MASSEY
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 451978
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 411.82
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 107.11
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 518.93
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 21.08,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 1PC
+                                                    [1] => 1PC
+                                                    [2] => 1PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 93.18
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 212.99
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 53.25
+                                                                    [ChargesAfterDeparture] => 212.99
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T02:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T06:00:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 739
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 310
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHEJEDSV739BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-04T08:00:00
+                                                                    [ArrivalDateTime] => 2025-04-04T09:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1022
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 5
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 787
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDRUHSV1022BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-04T13:05:00
+                                                                    [ArrivalDateTime] => 2025-04-04T19:10:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 736
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 245
+                                                                    [AirlinePNR] => 6J9S6A
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 4
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 1PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHLHESV736BASIC ECO
+                                                                    [FareFamily] => BASIC ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-26T02:46:30.863
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 54.24
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-25T02:46:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 30th of March 2025 10:19:20 AM-------------
+MF refMF29716125
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29716125
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1996-02-10T00:00:00
+                                                    [EmailAddress] => quzinyzy@mailinator.com
+                                                    [PhoneNumber] => 9
+                                                    [PassportExpiresOn] => 2030-12-10T00:00:00
+                                                    [PassportNationality] => Kuwaiti
+                                                    [PassengerNationality] => Bosnian, Herzegovinian
+                                                    [PostCode] => 456
+                                                    [PassportIssuanceCountry] => Kuwait
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => REESE
+                                                            [PassengerLastName] => PACE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 452526
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 519.71
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 123.59
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 643.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 37.55,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 2PC
+                                                    [1] => 2PC
+                                                    [2] => 2PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 53.25
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 26.62
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T20:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T23:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 737
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 255
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 4
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHSV737SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-02T05:00:00
+                                                                    [ArrivalDateTime] => 2025-04-02T06:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1017
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 777
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDSV1017SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-09T02:10:00
+                                                                    [ArrivalDateTime] => 2025-04-09T09:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 734
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 295
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDLHESV734SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-30T12:32:30.64
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 66.99
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-30T09:32:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 30th of March 2025 10:19:49 AM-------------
+MF refMF29716125
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29716125
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1996-02-10T00:00:00
+                                                    [EmailAddress] => quzinyzy@mailinator.com
+                                                    [PhoneNumber] => 9
+                                                    [PassportExpiresOn] => 2030-12-10T00:00:00
+                                                    [PassportNationality] => Kuwaiti
+                                                    [PassengerNationality] => Bosnian, Herzegovinian
+                                                    [PostCode] => 456
+                                                    [PassportIssuanceCountry] => Kuwait
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => REESE
+                                                            [PassengerLastName] => PACE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 452526
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 519.71
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 123.59
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 643.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 37.55,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 2PC
+                                                    [1] => 2PC
+                                                    [2] => 2PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 53.25
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 26.62
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T20:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T23:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 737
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 255
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 4
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHSV737SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-02T05:00:00
+                                                                    [ArrivalDateTime] => 2025-04-02T06:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1017
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 777
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDSV1017SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-09T02:10:00
+                                                                    [ArrivalDateTime] => 2025-04-09T09:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 734
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 295
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDLHESV734SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-30T12:32:30.64
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 66.99
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-30T09:32:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 30th of March 2025 10:20:31 AM-------------
+MF refMF29716125
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29716125
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1996-02-10T00:00:00
+                                                    [EmailAddress] => quzinyzy@mailinator.com
+                                                    [PhoneNumber] => 9
+                                                    [PassportExpiresOn] => 2030-12-10T00:00:00
+                                                    [PassportNationality] => Kuwaiti
+                                                    [PassengerNationality] => Bosnian, Herzegovinian
+                                                    [PostCode] => 456
+                                                    [PassportIssuanceCountry] => Kuwait
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => REESE
+                                                            [PassengerLastName] => PACE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 452526
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 519.71
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 123.59
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 643.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 37.55,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 2PC
+                                                    [1] => 2PC
+                                                    [2] => 2PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 53.25
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 26.62
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T20:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T23:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 737
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 255
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 4
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHSV737SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-02T05:00:00
+                                                                    [ArrivalDateTime] => 2025-04-02T06:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1017
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 777
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDSV1017SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-09T02:10:00
+                                                                    [ArrivalDateTime] => 2025-04-09T09:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 734
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 295
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDLHESV734SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-30T12:32:30.64
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 66.99
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-30T09:32:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 30th of March 2025 10:20:54 AM-------------
+MF refMF29716125
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29716125
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1996-02-10T00:00:00
+                                                    [EmailAddress] => quzinyzy@mailinator.com
+                                                    [PhoneNumber] => 9
+                                                    [PassportExpiresOn] => 2030-12-10T00:00:00
+                                                    [PassportNationality] => Kuwaiti
+                                                    [PassengerNationality] => Bosnian, Herzegovinian
+                                                    [PostCode] => 456
+                                                    [PassportIssuanceCountry] => Kuwait
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => REESE
+                                                            [PassengerLastName] => PACE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 452526
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 519.71
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 123.59
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 643.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 37.55,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 2PC
+                                                    [1] => 2PC
+                                                    [2] => 2PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 53.25
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 26.62
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T20:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T23:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 737
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 255
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 4
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHSV737SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-02T05:00:00
+                                                                    [ArrivalDateTime] => 2025-04-02T06:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1017
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 777
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDSV1017SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-09T02:10:00
+                                                                    [ArrivalDateTime] => 2025-04-09T09:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 734
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 295
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDLHESV734SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-30T12:32:30.64
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 66.99
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-30T09:32:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 30th of March 2025 10:21:57 AM-------------
+MF refMF29716125
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => 
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29716125
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => M
+                                                    [DateOfBirth] => 1996-02-10T00:00:00
+                                                    [EmailAddress] => quzinyzy@mailinator.com
+                                                    [PhoneNumber] => 9
+                                                    [PassportExpiresOn] => 2030-12-10T00:00:00
+                                                    [PassportNationality] => Kuwaiti
+                                                    [PassengerNationality] => Bosnian, Herzegovinian
+                                                    [PostCode] => 456
+                                                    [PassportIssuanceCountry] => Kuwait
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => REESE
+                                                            [PassengerLastName] => PACE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 452526
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 519.71
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 123.59
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 643.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => RG 44.36,SP 7.10,YD 9.94,E3 4.22,IO 37.55,T2 2.63,YR 17.78
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 2PC
+                                                    [1] => 2PC
+                                                    [2] => 2PC
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 53.25
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 26.62
+                                                                    [ChargesAfterDeparture] => 173.06
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-01T20:50:00
+                                                                    [ArrivalDateTime] => 2025-04-01T23:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 737
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 255
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => RUH
+                                                                    [ArrivalTerminal] => 4
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => LHERUHSV737SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-02T05:00:00
+                                                                    [ArrivalDateTime] => 2025-04-02T06:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1017
+                                                                    [ResBookDesigCode] => B
+                                                                    [JourneyDuration] => 110
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => RUH
+                                                                    [DepartureTerminal] => 5
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 777
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => RUHJEDSV1017SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-09T02:10:00
+                                                                    [ArrivalDateTime] => 2025-04-09T09:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 734
+                                                                    [ResBookDesigCode] => T
+                                                                    [JourneyDuration] => 295
+                                                                    [AirlinePNR] => 5ER4SI
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => SV
+                                                                    [AirEquipmentType] => 773
+                                                                    [MarketingAirlineCode] => SV
+                                                                    [Baggage] => 2PC
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [ATAinfoRef] => JEDLHESV734SEMI FLEX ECO
+                                                                    [FareFamily] => SEMI FLEX ECO
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-03-30T12:32:30.64
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 66.99
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-03-30T09:32:30
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Public/Private Sunday 30th of March 2025 11:39:02 AM-------------

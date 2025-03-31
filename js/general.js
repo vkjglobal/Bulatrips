@@ -1,44 +1,42 @@
 $(document).ready(function () {
-  
-// Function to set a cookie (renamed to setUserDataCookie)
-function setUserDataCookie(cookieName, value, days) {
-  let expires = "";
-  if (days) {
+  // Function to set a cookie (renamed to setUserDataCookie)
+  function setUserDataCookie(cookieName, value, days) {
+    let expires = "";
+    if (days) {
       let date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie =
+      cookieName + "=" + encodeURIComponent(value) + expires + "; path=/";
   }
-  document.cookie = cookieName + "=" + encodeURIComponent(value) + expires + "; path=/";
-}
 
-// Function to get a cookie value (renamed to getUserDataCookie)
-function getUserDataCookie(cookieName) {
-  let nameEQ = cookieName + "=";
-  let ca = document.cookie.split(';');
-  for (let i = 0; i < ca.length; i++) {
+  // Function to get a cookie value (renamed to getUserDataCookie)
+  function getUserDataCookie(cookieName) {
+    let nameEQ = cookieName + "=";
+    let ca = document.cookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+      while (c.charAt(0) == " ") c = c.substring(1, c.length);
+      if (c.indexOf(nameEQ) == 0)
+        return decodeURIComponent(c.substring(nameEQ.length, c.length));
+    }
+    return null;
   }
-  return null;
-}
-
-
 
   var adultsArray = [];
   var childArray = [];
   var infantArray = [];
   var contactDetailsData = [];
-  
- 
-  
 
   $("#user-signup").submit(function (event) {
     event.preventDefault();
-    
+
     var $button = $("button[name='usersignup']");
-    $button.prop("disabled", true).html('<i class="fa fa-spinner fa-spin"></i> Registering...');
-    
+    $button
+      .prop("disabled", true)
+      .html('<i class="fa fa-spinner fa-spin"></i> Registering...');
+
     // Validate form data
     var fname = $("#userfname").val();
     var lname = $("#userlname").val();
@@ -47,7 +45,7 @@ function getUserDataCookie(cookieName) {
     var email = $("#useremail").val();
     var password = $("#password").val();
     var confirmpassword = $("#confirmpassword").val();
-    
+
     var signeddate = $("#signed-date").val();
     var policy = document.getElementById("logintab-user");
 
@@ -70,16 +68,14 @@ function getUserDataCookie(cookieName) {
     if (dialcode == "") {
       document.getElementById("country_code").style.borderColor = "red";
       valid = false;
-    }
-    else {
+    } else {
       document.getElementById("country_code").style.borderColor = "#CCC";
     }
 
     if (phone == "") {
       document.getElementById("userphone").style.borderColor = "red";
       valid = false;
-    }
-    else {
+    } else {
       document.getElementById("userphone").style.borderColor = "#CCC";
     }
 
@@ -88,8 +84,7 @@ function getUserDataCookie(cookieName) {
       document.getElementById("useremail").style.borderColor = "red";
 
       valid = false;
-    }
-    else {
+    } else {
       document.getElementById("useremail").style.borderColor = "#CCC";
     }
 
@@ -98,8 +93,7 @@ function getUserDataCookie(cookieName) {
       document.getElementById("password").style.borderColor = "red";
 
       valid = false;
-    }
-    else {
+    } else {
       document.getElementById("password").style.borderColor = "#CCC";
     }
     if (confirmpassword == "") {
@@ -107,8 +101,7 @@ function getUserDataCookie(cookieName) {
       document.getElementById("confirmpassword").style.borderColor = "red";
 
       valid = false;
-    }
-    else {
+    } else {
       document.getElementById("confirmpassword").style.borderColor = "#CCC";
     }
     if (!policy.checked) {
@@ -121,7 +114,6 @@ function getUserDataCookie(cookieName) {
     if (!valid) {
       $button.prop("disabled", false).html("Register");
       return false;
-
     }
 
     var formData = $(this).serialize();
@@ -130,45 +122,44 @@ function getUserDataCookie(cookieName) {
       type: "POST",
       data: formData,
       success: function (response) {
-        if( response == "flights_redirectation" ) {
+        if (response == "flights_redirectation") {
           Swal.fire({
             title: "Registration Success",
             text: "You have signed up successfully.",
             icon: "success",
             confirmButtonText: "Close",
-            confirmButtonColor: "#f57c00", 
-            allowOutsideClick: false, 
+            confirmButtonColor: "#f57c00",
+            allowOutsideClick: false,
           }).then((result) => {
-                  window.location.href = "fligtsRulesRevalidation";
+            window.location.href = "fligtsRulesRevalidation";
           });
         } else if (response == "registered") {
-            Swal.fire({
-              title: "Registration Success",
-              text: "You have signed up successfully.",
-              icon: "success",
-              confirmButtonText: "Close",
-              confirmButtonColor: "#f57c00", 
-              allowOutsideClick: false, 
+          Swal.fire({
+            title: "Registration Success",
+            text: "You have signed up successfully.",
+            icon: "success",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
+            allowOutsideClick: false,
           }).then((result) => {
-                  window.location.href = "index";
+            window.location.href = "index";
           });
-        
-        } else if(response == "email_error") {
-            document.getElementById("useremail").style.borderColor = "red";
-            Swal.fire({
-              title: "Error Registration",
-              text: "Email address is already registered. please change your email address.",
-              icon: "error",
-              confirmButtonText: "Close",
-              confirmButtonColor: "#f57c00",
+        } else if (response == "email_error") {
+          document.getElementById("useremail").style.borderColor = "red";
+          Swal.fire({
+            title: "Error Registration",
+            text: "Email address is already registered. please change your email address.",
+            icon: "error",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
           });
         } else {
           Swal.fire({
-              title: "Something went wrong",
-              text: "Could not register a user",
-              icon: "error",
-              confirmButtonText: "Close",
-              confirmButtonColor: "#f57c00",
+            title: "Something went wrong",
+            text: "Could not register a user",
+            icon: "error",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
           });
         }
         $button.prop("disabled", false).html("Register");
@@ -178,11 +169,8 @@ function getUserDataCookie(cookieName) {
         $button.prop("disabled", false).html("Register");
       },
     });
-
-
   });
 
-  
   $("#agencycountry").change(function () {
     var countryCode = $(this).val();
     if (countryCode != "") {
@@ -220,7 +208,6 @@ function getUserDataCookie(cookieName) {
     }
   });
 
-  
   $.ajax({
     url: "https://api.countrystatecity.in/v1/countries",
     headers: {
@@ -246,7 +233,6 @@ function getUserDataCookie(cookieName) {
       $("#agencycountry").append('<option value="">Select Country</option>');
     },
   });
-
 
   //  ---------------------------Login---------------------------
 
@@ -325,14 +311,13 @@ function getUserDataCookie(cookieName) {
           $("#email").val("");
           $("#password").val("");
         } else if (response == "endsuccess") {
-          if( searchFlightsFlag == "true" ) {
-            $("#LoginModal").modal('hide');
-            // $("#payment_modal").modal('show');
-            $("#booking-submit").submit();
+          if (searchFlightsFlag == "true") {
+            $("#LoginModal").modal("hide");
+            location.reload();
           } else {
             location.reload();
           }
-          
+
           // window.location.href = 'user-dashboard';
         } else if (response == "agentsuccess") {
           location.reload();
@@ -351,22 +336,28 @@ function getUserDataCookie(cookieName) {
     });
   });
 
-
   $("#continue_as_login_form").submit(function (event) {
     event.preventDefault();
     var password = $("#loginpassword").val();
     emailReg = /^[^\s@]+@[^\s@]+\.(?!con$)[^\s@]+$/;
     valid = true;
 
-    if ($("#loginemail").val() == "" || !emailReg.test($("#loginemail").val())) {
-      $("#loginemail").after('<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>');
+    if (
+      $("#loginemail").val() == "" ||
+      !emailReg.test($("#loginemail").val())
+    ) {
+      $("#loginemail").after(
+        '<span class="text-danger fs-12 position-absolute" style="color:red">Enter valid Email Id.</span>'
+      );
       return false;
     }
     if (password == "") {
-      $("#loginpassword").after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">Enter your Password.</span>');
+      $("#loginpassword").after(
+        '<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">Enter your Password.</span>'
+      );
       return false;
     }
-    
+
     var formData = new FormData(this);
     $.ajax({
       url: "login-script",
@@ -377,11 +368,12 @@ function getUserDataCookie(cookieName) {
       success: function (response) {
         if (response == "error") {
           $("#pwErr").text("");
-          $("#loginpassword").after('<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">invalid email or password</span>');
+          $("#loginpassword").after(
+            '<span id="pwErr" class="text-danger fs-12 position-absolute" style="color:red">invalid email or password</span>'
+          );
           $("#email").val("");
           $("#password").val("");
         } else if (response == "endsuccess") {
-
         }
       },
       error: function () {
@@ -459,7 +451,6 @@ function getUserDataCookie(cookieName) {
   /////end user personal information country and state
   //code for load state if exist in db
 
-  
   var countryCode = $("#hcountry").val();
   if (countryCode != "") {
     $.ajax({
@@ -498,10 +489,9 @@ function getUserDataCookie(cookieName) {
       },
     });
   }
-  
+
   //endcode for load state if exist in db
 
-  
   $("#endusercountry").change(function () {
     var countryCode = $(this).val();
     if (countryCode != "") {
@@ -539,8 +529,6 @@ function getUserDataCookie(cookieName) {
     }
   });
 
-
-
   $.ajax({
     url: "https://api.countrystatecity.in/v1/countries",
     headers: {
@@ -574,7 +562,6 @@ function getUserDataCookie(cookieName) {
       $("#endusercountry").append('<option value="">Select Country</option>');
     },
   });
-  
 
   //agent profuile update
 
@@ -949,30 +936,30 @@ function getUserDataCookie(cookieName) {
       success: function (response) {
         if (response === "error") {
           Swal.fire({
-              title: "Invalid Password",
-              text: "The entered current password is incorrect.",
-              icon: "error",
-              confirmButtonText: "Close",
-              confirmButtonColor: "#f57c00",
+            title: "Invalid Password",
+            text: "The entered current password is incorrect.",
+            icon: "error",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
           });
         } else if (response === "success") {
-            Swal.fire({
-                title: "Password Changed Successfully",
-                text: "Your password has been updated. You will now be logged out and need to log in again with the updated password.",
-                icon: "success",
-                confirmButtonText: "Close",
-                confirmButtonColor: "#f57c00",
-                allowOutsideClick: false,
-                allowEscapeKey: false,
-                allowEnterKey: false,
-                stopKeydownPropagation: true
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = 'logout';
-                }
-            });
+          Swal.fire({
+            title: "Password Changed Successfully",
+            text: "Your password has been updated. You will now be logged out and need to log in again with the updated password.",
+            icon: "success",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
+            allowOutsideClick: false,
+            allowEscapeKey: false,
+            allowEnterKey: false,
+            stopKeydownPropagation: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              window.location.href = "logout";
+            }
+          });
         }
-      }
+      },
     });
   });
 
@@ -1017,7 +1004,7 @@ function getUserDataCookie(cookieName) {
       },
     });
   }
-    
+
   //endcode for load state if exist in db
 
   $("#agentusercountry").change(function () {
@@ -1056,8 +1043,7 @@ function getUserDataCookie(cookieName) {
       $("#agentuserstate").append('<option value="">Select State</option>');
     }
   });
-  
-  
+
   $.ajax({
     url: "https://api.countrystatecity.in/v1/countries",
     headers: {
@@ -1091,7 +1077,6 @@ function getUserDataCookie(cookieName) {
       $("#agentusercountry").append('<option value="">Select Country</option>');
     },
   });
-  
 
   ////agency update country state in agent dashboard
 
@@ -1133,7 +1118,7 @@ function getUserDataCookie(cookieName) {
       },
     });
   }
-    
+
   //endcode for load state if exist in db
 
   $("#agencyupdatecountry").change(function () {
@@ -1176,9 +1161,7 @@ function getUserDataCookie(cookieName) {
       $("#agencyupdatstate").append('<option value="">Select State</option>');
     }
   });
-  
 
-  
   $.ajax({
     url: "https://api.countrystatecity.in/v1/countries",
     headers: {
@@ -1889,20 +1872,17 @@ function getUserDataCookie(cookieName) {
 
   //-------------------------------End ---------------------------------
 
-
-  $('.flight-search input').click(function() {
-    if ($('#return').is(':checked')) {
-        $("#to").show().next(".icon").show()
-    } else(
-        $("#to").hide().next(".icon").hide()
-    )
-    if ($('#multi-city').is(':checked')) {
-        $(".search-box.multi-city-search").css("display", "flex").siblings().hide()
-    } else(
-        $(".search-box.multi-city-search").hide().siblings().show()
-    )
-})
-
+  $(".flight-search input").click(function () {
+    if ($("#return").is(":checked")) {
+      $("#to").show().next(".icon").show();
+    } else $("#to").hide().next(".icon").hide();
+    if ($("#multi-city").is(":checked")) {
+      $(".search-box.multi-city-search")
+        .css("display", "flex")
+        .siblings()
+        .hide();
+    } else $(".search-box.multi-city-search").hide().siblings().show();
+  });
 
   $("#flight-search").submit(function (event) {
     event.preventDefault();
@@ -1944,9 +1924,10 @@ function getUserDataCookie(cookieName) {
       $(".arrival_container p.error_codes").html("");
     }
 
-
     if (departureDate == "" || departureDate == undefined) {
-      $(".from_container p.error_codes").html('<span class="text-danger fs-8">Departure Date is required.</span>');
+      $(".from_container p.error_codes").html(
+        '<span class="text-danger fs-8">Departure Date is required.</span>'
+      );
       valid = false;
       return;
     } else {
@@ -1954,9 +1935,10 @@ function getUserDataCookie(cookieName) {
     }
 
     if (tripTypeValue === "Return") {
-      
       if (returnDate == "" || returnDate == undefined) {
-        $(".to_container p.error_codes").html('<span class="text-danger fs-8">Return Date is required.</span>');
+        $(".to_container p.error_codes").html(
+          '<span class="text-danger fs-8">Return Date is required.</span>'
+        );
         valid = false;
         return;
       } else {
@@ -1965,15 +1947,18 @@ function getUserDataCookie(cookieName) {
     }
 
     if (source === destination) {
-      $(".departure_container p.error_codes").html('<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>');
-      $(".arrival_container p.error_codes").html('<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>');
+      $(".departure_container p.error_codes").html(
+        '<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>'
+      );
+      $(".arrival_container p.error_codes").html(
+        '<span class="text-danger fs-8">Departure & Arrival cannot be same.</span>'
+      );
       valid = false;
       return;
     } else {
-      $(".departure_container p.error_codes").html('');
-      $(".arrival_container p.error_codes").html('');
+      $(".departure_container p.error_codes").html("");
+      $(".arrival_container p.error_codes").html("");
     }
-
 
     if (totalcount > 9) {
       Swal.fire({
@@ -1996,7 +1981,7 @@ function getUserDataCookie(cookieName) {
       valid = false;
       return;
     }
-    
+
     var formData = $(this).serialize();
 
     // if (tripTypeValue === "Circle") {
@@ -2010,8 +1995,9 @@ function getUserDataCookie(cookieName) {
 
     $("#dep-loading").text(source);
     $("#arrival-loading").text(destination);
-    
-    var totalpass = parseInt(adultCount) + parseInt(childCount) + parseInt(infantCount);
+
+    var totalpass =
+      parseInt(adultCount) + parseInt(childCount) + parseInt(infantCount);
     $("#pass-count").text(totalpass);
     $("#dep-date").text(departureDate);
     $("#return-date").text(returnDate);
@@ -2025,19 +2011,19 @@ function getUserDataCookie(cookieName) {
         $("#return_container").show();
       }
       $("#FlightSearchLoading").show();
-      
+
       $.ajax({
         url: "search",
         type: "POST",
         data: formData,
         success: function (response) {
           if (response) {
-              window.location.href = "flights";
+            window.location.href = "flights";
           }
         },
       });
     }
-    
+
     //multicity search ajax call
     if (tripTypeValue === "Circle") {
       const departureInputs = document.querySelectorAll(
@@ -2193,9 +2179,9 @@ function getUserDataCookie(cookieName) {
   });
 
   $("#travellerContinueButton").click(function () {
-    // $(document).ready(function () {  
+    // $(document).ready(function () {
     //   const isLoggedIn = $("#user_id_loggedin").val();
-        
+
     //     if (isLoggedIn) {
     //         $("#travellerDetails").slideDown(1000).css("display", "block");
     //     } else {
@@ -2205,16 +2191,15 @@ function getUserDataCookie(cookieName) {
     // });
 
     $("#travellerDetails").slideDown(1000);
-    
 
     var offset = $("#travellerDetails").offset();
     var newTop = offset.top - 50;
-    $("html, body").animate(
-      {
-        scrollTop: newTop,
-      },
-      1000
-    );
+    // $("html, body").animate(
+    //   {
+    //     scrollTop: newTop,
+    //   },
+    //   1000
+    // );
 
     var button = document.getElementById("travellerContinueButton");
     $("#travellerContinueButton").hide();
@@ -2293,7 +2278,10 @@ function getUserDataCookie(cookieName) {
       addChild();
       addInfant();
 
-      function generateExtraServiceOptions(extraServiceData, arrayofservice=[]) {
+      function generateExtraServiceOptions(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2303,14 +2291,22 @@ function getUserDataCookie(cookieName) {
             const description = extraService["Description"];
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
-            
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.baggageService ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      
-      function generateExtraServiceOptionsChild(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraServiceOptionsChild(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2321,13 +2317,21 @@ function getUserDataCookie(cookieName) {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.baggageService ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      
-      function generateExtraMealServiceOptions(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraMealServiceOptions(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2339,13 +2343,21 @@ function getUserDataCookie(cookieName) {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.mealService ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-     
-      function generateExtraMealServiceOptionsChild(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraMealServiceOptionsChild(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2357,13 +2369,21 @@ function getUserDataCookie(cookieName) {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealService === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.mealService ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      
-      function generateExtraServiceOptionsReturn(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraServiceOptionsReturn(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2374,13 +2394,21 @@ function getUserDataCookie(cookieName) {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.baggageServiceReturn ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      
-      function generateExtraMealServiceOptionsReturn(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraMealServiceOptionsReturn(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2392,13 +2420,21 @@ function getUserDataCookie(cookieName) {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.mealServiceReturn ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
       }
-      
-      function generateExtraMealServiceOptionsChildReturn(extraServiceData, arrayofservice=[]) {
+
+      function generateExtraMealServiceOptionsChildReturn(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2410,12 +2446,20 @@ function getUserDataCookie(cookieName) {
             const amount = extraService["ServiceCost"]["Amount"];
 
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.mealServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.mealServiceReturn ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
-      } 
-      function generateExtraServiceOptionsChildReturn(extraServiceData, arrayofservice=[]) {
+      }
+      function generateExtraServiceOptionsChildReturn(
+        extraServiceData,
+        arrayofservice = []
+      ) {
         let optionsHtml = '<option value="">Select..</option>';
         extraServiceData.forEach((extraService) => {
           if (
@@ -2426,7 +2470,12 @@ function getUserDataCookie(cookieName) {
             const serviceID = extraService["ServiceId"];
             const amount = extraService["ServiceCost"]["Amount"];
             // optionsHtml += `<option value="${serviceID}">${description}</option>`;
-            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${arrayofservice.baggageServiceReturn === `${serviceID}/${description}/${amount}` ? "selected" : ""} >${description} (${amount})</option>`;
+            optionsHtml += `<option value="${serviceID}/${description}/${amount}" ${
+              arrayofservice.baggageServiceReturn ===
+              `${serviceID}/${description}/${amount}`
+                ? "selected"
+                : ""
+            } >${description} (${amount})</option>`;
           }
         });
         return optionsHtml;
@@ -2437,7 +2486,7 @@ function getUserDataCookie(cookieName) {
         const adultContainer = document.getElementById("adultcontainer");
 
         const endpoint = "includes/getCountriesList";
-        
+
         fetch(endpoint)
           .then((response) => response.json())
           .then((data) => {
@@ -2447,41 +2496,41 @@ function getUserDataCookie(cookieName) {
             }));
             console.log(adultCounter);
             $faretype = "return";
-            
-            
+
             let savedAdultsData = getUserDataCookie("adultsData");
-            let adultsArray = savedAdultsData ? JSON.parse(savedAdultsData) : [];
+            let adultsArray = savedAdultsData
+              ? JSON.parse(savedAdultsData)
+              : [];
             console.log("Retrieved Adults Data:", adultsArray);
 
-
             let contactDetailsData = getUserDataCookie("contactDetailsData");
-            let contactDetailsDataArray = contactDetailsData ? JSON.parse(contactDetailsData) : [];
-            console.log("Retrieved contactDetailsDataArray Data:", contactDetailsDataArray);
+            let contactDetailsDataArray = contactDetailsData
+              ? JSON.parse(contactDetailsData)
+              : [];
+            console.log(
+              "Retrieved contactDetailsDataArray Data:",
+              contactDetailsDataArray
+            );
             let contactsavedData = contactDetailsDataArray || {};
-            
 
-            
-            $("#contactfirstname").val(contactsavedData.contactfirstname);
-            $("#contactlastname").val(contactsavedData.contactlastname);
-            if ($("#contactcountry option[value='" + contactsavedData.contactcountry + "']").length > 0) {
-              $("#contactcountry").val(contactsavedData.contactcountry).change();
+            const isLoggedIn = $("#user_id_loggedin").val();
+            if (!isLoggedIn) {
+              $("#contactfirstname").val(contactsavedData.contactfirstname);
+              $("#contactlastname").val(contactsavedData.contactlastname);
+              if ($("#contactcountry option[value='" +contactsavedData.contactcountry +"']").length > 0) {
+                $("#contactcountry").val(contactsavedData.contactcountry).change();
+              }
+              $("#contactnumber").val(contactsavedData.contactnumber);
+              $("#contactemail").val(contactsavedData.contactemail);
+              $("#contactpostcode").val(contactsavedData.contactpostcode);
             }
-            $("#contactnumber").val(contactsavedData.contactnumber);
-            $("#contactemail").val(contactsavedData.contactemail);
-            $("#contactpostcode").val(contactsavedData.contactpostcode);
 
-
-            
             for (let i = 1; i <= adultCounter; i++) {
               const div = document.createElement("div");
-              div.classList.add(
-                "form-row",
-                "p-0",
-                "m-0",
-              );
-              
+              div.classList.add("form-row", "p-0", "m-0");
+
               let savedData = adultsArray[i - 1] || {};
-              console.log("Saved Data: "+savedData.title);
+              console.log("Saved Data: " + savedData.title);
               div.innerHTML = `
                     <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                         <label for="" class="m-0 fw-500">Adult ${i}</label>
@@ -2490,47 +2539,69 @@ function getUserDataCookie(cookieName) {
                       <label for="title${i}">Title:</label>
                         <select name="sirLable${i}" id="" class="form-control select-title">
                           
-                            <option value="Mr" ${savedData.title === "Mr" ? "selected" : ""}>MR</option>
-                            <option value="Mrs" ${savedData.title === "Mrs" ? "selected" : ""}>MRS</option>
-                            <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS</option>
+                            <option value="Mr" ${
+                              savedData.title === "Mr" ? "selected" : ""
+                            }>MR</option>
+                            <option value="Mrs" ${
+                              savedData.title === "Mrs" ? "selected" : ""
+                            }>MRS</option>
+                            <option value="MISS" ${
+                              savedData.title === "MISS" ? "selected" : ""
+                            }>MISS</option>
                         </select>
                         <span id="sirLableError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="firstName${i}">First Name:</label>
-                        <input type="text" name="firstName${i}" class="form-control" placeholder="Adult ${i} First name" value="${savedData.firstName || "" }">
+                        <input type="text" name="firstName${i}" class="form-control" placeholder="Adult ${i} First name" value="${
+                savedData.firstName || ""
+              }">
                         <span id="firstNameError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="lastName${i}">Last Name:</label>
-                        <input type="text" name="lastName${i}" class="form-control" placeholder="Adult ${i} Last Name" value="${savedData.lastName || "" }">
+                        <input type="text" name="lastName${i}" class="form-control" placeholder="Adult ${i} Last Name" value="${
+                savedData.lastName || ""
+              }">
                         <span id="lastNameError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="gender${i}">Gender:</label>
                       <select name="gender${i}" class="form-control">
                         <option value="">Select Gender</option>
-                        <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
-                        <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
-                        <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
+                        <option value="M" ${
+                          savedData.gender === "M" ? "selected" : ""
+                        }>Male</option>
+                        <option value="F" ${
+                          savedData.gender === "F" ? "selected" : ""
+                        }>Female</option>
+                        <option value="U" ${
+                          savedData.gender === "U" ? "selected" : ""
+                        }>Other</option>
                       </select>
                       <span id="genderError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                     <label for="adultDOB${i}">DOB:</label>
-                        <input type="date" name="adultDOB${i}" class="form-control" placeholder="Adult ${i} Date of Birth" onfocus="(this.type='date')"   value="${savedData.dob}">
+                        <input type="date" name="adultDOB${i}" class="form-control" placeholder="Adult ${i} Date of Birth" onfocus="(this.type='date')"   value="${
+                savedData.dob
+              }">
                         <span id="adultDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
                     <div class="col-lg-2 col-md-4 mb-4">
                     <label for="passportNo${i}">Passport Number:</label>
-                        <input type="text" class="form-control" name="passportNo${i}" placeholder="Adult ${i} Passport No."  value="${savedData.passportNo || "" }">
+                        <input type="text" class="form-control" name="passportNo${i}" placeholder="Adult ${i} Passport No."  value="${
+                savedData.passportNo || ""
+              }">
                         <span id="passportNoError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
                     <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                       <label for="pasprtExp${i}">Passport Expiry:</label>
-                        <input type="date" name="pasprtExp${i}" class="form-control" placeholder="Adult ${i} Expiry Date" onfocus="(this.type='date')"  value="${savedData.passportExpiry}" >
+                        <input type="date" name="pasprtExp${i}" class="form-control" placeholder="Adult ${i} Expiry Date" onfocus="(this.type='date')"  value="${
+                savedData.passportExpiry
+              }" >
                         <span id="pasprtExpError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
@@ -2540,7 +2611,11 @@ function getUserDataCookie(cookieName) {
                         ${countryData
                           .map(
                             (country) =>
-                              `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                              `<option value="${country.iso2}" ${
+                                savedData.issuingCountry === country.iso2
+                                  ? "selected"
+                                  : ""
+                              }>${country.name}</option>`
                           )
                           .join("")}
                       </select>
@@ -2553,7 +2628,11 @@ function getUserDataCookie(cookieName) {
                         ${countryData
                           .map(
                             (country) =>
-                              `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                              `<option value="${country.iso2}" ${
+                                savedData.nationality === country.iso2
+                                  ? "selected"
+                                  : ""
+                              }>${country.name}</option>`
                           )
                           .join("")}
                       </select>
@@ -2569,7 +2648,10 @@ function getUserDataCookie(cookieName) {
                       <select name="baggageService${i}" id="baggageService${i}" class="form-control">
                       ${
                         extraSrviceData && extraSrviceData.length > 0
-                          ? generateExtraServiceOptions(extraSrviceData, savedData)
+                          ? generateExtraServiceOptions(
+                              extraSrviceData,
+                              savedData
+                            )
                           : ""
                       }
                       </select>
@@ -2585,7 +2667,10 @@ function getUserDataCookie(cookieName) {
                       <select name="mealService${i}" id="mealService${i}" class="form-control">
                         ${
                           extraSrviceData && extraSrviceData.length > 0
-                            ? generateExtraMealServiceOptions(extraSrviceData, savedData)
+                            ? generateExtraMealServiceOptions(
+                                extraSrviceData,
+                                savedData
+                              )
                             : ""
                         }
                       </select>
@@ -2601,7 +2686,10 @@ function getUserDataCookie(cookieName) {
                       <select name="baggageServiceReturn${i}" id="baggageServiceReturn${i}" class="form-control">
                       ${
                         extraSrviceData && extraSrviceData.length > 0
-                          ? generateExtraServiceOptionsReturn(extraSrviceData, savedData)
+                          ? generateExtraServiceOptionsReturn(
+                              extraSrviceData,
+                              savedData
+                            )
                           : ""
                       }
                       </select>
@@ -2617,7 +2705,8 @@ function getUserDataCookie(cookieName) {
                         ${
                           extraSrviceData && extraSrviceData.length > 0
                             ? generateExtraMealServiceOptionsReturn(
-                                extraSrviceData, savedData
+                                extraSrviceData,
+                                savedData
                               )
                             : ""
                         }
@@ -2632,7 +2721,7 @@ function getUserDataCookie(cookieName) {
           });
         // adultCounter++;
       }
-      
+
       //child details
       function addChild() {
         const adultContainer = document.getElementById("childcontainer");
@@ -2648,18 +2737,15 @@ function getUserDataCookie(cookieName) {
 
             for (let i = 1; i <= childCounter; i++) {
               const div = document.createElement("div");
-              div.classList.add(
-                "form-row",
-                "p-0",
-                "m-0",
-              );
+              div.classList.add("form-row", "p-0", "m-0");
 
               let savedAdultsData = getUserDataCookie("childData");
-              let childArray = savedAdultsData ? JSON.parse(savedAdultsData) : [];
+              let childArray = savedAdultsData
+                ? JSON.parse(savedAdultsData)
+                : [];
               console.log("Retrieved Child Data:", childArray);
               let savedData = childArray[i - 1] || {};
-              console.log("Saved Data: "+savedData.title);
-
+              console.log("Saved Data: " + savedData.title);
 
               div.innerHTML = `
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
@@ -2668,46 +2754,66 @@ function getUserDataCookie(cookieName) {
                   <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableChild${i}"> Title:</label>
                       <select name="sirLableChild${i}" id="" class="form-control select-title">
-                          <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS</option>
-                          <option value="MSTR" ${savedData.title === "MSTR" ? "selected" : ""}>MSTR</option>
+                          <option value="MISS" ${
+                            savedData.title === "MISS" ? "selected" : ""
+                          }>MISS</option>
+                          <option value="MSTR" ${
+                            savedData.title === "MSTR" ? "selected" : ""
+                          }>MSTR</option>
                       </select>
                       <span id="sirLableChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                     <label for="firstNameChild${i}"> First Name:</label>
-                      <input type="text" name="firstNameChild${i}" class="form-control" placeholder="Child ${i} First name" value="${savedData.firstName || "" }">
+                      <input type="text" name="firstNameChild${i}" class="form-control" placeholder="Child ${i} First name" value="${
+                savedData.firstName || ""
+              }">
                       <span id="firstNameChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="lastNameChild${i}"> Last Name:</label>
-                      <input type="text" name="lastNameChild${i}" class="form-control" placeholder="Child ${i} Last Name" value="${savedData.lastName || "" }">
+                      <input type="text" name="lastNameChild${i}" class="form-control" placeholder="Child ${i} Last Name" value="${
+                savedData.lastName || ""
+              }">
                       <span id="lastNameChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="genderChild${i}"> Gender:</label>
                   <select name="genderChild${i}" class="form-control">
                     <option value="">Select Gender</option>
-                    <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
-                    <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
-                    <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
+                    <option value="M" ${
+                      savedData.gender === "M" ? "selected" : ""
+                    }>Male</option>
+                    <option value="F" ${
+                      savedData.gender === "F" ? "selected" : ""
+                    }>Female</option>
+                    <option value="U" ${
+                      savedData.gender === "U" ? "selected" : ""
+                    }>Other</option>
                   </select>
                   <span id="genderChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                 </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="childDOB${i}"> DOB:</label>
-                      <input type="date" name="childDOB${i}" class="form-control" placeholder="Child ${i} Date of Birth" onfocus="(this.type='date')"  value="${savedData.dob}" >
+                      <input type="date" name="childDOB${i}" class="form-control" placeholder="Child ${i} Date of Birth" onfocus="(this.type='date')"  value="${
+                savedData.dob
+              }" >
 
                       <span id="childDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="passportNoChild${i}">Passport Number:</label>
-                      <input type="text" class="form-control" name="passportNoChild${i}" placeholder="Child ${i} Passport No." value="${savedData.passportNo || "" }">
+                      <input type="text" class="form-control" name="passportNoChild${i}" placeholder="Child ${i} Passport No." value="${
+                savedData.passportNo || ""
+              }">
                       <span id="passportNoChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="pasprtExpChild${i}">Passport Expiry:</label>
-                      <input type="date" name="pasprtExpChild${i}" class="form-control" placeholder="Child ${i} Expiry Date" onfocus="(this.type='date')" value="${savedData.passportExpiry}" >
+                      <input type="date" name="pasprtExpChild${i}" class="form-control" placeholder="Child ${i} Expiry Date" onfocus="(this.type='date')" value="${
+                savedData.passportExpiry
+              }" >
                       <span id="pasprtExpChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
@@ -2717,7 +2823,11 @@ function getUserDataCookie(cookieName) {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                            `<option value="${country.iso2}" ${
+                              savedData.issuingCountry === country.iso2
+                                ? "selected"
+                                : ""
+                            }>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2730,7 +2840,11 @@ function getUserDataCookie(cookieName) {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                            `<option value="${country.iso2}" ${
+                              savedData.nationality === country.iso2
+                                ? "selected"
+                                : ""
+                            }>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2746,7 +2860,10 @@ function getUserDataCookie(cookieName) {
                     <select name="baggageServiceChild${i}" id="baggageServiceChild${i}" class="form-control">
                     ${
                       extraSrviceData && extraSrviceData.length > 0
-                        ? generateExtraServiceOptionsChild(extraSrviceData, savedData)
+                        ? generateExtraServiceOptionsChild(
+                            extraSrviceData,
+                            savedData
+                          )
                         : ""
                     }
                     </select>
@@ -2763,7 +2880,8 @@ function getUserDataCookie(cookieName) {
                       ${
                         extraSrviceData && extraSrviceData.length > 0
                           ? generateExtraMealServiceOptionsChild(
-                              extraSrviceData, savedData
+                              extraSrviceData,
+                              savedData
                             )
                           : ""
                       }
@@ -2780,7 +2898,8 @@ function getUserDataCookie(cookieName) {
                       ${
                         extraSrviceData && extraSrviceData.length > 0
                           ? generateExtraServiceOptionsChildReturn(
-                              extraSrviceData, savedData
+                              extraSrviceData,
+                              savedData
                             )
                           : ""
                       }
@@ -2797,7 +2916,8 @@ function getUserDataCookie(cookieName) {
                         ${
                           extraSrviceData && extraSrviceData.length > 0
                             ? generateExtraMealServiceOptionsChildReturn(
-                                extraSrviceData, savedData
+                                extraSrviceData,
+                                savedData
                               )
                             : ""
                         }
@@ -2833,17 +2953,15 @@ function getUserDataCookie(cookieName) {
 
             for (let i = 1; i <= infantCounter; i++) {
               const div = document.createElement("div");
-              div.classList.add(
-                "form-row",
-                "p-0",
-                "m-0",
-              );
+              div.classList.add("form-row", "p-0", "m-0");
 
               let savedinfantData = getUserDataCookie("infantData");
-              let infantArray = savedinfantData ? JSON.parse(savedinfantData) : [];
+              let infantArray = savedinfantData
+                ? JSON.parse(savedinfantData)
+                : [];
               console.log("Retrieved Infant Data:", infantArray);
               let savedData = infantArray[i - 1] || {};
-              console.log("Saved Data: "+savedData.title);
+              console.log("Saved Data: " + savedData.title);
 
               div.innerHTML = `
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
@@ -2852,46 +2970,66 @@ function getUserDataCookie(cookieName) {
                   <div class="col-lg-1 col-md-4 mb-4">
                   <label for="sirLableInfant${i}"> Title:</label>
                       <select name="sirLableInfant${i}" id="" class="form-control select-title">
-                        <option value="MISS" ${savedData.title === "MISS" ? "selected" : ""}>MISS </option>
-                        <option value="MSTR" ${savedData.title === "MSTR" ? "selected" : ""}>MSTR</option>
+                        <option value="MISS" ${
+                          savedData.title === "MISS" ? "selected" : ""
+                        }>MISS </option>
+                        <option value="MSTR" ${
+                          savedData.title === "MSTR" ? "selected" : ""
+                        }>MSTR</option>
                       </select>
                       <span id="sirLableInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="firstNameInfant${i}"> First Name:</label>
-                      <input type="text" name="firstNameInfant${i}" class="form-control" placeholder="Infant ${i} First name" value="${savedData.firstName || "" }">
+                      <input type="text" name="firstNameInfant${i}" class="form-control" placeholder="Infant ${i} First name" value="${
+                savedData.firstName || ""
+              }">
                       <span id="firstNameInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="lastNameInfant${i}"> Last Name:</label>
-                      <input type="text" name="lastNameInfant${i}" class="form-control" placeholder="Infant ${i} Last Name" value="${savedData.lastName || "" }">
+                      <input type="text" name="lastNameInfant${i}" class="form-control" placeholder="Infant ${i} Last Name" value="${
+                savedData.lastName || ""
+              }">
                       <span id="lastNameInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="genderInfant${i}">  Gender:</label>
                   <select name="genderInfant${i}" class="form-control">
                     <option value="">Select Gender</option>
-                    <option value="M" ${savedData.gender === "M" ? "selected" : ""}>Male</option>
-                    <option value="F" ${savedData.gender === "F" ? "selected" : ""}>Female</option>
-                    <option value="U" ${savedData.gender === "U" ? "selected" : ""}>Other</option>
+                    <option value="M" ${
+                      savedData.gender === "M" ? "selected" : ""
+                    }>Male</option>
+                    <option value="F" ${
+                      savedData.gender === "F" ? "selected" : ""
+                    }>Female</option>
+                    <option value="U" ${
+                      savedData.gender === "U" ? "selected" : ""
+                    }>Other</option>
                   </select>
                   <span id="genderError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                 </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="infantDOB${i}">  DOB:</label>
-                      <input type="date" name="infantDOB${i}" class="form-control" placeholder="Infant ${i} Date of Birth" onfocus="(this.type='date')"  value="${savedData.dob}" >
+                      <input type="date" name="infantDOB${i}" class="form-control" placeholder="Infant ${i} Date of Birth" onfocus="(this.type='date')"  value="${
+                savedData.dob
+              }" >
                       <span id="infantDOBError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                   </div>
                   <div class="col-lg-2 col-md-4 mb-4">
                   <label for="passportNoInfant${i}">  Passport Number:</label>
-                      <input type="text" class="form-control" name="passportNoInfant${i}" placeholder="Infant ${i} Passport No." value="${savedData.passportNo || "" }">
+                      <input type="text" class="form-control" name="passportNoInfant${i}" placeholder="Infant ${i} Passport No." value="${
+                savedData.passportNo || ""
+              }">
                       <span id="passportNoInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-lg-2 col-md-4 calndr-icon mb-4">
                   <label for="pasprtExpInfant${i}">  Passport Expiry:</label>
-                      <input type="date" name="pasprtExpInfant${i}" class="form-control" placeholder="Infant ${i} Expiry Date" onfocus="(this.type='date')" value="${savedData.passportExpiry}" >
+                      <input type="date" name="pasprtExpInfant${i}" class="form-control" placeholder="Infant ${i} Expiry Date" onfocus="(this.type='date')" value="${
+                savedData.passportExpiry
+              }" >
                       <span id="pasprtExpInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
 
                   </div>
@@ -2901,7 +3039,11 @@ function getUserDataCookie(cookieName) {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}" ${savedData.issuingCountry === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                            `<option value="${country.iso2}" ${
+                              savedData.issuingCountry === country.iso2
+                                ? "selected"
+                                : ""
+                            }>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -2913,7 +3055,11 @@ function getUserDataCookie(cookieName) {
                       ${countryData
                         .map(
                           (country) =>
-                            `<option value="${country.iso2}" ${savedData.nationality === country.iso2 ? "selected" : ""}>${country.name}</option>`
+                            `<option value="${country.iso2}" ${
+                              savedData.nationality === country.iso2
+                                ? "selected"
+                                : ""
+                            }>${country.name}</option>`
                         )
                         .join("")}
                     </select>
@@ -3114,11 +3260,19 @@ function getUserDataCookie(cookieName) {
       }
 
       if (genderValue == "M" && sirLableValue !== "Mr") {
-        displayError(sirLableSelect,`Title should be "Mr" for selected gender`);
+        displayError(
+          sirLableSelect,
+          `Title should be "Mr" for selected gender`
+        );
         validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
       } else if (genderValue == "F" && sirLableValue === "Mr") {
-        displayError( sirLableSelect, `Title should be "Mrs or MISS" for selected gender`);
-        validationErrors.push(`Title for Female Adult ${i} should be "Mrs or MISS"`);
+        displayError(
+          sirLableSelect,
+          `Title should be "Mrs or MISS" for selected gender`
+        );
+        validationErrors.push(
+          `Title for Female Adult ${i} should be "Mrs or MISS"`
+        );
       } else {
         clearError(sirLableSelect);
       }
@@ -3230,7 +3384,6 @@ function getUserDataCookie(cookieName) {
         clearError(lastNameChildInput);
       }
 
-
       if (passportNoChildInput.value.trim() === "") {
         displayError(passportNoChildInput, `Passpoet number ${i} is required`);
         validationErrors.push(`Passpoet number ${i} is required`);
@@ -3247,7 +3400,9 @@ function getUserDataCookie(cookieName) {
         } else {
           clearError(passportNoChildInput);
         }
-      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoChildInput.value.trim())) {
+      } else if (
+        !/^[a-zA-Z0-9]{1,9}$/.test(passportNoChildInput.value.trim())
+      ) {
         displayError(passportNoChildInput, `Max 9 characters allowed.`);
         validationErrors.push(`Max 9 characters allowed.`);
       } else {
@@ -3270,10 +3425,16 @@ function getUserDataCookie(cookieName) {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(sirLableSelect,`Title should be "MSTR" for selected gender`);
+        displayError(
+          sirLableSelect,
+          `Title should be "MSTR" for selected gender`
+        );
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError( sirLableSelect, `Title should be "MISS" for selected gender`);
+        displayError(
+          sirLableSelect,
+          `Title should be "MISS" for selected gender`
+        );
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
@@ -3412,7 +3573,9 @@ function getUserDataCookie(cookieName) {
         } else {
           clearError(passportNoInfantInput);
         }
-      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInfantInput.value.trim())) {
+      } else if (
+        !/^[a-zA-Z0-9]{1,9}$/.test(passportNoInfantInput.value.trim())
+      ) {
         displayError(passportNoInfantInput, `Max 9 characters allowed.`);
         validationErrors.push(`Max 9 characters allowed.`);
       } else {
@@ -3435,15 +3598,21 @@ function getUserDataCookie(cookieName) {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(sirLableSelect, `Title should be "MSTR" for selected gender`);
+        displayError(
+          sirLableSelect,
+          `Title should be "MSTR" for selected gender`
+        );
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError(sirLableSelect,`Title should be "MISS" for selected gender`);
+        displayError(
+          sirLableSelect,
+          `Title should be "MISS" for selected gender`
+        );
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
       }
-      
+
       const dobDate = new Date(infantDOBInput.value.trim());
       const currentDate = new Date();
       const pasexpcheckdate = new Date(currentDatevalue); //passsport exp comprison date and dob comparison date
@@ -3499,10 +3668,11 @@ function getUserDataCookie(cookieName) {
       event.preventDefault();
     }
     if (contactfirstname == "") {
-      $("#contactfirstname").after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>');
+      $("#contactfirstname").after(
+        '<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>'
+      );
       valid = false;
     } else {
-      
     }
 
     if (contactlastname == "") {
@@ -3546,7 +3716,6 @@ function getUserDataCookie(cookieName) {
       valid = false;
     }
 
-    
     // Set up form data for submission
     var formData = new FormData(this);
     if (validationErrors.length === 0 && valid == true) {
@@ -3558,89 +3727,190 @@ function getUserDataCookie(cookieName) {
         processData: false,
         success: function (response) {
           if (response.success) {
-              
             $(".main_price_view").html(response.total_updated_price);
             // Nafees
             for (let i = 1; i <= adultCounter; i++) {
-                let adultData = {
-                    title: document.querySelector(`[name="sirLable${i}"]`).value,
-                    firstName: document.querySelector(`[name="firstName${i}"]`).value,
-                    lastName: document.querySelector(`[name="lastName${i}"]`).value,
-                    gender: document.querySelector(`[name="gender${i}"]`).value,
-                    dob: document.querySelector(`[name="adultDOB${i}"]`).value,
-                    passportNo: document.querySelector(`[name="passportNo${i}"]`).value,
-                    passportExpiry: document.querySelector(`[name="pasprtExp${i}"]`).value,
-                    issuingCountry: document.querySelector(`[name="issuingCountry${i}"]`).value,
-                    nationality: document.querySelector(`[name="nationality${i}"]`).value,
-                    baggageService: document.querySelector(`[name="baggageService${i}"]`) ? document.querySelector(`[name="baggageService${i}"]`).value : "",
-                    mealService: document.querySelector(`[name="mealService${i}"]`) ? document.querySelector(`[name="mealService${i}"]`).value : "",
-                    baggageServiceReturn: document.querySelector(`[name="baggageServiceReturn${i}"]`) ? document.querySelector(`[name="baggageServiceReturn${i}"]`).value : "",
-                    mealServiceReturn: document.querySelector(`[name="mealServiceReturn${i}"]`) ? document.querySelector(`[name="mealServiceReturn${i}"]`).value : ""
-                };
-                adultsArray.push(adultData);
+              let adultData = {
+                title: document.querySelector(`[name="sirLable${i}"]`).value,
+                firstName: document.querySelector(`[name="firstName${i}"]`)
+                  .value,
+                lastName: document.querySelector(`[name="lastName${i}"]`).value,
+                gender: document.querySelector(`[name="gender${i}"]`).value,
+                dob: document.querySelector(`[name="adultDOB${i}"]`).value,
+                passportNo: document.querySelector(`[name="passportNo${i}"]`)
+                  .value,
+                passportExpiry: document.querySelector(`[name="pasprtExp${i}"]`)
+                  .value,
+                issuingCountry: document.querySelector(
+                  `[name="issuingCountry${i}"]`
+                ).value,
+                nationality: document.querySelector(`[name="nationality${i}"]`)
+                  .value,
+                baggageService: document.querySelector(
+                  `[name="baggageService${i}"]`
+                )
+                  ? document.querySelector(`[name="baggageService${i}"]`).value
+                  : "",
+                mealService: document.querySelector(`[name="mealService${i}"]`)
+                  ? document.querySelector(`[name="mealService${i}"]`).value
+                  : "",
+                baggageServiceReturn: document.querySelector(
+                  `[name="baggageServiceReturn${i}"]`
+                )
+                  ? document.querySelector(`[name="baggageServiceReturn${i}"]`)
+                      .value
+                  : "",
+                mealServiceReturn: document.querySelector(
+                  `[name="mealServiceReturn${i}"]`
+                )
+                  ? document.querySelector(`[name="mealServiceReturn${i}"]`)
+                      .value
+                  : "",
+              };
+              adultsArray.push(adultData);
             }
             setUserDataCookie("adultsData", JSON.stringify(adultsArray), 7);
-            
 
-          // Nafees
+            // Nafees
             for (let i = 1; i <= childCounter; i++) {
               let childData = {
-                  title: document.querySelector(`[name="sirLableChild${i}"]`).value,
-                  firstName: document.querySelector(`[name="firstNameChild${i}"]`).value,
-                  lastName: document.querySelector(`[name="lastNameChild${i}"]`).value,
-                  gender: document.querySelector(`[name="genderChild${i}"]`).value,
-                  dob: document.querySelector(`[name="childDOB${i}"]`).value,
-                  passportNo: document.querySelector(`[name="passportNoChild${i}"]`).value,
-                  passportExpiry: document.querySelector(`[name="pasprtExpChild${i}"]`).value,
-                  issuingCountry: document.querySelector(`[name="issuingcountryChild${i}"]`).value,
-                  nationality: document.querySelector(`[name="nationalityChild${i}"]`).value,
-                  baggageService: document.querySelector(`[name="baggageServiceChild${i}"]`) ? document.querySelector(`[name="baggageServiceChild${i}"]`).value : "",
-                  mealService: document.querySelector(`[name="mealServiceChild${i}"]`) ? document.querySelector(`[name="mealServiceChild${i}"]`).value : "",
-                  baggageServiceReturn: document.querySelector(`[name="baggageServiceChildReturn${i}"]`) ? document.querySelector(`[name="baggageServiceChildReturn${i}"]`).value : "",
-                  mealServiceReturn: document.querySelector(`[name="mealServiceChildReturn${i}"]`) ? document.querySelector(`[name="mealServiceChildReturn${i}"]`).value : ""
+                title: document.querySelector(`[name="sirLableChild${i}"]`)
+                  .value,
+                firstName: document.querySelector(`[name="firstNameChild${i}"]`)
+                  .value,
+                lastName: document.querySelector(`[name="lastNameChild${i}"]`)
+                  .value,
+                gender: document.querySelector(`[name="genderChild${i}"]`)
+                  .value,
+                dob: document.querySelector(`[name="childDOB${i}"]`).value,
+                passportNo: document.querySelector(
+                  `[name="passportNoChild${i}"]`
+                ).value,
+                passportExpiry: document.querySelector(
+                  `[name="pasprtExpChild${i}"]`
+                ).value,
+                issuingCountry: document.querySelector(
+                  `[name="issuingcountryChild${i}"]`
+                ).value,
+                nationality: document.querySelector(
+                  `[name="nationalityChild${i}"]`
+                ).value,
+                baggageService: document.querySelector(
+                  `[name="baggageServiceChild${i}"]`
+                )
+                  ? document.querySelector(`[name="baggageServiceChild${i}"]`)
+                      .value
+                  : "",
+                mealService: document.querySelector(
+                  `[name="mealServiceChild${i}"]`
+                )
+                  ? document.querySelector(`[name="mealServiceChild${i}"]`)
+                      .value
+                  : "",
+                baggageServiceReturn: document.querySelector(
+                  `[name="baggageServiceChildReturn${i}"]`
+                )
+                  ? document.querySelector(
+                      `[name="baggageServiceChildReturn${i}"]`
+                    ).value
+                  : "",
+                mealServiceReturn: document.querySelector(
+                  `[name="mealServiceChildReturn${i}"]`
+                )
+                  ? document.querySelector(
+                      `[name="mealServiceChildReturn${i}"]`
+                    ).value
+                  : "",
               };
               childArray.push(childData);
             }
-             setUserDataCookie("childData", JSON.stringify(childArray), 7);
+            setUserDataCookie("childData", JSON.stringify(childArray), 7);
 
-        // Nafees
-        for (let i = 1; i <= infantCounter; i++) {
-          let infantData = {
-              title: document.querySelector(`[name="sirLableInfant${i}"]`).value,
-              firstName: document.querySelector(`[name="firstNameInfant${i}"]`).value,
-              lastName: document.querySelector(`[name="lastNameInfant${i}"]`).value,
-              gender: document.querySelector(`[name="genderInfant${i}"]`).value,
-              dob: document.querySelector(`[name="infantDOB${i}"]`).value,
-              passportNo: document.querySelector(`[name="passportNoInfant${i}"]`).value,
-              passportExpiry: document.querySelector(`[name="pasprtExpInfant${i}"]`).value,
-              issuingCountry: document.querySelector(`[name="issuingcountryInfant${i}"]`).value,
-              nationality: document.querySelector(`[name="nationalityinfant${i}"]`).value,
-              baggageService: document.querySelector(`[name="baggageServiceInfant${i}"]`) ? document.querySelector(`[name="baggageServiceInfant${i}"]`).value : "",
-              mealService: document.querySelector(`[name="mealServiceInfant${i}"]`) ? document.querySelector(`[name="mealServiceInfant${i}"]`).value : "",
-              baggageServiceReturn: document.querySelector(`[name="baggageServiceReturnInfant${i}"]`) ? document.querySelector(`[name="baggageServiceReturnInfant${i}"]`).value : "",
-              mealServiceReturn: document.querySelector(`[name="mealServiceReturnInfant${i}"]`) ? document.querySelector(`[name="mealServiceReturnInfant${i}"]`).value : ""
-          };
-          infantArray.push(infantData);
-        }
-        setUserDataCookie("infantData", JSON.stringify(infantArray), 7);
+            // Nafees
+            for (let i = 1; i <= infantCounter; i++) {
+              let infantData = {
+                title: document.querySelector(`[name="sirLableInfant${i}"]`)
+                  .value,
+                firstName: document.querySelector(
+                  `[name="firstNameInfant${i}"]`
+                ).value,
+                lastName: document.querySelector(`[name="lastNameInfant${i}"]`)
+                  .value,
+                gender: document.querySelector(`[name="genderInfant${i}"]`)
+                  .value,
+                dob: document.querySelector(`[name="infantDOB${i}"]`).value,
+                passportNo: document.querySelector(
+                  `[name="passportNoInfant${i}"]`
+                ).value,
+                passportExpiry: document.querySelector(
+                  `[name="pasprtExpInfant${i}"]`
+                ).value,
+                issuingCountry: document.querySelector(
+                  `[name="issuingcountryInfant${i}"]`
+                ).value,
+                nationality: document.querySelector(
+                  `[name="nationalityinfant${i}"]`
+                ).value,
+                baggageService: document.querySelector(
+                  `[name="baggageServiceInfant${i}"]`
+                )
+                  ? document.querySelector(`[name="baggageServiceInfant${i}"]`)
+                      .value
+                  : "",
+                mealService: document.querySelector(
+                  `[name="mealServiceInfant${i}"]`
+                )
+                  ? document.querySelector(`[name="mealServiceInfant${i}"]`)
+                      .value
+                  : "",
+                baggageServiceReturn: document.querySelector(
+                  `[name="baggageServiceReturnInfant${i}"]`
+                )
+                  ? document.querySelector(
+                      `[name="baggageServiceReturnInfant${i}"]`
+                    ).value
+                  : "",
+                mealServiceReturn: document.querySelector(
+                  `[name="mealServiceReturnInfant${i}"]`
+                )
+                  ? document.querySelector(
+                      `[name="mealServiceReturnInfant${i}"]`
+                    ).value
+                  : "",
+              };
+              infantArray.push(infantData);
+            }
+            setUserDataCookie("infantData", JSON.stringify(infantArray), 7);
 
+            let contactDetailsData = {
+              contactfirstname: document.querySelector(
+                `[name="contactfirstname"]`
+              ).value,
+              contactlastname: document.querySelector(
+                `[name="contactlastname"]`
+              ).value,
+              contactcountry: document.querySelector(`[name="contactcountry"]`)
+                .value,
+              contactnumber: document.querySelector(`[name="contactnumber"]`)
+                .value,
+              contactemail: document.querySelector(`[name="contactemail"]`)
+                .value,
+              contactpostcode: document.querySelector(
+                `[name="contactpostcode"]`
+              ).value,
+            };
+            setUserDataCookie(
+              "contactDetailsData",
+              JSON.stringify(contactDetailsData),
+              7
+            );
 
-          let contactDetailsData = {
-              contactfirstname: document.querySelector(`[name="contactfirstname"]`).value,
-              contactlastname: document.querySelector(`[name="contactlastname"]`).value,
-              contactcountry: document.querySelector(`[name="contactcountry"]`).value,
-              contactnumber: document.querySelector(`[name="contactnumber"]`).value,
-              contactemail: document.querySelector(`[name="contactemail"]`).value,
-              contactpostcode: document.querySelector(`[name="contactpostcode"]`).value,
-          };
-          setUserDataCookie("contactDetailsData", JSON.stringify(contactDetailsData), 7);
-
-              const isLoggedIn = $("#user_id_loggedin").val();    
-              if (isLoggedIn) {
-                $("#payment_modal").modal("show");
-              } else {
-                $("#how_to_proceed_login").modal("show");
-              }
+            const isLoggedIn = $("#user_id_loggedin").val();
+            if (isLoggedIn) {
+              $("#payment_modal").modal("show");
+            } else {
+              $("#how_to_proceed_login").modal("show");
+            }
           } else {
             alert("Error in fetch values");
           }
@@ -3716,7 +3986,6 @@ function getUserDataCookie(cookieName) {
 
   //------------------------------------END ----------------------------------
 
-
   $("#continue_as_guest").click(function () {
     $("#how_to_proceed_login").modal("hide");
     $("#payment_modal").modal("show");
@@ -3726,11 +3995,8 @@ function getUserDataCookie(cookieName) {
     $("#LoginModal").modal("show");
   });
   $("#continue_as_register").click(function () {
-    window.location.href ="registration?searchFlights=true";
+    window.location.href = "registration?searchFlights=true";
   });
-  
-  
-
 
   // -------------payment submit--------------------
   $("#payment-booking").submit(function (event) {
@@ -3746,8 +4012,7 @@ function getUserDataCookie(cookieName) {
       dataType: "json",
       success: function (response) {
         window.location.href =
-          "confirmation?bookingid=" +
-          encodeURIComponent(response.bookingid);
+          "confirmation?bookingid=" + encodeURIComponent(response.bookingid);
         // alert("Booking successfully Completed");
       },
       error: function () {
@@ -4145,299 +4410,243 @@ $(window).on("load", function () {
   }
 });
 
-
 $(document).ready(function () {
-    $('#paymentFormCC').submit(function(event) {
-      
-      event.preventDefault();
-      /*
-      // var formDataBook = $('#paymentForm').serialize();
-      // var totalAmount = $('input[name="Totalamount"]').val();
-      
-      let errorMsg = '';
-      const cardHolderName = $('#custName').val();
-      const cardType = $('#cardType').val();
-      const cardNumber = $('#cardNo').val().replace(/\s+/g, ''); // Remove spaces for validation
-      const cardExpy = $('#cardExpyear option:selected').val();
-      console.log(cardExpy);
-      const cardExpm = $('#cardExpmon option:selected').val();
-      console.log(cardExpm);
-      const cvv = $('#cvv').val();
-      const checkTerms = $('#checkTerms').is(':checked');
+  $("#paymentFormCC").submit(function (event) {
+    event.preventDefault();
+    $("#loaderIcon").show();
+    $(".submit_payment_btn").attr("disabled", true);
+    $(".submit_payment_btn").html(
+      '<i class="fas fa-circle-notch fa-spin spinner"></i>'
+    );
+    $(".close_payment_btn").attr("disabled", true);
+    $(".close_payment_btn").hide();
 
-      if (!cardHolderName) {
-          errorMsg = 'Card Holder Name is required';
-          $(".error_paymentcust_name").html(errorMsg);
-          return false;
-      }
-      //  else if (!cardType) {
-      //     errorMsg = 'Card Type is required';
-      //     $(".error_paymentcard_type").html(errorMsg);
-      //     $(".error_paymentcust_name").html("");
-      //     return false;
-      // } 
-      else if (!cardNumber || isNaN(cardNumber) || cardNumber.length < 14 || cardNumber.length > 16) {
-          errorMsg = 'Card Number is invalid';
-          $(".error_paymentcard_no").html(errorMsg);
-          $(".error_paymentcust_name").html("");
-          $(".error_paymentcard_type").html("");
-          return false;
-      } else if (!cardExpm || isNaN(cardExpm) || parseInt(cardExpm) < 1 || parseInt(cardExpm) > 12) {
-        errorMsg = 'Card Expiry Month is invalid';
-        $(".error_paymentcardexpmon").html(errorMsg);
-        $(".error_paymentcard_expiry").html("");
-        $(".error_paymentcard_no").html("");
-        $(".error_paymentcust_name").html("");
-        $(".error_paymentcard_type").html("");
-        return false;
-    } else if (!cardExpy || isNaN(cardExpy) || cardExpy.length !== 4) {
-          errorMsg = 'Card Expiry Year is invalid';
-          $(".error_paymentcard_expiry").html(errorMsg);
-          $(".error_paymentcardexpmon").html("");
-          $(".error_paymentcard_no").html("");
-          $(".error_paymentcust_name").html("");
-          $(".error_paymentcard_type").html("");
-          return false;
-      } else if (!cvv || isNaN(cvv) || cvv.length < 3 || cvv.length > 4) {
-          errorMsg = 'CVV is invalid';
-          $(".error_paymentcvc").html(errorMsg);
-          $(".error_paymentcardexpmon").html("");
-          $(".error_paymentcard_expiry").html("");
-          $(".error_paymentcard_no").html("");
-          $(".error_paymentcust_name").html("");
-          $(".error_paymentcard_type").html("");
-          return false;
-      }
-      $(".error_paymentcvc").html("");
-      $(".error_paymentcardexpmon").html("");
-      $(".error_paymentcard_expiry").html("");
-      $(".error_paymentcard_no").html("");
-      $(".error_paymentcust_name").html("");
-      $(".error_paymentcard_type").html("");
-      //  else if (!checkTerms) {
-      //     errorMsg = 'You must agree to the terms and conditions';
-      //     $(".error_paymentcust_name").html(errorMsg);
-      //     return;
-      // }
+    $.ajax({
+      url: "temp_booking_save",
+      type: "post",
+      dataType: "json",
+      success: function (response) {
+        $("#errorMessagePayment").html(
+          "Thank you for your patience! Please don't refresh or close this page while we process your booking."
+        );
+        $("#loaderIcon").hide();
 
-      const formData = {
-          Name: cardHolderName,
-          // cardType: cardType,
-          cardNumber: cardNumber,
-          cardExpy: cardExpy,
-          cardExpm: cardExpm,
-          cvv: cvv
-      };
-      */
+        
+        // response.errors = [];
+        // response.BookStatus = "CONFIRMED";
+        
+        if (response.errors && response.errors.length > 0) {
+          Swal.fire({
+            title: "Booking Failed",
+            text: "Airline Error:" + response.errors,
+            icon: "error",
+            confirmButtonText: "Close",
+            confirmButtonColor: "#f57c00",
+            allowOutsideClick: false,
+          }).then((result) => {
+            window.location.href = "index";
+          });
+        } else {
+          if (response.BookStatus == "CONFIRMED") {
+            $.ajax({
+              url: "windcave",
+              method: "POST",
+              contentType: "application/json",
+              data: { booking_id: response.bookingid },
+              contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+              dataType: "json",
+              success: function (response) {
+                document.location.href = response.url;
+              },
+            });
+          } else if ( response.BookStatus == "PENDING" && response.bookingid != "" && response.bookingid != undefined ) {
+            Swal.fire({
+              title: "Booking Hold failed!",
+              text: "We could not hold the booking for this booking. please try to search again.",
+              icon: "info",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+              allowOutsideClick: false,
+            }).then((result) => {
+              window.location.href = "index";
+            });
+          } else if ( response.BookStatus == "PENDING" && (response.bookingid == "" || response.bookingid == undefined) ) {
+            Swal.fire({
+              title: "Booking Hold failed!",
+              text: "We could not hold the booking for this booking. please try to search again.",
+              icon: "info",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+              allowOutsideClick: false,
+            }).then((result) => {
+              window.location.href = "index";
+            });
+          } else if ( response.BookStatus == "BookingInProcess" && (response.bookingid == "" || response.bookingid == undefined) ) {
+            Swal.fire({
+              title: "Booking Hold failed!",
+              text: "We could not hold the booking for this booking. please try to search again.",
+              icon: "info",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+              allowOutsideClick: false,
+            }).then((result) => {
+              window.location.href = "index";
+            });
+          }
+        }
 
-        $("#loaderIcon").show();
-        $(".submit_payment_btn").attr("disabled", true);
-        $(".submit_payment_btn").html('<i class="fas fa-circle-notch fa-spin spinner"></i>');
-        $(".close_payment_btn").attr("disabled", true);
-        $(".close_payment_btn").hide();
+        console.log(response);
+        return;
 
-        $.ajax({
-          url: 'temp_booking_save',
-          type: 'post',
-          dataType: 'json',
-          success: function (response) {
-              $('#errorMessagePayment').html("Thank you for your patience! Please don't refresh or close this page while we process your booking.");
+        if (response.booking_id != "") {
+          $.ajax({
+            url: "windcave",
+            method: "POST",
+            contentType: "application/json",
+            data: { booking_id: response.booking_id },
+            contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+            dataType: "json",
+            success: function (response) {
+              document.location.href = response.url;
+              return false;
               $("#loaderIcon").hide();
-              if (response.errors && response.errors.length > 0) {
-                  Swal.fire({
-                    title: "Booking Failed",
-                    text: "Airline Error:" + response.errors + " After Verification,Your Debited amount will be Repayed within 7 days ",
-                    icon: "error",
-                    confirmButtonText: "Close",
-                    confirmButtonColor: "#f57c00", 
-                    allowOutsideClick: false, 
-                  }).then((result) => {
-                          window.location.href = "index";
-                  });
-              } else {
-                      if (response.BookStatus == "CONFIRMED") {
-                          $.ajax({
-                              url: 'windcave',
-                              method: 'POST',
-                              contentType: 'application/json',
-                              data: {"booking_id":response.bookingid},
-                              contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                              dataType: 'json',
-                              success: function(response) {
-                                  document.location.href = response.url;
-                              }
-                          });
-                      } else if ((response.BookStatus == "PENDING") && (response.bookingid != '' && response.bookingid != undefined)) {
+              if (response.status === "success") {
+                $("#errorMessagePayment").html(
+                  "Thank you for your patience! Please don't refresh or close this page while we process your payment and booking."
+                );
+                // $('#errorMessagePayment').html("Your payment was successful, and we are proceeding with the booking process.");
+                $.ajax({
+                  url: "user-booking-script",
+                  type: "post",
+                  data: {
+                    requestId: response.requestId,
+                    timestamp: response.timestamp,
+                  },
+                  dataType: "json",
+                  success: function (response) {
+                    $("#loaderIcon").hide();
+                    if (response.errors && response.errors.length > 0) {
+                      // $('#errorMessagePayment').html("Your Booking is :" + response.BookStatus + "</br>Airline Error:" + response.errors + "</br> After Verification,Your Debited amount will be Repayed within 7 days ");
+                      // window.location.href = "index";
+
+                      Swal.fire({
+                        title: "Booking Failed",
+                        text:
+                          "Airline Error:" +
+                          response.errors +
+                          " After Verification,Your Debited amount will be Repayed within 7 days ",
+                        icon: "error",
+                        confirmButtonText: "Close",
+                        confirmButtonColor: "#f57c00",
+                        allowOutsideClick: false,
+                      }).then((result) => {
+                        window.location.href = "index";
+                      });
+                    } else {
+                      if (response.ticketstatus) {
+                        if (response.BookStatus == "CONFIRMED") {
+                          let countdown = 5;
                           Swal.fire({
-                            title: "Booking Hold failed!",
-                            text: "We could not hold the booking for this booking. please try to search again.",
+                            title: "Booking Confirmed",
+                            html: `Your flight booking and ticket have been successfully confirmed. <br>
+                                                            Kindly proceed to the confirmation page in <strong id="countdown">${countdown}</strong> seconds.`,
+                            icon: "success",
+                            confirmButtonText:
+                              "Navigate to the confirmation page now",
+                            confirmButtonColor: "#f57c00",
+                            allowOutsideClick: false,
+                          }).then(() => {
+                            window.location.href =
+                              "confirmation?bookingid=" +
+                              encodeURIComponent(response.bookingid);
+                          });
+                          const interval = setInterval(() => {
+                            countdown--;
+                            document.getElementById("countdown").textContent =
+                              countdown;
+                            if (countdown <= 0) {
+                              clearInterval(interval);
+                              window.location.href =
+                                "confirmation?bookingid=" +
+                                encodeURIComponent(response.bookingid);
+                            }
+                          }, 1000);
+                        } else if (
+                          response.BookStatus == "PENDING" &&
+                          response.bookingid != "" &&
+                          response.bookingid != undefined
+                        ) {
+                          Swal.fire({
+                            title: "Your booking is currently in progress.",
+                            text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
                             icon: "info",
                             confirmButtonText: "Close",
-                            confirmButtonColor: "#f57c00", 
-                            allowOutsideClick: false, 
+                            confirmButtonColor: "#f57c00",
+                            allowOutsideClick: false,
                           }).then((result) => {
-                              window.location.href = 'index';
+                            window.location.href =
+                              "confirmation?bookingid=" +
+                              encodeURIComponent(response.bookingid);
                           });
-                      } else if ((response.BookStatus == "PENDING") && (response.bookingid == '' || response.bookingid == undefined)) {
-                        Swal.fire({
-                          title: "Booking Hold failed!",
-                          text: "We could not hold the booking for this booking. please try to search again.",
-                          icon: "info",
-                          confirmButtonText: "Close",
-                          confirmButtonColor: "#f57c00", 
-                          allowOutsideClick: false, 
-                        }).then((result) => {
-                            window.location.href = 'index';
-                        });
-                      } else if ((response.BookStatus == "BookingInProcess") && (response.bookingid == '' || response.bookingid == undefined)) {
-                        Swal.fire({
-                          title: "Booking Hold failed!",
-                          text: "We could not hold the booking for this booking. please try to search again.",
-                          icon: "info",
-                          confirmButtonText: "Close",
-                          confirmButtonColor: "#f57c00", 
-                          allowOutsideClick: false, 
-                        }).then((result) => {
-                            window.location.href = 'index';
-                        });
-                      }
-              }
-            
-
-
-
-
-
-
-
-            console.log(response);
-            return;
-
-            if( response.booking_id != '' ) {
-              $.ajax({
-                    url: 'windcave',
-                    method: 'POST',
-                    contentType: 'application/json',
-                    data: {"booking_id":response.booking_id},
-                    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
-                    dataType: 'json',
-                    success: function(response) {
-                        document.location.href = response.url;
-                        return false;
-                        $("#loaderIcon").hide();
-                        if (response.status === 'success') {
-                            $('#errorMessagePayment').html("Thank you for your patience! Please don't refresh or close this page while we process your payment and booking.");
-                                // $('#errorMessagePayment').html("Your payment was successful, and we are proceeding with the booking process.");
-                                $.ajax({
-                                    url: 'user-booking-script',
-                                    type: 'post',
-                                    data: {
-                                        requestId: response.requestId,
-                                        timestamp: response.timestamp
-                                    },
-                                    dataType: 'json',
-                                    success: function (response) {
-                                        $("#loaderIcon").hide();
-                                        if (response.errors && response.errors.length > 0) {
-                                            // $('#errorMessagePayment').html("Your Booking is :" + response.BookStatus + "</br>Airline Error:" + response.errors + "</br> After Verification,Your Debited amount will be Repayed within 7 days ");
-                                            // window.location.href = "index";
-        
-                                            Swal.fire({
-                                              title: "Booking Failed",
-                                              text: "Airline Error:" + response.errors + " After Verification,Your Debited amount will be Repayed within 7 days ",
-                                              icon: "error",
-                                              confirmButtonText: "Close",
-                                              confirmButtonColor: "#f57c00", 
-                                              allowOutsideClick: false, 
-                                            }).then((result) => {
-                                                    window.location.href = "index";
-                                            });
-        
-        
-                                        } else {
-                                            if (response.ticketstatus) {
-                                                if (response.BookStatus == "CONFIRMED") {
-                                                  let countdown = 5;
-                                                    Swal.fire({
-                                                      title: "Booking Confirmed",
-                                                      html: `Your flight booking and ticket have been successfully confirmed. <br>
-                                                            Kindly proceed to the confirmation page in <strong id="countdown">${countdown}</strong> seconds.`,
-                                                      icon: "success",
-                                                      confirmButtonText: "Navigate to the confirmation page now",
-                                                      confirmButtonColor: "#f57c00",
-                                                      allowOutsideClick: false
-                                                    }).then(() => {
-                                                      window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                    });
-                                                    const interval = setInterval(() => {
-                                                      countdown--;
-                                                      document.getElementById("countdown").textContent = countdown;
-                                                      if (countdown <= 0) {
-                                                        clearInterval(interval);
-                                                        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                      }
-                                                    }, 1000);
-                                                } else if ((response.BookStatus == "PENDING") && (response.bookingid != '' && response.bookingid != undefined)) {
-                                                    Swal.fire({
-                                                      title: "Your booking is currently in progress.",
-                                                      text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
-                                                      icon: "info",
-                                                      confirmButtonText: "Close",
-                                                      confirmButtonColor: "#f57c00", 
-                                                      allowOutsideClick: false, 
-                                                    }).then((result) => {
-                                                        window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                    });
-                                                } else if ((response.BookStatus == "PENDING") && (response.bookingid == '' || response.bookingid == undefined)) {
-                                                  Swal.fire({
-                                                    title: "Booking Failed",
-                                                    text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
-                                                    icon: "error",
-                                                    confirmButtonText: "Close",
-                                                    confirmButtonColor: "#f57c00", 
-                                                    allowOutsideClick: false, 
-                                                  }).then((result) => {
-                                                      window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                  });
-                                              } else if ((response.BookStatus == "BookingInProcess") && (response.bookingid == '' || response.bookingid == undefined)) {
-                                                Swal.fire({
-                                                  title: "Booking in Process",
-                                                  text: "Your booking is currently being processed. The final confirmation depends on the airline. It may either get confirmed or unconfirmed. We recommend checking back later for updates.",
-                                                  icon: "warning",
-                                                  confirmButtonText: "Close",
-                                                  confirmButtonColor: "#f57c00", 
-                                                  allowOutsideClick: false, 
-                                                }).then((result) => {
-                                                    window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                });
-                                            }
-                                              
-                                                // else if (response.ticketstatus == "Failed") {
-                                                //       $('#errorMessagePayment').text("Your Booking is :" + response.BookStatus + "Ticket Generation Failed");
-                                                //       $('#errorModal').modal('show');
-                                                //       $(".close").click(function () {
-                                                //           $(this).parents('.modal').modal('hide');
-                                                //       });
-                                                //       window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
-                                                //   }
-                                            }
-                                        }
-                                    }
-                                });
-                        } else {
-                            $('#errorMessagePayment').html("Your Transaction Failed with an  Error: " + response.errors + "</br> Please Try agin later");
+                        } else if (
+                          response.BookStatus == "PENDING" &&
+                          (response.bookingid == "" ||
+                            response.bookingid == undefined)
+                        ) {
+                          Swal.fire({
+                            title: "Booking Failed",
+                            text: "We have received a pending status with MF Number. Our system is actively tracking updates, and we will notify you as soon as the status is updated. Please check back later or contact support if needed.",
+                            icon: "error",
+                            confirmButtonText: "Close",
+                            confirmButtonColor: "#f57c00",
+                            allowOutsideClick: false,
+                          }).then((result) => {
+                            window.location.href =
+                              "confirmation?bookingid=" +
+                              encodeURIComponent(response.bookingid);
+                          });
+                        } else if (
+                          response.BookStatus == "BookingInProcess" &&
+                          (response.bookingid == "" ||
+                            response.bookingid == undefined)
+                        ) {
+                          Swal.fire({
+                            title: "Booking in Process",
+                            text: "Your booking is currently being processed. The final confirmation depends on the airline. It may either get confirmed or unconfirmed. We recommend checking back later for updates.",
+                            icon: "warning",
+                            confirmButtonText: "Close",
+                            confirmButtonColor: "#f57c00",
+                            allowOutsideClick: false,
+                          }).then((result) => {
+                            window.location.href =
+                              "confirmation?bookingid=" +
+                              encodeURIComponent(response.bookingid);
+                          });
                         }
+
+                        // else if (response.ticketstatus == "Failed") {
+                        //       $('#errorMessagePayment').text("Your Booking is :" + response.BookStatus + "Ticket Generation Failed");
+                        //       $('#errorModal').modal('show');
+                        //       $(".close").click(function () {
+                        //           $(this).parents('.modal').modal('hide');
+                        //       });
+                        //       window.location.href = 'confirmation?bookingid=' + encodeURIComponent(response.bookingid);
+                        //   }
+                      }
                     }
+                  },
                 });
-            }
-          }
-      });
+              } else {
+                $("#errorMessagePayment").html(
+                  "Your Transaction Failed with an  Error: " +
+                    response.errors +
+                    "</br> Please Try agin later"
+                );
+              }
+            },
+          });
+        }
+      },
     });
-
-
-
-
-
-
+  });
 });
-

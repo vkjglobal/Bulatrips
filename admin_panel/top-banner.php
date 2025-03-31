@@ -1,6 +1,6 @@
 <?php 
-error_reporting(0);
-ini_set('display_errors', 0);
+error_reporting(1);
+ini_set('display_errors', 1);
  session_start();
 if(!isset($_SESSION['adminid'])){
 ?>
@@ -10,123 +10,69 @@ if(!isset($_SESSION['adminid'])){
 }
 include_once "includes/header.php";
   include_once "includes/class.contents.php";
-$objContent     =   new Contents();
 
- $imageErr   =   "";
- //======
-  if((isset($_GET['id']))  && (isset($_GET['sf'] )))
-{
-      if($_GET['sf'] === 'delete'){
-        
-        $pid =  $_GET['id'] ;      
-     // echo $pid;exit;
-   $homedel=   $objContent->DelHomeImages($pid);
-        if($homedel){
-            echo "<script>";
-echo "document.addEventListener('DOMContentLoaded', function() {";
-echo "    var delSuccessPop = document.getElementById('delsuccesspop');";
-echo "    if (delSuccessPop) {";
-echo "        delSuccessPop.classList.add('show');";
-echo "        delSuccessPop.style.display = 'block';";
-echo "    }";
-echo "});";
-echo "</script>";
-                     
-                       // echo "<script>jQuery('#delsuccesspop').modal('show');</script>";
-                      //  header('Locatiion:users.php'); exit;
-                      // echo "deleted succesfully";
-        }
-        else{
-            echo "error in deletion";
-        }
-      }
-    //  exit;
-}
- //=======
-if(isset($_POST['submit']))
-        {
-            // echo "<script>alert('test');</script>";
-       //   echo "hlll";exit;
-            $first_title    =   trim($_POST['first']);
-            $second_title   =   trim($_POST['second']);
-          //$banner_image   =   $_POST['banner-image'];
-
-             //============================
-                   // Check if a file was uploaded
-            if(!empty($_FILES['banner-image']['name'])){
-                   $image    = $_FILES['banner-image']; 
-                    $image    =   $image['name'];
+  $objContent = new Contents();
+  $imageErr = "";
   
-                            $allowedTypes = array(
-                    IMAGETYPE_JPEG,
-                    IMAGETYPE_PNG,
-                    IMAGETYPE_GIF
-                );
-
-    if ($_FILES['banner-image']['error'] === UPLOAD_ERR_OK) {
-        $imageType = exif_imagetype($_FILES['banner-image']['tmp_name']);
-
-        if (!in_array($imageType, $allowedTypes)) {
-            // Invalid image file type
-             $imageErr   =  "Invalid file type. Only JPG, PNG, and GIF files are allowed.";
-              //return false;
-        } 
-    }
-    $allowedMimeTypes = ['image/jpg','image/jpeg', 'image/png', 'image/gif']; // Example allowed MIME types
-        $fileMimeType = $_FILES['banner-image']['type'];
-        if (!in_array($fileMimeType, $allowedMimeTypes)) {
-            $imageErr = "Invalid MIME type";
-            //return false;
-        }
-     // print_r($imageErr);
-      //<span class="errortext" style="color:red">Title cannot be blank.</span>
-        if($imageErr   ==  ""){
-                        move_uploaded_file($_FILES["banner-image"]["tmp_name"],"uploads/Home/banner/".$image);
-                        //===
-                         $insArr   =   $objContent->insHomeBanner($first_title,$second_title,$image);
-               //var_dump($insArr);
-                 // print_r($imageErr);
-                  if((!empty ($insArr))&& ($imageErr == ""))
-                { 
-                     echo "<script>";
-                echo "document.addEventListener('DOMContentLoaded', function() {";
-                echo "    var addsuccesspop = document.getElementById('addsuccesspop');";
-                echo "    if (addsuccesspop) {";
-                echo "        addsuccesspop.classList.add('show');";
-                echo "        addsuccesspop.style.display = 'block';";
-                echo "    }";
-                echo "});";
-                echo "</script>";
-               // echo "update success ";
+  // ===== Delete Logic =====
+  if (isset($_GET['id'], $_GET['sf']) && $_GET['sf'] === 'delete') {
+      $pid = $_GET['id'];
+      $homedel = $objContent->DelHomeImages($pid);
+  }
+  
+  // ===== Form Submission Logic =====
+  if (isset($_POST['submit'])) {
+      $first_title = trim($_POST['first']);
+      $second_title = trim($_POST['second']);
+  
+      // File upload handling
+      if (!empty($_FILES['banner-image']['name'])) {
+          $imageName = $_FILES['banner-image']['name'];
+          $imageTmpName = $_FILES['banner-image']['tmp_name'];
+          $imageType = $_FILES['banner-image']['type'];
+          $imageError = $_FILES['banner-image']['error'];
+          $imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
+  
+          $newImageName = pathinfo($imageName, PATHINFO_FILENAME) . '_' . time() . '.' . $imageExtension;
+          $allowedTypes = [IMAGETYPE_JPEG, IMAGETYPE_PNG, IMAGETYPE_GIF];
+          $allowedMimeTypes = ['image/jpg', 'image/jpeg', 'image/png', 'image/gif'];
+  
+          if ($imageError === UPLOAD_ERR_OK) {
+              $detectedType = exif_imagetype($imageTmpName);
+  
+              if (!in_array($detectedType, $allowedTypes)) {
+                  $imageErr = "Invalid file type. Only JPG, PNG, and GIF files are allowed.";
+              }
+  
+              if (!in_array($imageType, $allowedMimeTypes)) {
+                  $imageErr = "Invalid MIME type.";
+              }
+  
+              if (empty($imageErr)) {
+                $uploadDir = "../images/homepage_banner/";
+                if (!is_dir($uploadDir)) {
+                    mkdir($uploadDir, 0755, true);
                 }
-                  else{
-                    echo "error in insertion";
-                }
-
-                        //==
-       }
-       else{
-                       echo "<script>";
-                     echo  '<sapan class="errortext" style="color:red">'.$imageErr.'</span>';
-                        echo "</script>";
-
-                      //cho "kkk";
-                   //  echo '<script><span class="errortext" style="color:red">Title cannot be blank.</span>return false;</script>';
-            }
-                   
-     }           
-                
-         
- }//==========add button ends===
-                 
-     else{ //listing starts
-
-                 $Homebanners       =       $objContent->getListHomeBanner();
-       //print_r( $Homebanners);
-
-     }    
+                $uploadPath = $uploadDir . $newImageName;
+                if (move_uploaded_file($imageTmpName, $uploadPath)) {
+                      $insert = $objContent->insHomeBanner($first_title, $second_title, $newImageName);
+                  } else {
+                      echo "Failed to upload image.";
+                  }
+              } else {
+                  echo '<span class="errortext" style="color:red;">' . $imageErr . '</span>';
+              }
+          } else {
+              echo "Upload error occurred.";
+          }
+      } else {
+          echo '<span class="errortext" style="color:red;">Please select an image to upload.</span>';
+      }
+  } 
 
 
+  $Homebanners = $objContent->getListHomeBanner();
+  
             //========================
             
         ?>
@@ -160,7 +106,7 @@ if(isset($_POST['submit']))
                                             $id  =   $val['id'];
                                              $first_title    =   $val['first_title'];
                                               $second_title   =   $val['second_title'];
-                                               $profileImageURL =     "uploads/Home/banner/".$val['image'];
+                                               $profileImageURL =     "../images/homepage_banner/".$val['image'];
                                                $modalID =   "editBanner".$id;
                                             ?>
                                             <tr>
@@ -178,7 +124,7 @@ if(isset($_POST['submit']))
                                                 <td>
                                                 <div class="d-flex action">
                                                 
-                                                    <button class="btn text-secondary edit" type="button" data-bs-toggle="modal" data-bs-target="#<?php echo $modalID; ?>"><i class="fa fa-pen">Edit</i></button>
+                                                    <a href="edit_banner?id=<?php echo $id; ?>" class="btn text-secondary edit" type="button"><i class="fa fa-pen">Edit</i></button>
 
                                                     <a class="btn text-secondary delete" onclick="return confirm('are you sure you want to delete?')" href="top-banner.php?sf=delete&amp;id=<?php echo $id; ?>">
                                                         <i class="fa fa-trash">Delete</i>
@@ -423,7 +369,7 @@ if(isset($_POST['submit']))
 // return false;
     
         $.ajax({
-                url: 'home_banner_edit.php', // Replace with your form processing script
+                url: 'home_banner_edit', // Replace with your form processing script
                 type: 'POST',
              //data: { firstEdit: firstEdit, secondEdit: secondEdit,bannerImageEdit: filename ,homeId: homeId,oldImage: oldImage },
               data: formData,

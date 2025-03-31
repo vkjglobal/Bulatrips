@@ -654,6 +654,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     if( $bookingData['fare_type'] != 'WebFare' ) {
+        
+
+        /*
         if (isset($fsc)) {
             $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
             $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
@@ -741,19 +744,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'Authorization: Bearer ' . $bearerToken
             ));
             $response = curl_exec($ch);
+
+            echo "<pre>";
+                print_r($response);
+            die;
+
             curl_close($ch);
             if ($response) {
                 $responseData = json_decode($response, true);
-                $objBook->_writeLog('-------------Public/Private Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                $objBook->_writeLog("API URL Response: ".$apiEndpoint, 'temp_booking_save.txt');
-                $objBook->_writeLog(print_r($responseData, true), 'temp_booking_save.txt');
-                $objBook->_writeLog("", 'temp_booking_save.txt');
-                $objBook->_writeLog('-------------Public/Private Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-
             }
         }
-
-
         $resSuccess  = $responseData['Data']['Success'];
         $fairtype = $bookingData['fare_type'];
         if (!empty($responseData['Data']['Errors'])) {
@@ -800,11 +800,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'errors' => $errMsg,
                 'errCde' => $errCDE
             );
-            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+            // $logResErr =   print_r($response, true);
+            // $objBook->_writeLog('Error 1 Received\n' . $logResErr, 'booking.txt');
             echo json_encode($response);
             exit;
         } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
@@ -832,11 +829,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'faretype' => $fairtype,
                 'bookingid' => $tempBookingId,
             );
-            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            $objBook->_writeLog("Booking Confirmed: ", 'temp_booking_save.txt');
-            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+        
             echo json_encode($response);
             exit;
             // $logResSus =   $booking_status;
@@ -859,16 +852,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtupdate->execute();
     
             $orderstatus = $responseData['Data']['Success'];
+            // $logResSus =   $booking_status;
+            // $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
             $response = array(
                 'BookStatus' => $booking_status,
                 'faretype' => $fairtype,
                 'bookingid' => $tempBookingId,
             );
-            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            $objBook->_writeLog("Booking BOOKINGINPROCESS: ", 'temp_booking_save.txt');
-            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
         
             echo json_encode($response);
             exit;
@@ -929,12 +919,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'errCde' => $errCDE
             );
             
-            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-            $objBook->_writeLog("", 'temp_booking_save.txt');
-            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-
+            // $logResErr =   print_r($response, true);
+            // $objBook->_writeLog('Error NULL Success Received\n' . $logResErr, 'booking.txt');
             header('Content-Type: application/json');
             echo json_encode($response);
             exit;       
@@ -982,12 +968,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                 $stmtInsert->execute();
     
-                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                $objBook->_writeLog("Empty Reference Number + status PENDING", 'temp_booking_save.txt');
-                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-                $objBook->_writeLog("", 'temp_booking_save.txt');
-                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                
+                // $logResErr =   print_r($response, true);
+                // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
                 header('Content-Type: application/json');
                 echo json_encode($response);
                 exit;
@@ -1027,13 +1009,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtInsert->bindParam(':book_status', $booking_status);
                 $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                 $stmtInsert->execute();
-                
-                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
-                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-                $objBook->_writeLog("", 'temp_booking_save.txt');
-                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-
+                // $logResErr =   print_r($response, true);
+                // $objBook->_writeLog(' Pending without MF number Direct failure as per api Received\n' . $logResErr, 'booking.txt');
                 header('Content-Type: application/json');
                 echo json_encode($response);
                 exit;
@@ -1079,11 +1056,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         'faretype' => $fairtype,
                         'bookingid' => $tempBookingId,
                     );
-                    $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                    $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
-                    $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-                    $objBook->_writeLog("", 'temp_booking_save.txt');
-                    $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                
                     echo json_encode($response);
                     exit;
     
@@ -1123,17 +1096,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                 $stmtInsert->execute();
                 
-                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
-                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-                $objBook->_writeLog("", 'temp_booking_save.txt');
-                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                // $logResSus =   $booking_status;
+                // $logResErr =   print_r($response, true);
+                // $objBook->_writeLog(' status else case with booking status\n' . $logResSus, 'booking.txt');
                 header('Content-Type: application/json');
                 echo json_encode($response);
                 exit;
             }
             
-        }
+        } 
+        */  
+
+
     } else {
         $response = array(
             'bookingid' => $tempBookingId,
@@ -1141,11 +1115,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             'ticketstatus' => "Failed",
             'errors' => ""
         );
-        $objBook->_writeLog('-------------Webfare holding temp Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-        $objBook->_writeLog(" ", 'temp_booking_save.txt');
-        $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-        $objBook->_writeLog("", 'temp_booking_save.txt');
-        $objBook->_writeLog('-------------Webfare holding temp Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
         echo json_encode($response);
         exit;
     }

@@ -11,6 +11,7 @@ define("TARGET", "Test");
 // define("TARGET", "Production");
 // LIVE CREDENTIALS ENDS
 
+
 // WINDCAVE CREDENTIALS STARTS
 define("WC_URL", "https://uat.windcave.com/api/v1/");
 define("WC_USERNAME","VKJGlobal_Dev_REST");
@@ -67,6 +68,56 @@ function convertMinutesToTimeFormat($minutes) {
         $timeFormat .= $remainingMinutes . ' minutes';
     }
     return $timeFormat;
+}
+
+
+function updateBookingStatus($conn, $bookingData, $data, $markup)
+{
+    $query = 'UPDATE temp_booking SET booking_date = :booking_date, markup = :markup, booking_status = :booking_status';
+
+    if (!empty($data['UniqueID'])) {
+        $query .= ', mf_reference = :mfreference';
+    }
+    if (!empty($data['TraceId'])) {
+        $query .= ', trace_id = :traceId';
+    }
+    if (!empty($data['TktTimeLimit'])) {
+        $query .= ', ticket_time_limit = :ticketTimeLimit';
+    }
+
+    $query .= ' WHERE id = :id';
+    $stmt = $conn->prepare($query);
+
+    $stmt->bindValue(':booking_date', date('Y-m-d H:i:s'));
+    $stmt->bindValue(':markup', $markup);
+    $stmt->bindValue(':booking_status', $data['Status'] ?? '');
+    if (!empty($data['UniqueID'])) $stmt->bindValue(':mfreference', $data['UniqueID']);
+    if (!empty($data['TraceId'])) $stmt->bindValue(':traceId', $data['TraceId']);
+    if (!empty($data['TktTimeLimit'])) $stmt->bindValue(':ticketTimeLimit', $data['TktTimeLimit']);
+
+    $stmt->bindValue(':id', $bookingData['id']);
+    $stmt->execute();
+}
+
+function insertBookingError($conn, $bookingData, $status, $errCode = '000', $errMsg = 'Unknown error')
+{
+    $stmt = $conn->prepare('INSERT INTO booking_errors (booking_Id, err_code, err_msg, fare_type, book_status, ticket_sts, created_date, update_at)
+                            VALUES (:booking_Id, :err_code, :err_msg, :fare_type, :book_status, :ticket_sts, NOW(), NOW())');
+    $stmt->execute([
+        ':booking_Id' => $bookingData['id'],
+        ':err_code' => $errCode,
+        ':err_msg' => $errMsg,
+        ':fare_type' => $bookingData['fare_type'],
+        ':book_status' => $status,
+        ':ticket_sts' => $status
+    ]);
+}
+
+function sendJSONResponse($data, $exit = true)
+{
+    header('Content-Type: application/json');
+    echo json_encode($data);
+    if ($exit) exit;
 }
 
 ?>

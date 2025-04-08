@@ -1700,6 +1700,11 @@ require_once("includes/footer.php");
 
 });
 
+function deleteUserDataCookie(cookieName) {
+    document.cookie =
+    cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+}
+
 function makeSessionFsCode(_this, fs_code) {
     $(".full-page-spinner").show();
     $(_this).attr("disabled", true);
@@ -1713,6 +1718,13 @@ function makeSessionFsCode(_this, fs_code) {
             success: function (response) {
                 $(_this).attr("disabled", false);
                 $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+                
+deleteUserDataCookie("infantData");
+deleteUserDataCookie("contactDetailsData");
+deleteUserDataCookie("childData");
+deleteUserDataCookie("adultsData");
+
+
                 window.location.href = "fligtsRulesRevalidation";
                 // $(".full-page-spinner").hide();
             },

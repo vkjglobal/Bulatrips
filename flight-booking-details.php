@@ -28,11 +28,12 @@ $bearerToken   =   BEARER;
 
 //echo 'helo';exit;
 
-$bookingId = $_GET['booking_id'];
+$bookingId = $_GET['bookingid'];
 $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
 
 $stmtbookingid->execute(array('bookingid' => $bookingId));
 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
 
 $cookie_name = $bookingId;
 $cookie_exists = isset($_COOKIE[$cookie_name]) ? true : false;

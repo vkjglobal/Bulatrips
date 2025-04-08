@@ -4459,7 +4459,20 @@ $(document).ready(function () {
                 document.location.href = response.url;
               },
             });
-          } else if ( response.BookStatus == "PENDING" && response.bookingid != "" && response.bookingid != undefined ) {
+          } else {
+            Swal.fire({
+              title: "Booking Hold failed!",
+              text: "We could not hold the booking for this booking. please try to search again.",
+              icon: "info",
+              confirmButtonText: "Close",
+              confirmButtonColor: "#f57c00",
+              allowOutsideClick: false,
+            }).then((result) => {
+              window.location.href = "index";
+            });
+          }
+          /*
+           else if ( response.BookStatus == "PENDING" && response.bookingid != "" && response.bookingid != undefined ) {
             Swal.fire({
               title: "Booking Hold failed!",
               text: "We could not hold the booking for this booking. please try to search again.",
@@ -4492,7 +4505,7 @@ $(document).ready(function () {
             }).then((result) => {
               window.location.href = "index";
             });
-          }
+          }*/
         }
 
         console.log(response);

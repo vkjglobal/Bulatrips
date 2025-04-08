@@ -80,3 +80,404 @@ Array
 
 
 -------------If there are errors Close Sunday 30th of March 2025 12:56:43 PM-------------
+-------------Webfare holding temp Open Friday 4th of April 2025 10:59:39 AM-------------
+ 
+Array
+(
+    [bookingid] => 1
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Friday 4th of April 2025 10:59:39 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:00:02 AM-------------
+
+Array
+(
+    [bookingid] => 
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:00:02 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:00:49 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK042
+                            [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:00:49 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:00:49 AM-------------
+
+Array
+(
+    [bookingid] => 2
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => 1 ADULT given while search but 2 ADULT information present in booking request
+    [errCde] => ERBUK042
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:00:49 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:07:10 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK042
+                            [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:07:10 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:07:10 AM-------------
+
+Array
+(
+    [bookingid] => 3
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => 1 ADULT given while search but 2 ADULT information present in booking request
+    [errCde] => ERBUK042
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:07:10 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:09:23 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK042
+                            [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:09:23 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:09:23 AM-------------
+
+Array
+(
+    [bookingid] => 4
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => 1 ADULT given while search but 2 ADULT information present in booking request
+    [errCde] => ERBUK042
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:09:23 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:10:10 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK042
+                            [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => 1 ADULT given while search but 2 ADULT information present in booking request
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:10:10 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:10:10 AM-------------
+
+Array
+(
+    [bookingid] => 5
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => 1 ADULT given while search but 2 ADULT information present in booking request
+    [errCde] => ERBUK042
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:10:10 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:13:16 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-07T11:12:54
+            [TraceId] => 25040416-e47ce199-b4f2-4265-9e87-029e1559a7d9
+            [UniqueID] => MF29769725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:13:16 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:13:16 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 1
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:13:16 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:20:17 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-04T11:20:16
+            [TraceId] => 25040416-c9ad6d60-8ab1-4550-8b7c-1c43ad6cf897
+            [UniqueID] => MF29770225
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:20:17 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:20:17 AM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 2
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:20:17 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:23:57 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:23:57 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:23:57 AM-------------
+
+Array
+(
+    [bookingid] => 3
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:23:57 AM-------------
+-------------Public/Private Open Friday 4th of April 2025 11:26:40 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-07T10:56:00
+            [TraceId] => 25040416-1cceb206-f683-4e4d-b79c-102bda30c1a1
+            [UniqueID] => MF29770425
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 4th of April 2025 11:26:40 AM-------------
+-------------If there are errors Open Friday 4th of April 2025 11:26:40 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 4
+)
+
+
+-------------If there are errors Close Friday 4th of April 2025 11:26:40 AM-------------
+-------------Public/Private Open Sunday 6th of April 2025 05:18:10 PM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-08T17:17:45
+            [TraceId] => 25040622-b16f1c9e-bc9e-4e34-89b5-d9c78f4419fa
+            [UniqueID] => MF29776325
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Sunday 6th of April 2025 05:18:10 PM-------------
+-------------If there are errors Open Sunday 6th of April 2025 05:18:10 PM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 5
+)
+
+
+-------------If there are errors Close Sunday 6th of April 2025 05:18:10 PM-------------

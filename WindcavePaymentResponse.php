@@ -442,6 +442,7 @@ if( isset($response) && $response != '') {
                             'Content-Type: application/json',
                             'Authorization: Basic ' . base64_encode("$username:$password")
                         ]);
+                        
                         $response = curl_exec($ch);
                         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                         curl_close($ch);
@@ -456,7 +457,7 @@ if( isset($response) && $response != '') {
                         // confirmationMail($toEmail, $subject, $transactionData,$headers);
                         ?>
                         <script>
-                            window.location.href ="flight-booking-details?bookingid=<?php echo $AP_country_name_fetch['mf_reference'];?>";
+                            window.location.href ="confirmation?booking_id=<?php echo $AP_country_name_fetch['mf_reference'];?>";
                         </script>
                         <?php
                     }
@@ -469,7 +470,7 @@ if( isset($response) && $response != '') {
 
 
                     // WEBFARE BOOKING STARTS HERE
-                    if (isset($fsc)) {
+                    if (isset($bookingData['fare_source_code'])) {
                         $codeWithoutPlus = substr($bookingData['contact_phonecode'], 1);
                         $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
                         $stmt->execute(array('bookingId' => $bookingData['id']));
@@ -535,7 +536,7 @@ if( isset($response) && $response != '') {
                             $passengerDetails[] = $passenger;
                         }
                         $requestData = array(
-                            "FareSourceCode" =>  $fsc,
+                            "FareSourceCode" =>  $bookingData['fare_source_code'],
                             "ClientMarkup" => $markup,
                             "TravelerInfo" => array(
                                 "AirTravelers" => $passengerDetails,

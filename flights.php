@@ -120,11 +120,11 @@ $refund_addition_fee_setting = $refund_addition_fee->fetch(PDO::FETCH_ASSOC);
 
 
 
-if( isset($setting['value']) && $setting['value'] != '' ) {
+if (isset($setting['value']) && $setting['value'] != '') {
     $ipg_percentage = $setting['value'];
 }
 
-if( isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '' ) {
+if (isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '') {
     $ticketing_fee = $ticketing_fee_setting['value'];
 }
 
@@ -133,7 +133,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         require_once('includes/no_result_found.php');
     } else { ?>
 
-    
+
         <!-- TOP BAR DETAILED AND SEARCH AGAIN SECTION STARTS -->
         <section class="midbar-wrapper-inner pt-3 pb-3" style="border-bottom: 2px solid #FFF;margin-bottom: 15px;position: sticky;top: 85px;z-index: 10;">
             <div class="flight-search-midbar container">
@@ -141,12 +141,12 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                 <div class="d-flex white-txt justify-content-center">
                     <div class="d-flex align-items-center">
                         <span class="mr-3">
-                            
+
                             <?php echo $airportLocation['city_name']; ?> To <?php echo $airportDestinationLocation['city_name']; ?> |
-                            <?php echo date("d M", strtotime($fromDate)); ?> 
+                            <?php echo date("d M", strtotime($fromDate)); ?>
                             <?php
                             if (strtolower($airTripType) != "OneWay") {
-                                echo " - ".date("d M", strtotime($ToDate));
+                                echo " - " . date("d M", strtotime($ToDate));
                             }
                             ?>
                             |
@@ -170,9 +170,13 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                     <form class="flight-search col-12" id="flight-search" method="post" action="search">
                         <div class="d-flex flex-md-row flex-column">
                             <div class="d-flex align-items-center justify-content-center mb-md-0 mb-3">
-                                <input type="radio" value="Return" id="return" name="tab"  <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return" ) {echo "checked";} ?>>
+                                <input type="radio" value="Return" id="return" name="tab" <?php if (isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return") {
+                                                                                                echo "checked";
+                                                                                            } ?>>
                                 <label for="return">Round-trip</label>
-                                <input type="radio" id="one-way" value="OneWay" name="tab" <?php if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay" ) {echo "checked";} ?>>
+                                <input type="radio" id="one-way" value="OneWay" name="tab" <?php if (isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay") {
+                                                                                                echo "checked";
+                                                                                            } ?>>
                                 <label for="one-way">One-way</label>
                             </div>
                             <div class="d-flex align-items-center">
@@ -188,7 +192,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 <!-- <span class="person-select" onclick="return fetchAndAlert()"> -->
                                 <span class="person-select">
                                     <!-- <label for="" class="select-lbl">Traveller <span id="totalCount" class="count">1</span><span class="downarrow"></span></label> -->
-                                    <label for="" class="select-lbl">Traveller(s)  <span class="count"><?php echo $adultCount + $childCount + $infantCount  ?></span> <span class="downarrow"></span></label>
+                                    <label for="" class="select-lbl">Traveller(s) <span class="count"><?php echo $adultCount + $childCount + $infantCount  ?></span> <span class="downarrow"></span></label>
                                     <div class='select-dropbox passenger_container'>
                                         <span class="selectbox d-flex justify-content-between">
                                             <label class="fs-13 fw-600" for="">Adults
@@ -227,7 +231,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                 <div class="d-flex align-items-center justify-content-center mb-md-0 ml-3">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;" <?php if( $searchValue['direct_flights'] == "Direct" ) {echo "checked";}?> >
+                                        <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;" <?php if ($searchValue['direct_flights'] == "Direct") {
+                                                                                                                                                                                                        echo "checked";
+                                                                                                                                                                                                    } ?>>
                                         <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #FFF;"> Direct Flights only</label>
                                     </div>
                                 </div>
@@ -430,7 +436,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
             <div class="container">
                 <div class="form-row  g-3">
                     <?php foreach ($currentPageFlights as $pricedItinerary) { ?>
-                        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6">
+                        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             <div class="light-border mb-3 p-0 me-3">
                                 <?php
                                 $totalstop = 0;
@@ -460,7 +466,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 <p style="color: #000000;font-size: 14px;text-transform: uppercase;display: flex;justify-content: flex-start;align-items: center;padding: 5px 10px;background-color: #ffe4cc;">
                                     <img class="flight_icon_small" src="https://www.worldairfares.com/flight-icon.c157d86342ac31faa6b0.svg" />
                                     <strong>Departure</strong>
-                                    <span style="display: block;float: right;position: absolute;right: 18px;text-transform: capitalize;font-size: 15px;"><?php echo " Fare type: ".$fareListRef['FareType']; ?></span>
+                                    <span style="display: block;float: right;position: absolute;right: 18px;text-transform: capitalize;font-size: 15px;"><?php echo " Fare type: " . $fareListRef['FareType']; ?></span>
                                 </p>
 
                                 <ul class="flight-list">
@@ -523,21 +529,21 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                     $stmtairline->bindParam(':code', $code);
                                     $stmtairline->execute();
                                     $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
-                                    
+
                                     $class_name = "contentbar_return";
-                                    if( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return" ) {
+                                    if (isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "Return") {
                                         $class_name = "contentbar_return";
-                                    } elseif( isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay" ) {
+                                    } elseif (isset($_SESSION['search_values']['tab']) && $_SESSION['search_values']['tab'] == "OneWay") {
                                         $class_name = "contentbar_one_way";
                                     }
 
                                     ?>
 
-                                    <li class="<?php echo $class_name;?>">
+                                    <li class="<?php echo $class_name; ?>">
                                         <ul class="form-row mb-lg-2" style="justify-content: center;align-items: center;">
                                             <li data-th="Airline" class="main-dtls col-md-2 d-flex flex-column align-items-md-center justify-content-center mb-md-0 mb-2 text-center "><span class="airImg airline-<?php echo $pricedItinerary['ValidatingCarrier']; ?>"></span>
-                                            <strong><?php echo $airlineLocation['name'] ?></strong>
-                                        </li>
+                                                <strong><?php echo $airlineLocation['name'] ?></strong>
+                                            </li>
                                             <li data-th="Depart" class="main-dtls col-md-2 d-flex flex-column justify-content-between depart-dtls fs-13 mb-md-0 mb-2 text-center">
                                                 <div class="">
                                                     <strong style="font-size:16px;"><?php echo $segment['DepartureAirportLocationCode']; ?></strong>
@@ -557,29 +563,29 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 <div>
 
                                                     <strong>
-                                                    <?php
+                                                        <?php
 
-                                                    if ($totalstop > 0) {
-                                                        
-                                                        // echo $segment['ArrivalDateTime'];
-                                                        // echo "<br />";
-                                                        // echo $deptime;
-                                                        // echo "<br />";
+                                                        if ($totalstop > 0) {
 
-                                                        $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segment['ArrivalDateTime']);
-                                                        $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $deptime);
-                                                        $interval =  $date1->diff($date2);
+                                                            // echo $segment['ArrivalDateTime'];
+                                                            // echo "<br />";
+                                                            // echo $deptime;
+                                                            // echo "<br />";
+
+                                                            $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segment['ArrivalDateTime']);
+                                                            $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $deptime);
+                                                            $interval =  $date1->diff($date2);
 
 
-                                                        $hours = $interval->h;
-                                                        $minutes = $interval->i;
+                                                            $hours = $interval->h;
+                                                            $minutes = $interval->i;
 
-                                                        echo $totalstop . " Stop";
-                                                        // echo "<br>" . $segment['ArrivalAirportLocationCode'] . "|" . $hours . "h " . $minutes . "m";
-                                                    } else
-                                                        echo "Direct";
+                                                            echo $totalstop . " Stop";
+                                                            // echo "<br>" . $segment['ArrivalAirportLocationCode'] . "|" . $hours . "h " . $minutes . "m";
+                                                        } else
+                                                            echo "Direct";
 
-                                                    ?>
+                                                        ?>
                                                     </strong>
                                                 </div>
 
@@ -665,7 +671,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     //     $origin_total_duration += $originSegment['JourneyDuration'];
                                                                     // }
                                                                 }
-                                                                
+
                                                                 // echo $originSegment['ArrivalDateTime'];
                                                                 $date1 = DateTime::createFromFormat("Y-m-d\TH:i:s", $segmentReturn['DepartureDateTime']);
                                                                 $date2 = DateTime::createFromFormat("Y-m-d\TH:i:s", $deptime);
@@ -674,7 +680,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                                                 $hours = $interval->h;
                                                                 $minutes = $interval->i;
-                                                                
+
                                                                 echo $totalReturnStop . " Stop";
                                                                 // echo "<br>" . $segment['ArrivalAirportLocationCode'] . "|" . $hours . "h " . $minutes . "m";
                                                             } else
@@ -718,7 +724,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         ?>
 
                                         <div class="form-row panel flight-details-tab-wrap" style="margin: 0px;">
-                                            <ul class="nav nav-tabs d-flex justify-content-around w-100 main_flight_details_container" style="background: #6b7c93; border:0;align-items: center; z-index:9;">
+                                            <ul class="nav nav-tabs d-flex w-100 main_flight_details_container" style="background: #6b7c93; border:0;align-items: center; z-index:9;justify-content: space-evenly;">
                                                 <li class="nav-item">
                                                     <a class="nav-link">
                                                         <span class="detail-icon" style="font-size: 15px;">✈️</span>Flight Details
@@ -736,36 +742,38 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 </li>
 
                                                 <li class="nav-item">
-                                                        <?php
-                                                            $totalAdultfare = 0;
-                                                            $totalChildfare = 0;
-                                                            $totalInfantfare = 0;
-                                                            if (isset($adultCount) && $adultCount > 0) {
+                                                    <?php
+                                                    $totalAdultfare = 0;
+                                                    $totalChildfare = 0;
+                                                    $totalInfantfare = 0;
+                                                    if (isset($adultCount) && $adultCount > 0) {
 
-                                                                $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
-                                                            }
-                                                            if (isset($childCount) && $childCount > 0) {
-                                                                $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
-                                                            }
-                                                            if (isset($infantCount) && $infantCount > 0) {
-                                                                $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
-                                                            }
-                                                            
-                                                            $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                            $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-                                                            $markupPercentage += $ticketing_fee;
-                                                            $total_price = $markupPercentage + $totalFareAPI;
-                                                            $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
-                                                            $total_price += $ipg_trasaction_percentage;
-                                                            ?>
+                                                        $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
+                                                    }
+                                                    if (isset($childCount) && $childCount > 0) {
+                                                        $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
+                                                    }
+                                                    if (isset($infantCount) && $infantCount > 0) {
+                                                        $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
+                                                    }
 
-                                                            
+                                                    $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                    $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                                    $markupPercentage += $ticketing_fee;
+                                                    $total_price = $markupPercentage + $totalFareAPI;
+                                                    $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                                    $total_price += $ipg_trasaction_percentage;
+                                                    ?>
+
+
                                                     <!-- <form action="my-booking-step1" method="post" style="margin-top:4px;"> -->
-                                                        <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; ?>"> -->
-                                                        <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
-                                                            $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
-                                                        </button>
+                                                    <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; 
+                                                                                                                ?>"> -->
+                                                    <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
+                                                        $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
+                                                    </button>
                                                     <!-- </form> -->
+
                                                 </li>
 
                                             </ul>
@@ -838,7 +846,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     </div>
                                                                 </ul>
 
-                                                                <div class="col-lg-7">
+                                                                <div class="col-lg-7 mb-3">
 
                                                                     <div class="d-flex row justify-content-between">
                                                                         <div class="col-md-5 mb-md-0 mb-2 text-md-left">
@@ -931,7 +939,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     </div>
                                                                 </ul>
 
-                                                                <div class="col-lg-7">
+                                                                <div class="col-lg-7 mb-3">
 
                                                                     <div class="d-flex row justify-content-between">
                                                                         <div class="col-md-5 mb-md-0 mb-2 text-md-left">
@@ -1009,15 +1017,15 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                         }
                                                                         // $totalChildfare=$fareListRef['PassengerFare'][1]['BaseFare']* $childCount;
                                                                     ?>
-                                                                        <!-- <li class="d-flex justify-content-between p-1"><span>Child (<?php echo $fareListRef['PassengerFare'][1]['BaseFare'] . 'x' . $childCount; ?>)</span><span><?php echo $totalChildfare; ?></span></li><?php } ?> -->
+                                                                        <!-- <li class="d-flex justify-content-between p-1"><span>Child (<?php echo $fareListRef['PassengerFare'][1]['BaseFare'] . 'x' . $childCount; ?>)</span><span><?php echo $totalChildfare; ?></span></li><?php } ?> 
                                                                         <?php if (isset($infantCount) && $infantCount > 0) {
                                                                             foreach ($fareListRef['PassengerFare'][2]['TaxBreakUp'] as $taxdata) {
                                                                                 $totalTax +=  $taxdata['Amount'];
                                                                             }
-                                                                            // $totalinfantfare=$fareListRef['PassengerFare'][2]['BaseFare']* $infantCount;
-                                                                        ?>
-                                                                            <!-- <li class="d-flex justify-content-between p-1"><span>Infant (<?php echo $fareListRef['PassengerFare'][2]['BaseFare'] . 'x' . $infantCount; ?>)</span><span><?php echo $totalinfantfare; ?></span></li><?php } ?> -->
-                                                                            <!-- tax calculation  -->
+                                                                            // $totalinfantfare=$fareListRef['PassengerFare'][2]['BaseFare']* $infantCount;?>
+                                                                            <li class="d-flex justify-content-between p-1"><span>Infant (<?php //echo $fareListRef['PassengerFare'][2]['BaseFare'] . 'x' . $infantCount; ?>)</span><span><?php //echo $totalinfantfare; ?></span></li><?php
+                                                                        } ?> 
+                                                                           
 
                                                                             <!-- <li class="d-flex justify-content-between p-1"><span>Airline Charges & Taxes</span><span><?Php echo $totalTax; ?></span></li> -->
                                                                             <!-- <li class="d-flex justify-content-between pw-500 pl-1 pr-1 bdr-t"><span>Airline Fare</span><span>43818</span></li> -->
@@ -1058,11 +1066,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                                                                 ?>
 
-                                                                                <!-- <strong class="fw-600">Total Fare</strong><strong>&#36; 
-                                                                <?php
-                                                                // echo $totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax+$markupPercentage;
-                                                                ?>
-                                                            </strong> -->
+
                                                                                 <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo number_format(round($total_price, 2), 2); ?></strong>
                                                                             </li>
                                                             </ul>
@@ -1131,7 +1135,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                             if ($val['PaxType'] == 'INF') {
                                                                                                 $passengerType = "Infant";
                                                                                             }
-                                                                                            
+
                                                                                             $total_refund = $refund_addition_fee_setting['value'] + $refund_fee_setting['value'];
 
                                                                                             if (!empty($val['RefundPenaltyAmount'])) {
@@ -1181,7 +1185,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                                                         if (!empty($val['ChangePenaltyAmount'])) {
-                                                                                            
+
                                                                                             $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
                                                                                             $totDisplay =   ($val['ChangePenaltyAmount'] * $usd_converion_rate) + $total_refund;
 
@@ -1308,7 +1312,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     <ul class="row align-items-center pt-3 pb-3">
                                                                         <li class="col-md-1 mb-md-0 mb-2">
                                                                             <span class="airImg airline-<?php echo $airlineLocation['code'] ?>"></span>
-                                                                            
+
 
 
                                                                         </li>
@@ -1368,11 +1372,11 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                 <div class="pagination-bottom w-100 p-4">
                     <?php
-                        for ($i = 1; $i < $totalPages; $i++) {
-                            $activeClass = ($i == $page) ? 'active' : '';
-                            $activeUrl = ($i == $page) ? 'javascript:void(0);' : '?page=' . $i;
-                            echo '<a href="' . $activeUrl . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
-                        }
+                    for ($i = 1; $i < $totalPages; $i++) {
+                        $activeClass = ($i == $page) ? 'active' : '';
+                        $activeUrl = ($i == $page) ? 'javascript:void(0);' : '?page=' . $i;
+                        echo '<a href="' . $activeUrl . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
+                    }
                     ?>
                 </div>
             </div>
@@ -1650,99 +1654,112 @@ require_once("includes/footer.php");
     });
 
     $('.select-class').select2();
-    $(document).ready(function () {        
-    preSelectedValue1 = "<?php echo $airport_code_chosesn;?>";
-    console.log(preSelectedValue1);
-    var select2 = $('.airport_location_finder_depature').select2({
-        placeholder: 'Search for an Airport Location',
-        ajax: {
-            url: 'includes/airport_location_finder',
-            type: 'GET',
-            dataType: 'json',
-            delay: 500,
-            data: params => ({ q: params.term }),
-            processResults: data => ({ results: data }),
-            cache: true
-        }
-    });
-
-    $.getJSON('includes/airport_location_finder', { q: preSelectedValue1 }, data => {
-        const result = data.find(item => item.id === preSelectedValue1);
-        if (result) {
-            select2.append(new Option(result.text, result.id, true, true)).trigger('change');
-        }
-    });
-
-        
-    var preSelectedValue2 = "<?php echo $airportDestinationLocation['airport_code'];?>";
-    console.log(preSelectedValue2);
-    var select = $('.airport_location_finder_arrival').select2({
-        placeholder: 'Search for an Airport Location',
-        ajax: {
-            url: 'includes/airport_location_finder',
-            type: 'GET',
-            dataType: 'json',
-            delay: 500,
-            data: params => ({ q: params.term }),
-            processResults: data => ({ results: data }),
-            cache: true
-        }
-    });
-
-    $.getJSON('includes/airport_location_finder', { q: preSelectedValue2 }, data => {
-        const result = data.find(item => item.id === preSelectedValue2);
-        if (result) {
-            select.append(new Option(result.text, result.id, true, true)).trigger('change');
-        }
-    });
-
-    
-
-});
-
-function deleteUserDataCookie(cookieName) {
-    document.cookie =
-    cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
-
-function makeSessionFsCode(_this, fs_code) {
-    $(".full-page-spinner").show();
-    $(_this).attr("disabled", true);
-    $(_this).find("span.book_now_text").html("&nbsp;<i class='fas fa-spinner fa-spin' style='font-size:20px;'></i>");
-
-    if( fs_code ) {
-        $.ajax({
-            url: "includes/ajax",
-            type: "POST",
-            data: {"fs_code":fs_code},
-            success: function (response) {
-                $(_this).attr("disabled", false);
-                $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
-                
-deleteUserDataCookie("infantData");
-deleteUserDataCookie("contactDetailsData");
-deleteUserDataCookie("childData");
-deleteUserDataCookie("adultsData");
-
-
-                window.location.href = "fligtsRulesRevalidation";
-                // $(".full-page-spinner").hide();
-            },
+    $(document).ready(function() {
+        preSelectedValue1 = "<?php echo $airport_code_chosesn; ?>";
+        console.log(preSelectedValue1);
+        var select2 = $('.airport_location_finder_depature').select2({
+            placeholder: 'Search for an Airport Location',
+            ajax: {
+                url: 'includes/airport_location_finder',
+                type: 'GET',
+                dataType: 'json',
+                delay: 500,
+                data: params => ({
+                    q: params.term
+                }),
+                processResults: data => ({
+                    results: data
+                }),
+                cache: true
+            }
         });
-    } else {
-        $(_this).attr("disabled", false);
-        $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
-        $(".full-page-spinner").hide();
-        Swal.fire({
-            title: "Fare Source Code not found",
-            text: "Fare Source Code is required to proceed further.",
-            icon: "error",
-            confirmButtonText: "Close",
-            confirmButtonColor: "#f57c00",
+
+        $.getJSON('includes/airport_location_finder', {
+            q: preSelectedValue1
+        }, data => {
+            const result = data.find(item => item.id === preSelectedValue1);
+            if (result) {
+                select2.append(new Option(result.text, result.id, true, true)).trigger('change');
+            }
         });
+
+
+        var preSelectedValue2 = "<?php echo $airportDestinationLocation['airport_code']; ?>";
+        console.log(preSelectedValue2);
+        var select = $('.airport_location_finder_arrival').select2({
+            placeholder: 'Search for an Airport Location',
+            ajax: {
+                url: 'includes/airport_location_finder',
+                type: 'GET',
+                dataType: 'json',
+                delay: 500,
+                data: params => ({
+                    q: params.term
+                }),
+                processResults: data => ({
+                    results: data
+                }),
+                cache: true
+            }
+        });
+
+        $.getJSON('includes/airport_location_finder', {
+            q: preSelectedValue2
+        }, data => {
+            const result = data.find(item => item.id === preSelectedValue2);
+            if (result) {
+                select.append(new Option(result.text, result.id, true, true)).trigger('change');
+            }
+        });
+
+
+
+    });
+
+    function deleteUserDataCookie(cookieName) {
+        document.cookie =
+            cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     }
-}
 
+    function makeSessionFsCode(_this, fs_code) {
+        $(".full-page-spinner").show();
+        $(_this).attr("disabled", true);
+        $(_this).find("span.book_now_text").html("&nbsp;<i class='fas fa-spinner fa-spin' style='font-size:20px;'></i>");
+
+        if (fs_code) {
+            $.ajax({
+                url: "includes/ajax",
+                type: "POST",
+                data: {
+                    "fs_code": fs_code
+                },
+                success: function(response) {
+                    $(_this).attr("disabled", false);
+                    $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+
+                    deleteUserDataCookie("infantData");
+                    deleteUserDataCookie("contactDetailsData");
+                    deleteUserDataCookie("childData");
+                    deleteUserDataCookie("adultsData");
+
+
+                    window.location.href = "fligtsRulesRevalidation";
+                    // $(".full-page-spinner").hide();
+                },
+            });
+        } else {
+            $(_this).attr("disabled", false);
+            $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+            $(".full-page-spinner").hide();
+            Swal.fire({
+                title: "Fare Source Code not found",
+                text: "Fare Source Code is required to proceed further.",
+                icon: "error",
+                confirmButtonText: "Close",
+                confirmButtonColor: "#f57c00",
+            });
+        }
+    }
 </script>
 <!-- ============ To remove cickable behaviour of radio buttons for airtrip type selection on top ==== -->
 <style>

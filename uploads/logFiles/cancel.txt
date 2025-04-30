@@ -100,3 +100,30 @@ REsponse Received\nArray
     [Message] => Booking in Tkt-in-process or Ticketed Status - Cancellation Denied! Request Cancellation to crm@myfarebox.com
 )
 
+-------------Monday 14th of April 2025 09:39:12 AM-------------
+Request Received\nArray
+(
+    [UniqueID] => MF29943125
+    [Target] => Test
+)
+
+REsponse Received for MF:\nMF29943125OR USERID=207
+userId is 207& MF# recieved MF29943125
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 25041413-72714d08-1bb3-423f-b567-3190eee625e1
+            [UniqueID] => MF29943125
+        )
+
+    [Success] => 1
+)
+

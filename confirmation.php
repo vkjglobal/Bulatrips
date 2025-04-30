@@ -23,7 +23,7 @@ $apiEndpoint = APIENDPOINT . $endpoint;
 $bearerToken   =   BEARER;
 
 //echo 'helo';exit;
-$bookingId = $_GET['bookingid'];
+$bookingId = $_GET['booking_id'];
 $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
 
 $stmtbookingid->execute(array('bookingid' => $bookingId));

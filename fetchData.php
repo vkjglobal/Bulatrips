@@ -3,6 +3,7 @@ session_start();
 // Store all POST values in a single session variable
 
 $_POST['total_extra_service_fee'] = getExtraserviceAmoount($_POST);
+$_SESSION['totalService'] = $_POST['total_extra_service_fee'];
 $total_updated_price = $_POST['total_extra_service_fee'] + $_SESSION['session_total_amount'];
 
 $_SESSION['revalidationApi'] = $_POST;
@@ -11,7 +12,7 @@ if(isset($_SESSION['revalidationApi'])){
     $response = array("success" => true);
 }else{
     // session error
-     $response = array("success" => false);
+    $response = array("success" => false);
 }
 $response['total_updated_price'] =  "$".number_format($total_updated_price,2);
 

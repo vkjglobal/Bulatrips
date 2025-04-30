@@ -763,7 +763,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $errMsg = $responseData['Data']['Errors']['Message'];
                 $errCDE = $responseData['Data']['Errors']['Code'];
             }
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
             $booking_date = date('Y-m-d H:i:s');
             $mfreference = $responseData['Data']['UniqueID'];
             $traceId = $responseData['Data']['TraceId'];
@@ -774,7 +774,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtupdate->bindParam(':traceId', $traceId);
             $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
             $stmtupdate->bindParam(':id', $id);
             $stmtupdate->execute();
@@ -808,7 +807,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo json_encode($response);
             exit;
         } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
     
             $booking_date = date('Y-m-d H:i:s');
             $mfreference = $responseData['Data']['UniqueID'];
@@ -821,7 +820,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtupdate->bindParam(':traceId', $traceId);
             $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
+            
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
             $stmtupdate->bindParam(':id', $id);
             $stmtupdate->execute();
@@ -842,7 +841,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // $logResSus =   $booking_status;
             // $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
         } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "BOOKINGINPROCESS")) {
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
             $booking_date = date('Y-m-d H:i:s');
             $mfreference = $responseData['Data']['UniqueID'];
             $traceId = $responseData['Data']['TraceId'];
@@ -853,7 +852,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtupdate->bindParam(':traceId', $traceId);
             $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
+            
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
             $stmtupdate->bindParam(':id', $id);
             $stmtupdate->execute();
@@ -883,7 +882,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $errMsg = $responseData['Data']['Message'];
                 }
             }
-            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+            $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , ticket_time_limit = :ticketTimeLimit WHERE id = :id');
             $booking_date = date('Y-m-d H:i:s');
             $mfreference = $responseData['Data']['UniqueID'];
             $traceId = $responseData['Data']['TraceId'];
@@ -895,7 +894,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmtupdate->bindParam(':traceId', $traceId);
             $stmtupdate->bindParam(':booking_status', $booking_status);
             $stmtupdate->bindParam(':booking_date', $booking_date);
-            $stmtupdate->bindParam(':markup', $markup);
+            
             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
             $stmtupdate->bindParam(':id', $id);
             $stmtupdate->execute();
@@ -948,10 +947,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $id = $bookingData['id'];
     
             if (empty($mfreference) && ($booking_status == "PENDING")) {
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , booking_status = :booking_status WHERE id = :id');
     
                 $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
+                
                 $stmtupdate->bindParam(':booking_status', $booking_status);
                 $stmtupdate->bindParam(':id', $id);
                 if (empty($errMsg)) {
@@ -992,10 +991,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 echo json_encode($response);
                 exit;
             }else if (empty($mfreference) && ($booking_status == "NotBooked")) {
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , booking_status = :booking_status WHERE id = :id');
     
                 $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
+                
                 $stmtupdate->bindParam(':booking_status', $booking_status);
                 $stmtupdate->bindParam(':id', $id);
                 if (empty($errMsg)) {
@@ -1041,7 +1040,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
                 // echo $responseData['Data']['Status'];  
                 //log write ,booking sts update ,booking date ,markup value
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
     
                 // Set the values
                 // Set the current datetime for booking_date
@@ -1061,7 +1060,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmtupdate->bindParam(':traceId', $traceId);
                 $stmtupdate->bindParam(':booking_status', $booking_status); //
                 $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
                 $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
                 $stmtupdate->bindParam(':id', $id);
     
@@ -1088,9 +1086,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
     
             }else {
-                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
+                $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date ,booking_status = :booking_status WHERE id = :id');
                 $stmtupdate->bindParam(':booking_date', $booking_date);
-                $stmtupdate->bindParam(':markup', $markup);
                 $stmtupdate->bindParam(':booking_status', $booking_status);
                 $stmtupdate->bindParam(':id', $id);
                 if (empty($errMsg)) {

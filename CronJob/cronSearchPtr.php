@@ -25,6 +25,12 @@ $objBookCron->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'----------
 $objBookCron->_writeLog('Request Received\n'.$logReQ,'searchPtrCron.txt');
 //============ END log write for book API ==========
 $resultBooking = $objBookCron->getBookCronIDs();
+
+echo "<pre>";
+    print_r($resultBooking);
+echo "</pre>";
+
+
 foreach($resultBooking as $resultBookingdata){
     
         $bookingId =    $resultBookingdata['id'];
@@ -113,18 +119,18 @@ foreach($resultBooking as $resultBookingdata){
 
                             $objUser = new Users();
                             $userDetails = $objUser->getUserDetails($userId);
-                            $subject = "Bulatrips Agent Booking and Credit Balance Debit Info";                  
+                            // $subject = "Bulatrips Agent Booking and Credit Balance Debit Info";                  
             
-                                    $email=   $userDetails['email'];
-                                    $name   =   $userDetails['first_name']." ".$userDetails['last_name'];
-                                    $content    =   '<p>Hello,</p>
-                                                        <p>This agent , '. $name .', with email '.$userDetails['email'].' ptr request against booking id:'.$bookingId.'.The booking is response has been return as completed</p>';
-                                                    $messageData =   $objBookCron->getEmailContent($content);
-                                // print_r($messageData);exit;
-                                    $headers="";
-                                    $email = $adminToemail; //Need ADMIN email here
+                                //     $email=   $userDetails['email'];
+                                //     $name   =   $userDetails['first_name']." ".$userDetails['last_name'];
+                                //     $content    =   '<p>Hello,</p>
+                                //                         <p>This agent , '. $name .', with email '.$userDetails['email'].' ptr request against booking id:'.$bookingId.'.The booking is response has been return as completed</p>';
+                                //                     $messageData =   $objBookCron->getEmailContent($content);
+                                // // print_r($messageData);exit;
+                                //     $headers="";
+                                //     $email = $adminToemail; //Need ADMIN email here
                     
-                                $contacts= sendMail($email,$subject, $messageData,$headers);
+                                // $contacts= sendMail($email,$subject, $messageData,$headers);
         
                         }
                     

@@ -2207,6 +2207,11 @@ a.text-decoration:hover {
   top: 15px;
   width: 30px;
   height: 30px;
+  color: #000000 !important;
+  font-weight: bold;
+  font-size: 21px !important;
+  text-shadow: none;
+  opacity: 1;
 }
 
 .bdr {
@@ -3565,11 +3570,10 @@ li.contentbar_one_way {
 }
 
 .close {
-  color: #ffffff !important;
-  font-weight: normal;
-  font-size: 16px !important;
+  color: #000000 !important;
+  font-weight: bold;
+  font-size: 21px !important;
   text-shadow: none;
-  opacity: 1;
 }
 .footer-links li a {
   color: #FFF;

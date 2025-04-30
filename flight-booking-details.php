@@ -28,7 +28,7 @@ $bearerToken   =   BEARER;
 
 //echo 'helo';exit;
 
-$bookingId = $_GET['bookingid'];
+$bookingId = $_GET['booking_id'];
 $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
 
 $stmtbookingid->execute(array('bookingid' => $bookingId));
@@ -1186,6 +1186,7 @@ if( $cookie_exists || $user_loggedin_status ) {
                                 <div class="col-12">
                                     <h6 class="text-left fw-700">Contact Details</h6>
                                 </div>
+                                
                                 <div class="col-lg-7 col-12 text-left">
                                     <div class="row mb-2">
                                         <div class="col-3">Name:</div>
@@ -1200,10 +1201,11 @@ if( $cookie_exists || $user_loggedin_status ) {
                                         <div class="col-9"><?php echo $bookingData['contact_email'];?></div>
                                     </div>
                                 </div>
+
                             </div>
                             <div class="form-row mb-3">
                                 <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                    <a href="cancel.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Void/Cancel </a>
+                                    <a href="cancel_user.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Void/Cancel </a>
                                     <small>Usually within 24 hours</small>
                                 </div>
                                 

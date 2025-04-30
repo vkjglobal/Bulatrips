@@ -767,11 +767,21 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                 <!-- <li class="d-flex justify-content-between bdr-t bdr-b pt-2 pb-2" style="font-weight: bold;"><span>Credit Card bank transaction fee(<?php //echo $ipg_percentage;?>%)</span><span> -->
                                         <?php
                                         $totalFareAPI = $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
+                                        
+                                        echo "Base: ". $totalFareAPI."<br />";
+
                                         $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                         $markupPercentage += $ticketing_fee;
                                         $total_price = $markupPercentage + $totalFareAPI;
                                         $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+
+                                        echo "Commission + Ticketing + IPG Transaction fee: ". $ipg_trasaction_percentage + $markupPercentage;
+                                        echo "<br />";
+
                                         $total_price += $ipg_trasaction_percentage;
+                                        echo $total_price;
+                                        echo "<br />";
+
                                         ?>
 
                                     <!-- </span></li> -->

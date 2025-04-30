@@ -5,7 +5,7 @@ error_reporting(0);
 if(isset($_SESSION['user_id'])){
 ?>
    <script>
-   window.location="index.php"    </script>
+//    window.location="index.php"    </script>
    <?php
 }
 else {

@@ -6,7 +6,7 @@ session_start();
 if (!isset($_SESSION['user_id'])) { //for test  environment 
 ?>
     <script>
-        window.location = "index.php"
+        window.location = "index"
     </script>
 <?php
 } else {
@@ -18,6 +18,12 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
     $bookingId = $_GET['booking_id'];
     $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
     $bookingId   =   trim($bookingId);
+
+
+    // $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
+    // $stmtbookingid->execute(array('bookingid' => $bookingId));
+    // $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
     $userId     =   $_SESSION['user_id'];
     $currentTimestamp = time();
 
@@ -26,7 +32,10 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
 
     $objCancel     =   new Cancel();
     $bookCanusers      =   $objCancel->BookCancelUsers($bookingId, $userId);
-    //   print_r($bookCanusers);exit;
+    // echo "<pre>";
+    //   print_r($bookCanusers);
+    // echo "</pre>";
+    // exit;
 
     //preticketed cancel need only one row value to check ticketed or not 
 
@@ -97,7 +106,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                             $pre_ticket_time_limit = strtotime($pre_ticket_time_limit);
                             // Get the current timestamp
                             //popn up for ticketnprocess
-                            //echo $pre_ticket_status;
+                            echo $pre_ticket_status;
                             if (($fare_type == "Public") || ($fare_type == "Private")) {
                                 if ($pre_ticket_status  ==  trim("TktInProcess")) {
                                     $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
@@ -119,7 +128,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                         //2023-07-09 09:39:00
                                     } //if tick time limit is over ,ie either ticket autocancelled or goes to ticketed state inbetween
 
-                                } else if ($pre_ticket_status  ==  trim("Ticketed")) {
+                                } else if ($pre_ticket_status  ==  trim("Ticketed") || $pre_ticket_status  ==  1) {
                                     //if under ticketed state void/refund apis 
 
                                     if ($VoidingWindow_limit > $currentTimestamp) {
@@ -195,10 +204,10 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                     </tbody>
                 </table>
             </div>
-            <input type="hidden" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
-            <input type="hidden" id="bookingId" value="<?php echo $bookingId; ?>">
-            <input type="hidden" id="USerid" value="<?php echo $userId; ?>">
-            <input type="hidden" id="precancelsts" value="<?php echo $precancelsts; ?>">
+            <input type="text" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
+            <input type="text" id="bookingId" value="<?php echo $bookingId; ?>">
+            <input type="text" id="USerid" value="<?php echo $userId; ?>">
+            <input type="text" id="precancelsts" value="<?php echo $precancelsts; ?>">
             <?php if ($precancelsts  ==  1) { ?>
                 <button type="button" class="btn btn-typ3 mb-3" id="precancel" onclick="precancelApi()">Cancel Your Flight</button> <!-- pre ticket booking cancel ends  -->
             <?php } else if ($void_eligible != 2) { //post ticket issuance today cancel to know refund amount by voidquote appi
@@ -561,7 +570,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         // Function to handle close button click
         function handleModalClose() {
             // Redirect to the dashboard page
-            window.location.href = 'index.php'; // Replace 'dashboard.php' with the actual URL of your dashboard page
+            window.location.href = 'index'; // Replace 'dashboard.php' with the actual URL of your dashboard page
         }
 
         // Add event listener to the close button
@@ -699,10 +708,8 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         var precancelsts = document.getElementById("precancelsts").value;
 
         // Use the hiddenValue in your function logic
-        alert(mfreNum);
-        return false;
         $.ajax({
-            url: 'cancel_ajax.php',
+            url: 'cancel_ajax',
             type: 'POST',
             data: {
                 mfreNum: mfreNum,
@@ -763,7 +770,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         // Use the hiddenValue in your function logic
         // alert(mfreNum);
         $.ajax({
-            url: 'cancel_post_ticket.php',
+            url: 'cancel_post_ticket',
             type: 'POST',
             data: {
                 mfreNum: mfreNum,
@@ -841,7 +848,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         // Use the hiddenValue in your function logic
         // alert(mfreNum);return false;
         $.ajax({
-            url: 'cancel_post_ticket_process_Void.php',
+            url: 'cancel_post_ticket_process_Void',
             type: 'POST',
             data: {
                 mfreNum: mfreNum,
@@ -872,12 +879,12 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                         $('#voidsuccess_text').text(successMessage);
                         $("#xclose_voidsuccess").click(function() {
                             $(this).parents('.modal').modal('hide');
-                            window.location.href = "index.php";
+                            window.location.href = "index";
 
                         });
                         $("#close_voidsuccess").click(function() {
                             $(this).parents('.modal').modal('hide');
-                            window.location.href = "index.php";
+                            window.location.href = "index";
 
                         });
                         return false;
@@ -890,7 +897,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
 
                     // Call the third AJAX request with additional data
                     $.ajax({
-                        url: 'search_ptr_void.php', // Replace 'third_api_url' with the URL of your third API
+                        url: 'search_ptr_void', // Replace 'third_api_url' with the URL of your third API
                         type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
                         data: {
                             ptr_id: ptr_id,
@@ -988,7 +995,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         // Use the hiddenValue in your function logic
         //alert(mfreNum); return false;
         $.ajax({
-            url: 'refund_post_ticket.php',
+            url: 'refund_post_ticket',
             type: 'POST',
             data: {
                 mfreNum: mfreNum,
@@ -1061,7 +1068,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         //var api_refundAmount = document.getElementById("api_refundAmount").value;
 
         $.ajax({
-            url: 'refund_post_ticket_process.php',
+            url: 'refund_post_ticket_process',
             type: 'POST',
             data: {
                 mfreNum: mfreNum,
@@ -1092,12 +1099,12 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                         $('#voidsuccess_text').text(successMessage);
                         $("#xclose_voidsuccess").click(function() {
                             $(this).parents('.modal').modal('hide');
-                            window.location.href = "index.php";
+                            window.location.href = "index";
 
                         });
                         $("#close_voidsuccess").click(function() {
                             $(this).parents('.modal').modal('hide');
-                            window.location.href = "index.php";
+                            window.location.href = "index";
 
                         });
                         return false;
@@ -1110,7 +1117,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
 
                     // Call the third AJAX request with additional data
                     $.ajax({
-                        url: 'search_ptr_refund.php', // Replace 'third_api_url' with the URL of your third API
+                        url: 'search_ptr_refund', // Replace 'third_api_url' with the URL of your third API
                         type: 'POST', // Use 'POST' or 'GET' depending on your API endpoint
                         data: {
                             ptr_id: ptr_id,

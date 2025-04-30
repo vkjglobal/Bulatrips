@@ -8987,3 +8987,134 @@ REsponse Received\nArray
 
 step data empty Passenger ticket number not matching.
 step end of refund quote ========= Passenger ticket number not matching.
+-------------Monday 14th of April 2025 06:30:03 AM-------------
+REsponse Received for MF:\nMF29936525
+userId is 207
+Booking ID is 6
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF29936525
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kirk
+                    [lastname] => Henderson
+                    [title] => Mr
+                    [eticket] => 1765457546486
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 15033
+            [PTRType] => RefundQuote
+            [MFRef] => MF29936525
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Kirk
+                            [LastName] => Henderson
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 1765457546486
+                            [TotalFare] => 543.64
+                            [UnusedFare] => 543.64
+                            [CancellationCharge] => 40
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 40
+                            [TotalRefundAmount] => 503.64
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 15033.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+-------------Monday 14th of April 2025 09:44:57 AM-------------
+REsponse Received for MF:\nMF29943525
+userId is 207
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF29943525
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Samson
+                    [lastname] => Flores
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Ticket is Non-Refundable.
+)
+
+step data empty Ticket is Non-Refundable.
+step end of refund quote ========= Ticket is Non-Refundable.
+-------------Monday 14th of April 2025 10:02:30 AM-------------
+REsponse Received for MF:\nMF29943525
+userId is 207
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF29943525
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Samson
+                    [lastname] => Flores
+                    [title] => Mr
+                    [eticket] => 
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Ticket is Non-Refundable.
+)
+
+step data empty Ticket is Non-Refundable.
+step end of refund quote ========= Ticket is Non-Refundable.

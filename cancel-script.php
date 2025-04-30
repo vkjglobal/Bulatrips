@@ -7,8 +7,9 @@
     include_once('includes/class.BookScript.php');
     $objBook    =   new BookScript();
     $objCancel    =   new Cancel();
-     $bookingId = $_POST['booking-id'];
-     $adminToemail = "no-reply@bulatrips.com";
+    $bookingId = $_POST['booking-id'];
+    $adminToemail = "no-reply@bulatrips.com";
+    
     if(isset($bookingId)){
         $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :bookingid');
         $userId = $_SESSION['user_id'];

@@ -4298,3 +4298,43 @@ REsponse Received\nArray
 
 Step 1Success InProcess
 step end of Refund===== 
+-------------Monday 14th of April 2025 06:31:16 AM-------------
+REsponse Received for MF:\nMF29936525
+userId is 207
+Booking ID is 6
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF29936525
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Kirk
+                    [lastname] => Henderson
+                    [title] => Mr
+                    [eticket] => 1765457546486
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 15034
+            [PTRType] => Refund
+            [MFRef] => MF29936525
+            [SLAInMinutes] => 1440
+            [PTRStatus] => InProcess
+            [Message] => 
+        )
+
+)
+
+Step 1Success InProcess
+step end of Refund===== 

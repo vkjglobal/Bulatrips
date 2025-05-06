@@ -55,7 +55,7 @@
         <div class="content">
             <h1>Sorry!</h1>
             <p>No valid flight results found during revalidation. This may happen if the flight availability has changed. Please search again or choose an alternative flight.</p>
-            <a href="flights" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
+            <a href="index" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
         </div>
     </div>
 </div>

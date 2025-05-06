@@ -62,7 +62,7 @@
                 }
                 ?>
             </p>
-            <a href="index.php" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
+            <a href="index" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
         </div>
     </div>
 </div>

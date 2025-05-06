@@ -86,14 +86,14 @@ if (isset($_POST['usersignup'])) {
             if( isset($searchFlights) && $searchFlights == "true" ) {
                 echo "flights_redirectation";
 
-                $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
-                $stmt->bindParam(':id', $lastInsertId);
-                $stmt->execute();
-                $user = $stmt->fetch(PDO::FETCH_ASSOC);
-                $_SESSION['user_id'] = $user['id'];
-                $_SESSION['first_name'] = $user['first_name'];
-                $_SESSION['email'] = $user['email'];
-                $_SESSION['customer_role-id'] = $user['role'];
+                // $stmt = $conn->prepare("SELECT * FROM users WHERE id = :id");
+                // $stmt->bindParam(':id', $lastInsertId);
+                // $stmt->execute();
+                // $user = $stmt->fetch(PDO::FETCH_ASSOC);
+                // $_SESSION['user_id'] = $user['id'];
+                // $_SESSION['first_name'] = $user['first_name'];
+                // $_SESSION['email'] = $user['email'];
+                // $_SESSION['customer_role-id'] = $user['role'];
             } else {
                 echo "registered";
             }

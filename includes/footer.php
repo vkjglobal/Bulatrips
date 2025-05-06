@@ -66,7 +66,7 @@
                     <ul class="footer-links">
                         <!-- <li class="link-title">Social Platforms</li> -->
                         <li class="link-item">
-                            <a href="https://www.facebook.com/bulatrips">
+                            <a href="https://www.facebook.com/people/Bulatrips/61571810888290">
                                 <img src="images/fb_icon.png" style="width: 25px; margin-right: 12px;" />
                             </a>
                             <a href="https://www.instagram.com/bulatrips">
@@ -234,7 +234,7 @@
     <script src="js/general.js"></script>
     <!--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>-->
     <!--<script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>-->
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
     
     
 <script>

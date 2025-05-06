@@ -274,10 +274,10 @@ $DBvideo = $newObj->get_video();
     </div>
 </section>
 
-<section class="holiday-section">
-    <div class="container py-5">
+<section class="holiday-section" style="margin-bottom: 0px;">
+    <div class="container py-3">
         <div class="container">
-            <div class="col-12 hd-wraper">
+            <div class="col-12 hd-wraper hd-wraper_custom">
                 <strong>Why Book with Bulatrips?</strong>
                 <!-- <h4>Why Book with Bulatrips?</h4> -->
             </div>
@@ -330,7 +330,7 @@ $DBvideo = $newObj->get_video();
 </section>
 
 
-<section>
+<section  style="margin-bottom: 0px;">
     <div class="container">
 
         <style>
@@ -385,7 +385,7 @@ $DBvideo = $newObj->get_video();
 
 
         <div class="container">
-            <div class="col-12 hd-wraper" style="padding: 0;">
+            <div class="col-12 hd-wraper hd-wraper_custom" style="padding: 0;">
                 <strong>Book worldwide flights in minutes</strong>
                 <h4>Breathtaking Global Destinations</h4>
                 <!-- <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p> -->
@@ -630,7 +630,7 @@ $DBvideo = $newObj->get_video();
 </form> -->
 
 
-<section class="travel-reviews" style="padding-bottom: 40px;">
+<section class="travel-reviews" style="margin-bottom: 0px;">
     
     <div class="container">
         <div class="row">
@@ -647,7 +647,7 @@ $DBvideo = $newObj->get_video();
 
                 <!-- Slide 1 -->
                 <div class="carousel-item active">
-                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                    <div class="card shadow-sm mx-auto">
                         <div class="card-body text-center">
                             <h5 class="card-title">John Doe</h5>
                             <p class="text-warning mb-2">★★★★★</p>
@@ -660,7 +660,7 @@ $DBvideo = $newObj->get_video();
 
                 <!-- Slide 2 -->
                 <div class="carousel-item">
-                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                    <div class="card shadow-sm mx-auto">
                         <div class="card-body text-center">
                             <h5 class="card-title">Ayesha Khan</h5>
                             <p class="text-warning mb-2">★★★★☆</p>
@@ -673,7 +673,7 @@ $DBvideo = $newObj->get_video();
 
                 <!-- Slide 3 -->
                 <div class="carousel-item">
-                    <div class="card shadow-sm mx-auto" style="max-width: 600px;">
+                    <div class="card shadow-sm mx-auto">
                         <div class="card-body text-center">
                             <h5 class="card-title">Liam Smith</h5>
                             <p class="text-warning mb-2">★★★★★</p>
@@ -1051,7 +1051,7 @@ include_once('loading-popup.php');
 
         $(document).ready(function() {
             $('.airport_location_finder').select2({
-                placeholder: 'Search for a Airport Location',
+                placeholder: 'Search by airport name, code or city',
                 ajax: {
                     url: 'includes/airport_location_finder',
                     type: 'GET',
@@ -1166,6 +1166,9 @@ include_once('loading-popup.php');
     $('.passenger_container, .person-select.open, .select-lbl').on('click', function(event) {
         event.stopPropagation();
     });
+
+
+    
 </script>
 
 

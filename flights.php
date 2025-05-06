@@ -761,8 +761,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                     $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                                     $markupPercentage += $ticketing_fee;
                                                     $total_price = $markupPercentage + $totalFareAPI;
-                                                    $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
-                                                    $total_price += $ipg_trasaction_percentage;
+                                                    // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                                    // $total_price += $ipg_trasaction_percentage;
                                                     ?>
 
 
@@ -1059,9 +1059,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                 $markupPercentage += $ticketing_fee;
                                                                                 $total_price = $markupPercentage + $totalFareAPI;
 
-                                                                                $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                                                                // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
 
-                                                                                $total_price += $ipg_trasaction_percentage;
+                                                                                // $total_price += $ipg_trasaction_percentage;
 
 
                                                                                 ?>
@@ -1141,7 +1141,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                             if (!empty($val['RefundPenaltyAmount'])) {
                                                                                                 $totDisplay =   ($val['RefundPenaltyAmount'] * $usd_converion_rate) + $total_refund;
                                                                                     ?>
-                                                                                                <td><?php echo $passengerType . ": $ " . round(($totDisplay), 2); ?></td>
+                                                                                                <td><?php echo $passengerType . ": $ " . number_format(round($totDisplay, 2), 2); ?></td>
                                                                                             <?php
                                                                                             } else {
                                                                                             ?>
@@ -1191,9 +1191,9 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                                                                             $ipg_trasaction_percentage = ($ipg_percentage / 100) * $totDisplay;
                                                                                             $totDisplay += $ipg_trasaction_percentage;
-
                                                                                     ?>
-                                                                                            <td><?php echo $passengerType . ": $ " . round(($totDisplay), 2); ?></td>
+
+                                                                                            <td><?php echo $passengerType . ": $ " . number_format(round($totDisplay, 2), 2); ?></td>
                                                                                         <?php
                                                                                         } else {
                                                                                         ?>
@@ -1741,6 +1741,8 @@ require_once("includes/footer.php");
                     deleteUserDataCookie("contactDetailsData");
                     deleteUserDataCookie("childData");
                     deleteUserDataCookie("adultsData");
+                    deleteUserDataCookie("step_traveller_details_added");
+
 
 
                     window.location.href = "fligtsRulesRevalidation";

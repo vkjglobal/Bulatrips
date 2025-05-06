@@ -283,9 +283,11 @@ if( $cookie_exists || $user_loggedin_status ) {
     } else if((empty($responseData['Success'])) || (!$responseData['Success'])) {
         //  echo "yyyyy";
         //  var_dump($responseData['sucess']); exit;?>
-        <div class=" container">
+        <!-- <div class=" container"> -->
 
             <?php
+                require_once('includes/no_result_found_booking.php');
+                /*
                     $errStatus  =   1; // need to handle error case like repay mail etc
                     $Errmessage = "Error Received from airline :".$responseData['Message']. "No results received to show here .Please search again or check with your dashboard Booking details"; 
 
@@ -301,6 +303,7 @@ if( $cookie_exists || $user_loggedin_status ) {
             echo "});";
             echo "</script>";
                 // echo "update success ";
+                */
             ?>
         </div>
         <?php
@@ -961,12 +964,39 @@ if( $cookie_exists || $user_loggedin_status ) {
                                                     $totalFareAPI = $total;
                                                     // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
                                                     $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                                    $total_fare_price = $totalFareAPI + $markupPercentage;
+
+                                                    $ticketing_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+                                                    $ticketing_fee->bindValue(':key', "ticketing_fee");
+                                                    $ticketing_fee->execute();
+                                                    $ticketing_fee_setting = $ticketing_fee->fetch(PDO::FETCH_ASSOC);
+                                                    $ticketing_fee = 0;
+                                                    if (isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '') {
+                                                        $ticketing_fee = $ticketing_fee_setting['value'];
+                                                    }
+                                                    $total_fare_price += $ticketing_fee;
+
+
+                                                    $stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+                                                    $stmt->bindValue(':key', "ipg_transaction_percentage");
+                                                    $stmt->execute();
+                                                    $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                    $ipg_percentage = 0;
+                                                    if (isset($setting['value']) && $setting['value'] != '') {
+                                                        $ipg_percentage = $setting['value'];
+                                                    }
+
+
+                                                    $ipg_trasaction_percentage = ($ipg_percentage / 100) * ($total_fare_price);
+                                                    $total_fare_price += $ipg_trasaction_percentage;
                                                     ?>
-                                                    <strong class="fw-600">Total Itinerary  Fare(Including Tax)</strong><strong>&#36; <?php echo number_format(round($total + $markupPercentage, 2), 2) ?></strong>
+
+                                                    ?>
+                                                    <strong class="fw-600">Total Itinerary Fare(Including Tax)</strong><strong>&#36; <?php echo number_format(round($total_fare_price, 2), 2) ?></strong>
                                                 </li>
                                                 <?php if(!empty($tripDetailsExtraServices)){ 
-                                                    $airline_markup_amnt   = number_format(round($total + $markupPercentage, 2), 2);
-                                                    $extra_service_amnt    =  $totalPaid - (number_format(round($total + $markupPercentage, 2), 2) );?>
+                                                    $airline_markup_amnt   = number_format(round($total_fare_price, 2), 2);
+                                                    $extra_service_amnt    =  $totalPaid - (number_format(round($total_fare_price, 2), 2) );?>
                                                 <li class="">
                                             <div class="d-flex row justify-content-between dark-blue-bg white-txt p-1 mt-1 no-gutters">
                                                 <div class="col-lg-6 col-md-12 col-sm-6 text-left mb-lg-0 mb-2">
@@ -1204,28 +1234,27 @@ if( $cookie_exists || $user_loggedin_status ) {
 
                             </div>
                             <div class="form-row mb-3">
-                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
                                     <a href="cancel_user.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Void/Cancel </a>
                                     <small>Usually within 24 hours</small>
                                 </div>
                                 
-                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
                                     <a href="dashboard-flight-reschedule-details.html" class="btn btn-typ3 fs-14 w-100">Reschedule</a>
                                     <small>Anytime</small>
                                 </div>
-                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
                                     <a href="cancel.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Refund Amount</a>
                                     <small>Usually after 24 hours</small>
                                 </div>
                                 <!-- <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
                                     <button id="downloadInvoice" class="btn btn-typ3 fs-14 w-100">Download Invoice</button>
                                 </div> -->
-                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                <!-- <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
                                     <input type="hidden" id="bookingid" value="<?php echo $bookingId?>">
                                     <button id="downloadButton" class="btn btn-typ3 fs-14 w-100">Download Ticket</button>
                                     <small>Anytime</small>
-                                    <!-- <button id="downloadButton">Download Ticket</button> -->
-                                </div>
+                                </div> -->
                                 <div class="col-lg col-sm-6 mb-lg-0 mb-2">
                                 
                             <!-- <form id="ticketForm" action="" method="POST"> -->

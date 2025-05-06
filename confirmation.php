@@ -1445,12 +1445,37 @@ if (!empty($responseData['Data']['Errors'])) {
                                         $totalFareAPI = $total;
                                         // $markupPercentage = (($markup['commission_percentage'] / $totalFareAPI)*100);
                                         $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                        $total_fare_price = $totalFareAPI + $markupPercentage;
+
+                                        $ticketing_fee = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+                                        $ticketing_fee->bindValue(':key', "ticketing_fee");
+                                        $ticketing_fee->execute();
+                                        $ticketing_fee_setting = $ticketing_fee->fetch(PDO::FETCH_ASSOC);
+                                        $ticketing_fee = 0;
+                                        if (isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] != '') {
+                                            $ticketing_fee = $ticketing_fee_setting['value'];
+                                        }
+                                        $total_fare_price += $ticketing_fee;
+
+
+                                        $stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+                                        $stmt->bindValue(':key', "ipg_transaction_percentage");
+                                        $stmt->execute();
+                                        $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+                                        $ipg_percentage = 0;
+                                        if (isset($setting['value']) && $setting['value'] != '') {
+                                            $ipg_percentage = $setting['value'];
+                                        }
+
+
+                                        $ipg_trasaction_percentage = ($ipg_percentage / 100) * ($total_fare_price);
+                                        $total_fare_price += $ipg_trasaction_percentage;
                                         ?>
-                                        <strong class="fw-600">Total Itinerary Fare(Including Tax)</strong><strong>&#36; <?php echo number_format(round($total + $markupPercentage, 2), 2) ?></strong>
+                                        <strong class="fw-600">Total Itinerary Fare(Including Tax)</strong><strong>&#36; <?php echo number_format(round($total_fare_price, 2), 2) ?></strong>
                                     </li>
                                     <?php if (!empty($tripDetailsExtraServices)) {
-                                        $airline_markup_amnt   = number_format(round($total + $markupPercentage, 2), 2);
-                                        $extra_service_amnt    =  $totalPaid - (number_format(round($total + $markupPercentage, 2), 2)); ?>
+                                        $airline_markup_amnt   = number_format(round($total_fare_price, 2), 2);
+                                        $extra_service_amnt    =  $totalPaid - (number_format(round($total_fare_price, 2), 2)); ?>
                                         <li class="">
                                             <div class="d-flex row justify-content-between dark-blue-bg white-txt p-1 mt-1 no-gutters">
                                                 <div class="col-lg-6 col-md-12 col-sm-6 text-left mb-lg-0 mb-2">

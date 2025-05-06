@@ -55,7 +55,7 @@
         <div class="content">
             <h1>Sorry!</h1>
             <p>The fare source code has expired because the flight search session has timed out. Please initiate a new search to proceed.</p>
-            <a href="index.php" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
+            <a href="index" class="btn btn-typ7 ml-3 btn-primary">SEARCH AGAIN</a>
         </div>
     </div>
 </div>

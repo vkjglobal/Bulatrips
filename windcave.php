@@ -4,6 +4,7 @@ include_once('includes/class.BookScript.php');
 $objBook    =   new BookScript();
 include_once('mail_send.php');
 include_once('includes/common_const.php');
+require_once('includes/dbConnect.php');
 header('Content-Type: application/json');
 
 
@@ -13,9 +14,27 @@ $url = WC_URL."sessions";
 $username = WC_USERNAME;
 $password = WC_PASSWORD;
 
+$total_paid = $_SESSION['session_total_amount']+$_SESSION['totalService'];
+
+// IPG PRICE INCLUDING STARTS
+$ipg_trasaction_percentage = 0;
+$stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+$stmt->bindValue(':key', "ipg_transaction_percentage");
+$stmt->execute();
+$setting = $stmt->fetch(PDO::FETCH_ASSOC);
+
+$ipg_percentage = 0;
+if( isset($setting['value']) && $setting['value'] != '' ) {
+    $ipg_percentage = $setting['value'];
+}
+$ipg_trasaction_percentage = ($ipg_percentage / 100) * ($total_paid);
+// IPG PRICE INCLUDING ENDS
+
+$total_paid += $ipg_trasaction_percentage;
+
 $data = [
     "type" => "auth",
-    "amount" => $_SESSION['session_total_amount'],
+    "amount" => $total_paid,
     "currency" => "USD",
     "merchantReference" => $booking_id,
     "callbackUrls" => [

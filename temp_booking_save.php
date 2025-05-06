@@ -15,6 +15,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $data   =   $_SESSION['revalidationApi'];
 
+    // echo "<pre>";
+    //     print_r($data['baggageService']);
+    // echo "</pre>";
+    // die;
+
     $contactFirstName = $data['contactfirstname'] ?? '';
     $contactLastName = $data['contactlastname'] ?? '';
     $contactPhone = $data['contactnumber'] ?? '';
@@ -31,6 +36,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $extra_service_total = $_SESSION['totalService'] ?? '';
     $total_paid = $_SESSION['session_total_amount'] ?? '';
     $total_paid = str_replace(',', '', $total_paid);
+
+
+    // IPG PRICE INCLUDING STARTS
+    $ipg_trasaction_percentage = 0;
+    $stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+    $stmt->bindValue(':key', "ipg_transaction_percentage");
+    $stmt->execute();
+    $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $ipg_percentage = 0;
+    if( isset($setting['value']) && $setting['value'] != '' ) {
+        $ipg_percentage = $setting['value'];
+    }
+    $ipg_trasaction_percentage = ($ipg_percentage / 100) * ($total_paid);
+    // IPG PRICE INCLUDING ENDS
+
+    $total_paid += $ipg_trasaction_percentage;
+
     
     $adminToemail   =   "no-reply@bulatrips.com";
     $pricedItineraries = json_decode($data['pricedItineraries'], true);
@@ -322,7 +345,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     
                     */
                     //============================= nafees
-                    if (isset($data['baggageService' . $i])) {
+
+                    if (isset($data['baggageService' . $i]) && $data['baggageService' . $i] != '') {
                         $baggageServiceData = explode('/', $data['baggageService' . $i]);
                         if (isset($baggageServiceData[0]) && isset($baggageServiceData[1]) && isset($baggageServiceData[2])) {
                             $baggageID = $baggageServiceData[0];
@@ -331,16 +355,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
                             $baggageID = "";
                             $baggageDescription = "";
-                            $baggageAmount = "";
+                            $baggageAmount = 0;
                         }
                     } else {
                         $baggageID = "";
                         $baggageDescription = "";
-                        $baggageAmount = "";
+                        $baggageAmount = 0;
                     }
 
 
-                    if (isset($data['mealService' . $i])) {
+                    if (isset($data['mealService' . $i]) && $data['mealService' . $i] != '') {
                         $mealServiceData = explode('/', $data['mealService' . $i]);
                         if (isset($mealServiceData[0]) && isset($mealServiceData[1]) && isset($mealServiceData[2])) {
 
@@ -350,16 +374,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
                             $mealId = "";
                             $mealDescription = "";
-                            $mealAmount = "";
+                            $mealAmount = 0;
                         }
                     } else {
                         $mealId = "";
                         $mealDescription = "";
-                        $mealAmount = "";
+                        $mealAmount = 0;
                     }
 
                     //return extra services
-                    if (isset($data['baggageServiceReturn' . $i])) {
+                    if (isset($data['baggageServiceReturn' . $i]) && $data['baggageServiceReturn' . $i] != '') {
                         $baggageServiceDataReturn = explode('/', $data['baggageServiceReturn' . $i]);
                         if (isset($baggageServiceDataReturn[0]) && isset($baggageServiceDataReturn[1]) && isset($baggageServiceDataReturn[2])) {
                             $baggageReturnID = $baggageServiceDataReturn[0];
@@ -368,16 +392,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
                             $baggageReturnID = "";
                             $baggageReturnDescription = "";
-                            $baggageReturnAmount = "";
+                            $baggageReturnAmount = 0;
                         }
                     } else {
                         $baggageReturnID = "";
                         $baggageReturnDescription = "";
-                        $baggageReturnAmount = "";
+                        $baggageReturnAmount = 0;
                     }
 
 
-                    if (isset($data['mealServiceReturn' . $i])) {
+                    if (isset($data['mealServiceReturn' . $i]) && $data['mealServiceReturn' . $i] != '') {
                         $mealServiceDataReturn = explode('/', $data['mealServiceReturn' . $i]);
                         if (isset($mealServiceDataReturn[0]) && isset($mealServiceDataReturn[1]) && isset($mealServiceDataReturn[2])) {
 
@@ -387,12 +411,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         } else {
                             $mealReturnId = "";
                             $mealReturnDescription = "";
-                            $mealReturnAmount = "";
+                            $mealReturnAmount = 0;
                         }
                     } else {
                         $mealReturnId = "";
                         $mealReturnDescription = "";
-                        $mealReturnAmount = "";
+                        $mealReturnAmount = 0;
                     }
 
 

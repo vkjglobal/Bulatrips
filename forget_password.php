@@ -46,7 +46,7 @@ header("Access-Control-Allow-Headers: Content-Type");
             //==============================================
             
             $toEmail = $email;
-            $subject = "BulaTrips User Password Reset";
+            $subject = "Bulatrips User Password Reset";
             $messageDatacontent = "Please click the following link to reset your password: " . $resetLink;
             //****************************
             $backgroundColor = "#f8f9fa";
@@ -109,8 +109,7 @@ header("Access-Control-Allow-Headers: Content-Type");
             } else {
              echo 'Failed to send email.';
             }
-            */
-           // echo 'error14';exit; //failed to send email
+            */        // echo 'error14';exit; //failed to send email
              echo 'error15';exit; //femail sent successfully
             //=================================================
             // Display a success message to the user

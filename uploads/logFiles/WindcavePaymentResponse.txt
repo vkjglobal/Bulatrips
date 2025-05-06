@@ -2754,3 +2754,2867 @@ Array
 
 
 -------------Transaction Completed Close Monday 14th of April 2025 10:13:20 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:08:42 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:08:42 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:14:39 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:14:39 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:15:14 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:15:14 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:23:31 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:23:31 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:23:49 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:23:49 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:30:32 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:30:32 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:30:36 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:30:36 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:30:39 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:30:39 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:32:29 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:32:29 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:33:59 AM-------------
+
+{
+    "id" : "0000040003578721045cf8cce0ec1c60",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "218.39",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "26",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:33:42Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578721045cf8cce0ec1c60",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00f81",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00f81",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "later",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "223354",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:33:54Z",
+            "dateTimeLocal" : "2025-04-30T22:33:54+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "218.39",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "26",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "03",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578721045cf8cce0ec1c60",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "218.39",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00f81",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578721045cf8cce0ec1c60",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:33:59 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:42:45 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:42:45 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:49:01 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:49:01 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:49:30 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:49:30 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:50:00 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:50:00 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:50:28 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:50:28 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:50:36 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:50:36 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:50:42 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:50:42 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:51:03 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:51:03 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:51:46 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:51:46 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:52:18 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:52:18 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 10:53:24 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 10:53:24 AM-------------
+-------------Windcave Response Open Wednesday 30th of April 2025 11:01:26 AM-------------
+
+{
+    "id" : "0000040003578618043480b035281908",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "310.50",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "25",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-03T10:08:23Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f00ec5",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "220836",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-04-30T10:08:36Z",
+            "dateTimeLocal" : "2025-04-30T22:08:36+12:00",
+            "settlementDate" : "2025-04-30",
+            "amount" : "310.50",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "25",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "10",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040003578618043480b035281908",
+            "browser" : {
+                "ipAddress" : "119.73.101.99",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "310.50",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f00ec5",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040003578618043480b035281908",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Wednesday 30th of April 2025 11:01:26 AM-------------
+-------------Windcave Response Open Monday 5th of May 2025 06:01:30 PM-------------
+
+{
+    "id" : "0000040004037803046af1798405a891",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "586.34",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "36",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-08T18:00:47Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/0000040004037803046af1798405a891",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f9d3d1",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400f9d3d1",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "later",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "060119",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-05-05T18:01:19Z",
+            "dateTimeLocal" : "2025-05-06T06:01:19+12:00",
+            "settlementDate" : "2025-05-06",
+            "amount" : "586.34",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "36",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "04",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "0000040004037803046af1798405a891",
+            "browser" : {
+                "ipAddress" : "202.69.52.21",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "586.34",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400f9d3d1",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/0000040004037803046af1798405a891",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Monday 5th of May 2025 06:01:30 PM-------------
+-------------Order Ticket Api Response Open Monday 5th of May 2025 06:01:31 PM-------------
+API CALLED https://restapidemo.myfarebox.com/api/v1/OrderTicket
+Array
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 25050523-f37b6fb3-6b8c-4bc4-983e-344cbcf0503c
+            [UniqueID] => MF30139725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Order Ticket Api Response Close Monday 5th of May 2025 06:01:31 PM-------------
+-------------Transaction Completed Open Monday 5th of May 2025 06:01:32 PM-------------
+
+Array
+(
+    [id] => 0000000400f9d3d3
+    [username] => VKJGlobal_Dev_REST
+    [authorised] => 1
+    [allowRetry] => 
+    [retryIndicator] => later
+    [reCo] => 00
+    [responseText] => APPROVED
+    [authCode] => 060132
+    [acquirer] => Array
+        (
+            [name] => Unspecified
+            [mid] => 12345678
+            [tid] => 12345678
+            [reco] => 00
+            [responsetext] => 
+        )
+
+    [type] => complete
+    [method] => card
+    [localTimeZone] => NZT
+    [dateTimeUtc] => 2025-05-05T18:01:32Z
+    [dateTimeLocal] => 2025-05-06T06:01:32+12:00
+    [settlementDate] => 2025-05-06
+    [amount] => 586.34
+    [balanceAmount] => 0.00
+    [currency] => USD
+    [currencyNumeric] => 840
+    [clientType] => internet
+    [merchantReference] => 36
+    [card] => Array
+        (
+            [cardHolderName] => JOHN T DOE
+            [cardNumber] => 411111......1111
+            [dateExpiryMonth] => 04
+            [dateExpiryYear] => 25
+            [type] => visa
+        )
+
+    [cvc2ResultCode] => P
+    [storedCardIndicator] => single
+    [avs] => Array
+        (
+            [postCode] => 
+            [streetAddress] => 
+            [avsAction] => 0
+            [avsActionName] => DontCheck
+            [avsResultCode] => U
+            [avsResultDescription] => U - address information not available, or AVS is unavailable
+        )
+
+    [isSurcharge] => 
+    [amountTotal] => 586.34
+    [liabilityIndicator] => standard
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://uat.windcave.com/api/v1/transactions/0000000400f9d3d3
+                    [rel] => self
+                    [method] => GET
+                )
+
+            [1] => Array
+                (
+                    [href] => https://uat.windcave.com/api/v1/transactions/0000000400f9d3d1
+                    [rel] => parent
+                    [method] => GET
+                )
+
+            [2] => Array
+                (
+                    [href] => https://uat.windcave.com/api/v1/transactions
+                    [rel] => refund
+                    [method] => POST
+                )
+
+        )
+
+)
+
+
+-------------Transaction Completed Close Monday 5th of May 2025 06:01:32 PM-------------
+-------------Windcave Response Open Tuesday 6th of May 2025 11:18:24 AM-------------
+
+{
+    "id" : "00000400040456830422827861cf7c15",
+    "state" : "complete",
+    "type" : "auth",
+    "amount" : "596.71",
+    "currency" : "USD",
+    "currencyNumeric" : 840,
+    "merchantReference" : "45",
+    "methods" : [
+        "card",
+        "paypal",
+        "applepay"
+    ],
+    "expires" : "2025-05-09T11:18:02Z",
+    "callbackUrls" : {
+        "approved" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "declined" : "http://localhost/bulatrips/WindcavePaymentResponse",
+        "cancelled" : "http://localhost/bulatrips/fligtsRulesRevalidation"
+    },
+    "storeCard" : false,
+    "clientType" : "internet",
+    "links" : [
+        {
+            "href" : "https://uat.windcave.com/api/v1/sessions/00000400040456830422827861cf7c15",
+            "rel" : "self",
+            "method" : "GET"
+        },
+        {
+            "href" : "https://uat.windcave.com/api/v1/transactions/0000000400fa537e",
+            "rel" : "transaction",
+            "method" : "GET"
+        }
+    ],
+    "transactions" : [
+        {
+            "id" : "0000000400fa537e",
+            "username" : "VKJGlobal_Dev_REST",
+            "authorised" : true,
+            "allowRetry" : false,
+            "retryIndicator" : "later",
+            "reCo" : "00",
+            "responseText" : "APPROVED",
+            "authCode" : "231820",
+            "acquirer" : {
+                "name" : "Unspecified",
+                "mid" : "12345678",
+                "tid" : "12345678",
+                "reco" : "00",
+                "responsetext" : ""
+            },
+            "type" : "auth",
+            "method" : "card",
+            "localTimeZone" : "NZT",
+            "dateTimeUtc" : "2025-05-06T11:18:20Z",
+            "dateTimeLocal" : "2025-05-06T23:18:20+12:00",
+            "settlementDate" : "2025-05-06",
+            "amount" : "596.71",
+            "balanceAmount" : "0.00",
+            "currency" : "USD",
+            "currencyNumeric" : 840,
+            "clientType" : "internet",
+            "merchantReference" : "45",
+            "card" : {
+                "cardHolderName" : "JOHN T DOE",
+                "cardNumber" : "411111......1111",
+                "dateExpiryMonth" : "04",
+                "dateExpiryYear" : "25",
+                "type" : "visa"
+            },
+            "cvc2ResultCode" : "U",
+            "storedCardIndicator" : "single",
+            "avs" : {
+                "postCode" : "",
+                "streetAddress" : "",
+                "avsAction" : 0,
+                "avsActionName" : "DontCheck",
+                "avsResultCode" : "U",
+                "avsResultDescription" : "U - address information not available, or AVS is unavailable"
+            },
+            "sessionId" : "00000400040456830422827861cf7c15",
+            "browser" : {
+                "ipAddress" : "119.73.101.117",
+                "userAgent" : "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36"
+            },
+            "isSurcharge" : false,
+            "amountTotal" : "596.71",
+            "liabilityIndicator" : "standard",
+            "links" : [
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions/0000000400fa537e",
+                    "rel" : "self",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/sessions/00000400040456830422827861cf7c15",
+                    "rel" : "session",
+                    "method" : "GET"
+                },
+                {
+                    "href" : "https://uat.windcave.com/api/v1/transactions",
+                    "rel" : "complete",
+                    "method" : "POST"
+                }
+            ]
+        }
+    ]
+}
+
+-------------Windcave Response Close Tuesday 6th of May 2025 11:18:24 AM-------------
+-------------Order Ticket Api Response Open Tuesday 6th of May 2025 11:18:25 AM-------------
+API CALLED https://restapidemo.myfarebox.com/api/v1/OrderTicket
+Array
+(
+    [Data] => Array
+        (
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Message] => 
+            [Success] => 1
+            [Target] => Test
+            [TraceId] => 25050616-d0fbe3ab-f76e-4530-9fd5-b1d0ba102904
+            [UniqueID] => MF30151225
+        )
+
+    [Success] => 1
+)
+
+
+-------------Order Ticket Api Response Close Tuesday 6th of May 2025 11:18:25 AM-------------
+-------------Transaction Completed Open Tuesday 6th of May 2025 11:18:26 AM-------------
+
+Array
+(
+    [id] => 0000000400fa5380
+    [username] => VKJGlobal_Dev_REST
+    [authorised] => 
+    [allowRetry] => 
+    [retryIndicator] => 
+    [reCo] => O3
+    [responseText] => COMPLETE TOO HIGH
+    [authCode] => 231820
+    [acquirer] => Array
+        (
+            [name] => Unspecified
+            [mid] => 12345678
+            [tid] => 12345678
+            [reco] => 
+            [responsetext] => 
+        )
+
+    [type] => complete
+    [method] => card
+    [localTimeZone] => NZT
+    [dateTimeUtc] => 2025-05-06T11:18:26Z
+    [dateTimeLocal] => 2025-05-06T23:18:26+12:00
+    [amount] => 596.72
+    [balanceAmount] => 0.00
+    [currency] => USD
+    [currencyNumeric] => 840
+    [clientType] => internet
+    [merchantReference] => 45
+    [card] => Array
+        (
+            [cardHolderName] => JOHN T DOE
+            [cardNumber] => 411111......1111
+            [dateExpiryMonth] => 04
+            [dateExpiryYear] => 25
+            [type] => visa
+        )
+
+    [cvc2ResultCode] => 
+    [storedCardIndicator] => single
+    [isSurcharge] => 
+    [amountTotal] => 596.72
+    [liabilityIndicator] => standard
+    [links] => Array
+        (
+            [0] => Array
+                (
+                    [href] => https://uat.windcave.com/api/v1/transactions/0000000400fa5380
+                    [rel] => self
+                    [method] => GET
+                )
+
+            [1] => Array
+                (
+                    [href] => https://uat.windcave.com/api/v1/transactions/0000000400fa537e
+                    [rel] => parent
+                    [method] => GET
+                )
+
+        )
+
+)
+
+
+-------------Transaction Completed Close Tuesday 6th of May 2025 11:18:26 AM-------------

@@ -54,12 +54,21 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                 <div class="row justify-content-center">
                     <div class="col-md-9">
                         <div class="steps-bar-title white-txt fw-500 text-md-center">Book your Flight in 3 Simple Steps</div>
-                        <div class="process-wrap active-step1">
+                        
+                        <?php
+                            $step_number = '1';
+                            if( isset($_COOKIE['step_traveller_details_added']) && $_COOKIE['step_traveller_details_added'] == 1 ) {
+                                $step_number = '2';
+                            }?>
+
+
+                        <div class="process-wrap active-step<?php echo $step_number;?>">
                             <div class="process-main">
+                                
                                 <div class="row justify-content-center">
                                     <div class="col-md-3 position-relative">
                                         <div class="process-step-cont">
-                                            <div class="process-step step-1"></div>
+                                            <div class="process-step step-<?php echo $step_number;?>"></div>
                                             <!-- <span class="process-label"><span class="position-relative">Review Booking<button>(Edit)</button></span></span> -->
                                             <span class="process-label"><span class="position-relative">Flight Details</span></span>
                                         </div>
@@ -67,7 +76,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                     <div class="col-md-3 position-relative">
                                         <div class="process-step-cont">
                                             <div class="process-step step-2"></div>
-                                            <span class="process-label"><span class="position-relative">Traveller Details<button>(Edit)</button></span></span>
+                                            <span class="process-label"><span class="position-relative">Traveller Details</span></span>
                                         </div>
                                     </div>
                                     <div class="col-md-3 position-relative">
@@ -472,7 +481,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                         <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
                                                                         <td> <?php
                                                                                 if (is_numeric($penaltyAmount)) {
-                                                                                    echo "$ " . round($penaltyAmount, 2);
+                                                                                    echo "$ " . number_format(round($penaltyAmount, 2), 2);
                                                                                 } else {
                                                                                     echo $penaltyAmount;
                                                                                 }
@@ -481,7 +490,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     <tr class="bdr">
                                                                         <td class="bg-f0f3f5 p-1" style="width: 40%;">Bulatrips Fee</td>
                                                                         <?php if ($penaltyCancel['Allowed'] == 1) { ?>
-                                                                            <td class="p-1"><?php echo "$ " . round($markupPenaltyPercentage, 2); ?>
+                                                                            <td class="p-1"><?php echo "$ " . number_format(round($markupPenaltyPercentage, 2), 2); ?>
                                                                             </td>
                                                                         <?php } ?>
                                                                     </tr>
@@ -535,7 +544,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                         <td class="bg-f0f3f5 p-1" style="width: 40%;">Airline fee</td>
                                                                         <td> <?php
                                                                                 if (is_numeric($penaltyChangeAmount)) {
-                                                                                    echo "$ " . round($penaltyChangeAmount, 2);
+                                                                                    echo "$ " . number_format(round($penaltyChangeAmount, 2), 2);
                                                                                 } else {
                                                                                     echo $penaltyChangeAmount;
                                                                                 }
@@ -545,7 +554,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                                                     </tr>
                                                                     <tr class="bdr">
                                                                         <td class="bg-f0f3f5 p-1" style="width: 40%;">Bulatrips Fee</td>
-                                                                        <td> <?php echo "$ " . round($markupDatechangePercentage * $usd_converion_rate, 2); ?></td>
+                                                                        <td> <?php echo "$ " . number_format(round($markupDatechangePercentage * $usd_converion_rate, 2), 2); ?></td>
                                                                     </tr>
                                                                 </table>
                                                             </li>
@@ -768,19 +777,19 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                         <?php
                                         $totalFareAPI = $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
                                         
-                                        echo "Base: ". $totalFareAPI."<br />";
+                                        // echo "Base: ". $totalFareAPI."<br />";
 
                                         $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                         $markupPercentage += $ticketing_fee;
                                         $total_price = $markupPercentage + $totalFareAPI;
-                                        $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                        // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
 
-                                        echo "Commission + Ticketing + IPG Transaction fee: ". $ipg_trasaction_percentage + $markupPercentage;
-                                        echo "<br />";
+                                        // echo "Commission + Ticketing + IPG Transaction fee: ". $ipg_trasaction_percentage + $markupPercentage;
+                                        // echo "<br />";
 
-                                        $total_price += $ipg_trasaction_percentage;
-                                        echo $total_price;
-                                        echo "<br />";
+                                        // $total_price += $ipg_trasaction_percentage;
+                                        // echo $total_price;
+                                        // echo "<br />";
 
                                         ?>
 
@@ -789,7 +798,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                             </ul>
 
                             <!-- display: flex;justify-content: space-between;padding: 15px 10px; -->
-                            <ul style="background-color: #2c3e50;color: #FFF;font-size: 25px;">
+                            <ul style="background-color: #1a2942;color: #FFF;font-size: 25px;">
                                 <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
                                     <strong class="fw-600">Total Fare Price</strong>
                                 </li>
@@ -797,13 +806,13 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                     <strong class="fw-600 main_price_view">
                                         <?php
                                         // echo $pricedItinerary['AirItineraryPricingInfo']['ItinTotalFare']['TotalFare']['Amount'];
-                                        $_SESSION['session_total_amount'] = $total_price;
+                                        $_SESSION['session_total_amount'] = round($total_price, 2);
                                         echo "$" . number_format(round($total_price, 2), 2);
                                         ?>
                                     </strong>
                                     <br />
                                 </li>
-                                <li><p style="font-size: 14px;text-align: center;padding: 12px;">Total Price in USD (Including all taxes & fees)</p></li>
+                                <li><p style="font-size: 14px;text-align: center;padding-bottom: 12px;">(Inclusive of taxes)</p></li>
                             </ul>
                             
 
@@ -895,12 +904,10 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                         <strong>Traveller Details: <span style="font-weight: normal; font-size:12px;"><br />Please enter the details exactly as they appear in the passport:</span></strong>
                                     </p>
                                     <div id="adultcontainermain">
-                                        <div id="adultcontainer">
-                                        </div>
-                                        <div id="childcontainer">
-                                        </div>
-                                        <div id="infantcontainer">
-                                        </div>
+                                        <div class="loaderIconCustom"></div>
+                                        <div id="adultcontainer"></div>
+                                        <div id="childcontainer"></div>
+                                        <div id="infantcontainer"></div>
                                     </div>
                                 </div>
                             </div>
@@ -1122,17 +1129,17 @@ require_once("includes/footer.php");
                                                 </div>
 
                                                 <div class="col-12">
-                                                    <ul style="background-color: #2c3e50;color: #FFF;font-size: 25px;border: 1px solid #FFF;border-radius: 5px;padding-top: 15px;">
+                                                    <ul style="background-color: #1a2942;color: #FFF;font-size: 25px;border: 1px solid #FFF;border-radius: 5px;padding-top: 15px;">
                                                         <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
                                                             <strong class="fw-600">Total Fare Price</strong>
                                                         </li>
                                                         <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
-                                                            <strong class="fw-600 main_price_view">
+                                                            <strong class="fw-600 main_price_view_popup">
                                                                 <?php echo "$" . number_format($_SESSION['session_total_amount'],2);?>
                                                             </strong>
                                                             <br />
                                                         </li>
-                                                        <li><p style="font-size: 14px;text-align: center;padding: 12px;">Total Price in USD (Including all taxes & fees)</p></li>
+                                                        <li><p style="font-size: 14px;text-align: center;padding: 12px;">Total Amount to Pay in USD (including all taxes, extras and fees)</p></li>
                                                     </ul>
                                                 </div>
                                             

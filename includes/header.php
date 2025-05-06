@@ -39,6 +39,11 @@ include_once("includes/filterValidation.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     
+    
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Canadian+Aboriginal:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+
+
     <?php
     if(!isset($_SESSION)){        
         session_start();
@@ -85,7 +90,7 @@ include_once("includes/filterValidation.php");
                                                     <button type="button" class="btn dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account </button>
                                                         <div class="dropdown-menu" aria-labelledby="userDropdown">
                                                             <a class="dropdown-item" href="user-profile">Profile</a>    
-                                                            <a class="nav-link" href="user-dashboard">Manage Bookings</a>    
+                                                            <a class="dropdown-item" href="user-dashboard">Manage Bookings</a>    
                                                             <a class="dropdown-item" href="change-password">Change Password</a>
                                                             <a class="dropdown-item" href="logout">Logout</a>
                                                         </div>

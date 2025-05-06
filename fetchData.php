@@ -1,10 +1,31 @@
 <?php
 session_start();
+include_once('includes/common_const.php');
+require_once('includes/dbConnect.php');
 // Store all POST values in a single session variable
 
+$total_fare_price = 0;
 $_POST['total_extra_service_fee'] = getExtraserviceAmoount($_POST);
 $_SESSION['totalService'] = $_POST['total_extra_service_fee'];
 $total_updated_price = $_POST['total_extra_service_fee'] + $_SESSION['session_total_amount'];
+
+// IPG PRICE INCLUDING STARTS
+    $ipg_trasaction_percentage = 0;
+    $stmt = $conn->prepare("SELECT `value` FROM settings WHERE `key` = :key");
+    $stmt->bindValue(':key', "ipg_transaction_percentage");
+    $stmt->execute();
+    $setting = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $ipg_percentage = 0;
+    if( isset($setting['value']) && $setting['value'] != '' ) {
+        $ipg_percentage = $setting['value'];
+    }
+    $ipg_trasaction_percentage = ($ipg_percentage / 100) * ($_POST['total_extra_service_fee'] + $_SESSION['session_total_amount']);
+// IPG PRICE INCLUDING ENDS
+
+$total_updated_price += $ipg_trasaction_percentage;
+
+
 
 $_SESSION['revalidationApi'] = $_POST;
 if(isset($_SESSION['revalidationApi'])){
@@ -15,6 +36,7 @@ if(isset($_SESSION['revalidationApi'])){
     $response = array("success" => false);
 }
 $response['total_updated_price'] =  "$".number_format($total_updated_price,2);
+$response['total_updated_price_without_ipg'] =  "$".number_format($_POST['total_extra_service_fee'] + $_SESSION['session_total_amount'],2);
 
 header('Content-Type: application/json');
 echo json_encode($response);

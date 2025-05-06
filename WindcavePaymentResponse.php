@@ -4,6 +4,8 @@ deleteUserDataCookie("infantData");
 deleteUserDataCookie("contactDetailsData");
 deleteUserDataCookie("childData");
 deleteUserDataCookie("adultsData");
+deleteUserDataCookie("step_traveller_details_added");
+
 
 function deleteUserDataCookie(cookieName) {
     document.cookie =
@@ -66,14 +68,16 @@ include_once('mail_send.php');
     .content_success {
         position: relative;
         z-index: 2;
-        max-width: 1000px;
+        max-width: 600px;
         padding: 20px;
         padding: 20px;
         background: #ffffffe8;
         border-radius: 10px;
+        text-align: center;
+        margin: 0 auto;
     }
     .content_success h1 {
-        font-size: 48px;
+        font-size: 20px;
         font-weight: bold;
         margin-bottom: 20px;
         color: green;
@@ -106,17 +110,17 @@ include_once('mail_send.php');
     /* Common Styling */
     .icon-container {
         display: flex;
-        gap: 20px;
+        gap: 6px;
         justify-content: center;
         align-items: center;
-        height: 100px;
+        height: 65px;
         background-color: #f9f9f9;
     }
 
     /* Success Tick Animation */
     .success {
-        width: 80px;
-        height: 80px;
+        width: 40px;
+        height: 40px;
         border-radius: 50%;
         background-color: #4CAF50;
         display: flex;
@@ -225,6 +229,7 @@ $objBook->_writeLog(print_r($response, true), 'WindcavePaymentResponse.txt');
 $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
 $objBook->_writeLog('-------------Windcave Response Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
 
+
 if( isset($response) && $response != '') { 
     $responseArray = json_decode($response, true);
   
@@ -235,6 +240,7 @@ if( isset($response) && $response != '') {
         $check_trans->execute();
         $rowCount = $check_trans->rowCount();
         
+
         if( $rowCount == 0 ) {
             $data = array(
                 "currency" => "usd",
@@ -972,26 +978,26 @@ if( isset($response) && $response != '') {
 
             <div class="container-jumbotron">
                 <div class="bodycontant">
+                    <?php $responseArray['transactions'][0]['responseText'] = "Asdasd" ?>
                     <div class="<?php if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {echo "content_success";} else {echo "content_cancel";}?>">
                         <?php
                         if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {?>
-                            <div class="icon-container">
+                            <!-- <div class="icon-container">
                                 <div class="success"></div>
-                            </div>
+                            </div> -->
                             <?php
                         } else {?>
-                            <div class="icon-container">
+                            <!-- <div class="icon-container">
                                 <div class="error"></div>
                                 
-                            </div>
+                            </div> -->
                             <?php
                         }?>
 
-                        <h1><?php echo $title;?></h1>
                         <?php
                             if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {
-                                $text_1 = "";
-                                $text_2 = "Your payment has been successfully approved, and we are now processing your booking. This may take a few moments. Once confirmed, you will receive a booking confirmation email with all the details. <br /><br />You can check your booking status in your account or manage booking section. Thank you for booking with us, and we wish you a great journey ahead!";
+                                $text_1 = "Your Payment is Approved!";
+                                $text_2 = "We're processing your booking and will email you confirmation details soon. Check status in your “Manage Bookings” section after logging into your account. Thanks for choosing Bulatrips – enjoy your trip!";
                                 $button_text = "Manage Bookings";
 
                                 if (isset($_SESSION['user_id'])) {
@@ -1003,8 +1009,8 @@ if( isset($response) && $response != '') {
                                 }
 
                             } else {
-                                $text_1 = "Your payment was declined. Your booking is not confirmed.";
-                                $text_2 = "Unfortunately, your payment was declined by the payment provider. This could be due to insufficient funds, incorrect payment details, or bank restriction. Please verify your payment information and try again. <br /><br />    If the issue persists, consider using a different payment method or contact your bank for further assistance. Your booking has not been confirmed, so you will need to complete the payment to proceed.";
+                                $text_1 = "Payment Declined";
+                                $text_2 = "Your booking is not confirmed. Please check your payment details and try again. If issues persist, try a different payment method or contact your bank for assistance. You'll need to complete payment to secure your booking.";
                                 $button_text = "Search Again";
                                 $button_url = "index";
                                 $modal_show = "";
@@ -1017,9 +1023,13 @@ if( isset($response) && $response != '') {
                                 // }
                             }
                         ?>
-                        <p><?php echo $text_1;?></p>
+                        <h1><?php echo $text_1;?></h1>
+                        <!-- <p><?php //echo $text_1;?></p> -->
                         <p><?php echo $text_2;?></p>
-                        <a href="<?php echo $button_url;?>" <?php echo $modal_show;?> class="btn btn-typ7 ml-3 btn-primary"><?php echo $button_text;?></a>
+                        <div style="display: flex;justify-content: center;">
+                            <a href="<?php echo $button_url;?>" <?php echo $modal_show;?> class="btn btn-typ7 ml-3 btn-primary" style="max-width: 200px;"><?php echo $button_text;?></a>
+                        </div>
+                        
                     </div>
                 </div>
             </div>

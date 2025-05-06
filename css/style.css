@@ -257,16 +257,27 @@ img {
   color: #ffffff !important;
 }
 
-.btn-typ1 {
+/* .btn-typ1 {
   background: #121E7E !important;
   color: #FFFFFF !important;
   border: 1px solid #121E7E !important;
-}
+} */
+
+.btn-typ1 {
+  background: #002e99 !important;
+  color: #FFFFFF !important;
+  border: 1px solid #002e99 !important;
+} 
 
 .btn-typ1:hover {
+  background: #1a2942 !important;
+  color: #FFF !important;
+}
+
+/* .btn-typ1:hover {
   background: #ffffff !important;
   color: #121E7E !important;
-}
+} */
 
 .btn-typ5 {
   color: #061167;
@@ -298,6 +309,7 @@ section.midbar-wrapper {
 }
 section.midbar-wrapper img {
   max-width: 100%;
+  max-height: 500px;
 }
 section.choose-flight {
   margin-bottom: 0;
@@ -323,7 +335,7 @@ section.choose-flight {
   background-image: url("../images/banner9.jpg");
 }
 .midbar-banner-inner h2 {
-  font-family: "Lexend Deca";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
   font-size: 64px;
@@ -623,7 +635,7 @@ section.choose-flight {
   color: #FFFFFF;
 }
 .carousel-caption h2 {
-  font-family: "Lobster";
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
   font-size: 60px;
@@ -631,7 +643,7 @@ section.choose-flight {
   margin-bottom: 50px;
 }
 .carousel-caption h3 {
-  font-family: "Lexend Deca";
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
   font-size: 60px;
@@ -929,7 +941,7 @@ form.flight-search .form-control {
 /****************Datepicker***********************/
 .ui-widget.ui-widget-content {
   z-index: 9 !important;
-  font-family: "Inter";
+  font-family: "Noto Sans";
   color: #000000;
 }
 
@@ -968,7 +980,7 @@ form.flight-search .form-control {
 }
 
 .ui-datepicker .ui-datepicker-title select {
-  font-family: "Inter";
+  font-family: "Noto Sans";
   color: #ffffff;
   background-color: #121e7e;
   outline: none;
@@ -1134,7 +1146,7 @@ a.text-decoration:hover {
   border-radius: 50%;
 }
 .cat-btn span {
-  font-family: "Lobster";
+  font-family: "Noto Sans";
   font-style: normal;
   font-weight: 400;
   font-size: 45px;
@@ -1681,6 +1693,11 @@ a.text-decoration:hover {
 
 /*********************Animation*********************/
 /*************************************************/
+
+.hd-wraper_custom {
+  padding: 20px 0 20px !important;
+}
+
 .hd-wraper {
   text-align: center;
   padding: 60px 0 20px;
@@ -1694,14 +1711,24 @@ a.text-decoration:hover {
   text-align: left;
 }
 .hd-wraper strong {
-  font-family: "Lobster";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 1;
-  text-align: center;
-  color: #000000;
-  margin-bottom: 21px;
+  /* font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 21px;
+    font-family: Nunito; */
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 21px;
+    font-family: 'Nunito';
+
 }
 .hd-wraper h4 {
   font-weight: 900;
@@ -1710,15 +1737,18 @@ a.text-decoration:hover {
   text-align: center;
   color: #121E7E;
   margin-bottom: 11px;
+  font-family: 'Nunito';
 }
 .hd-wraper p {
   color: #808080;
   margin: 0;
 }
 .hd-wraper.white-txt strong,
-.hd-wraper.white-txt h4,
 .hd-wraper.white-txt p {
   color: #ffffff;
+}
+.hd-wraper.white-txt h4 {
+  color: #0000ff;
 }
 
 .video-banner {
@@ -1867,10 +1897,11 @@ a.text-decoration:hover {
 }
 
 .travel-reviews {
-  background: url(../images/banner8.jpg) no-repeat;
+  background: url(../images/review_image.jpg) no-repeat;
   background-size: cover;
-  padding-bottom: 81px;
+  padding-bottom: 0px;
   /* background: #000; */
+  min-height: 375px;
 }
 
 .review-item img {
@@ -2118,6 +2149,7 @@ a.text-decoration:hover {
     /* text-decoration: underline; */
     text-transform: uppercase;
     padding-bottom: 28px;
+    font-family: 'Nunito';
 }
 
 .titlebar {
@@ -2209,7 +2241,7 @@ a.text-decoration:hover {
   height: 30px;
   color: #000000 !important;
   font-weight: bold;
-  font-size: 21px !important;
+  font-size: 30px !important;
   text-shadow: none;
   opacity: 1;
 }
@@ -2235,7 +2267,7 @@ a.text-decoration:hover {
 }
 
 .bg-070F4E {
-  background: #070F4E;
+  background: #002e99;
 }
 
 .steps-indicator {
@@ -2575,7 +2607,7 @@ a.text-decoration:hover {
   -o-border-radius: 15px;
 }
 .package-category h2 {
-  font-family: "Lexend Deca";
+  font-family: "Nunito";
   line-height: 1;
 }
 .package-category .package-btn {
@@ -2723,7 +2755,7 @@ a.text-decoration:hover {
 
 /*****************************************************/
 footer {
-  background: #2a3d4f;
+  background: #1a2942;
   color: #ffffff;
   padding-top: 50px;
 }
@@ -2866,10 +2898,12 @@ footer .form-group p {
   .hd-wraper strong {
     font-size: 25px;
     margin-bottom: 21px;
+    font-family: 'Noto Sans';
   }
   .hd-wraper h4 {
     font-size: 35px;
     margin-bottom: 11px;
+
   }
   .hd-wraper p {
     color: #808080;
@@ -3539,6 +3573,17 @@ li.contentbar_one_way {
   animation: spin 1s linear infinite;
 }
 
+.loaderIconCustom {
+  margin: 15px auto;
+  display: block;
+  width: 55px;
+  height: 55px;
+  border: 5px solid #0707ff;
+  border-top: 5px solid #f57c00;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
 @keyframes spin {
   0% {
       transform: rotate(0deg);
@@ -3549,7 +3594,7 @@ li.contentbar_one_way {
   }
 }
 .placeholder_text {
-    background: #2c3e50;
+    background: #1a2942;
     color: #FFF;
     padding: 10px;
     font-size: 25px;
@@ -3558,26 +3603,128 @@ li.contentbar_one_way {
     text-transform: uppercase;
 }
 .error_payment {
-  color: red;
+  color: #FFF;
 }
 .errorMessagePayment {
   font-size: 20px;
-  color: red;
+  color: #FFF;
 }
 #errorMessagePayment {
-  color: red;
+  color: #FFF;
   font-size: 16px;
 }
 
-.close {
+/* .close {
   color: #000000 !important;
   font-weight: bold;
   font-size: 21px !important;
   text-shadow: none;
+} */
+.close {
+    color: #ffffff !important;
+    font-size: 16px !important;
+    text-shadow: none;
+    opacity: 1;
+    font-weight: normal;
 }
+
 .footer-links li a {
   color: #FFF;
 }
 .footer-links li a:hover {
   color: #ff9d3f;
+}
+
+
+
+@media (min-width: 768px) {
+
+  /* show 3 items */
+  .carousel-inner .active,
+  .carousel-inner .active + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item,
+  .carousel-inner .active + .carousel-item + .carousel-item + .carousel-item  {
+      display: block;
+  }
+  
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left),
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item,
+  .carousel-inner .carousel-item.active:not(.carousel-item-right):not(.carousel-item-left) + .carousel-item + .carousel-item + .carousel-item {
+      transition: none;
+  }
+  
+  .carousel-inner .carousel-item-next,
+  .carousel-inner .carousel-item-prev {
+    position: relative;
+    transform: translate3d(0, 0, 0);
+  }
+  
+  .carousel-inner .active.carousel-item + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+      position: absolute;
+      top: 0;
+      right: -25%;
+      z-index: -1;
+      display: block;
+      visibility: visible;
+  }
+  
+  /* left or forward direction */
+  .active.carousel-item-left + .carousel-item-next.carousel-item-left,
+  .carousel-item-next.carousel-item-left + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item,
+  .carousel-item-next.carousel-item-left + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+      position: relative;
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+  }
+  
+  /* farthest right hidden item must be abso position for animations */
+  .carousel-inner .carousel-item-prev.carousel-item-right {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+      display: block;
+      visibility: visible;
+  }
+  
+  /* right or prev direction */
+  .active.carousel-item-right + .carousel-item-prev.carousel-item-right,
+  .carousel-item-prev.carousel-item-right + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item,
+  .carousel-item-prev.carousel-item-right + .carousel-item + .carousel-item + .carousel-item + .carousel-item {
+      position: relative;
+      transform: translate3d(100%, 0, 0);
+      visibility: visible;
+      display: block;
+      visibility: visible;
+  }
+
+}
+
+/* Bootstrap Lightbox using Modal */
+
+#profile-grid { overflow: auto; white-space: normal; } 
+#profile-grid .profile { padding-bottom: 40px; }
+#profile-grid .panel { padding: 0 }
+#profile-grid .panel-body { padding: 15px }
+#profile-grid .profile-name { font-weight: bold; }
+#profile-grid .thumbnail {margin-bottom:6px;}
+#profile-grid .panel-thumbnail { overflow: hidden; }
+#profile-grid .img-rounded { border-radius: 4px 4px 0 0;}
+
+#card_holders h5 {
+    font-size: 27px;
+    font-weight: bold;
+    color: #f57c00;
+    margin: 0;
+}
+#card_holders p {
+  margin: 0;
+}
+#card_holders .card-body {
+  padding: 0.5rem;
 }

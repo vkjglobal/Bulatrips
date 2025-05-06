@@ -125,7 +125,7 @@ $(document).ready(function () {
         if (response == "flights_redirectation") {
           Swal.fire({
             title: "Registration Success",
-            text: "You have signed up successfully.",
+            text: "You have signed up successfully.<br /> Please check your inbox and click the link we sent to confirm your email.",
             icon: "success",
             confirmButtonText: "Close",
             confirmButtonColor: "#f57c00",
@@ -136,7 +136,7 @@ $(document).ready(function () {
         } else if (response == "registered") {
           Swal.fire({
             title: "Registration Success",
-            text: "You have signed up successfully.",
+            text: "You have signed up successfully.<br /> Please check your inbox and click the link we sent to confirm your email.",
             icon: "success",
             confirmButtonText: "Close",
             confirmButtonColor: "#f57c00",
@@ -2535,7 +2535,7 @@ $(document).ready(function () {
                     <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                         <label for="" class="m-0 fw-500">Adult ${i}</label>
                     </div>
-                    <div class="col-lg-1 col-md-4 mb-4">
+                    <div class="col-lg-2 col-md-4 mb-4">
                       <label for="title${i}">Title:</label>
                         <select name="sirLable${i}" id="" class="form-control select-title">
                           
@@ -2566,7 +2566,7 @@ $(document).ready(function () {
               }">
                         <span id="lastNameError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
-                    <div class="col-lg-2 col-md-4 mb-4">
+                    <div class="col-lg-1 col-md-4 mb-4">
                     <label for="gender${i}">Gender:</label>
                       <select name="gender${i}" class="form-control">
                         <option value="">Select Gender</option>
@@ -2715,7 +2715,7 @@ $(document).ready(function () {
                   
 
                 `;
-
+              $(".loaderIconCustom").hide();
               adultContainer.appendChild(div);
             }
           });
@@ -2751,7 +2751,7 @@ $(document).ready(function () {
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Child ${i}</label>
                   </div>
-                  <div class="col-lg-1 col-md-4 mb-4">
+                  <div class="col-lg-2 col-md-4 mb-4">
                   <label for="sirLableChild${i}"> Title:</label>
                       <select name="sirLableChild${i}" id="" class="form-control select-title">
                           <option value="MISS" ${
@@ -2967,7 +2967,7 @@ $(document).ready(function () {
                   <div class="col-lg-2 m-2 pt-3 placeholder_text" style="border-radius:5px;">
                       <label for="" class="m-0 fw-500">Infant ${i}</label>
                   </div>
-                  <div class="col-lg-1 col-md-4 mb-4">
+                  <div class="col-lg-2 col-md-4 mb-4">
                   <label for="sirLableInfant${i}"> Title:</label>
                       <select name="sirLableInfant${i}" id="" class="form-control select-title">
                         <option value="MISS" ${
@@ -3107,6 +3107,8 @@ $(document).ready(function () {
 
   $("#booking-submit").submit(function (event) {
     event.preventDefault();
+    document.cookie = 'step_traveller_details_added=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+
     // Validate form data
     // let adultCounter = 2;
     // let childCounter = 0;
@@ -3262,13 +3264,13 @@ $(document).ready(function () {
       if (genderValue == "M" && sirLableValue !== "Mr") {
         displayError(
           sirLableSelect,
-          `Title should be "Mr" for selected gender`
+          `Title should be "Mr"`
         );
         validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
       } else if (genderValue == "F" && sirLableValue === "Mr") {
         displayError(
           sirLableSelect,
-          `Title should be "Mrs or MISS" for selected gender`
+          `Title should be "Mrs or MISS"`
         );
         validationErrors.push(
           `Title for Female Adult ${i} should be "Mrs or MISS"`
@@ -3427,13 +3429,13 @@ $(document).ready(function () {
       if (genderValue == "M" && sirLableValue !== "MSTR") {
         displayError(
           sirLableSelect,
-          `Title should be "MSTR" for selected gender`
+          `Title should be "MSTR"`
         );
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
         displayError(
           sirLableSelect,
-          `Title should be "MISS" for selected gender`
+          `Title should be "MISS"`
         );
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
@@ -3600,13 +3602,13 @@ $(document).ready(function () {
       if (genderValue == "M" && sirLableValue !== "MSTR") {
         displayError(
           sirLableSelect,
-          `Title should be "MSTR" for selected gender`
+          `Title should be "MSTR"`
         );
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
         displayError(
           sirLableSelect,
-          `Title should be "MISS" for selected gender`
+          `Title should be "MISS"`
         );
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
@@ -3668,31 +3670,40 @@ $(document).ready(function () {
       event.preventDefault();
     }
     if (contactfirstname == "") {
-      $("#contactfirstname").after(
-        '<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>'
-      );
+      $("#contactfirstname").after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>');
       valid = false;
     } else {
+      $("#contactfirstname").next('.text-danger').remove();
     }
+
 
     if (contactlastname == "") {
       $("#contactlastname").after(
         '<span class="text-danger fs-12 position-absolute" >Last Name cannot be blank.</span>'
       );
       valid = false;
+    } else {
+      $("#contactlastname").next('.text-danger').remove();
     }
+
     if (contactcountry == "") {
       $("#contactcountry").after(
         '<span class="text-danger fs-12 position-absolute" >Phone Code cannot be blank.</span>'
       );
       valid = false;
+    } else {
+      $("#contactcountry").next('.text-danger').remove();
     }
+
     if (contactnumber == "") {
       $("#contactnumber").after(
         '<span class="text-danger fs-12 position-absolute" >Contact Number cannot be blank.</span>'
       );
       valid = false;
+    } else {
+      $("#contactnumber").next('.text-danger').remove();
     }
+
     if (
       $("#contactemail").val() === "" ||
       !emailReg.test($("#contactemail").val())
@@ -3707,6 +3718,7 @@ $(document).ready(function () {
       if (nextElement.length) {
         nextElement.remove();
       }
+      $("#contactemail").next('.text-danger').remove();
     }
 
     if (contactpostcode == "") {
@@ -3714,6 +3726,8 @@ $(document).ready(function () {
         '<span class="text-danger fs-12 position-absolute" >Postcode cannot be blank.</span>'
       );
       valid = false;
+    } else {
+      $("#contactpostcode").next('.text-danger').remove();
     }
 
     // Set up form data for submission
@@ -3727,7 +3741,8 @@ $(document).ready(function () {
         processData: false,
         success: function (response) {
           if (response.success) {
-            $(".main_price_view").html(response.total_updated_price);
+            $(".main_price_view").html(response.total_updated_price_without_ipg);
+            $(".main_price_view_popup").html(response.total_updated_price);
             // Nafees
             for (let i = 1; i <= adultCounter; i++) {
               let adultData = {
@@ -3904,6 +3919,8 @@ $(document).ready(function () {
               JSON.stringify(contactDetailsData),
               7
             );
+
+            setUserDataCookie("step_traveller_details_added", 1, 7);
 
             const isLoggedIn = $("#user_id_loggedin").val();
             if (isLoggedIn) {

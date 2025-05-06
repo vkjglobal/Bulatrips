@@ -927,3 +927,759 @@ Array
 
 
 -------------If there are errors Close Monday 14th of April 2025 10:12:54 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 07:36:04 AM-------------
+ 
+Array
+(
+    [bookingid] => 10
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 07:36:04 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 07:53:50 AM-------------
+ 
+Array
+(
+    [bookingid] => 11
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 07:53:50 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 08:00:33 AM-------------
+ 
+Array
+(
+    [bookingid] => 13
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 08:00:33 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 08:04:46 AM-------------
+ 
+Array
+(
+    [bookingid] => 21
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 08:04:46 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 08:05:17 AM-------------
+ 
+Array
+(
+    [bookingid] => 22
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 08:05:17 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 08:05:33 AM-------------
+ 
+Array
+(
+    [bookingid] => 23
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 08:05:33 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 08:18:37 AM-------------
+ 
+Array
+(
+    [bookingid] => 24
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 08:18:37 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 10:08:18 AM-------------
+ 
+Array
+(
+    [bookingid] => 25
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 10:08:18 AM-------------
+-------------Public/Private Open Wednesday 30th of April 2025 10:08:43 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => ClientMarkup is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+
+-------------Public/Private Close Wednesday 30th of April 2025 10:08:43 AM-------------
+-------------If there are errors Open Wednesday 30th of April 2025 10:08:43 AM-------------
+
+Array
+(
+    [bookingid] => 
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Wednesday 30th of April 2025 10:08:43 AM-------------
+-------------Public/Private Open Wednesday 30th of April 2025 10:23:50 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => ClientMarkup is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+
+-------------Public/Private Close Wednesday 30th of April 2025 10:23:50 AM-------------
+-------------If there are errors Open Wednesday 30th of April 2025 10:23:50 AM-------------
+
+Array
+(
+    [bookingid] => 
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Wednesday 30th of April 2025 10:23:50 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 10:33:42 AM-------------
+ 
+Array
+(
+    [bookingid] => 26
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 10:33:42 AM-------------
+-------------Public/Private Open Wednesday 30th of April 2025 10:33:59 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => ClientMarkup is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+
+-------------Public/Private Close Wednesday 30th of April 2025 10:33:59 AM-------------
+-------------If there are errors Open Wednesday 30th of April 2025 10:33:59 AM-------------
+
+Array
+(
+    [bookingid] => 
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Wednesday 30th of April 2025 10:33:59 AM-------------
+-------------Public/Private Open Wednesday 30th of April 2025 11:13:39 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-30T11:13:38
+            [TraceId] => 25043016-bb9a987b-5c32-425b-9b47-364a65e10d5c
+            [UniqueID] => MF30105025
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Wednesday 30th of April 2025 11:13:39 AM-------------
+-------------If there are errors Open Wednesday 30th of April 2025 11:13:39 AM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 27
+)
+
+
+-------------If there are errors Close Wednesday 30th of April 2025 11:13:39 AM-------------
+-------------Public/Private Open Wednesday 30th of April 2025 11:14:01 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-04-30T11:14:01
+            [TraceId] => 25043016-bb9a987b-5c32-425b-9b47-364a65e10d5c
+            [UniqueID] => MF30105125
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Wednesday 30th of April 2025 11:14:01 AM-------------
+-------------If there are errors Open Wednesday 30th of April 2025 11:14:01 AM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 28
+)
+
+
+-------------If there are errors Close Wednesday 30th of April 2025 11:14:01 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 11:24:34 AM-------------
+ 
+Array
+(
+    [bookingid] => 30
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 11:24:34 AM-------------
+-------------Webfare holding temp Open Wednesday 30th of April 2025 11:25:57 AM-------------
+ 
+Array
+(
+    [bookingid] => 33
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Wednesday 30th of April 2025 11:25:57 AM-------------
+-------------Public/Private Open Monday 5th of May 2025 05:56:11 PM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-07T01:00:07
+            [TraceId] => 25050523-7086b9a6-6cf7-4ce4-a875-adb548b2e966
+            [UniqueID] => MF754649325
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 5th of May 2025 05:56:11 PM-------------
+-------------If there are errors Open Monday 5th of May 2025 05:56:11 PM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Private
+    [bookingid] => 34
+)
+
+
+-------------If there are errors Close Monday 5th of May 2025 05:56:11 PM-------------
+-------------Public/Private Open Monday 5th of May 2025 05:58:35 PM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-05T17:58:36
+            [TraceId] => 25050523-c1fd3f61-3e31-4aad-82b6-ea43a864b04a
+            [UniqueID] => MF30139625
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 5th of May 2025 05:58:35 PM-------------
+-------------If there are errors Open Monday 5th of May 2025 05:58:35 PM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 35
+)
+
+
+-------------If there are errors Close Monday 5th of May 2025 05:58:35 PM-------------
+-------------Public/Private Open Monday 5th of May 2025 06:00:45 PM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-07T18:00:26
+            [TraceId] => 25050523-f37b6fb3-6b8c-4bc4-983e-344cbcf0503c
+            [UniqueID] => MF30139725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 5th of May 2025 06:00:45 PM-------------
+-------------If there are errors Open Monday 5th of May 2025 06:00:45 PM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 36
+)
+
+
+-------------If there are errors Close Monday 5th of May 2025 06:00:45 PM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 10:40:23 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-08T18:40:12
+            [TraceId] => 25050615-6386a92c-62b8-4804-ae3e-db5cee91d21b
+            [UniqueID] => MF754706625
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 10:40:23 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 10:40:23 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Private
+    [bookingid] => 37
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 10:40:23 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 10:44:07 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Production
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 10:44:07 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 10:44:07 AM-------------
+
+Array
+(
+    [bookingid] => 38
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Private
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 10:44:07 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 10:49:39 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-08T04:30:00
+            [TraceId] => 25050616-a3cad657-78dd-404f-a5ae-7d41e72a367f
+            [UniqueID] => MF754708625
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 10:49:39 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 10:49:39 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 39
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 10:49:39 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 10:50:42 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK082
+                            [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Production
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 10:50:42 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 10:50:42 AM-------------
+
+Array
+(
+    [bookingid] => 40
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Pending Need - Awaiting carrier response - Booking Unconfirmed
+    [errCde] => ERBUK082
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 10:50:42 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 11:00:13 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-07T19:00:07
+            [TraceId] => 25050616-2e5a09e1-5491-4d11-bf12-6c6ebd64fa86
+            [UniqueID] => MF754710725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 11:00:13 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 11:00:13 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Private
+    [bookingid] => 41
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 11:00:13 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 11:00:51 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Production
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 11:00:51 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 11:00:51 AM-------------
+
+Array
+(
+    [bookingid] => 42
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Private
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 11:00:51 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 11:02:14 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-07T04:50:00
+            [TraceId] => 25050616-902cfa85-5243-44c5-896d-8abded51b49d
+            [UniqueID] => MF754710925
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 11:02:14 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 11:02:14 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Private
+    [bookingid] => 43
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 11:02:14 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 11:13:43 AM-------------
+API URL Response: https://restapi.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 8
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Production
+            [TktTimeLimit] => 2025-05-08T19:13:31
+            [TraceId] => 25050616-e61199a8-edaa-4f59-a1bf-48f5fd315fcb
+            [UniqueID] => MF754712825
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 11:13:43 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 11:13:43 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Private
+    [bookingid] => 44
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 11:13:43 AM-------------
+-------------Public/Private Open Tuesday 6th of May 2025 11:18:01 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-07T11:17:41
+            [TraceId] => 25050616-d0fbe3ab-f76e-4530-9fd5-b1d0ba102904
+            [UniqueID] => MF30151225
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 6th of May 2025 11:18:01 AM-------------
+-------------If there are errors Open Tuesday 6th of May 2025 11:18:01 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 45
+)
+
+
+-------------If there are errors Close Tuesday 6th of May 2025 11:18:01 AM-------------

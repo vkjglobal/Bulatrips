@@ -4,9 +4,11 @@ include_once('dbConnect.php');
     $query = "SELECT airport_code, airport_name, city_name, country_name 
     FROM airportlocations 
     WHERE city_name LIKE :search 
-    OR country_name LIKE :search 
+    -- OR country_name LIKE :search 
     OR airport_code LIKE :search 
-    OR airport_name LIKE :search";
+    -- OR airport_name LIKE :search
+    -- order by id ASC
+    ";
     $stmt = $conn->prepare($query);
 
     $searchTerm = "%$search%";

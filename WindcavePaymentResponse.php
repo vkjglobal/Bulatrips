@@ -463,7 +463,7 @@ if( isset($response) && $response != '') {
                         // confirmationMail($toEmail, $subject, $transactionData,$headers);
                         ?>
                         <script>
-                            window.location.href ="confirmation?booking_id=<?php echo $AP_country_name_fetch['mf_reference'];?>";
+                            // window.location.href ="confirmation?booking_id=<?php //echo $AP_country_name_fetch['mf_reference'];?>";
                         </script>
                         <?php
                     }
@@ -978,7 +978,7 @@ if( isset($response) && $response != '') {
 
             <div class="container-jumbotron">
                 <div class="bodycontant">
-                    <?php $responseArray['transactions'][0]['responseText'] = "Asdasd" ?>
+                    
                     <div class="<?php if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {echo "content_success";} else {echo "content_cancel";}?>">
                         <?php
                         if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {?>

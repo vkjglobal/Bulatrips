@@ -1683,3 +1683,193 @@ Array
 
 
 -------------If there are errors Close Tuesday 6th of May 2025 11:18:01 AM-------------
+-------------Public/Private Open Monday 19th of May 2025 02:20:12 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-19T02:20:12
+            [TraceId] => 25051907-8a27d393-e078-4737-aa73-97ab41cb4895
+            [UniqueID] => MF30307725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 19th of May 2025 02:20:12 AM-------------
+-------------If there are errors Open Monday 19th of May 2025 02:20:12 AM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 46
+)
+
+
+-------------If there are errors Close Monday 19th of May 2025 02:20:12 AM-------------
+-------------Public/Private Open Monday 19th of May 2025 02:22:49 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-19T04:22:31
+            [TraceId] => 25051907-d85ab980-d110-4aad-ab35-a85143963bbc
+            [UniqueID] => MF30307825
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 19th of May 2025 02:22:49 AM-------------
+-------------If there are errors Open Monday 19th of May 2025 02:22:49 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 47
+)
+
+
+-------------If there are errors Close Monday 19th of May 2025 02:22:49 AM-------------
+-------------Public/Private Open Monday 19th of May 2025 02:23:25 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ERBUK076
+                            [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+                        )
+
+                )
+
+            [Status] => 
+            [Success] => 
+            [Target] => Test
+            [TktTimeLimit] => 
+            [TraceId] => 
+            [UniqueID] => 
+        )
+
+    [Success] => 
+    [Message] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+)
+
+
+-------------Public/Private Close Monday 19th of May 2025 02:23:25 AM-------------
+-------------If there are errors Open Monday 19th of May 2025 02:23:25 AM-------------
+
+Array
+(
+    [bookingid] => 48
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+    [errCde] => ERBUK076
+)
+
+
+-------------If there are errors Close Monday 19th of May 2025 02:23:25 AM-------------
+-------------Public/Private Open Monday 19th of May 2025 02:25:35 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-19T04:25:16
+            [TraceId] => 25051907-70413058-7980-4951-a573-ba5a8f5edaaa
+            [UniqueID] => MF30308025
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 19th of May 2025 02:25:35 AM-------------
+-------------If there are errors Open Monday 19th of May 2025 02:25:35 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 49
+)
+
+
+-------------If there are errors Close Monday 19th of May 2025 02:25:35 AM-------------
+-------------Public/Private Open Monday 19th of May 2025 03:21:02 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-19T05:20:43
+            [TraceId] => 25051908-d6755f8f-9842-4fea-a1ef-4c759f470ad6
+            [UniqueID] => MF30308125
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Monday 19th of May 2025 03:21:02 AM-------------
+-------------If there are errors Open Monday 19th of May 2025 03:21:02 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 50
+)
+
+
+-------------If there are errors Close Monday 19th of May 2025 03:21:02 AM-------------

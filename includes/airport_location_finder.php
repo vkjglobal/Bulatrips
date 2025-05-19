@@ -1,6 +1,6 @@
 <?php
 include_once('dbConnect.php');
-    $search = isset($_GET['q']) ? $_GET['q'] : '';    
+    $search = isset($_GET['q']) ? trim($_GET['q']) : '';    
     $query = "SELECT airport_code, airport_name, city_name, country_name 
     FROM airportlocations 
     WHERE city_name LIKE :search 

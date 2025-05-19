@@ -107391,3 +107391,2743 @@ REsponse Received\nArray
 
 )
 
+-------------Sunday 18th of May 2025 02:44:53 PM-------------
+MF refMF30151225
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30151225
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1991-09-18T00:00:00
+                                                    [EmailAddress] => wavopyqe@mailinator.com
+                                                    [PhoneNumber] => 816
+                                                    [PassportExpiresOn] => 2030-10-01T00:00:00
+                                                    [PassportNationality] => Ukrainian
+                                                    [PassengerNationality] => Congolese or Congo(Rep Dem.)
+                                                    [PostCode] => Minus maxime delectu
+                                                    [PassportIssuanceCountry] => Ukraine
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MS
+                                                            [PassengerFirstName] => MARTHA
+                                                            [PassengerLastName] => RODRIQUEZ
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 457758
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 411.92
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 128.38
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 540.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => US1 0.67,ZP 0.05,ZP 0.05,ZP 0.05,ZP 0.05,AY 0.07,AY 0.07,XF 0.05,XF 0.05,XF 0.05,XF 0.05,F62 12.17,F62 12.17,ZR2 1.36,ZR2 1.36,RG3 44.27,SP 7.09,YD 9.92,E3 2.12,E32 2.12,IO 34.46,T2 1.33
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => No
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 40
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 120
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 40
+                                                                    [ChargesAfterDeparture] => 40
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-11T03:25:00
+                                                                    [ArrivalDateTime] => 2025-05-11T05:40:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 623
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 195
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 3
+                                                                    [OperatingAirlineCode] => EK
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-11T09:35:00
+                                                                    [ArrivalDateTime] => 2025-05-11T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 2334
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DXB
+                                                                    [DepartureTerminal] => 2
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => FZ
+                                                                    [AirEquipmentType] => 7M8
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-17T07:50:00
+                                                                    [ArrivalDateTime] => 2025-05-17T11:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 2259
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 2
+                                                                    [OperatingAirlineCode] => FZ
+                                                                    [AirEquipmentType] => 73H
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-17T21:50:00
+                                                                    [ArrivalDateTime] => 2025-05-18T01:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 622
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DXB
+                                                                    [DepartureTerminal] => 3
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => EK
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-07T11:17:41.277
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.43
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-06T11:17:41
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 18th of May 2025 02:44:54 PM-------------
+MF refMF30151225
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30151225
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1991-09-18T00:00:00
+                                                    [EmailAddress] => wavopyqe@mailinator.com
+                                                    [PhoneNumber] => 816
+                                                    [PassportExpiresOn] => 2030-10-01T00:00:00
+                                                    [PassportNationality] => Ukrainian
+                                                    [PassengerNationality] => Congolese or Congo(Rep Dem.)
+                                                    [PostCode] => Minus maxime delectu
+                                                    [PassportIssuanceCountry] => Ukraine
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MS
+                                                            [PassengerFirstName] => MARTHA
+                                                            [PassengerLastName] => RODRIQUEZ
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 457758
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 411.92
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 128.38
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 540.30
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => US1 0.67,ZP 0.05,ZP 0.05,ZP 0.05,ZP 0.05,AY 0.07,AY 0.07,XF 0.05,XF 0.05,XF 0.05,XF 0.05,F62 12.17,F62 12.17,ZR2 1.36,ZR2 1.36,RG3 44.27,SP 7.09,YD 9.92,E3 2.12,E32 2.12,IO 34.46,T2 1.33
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => No
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 40
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 120
+                                                                                )
+
+                                                                        )
+
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 40
+                                                                    [ChargesAfterDeparture] => 40
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-11T03:25:00
+                                                                    [ArrivalDateTime] => 2025-05-11T05:40:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 623
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 195
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 3
+                                                                    [OperatingAirlineCode] => EK
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-11T09:35:00
+                                                                    [ArrivalDateTime] => 2025-05-11T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 2334
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DXB
+                                                                    [DepartureTerminal] => 2
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => FZ
+                                                                    [AirEquipmentType] => 7M8
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-17T07:50:00
+                                                                    [ArrivalDateTime] => 2025-05-17T11:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 2259
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DXB
+                                                                    [ArrivalTerminal] => 2
+                                                                    [OperatingAirlineCode] => FZ
+                                                                    [AirEquipmentType] => 73H
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-17T21:50:00
+                                                                    [ArrivalDateTime] => 2025-05-18T01:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 622
+                                                                    [ResBookDesigCode] => L
+                                                                    [JourneyDuration] => 180
+                                                                    [AirlinePNR] => GN73ZJ
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DXB
+                                                                    [DepartureTerminal] => 3
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => EK
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => EK
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECO SAVER
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-07T11:17:41.277
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.43
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-06T11:17:41
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Sunday 18th of May 2025 02:44:55 PM-------------
+MF refMF29943225
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF29943225
+                            [TripType] => Return
+                            [TicketStatus] => Flown
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => F
+                                                    [DateOfBirth] => 1991-10-12T00:00:00
+                                                    [EmailAddress] => joteki@mailinator.com
+                                                    [PhoneNumber] => 665
+                                                    [PassportExpiresOn] => 2030-02-17T00:00:00
+                                                    [PassportNationality] => Austrian
+                                                    [PassengerNationality] => Latvian
+                                                    [PostCode] => Earum pariatur Cons
+                                                    [PassportIssuanceCountry] => Austria
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MRS
+                                                            [PassengerFirstName] => KIMBERLEY
+                                                            [PassengerLastName] => DAUGHERTY
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 455154
+                                                    [TicketStatus] => Flown
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 1575457546648
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 258.93
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 322.06
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 580.99
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQF 50.26,YQF 50.26,YRI 11.06,YRI 11.06,YRI 11.06,YRI 11.06,RG3 44.84,SP 7.18,YD 10.04,G4 16.57,G4 16.57,PZ2 1.51,PZ2 1.51,QA 16.57,QA 16.57,R9 2.76,R9 2.76,E3 2.14,E32 2.14,IO 34.83,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingWindow] => 2025-04-14T16:29:59.997
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [VoidingWindow] => 2025-04-14T16:29:59.997
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-04-15T09:55:00
+                                                                    [ArrivalDateTime] => 2025-04-15T11:45:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 230
+                                                                    [AirlinePNR] => 5MUGL3
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-04-15T22:35:00
+                                                                    [ArrivalDateTime] => 2025-04-16T01:10:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1182
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 155
+                                                                    [AirlinePNR] => 5MUGL3
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 789
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-04-22T22:35:00
+                                                                    [ArrivalDateTime] => 2025-04-23T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => N
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5MUGL3
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-04-23T02:20:00
+                                                                    [ArrivalDateTime] => 2025-04-23T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => N
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5MUGL3
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                    [Transactions] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [Type] => Invoice
+                                                    [Number] => 21078403
+                                                    [Amount] => 580.99
+                                                    [Currency] => USD
+                                                    [PTRId] => NA
+                                                )
+
+                                        )
+
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-04-14T09:16:42.913
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 60.60
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-04-14T08:16:42
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 19th of May 2025 02:26:02 AM-------------
+MF refMF30308025
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30308025
+                            [TripType] => Return
+                            [TicketStatus] => TktInProcess
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => U
+                                                    [DateOfBirth] => 1991-10-25T00:00:00
+                                                    [EmailAddress] => xywi@mailinator.com
+                                                    [PhoneNumber] => 242
+                                                    [PassportExpiresOn] => 2030-01-09T00:00:00
+                                                    [PassportNationality] => Russian
+                                                    [PassengerNationality] => Qatari
+                                                    [PostCode] => Incididunt autem ill
+                                                    [PassportIssuanceCountry] => Russian Federation
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => MARGARET
+                                                            [PassengerLastName] => RIDDLE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 459768
+                                                    [TicketStatus] => TktInProcess
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 180.43
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 321.48
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 501.91
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQ 1.01,DE 0.10,RA 0.31,OY 0.09,GB 0.21,UB 0.18,YQF 50.19,YQF 50.19,YRI 11.04,YRI 11.04,YRI 11.04,YRI 11.04,RG3 44.63,SP 7.15,YD 10.00,G4 16.54,G4 16.54,PZ2 1.51,PZ2 1.51,QA 16.54,QA 16.54,R9 2.76,R9 2.76,E3 2.15,E32 2.15,IO 34.82,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-20T09:55:00
+                                                                    [ArrivalDateTime] => 2025-05-20T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 220
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-20T18:35:00
+                                                                    [ArrivalDateTime] => 2025-05-20T21:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1188
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 150
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 788
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-30T22:35:00
+                                                                    [ArrivalDateTime] => 2025-05-31T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-31T02:20:00
+                                                                    [ArrivalDateTime] => 2025-05-31T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-19T04:25:16.71
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.70
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-19T02:25:16
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 19th of May 2025 02:27:26 AM-------------
+MF refMF30308025
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30308025
+                            [TripType] => Return
+                            [TicketStatus] => Ticketed
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => U
+                                                    [DateOfBirth] => 1991-10-25T00:00:00
+                                                    [EmailAddress] => xywi@mailinator.com
+                                                    [PhoneNumber] => 242
+                                                    [PassportExpiresOn] => 2030-01-09T00:00:00
+                                                    [PassportNationality] => Russian
+                                                    [PassengerNationality] => Qatari
+                                                    [PostCode] => Incididunt autem ill
+                                                    [PassportIssuanceCountry] => Russian Federation
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => MARGARET
+                                                            [PassengerLastName] => RIDDLE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 459768
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 1575457551037
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 180.43
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 321.48
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 501.91
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQ 1.01,DE 0.10,RA 0.31,OY 0.09,GB 0.21,UB 0.18,YQF 50.19,YQF 50.19,YRI 11.04,YRI 11.04,YRI 11.04,YRI 11.04,RG3 44.63,SP 7.15,YD 10.00,G4 16.54,G4 16.54,PZ2 1.51,PZ2 1.51,QA 16.54,QA 16.54,R9 2.76,R9 2.76,E3 2.15,E32 2.15,IO 34.82,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingWindow] => 2025-05-19T16:29:59.997
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [VoidingWindow] => 2025-05-19T16:29:59.997
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-20T09:55:00
+                                                                    [ArrivalDateTime] => 2025-05-20T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 220
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-20T18:35:00
+                                                                    [ArrivalDateTime] => 2025-05-20T21:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1188
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 150
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 788
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-30T22:35:00
+                                                                    [ArrivalDateTime] => 2025-05-31T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-31T02:20:00
+                                                                    [ArrivalDateTime] => 2025-05-31T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-19T04:25:16.71
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.70
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-19T02:25:16
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 19th of May 2025 02:27:51 AM-------------
+MF refMF30308025
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30308025
+                            [TripType] => Return
+                            [TicketStatus] => Ticketed
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => U
+                                                    [DateOfBirth] => 1991-10-25T00:00:00
+                                                    [EmailAddress] => xywi@mailinator.com
+                                                    [PhoneNumber] => 242
+                                                    [PassportExpiresOn] => 2030-01-09T00:00:00
+                                                    [PassportNationality] => Russian
+                                                    [PassengerNationality] => Qatari
+                                                    [PostCode] => Incididunt autem ill
+                                                    [PassportIssuanceCountry] => Russian Federation
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => MARGARET
+                                                            [PassengerLastName] => RIDDLE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 459768
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 1575457551037
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 180.43
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 321.48
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 501.91
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQ 1.01,DE 0.10,RA 0.31,OY 0.09,GB 0.21,UB 0.18,YQF 50.19,YQF 50.19,YRI 11.04,YRI 11.04,YRI 11.04,YRI 11.04,RG3 44.63,SP 7.15,YD 10.00,G4 16.54,G4 16.54,PZ2 1.51,PZ2 1.51,QA 16.54,QA 16.54,R9 2.76,R9 2.76,E3 2.15,E32 2.15,IO 34.82,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingWindow] => 2025-05-19T16:29:59.997
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [VoidingWindow] => 2025-05-19T16:29:59.997
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-20T09:55:00
+                                                                    [ArrivalDateTime] => 2025-05-20T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 220
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-20T18:35:00
+                                                                    [ArrivalDateTime] => 2025-05-20T21:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1188
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 150
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 788
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-30T22:35:00
+                                                                    [ArrivalDateTime] => 2025-05-31T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-31T02:20:00
+                                                                    [ArrivalDateTime] => 2025-05-31T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-19T04:25:16.71
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.70
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-19T02:25:16
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 19th of May 2025 02:28:28 AM-------------
+MF refMF30308025
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30308025
+                            [TripType] => Return
+                            [TicketStatus] => Ticketed
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => U
+                                                    [DateOfBirth] => 1991-10-25T00:00:00
+                                                    [EmailAddress] => xywi@mailinator.com
+                                                    [PhoneNumber] => 242
+                                                    [PassportExpiresOn] => 2030-01-09T00:00:00
+                                                    [PassportNationality] => Russian
+                                                    [PassengerNationality] => Qatari
+                                                    [PostCode] => Incididunt autem ill
+                                                    [PassportIssuanceCountry] => Russian Federation
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => MARGARET
+                                                            [PassengerLastName] => RIDDLE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 459768
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 1575457551037
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 180.43
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 321.48
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 501.91
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQ 1.01,DE 0.10,RA 0.31,OY 0.09,GB 0.21,UB 0.18,YQF 50.19,YQF 50.19,YRI 11.04,YRI 11.04,YRI 11.04,YRI 11.04,RG3 44.63,SP 7.15,YD 10.00,G4 16.54,G4 16.54,PZ2 1.51,PZ2 1.51,QA 16.54,QA 16.54,R9 2.76,R9 2.76,E3 2.15,E32 2.15,IO 34.82,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingWindow] => 2025-05-19T16:29:59.997
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [VoidingWindow] => 2025-05-19T16:29:59.997
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-20T09:55:00
+                                                                    [ArrivalDateTime] => 2025-05-20T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 220
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-20T18:35:00
+                                                                    [ArrivalDateTime] => 2025-05-20T21:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1188
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 150
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 788
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-30T22:35:00
+                                                                    [ArrivalDateTime] => 2025-05-31T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-31T02:20:00
+                                                                    [ArrivalDateTime] => 2025-05-31T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-19T04:25:16.71
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.70
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-19T02:25:16
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+
+-------------Monday 19th of May 2025 02:31:01 AM-------------
+MF refMF30308025
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [TripDetailsResult] => Array
+                (
+                    [Provider] => MYSTIFLY
+                    [Success] => 1
+                    [TravelItinerary] => Array
+                        (
+                            [MFRef] => MF30308025
+                            [TripType] => Return
+                            [TicketStatus] => Ticketed
+                            [BookingStatus] => Booked
+                            [Origin] => LHE
+                            [Destination] => LHE
+                            [FareType] => Public
+                            [PassengerInfos] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Passenger] => Array
+                                                (
+                                                    [Gender] => U
+                                                    [DateOfBirth] => 1991-10-25T00:00:00
+                                                    [EmailAddress] => xywi@mailinator.com
+                                                    [PhoneNumber] => 242
+                                                    [PassportExpiresOn] => 2030-01-09T00:00:00
+                                                    [PassportNationality] => Russian
+                                                    [PassengerNationality] => Qatari
+                                                    [PostCode] => Incididunt autem ill
+                                                    [PassportIssuanceCountry] => Russian Federation
+                                                    [PassengerType] => ADT
+                                                    [PaxName] => Array
+                                                        (
+                                                            [PassengerTitle] => MR
+                                                            [PassengerFirstName] => MARGARET
+                                                            [PassengerLastName] => RIDDLE
+                                                        )
+
+                                                    [PassportNumber] => 123123
+                                                    [NameNumber] => 459768
+                                                    [TicketStatus] => Ticketed
+                                                )
+
+                                            [ETickets] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [ItemRPH] => 1
+                                                            [ETicketNumber] => 1575457551037
+                                                            [ETicketType] => Ticketed
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
+                            [TripDetailsPTC_FareBreakdowns] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [PassengerTypeQuantity] => Array
+                                                (
+                                                    [Code] => ADT
+                                                    [Quantity] => 1
+                                                )
+
+                                            [TripDetailsPassengerFare] => Array
+                                                (
+                                                    [EquiFare] => Array
+                                                        (
+                                                            [Amount] => 180.43
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [Tax] => Array
+                                                        (
+                                                            [Amount] => 321.48
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [TotalFare] => Array
+                                                        (
+                                                            [Amount] => 501.91
+                                                            [CurrencyCode] => USD
+                                                            [DecimalPlaces] => 2
+                                                        )
+
+                                                    [AirportTaxBreakUp] => YQ 1.01,DE 0.10,RA 0.31,OY 0.09,GB 0.21,UB 0.18,YQF 50.19,YQF 50.19,YRI 11.04,YRI 11.04,YRI 11.04,YRI 11.04,RG3 44.63,SP 7.15,YD 10.00,G4 16.54,G4 16.54,PZ2 1.51,PZ2 1.51,QA 16.54,QA 16.54,R9 2.76,R9 2.76,E3 2.15,E32 2.15,IO 34.82,T2 1.34
+                                                )
+
+                                            [BaggageInfo] => Array
+                                                (
+                                                    [0] => 25KG
+                                                    [1] => 25KG
+                                                    [2] => 25KG
+                                                    [3] => 25KG
+                                                )
+
+                                            [CabinBaggageInfo] => Array
+                                                (
+                                                    [0] => SB
+                                                    [1] => SB
+                                                    [2] => SB
+                                                    [3] => SB
+                                                )
+
+                                            [IsPenaltyDetailsAvailable] => 1
+                                            [AirRefundCharges] => Array
+                                                (
+                                                    [IsRefundableBeforeDeparture] => Yes
+                                                    [IsRefundableAfterDeparture] => Yes
+                                                    [RefundCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargesBeforeDeparture] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [HoursBeforeDeparture] => 3
+                                                                                    [Charges] => 100
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesNoShowFee] => Array
+                                                                        (
+                                                                            [0] => Array
+                                                                                (
+                                                                                    [FromBeforeDepartureHour] => 3
+                                                                                    [Charges] => 135
+                                                                                )
+
+                                                                        )
+
+                                                                    [ChargesAfterDeparture] => 100
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [GST] => 0
+                                                                    [OtherTaxesK3] => 0
+                                                                    [Currency] => USD
+                                                                    [YR_Tax] => 0
+                                                                    [YQ_Tax] => 0
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirExchangeCharges] => Array
+                                                (
+                                                    [IsExchangeableBeforeDeparture] => Yes
+                                                    [IsExchangeableAfterDeparture] => Yes
+                                                    [ExchangeCharges] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ChargeBeforeDeparture] => 55
+                                                                    [ChargesAfterDeparture] => 55
+                                                                    [PassengerType] => ADT
+                                                                    [AdminCharges] => 0
+                                                                    [Currency] => USD
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [AirVoidCharges] => Array
+                                                (
+                                                    [IsVoidable] => Yes
+                                                    [PassengerType] => ADT
+                                                    [AdminCharges] => 0
+                                                    [Currency] => USD
+                                                    [VoidingWindow] => 2025-05-19T16:29:59.997
+                                                    [VoidingFee] => 0
+                                                    [GST] => 0
+                                                )
+
+                                        )
+
+                                )
+
+                            [VoidingWindow] => 2025-05-19T16:29:59.997
+                            [ClientUTCOffset] => 0
+                            [Itineraries] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [ItineraryInfo] => Array
+                                                (
+                                                    [ReservationItems] => Array
+                                                        (
+                                                            [0] => Array
+                                                                (
+                                                                    [ItemRPH] => 1
+                                                                    [DepartureDateTime] => 2025-05-20T09:55:00
+                                                                    [ArrivalDateTime] => 2025-05-20T11:35:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 629
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 220
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => LHE
+                                                                    [DepartureTerminal] => M
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [1] => Array
+                                                                (
+                                                                    [ItemRPH] => 2
+                                                                    [DepartureDateTime] => 2025-05-20T18:35:00
+                                                                    [ArrivalDateTime] => 2025-05-20T21:05:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1188
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 150
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => JED
+                                                                    [ArrivalTerminal] => 1
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 788
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [2] => Array
+                                                                (
+                                                                    [ItemRPH] => 3
+                                                                    [DepartureDateTime] => 2025-05-30T22:35:00
+                                                                    [ArrivalDateTime] => 2025-05-31T00:55:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 1189
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 140
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => JED
+                                                                    [DepartureTerminal] => 1
+                                                                    [ArrivalAirportLocationCode] => DOH
+                                                                    [ArrivalTerminal] => 40
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                            [3] => Array
+                                                                (
+                                                                    [ItemRPH] => 4
+                                                                    [DepartureDateTime] => 2025-05-31T02:20:00
+                                                                    [ArrivalDateTime] => 2025-05-31T07:50:00
+                                                                    [StopQuantity] => 0
+                                                                    [FlightNumber] => 628
+                                                                    [ResBookDesigCode] => O
+                                                                    [JourneyDuration] => 210
+                                                                    [AirlinePNR] => 5AWETY
+                                                                    [NumberInParty] => 1
+                                                                    [DepartureAirportLocationCode] => DOH
+                                                                    [DepartureTerminal] => 40
+                                                                    [ArrivalAirportLocationCode] => LHE
+                                                                    [ArrivalTerminal] => M
+                                                                    [OperatingAirlineCode] => QR
+                                                                    [AirEquipmentType] => 77W
+                                                                    [MarketingAirlineCode] => QR
+                                                                    [Baggage] => 25KG
+                                                                    [FlightStatus] => HK
+                                                                    [IsReturn] => 1
+                                                                    [CabinClass] => Y
+                                                                    [FareFamily] => ECONOMY CLASSIC
+                                                                )
+
+                                                        )
+
+                                                )
+
+                                            [Type] => TravelItinerary
+                                        )
+
+                                )
+
+                            [TransactionDetails] => Array
+                                (
+                                )
+
+                            [BookingNotes] => Array
+                                (
+                                )
+
+                            [TicketingTimeLimit] => 2025-05-19T04:25:16.71
+                            [ClientMarkup] => Array
+                                (
+                                    [Amount] => 56.70
+                                    [CurrencyCode] => USD
+                                    [DecimalPlaces] => 2
+                                )
+
+                            [BookingMode] => 0
+                            [ReroutingAllowed] => NO
+                            [SpoilageFee] => 0
+                            [DepAirportUTC] => 0
+                            [IsRetainSegment] => 
+                            [FlightId] => 0
+                        )
+
+                    [BookingCreatedOn] => 2025-05-19T02:25:16
+                )
+
+            [PTRDetail] => Array
+                (
+                )
+
+        )
+
+)
+

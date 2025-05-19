@@ -633,21 +633,23 @@ section.choose-flight {
   margin-bottom: -6rem;
   text-align: center;
   color: #FFFFFF;
+  font-size: 75px;
+  line-height: 75px;
 }
 .carousel-caption h2 {
   font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
-  font-size: 60px;
-  line-height: 10px;
+  font-size: 75px;
+  line-height: 75px;
   margin-bottom: 50px;
 }
 .carousel-caption h3 {
   font-family: "Nunito";
   font-style: normal;
   font-weight: 700;
-  font-size: 60px;
-    line-height: 70px;
+  font-size: 75px;
+  line-height: 75px;
 }
 
 .flight-search-midbar {
@@ -1722,7 +1724,7 @@ a.text-decoration:hover {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 42px;
     line-height: 1;
     text-align: center;
     color: #000000;
@@ -1746,9 +1748,10 @@ a.text-decoration:hover {
 .hd-wraper.white-txt strong,
 .hd-wraper.white-txt p {
   color: #ffffff;
+  font-size:19px;
 }
 .hd-wraper.white-txt h4 {
-  color: #0000ff;
+  color: #ff7900;
 }
 
 .video-banner {

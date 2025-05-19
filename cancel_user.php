@@ -16,14 +16,16 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
     include_once('includes/class.cancel.php');
     $void_eligible = 2;
     $bookingId = $_GET['booking_id'];
-    $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
-    $bookingId   =   trim($bookingId);
+    
+    // $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
+    // $bookingId   =   trim($bookingId);
+    
 
 
-    // $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
-    // $stmtbookingid->execute(array('bookingid' => $bookingId));
-    // $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-
+    $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
+    $stmtbookingid->execute(array('bookingid' => $bookingId));
+    $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+    
     $userId     =   $_SESSION['user_id'];
     $currentTimestamp = time();
 
@@ -31,7 +33,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
     //  $userId    =   9;
 
     $objCancel     =   new Cancel();
-    $bookCanusers      =   $objCancel->BookCancelUsers($bookingId, $userId);
+    $bookCanusers      =   $objCancel->BookCancelUsers($bookingData['id'], $userId);
     // echo "<pre>";
     //   print_r($bookCanusers);
     // echo "</pre>";
@@ -98,7 +100,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                             //***************************
                             // $pre_mf_reference  =   "MF23675423";
                             // $VoidingWindow	    =  "2023-08-01T16:29:59.997";	
-                            $VoidingWindow_limit =   strtotime($VoidingWindow);
+                            $VoidingWindow_limit =   @strtotime($VoidingWindow);
 
                             //***************************
 
@@ -106,7 +108,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                             $pre_ticket_time_limit = strtotime($pre_ticket_time_limit);
                             // Get the current timestamp
                             //popn up for ticketnprocess
-                            echo $pre_ticket_status;
+                            
                             if (($fare_type == "Public") || ($fare_type == "Private")) {
                                 if ($pre_ticket_status  ==  trim("TktInProcess")) {
                                     $ticktinprocess_msg =   "Your Ticketing is in process .Cannot Go back .Once it finished you can move with  your cancellation ";
@@ -204,10 +206,10 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                     </tbody>
                 </table>
             </div>
-            <input type="text" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
-            <input type="text" id="bookingId" value="<?php echo $bookingId; ?>">
-            <input type="text" id="USerid" value="<?php echo $userId; ?>">
-            <input type="text" id="precancelsts" value="<?php echo $precancelsts; ?>">
+            <input type="hidden" id="precancelValue" value="<?php echo $pre_mf_reference; ?>">
+            <input type="hidden" id="bookingId" value="<?php echo $bookingData['id']; ?>">
+            <input type="hidden" id="USerid" value="<?php echo $userId; ?>">
+            <input type="hidden" id="precancelsts" value="<?php echo $precancelsts; ?>">
             <?php if ($precancelsts  ==  1) { ?>
                 <button type="button" class="btn btn-typ3 mb-3" id="precancel" onclick="precancelApi()">Cancel Your Flight</button> <!-- pre ticket booking cancel ends  -->
             <?php } else if ($void_eligible != 2) { //post ticket issuance today cancel to know refund amount by voidquote appi

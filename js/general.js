@@ -4431,24 +4431,24 @@ $(document).ready(function () {
   $("#paymentFormCC").submit(function (event) {
     event.preventDefault();
     $("#loaderIcon").show();
+    $("#errorMessagePayment").html(
+      "Thank you for your patience! Please don't refresh or close this page while we process your booking."
+    );
     $(".submit_payment_btn").attr("disabled", true);
     $(".submit_payment_btn").html(
       '<i class="fas fa-circle-notch fa-spin spinner"></i>'
     );
     $(".close_payment_btn").attr("disabled", true);
     $(".close_payment_btn").hide();
-
+  
+    
+    
     $.ajax({
       url: "temp_booking_save",
       type: "post",
       dataType: "json",
       success: function (response) {
-        $("#errorMessagePayment").html(
-          "Thank you for your patience! Please don't refresh or close this page while we process your booking."
-        );
         $("#loaderIcon").hide();
-
-        
         // response.errors = [];
         // response.BookStatus = "CONFIRMED";
         

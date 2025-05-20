@@ -42,6 +42,13 @@ $(document).ready(function () {
     var lname = $("#userlname").val();
     var phone = $("#userphone").val();
     var dialcode = $("#country_code").val();
+
+    var address = $("#address").val();
+    var endusercountry = $("#endusercountry").val();
+    var enduserstate = $("#enduserstate").val();
+    var endusercity = $("#endusercity").val();
+    var zipcode = $("#zipcode").val();
+
     var email = $("#useremail").val();
     var password = $("#password").val();
     var confirmpassword = $("#confirmpassword").val();
@@ -50,6 +57,43 @@ $(document).ready(function () {
     var policy = document.getElementById("logintab-user");
 
     valid = true;
+    
+    if (address == "") {
+      document.getElementById("address").style.borderColor = "red";
+      valid = false;
+    } else {
+      document.getElementById("address").style.borderColor = "#CCC";
+    }
+
+    if (endusercountry == "") {
+      document.getElementById("endusercountry").style.borderColor = "red";
+      valid = false;
+    } else {
+      document.getElementById("endusercountry").style.borderColor = "#CCC";
+    }
+
+    if (enduserstate == "") {
+      document.getElementById("enduserstate").style.borderColor = "red";
+      valid = false;
+    } else {
+      document.getElementById("enduserstate").style.borderColor = "#CCC";
+    }
+
+    if (endusercity == "") {
+      document.getElementById("endusercity").style.borderColor = "red";
+      valid = false;
+    } else {
+      document.getElementById("endusercity").style.borderColor = "#CCC";
+    }
+
+    if (zipcode == "") {
+      document.getElementById("zipcode").style.borderColor = "red";
+      valid = false;
+    } else {
+      document.getElementById("zipcode").style.borderColor = "#CCC";
+    }
+
+    
     if (fname == "") {
       // $('#userfname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Country cannot be blank.</span>')
       document.getElementById("userfname").style.borderColor = "red";

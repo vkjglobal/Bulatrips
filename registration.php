@@ -3,6 +3,14 @@ error_reporting(0);
 require_once("includes/header.php");
 include('includes/dbConnect.php');
 
+if( isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
+    ?>
+    <script>
+        document.location = "user-profile";
+    </script>
+    <?php
+}
+
 ?>
 <script>
     function checkEmailAvailability() {
@@ -181,17 +189,17 @@ include('includes/dbConnect.php');
 
                                         <div class="form-row">
 
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
                                                 <input type="text" class="form-control" name="userfname" id="userfname" aria-describedby="fname" pattern="[a-zA-Z\s]+" placeholder="First Name" autocomplete="off" >
                                             </div>
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
                                                 <input type="text" class="form-control" name="userlname" id="userlname" aria-describedby="lname" pattern="[a-zA-Z\s]+" placeholder="Last Name" autocomplete="off" >
                                             </div>
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
                                                 <input type="email" class="form-control" name="useremail" id="useremail" aria-describedby="emailHelp" onkeyup="checkEmailAvailability()" placeholder="Email" autocomplete="off" >
                                                 <span id="email-availability-status" style="font-size:12px;"></span>
                                             </div>
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
                                                 <div class="form-row">
                                                     <div class="col-6">
                                                         <?php
@@ -213,9 +221,10 @@ include('includes/dbConnect.php');
                                                                 $code = $item['code'];
 
                                                                 if( $key == 0 ) {
-                                                                    $option = "<option value=''>Select Country</option>";
+                                                                    $option = "<option value=''>Mobile Code</option>";
                                                                 } else {
-                                                                    $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
+                                                                    // $option = "<option value=\"$dialCode\">$name ($dialCode)</option>";
+                                                                    $option = "<option value=\"$dialCode\">$dialCode</option>";
                                                                 }
                                                                 $selectBox .= $option;
                                                             }
@@ -232,15 +241,46 @@ include('includes/dbConnect.php');
                                                         ?>
                                                     </div>
                                                     <div class="col-6">
-                                                        <input type="number" class="form-control" name="userphone" id="userphone" placeholder="  Mobile number" autocomplete="off" >
+                                                        <input type="number" class="form-control" name="userphone" id="userphone" placeholder=" Mobile number" autocomplete="off" >
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <div class="form-group col-md-12">
+
+                                            <div class="form-group col-12 mb-3">
+                                                <input type="text" name="address" id="address" placeholder="Address" value="" class="form-control" autocomplete="off">
+                                            </div>
+                                            <div class="form-group col-6 mb-3">
+                                                <select id="endusercountry" name="endusercountry" class="form-control">
+                                                    <option value="<?php echo $user['country']; ?>"><?php echo $user['country']; ?>
+                                                    </option>
+                                                    <option value="">Loading countries...</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-6 mb-3">
+                                                <select id="enduserstate" name="enduserstate" class="form-control">
+                                                    <option value="">Select State</option>
+                                                    <option value="<?php echo $user['state']; ?>"><?php echo $user['state']; ?>
+                                                    </option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group col-6 mb-3">
+                                                <input type="text" name="endusercity" placeholder="City" id="endusercity" class="form-control" value="" autocomplete="off">
+                                            </div>
+                                            <div class="form-group col-6 mb-3">
+                                                <input type="text" name="zipcode" autocomplete="off" id="zipcode" class="form-control" value="<?php echo $user['zip_code']; ?>" placeholder="Zip Code">
+                                            </div>
+
+                                            <input type="hidden" name="uid" id="uid" class="form-control" value="<?php echo $user['id']; ?>">
+                                            <input type="hidden" name="uid" id="hcountry" class="form-control" value="<?php echo $user['country']; ?>">
+                                            <input type="hidden" name="uid" id="hstate" class="form-control" value="<?php echo $user['state']; ?>">
+
+                                            
+
+                                            <div class="form-group col-md-6">
                                                 <input type="password" class="form-control" name="userpassword" id="password" placeholder="Password" oninput="checkPasswords()" autocomplete="off" >
                                             </div>
-                                            <div class="form-group col-md-12">
+                                            <div class="form-group col-md-6">
                                                 <input type="password" class="form-control" name="userconfirm" id="confirmpassword" placeholder="Confirm Password" oninput="checkPasswords()" oninvalid="this.setCustomValidity('Passwords do not match')" autocomplete="off" >
                                             </div>
 

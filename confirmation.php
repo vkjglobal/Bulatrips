@@ -28,6 +28,9 @@ $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference =
 
 $stmtbookingid->execute(array('bookingid' => $bookingId));
 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
+$bookingId = $bookingData['id'];
+
 //userinfo recent added 
 
 if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
@@ -98,6 +101,7 @@ if (isset($bookingData['mf_reference'])) {
     }
     //=================log write for Tripetails api  after booking API ======
 
+
     $logRes =   print_r($responseData, true);
 
     $objBook->_writeLog('-------------' . date('l jS \of F Y h:i:s A') . '-------------', 'tripConfirm.txt');
@@ -110,6 +114,7 @@ if (isset($bookingData['mf_reference'])) {
 
     //============ END log write for trip API ==========  
     if ((!empty($responseData)) && (($responseData['Success']))) {
+        
         $tripDetails = $responseData['Data']['TripDetailsResult']['TravelItinerary'];
         $tripDetailsAtaInfo = $tripDetails['ATAinfoList']; //fare attributes
         $tripDetailsExtraServices = $tripDetails['ExtraServices']['Services']; //ExtraServices
@@ -142,6 +147,7 @@ if (isset($bookingData['mf_reference'])) {
         } else {
             $voidWindow = ""; //because i didnt see this from testing but api doc said this will be available 
         }
+        
         // $markup = $tripDetails['ClientMarkup']['Amount'];
         $id = $bookingId;
 
@@ -157,8 +163,8 @@ if (isset($bookingData['mf_reference'])) {
 
 
         // Execute the query
+        
         $stmtupdate->execute();
-
 
         // $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus WHERE flight_booking_id  = :bookingId');
         // $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
@@ -168,6 +174,7 @@ if (isset($bookingData['mf_reference'])) {
         $ticketStatus = $tripDetails['TicketStatus'];
         $id = $bookingId;
         foreach ($passengerDetail as $passengerInfo) {
+            
 
             if (isset($passengerInfo['ETickets'][0]['ETicketNumber'])) {
                 $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];

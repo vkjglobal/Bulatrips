@@ -101,6 +101,8 @@ include_once("includes/filterValidation.php");
                                     }
                                     ?>
 
+                                    <li class="nav-item"><a class="nav-link" href="javascript:void(0);">Currency: USD($)</a></li>
+
                                 </ul>
                             </div>
                         </nav>

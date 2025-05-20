@@ -9,6 +9,15 @@ if (isset($_POST['usersignup'])) {
     $email = trim($_POST['useremail']);
     $mobile = trim($_POST['userphone']);
     $dialcode = trim($_POST['country_code']);
+
+    $address = trim($_POST['address']);
+    $endusercountry = trim($_POST['endusercountry']);
+    $enduserstate = trim($_POST['enduserstate']);
+    $endusercity = trim($_POST['endusercity']);
+    $zipcode = trim($_POST['zipcode']);
+
+
+
     $password = trim($_POST['userpassword']);
     $searchFlights = trim($_POST['searchFlights']);
     $role = 1;
@@ -25,17 +34,21 @@ if (isset($_POST['usersignup'])) {
     if ($emailExists > 0) {
         echo "email_error";
     } else {
-        $sql = "INSERT INTO users(first_name,last_name,email,dial_code,mobile,st_token,password,role) VALUES(:fname,:lname,:email,:dialcode
-        ,:mobile
-        ,:st_token
-        ,:password
-        ,:role)";
+        $sql = "INSERT INTO users(first_name, last_name, email, dial_code, mobile, contact_address, country, state, city, zip_code, st_token, password, role)
+VALUES(:fname, :lname, :email, :dialcode, :mobile, :contact_address, :country, :state, :city, :zip_code, :st_token, :password, :role)";
         $query = $conn->prepare($sql);
         $query->bindParam(':fname', $fname, PDO::PARAM_STR);
         $query->bindParam(':lname', $lname, PDO::PARAM_STR);
         $query->bindParam(':email', $email, PDO::PARAM_STR);
         $query->bindParam(':mobile', $mobile, PDO::PARAM_INT);
         $query->bindParam(':dialcode', $dialcode, PDO::PARAM_STR);
+
+        $query->bindParam(':contact_address', $address);
+        $query->bindParam(':country', $endusercountry);
+        $query->bindParam(':state', $enduserstate);
+        $query->bindParam(':city', $endusercity);
+        $query->bindParam(':zip_code', $zipcode);
+
         $query->bindParam(':st_token', $hashedToken, PDO::PARAM_STR);
         $query->bindParam(':password', $hasedpassword, PDO::PARAM_STR);
         $query->bindParam(':role', $role, PDO::PARAM_INT);

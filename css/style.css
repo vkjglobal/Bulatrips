@@ -1902,8 +1902,13 @@ a.text-decoration:hover {
 .travel-reviews {
   background: url(../images/review_image.jpg) no-repeat;
   background-size: cover;
+  min-height: 375px;
   padding-bottom: 0px;
   /* background: #000; */
+}
+.review_bg_image {
+  background: url(../images/review_image.jpg) no-repeat;
+  background-size: cover;
   min-height: 375px;
 }
 

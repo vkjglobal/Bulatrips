@@ -800,7 +800,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                             <!-- display: flex;justify-content: space-between;padding: 15px 10px; -->
                             <ul style="background-color: #1a2942;color: #FFF;font-size: 25px;">
                                 <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
-                                    <strong class="fw-600">Total Amount to Pay</strong>
+                                    <strong class="fw-600">Total Price</strong>
                                 </li>
                                 <li class="d-flex justify-content-between mt-1" style="justify-content: center !important;">
                                     <strong class="fw-600 main_price_view">

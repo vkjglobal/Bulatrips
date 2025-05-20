@@ -386,8 +386,8 @@ $DBvideo = $newObj->get_video();
 
         <div class="container">
             <div class="col-12 hd-wraper hd-wraper_custom" style="padding: 0;">
-                <strong>Book worldwide flights in minutes</strong>
-                <h4>Breathtaking Global Destinations</h4>
+                <strong>Breathtaking Global Destinations</strong>
+                <h4>Book worldwide flights in minutes</h4>
                 <!-- <p>Your dream destination awaits! Explore top-notch flight options, unbeatable deals, and seamless booking experiences, all tailored to make your journey unforgettable. Whether it’s a tropical getaway, a cultural adventure, or a city escape, let us take you there effortlessly. Start planning your perfect holiday today!</p> -->
             </div>
 
@@ -630,18 +630,15 @@ $DBvideo = $newObj->get_video();
 </form> -->
 
 
-<section class="travel-reviews" style="margin-bottom: 0px;">
-    
-    <div class="container">
-        <div class="row">
-            <div class="col-12 hd-wraper white-txt" style="padding: 30px;">
-                <h4>What Our Customers Say</h4>
-                <p>Don’t just take our word for it! Hear from travelers like you who’ve explored the world with us. From seamless bookings to unforgettable trips, our customers share their experiences and stories. Your satisfaction is our priority, and your feedback inspires us to keep delivering excellence.</p>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
+<div class="container">
+    <div class="col-12 hd-wraper hd-wraper_custom">
+        <strong>What Our Customers Say</strong>
+    </div>
+</div>
+
+<section class="travel-reviews" style="margin-bottom: 0px; display: flex; justify-content: center; align-items: center; min-height: 50vh;">>
+    <div class="container" style="max-width:700px;">
         <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
 
@@ -651,8 +648,8 @@ $DBvideo = $newObj->get_video();
                         <div class="card-body text-center">
                             <h5 class="card-title">John Doe</h5>
                             <p class="text-warning mb-2">★★★★★</p>
-                            <p class="card-text text-muted">
-                                "Great experience! Smart search made it super easy to find the best deal. Highly recommend!"
+                            <p class="card-text" style="color: #f57c00 !important;">
+                                "Great experience! Smart search made it super easy<br />to find the best deal. Highly recommend!"
                             </p>
                         </div>
                     </div>
@@ -664,8 +661,8 @@ $DBvideo = $newObj->get_video();
                         <div class="card-body text-center">
                             <h5 class="card-title">Ayesha Khan</h5>
                             <p class="text-warning mb-2">★★★★☆</p>
-                            <p class="card-text text-muted">
-                                "Loved the transparent pricing and quick support. A few more payment options would be great."
+                            <p class="card-text" style="color: #f57c00 !important;">
+                                "Loved the transparent pricing and quick support.<br />A few more payment options would be great."
                             </p>
                         </div>
                     </div>
@@ -677,8 +674,8 @@ $DBvideo = $newObj->get_video();
                         <div class="card-body text-center">
                             <h5 class="card-title">Liam Smith</h5>
                             <p class="text-warning mb-2">★★★★★</p>
-                            <p class="card-text text-muted">
-                                "Booking was smooth, and I could use my frequent flyer points. Will definitely book again!"
+                            <p class="card-text" style="color: #f57c00 !important;">
+                                "Booking was smooth, and I could use my <br />frequent flyer points. Will definitely book again!"
                             </p>
                         </div>
                     </div>

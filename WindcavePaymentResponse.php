@@ -228,7 +228,7 @@ $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
 $objBook->_writeLog(print_r($response, true), 'WindcavePaymentResponse.txt');
 $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
 $objBook->_writeLog('-------------Windcave Response Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
-
+$redirection = false;
 
 if( isset($response) && $response != '') { 
     $responseArray = json_decode($response, true);
@@ -460,11 +460,9 @@ if( isset($response) && $response != '') {
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Transaction Completed Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
 
-                        // confirmationMail($toEmail, $subject, $transactionData,$headers);
+                        confirmationMail($toEmail, $subject, $transactionData,$headers);
+                        $redirection = true;
                         ?>
-                        <script>
-                            // window.location.href ="confirmation?booking_id=<?php //echo $AP_country_name_fetch['mf_reference'];?>";
-                        </script>
                         <?php
                     }
                 } else if ($bookingData['fare_type'] == "WebFare") {
@@ -1000,6 +998,8 @@ if( isset($response) && $response != '') {
                                 $text_2 = "We're processing your booking and will email you confirmation details soon. Check status in your “Manage Bookings” section after logging into your account. Thanks for choosing Bulatrips – enjoy your trip!";
                                 $button_text = "Manage Bookings";
 
+                                $text_3 = "Redirecting you to the booking details page automatically in 10 seconds.";
+
                                 if (isset($_SESSION['user_id'])) {
                                     $button_url = "user-dashboard";
                                     $modal_show = "";
@@ -1014,6 +1014,7 @@ if( isset($response) && $response != '') {
                                 $button_text = "Search Again";
                                 $button_url = "index";
                                 $modal_show = "";
+                                $text_3 = "";
                                 // if (isset($_SESSION['user_id'])) {
                                 //     $button_url = "user-dashboard";
                                 //     $modal_show = "";
@@ -1026,10 +1027,22 @@ if( isset($response) && $response != '') {
                         <h1><?php echo $text_1;?></h1>
                         <!-- <p><?php //echo $text_1;?></p> -->
                         <p><?php echo $text_2;?></p>
+                        <?php
+                        if( $redirection ) {?>
+                            <p><?php echo $text_3;?></p>
+                            <script>
+                                    setTimeout(function() {
+                                        window.location.href = "confirmation?booking_id=<?php echo $AP_country_name_fetch['mf_reference']; ?>";
+                                    }, 10000);
+                            </script>
+                            <?php
+                        }
+                        ?>
+                        
+                        
                         <div style="display: flex;justify-content: center;">
                             <a href="<?php echo $button_url;?>" <?php echo $modal_show;?> class="btn btn-typ7 ml-3 btn-primary" style="max-width: 200px;"><?php echo $button_text;?></a>
                         </div>
-                        
                     </div>
                 </div>
             </div>

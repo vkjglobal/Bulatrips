@@ -39,6 +39,7 @@ $cookie_name = $bookingId;
 $cookie_exists = isset($_COOKIE[$cookie_name]) ? true : false;
 $user_loggedin_status = isset($_SESSION['user_id']) ? true : false;
 
+$bookingId = $bookingData['id'];
 
 if( $cookie_exists || $user_loggedin_status ) {
     //userinfo recent added 

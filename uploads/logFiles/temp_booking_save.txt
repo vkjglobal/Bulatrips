@@ -1873,3 +1873,81 @@ Array
 
 
 -------------If there are errors Close Monday 19th of May 2025 03:21:02 AM-------------
+-------------Webfare holding temp Open Tuesday 20th of May 2025 06:31:50 AM-------------
+ 
+Array
+(
+    [bookingid] => 51
+    [BookStatus] => CONFIRMED
+    [ticketstatus] => Failed
+    [errors] => 
+)
+
+
+-------------Webfare holding temp Close Tuesday 20th of May 2025 06:31:50 AM-------------
+-------------Public/Private Open Tuesday 20th of May 2025 06:32:08 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => ClientMarkup is not valid
+        )
+
+    [Message] => Validation Error
+)
+
+
+-------------Public/Private Close Tuesday 20th of May 2025 06:32:08 AM-------------
+-------------If there are errors Open Tuesday 20th of May 2025 06:32:08 AM-------------
+
+Array
+(
+    [bookingid] => 
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => WebFare
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Tuesday 20th of May 2025 06:32:08 AM-------------
+-------------Public/Private Open Tuesday 20th of May 2025 06:33:39 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-05-20T08:33:18
+            [TraceId] => 25052012-c35fdd8b-1592-4177-b8ea-c2df85832f9f
+            [UniqueID] => MF30336025
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Tuesday 20th of May 2025 06:33:39 AM-------------
+-------------If there are errors Open Tuesday 20th of May 2025 06:33:39 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 52
+)
+
+
+-------------If there are errors Close Tuesday 20th of May 2025 06:33:39 AM-------------

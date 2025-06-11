@@ -173,7 +173,7 @@ if( isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
 
                         <div class="row">
                             <div class="col-lg-5 d-none d-lg-block class_image_left_container"></div>
-                            <div class="col-lg-7 col-7">
+                            <div class="col-lg-7 col-12">
                                 <div class="register-form">
                                     <form class="reg-wrp" method="post" action="" id="user-signup">
 

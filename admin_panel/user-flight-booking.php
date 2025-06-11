@@ -41,9 +41,9 @@ $i  =   0;
                 <thead>
                     <tr class="text-dark">
                         <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">email</th>
-                         <th scope="col">Air Trip Type</th>
+                        <th scope="col">User Details</th>
+                        <th scope="col">MFReference</th> 
+                        <th scope="col">Air Trip Type</th>
                          <th  scope="col">Booking Status</th>
                          <th   scope="col">Departure Date</th> 
                          <th   scope="col">Total Fare</th> 
@@ -56,31 +56,35 @@ $i  =   0;
                         if (count($listBooking)> 0) {
                             foreach($listBooking as $k => $row) {
                                 $i++;
-                                 $getBooking	=   $objBooking->getBookingInfo($row['bookingId']);
-                                 $extramealservAmount   =0;
+                                $getBooking	=   $objBooking->getBookingInfo($row['bookingId']);
+                                
+                                $extramealservAmount   =0;
                                   $extrabaggageAmount   =0;
                                   $serviceTotal =0;
                                   $extramealservAmountTotal =0;
                                   $extrabaggageAmountTotal  =0;
-                                  foreach($getBooking as $key=>$values)
-                                    {
-                                         $extramealservAmount   =   $values['extrameal_amount'];
-                                         $extrabaggageAmount    =   $values['extrabaggage_amount'];
-                                         $extramealservAmountTotal += $extramealservAmount;
-                                        $extrabaggageAmountTotal += $extrabaggageAmount;
-                                    }
-                                    $serviceTotal =   $extramealservAmountTotal+$extrabaggageAmountTotal;
-                                     $total_fare   =   $getBooking[0]['total_fare'];
-                                     $markup_amount   =   $getBooking[0]['markup'];
+                                //   foreach($getBooking as $key=>$values)
+                                //     {
+                                //         $extramealservAmount   =   $values['extrameal_amount'];
+                                //         $extrabaggageAmount    =   $values['extrabaggage_amount'];
+                                //         $extramealservAmountTotal += $extramealservAmount;
+                                //         $extrabaggageAmountTotal += $extrabaggageAmount;
+                                //     }
+                                    // $serviceTotal =   $extramealservAmountTotal+$extrabaggageAmountTotal;
+                                    //  $total_fare   =   $getBooking[0]['total_fare'];
+                                    //  $markup_amount   =   $getBooking[0]['markup'];
 
-                                     $netfare      =   $total_fare + $markup_amount + $serviceTotal;
+                                    // $total_fare   =   $row['total_paid'];
+                                    //  $markup_amount   =   $row['markup'];
+
+                                     $netfare      =   $row['total_paid'];
                                 // print_r($getBooking);
                              //  echo "<pre/>"; print_r($row);
                     ?>
                         <tr>
                             <td><?php echo $i; ?></td>
-                            <td><?php echo $row['agent_name'] ?></td>
-                            <td><?php echo $row['email'] ?></td>
+                            <td><?php echo $row['agent_name']."<br />".$row['email'] ?></td>
+                            <td><?php echo $row['mf_reference'] ?></td>
                              <td><?php echo $row['air_trip_type'] ?></td>
                               <td><span class="badge bg-success"><?php echo $row['booking_status'] ?></span></td>
                                <td><?php echo $row['dep_date'] ?></td>

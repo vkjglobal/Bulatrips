@@ -19,6 +19,13 @@ class Users extends DbAction{
 		$result		= $this->db->getUsersListDB($tableName,$role,$sortId='',$offset='');        
 		return $result;
     }
+
+	public function getAuditLogsList(){
+        $tableName	= "booking_audit_logs";  
+		$result		= $this->db->getAuditLogsListDB($tableName);        
+		return $result;
+    }
+
 	public function getUserDetails($userId){
         $tableName	= "users";  
 		$result		= $this->db->selectById($tableName,$userId);        

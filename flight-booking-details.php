@@ -41,7 +41,11 @@ $user_loggedin_status = isset($_SESSION['user_id']) ? true : false;
 
 $bookingId = $bookingData['id'];
 
-if( $cookie_exists || $user_loggedin_status ) {
+if( 
+    ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) > strtotime(date('Y-m-d H:i:s')))
+    &&
+    ($cookie_exists || $user_loggedin_status)
+    ) {
     //userinfo recent added 
     if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
         $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
@@ -1471,11 +1475,17 @@ if( $cookie_exists || $user_loggedin_status ) {
         <div class="bodycontant">
             <div class="content">
                 <?php
-                    $firstPart = substr($bookingData['contact_email'], 0, 5);
-                    $lastPart = substr($bookingData['contact_email'], -7);
-                    $maskedEmail = $firstPart . "********" . $lastPart;
-                ?>
-                <p>We have sent a token for booking management to your registered email(<?php echo $maskedEmail ;?>) address.</p>
+                $firstPart = substr($bookingData['contact_email'], 0, 5);
+                $lastPart = substr($bookingData['contact_email'], -7);
+                $maskedEmail = $firstPart . "********" . $lastPart;
+                
+                if (isset($bookingData['manage_booking_token']) && $bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) < strtotime(date('Y-m-d H:i:s'))) {?>
+                    <p>Your Previous token has expired. We have sent a new token for booking management to your registered email(<?php echo $maskedEmail ;?>) address.</p>
+                <?php } else {?>
+                    <p>We have sent a token for booking management to your registered email(<?php echo $maskedEmail ;?>) address.</p>
+                    <?php
+                } ?>
+
                 <form id="tokenForm" class="d-flex align-items-center w-100">
                     <input type="number" name="tokenManagement" required placeholder="Enter Token" class="form-control flex-grow-1" style="flex: 0 0 67%;">
                     <button type="submit" class="btn btn-typ7 p-2 ml-3" style="flex: 0 0 30%;">Submit</button>
@@ -1485,11 +1495,18 @@ if( $cookie_exists || $user_loggedin_status ) {
         </div>
     </div>
     <?php
-        
-        if( $bookingData['manage_booking_token'] == "" || $bookingData['manage_booking_token'] == NULL ) {
+
+        if(
+            ($bookingData['manage_booking_token'] == "" || $bookingData['manage_booking_token'] == NULL)
+            || 
+            ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) < strtotime(date('Y-m-d H:i:s')))
+            
+            ) {
             $token = substr(strval(random_int(1000000, 9999999)), 0, 7);
-            $updateToken = $conn->prepare('UPDATE temp_booking SET manage_booking_token = :manage_booking_token WHERE id = :id');
+            $token_expiry = date('Y-m-d H:i:s', strtotime('+1 day'));
+            $updateToken = $conn->prepare('UPDATE temp_booking SET manage_booking_token = :manage_booking_token, token_expiry = :token_expiry WHERE id = :id');
             $updateToken->bindParam(':manage_booking_token', $token);
+            $updateToken->bindParam(':token_expiry', $token_expiry);
             $updateToken->bindParam(':id', $bookingData['id']);
             $updateToken->execute();
 

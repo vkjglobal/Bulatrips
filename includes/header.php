@@ -87,7 +87,7 @@ include_once("includes/filterValidation.php");
                                         <li class="nav-item">
                                             <div class="user-menu">
                                                 <div class="dropdown">
-                                                    <button type="button" class="btn dropdown-toggle" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">My Account </button>
+                                                    <button type="button" class="btn dropdown-toggle pl-0" id="userDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >My Account </button>
                                                         <div class="dropdown-menu" aria-labelledby="userDropdown">
                                                             <a class="dropdown-item" href="user-profile">Profile</a>    
                                                             <a class="dropdown-item" href="user-dashboard">Manage Bookings</a>    

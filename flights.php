@@ -6,6 +6,7 @@ require_once("includes/header.php");
 require_once('includes/dbConnect.php');
 require_once('includes/common_const.php');
 
+
 // ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 ?>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -724,59 +725,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         ?>
 
                                         <div class="form-row panel flight-details-tab-wrap" style="margin: 0px;">
-                                            <ul class="nav nav-tabs d-flex w-100 main_flight_details_container" style="background: #6b7c93; border:0;align-items: center; z-index:9;justify-content: space-evenly;">
-                                                <li class="nav-item">
-                                                    <a class="nav-link">
-                                                        <span class="detail-icon" style="font-size: 15px;">✈️</span>Flight Details
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link">
-                                                        <span class="detail-icon" style="font-size: 15px;">💼</span> Fare Details
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link">
-                                                        <span class="detail-icon" style="font-size: 15px;">📦</span>Baggage Details
-                                                    </a>
-                                                </li>
-
-                                                <li class="nav-item">
-                                                    <?php
-                                                    $totalAdultfare = 0;
-                                                    $totalChildfare = 0;
-                                                    $totalInfantfare = 0;
-                                                    if (isset($adultCount) && $adultCount > 0) {
-
-                                                        $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
-                                                    }
-                                                    if (isset($childCount) && $childCount > 0) {
-                                                        $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
-                                                    }
-                                                    if (isset($infantCount) && $infantCount > 0) {
-                                                        $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
-                                                    }
-
-                                                    $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                    $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-                                                    $markupPercentage += $ticketing_fee;
-                                                    $total_price = $markupPercentage + $totalFareAPI;
-                                                    // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
-                                                    // $total_price += $ipg_trasaction_percentage;
-                                                    ?>
-
-
-                                                    <!-- <form action="my-booking-step1" method="post" style="margin-top:4px;"> -->
-                                                    <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; 
-                                                                                                                ?>"> -->
-                                                    <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
-                                                        $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
-                                                    </button>
-                                                    <!-- </form> -->
-
-                                                </li>
-
-                                            </ul>
+                                            
 
                                             <div class="tab-content text-center">
                                                 <div class="tab-pane p-lg-5 pt-5 p-3 pane1">
@@ -1356,6 +1305,61 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                 </div>
 
                                             </div>
+
+                                            <ul class="nav nav-tabs d-flex w-100 main_flight_details_container" style="background: #6b7c93; border:0;align-items: center; z-index:9;justify-content: space-evenly;">
+                                                <li class="nav-item">
+                                                    <a class="nav-link">
+                                                        <span class="detail-icon" style="font-size: 15px;">✈️</span>Flight Details
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link">
+                                                        <span class="detail-icon" style="font-size: 15px;">💼</span> Fare Details
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link">
+                                                        <span class="detail-icon" style="font-size: 15px;">📦</span>Baggage Details
+                                                    </a>
+                                                </li>
+
+                                                <li class="nav-item">
+                                                    <?php
+                                                    $totalAdultfare = 0;
+                                                    $totalChildfare = 0;
+                                                    $totalInfantfare = 0;
+                                                    if (isset($adultCount) && $adultCount > 0) {
+
+                                                        $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
+                                                    }
+                                                    if (isset($childCount) && $childCount > 0) {
+                                                        $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
+                                                    }
+                                                    if (isset($infantCount) && $infantCount > 0) {
+                                                        $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
+                                                    }
+
+                                                    $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                    $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+                                                    $markupPercentage += $ticketing_fee;
+                                                    $total_price = $markupPercentage + $totalFareAPI;
+                                                    // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+                                                    // $total_price += $ipg_trasaction_percentage;
+                                                    ?>
+
+
+                                                    <!-- <form action="my-booking-step1" method="post" style="margin-top:4px;"> -->
+                                                    <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; 
+                                                                                                                ?>"> -->
+                                                    <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
+                                                        $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
+                                                    </button>
+                                                    <!-- </form> -->
+
+                                                </li>
+
+                                            </ul>
+
                                         </div>
                                     </li>
 

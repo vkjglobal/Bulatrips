@@ -111,15 +111,15 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="tab-content col-md-12 pl-md-0">
                     <div class="row my-4">
                         <div class="col-12">
-                            <h2 class="title-typ2 mb-0">Manage Bookings</h2>
+                            <h2 class="title-typ2 mb-0" style="    line-height: 30px;">Manage Bookings</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-12 sub-tabs-container">
-                    <div class="subtab-content">
+                    <div class="">
                         <div id="parent" class="d-flex flex-column">
                             <div class="d-md-block w-100">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-responsive">
                                     <thead>
                                         <tr>
                                             <th>MFReference No.</th>

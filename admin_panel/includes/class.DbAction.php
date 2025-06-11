@@ -99,15 +99,22 @@ class DbAction {
          $params = [$role];
         return $this->executeQuery($query,$params);
     }
-     public function getUsersListDB($tableName,$role,$sortId='',$offset='') {      
-         if( $sortId   ==  ''){
-              $sortId   =   'id';
-         } 
-       
-        $query = "SELECT  `id`,`first_name`,`last_name`,`image`,`email`,`mobile`,`username`,`status` FROM $tableName WHERE role = ? ORDER BY $sortId DESC $offset";  
-         $params = [$role];
-        return $this->executeQuery($query,$params);
+    public function getAuditLogsListDB($tableName) {      
+        $query = "SELECT * FROM $tableName ORDER BY id DESC";  
+        return $this->executeQuery($query);
     }
+
+    public function getUsersListDB($tableName,$role,$sortId='',$offset='') {      
+        if( $sortId   ==  ''){
+             $sortId   =   'id';
+        } 
+      
+       $query = "SELECT  `id`,`first_name`,`last_name`,`image`,`email`,`mobile`,`username`,`status` FROM $tableName WHERE role = ? ORDER BY $sortId DESC $offset";  
+        $params = [$role];
+       return $this->executeQuery($query,$params);
+   }
+
+
     public function selectByEmail($tableName, $email) {
         $query = "SELECT * FROM $tableName WHERE email = ?";
         $params = [$email];
@@ -221,12 +228,17 @@ public function updateAgentBalance($agentId,$amountnew){
             die("Error executing query: " . $e->getMessage());
         }
     }
+    // public function selectListBooking($tableName1,$tableName2,$role,$sql='') {
+    //     $query = "SELECT $tableName1.id AS userId,$tableName2.id AS bookingId,   ($tableName1.first_name, ' ', $tableName1.last_name) AS agent_name ,$tableName1.email,$tableName1.credit_balance,$tableName2.air_trip_type,$tableName2.booking_status,$tableName2.dep_date FROM $tableName2 INNER JOIN $tableName1 ON $tableName2.user_id  =   $tableName1.id WHERE $tableName1.role = ? $sql";
+    //     $params = [$role];
+    //     return $this->executeQuery($query, $params);
+    // }
+
     public function selectListBooking($tableName1,$tableName2,$role,$sql='') {
-        $query = "SELECT $tableName1.id AS userId,$tableName2.id AS bookingId, CONCAT($tableName1.first_name, ' ', $tableName1.last_name) AS agent_name ,$tableName1.email,$tableName1.credit_balance,$tableName2.air_trip_type,$tableName2.booking_status,$tableName2.dep_date FROM $tableName2 INNER JOIN $tableName1 ON $tableName2.user_id  =   $tableName1.id WHERE $tableName1.role = ? $sql";
+        $query = "SELECT $tableName1.id AS userId,$tableName2.id AS bookingId, CONCAT($tableName1.first_name, ' ', $tableName1.last_name) AS agent_name ,$tableName1.email,$tableName1.credit_balance,$tableName2.air_trip_type,$tableName2.booking_status,$tableName2.dep_date,$tableName2.total_fare,$tableName2.markup,$tableName2.mf_reference,$tableName2.total_paid FROM $tableName2 LEFT JOIN $tableName1 ON $tableName2.user_id = $tableName1.id WHERE ($tableName1.role = ? OR $tableName1.role IS NULL) $sql ORDER BY $tableName2.id DESC";
         $params = [$role];
         return $this->executeQuery($query, $params);
     }
-    
 
     public function updatesettingpvalue($tableName1,$markupId,$param,$paramval){
        

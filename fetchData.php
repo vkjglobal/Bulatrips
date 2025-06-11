@@ -23,6 +23,37 @@ $total_updated_price = $_POST['total_extra_service_fee'] + $_SESSION['session_to
     $ipg_trasaction_percentage = ($ipg_percentage / 100) * ($_POST['total_extra_service_fee'] + $_SESSION['session_total_amount']);
 // IPG PRICE INCLUDING ENDS
 
+
+// Check if email exists in users table
+$email = $_POST['contactemail'];
+$email_exists = 'no';
+
+// Check if user is logged in
+if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+    // User is logged in, check if the posted email is different from the logged-in user's email
+    $stmt = $conn->prepare("SELECT COUNT(*) as count FROM users WHERE email = :email AND id != :user_id");
+    $stmt->bindValue(':email', $email);
+    $stmt->bindValue(':user_id', $_SESSION['user_id']);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($result['count'] > 0) {
+        $email_exists = 'yes';
+    }
+} else {
+    // User is not logged in, check if email exists in the database
+    $stmt = $conn->prepare("SELECT COUNT(*) as count FROM users WHERE email = :email");
+    $stmt->bindValue(':email', $email);
+    $stmt->execute();
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    if ($result['count'] > 0) {
+        $email_exists = 'yes';
+    }
+}
+
+
+
 $total_updated_price += $ipg_trasaction_percentage;
 
 
@@ -30,10 +61,11 @@ $total_updated_price += $ipg_trasaction_percentage;
 $_SESSION['revalidationApi'] = $_POST;
 if(isset($_SESSION['revalidationApi'])){
     // Return success response
-    $response = array("success" => true);
+    $response = array("success" => true, "email_exists" => $email_exists);
 }else{
     // session error
-    $response = array("success" => false);
+
+    $response = array("success" => false, "email_exists" => $email_exists);
 }
 $response['total_updated_price'] =  "$".number_format($total_updated_price,2);
 $response['total_updated_price_without_ipg'] =  "$".number_format($_POST['total_extra_service_fee'] + $_SESSION['session_total_amount'],2);

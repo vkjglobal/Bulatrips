@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 if (!isset($_SESSION['user_id'])) {
 ?>
     <script>
@@ -17,6 +18,9 @@ require_once('includes/dbConnect.php');
 include_once('includes/common_const.php');
 include_once('sendmail.php');
 include_once('includes/class.BookScript.php');
+
+
+
 $objBook    =   new BookScript();
 $endpoint   =   'v1.1/TripDetails/{MFRef}';
 $apiEndpoint = APIENDPOINT . $endpoint;
@@ -24,10 +28,28 @@ $bearerToken   =   BEARER;
 
 //echo 'helo';exit;
 $bookingId = $_GET['booking_id'];
+
+if(isset($_SESSION[$bookingId]) && $_SESSION[$bookingId] == 'showConfirmationMessage') {
+    echo "<script>
+    Swal.fire({
+        title: 'Your Payment is Approved!',
+        text: 'We\'re processing your booking and will email you confirmation details soon. Check status in your \"Manage Bookings\" section after logging into your account. If you\'re a guest user, you can click the Manage Booking button in the email to view your booking details. Thanks for choosing Bulatrips – enjoy your trip!',
+        icon: 'success',
+        confirmButtonText: 'Close',
+        confirmButtonColor: '#0000ff'
+    });
+    </script>";
+    // Clear the session variable after showing the message
+    unset($_SESSION[$bookingId]);
+}
+
 $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference = :bookingid');
 
 $stmtbookingid->execute(array('bookingid' => $bookingId));
 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
+
+insertAuditLog($conn, $bookingData['mf_reference'], "Booking", "Trip Details Api Initiated", "", @$_SESSION['user_id'], "Pending");
+
 
 $bookingId = $bookingData['id'];
 
@@ -76,6 +98,8 @@ if (isset($bookingData['mf_reference'])) {
     ));
 
     $response = curl_exec($ch);
+    insertAuditLog($conn, $bookingData['mf_reference'], "Booking", "Trip Details Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
+
     curl_close($ch);
 
     // Process the API response
@@ -96,6 +120,8 @@ if (isset($bookingData['mf_reference'])) {
     }
     // Handle the API response
 
+    
+
     if ($response) {
         $responseData = json_decode($response, true);
     }
@@ -114,7 +140,7 @@ if (isset($bookingData['mf_reference'])) {
 
     //============ END log write for trip API ==========  
     if ((!empty($responseData)) && (($responseData['Success']))) {
-        
+
         $tripDetails = $responseData['Data']['TripDetailsResult']['TravelItinerary'];
         $tripDetailsAtaInfo = $tripDetails['ATAinfoList']; //fare attributes
         $tripDetailsExtraServices = $tripDetails['ExtraServices']['Services']; //ExtraServices
@@ -147,7 +173,7 @@ if (isset($bookingData['mf_reference'])) {
         } else {
             $voidWindow = ""; //because i didnt see this from testing but api doc said this will be available 
         }
-        
+
         // $markup = $tripDetails['ClientMarkup']['Amount'];
         $id = $bookingId;
 
@@ -163,7 +189,7 @@ if (isset($bookingData['mf_reference'])) {
 
 
         // Execute the query
-        
+
         $stmtupdate->execute();
 
         // $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus WHERE flight_booking_id  = :bookingId');
@@ -174,7 +200,7 @@ if (isset($bookingData['mf_reference'])) {
         $ticketStatus = $tripDetails['TicketStatus'];
         $id = $bookingId;
         foreach ($passengerDetail as $passengerInfo) {
-            
+
 
             if (isset($passengerInfo['ETickets'][0]['ETicketNumber'])) {
                 $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
@@ -271,10 +297,7 @@ if (!empty($responseData['Data']['Errors'])) {
         // echo "update success ";
         ?>
     </div>
-<?php } else if ((empty($responseData['Success'])) || (!$responseData['Success'])) {
-    //  echo "yyyyy";
-    //  var_dump($responseData['sucess']); exit;
-?>
+<?php } else if ((empty($responseData['Success'])) || (!$responseData['Success'])) {?>
     <div class=" container">
 
         <?php
@@ -295,8 +318,7 @@ if (!empty($responseData['Data']['Errors'])) {
         // echo "update success ";
         ?>
     </div>
-<?php } elseif (empty($responseData)) {
-?>
+<?php } elseif (empty($responseData)) { ?>
     <div class=" container">
         <?php
         $errStatus  =   1; // need to handle error case like repay mail etc
@@ -316,31 +338,30 @@ if (!empty($responseData['Data']['Errors'])) {
         // echo "update success ";
         ?>
 
-    </div><?php
-        } elseif ($bookingStatus == "NotBooked") {
-            ?>
+    </div>
+<?php } elseif ($bookingStatus == "NotBooked") { ?>
     <div class=" container">
         <?php
-            $errStatus  =   1; // need to handle error case like repay mail etc
-            $Errmessage = "Latest status from AirLine Shows NotBooked .Please search again or check with your dashboard Booking details";
+        $errStatus  =   1; // need to handle error case like repay mail etc
+        $Errmessage = "Latest status from AirLine Shows NotBooked .Please search again or check with your dashboard Booking details";
 
-            echo "<script>";
-            echo "document.addEventListener('DOMContentLoaded', function() {";
-            echo "    var emptypop = document.getElementById('errorModal');";
-            echo "    var errorMsgElement = document.getElementById('errorMessage');";
-            echo "    if (emptypop && errorMsgElement) {";
-            echo "        emptypop.classList.add('show');";
-            echo "        emptypop.style.display = 'block';";
-            echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
-            echo "    }";
-            echo "});";
-            echo "</script>";
-            // echo "update success ";
+        echo "<script>";
+        echo "document.addEventListener('DOMContentLoaded', function() {";
+        echo "    var emptypop = document.getElementById('errorModal');";
+        echo "    var errorMsgElement = document.getElementById('errorMessage');";
+        echo "    if (emptypop && errorMsgElement) {";
+        echo "        emptypop.classList.add('show');";
+        echo "        emptypop.style.display = 'block';";
+        echo "        errorMsgElement.textContent = '" . addslashes($Errmessage) . "';";
+        echo "    }";
+        echo "});";
+        echo "</script>";
+        // echo "update success ";
         ?>
 
-    </div><?php
-        } else {
-
+    </div>
+    <?php
+} else {
             $onewaysegment = [];
             $returnsegment = [];
             //  echo "<pre/>";print_r($itinerariesDetail);exit;
@@ -364,15 +385,7 @@ if (!empty($responseData['Data']['Errors'])) {
             } elseif ($cabin_class_mail == 'F') {
                 $cabin_class_text   = "First";
             }
-            //echo "<pre/>";print_r($onewaysegment);exit;
-
-            //  echo "<pre/>";
-            // print_r($onewaysegmentLast);
-            // echo "***********************";
-            //  print_r($returnsegmentLast); exit;
-            // $toEmail = "no-reply@bulatrips.com";
             $toEmail = $userEmail;
-            // echo $toEmail;exit;
             if (empty($ticketStatus)) {
                 $ticketStatus =   "Awaiting Airline Response";
             }
@@ -880,9 +893,11 @@ if (!empty($responseData['Data']['Errors'])) {
 
             // mail($toEmail, $subject, $messageData, $headers);
             // echo $toEmail.$subject. $messageData;exit;
+            insertAuditLog($conn, $bookingData['mf_reference'], "Email", "Booking Confirmation Email Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
+
             confirmationMail($toEmail, $subject, $messageData, $headers, $bookingId);
 
-
+            insertAuditLog($conn, $bookingData['mf_reference'], "Email", "Booking Confirmation Email Sent", json_encode($response), @$_SESSION['user_id'], "Pending");
 
             ?>
 
@@ -1755,8 +1770,9 @@ if (!empty($responseData['Data']['Errors'])) {
         </div>
     </section>
 <?php
-        }
-        if ($errStatus  ==   1) {
+}
+
+if ($errStatus  ==   1) {
             //echo "Cases when trip details response has errors or Not booked status ";
             //==========email to agent/user about Failure status of Booking======
 
@@ -2033,3 +2049,4 @@ require_once("includes/footer.php");
         }
     }
 </script>
+

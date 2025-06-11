@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 // STAGING CREDENTIALS STARTS
 define("BEARER", "18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560");
 define("APIENDPOINT","https://restapidemo.myfarebox.com/api/");
@@ -118,6 +119,31 @@ function sendJSONResponse($data, $exit = true)
     header('Content-Type: application/json');
     echo json_encode($data);
     if ($exit) exit;
+}
+
+function insertAuditLog($conn, $mf_reference, $action, $description, $details = null, $user_id = null, $trip_status = 'Pending') 
+{
+    try {
+        $sql = "INSERT INTO booking_audit_logs (user_id, mf_reference, description, action, details, trip_status, created_at) 
+                VALUES (:user_id, :mf_reference, :description, :action, :details, :trip_status, NOW())";
+        $stmt = $conn->prepare($sql);
+        
+        $result = $stmt->execute([
+            ':user_id' => $user_id,
+            ':mf_reference' => $mf_reference,
+            ':description' => $description,
+            ':action' => $action,
+            ':details' => $details,
+            ':trip_status' => $trip_status
+        ]);
+        return $result;
+        
+    } catch (Exception $e) {
+        // Log error but don't break the main functionality
+        // print_r($e->getMessage());
+        error_log("Audit Log Error: " . $e->getMessage());
+        return false;
+    }
 }
 
 ?>

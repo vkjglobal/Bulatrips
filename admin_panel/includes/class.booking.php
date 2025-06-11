@@ -26,6 +26,7 @@ class Booking extends DbAction
          $sql =   "";
       }
       $result =   $this->db->selectListBooking($tableName1, $tableName2, $role, $sql);
+      
       return $result;
    }
    public function markupList()
@@ -81,7 +82,7 @@ class Booking extends DbAction
 
    public function getBookingInfo($bid)
    {
-      $sql    =   "SELECT CONCAT(u.first_name, ' ', u.last_name) AS agentname, u.email,u.dial_code,u.mobile,u.role,b.air_trip_type,b.total_fare,b.stops,b.adult_count,b.child_count,b.infant_Count,b.booking_status,CONCAT(b.contact_first_name, ' ', b.contact_last_name) AS contactname,b.contact_email,b.contact_phonecode,b.contact_number,b.markup,b.booking_date,t.id AS trvId,t.passenger_type,t.title ,CONCAT(t.first_name, ' ', t.last_name) AS traveller_name,t.e_ticket_number,t.extrameal_amount,t.extrameal_description,t.extrabaggage_description,t.extrabaggage_amount,t.free_checkin_baggage,t.free_cabin_baggage,t.basic_fare ,t.tax,t.total_pass_fare FROM temp_booking AS b INNER JOIN users AS u ON u.id = b.user_id LEFT JOIN travellers_details AS t ON b.id = t.flight_booking_id WHERE b.id=" . $bid;
+      $sql    =   "SELECT CONCAT(u.first_name, ' ', u.last_name) AS agentname, u.email,u.dial_code,u.mobile,u.role,b.air_trip_type,b.total_fare,b.stops,b.adult_count,b.child_count,b.infant_Count,b.booking_status,CONCAT(b.contact_first_name, ' ', b.contact_last_name) AS contactname,b.contact_email,b.contact_phonecode,b.contact_number,b.markup,b.booking_date,t.id AS trvId,t.passenger_type,t.title ,CONCAT(t.first_name, ' ', t.last_name) AS traveller_name,t.e_ticket_number,t.extrameal_amount,t.extrameal_description,t.extrabaggage_description,t.extrabaggage_amount,t.free_checkin_baggage,t.free_cabin_baggage,t.basic_fare ,t.tax,t.total_pass_fare FROM temp_booking AS b LEFT JOIN users AS u ON u.id = b.user_id LEFT JOIN travellers_details AS t ON b.id = t.flight_booking_id WHERE b.id=" . $bid;
 
       $result =   $this->db->sqlExec($sql);
       return $result;

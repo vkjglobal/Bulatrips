@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(window).on('load', function () {
   // Function to set a cookie (renamed to setUserDataCookie)
   function setUserDataCookie(cookieName, value, days) {
     let expires = "";
@@ -168,8 +168,8 @@ $(document).ready(function () {
       success: function (response) {
         if (response == "flights_redirectation") {
           Swal.fire({
-            title: "Registration Success",
-            text: "You have signed up successfully.<br /> Please check your inbox and click the link we sent to confirm your email.",
+            title: "Account created successfully!",
+            text: "Please verify your email address (check your inbox), then return here to log in and continue.",
             icon: "success",
             confirmButtonText: "Close",
             confirmButtonColor: "#f57c00",
@@ -179,8 +179,8 @@ $(document).ready(function () {
           });
         } else if (response == "registered") {
           Swal.fire({
-            title: "Registration Success",
-            text: "You have signed up successfully.<br /> Please check your inbox and click the link we sent to confirm your email.",
+            title: "Account created successfully!",
+            text: "Please verify your email address (check your inbox), then return here to log in and continue.",
             icon: "success",
             confirmButtonText: "Close",
             confirmButtonColor: "#f57c00",
@@ -2683,6 +2683,13 @@ $(document).ready(function () {
                       <span id="nationalityError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
                     </div>
 
+                    <div class="col-lg-2 col-md-4 mb-4">
+                    <label for="frequent_flyer${i}">Frequent Flyer:</label>
+                        <input type="text" class="form-control" name="frequent_flyer${i}" placeholder="Adult ${i} Frequent Flyer"  value="${
+                savedData.frequent_flyer || ""
+              }">
+                    </div>
+
                     <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
                       extraSrviceData && extraSrviceData.length > 0
                         ? ""
@@ -2893,6 +2900,13 @@ $(document).ready(function () {
                         .join("")}
                     </select>
                     <span id="nationalityChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
+                  </div>
+
+                  <div class="col-lg-2 col-md-4 mb-4">
+                    <label for="frequent_flyerChild${i}">Frequent Flyer:</label>
+                    <input type="text" class="form-control" name="frequent_flyerChild${i}" placeholder="Child ${i} Frequent Flyer" value="${
+                savedData.frequent_flyer || ""
+              }">
                   </div>
 
                   <div class="col-lg-6 col-md-4 calndr-icon mb-4" ${
@@ -3108,6 +3122,13 @@ $(document).ready(function () {
                         .join("")}
                     </select>
                     <span id="nationalityChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
+                  </div>
+
+                  <div class="col-lg-2 col-md-4 mb-4">
+                    <label for="frequent_flyerInfant${i}">Frequent Flyer:</label>
+                    <input type="text" class="form-control" name="frequent_flyerInfant${i}" placeholder="Infant ${i} Frequent Flyer" value="${
+                savedData.frequent_flyer || ""
+              }">
                   </div>
 
 
@@ -3747,7 +3768,7 @@ $(document).ready(function () {
     } else {
       $("#contactnumber").next('.text-danger').remove();
     }
-
+    
     if (
       $("#contactemail").val() === "" ||
       !emailReg.test($("#contactemail").val())
@@ -3805,6 +3826,9 @@ $(document).ready(function () {
                 ).value,
                 nationality: document.querySelector(`[name="nationality${i}"]`)
                   .value,
+                frequent_flyer: document.querySelector(`[name="frequent_flyer${i}"]`)
+                  ? document.querySelector(`[name="frequent_flyer${i}"]`).value
+                  : "",
                 baggageService: document.querySelector(
                   `[name="baggageService${i}"]`
                 )
@@ -3854,6 +3878,9 @@ $(document).ready(function () {
                 nationality: document.querySelector(
                   `[name="nationalityChild${i}"]`
                 ).value,
+                frequent_flyer: document.querySelector(`[name="frequent_flyerChild${i}"]`)
+                  ? document.querySelector(`[name="frequent_flyerChild${i}"]`).value
+                  : "",
                 baggageService: document.querySelector(
                   `[name="baggageServiceChild${i}"]`
                 )
@@ -3910,6 +3937,9 @@ $(document).ready(function () {
                 nationality: document.querySelector(
                   `[name="nationalityinfant${i}"]`
                 ).value,
+                frequent_flyer: document.querySelector(`[name="frequent_flyerInfant${i}"]`)
+                  ? document.querySelector(`[name="frequent_flyerInfant${i}"]`).value
+                  : "",
                 baggageService: document.querySelector(
                   `[name="baggageServiceInfant${i}"]`
                 )
@@ -3963,8 +3993,19 @@ $(document).ready(function () {
               JSON.stringify(contactDetailsData),
               7
             );
-
             setUserDataCookie("step_traveller_details_added", 1, 7);
+
+            if (response.email_exists == 'yes') {
+              $("#contactemail").after(
+                '<span class="text-danger fs-12 position-absolute">Email already exists. Please login or use different email.</span>'
+              );
+              return false;
+            } else {
+              const nextElement = $("#contactemail").next(".text-danger");
+              if (nextElement.length) {
+                nextElement.remove();
+              }
+            }
 
             const isLoggedIn = $("#user_id_loggedin").val();
             if (isLoggedIn) {

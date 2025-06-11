@@ -1,15 +1,21 @@
 <?php
-error_reporting();
+// ini_set('display_errors', 1);
+// ini_set('display_startup_errors', 1);
+// error_reporting(E_ALL);
 //User booking call 
 include_once('includes/common_const.php');
 require_once('includes/dbConnect.php');
 include_once('includes/class.Markup.php');
 include_once('includes/class.Users.php');
 include_once('includes/class.BookScript.php');
+
+
 $objBook    =   new BookScript();
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    insertAuditLog($conn, "", "Booking", "Booking Process Initiated", "", @$_SESSION['user_id'], "Pending");
     header('Content-Type: application/json');
 
 
@@ -224,11 +230,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $sqltraveler = "INSERT INTO travellers_details (first_name, last_name, flight_booking_id,dob,
                 passport_number,passport_expiry_date,title,passenger_type,extrabaggage_id,extrabaggage_description,
                 extrabaggage_amount,extrameal_id,extrameal_description,extrameal_amount,gender,issuing_country,
-                nationality,extrameal_return_id,extrameal_return_description,extrameal_return_amount,extrabaggage_return_id,
+                nationality,frequent_flyer,extrameal_return_id,extrameal_return_description,extrameal_return_amount,extrabaggage_return_id,
                 extrabaggage_return_description,extrabaggage_return_amount) 
                 VALUES (:firstName, :lastName, :bookingID,:dob,:passportNo,:passpostExp,:title,:passengerType,
                 :baggageId,:baggageDescription,:baggageAmount,:mealId,:mealDescription,:mealAmount,:gender,
-                :issuingCountry,:nationality,:mealReturnId,:mealReturnDescription,:mealReturnAmount,:baggageReturnId,
+                :issuingCountry,:nationality,:frequentFlyer,:mealReturnId,:mealReturnDescription,:mealReturnAmount,:baggageReturnId,
                 :baggageReturnDescription,:baggageReturnAmount)";
                 // $sqltraveler = "INSERT INTO travellers_details (first_name, last_name, flight_booking_id,passport_number,title) 
                 // VALUES (:firstName, :lastName, :bookingID,:passportNo,:title)";
@@ -254,6 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $issuingCountry = $data['issuingCountry' . $i];
                     $passengerType = "ADT";
                     $nationality = $data['nationality' . $i];
+                    $frequentFlyer = $data['frequent_flyer' . $i] ?? '';
 
                     if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
                         $errorMessage = 'Please fill in all mandatory fields for adult';
@@ -443,6 +450,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmttraveler->bindValue(':gender', $gender, PDO::PARAM_STR);
                     $stmttraveler->bindValue(':issuingCountry', $issuingCountry, PDO::PARAM_STR);
                     $stmttraveler->bindValue(':nationality', $nationality, PDO::PARAM_STR);
+                    $stmttraveler->bindValue(':frequentFlyer', $frequentFlyer, PDO::PARAM_STR);
 
                     $stmttraveler->bindValue(':baggageReturnId', $baggageReturnID, PDO::PARAM_INT);
                     $stmttraveler->bindValue(':baggageReturnDescription', $baggageReturnDescription, PDO::PARAM_STR);
@@ -459,11 +467,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $sqltravelerchild = "INSERT INTO travellers_details (first_name, last_name, flight_booking_id,
                 dob,passport_number,passport_expiry_date,title,passenger_type,extrabaggage_id,extrabaggage_description,
                 extrabaggage_amount,extrameal_id,extrameal_description,extrameal_amount,gender,issuing_country,
-                nationality,extrameal_return_id,extrameal_return_description,extrameal_return_amount,extrabaggage_return_id,
+                nationality,frequent_flyer,extrameal_return_id,extrameal_return_description,extrameal_return_amount,extrabaggage_return_id,
                 extrabaggage_return_description,extrabaggage_return_amount) 
                 VALUES (:firstName, :lastName, :bookingID,:dob,:passportNo,:passpostExp,:title,:passengerType,:baggageId,
                 :baggageDescription,:baggageAmount,:mealId,:mealDescription,:mealAmount,:gender,:issuingCountry,:nationality,
-                :mealReturnId,:mealReturnDescription,:mealReturnAmount,:baggageReturnId,:baggageReturnDescription,:baggageReturnAmount)";
+                :frequentFlyer,:mealReturnId,:mealReturnDescription,:mealReturnAmount,:baggageReturnId,:baggageReturnDescription,:baggageReturnAmount)";
                 // $sqltraveler = "INSERT INTO travellers_details (first_name, last_name, flight_booking_id,passport_number,title) 
                 // VALUES (:firstName, :lastName, :bookingID,:passportNo,:title)";
 
@@ -471,6 +479,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmttravelerchild = $conn->prepare($sqltravelerchild);
 
                 for ($i = 1; $i <= $childCount; $i++) {
+                    
                     // print_r($bookingData['id']);die();
                     $firstName = $data['firstNameChild' . $i];
                     $lastName = $data['lastNameChild' . $i];
@@ -485,6 +494,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $issuingCountry = $data['issuingcountryChild' . $i];
                     $passengerType = "CHD";
                     $nationality = $data['nationalityChild' . $i];
+                    $frequentFlyer = $data['frequent_flyerChild' . $i] ?? '';
                     if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
                         // Handle the validation error (e.g., show an error message or redirect back with an error)
                         // For example, you can redirect back to the form page with an error message
@@ -593,6 +603,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmttravelerchild->bindValue(':gender', $gender, PDO::PARAM_STR);
                     $stmttravelerchild->bindValue(':issuingCountry', $issuingCountry, PDO::PARAM_STR);
                     $stmttravelerchild->bindValue(':nationality', $nationality, PDO::PARAM_STR);
+                    
+                    $stmttravelerchild->bindValue(':frequentFlyer', $frequentFlyer, PDO::PARAM_STR);
 
                     $stmttravelerchild->bindValue(':baggageReturnId', $baggageReturnID, PDO::PARAM_INT);
                     $stmttravelerchild->bindValue(':baggageReturnDescription', $baggageReturnDescription, PDO::PARAM_STR);
@@ -603,11 +615,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     // Execute the statement
                     $stmttravelerchild->execute();
+                    
                 }
 
                 $sqltravelerinfant = "INSERT INTO travellers_details (first_name, last_name, flight_booking_id,dob,passport_number,
-                passport_expiry_date,title,passenger_type,gender,issuing_country,nationality) 
-                VALUES (:firstName, :lastName, :bookingID,:dob,:passportNo,:passpostExp,:title,:passengerType,:gender,:issuingCountry,:nationality)";
+                passport_expiry_date,title,passenger_type,gender,issuing_country,nationality,frequent_flyer) 
+                VALUES (:firstName, :lastName, :bookingID,:dob,:passportNo,:passpostExp,:title,:passengerType,:gender,:issuingCountry,:nationality,:frequentFlyer)";
 
                 $stmttravelerinfant = $conn->prepare($sqltravelerinfant);
                 for ($i = 1; $i <= $infantCount; $i++) {
@@ -624,6 +637,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $issuingCountry = $data['issuingcountryInfant' . $i];
                     $nationality = $data['nationalityinfant' . $i];
                     $passengerType = "INF";
+                    $frequentFlyer = $data['frequent_flyerInfant' . $i] ?? '';
 
 
                     if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
@@ -658,6 +672,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $stmttravelerinfant->bindValue(':gender', $gender, PDO::PARAM_STR);
                     $stmttravelerinfant->bindValue(':issuingCountry', $issuingCountry, PDO::PARAM_STR);
                     $stmttravelerinfant->bindValue(':nationality', $nationality, PDO::PARAM_STR);
+                    $stmttravelerinfant->bindValue(':frequentFlyer', $frequentFlyer, PDO::PARAM_STR);
 
 
                     // Execute the statement
@@ -736,6 +751,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         "ExpiryDate" => $row['passport_expiry_date'],
                         "Country" => $row['issuing_country'],
                     ),
+                    "FrequentFlyerNumber" => $row['frequent_flyer'],
                     "PassengerNationality" => $row['nationality'],
                 );
                 if (!empty($extraServices) &&  $bookingData['fare_type'] == "WebFare") {
@@ -755,6 +771,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 ),
                 "Target" => TARGET,
             );
+
+            echo "<pre>";
+            print_r($requestData);
+            echo "</pre>";
+            die;
+
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
             curl_setopt($ch, CURLOPT_POST, true);
@@ -829,6 +851,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $objBook->_writeLog("", 'temp_booking_save.txt');
             $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
             echo json_encode($response);
+            insertAuditLog($conn, $mfreference, "Booking", "Booking Failed", json_encode($response), @$_SESSION['user_id'], "Pending");
             exit;
         } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
             $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
@@ -861,6 +884,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $objBook->_writeLog("", 'temp_booking_save.txt');
             $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
             echo json_encode($response);
+            
+            
+            insertAuditLog($conn, $mfreference, "Booking", "Booking Successfully Placed On Hold", json_encode($response), @$_SESSION['user_id'], "Pending");
+            insertAuditLog($conn, $mfreference, "Payment", "User Redirected to Windcave Payment Gateway Page", "", @$_SESSION['user_id'], "Pending");
             exit;
             // $logResSus =   $booking_status;
             // $objBook->_writeLog('Success Received\n' . $logResSus, 'booking.txt');
@@ -894,6 +921,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
         
             echo json_encode($response);
+            
+            insertAuditLog($conn, $mfreference, "Booking", "Booking BOOKINGINPROCESS", json_encode($response), @$_SESSION['user_id'], "Pending");
             exit;
             
         } elseif (empty($responseData['Data']['Success'])) {
@@ -960,6 +989,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             header('Content-Type: application/json');
             echo json_encode($response);
+            
+            insertAuditLog($conn, $mfreference, "Booking", "Booking Failed", json_encode($response), @$_SESSION['user_id'], "Pending");
             exit;       
         } else {
             $booking_date = date('Y-m-d H:i:s');

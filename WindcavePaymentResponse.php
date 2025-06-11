@@ -1,16 +1,18 @@
+<?php
+session_start();
+?>
 <script>
+    deleteUserDataCookie("infantData");
+    deleteUserDataCookie("contactDetailsData");
+    deleteUserDataCookie("childData");
+    deleteUserDataCookie("adultsData");
+    deleteUserDataCookie("step_traveller_details_added");
 
-deleteUserDataCookie("infantData");
-deleteUserDataCookie("contactDetailsData");
-deleteUserDataCookie("childData");
-deleteUserDataCookie("adultsData");
-deleteUserDataCookie("step_traveller_details_added");
 
-
-function deleteUserDataCookie(cookieName) {
-    document.cookie =
-    cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-}
+    function deleteUserDataCookie(cookieName) {
+        document.cookie =
+            cookieName + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
 </script>
 <?php
 require_once("includes/header.php");
@@ -25,12 +27,14 @@ include_once('mail_send.php');
         justify-content: center;
         align-items: center;
         height: 70vh;
-        background: url('images/home-banner1.jpg') center center/cover no-repeat; /* Use your background image here */
+        background: url('images/home-banner1.jpg') center center/cover no-repeat;
+        /* Use your background image here */
         color: white;
         text-align: center;
         position: relative;
         overflow: hidden;
     }
+
     .content {
         position: relative;
         z-index: 2;
@@ -40,6 +44,7 @@ include_once('mail_send.php');
         background: #121e7e;
         border-radius: 10px;
     }
+
     .content_cancel {
         position: relative;
         z-index: 2;
@@ -49,6 +54,7 @@ include_once('mail_send.php');
         background: #ffffffe8;
         border-radius: 10px;
     }
+
     .content_cancel h1 {
         font-size: 48px;
         font-weight: bold;
@@ -76,6 +82,7 @@ include_once('mail_send.php');
         text-align: center;
         margin: 0 auto;
     }
+
     .content_success h1 {
         font-size: 20px;
         font-weight: bold;
@@ -155,7 +162,8 @@ include_once('mail_send.php');
         padding-bottom: 10px;
     }
 
-    .error::before, .error::after {
+    .error::before,
+    .error::after {
         content: "";
         position: absolute;
         width: 28px;
@@ -179,6 +187,7 @@ include_once('mail_send.php');
             opacity: 0;
             transform: rotate(45deg) scale(0);
         }
+
         to {
             opacity: 1;
             transform: rotate(45deg) scale(1);
@@ -191,6 +200,7 @@ include_once('mail_send.php');
             opacity: 0;
             transform: scale(0);
         }
+
         to {
             opacity: 1;
             transform: scale(1);
@@ -199,14 +209,17 @@ include_once('mail_send.php');
 </style>
 
 <?php
-if( !isset($_GET['sessionId']) || $_GET['sessionId'] == '' ) {
-    ?>
-	<script>
-        window.location="index"
+if (!isset($_GET['sessionId']) || $_GET['sessionId'] == '') {
+?>
+    <script>
+        window.location = "index"
     </script>
     <?php
-} 
-$url = WC_URL."sessions/".$_GET['sessionId'];
+}
+
+insertAuditLog($conn, 0, "Payment", "The user is redirected back to Bulatrips from the Windcave payment gateway.", "", @$_SESSION['user_id'], "Pending");
+
+$url = WC_URL . "sessions/" . $_GET['sessionId'];
 $username = WC_USERNAME;
 $password = WC_PASSWORD;
 
@@ -230,18 +243,25 @@ $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
 $objBook->_writeLog('-------------Windcave Response Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
 $redirection = false;
 
-if( isset($response) && $response != '') { 
+if (isset($response) && $response != '') {
+    
     $responseArray = json_decode($response, true);
-  
-    if( is_array($responseArray) && count($responseArray) > 0 && isset($responseArray['transactions'][0]['id']) ) {        
+    
+    if (is_array($responseArray) && count($responseArray) > 0 && isset($responseArray['transactions'][0]['id'])) {
         $check_trans = $conn->prepare('SELECT * FROM payment_user WHERE trn_id LIKE :trn_id AND trn_session_id LIKE :trn_ses_id');
         $check_trans->bindParam(':trn_id', $responseArray['transactions'][0]['id']);
         $check_trans->bindParam(':trn_ses_id', $responseArray['id']);
         $check_trans->execute();
         $rowCount = $check_trans->rowCount();
         
+        $airport_country = $conn->prepare('SELECT * FROM temp_booking WHERE id LIKE :id');
+        $airport_country->bindParam(':id', $responseArray['merchantReference']);
+        $airport_country->execute();
+        $AP_country_name_fetch = $airport_country->fetch(PDO::FETCH_ASSOC);
+        $toEmail = $AP_country_name_fetch['contact_email'];
+        $mfReferenceBookingNumber = $AP_country_name_fetch['mf_reference'];
 
-        if( $rowCount == 0 ) {
+        if ($rowCount == 0) {
             $data = array(
                 "currency" => "usd",
                 "amount" => $responseArray['amount'],
@@ -257,13 +277,12 @@ if( isset($response) && $response != '') {
                 "is_email_sent" => "1",
             );
             $insPay = $objBook->insertUserPayment($data);
+            insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Payment Response Captured into our Database", json_encode($data), @$_SESSION['user_id'], "Pending");
 
-            if( isset($insPay) && $insPay != '' ) {
-                $airport_country = $conn->prepare('SELECT * FROM temp_booking WHERE id LIKE :id');
-                $airport_country->bindParam(':id', $responseArray['merchantReference']);
-                $airport_country->execute();
-                $AP_country_name_fetch = $airport_country->fetch(PDO::FETCH_ASSOC);
-                $toEmail = $AP_country_name_fetch['contact_email'];
+            if (isset($insPay) && $insPay != '') {
+
+                
+                
                 $subject = ($responseArray['transactions'][0]['responseText'] == 'APPROVED' ? "Payment Confirmation - Your Transaction Was Successful!" : 'For Failed Payment: "Payment Failed - Please Try Again');
                 $logoUrl = "https://bulatrips.com/images/Image-Logo-vec.png";
                 $backgroundColor = "#f8f9fa";
@@ -278,17 +297,17 @@ if( isset($response) && $response != '') {
                         <meta charset="UTF-8">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     </head>
-                    <body style="font-family: Arial, sans-serif; background-color: '.$backgroundColor.'; margin: 0; padding: 20px;">
-                        <table width="100%" bgcolor="'.$containerBgColor.'" cellpadding="10" cellspacing="0" border="0" style="max-width: 600px; margin: auto; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
+                    <body style="font-family: Arial, sans-serif; background-color: ' . $backgroundColor . '; margin: 0; padding: 20px;">
+                        <table width="100%" bgcolor="' . $containerBgColor . '" cellpadding="10" cellspacing="0" border="0" style="max-width: 600px; margin: auto; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1);">
                             <tr>
                                 <td style="text-align:center; padding-bottom:15px; padding-top:15px">
-                                    <img src="'.$logoUrl.'" alt="Bulatrip" title="Bulatrip" style="height: 50px; margin-top: 20px; margin-bottom: 20px;">
+                                    <img src="' . $logoUrl . '" alt="Bulatrip" title="Bulatrip" style="height: 50px; margin-top: 20px; margin-bottom: 20px;">
                                 </td>
                             </tr>
                             
                             <tr>
-                                <td align="center" style="padding: 15px; font-size: 20px; font-weight: bold; color: #ffffff; background-color: '.$statusColor.';">
-                                    Payment Transaction '.$responseArray['transactions'][0]['responseText'].'
+                                <td align="center" style="padding: 15px; font-size: 20px; font-weight: bold; color: #ffffff; background-color: ' . $statusColor . ';">
+                                    Payment Transaction ' . $responseArray['transactions'][0]['responseText'] . '
                                 </td>
                             </tr>
                             
@@ -296,35 +315,39 @@ if( isset($response) && $response != '') {
                                 <td style="padding: 20px; color: #333333; font-size: 16px;">
                                     <p>We would like to inform you about your recent payment transaction:</p>
                                     <div style="background-color: #f1f1f1; padding: 15px; border-radius: 5px; font-size: 16px;">
-                                        <p><strong>Transaction ID:</strong> '.$responseArray['transactions'][0]['id'].'</p>
-                                        <p><strong>Amount:</strong> USD '.$responseArray['amount'].'</p>
-                                        <p><strong>Status:</strong> '.$responseArray['transactions'][0]['responseText'].'</p>
+                                        <p><strong>Transaction ID:</strong> ' . $responseArray['transactions'][0]['id'] . '</p>
+                                        <p><strong>Amount:</strong> USD ' . $responseArray['amount'] . '</p>
+                                        <p><strong>Status:</strong> ' . $responseArray['transactions'][0]['responseText'] . '</p>
                                     </div>
-                                    <p style="margin-top:12px;">'.($responseArray['transactions'][0]['responseText'] == 'APPROVED' ? 'Thank you for your payment. Your transaction was successful.' : 'Unfortunately, your payment was '.strtolower($responseArray['transactions'][0]['responseText']).'. Please check with your payment provider or try again.').'</p>
+                                    <p style="margin-top:12px;">' . ($responseArray['transactions'][0]['responseText'] == 'APPROVED' ? 'Thank you for your payment. Your transaction was successful.' : 'Unfortunately, your payment was ' . strtolower($responseArray['transactions'][0]['responseText']) . '. Please check with your payment provider or try again.') . '</p>
                                 </td>
                             </tr>
                             <tr>
-                                <td align="center" style="background-color: '.$backgroundColor.'; color: #555555; font-size: 14px; padding: 10px;">
+                                <td align="center" style="background-color: ' . $backgroundColor . '; color: #555555; font-size: 14px; padding: 10px;">
                                     Best regards, <br>
                                     <a href="https://bulatrips.com" style="color: #007bff; text-decoration: none;">Visit our website</a>
                                 </td>
                             </tr>
                         </table>
+                        
                     </body>
                     </html>';
 
-                $headers="";
-                
+                $headers = "";
+
                 // PROCEED TO ORDER TICKET STARTS
                 $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE id = :id');
                 $stmtbookingid->execute(array('id' => $responseArray['merchantReference']));
                 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
 
                 if ($bookingData['fare_type'] != "WebFare") {
+
                     $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode');
                     $stmtbookingid->execute(array('farecode' => $bookingData['fare_source_code']));
                     $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
-            
+
+                    insertAuditLog($conn, $mfReferenceBookingNumber, "OrderTicket", "Order Ticket API Call Initiated", "", @$_SESSION['user_id'], "Pending");
+
                     $endpoint   =   'v1/OrderTicket';
                     $apiEndpoint = APIENDPOINT . $endpoint;
                     $bearerToken   =   BEARER;
@@ -342,16 +365,17 @@ if( isset($response) && $response != '') {
                         'Authorization: Bearer ' . $bearerToken
                     ));
                     $responseTicket = curl_exec($ch);
-                    curl_close($ch);
-                    if ($response) {
+                    insertAuditLog($conn, $mfReferenceBookingNumber, "OrderTicket", "Order Ticket API Response", json_encode($responseTicket), @$_SESSION['user_id'], "Pending");
+                    
+                    if ($responseTicket) {
                         $responseTicketData = json_decode($responseTicket, true);
                         $objBook->_writeLog('-------------Order Ticket Api Response Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
-                        $objBook->_writeLog("API CALLED ".$apiEndpoint, 'WindcavePaymentResponse.txt');
+                        $objBook->_writeLog("API CALLED " . $apiEndpoint, 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog(print_r($responseTicketData, true), 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Order Ticket Api Response Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                     }
-                    if (!empty($responseData['Data']['Errors'])) {
+                    if (!empty($responseTicket['Data']['Errors'])) {
                         $errMsg = $responseData['Data']['Errors'][0]['Message'];
                         $errCDE = $responseData['Data']['Errors'][0]['Code'];
                         if (empty($errMsg)) {
@@ -383,14 +407,18 @@ if( isset($response) && $response != '') {
                             'errors' => $errMsg,
                             'errCde' => $errCDE
                         );
-                        
+
                         $objBook->_writeLog('-------------In case of Order ticket api error Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog(print_r($response, true), 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------In case of Order ticket api error Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
 
-                        $url = WC_URL."transactions";
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "OrderTicket", "Order Ticket Failed", json_encode($response), @$_SESSION['user_id'], "Pending");
+
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Refund Process Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
+
+                        $url = WC_URL . "transactions";
                         $username = WC_USERNAME;
                         $password = WC_PASSWORD;
                         $data = [
@@ -411,13 +439,13 @@ if( isset($response) && $response != '') {
                         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                         curl_close($ch);
                         $refund_response = json_decode($response, true);
-                        
+
                         $objBook->_writeLog('-------------Transaction Refunded Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog(print_r($refund_response, true), 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Transaction Refunded Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
-            
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Refund Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
                     } else {
                         $stmtupdate = $conn->prepare('UPDATE temp_booking SET ticket_status = :ticket_status WHERE id = :id');
                         $ticket_status = $responseTicketData['Data']['Success'];
@@ -426,8 +454,10 @@ if( isset($response) && $response != '') {
                         $stmtupdate->bindParam(':id', $id);
                         $stmtupdate->execute();
                         $ticketstatus = "ticket sucess";
-            
-                        $url = WC_URL."transactions";
+
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Confirm Transaction Process Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
+                        
+                        $url = WC_URL . "transactions";
                         $username = WC_USERNAME;
                         $password = WC_PASSWORD;
                         $data = [
@@ -448,25 +478,33 @@ if( isset($response) && $response != '') {
                             'Content-Type: application/json',
                             'Authorization: Basic ' . base64_encode("$username:$password")
                         ]);
-                        
+
                         $response = curl_exec($ch);
                         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                         curl_close($ch);
                         $payment_transaction_complete = json_decode($response, true);
-                        
+
                         $objBook->_writeLog('-------------Transaction Completed Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog(print_r($payment_transaction_complete, true), 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Transaction Completed Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
+                        
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Confirm Transaction process Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
 
-                        confirmationMail($toEmail, $subject, $transactionData,$headers);
+
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
+
+                        confirmationMail($toEmail, $subject, $transactionData, $headers);
+
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Sent", json_encode($response), @$_SESSION['user_id'], "Pending");
+                        
                         $redirection = true;
                         ?>
-                        <?php
+        <?php
                     }
                 } else if ($bookingData['fare_type'] == "WebFare") {
-                    
+
 
 
 
@@ -479,7 +517,7 @@ if( isset($response) && $response != '') {
                         $stmt = $conn->prepare("SELECT * FROM travellers_details Where flight_booking_id = :bookingId");
                         $stmt->execute(array('bookingId' => $bookingData['id']));
                         $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-                
+
                         $endpoint   =   'v1/Book/Flight';
                         $apiEndpoint = APIENDPOINT . $endpoint;
                         $bearerToken   =   BEARER;
@@ -496,7 +534,7 @@ if( isset($response) && $response != '') {
                                     "Key" => "string"
                                 );
                             }
-                
+
                             if ($extraBaggageId != 0) {
                                 $extraServices[] = array(
                                     "ExtraServiceId" => $extraBaggageId,
@@ -565,15 +603,14 @@ if( isset($response) && $response != '') {
                         if ($response) {
                             $responseData = json_decode($response, true);
                             $objBook->_writeLog('-------------Public/Private Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                            $objBook->_writeLog("API URL Response: ".$apiEndpoint, 'temp_booking_save.txt');
+                            $objBook->_writeLog("API URL Response: " . $apiEndpoint, 'temp_booking_save.txt');
                             $objBook->_writeLog(print_r($responseData, true), 'temp_booking_save.txt');
                             $objBook->_writeLog("", 'temp_booking_save.txt');
                             $objBook->_writeLog('-------------Public/Private Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            
                         }
                     }
-            
-            
+
+
                     $resSuccess  = $responseData['Data']['Success'];
                     $fairtype = $bookingData['fare_type'];
                     if (!empty($responseData['Data']['Errors'])) {
@@ -611,7 +648,7 @@ if( isset($response) && $response != '') {
                         $stmtInsert->bindParam(':book_status', $booking_status);
                         $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                         $stmtInsert->execute();
-                        
+
                         $response = array(
                             'bookingid' => $tempBookingId,
                             'BookStatus' => "Failed",
@@ -629,14 +666,14 @@ if( isset($response) && $response != '') {
                         exit;
                     } elseif (($responseData['Data']['Success']) && ($responseData['Data']['Status'] == "CONFIRMED")) {
                         $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-                
+
                         $booking_date = date('Y-m-d H:i:s');
                         $mfreference = $responseData['Data']['UniqueID'];
                         $traceId = $responseData['Data']['TraceId'];
                         $booking_status = $responseData['Data']['Status'];
                         $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
                         $id = $bookingData['id'];
-                
+
                         $stmtupdate->bindParam(':mfreference', $mfreference);
                         $stmtupdate->bindParam(':traceId', $traceId);
                         $stmtupdate->bindParam(':booking_status', $booking_status);
@@ -645,7 +682,7 @@ if( isset($response) && $response != '') {
                         $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
                         $stmtupdate->bindParam(':id', $id);
                         $stmtupdate->execute();
-                
+
                         $orderstatus = $responseData['Data']['Success'];
                         $response = array(
                             'BookStatus' => $booking_status,
@@ -677,7 +714,7 @@ if( isset($response) && $response != '') {
                         $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
                         $stmtupdate->bindParam(':id', $id);
                         $stmtupdate->execute();
-                
+
                         $orderstatus = $responseData['Data']['Success'];
                         $response = array(
                             'BookStatus' => $booking_status,
@@ -689,10 +726,9 @@ if( isset($response) && $response != '') {
                         $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
                         $objBook->_writeLog("", 'temp_booking_save.txt');
                         $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                    
+
                         echo json_encode($response);
                         exit;
-                        
                     } elseif (empty($responseData['Data']['Success'])) {
                         $errCDE = '';
                         $errMsg = '';
@@ -710,7 +746,7 @@ if( isset($response) && $response != '') {
                         $booking_status = $responseData['Data']['Status'];
                         $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
                         $id = $bookingData['id'];
-                
+
                         $stmtupdate->bindParam(':mfreference', $mfreference);
                         $stmtupdate->bindParam(':traceId', $traceId);
                         $stmtupdate->bindParam(':booking_status', $booking_status);
@@ -720,12 +756,12 @@ if( isset($response) && $response != '') {
                         $stmtupdate->bindParam(':id', $id);
                         $stmtupdate->execute();
                         $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-                
+
                         $err_code = $errCDE;
                         $fairtype = $bookingData['fare_type'];
                         $booking_status = $responseData['Data']['Status'];
                         $ticket_status = $responseData['Data']['Status'];
-                
+
                         $id = $bookingData['id'];
                         if (empty($errMsg)) {
                             $errMsg = "Null Status Received from Airline";
@@ -738,7 +774,7 @@ if( isset($response) && $response != '') {
                         $stmtInsert->bindParam(':book_status', $booking_status);
                         $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                         $stmtInsert->execute();
-                
+
                         $response = array(
                             'bookingid' => $tempBookingId,
                             'BookStatus' => "Failed",
@@ -748,28 +784,28 @@ if( isset($response) && $response != '') {
                             'status' => $responseData['Data']['Status'],
                             'errCde' => $errCDE
                         );
-                        
+
                         $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
                         $objBook->_writeLog("", 'temp_booking_save.txt');
                         $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
                         $objBook->_writeLog("", 'temp_booking_save.txt');
                         $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            
+
                         header('Content-Type: application/json');
                         echo json_encode($response);
-                        exit;       
+                        exit;
                     } else {
                         $booking_date = date('Y-m-d H:i:s');
                         $mfreference = $responseData['Data']['UniqueID'];
                         $traceId = $responseData['Data']['TraceId'];
                         $booking_status = $responseData['Data']['Status'];
-                
+
                         $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
                         $id = $bookingData['id'];
-                
+
                         if (empty($mfreference) && ($booking_status == "PENDING")) {
                             $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-                
+
                             $stmtupdate->bindParam(':booking_date', $booking_date);
                             $stmtupdate->bindParam(':markup', $markup);
                             $stmtupdate->bindParam(':booking_status', $booking_status);
@@ -787,7 +823,7 @@ if( isset($response) && $response != '') {
                                 'errors' => $errMsg,
                                 'errCde' => $errCDE
                             );
-                            
+
                             $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
                             $err_code = $errCDE;
                             $fairtype = $bookingData['fare_type'];
@@ -801,19 +837,19 @@ if( isset($response) && $response != '') {
                             $stmtInsert->bindParam(':book_status', $booking_status);
                             $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                             $stmtInsert->execute();
-                
+
                             $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
                             $objBook->_writeLog("Empty Reference Number + status PENDING", 'temp_booking_save.txt');
                             $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
                             $objBook->_writeLog("", 'temp_booking_save.txt');
                             $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                            
+
                             header('Content-Type: application/json');
                             echo json_encode($response);
                             exit;
-                        }else if (empty($mfreference) && ($booking_status == "NotBooked")) {
+                        } else if (empty($mfreference) && ($booking_status == "NotBooked")) {
                             $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
-                
+
                             $stmtupdate->bindParam(':booking_date', $booking_date);
                             $stmtupdate->bindParam(':markup', $markup);
                             $stmtupdate->bindParam(':booking_status', $booking_status);
@@ -831,15 +867,15 @@ if( isset($response) && $response != '') {
                                 'errors' => $errMsg,
                                 'errCde' => $errCDE
                             );
-                            
+
                             $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-                
+
                             $err_code = $errCDE;
                             $fairtype = $bookingData['fare_type'];
                             $booking_status = $responseData['Data']['Status'];
                             $ticket_status = $responseData['Data']['Status'];
                             $id = $bookingData['id'];
-                
+
                             $stmtInsert->bindParam(':book_id', $id);
                             $stmtInsert->bindParam(':err_code', $err_code);
                             $stmtInsert->bindParam(':err_msg', $errMsg);
@@ -847,35 +883,35 @@ if( isset($response) && $response != '') {
                             $stmtInsert->bindParam(':book_status', $booking_status);
                             $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                             $stmtInsert->execute();
-                            
+
                             $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
                             $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
                             $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
                             $objBook->_writeLog("", 'temp_booking_save.txt');
                             $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-            
+
                             header('Content-Type: application/json');
                             echo json_encode($response);
                             exit;
-                        }elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
-                
+                        } elseif (($responseData['Data']['Success']) && in_array($responseData['Data']['Status'], ["Booked", "Ticketed", "Ticket-In Process", "Pending"])) {
+
                             // echo $responseData['Data']['Status'];  
                             //log write ,booking sts update ,booking date ,markup value
                             $stmtupdate = $conn->prepare('UPDATE temp_booking SET mf_reference = :mfreference, trace_id = :traceId ,booking_status = :booking_status, booking_date = :booking_date , markup = :markup ,ticket_time_limit = :ticketTimeLimit WHERE id = :id');
-                
+
                             // Set the values
                             // Set the current datetime for booking_date
                             $booking_date = date('Y-m-d H:i:s');
-                
-                
-                
+
+
+
                             $mfreference = $responseData['Data']['UniqueID'];
                             $traceId = $responseData['Data']['TraceId'];
                             $booking_status = $responseData['Data']['Status'];
-                
+
                             $TktTimeLimit = $responseData['Data']['TktTimeLimit'];
                             $id = $bookingData['id'];
-                
+
                             // Bind the parameters
                             $stmtupdate->bindParam(':mfreference', $mfreference);
                             $stmtupdate->bindParam(':traceId', $traceId);
@@ -884,9 +920,9 @@ if( isset($response) && $response != '') {
                             $stmtupdate->bindParam(':markup', $markup);
                             $stmtupdate->bindParam(':ticketTimeLimit', $TktTimeLimit);
                             $stmtupdate->bindParam(':id', $id);
-                
-                
-                
+
+
+
                             // Execute the query
                             $stmtupdate->execute();
                             //$orderstatus = "order success"; //but cron needed for finalised status
@@ -895,19 +931,18 @@ if( isset($response) && $response != '') {
                             $logResSus =   $booking_status;
                             $objBook->_writeLog('Success in process Received\n' . $logResSus, 'booking.txt');
                             $response = array(
-                                    'BookStatus' => $booking_status,
-                                    'faretype' => $fairtype,
-                                    'bookingid' => $tempBookingId,
-                                );
-                                $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                                $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
-                                $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
-                                $objBook->_writeLog("", 'temp_booking_save.txt');
-                                $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
-                                echo json_encode($response);
-                                exit;
-                
-                        }else {
+                                'BookStatus' => $booking_status,
+                                'faretype' => $fairtype,
+                                'bookingid' => $tempBookingId,
+                            );
+                            $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                            $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
+                            $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
+                            $objBook->_writeLog("", 'temp_booking_save.txt');
+                            $objBook->_writeLog('-------------If there are errors Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
+                            echo json_encode($response);
+                            exit;
+                        } else {
                             $stmtupdate = $conn->prepare('UPDATE temp_booking SET booking_date = :booking_date , markup = :markup, booking_status = :booking_status WHERE id = :id');
                             $stmtupdate->bindParam(':booking_date', $booking_date);
                             $stmtupdate->bindParam(':markup', $markup);
@@ -928,13 +963,13 @@ if( isset($response) && $response != '') {
                                 'errCde' => $errCDE
                             );
                             $stmtInsert = $conn->prepare('INSERT INTO `booking_errors` (`id`, `booking_Id`, `err_code`, `err_msg`, `fare_type`, `book_status`, `ticket_sts`, `created_date`, `update_at`) VALUES (NULL, :book_id, :err_code, :err_msg,:fare_type ,:book_status, :ticket_sts, current_timestamp(), current_timestamp());');
-                
+
                             $err_code = $errCDE;
                             $fairtype = $bookingData['fare_type'];
                             $booking_status = $responseData['Data']['Status'];
                             $ticket_status = $responseData['Data']['Status'];
                             $id = $bookingData['id'];
-                            
+
                             $stmtInsert->bindParam(':book_id', $id);
                             $stmtInsert->bindParam(':err_code', $err_code);
                             $stmtInsert->bindParam(':err_msg', $errMsg);
@@ -942,7 +977,7 @@ if( isset($response) && $response != '') {
                             $stmtInsert->bindParam(':book_status', $booking_status);
                             $stmtInsert->bindParam(':ticket_sts', $ticket_status);
                             $stmtInsert->execute();
-                            
+
                             $objBook->_writeLog('-------------If there are errors Open ' . date('l jS \of F Y h:i:s A') . '-------------', 'temp_booking_save.txt');
                             $objBook->_writeLog("Empty Reference Number + status NotBooked", 'temp_booking_save.txt');
                             $objBook->_writeLog(print_r($response, true), 'temp_booking_save.txt');
@@ -952,133 +987,140 @@ if( isset($response) && $response != '') {
                             echo json_encode($response);
                             exit;
                         }
-                        
                     }
                     // WEBFARE BOOKING ENDS HERE
 
 
-                    
-                    
+
+
 
 
 
 
                 }
                 // PROCEED TO ORDER TICKET ENDS
-                
-                
+
+
             }
         }
-        $title = ucfirst("Payment ".$responseArray['transactions'][0]['responseText']);
+        $title = ucfirst("Payment " . $responseArray['transactions'][0]['responseText']);
         $transaction_id = $responseArray['transactions'][0]['id'];
         $session_id = $responseArray['id'];
         ?>
 
-            <div class="container-jumbotron">
-                <div class="bodycontant">
-                    
-                    <div class="<?php if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {echo "content_success";} else {echo "content_cancel";}?>">
-                        <?php
-                        if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {?>
-                            <!-- <div class="icon-container">
+        <div class="container-jumbotron">
+            <div class="bodycontant">
+
+                <div class="<?php if ($responseArray['transactions'][0]['responseText'] == "APPROVED") {
+                                echo "content_success";
+                            } else {
+                                echo "content_cancel";
+                            } ?>">
+                    <?php
+                    if ($responseArray['transactions'][0]['responseText'] == "APPROVED") { ?>
+                        <!-- <div class="icon-container">
                                 <div class="success"></div>
                             </div> -->
-                            <?php
-                        } else {?>
-                            <!-- <div class="icon-container">
+                    <?php
+                    } else { ?>
+                        <!-- <div class="icon-container">
                                 <div class="error"></div>
                                 
                             </div> -->
-                            <?php
-                        }?>
+                    <?php
+                    } ?>
 
-                        <?php
-                            if( $responseArray['transactions'][0]['responseText'] == "APPROVED" ) {
-                                $text_1 = "Your Payment is Approved!";
-                                $text_2 = "We're processing your booking and will email you confirmation details soon. Check status in your “Manage Bookings” section after logging into your account. Thanks for choosing Bulatrips – enjoy your trip!";
-                                $button_text = "Manage Bookings";
+                    <?php
+                    if ($responseArray['transactions'][0]['responseText'] == "APPROVED") {
+                        $text_1 = "Your Payment is Approved!";
+                        $text_2 = "We're processing your booking and will email you confirmation details soon. Check status in your “Manage Bookings” section after logging into your account. Thanks for choosing Bulatrips – enjoy your trip!";
+                        $button_text = "Manage Bookings";
 
-                                $text_3 = "Redirecting you to the booking details page automatically in 10 seconds.";
+                        $text_3 = "Redirecting you to the booking details page automatically in 10 seconds.";
 
-                                if (isset($_SESSION['user_id'])) {
-                                    $button_url = "user-dashboard";
-                                    $modal_show = "";
-                                } else{
-                                    $button_url = "javascript:void(0);";
-                                    $modal_show = "data-toggle='modal' data-target='#LoginModal'";
-                                }
-
-                            } else {
-                                $text_1 = "Payment Declined";
-                                $text_2 = "Your booking is not confirmed. Please check your payment details and try again. If issues persist, try a different payment method or contact your bank for assistance. You'll need to complete payment to secure your booking.";
-                                $button_text = "Search Again";
-                                $button_url = "index";
-                                $modal_show = "";
-                                $text_3 = "";
-                                // if (isset($_SESSION['user_id'])) {
-                                //     $button_url = "user-dashboard";
-                                //     $modal_show = "";
-                                // } else{
-                                //     $button_url = "javascript:void(0);";
-                                //     $modal_show = "data-toggle='modal' data-target='#LoginModal'";
-                                // }
-                            }
-                        ?>
-                        <h1><?php echo $text_1;?></h1>
-                        <!-- <p><?php //echo $text_1;?></p> -->
-                        <p><?php echo $text_2;?></p>
-                        <?php
-                        if( $redirection ) {?>
-                            <p><?php echo $text_3;?></p>
-                            <script>
-                                    setTimeout(function() {
-                                        window.location.href = "confirmation?booking_id=<?php echo $AP_country_name_fetch['mf_reference']; ?>";
-                                    }, 10000);
-                            </script>
-                            <?php
+                        if (isset($_SESSION['user_id'])) {
+                            $button_url = "user-dashboard";
+                            $modal_show = "";
+                        } else {
+                            // $button_url = "javascript:void(0);";
+                            // $modal_show = "data-toggle='modal' data-target='#LoginModal'";
+                            $button_url = "flight-booking-details?booking_id=" . $mfReferenceBookingNumber;
+                            $modal_show = "";
                         }
+                    } else {
+                        $text_1 = "Payment Declined";
+                        $text_2 = "Your booking is not confirmed. Please check your payment details and try again. If issues persist, try a different payment method or contact your bank for assistance. You'll need to complete payment to secure your booking.";
+                        $button_text = "Search Again";
+                        $button_url = "index";
+                        $modal_show = "";
+                        $text_3 = "";
+                        // if (isset($_SESSION['user_id'])) {
+                        //     $button_url = "user-dashboard";
+                        //     $modal_show = "";
+                        // } else{
+                        //     $button_url = "javascript:void(0);";
+                        //     $modal_show = "data-toggle='modal' data-target='#LoginModal'";
+                        // }
+                    }
+                    ?>
+                    <h1><?php echo $text_1; ?></h1>
+                    <!-- <p><?php //echo $text_1;
+                            ?></p> -->
+                    <p><?php echo $text_2; ?></p>
+                    <?php
+                    if ($redirection) {
+                        $_SESSION[$mfReferenceBookingNumber] = 'showConfirmationMessage';
                         ?>
-                        
-                        
-                        <div style="display: flex;justify-content: center;">
-                            <a href="<?php echo $button_url;?>" <?php echo $modal_show;?> class="btn btn-typ7 ml-3 btn-primary" style="max-width: 200px;"><?php echo $button_text;?></a>
-                        </div>
+                        <p><?php echo $text_3; ?></p>
+                        <script>
+                            // setTimeout(function() {
+                                window.location.href = "confirmation?booking_id=<?php echo $AP_country_name_fetch['mf_reference']; ?>";
+                            // }, 5000);
+                        </script>
+                    <?php
+                    }
+                    ?>
+
+
+                    <div style="display: flex;justify-content: center;">
+                        <a href="<?php echo $button_url; ?>" <?php echo $modal_show; ?> class="btn btn-typ7 ml-3 btn-primary" style="max-width: 200px;"><?php echo $button_text; ?></a>
                     </div>
                 </div>
             </div>
-        <?php
+        </div>
+    <?php
 
     } else {
-        ?>
+    ?>
         <script>
             Swal.fire({
                 title: "Payment Status Uncertain",
                 text: "We did not receive a response from the payment gateway. Your booking is not confirmed, and no payment has been received.",
                 icon: "error",
                 confirmButtonText: "Close",
-                confirmButtonColor: "#f57c00", 
-                allowOutsideClick: false, 
+                confirmButtonColor: "#f57c00",
+                allowOutsideClick: false,
             }).then((result) => {
-                    window.location.href = "index";
+                window.location.href = "index";
             });
         </script>
-        <?php
+    <?php
     }
 } else {
     ?>
-	<script>
+    <script>
         Swal.fire({
             title: "Payment Status Uncertain",
             text: "We did not receive a response from the payment gateway. Your booking is not confirmed, and no payment has been received.",
             icon: "error",
             confirmButtonText: "Close",
-            confirmButtonColor: "#f57c00", 
-            allowOutsideClick: false, 
+            confirmButtonColor: "#f57c00",
+            allowOutsideClick: false,
         }).then((result) => {
-                window.location.href = "index";
+            window.location.href = "index";
         });
     </script>
-    <?php
+<?php
 }
 require_once("includes/footer.php");
 require_once("includes/login-modal.php");

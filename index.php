@@ -274,63 +274,8 @@ $DBvideo = $newObj->get_video();
     </div>
 </section>
 
-<section class="holiday-section" style="margin-bottom: 0px;">
-    <div class="container py-3">
-        <div class="container">
-            <div class="col-12 hd-wraper hd-wraper_custom">
-                <strong>Why Book with Bulatrips?</strong>
-                <!-- <h4>Why Book with Bulatrips?</h4> -->
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">🔍</div>
-                        <h5><strong>Smart Search</strong></h5>
-                        <p>Best routes across airlines</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">💰</div>
-                        <h5><strong>No Hidden Fees</strong></h5>
-                        <p>Transparent pricing</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">🌍</div>
-                        <h5><strong>Global Coverage</strong></h5>
-                        <p>100+ countries worldwide</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">🤖</div>
-                        <h5><strong>Automated Support</strong></h5>
-                        <p>Self-service changes</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">📊</div>
-                        <h5><strong>Multiple Options</strong></h5>
-                        <p>Various airlines and times</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-sm-6 mb-4">
-                    <div class="feature-box">
-                        <div class="feature-icon">🏆</div>
-                        <h5><strong>Frequent Flyer</strong></h5>
-                        <p>Apply your existing memberships</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
-
-<section  style="margin-bottom: 0px;">
+<section class="holiday-section" style="margin-bottom: 0px; margin-top:15px;">
     <div class="container">
 
         <style>
@@ -577,6 +522,64 @@ $DBvideo = $newObj->get_video();
             </div> -->
     </div>
 </section>
+
+<section  style="margin-bottom: 0px;">
+    <div class="container py-3">
+        <div class="container">
+            <div class="col-12 hd-wraper hd-wraper_custom">
+                <strong>Why Book with Bulatrips?</strong>
+                <!-- <h4>Why Book with Bulatrips?</h4> -->
+            </div>
+            <div class="row text-center">
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🔍</div>
+                        <h5><strong>Smart Search</strong></h5>
+                        <p>Best routes across airlines</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">💰</div>
+                        <h5><strong>No Hidden Fees</strong></h5>
+                        <p>Transparent pricing</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🌍</div>
+                        <h5><strong>Global Coverage</strong></h5>
+                        <p>100+ countries worldwide</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🤖</div>
+                        <h5><strong>Automated Support</strong></h5>
+                        <p>Self-service changes</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">📊</div>
+                        <h5><strong>Multiple Options</strong></h5>
+                        <p>Various airlines and times</p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6 mb-4">
+                    <div class="feature-box">
+                        <div class="feature-icon">🏆</div>
+                        <h5><strong>Frequent Flyer</strong></h5>
+                        <p>Apply your existing memberships</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- 
 <section class="video-banner">
     <div class="container">
@@ -649,7 +652,7 @@ $DBvideo = $newObj->get_video();
                             <h5 class="card-title">John Doe</h5>
                             <p class="text-warning mb-2">★★★★★</p>
                             <p class="card-text" style="color: #f57c00 !important;">
-                                "Great experience! Smart search made it super easy<br />to find the best deal. Highly recommend!"
+                                "Great experience! Smart search made it super<br />easy to find the best deal. Highly recommend!"
                             </p>
                         </div>
                     </div>
@@ -910,16 +913,17 @@ include_once('loading-popup.php');
     })
     /************Datepicker******************/
     $(function() {
-        var dateFormat = "mm/dd/yy",
+            var dateFormat = "mm/dd/yy",
+            
             from = $("#from")
             .datepicker({
                 //defaultDate: "+1w",
                 changeMonth: true,
                 minDate: 0,
-            })
-            .on("change", function() {
+            }).on("change", function() {
                 to.datepicker("option", "minDate", getDate(this));
             }),
+            
             to = $("#to").datepicker({
                 //defaultDate: "+1w",
                 changeMonth: true
@@ -947,6 +951,8 @@ include_once('loading-popup.php');
             minDate: 0
         });
     });
+
+    
 
     // $(function () {
     //     $("#from").datepicker({

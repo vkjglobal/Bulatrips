@@ -66,7 +66,10 @@
                             <a href="cancel_markup-list.php" class="dropdown-item <?php //if($activePage == 'cancel_markup-list' || $activePage == 'edit_cancel_markup-list'){echo 'active';}?>"> Cancel Mark Up </a>  
                         </div>
                     </div> -->
-
+                    <div class="nav-item dropdown">
+                        <a href="audit_logs.php" class="nav-link <?= ($activePage == 'audit_logs') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Audit Logs</a>
+                    </div>
+                    
                     <div class="nav-item dropdown">
                         <a href="newsletter.php" class="nav-link <?= ($activePage == 'newsletter') ? 'active':''; ?>" ><i class="fa fa-laptop me-2"></i>Newsletter</a>
                     </div>

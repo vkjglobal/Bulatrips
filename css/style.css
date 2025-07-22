@@ -28,8 +28,44 @@ ul {
 
 header {
   background-color: #ffffff;
-  z-index: 9;
+  z-index: 9999;
   transition: all 0.3s ease-out;
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+/* Ensure sticky header works on all devices */
+.sticky-top {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+}
+
+/* Additional mobile-specific sticky header rules */
+@media (max-width: 767px) {
+  header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+  }
+  
+  .sticky-top {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+  }
+  
+  .top-navigation {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 9999 !important;
+    width: 100% !important;
+    background-color: #ffffff;
+  }
 }
 
 header.fixed .header-info-bar {
@@ -3737,4 +3773,16 @@ li.contentbar_one_way {
 }
 #card_holders .card-body {
   padding: 0.5rem;
+}
+
+
+
+.before_768 {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .before_768 {
+    display: none;
+  }
 }

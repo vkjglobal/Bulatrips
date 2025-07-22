@@ -3,8 +3,8 @@
   include_once('includes/class.cancel.php');
   $objCancel     =   new Cancel();
    if (!isset($_POST['mfreNum'])){
-       echo "Err1";exit;
-
+       echo json_encode(['status' => 'error', 'message' => 'Missing MF Reference']);
+       exit;
    }
    else{
 
@@ -223,11 +223,31 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                                          
             //   var_dump($update_TravellerB_result);exit;
              $message   =   "Successfully called voidquote for  Your Booking";
-                              $response_New = array(
-                    'status' => 'success', // You can set this to 'error' in case of an error
-                    'message' => $message,
-                    'refundamount' => $TotalRefundAmount
-                );
+             
+             // Build passenger refund breakdown for frontend
+             $passengerRefunds = array();
+             foreach($responseData['Data']['VoidQuotes'] as $k => $val){
+                 $passengerRefunds[] = array(
+                     'name' => $val['Title'] . ' ' . $val['FirstName'] . ' ' . $val['LastName'],
+                     'eTicket' => $val['ETicket'],
+                     'adminCharges' => $val['AdminCharges'],
+                     'gstCharge' => $val['GSTCharge'],
+                     'voidingFee' => $val['TotalVoidingFee'],
+                     'refundAmount' => $val['TotalRefundAmount']
+                 );
+             }
+             
+             $response_New = array(
+                 'status' => 'success',
+                 'message' => $message,
+                 'data' => array(
+                     'ptrStatus' => $PTRStatus,
+                     'voidingWindow' => $VoidingWindow,
+                     'currency' => $Currency,
+                     'totalRefundAmount' => $TotalRefundAmount,
+                     'passengerRefunds' => $passengerRefunds
+                 )
+             );
       }
       else if(isset($responseData['Data']['Errors']) && is_array($responseData['Data']['Errors'])) {
      // print_r($responseData['Data']['Errors']);exit;

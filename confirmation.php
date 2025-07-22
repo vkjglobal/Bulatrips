@@ -29,6 +29,16 @@ $bearerToken   =   BEARER;
 //echo 'helo';exit;
 $bookingId = $_GET['booking_id'];
 
+// Add CSS to fix z-index issue
+echo '<style>
+.swal2-container {
+    z-index: 999999 !important;
+}
+.swal2-popup {
+    z-index: 999999 !important;
+}
+</style>';
+
 if(isset($_SESSION[$bookingId]) && $_SESSION[$bookingId] == 'showConfirmationMessage') {
     echo "<script>
     Swal.fire({
@@ -36,7 +46,9 @@ if(isset($_SESSION[$bookingId]) && $_SESSION[$bookingId] == 'showConfirmationMes
         text: 'We\'re processing your booking and will email you confirmation details soon. Check status in your \"Manage Bookings\" section after logging into your account. If you\'re a guest user, you can click the Manage Booking button in the email to view your booking details. Thanks for choosing Bulatrips – enjoy your trip!',
         icon: 'success',
         confirmButtonText: 'Close',
-        confirmButtonColor: '#0000ff'
+        confirmButtonColor: '#0000ff',
+        allowOutsideClick: false,
+        allowEscapeKey: false
     });
     </script>";
     // Clear the session variable after showing the message
@@ -48,13 +60,117 @@ $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE mf_reference =
 $stmtbookingid->execute(array('bookingid' => $bookingId));
 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
 
+// Check if booking exists
+if (!$bookingData) {
+    echo '<style>
+    .error-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        background: url("images/home-banner1.jpg") center center/cover no-repeat;
+        color: white;
+        text-align: center;
+    }
+    .error-content {
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(18, 30, 126, 0.9);
+        border-radius: 10px;
+    }
+    </style>';
+    
+    echo '<div class="error-container">
+        <div class="error-content">
+            <h1><i class="fas fa-exclamation-triangle"></i> Booking Not Found</h1>
+            <p>The booking reference <strong>' . htmlspecialchars($bookingId) . '</strong> was not found in our system.</p>
+            <p>Please check the booking reference and try again, or contact customer support.</p>
+            <a href="index.php" class="btn btn-primary">Go to Homepage</a>
+        </div>
+    </div>';
+    exit;
+}
+
 insertAuditLog($conn, $bookingData['mf_reference'], "Booking", "Trip Details Api Initiated", "", @$_SESSION['user_id'], "Pending");
 
 
 $bookingId = $bookingData['id'];
 
-//userinfo recent added 
+// Security check: Ensure user can access this booking
+$user_loggedin_status = isset($_SESSION['user_id']) ? true : false;
+$user_owns_booking = false;
 
+if ($user_loggedin_status && isset($_SESSION['user_id'])) {
+    $user_owns_booking = ($_SESSION['user_id'] == $bookingData['user_id']);
+}
+
+// Allow access only if:
+// 1. User is logged in and owns the booking
+// 2. User is coming from payment confirmation (temporary access)
+$allow_access = false;
+
+if ($user_owns_booking) {
+    $allow_access = true;
+} elseif (isset($_SESSION[$bookingData['mf_reference']]) && $_SESSION[$bookingData['mf_reference']] == 'showConfirmationMessage') {
+    // Temporary access for payment confirmation
+    $allow_access = true;
+} elseif (isset($_SESSION['temp_booking_access']) && $_SESSION['temp_booking_access'] == $bookingData['mf_reference']) {
+    // Temporary access after successful booking
+    $allow_access = true;
+}
+
+if (!$allow_access) {
+    echo '<style>
+    .access-denied-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        background: url("images/home-banner1.jpg") center center/cover no-repeat;
+        color: white;
+        text-align: center;
+    }
+    .access-denied-content {
+        max-width: 600px;
+        padding: 20px;
+        background: rgba(220, 53, 69, 0.9);
+        border-radius: 10px;
+    }
+    </style>';
+    
+    echo '<div class="access-denied-container">
+        <div class="access-denied-content">
+            <h1><i class="fas fa-lock"></i> Access Denied</h1>
+            <p>You do not have permission to view this booking.</p>
+            <p>This booking belongs to a registered user. Please log in with the correct account to access these details.</p>
+            <div class="mt-3">
+                <a href="index.php" class="btn btn-outline-light mr-2">Go to Homepage</a>
+                <button class="btn btn-light" data-toggle="modal" data-target="#LoginModal">Login</button>
+            </div>
+        </div>
+    </div>';
+    
+    echo '<script>
+    Swal.fire({
+        title: "Access Denied",
+        text: "This booking belongs to a registered user. Please log in to access your booking details.",
+        icon: "warning",
+        confirmButtonText: "Login",
+        confirmButtonColor: "#007bff",
+        showCancelButton: true,
+        cancelButtonText: "Go Home"
+    }).then((result) => {
+        if (result.isConfirmed) {
+            $("#LoginModal").modal("show");
+        } else {
+            window.location.href = "index.php";
+        }
+    });
+    </script>';
+    exit;
+}
+
+//userinfo recent added 
 if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
     $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
     $stmt->execute(array('id' => $_SESSION['user_id']));
@@ -98,25 +214,72 @@ if (isset($bookingData['mf_reference'])) {
     ));
 
     $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    
     insertAuditLog($conn, $bookingData['mf_reference'], "Booking", "Trip Details Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
 
     curl_close($ch);
 
-    // Process the API response
+    // Enhanced API response handling
     if ($response === false) {
-
-        // Error handling
-
-        echo 'Error: ' . curl_error($ch);
-
-        $responseData = json_decode($response, true);
+        $errStatus = 1;
+        $Errmessage = "Failed to connect to airline system. Error: " . $curlError;
+        
+        echo "<script>
+        Swal.fire({
+            title: 'Connection Error!',
+            text: 'Unable to connect to airline system. Please try again later.',
+            icon: 'error',
+            confirmButtonText: 'Go Back',
+            confirmButtonColor: '#d33'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'user-dashboard.php';
+            }
+        });
+        </script>";
+        exit;
+    } else if ($httpCode !== 200) {
+        $errStatus = 1;
+        $Errmessage = "Airline system returned error code: " . $httpCode;
+        
+        echo "<script>
+        Swal.fire({
+            title: 'System Error!',
+            text: 'Airline system is temporarily unavailable (Error: " . $httpCode . "). Please try again later.',
+            icon: 'error',
+            confirmButtonText: 'Go Back',
+            confirmButtonColor: '#d33'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = 'user-dashboard.php';
+            }
+        });
+        </script>";
+        exit;
     } else {
-        // var_dump($response);exit;
         // Process the response data
-
         $responseData = json_decode($response, true);
-        // Handle the response data as needed
-        //var_dump($responseData);exit;
+        
+        // Log the raw response for debugging
+        $objBook->_writeLog('Raw API Response: ' . $response, 'tripConfirm.txt');
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            $errStatus = 1;
+            $Errmessage = "Invalid response format from airline system.";
+            
+            echo "<script>
+            Swal.fire({
+                title: 'Data Error!',
+                text: 'Received invalid data from airline system. Please contact support.',
+                icon: 'error',
+                confirmButtonText: 'Contact Support',
+                confirmButtonColor: '#d33'
+            });
+            </script>";
+            exit;
+        }
     }
     // Handle the API response
 
@@ -125,6 +288,8 @@ if (isset($bookingData['mf_reference'])) {
     if ($response) {
         $responseData = json_decode($response, true);
     }
+
+    // echo "<pre/>";print_r($responseData);exit;
     //=================log write for Tripetails api  after booking API ======
 
 
@@ -1750,20 +1915,95 @@ if (!empty($responseData['Data']['Errors'])) {
                                 </div>
                             </div>
                         </div>
-                        <!-- <div class="row mb-3">
+                        <?php 
+                        // Check access permissions for PTR buttons
+                        $user_owns_booking = false;
+                        $is_guest_access = false;
+                        
+                        if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
+                            // Logged-in user - check if they own the booking
+                            $user_owns_booking = ($_SESSION['user_id'] == $bookingData['user_id']);
+                        } else {
+                            // Guest user - they accessed via token so they have rights
+                            $is_guest_access = true;
+                        }
+                        
+                        // Show PTR buttons for:
+                        // 1. Logged-in users who own the booking
+                        // 2. Guest users who accessed via token
+                        if (($user_owns_booking || $is_guest_access) && ($ticketStatus == 'Ticketed' || $bookingStatus == 'Booked')): 
+                        ?>
+                        <div class="row mb-3">
                             <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                <button class="btn btn-typ3 fs-14 w-100">Cancel Flight</button>
+                                <?php if ($is_guest_access): ?>
+                                                                    <a href="cancel_user.php?booking_id=<?php echo $bookingData['mf_reference']; ?>" 
+                                       class="btn btn-danger fs-14 w-100">
+                                        <i class="fas fa-times-circle"></i> Cancel Flight
+                                    </a>
+                                    <small>Smart void/refund system</small>
+                                    <?php else: ?>
+                                    <a href="cancel_user.php?booking_id=<?php echo $bookingData['id']; ?>" 
+                                       class="btn btn-danger fs-14 w-100">
+                                        <i class="fas fa-times-circle"></i> Cancel Flight
+                                    </a>
+                                    <small>Smart void/refund system</small>
+                                    <?php endif; ?>
                             </div>
                             <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                <a href="dashboard-flight-reschedule-details.html" class="btn btn-typ3 fs-14 w-100">Reschedule</a>
+                                <?php if ($is_guest_access): ?>
+                                                                    <a href="flight_booking_reissue.php?booking_id=<?php echo $bookingData['mf_reference']; ?>" 
+                                       class="btn btn-warning fs-14 w-100">
+                                        <i class="fas fa-exchange-alt"></i> Reschedule
+                                    </a>
+                                    <small>Change your flight</small>
+                                    <?php else: ?>
+                                    <a href="flight_booking_reissue.php?booking_id=<?php echo $bookingData['id']; ?>" 
+                                       class="btn btn-warning fs-14 w-100">
+                                        <i class="fas fa-exchange-alt"></i> Reschedule
+                                    </a>
+                                    <small>Change your flight</small>
+                                    <?php endif; ?>
                             </div>
                             <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                <button class="btn btn-typ3 fs-14 w-100">Download Invoice</button>
+                                <button class="btn btn-info fs-14 w-100" onclick="downloadInvoice('<?php echo $bookingData['mf_reference']; ?>')">
+                                    <i class="fas fa-file-invoice"></i> Download Invoice
+                                </button>
+                                <small>Get your invoice</small>
                             </div>
                             <div class="col-lg-3 col-sm-6">
-                                <button class="btn btn-typ3 fs-14 w-100">Download Ticket</button>
+                                <button class="btn btn-success fs-14 w-100" onclick="downloadTicket('<?php echo $bookingData['mf_reference']; ?>')">
+                                    <i class="fas fa-ticket-alt"></i> Download Ticket
+                                </button>
+                                <small>Get your e-ticket</small>
                             </div>
-                        </div> -->
+                        </div>
+                        <?php elseif (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' && !$user_owns_booking): ?>
+                        <!-- Show only viewing options for logged-in users viewing other's bookings -->
+                        <div class="row mb-3">
+                            <div class="col-lg-6 col-sm-6 mb-lg-0 mb-2">
+                                <button class="btn btn-info fs-14 w-100" onclick="downloadInvoice('<?php echo $bookingData['mf_reference']; ?>')">
+                                    <i class="fas fa-file-invoice"></i> Download Invoice
+                                </button>
+                                <small>Get your invoice</small>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <button class="btn btn-success fs-14 w-100" onclick="downloadTicket('<?php echo $bookingData['mf_reference']; ?>')">
+                                    <i class="fas fa-ticket-alt"></i> Download Ticket
+                                </button>
+                                <small>Get your e-ticket</small>
+                            </div>
+                        </div>
+                        <?php else: ?>
+                        <!-- No buttons for users without access -->
+                        <div class="row mb-3">
+                            <div class="col-12 text-center">
+                                <p class="text-muted">
+                                    <i class="fas fa-info-circle"></i> 
+                                    To manage this booking, please log in with the account used for booking or use the booking management token.
+                                </p>
+                            </div>
+                        </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -2041,12 +2281,66 @@ require_once("includes/footer.php");
 ?>
 <script>
     function backhomepage(role) {
-
         if (role == 2) {
             window.location = "agent-dashboard";
         } else {
             window.location = "user-dashboard";
         }
     }
+    
+    // Download Invoice function
+    function downloadInvoice(mfRef) {
+        window.open('includes/generate_invoice.php?mf_ref=' + mfRef, '_blank');
+    }
+    
+    // Download Ticket function  
+    function downloadTicket(mfRef) {
+        window.open('includes/generate_ticket.php?mf_ref=' + mfRef, '_blank');
+    }
+    
+    // PTR Button click handlers with confirmation
+    $(document).ready(function() {
+        // Add confirmation for Cancel button
+        $('a[href*="cancel_user.php"]').click(function(e) {
+            e.preventDefault();
+            var cancelUrl = $(this).attr('href');
+            
+            Swal.fire({
+                title: 'Cancel Flight?',
+                text: 'Are you sure you want to proceed with flight cancellation? This action will start the PTR process.',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, proceed',
+                cancelButtonText: 'No, keep booking'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = cancelUrl;
+                }
+            });
+        });
+        
+        // Add confirmation for Reschedule button
+        $('a[href*="flight_booking_reissue.php"]').click(function(e) {
+            e.preventDefault();
+            var reissueUrl = $(this).attr('href');
+            
+            Swal.fire({
+                title: 'Reschedule Flight?',
+                text: 'This will start the flight change process. Additional charges may apply for fare differences.',
+                icon: 'info',
+                showCancelButton: true,
+                confirmButtonColor: '#f39c12',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Yes, reschedule',
+                cancelButtonText: 'Cancel'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = reissueUrl;
+                }
+            });
+        });
+    });
 </script>
 

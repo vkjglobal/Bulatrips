@@ -13,6 +13,11 @@ include_once "includes/class.payment.php";
 $objBooking = new Payment();
 $role = 1; // agent role value
 $payments = $objBooking->user_payment($role);
+
+// echo "<pre>";
+// print_r($payments);
+// echo "</pre>";
+// die;
 $i = 0;
 ?>
 <div class="container-fluid pt-4 px-4">
@@ -35,9 +40,8 @@ $i = 0;
                 <thead>
                     <tr class="text-dark">
                         <th scope="col">Id</th>
+                        <th scope="col">Transaction Id</th>    
                         <th scope="col">Name</th>
-                        <th scope="col">Email</th>
-                        <th scope="col">Phone Number</th>
                         <th scope="col">Payment Amount</th>
                         <th scope="col">Currency</th>
                         <th scope="col">Payment Date and Time</th>
@@ -49,14 +53,13 @@ $i = 0;
                     foreach($payments as $list){
                         ?>
                         <tr>
-                            <td><?php echo ++$i; ?></td>
-                            <td><?php echo $list['first_name'].' '.$list['last_name']; ?></td>
-                            <td><?php echo $list['email']; ?></td>
-                            <td><?php echo $list['mobile']; ?></td>
-                            <td><?php echo $list['total_paid']; ?></td>
+                            <td><?php echo  $list['id']; ?></td>
+                            <td><?php echo  $list['trn_id']; ?></td>
+                            <td><?php echo $list['contact_first_name'].' '.$list['contact_last_name']."<br />".$list['contact_email']; ?></td>
+                            <td><?php echo $list['amount']; ?></td>
                             <td><?php echo "USD"; ?></td>
                             <td><?php echo $list['created_at']; ?></td>
-                            <td><?php echo 'success'; ?></td>
+                            <td><?php echo $list['payment_status']; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody> 
@@ -71,7 +74,10 @@ $i = 0;
         <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> 
         <script>
             $(document).ready(function () {
-                $('#myTable').DataTable({responsive: true});
+                $('#myTable').DataTable({
+                    responsive: true,
+                    order: [[0, 'desc']] // Sort by first column (ID) in descending order
+                });
             });
 
             document.getElementById('download').addEventListener('click', function() {
@@ -100,7 +106,7 @@ $i = 0;
                 switch(filterOption) {
                     case 'today':
                         allData.each(function(rowData) {
-                            var paymentDate = new Date(rowData[6]); // Assuming the payment date is in the 6th column
+                            var paymentDate = new Date(rowData[5]); // Assuming the payment date is in the 6th column
                             if (isToday(paymentDate)) {
                                 rows.push(rowData);
                             }
@@ -108,7 +114,7 @@ $i = 0;
                         break;
                     case 'week':
                         allData.each(function(rowData) {
-                            var paymentDate = new Date(rowData[6]); // Assuming the payment date is in the 6th column
+                            var paymentDate = new Date(rowData[5]); // Assuming the payment date is in the 6th column
                             if (isThisWeek(paymentDate)) {
                                 rows.push(rowData);
                             }
@@ -116,7 +122,7 @@ $i = 0;
                         break;
                     case 'month':
                         allData.each(function(rowData) {
-                            var paymentDate = new Date(rowData[6]); // Assuming the payment date is in the 6th column
+                            var paymentDate = new Date(rowData[5]); // Assuming the payment date is in the 6th column
                             if (isThisMonth(paymentDate)) {
                                 rows.push(rowData);
                             }

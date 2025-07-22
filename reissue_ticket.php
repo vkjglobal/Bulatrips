@@ -2,6 +2,128 @@
   include_once('includes/common_const.php');
   include_once('includes/class.cancel.php');
   $objCancel     =   new Cancel();
+
+// Check if this is an AJAX request for reissue acceptance
+if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest') {
+    if (isset($_POST['action']) && $_POST['action'] === 'processReissueAcceptance') {
+        processReissueAcceptance();
+        exit;
+    }
+}
+
+function processReissueAcceptance() {
+    global $objCancel;
+    
+    try {
+        // Get JSON input for AJAX requests
+        $input = json_decode(file_get_contents('php://input'), true);
+        
+        if (!$input) {
+            // Fallback to POST data
+            $input = $_POST;
+        }
+        
+        // Validate required fields
+        if (!isset($input['mfreNum']) || !isset($input['PTRId']) || !isset($input['PreferenceOption'])) {
+            echo json_encode([
+                'success' => false,
+                'message' => 'Missing required fields for reissue acceptance'
+            ]);
+            return;
+        }
+        
+        $mfreNum = trim($input['mfreNum']);
+        $bookingId = trim($input['bookingId']);
+        $userId = trim($input['userId']);
+        $PreferenceOption = trim($input['PreferenceOption']);
+        $PTRId = trim($input['PTRId']);
+        
+        // Log the reissue acceptance request
+        $objCancel->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','reissueQuote.txt');
+        $objCancel->_writeLog('AJAX Reissue Acceptance Request for MF: '.$mfreNum,'reissueQuote.txt');
+        $objCancel->_writeLog('PTR ID: '.$PTRId,'reissueQuote.txt');
+        $objCancel->_writeLog('Preference Option: '.$PreferenceOption,'reissueQuote.txt');
+        
+        // Prepare API request for reissue acceptance
+        $requestData = array(
+            'ptrType' => 'ReIssueQuote',
+            'mFRef' => $mfreNum,
+            'PTRId' => $PTRId,
+            'PreferenceOption' => $PreferenceOption,
+            'AcceptQuote' => "yes",
+            'AdditionalNote' => "Please Reissue as for quoted fare"
+        );
+        
+        $objCancel->_writeLog('Reissue Acceptance Request: '.json_encode($requestData),'reissueQuote.txt');
+        
+        // Call the API
+        $endpoint = 'PostTicketingRequest';
+        $result = $objCancel->callApi($endpoint, $requestData);
+        $httpCode = $result['httpCode'];
+        $response = $result['responseData'];
+        
+        if ($response) {
+            $responseData = json_decode($response, true);
+            
+            // Check for JSON decode errors
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                $objCancel->_writeLog('JSON decode error: ' . json_last_error_msg(), 'reissueQuote.txt');
+                echo json_encode([
+                    'success' => false,
+                    'message' => 'Invalid response format from API'
+                ]);
+                return;
+            }
+        } else {
+            $objCancel->_writeLog('Empty response from API. HTTP Code: ' . $httpCode, 'reissueQuote.txt');
+            echo json_encode([
+                'success' => false,
+                'message' => 'No response received from airline system'
+            ]);
+            return;
+        }
+        
+        $objCancel->_writeLog('Reissue Acceptance Response: '.json_encode($responseData),'reissueQuote.txt');
+        
+        // Process the response
+        if (isset($responseData['Success']) && $responseData['Success']) {
+            $message = "Your reissue request has been accepted successfully. You will receive confirmation shortly.";
+            
+            if (isset($responseData['Data']['PTRStatus'])) {
+                $PTRStatus = $responseData['Data']['PTRStatus'];
+                $objCancel->_writeLog('Reissue Acceptance PTR Status: '.$PTRStatus,'reissueQuote.txt');
+                
+                if ($PTRStatus === "InProcess") {
+                    $message = "Your reissue request is being processed. You will receive confirmation within the estimated time.";
+                } elseif ($PTRStatus === "Completed") {
+                    $message = "Your flight has been successfully reissued. Please check your email for the new ticket details.";
+                }
+            }
+            
+            echo json_encode([
+                'success' => true,
+                'message' => $message,
+                'data' => $responseData['Data'] ?? null
+            ]);
+        } else {
+            $errorMessage = $responseData['Message'] ?? 'Failed to process reissue acceptance';
+            $objCancel->_writeLog('Reissue Acceptance Error: '.$errorMessage,'reissueQuote.txt');
+            
+            echo json_encode([
+                'success' => false,
+                'message' => $errorMessage
+            ]);
+        }
+        
+    } catch (Exception $e) {
+        $objCancel->_writeLog('Reissue Acceptance Exception: '.$e->getMessage(),'reissueQuote.txt');
+        echo json_encode([
+            'success' => false,
+            'message' => 'An error occurred while processing your reissue request'
+        ]);
+    }
+}
+
   $formData = [];
   parse_str($_POST['formData'], $formData);
  
@@ -138,7 +260,21 @@ $requestData = array(
          
         if ($response) {
             $responseData = json_decode($response, true);
-    
+            
+            // Check for JSON decode errors
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                $objCancel->_writeLog('JSON decode error: ' . json_last_error_msg(), 'reissueQuote.txt');
+                $responseData = array(
+                    'Success' => false,
+                    'Message' => 'Invalid response format from API'
+                );
+            }
+        } else {
+            $objCancel->_writeLog('Empty response from API. HTTP Code: ' . $httpCode, 'reissueQuote.txt');
+            $responseData = array(
+                'Success' => false,
+                'Message' => 'No response received from airline system'
+            );
         }
         $logRes =   print_r($responseData, true);
           $logReQ =   print_r(json_encode($requestData), true);
@@ -146,6 +282,15 @@ $requestData = array(
                     $objCancel->_writeLog('REsponse Received for MF:\n'.$mfreNum,'reissueQuote.txt');
                        $objCancel->_writeLog('userId is '.$userId,'reissueQuote.txt');
                       $objCancel->_writeLog('Booking ID is '.$bookingId,'reissueQuote.txt');
+        
+        // Debug: Log form data changes
+        $objCancel->_writeLog('FORM DATA DEBUG:','reissueQuote.txt');
+        $objCancel->_writeLog('Original Route: ' . $dep_loc . ' → ' . $arrv_loc,'reissueQuote.txt');
+        $objCancel->_writeLog('Original Date: ' . $dep_date,'reissueQuote.txt');
+        $objCancel->_writeLog('Flight Number: ' . $flightNumber,'reissueQuote.txt');
+        $objCancel->_writeLog('Airline Code: ' . $airlineCode,'reissueQuote.txt');
+        $objCancel->_writeLog('Trip Type: ' . $air_trip_Type,'reissueQuote.txt');
+        
         $objCancel->_writeLog('REquest Received\n'.$logReQ,'reissueQuote.txt');
 
         $objCancel->_writeLog('REsponse Received\n'.$logRes,'reissueQuote.txt');
@@ -158,24 +303,8 @@ $requestData = array(
      $message = ""; 
     //*************************************************
 
-   // $responseData['Success']    =true;
-  //  $responseData['Data']['PTRId']  =   10889;
-   //##################################################
-                                                     $responseData = array(
-                                                    'Success' => 1,
-                                                    'Data' => array(
-                                                        'PTRId' => 10816,
-                                                        'PTRType' => 'ReIssueQuote',
-                                                        'MFRef' => 'MF23829623',
-                                                        'SLAInMinutes' => 0,
-                                                        'PTRStatus' => 'Completed'
-                                                    )
-                                                );
-                                                $mfreNum    =   "MF23829623";
-                                                $PTRId="10816";
-                                          //  echo "NEWWWWWW";
-                                          //  print_r($responseData);exit;
-                                                //###############################################
+   // Use actual API response instead of hardcoded test data
+   // Test data commented out for production use
 
 
     //***************************************************
@@ -351,16 +480,15 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                                 </li>
                                 
                                 <li data-th="Price" class="main-dtls col-md-2 d-flex flex-column align-items-md-center mb-md-0 mb-2">
-                                    <form action="flight_booking_reissue.php" method="post">
-                                     <input type="hidden" id="mfref" name="mfreNum" value="'.$mfreNum.'">
-                                    <input type="hidden" name="bookingId" id="bookingId" value="'.$bookingId.'">
-                                    <input type="hidden" name="userId" id="USerid" value="'.$userId.'">
-                                    <input type="hidden" name="PreferenceOption" id="USerid" value="'.$PreferenceOption.'">
-                                    
-                                    <input type="hidden" name="PTRId"  id="ptrID" value="'.$PTRId.'">
                                     <div class="price-dtls mb-md-0 mb-2">'.$Currency.' '.'<strong>'.$totalfare_diff_value.'</strong></div>
-                                    <button class="btn btn-typ3 w-100">Reissue</button>
-                                    </form>
+                                    <button class="btn btn-typ3 w-100 reissue-accept-btn" 
+                                            data-mfref="'.$mfreNum.'" 
+                                            data-booking-id="'.$bookingId.'" 
+                                            data-user-id="'.$userId.'" 
+                                            data-preference-option="'.$PreferenceOption.'" 
+                                            data-ptr-id="'.$PTRId.'">
+                                        Yes, Proceed
+                                    </button>
                                 </li>
                                
                             </ul>
@@ -944,3 +1072,128 @@ exit;
 
    }
 ?>
+
+<script>
+$(document).ready(function() {
+    // Handle reissue acceptance button clicks
+    $(document).on('click', '.reissue-accept-btn', function(e) {
+        e.preventDefault();
+        
+        const button = $(this);
+        const mfRef = button.data('mfref');
+        const bookingId = button.data('booking-id');
+        const userId = button.data('user-id');
+        const preferenceOption = button.data('preference-option');
+        const ptrId = button.data('ptr-id');
+        
+        // Show confirmation dialog
+        Swal.fire({
+            title: 'Confirm Flight Change',
+            text: 'Are you sure you want to proceed with this flight change? This action cannot be undone.',
+            icon: 'question',
+            showCancelButton: true,
+            confirmButtonColor: '#007bff',
+            cancelButtonColor: '#6c757d',
+            confirmButtonText: 'Yes, Proceed',
+            cancelButtonText: 'Cancel',
+            allowOutsideClick: false
+        }).then((result) => {
+            if (result.isConfirmed) {
+                processReissueAcceptance(mfRef, bookingId, userId, preferenceOption, ptrId, button);
+            }
+        });
+    });
+});
+
+function processReissueAcceptance(mfRef, bookingId, userId, preferenceOption, ptrId, button) {
+    // Disable button and show loading state
+    const originalText = button.html();
+    button.prop('disabled', true).html('<i class="fas fa-spinner fa-spin"></i> Processing...');
+    
+    // Show loading modal
+    Swal.fire({
+        title: 'Processing Request',
+        text: 'Your flight change request is being processed...',
+        icon: 'info',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        didOpen: () => {
+            Swal.showLoading();
+        }
+    });
+    
+    const requestData = {
+        action: 'processReissueAcceptance',
+        mfreNum: mfRef,
+        bookingId: bookingId,
+        userId: userId,
+        PreferenceOption: preferenceOption,
+        PTRId: ptrId
+    };
+    
+    console.log('Sending reissue acceptance request:', requestData);
+    
+    $.ajax({
+        url: 'reissue_ticket.php',
+        type: 'POST',
+        dataType: 'json',
+        data: requestData,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest'
+        },
+        timeout: 30000, // 30 seconds timeout
+        success: function(response) {
+            console.log('Reissue acceptance response:', response);
+            
+            // Re-enable button
+            button.prop('disabled', false).html(originalText);
+            
+            if (response.success) {
+                Swal.fire({
+                    title: 'Success!',
+                    text: response.message,
+                    icon: 'success',
+                    confirmButtonColor: '#007bff',
+                    confirmButtonText: 'Go to Booking Details'
+                }).then(() => {
+                    // Redirect to booking details
+                    window.location.href = `flight-booking-details.php?booking_id=${bookingId}`;
+                });
+            } else {
+                Swal.fire({
+                    title: 'Error',
+                    text: response.message || 'Failed to process reissue acceptance',
+                    icon: 'error',
+                    confirmButtonColor: '#dc3545'
+                });
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('AJAX Error:', {xhr, status, error});
+            
+            // Re-enable button
+            button.prop('disabled', false).html(originalText);
+            
+            let errorMessage = 'Network error occurred. Please try again.';
+            
+            if (status === 'timeout') {
+                errorMessage = 'Request timed out. Please try again.';
+            } else if (xhr.responseText) {
+                try {
+                    const response = JSON.parse(xhr.responseText);
+                    errorMessage = response.message || errorMessage;
+                } catch (e) {
+                    console.error('Failed to parse error response:', e);
+                }
+            }
+            
+            Swal.fire({
+                title: 'Connection Error',
+                text: errorMessage,
+                icon: 'error',
+                confirmButtonColor: '#dc3545'
+            });
+        }
+    });
+}
+</script>

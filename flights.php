@@ -61,7 +61,6 @@ $responseData  = $_SESSION['response'];
 // print_r($responseData);
 // echo "</pre>";
 
-
 $pricedItineraries = $responseData['Data']['PricedItineraries'];
 
 $totalFlights = count($pricedItineraries);

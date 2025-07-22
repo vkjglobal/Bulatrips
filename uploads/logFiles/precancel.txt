@@ -1,0 +1,41 @@
+-------------Tuesday 8th of July 2025 09:30:18 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'booking_id' in 'where clause'
+Booking ID: 118
+User ID: 73
+-------------Tuesday 8th of July 2025 09:32:40 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'
+Booking ID: 118
+User ID: 73
+-------------Tuesday 8th of July 2025 09:36:50 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'status' in 'where clause'
+Booking ID: 118
+User ID: 73
+-------------Tuesday 8th of July 2025 09:39:35 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation successful for passenger:  
+Pre-cancellation error: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cancel_date' in 'field list'
+Booking ID: 118
+User ID: 73
+-------------Tuesday 8th of July 2025 09:43:20 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation successful for passenger:  
+-------------Tuesday 8th of July 2025 09:44:20 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation successful for passenger:  
+-------------Tuesday 8th of July 2025 09:44:30 AM-------------
+Pre-cancel processing for MF: MF30838825
+Non-ticketed passengers - local database operation only
+Pre-cancellation successful for passenger:  
+-------------Saturday 19th of July 2025 10:56:31 AM-------------
+Pre-cancel processing for MF: MF30994925
+Non-ticketed passengers - local database operation only
+Pre-cancellation successful for passenger: Martha Webster

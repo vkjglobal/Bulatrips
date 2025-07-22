@@ -10,6 +10,89 @@ if (!isset($_SESSION['user_id'])) {
 <?php
 } else {
     require_once("includes/header.php");
+    ?>
+    <style>
+        /* Custom responsive table styles */
+        .table-responsive {
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        .table {
+            margin-bottom: 0;
+            min-width: 100%;
+        }
+        
+        .table th {
+            background-color: #343a40 !important;
+            color: white !important;
+            border: none !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            padding: 15px 10px;
+        }
+        
+        .table td {
+            padding: 15px 10px;
+            vertical-align: middle;
+            border-color: #dee2e6;
+        }
+        
+        .table tbody tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .route-info {
+            min-width: 200px;
+        }
+        
+        .badge {
+            font-size: 11px;
+            padding: 5px 8px;
+        }
+        
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .table-responsive {
+                font-size: 12px;
+            }
+            
+            .table th, .table td {
+                padding: 8px 5px;
+            }
+            
+            .route-info {
+                min-width: 150px;
+            }
+            
+            .btn-sm {
+                padding: 5px 8px;
+                font-size: 11px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .table-responsive {
+                border: none;
+                box-shadow: none;
+            }
+            
+            .table th:first-child,
+            .table td:first-child {
+                position: sticky;
+                left: 0;
+                background-color: white;
+                z-index: 10;
+            }
+            
+            .table th:first-child {
+                background-color: #343a40 !important;
+            }
+        }
+    </style>
+    <?php
     include('includes/dbConnect.php');
 
     $id = $_SESSION['user_id'];
@@ -118,17 +201,17 @@ if (!isset($_SESSION['user_id'])) {
                 <div class="col-md-12 sub-tabs-container">
                     <div class="">
                         <div id="parent" class="d-flex flex-column">
-                            <div class="d-md-block w-100">
-                                <table class="table table-bordered table-responsive">
-                                    <thead>
+                            <div class="table-responsive w-100">
+                                <table class="table table-bordered table-striped table-hover w-100">
+                                    <thead class="thead-dark">
                                         <tr>
-                                            <th>MFReference No.</th>
-                                            <th>Route</th>
-                                            <th>Trip Type</th>
-                                            <th>Travellers</th>
-                                            <th>Total Amount</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th class="text-nowrap">MFReference No.</th>
+                                            <th class="text-nowrap">Route</th>
+                                            <th class="text-nowrap">Trip Type</th>
+                                            <th class="text-nowrap">Travellers</th>
+                                            <th class="text-nowrap">Total Amount</th>
+                                            <th class="text-nowrap">Status</th>
+                                            <th class="text-nowrap">Action</th>
                                         </tr>
                                     </thead>
 
@@ -146,25 +229,55 @@ if (!isset($_SESSION['user_id'])) {
                                             $formattedDate = $dateTime->format('d F Y, H:i'); ?>
 
                                             <tr>
-                                                <td> <?php echo $bookingDatas['mf_reference']; ?></td>
-                                                <td>
-                                                    <?php echo $bookingDatas['dep_location'] . " -> " . $bookingDatas['arrival_location'] . "<br />" . $formattedDate ?>
+                                                <td class="text-nowrap align-middle"> 
+                                                    <strong><?php echo $bookingDatas['mf_reference']; ?></strong>
                                                 </td>
-
-                                                <td><?php echo $bookingDatas['air_trip_type']; ?></td>
-                                                <td><?php echo ((int)$bookingDatas['adult_count'] + (int)$bookingDatas['child_count'] +  (int)$bookingDatas['infant_count']); ?></td>
-                                                <td><?php echo $bookingDatas['total_paid']; ?></td>
-
-                                                <td><?php echo $bookingDatas['booking_status']; ?></td>
-                                                <td>
-                                                    <a href="flight-booking-details.php?booking_id=<?php echo $bookingDatas['mf_reference']; ?>" class="btn btn-typ4">
-                                                        <i class="fas fa-file-invoice"></i> Booking Details
+                                                <td class="align-middle">
+                                                    <div class="route-info">
+                                                        <strong><?php echo $bookingDatas['dep_location'] . " → " . $bookingDatas['arrival_location']; ?></strong>
+                                                        <br>
+                                                        <small class="text-muted"><?php echo $formattedDate; ?></small>
+                                                    </div>
+                                                </td>
+                                                <td class="text-nowrap align-middle">
+                                                    <span class="badge badge-info"><?php echo $bookingDatas['air_trip_type']; ?></span>
+                                                </td>
+                                                <td class="text-center align-middle">
+                                                    <span class="badge badge-secondary">
+                                                        <?php echo ((int)$bookingDatas['adult_count'] + (int)$bookingDatas['child_count'] +  (int)$bookingDatas['infant_count']); ?>
+                                                    </span>
+                                                </td>
+                                                <td class="text-nowrap align-middle">
+                                                    <strong class="text-success">$<?php echo number_format($bookingDatas['total_paid'], 2); ?></strong>
+                                                </td>
+                                                <td class="align-middle">
+                                                    <?php 
+                                                    $status = $bookingDatas['booking_status'];
+                                                    $badgeClass = '';
+                                                    switch(strtolower($status)) {
+                                                        case 'booked':
+                                                        case 'confirmed':
+                                                            $badgeClass = 'badge-success';
+                                                            break;
+                                                        case 'pending':
+                                                        case 'bookinginprocess':
+                                                            $badgeClass = 'badge-warning';
+                                                            break;
+                                                        case 'cancelled':
+                                                            $badgeClass = 'badge-danger';
+                                                            break;
+                                                        default:
+                                                            $badgeClass = 'badge-secondary';
+                                                    }
+                                                    ?>
+                                                    <span class="badge <?php echo $badgeClass; ?>"><?php echo $status; ?></span>
+                                                </td>
+                                                <td class="text-nowrap align-middle">
+                                                    <a href="flight-booking-details.php?booking_id=<?php echo $bookingDatas['mf_reference']; ?>" 
+                                                       class="btn btn-typ4 btn-sm">
+                                                        <i class="fas fa-file-invoice"></i> 
+                                                        <span class="d-none d-md-inline">Details</span>
                                                     </a>
-                                                    <!-- <a href="cancel_user.php?booking_id=<?php //echo $bookingDatas['id']; ?>" class="btn btn-info mb-2 mt-2 btn-primary">
-                                                        Void/Refund Booking
-                                                    </a>
-                                                    <a href="cancel.php?booking_id=<?php //echo $bookingDatas['id']; ?>" class="btn btn-danger mb-2">Cancel Booking
-                                                    </a> -->
                                                 </td>
                                             </tr>
                                         <?php } ?>

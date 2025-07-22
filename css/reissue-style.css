@@ -1,0 +1,76 @@
+/* Reissue Flight Search Results Styling */
+
+/* Ensure airline icons are displayed properly */
+.flight-results-container .airImg {
+    background-image: url('../images/airline.png');
+    background-repeat: no-repeat;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+/* Flight card styling */
+.flight-card {
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    transition: box-shadow 0.3s ease;
+}
+
+.flight-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Pagination styling */
+.pagination-bottom .pagination-btn {
+    border: 1px solid #dee2e6;
+    background: white;
+    color: #495057;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.pagination-bottom .pagination-btn.active {
+    background: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+.pagination-bottom .pagination-btn:hover:not(:disabled) {
+    background: #e9ecef;
+    cursor: pointer;
+}
+
+.pagination-bottom .pagination-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Flight results container styling */
+.results-header {
+    border-bottom: 2px solid #f8f9fa;
+    padding-bottom: 15px;
+}
+
+/* Responsive airline icons */
+@media (max-width: 768px) {
+    .flight-results-container .main-dtls {
+        text-align: center !important;
+        margin-bottom: 10px;
+    }
+    
+    .flight-results-container .form-row {
+        flex-direction: column;
+    }
+}
+
+/* Return flight section styling */
+.flight-card p[style*="background-color: #ffe4cc"] {
+    border-radius: 4px;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+/* Price display styling */
+.btn-select-flight {
+    font-weight: 600;
+    padding: 8px 16px;
+} 

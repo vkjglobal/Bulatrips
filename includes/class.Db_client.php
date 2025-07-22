@@ -54,18 +54,49 @@ class Db_client {
     }
     //================
     public function insertInto($table, $data) {
-        $columns = implode(', ', array_keys($data));
-        $placeholders = ':' . implode(', :', array_keys($data));
-       // print_r($placeholders);exit;
-       $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
-
         try {
+            // Filter out NULL values and prepare columns/values
+            $filteredData = array_filter($data, function($value) {
+                return $value !== null;
+            });
+            
+            $columns = implode(', ', array_keys($filteredData));
+            $placeholders = ':' . implode(', :', array_keys($filteredData));
+            
+            $query = "INSERT INTO $table ($columns) VALUES ($placeholders)";
+            
+            // Debug log
+            $this->_writeLog("SQL Query: " . $query, 'debug.txt');
+            $this->_writeLog("Data: " . print_r($filteredData, true), 'debug.txt');
+            
             $stmt = $this->conn->prepare($query);
-            $stmt->execute($data);
+            
+            // Bind each value, handling NULL values properly
+            foreach ($filteredData as $key => $value) {
+                if ($value === null) {
+                    $stmt->bindValue(":$key", null, PDO::PARAM_NULL);
+                } else {
+                    $stmt->bindValue(":$key", $value);
+                }
+            }
+            
+            $stmt->execute();
             return $this->conn->lastInsertId();
+            
         } catch (PDOException $e) {
-            die("Error executing query: " . $e->getMessage());
+            // Log the error
+            $this->_writeLog("Database Error: " . $e->getMessage(), 'debug.txt');
+            throw $e;
         }
+    }
+
+    // Helper function to write logs
+    private function _writeLog($content = "", $filename = "log.txt") {
+        $logPath = 'uploads/logFiles/' . $filename;
+        $fp = fopen($logPath, "a+");
+        fputs($fp, date('[Y-m-d H:i:s] ') . $content);
+        fputs($fp, "\r\n");
+        fclose($fp);
     }
 
     // Function to get data using prepared statement with PDO
@@ -115,19 +146,31 @@ class Db_client {
      // Method to execute a specific query
     public function executePassengerQuery($bookingId, $userId) {
         try {
+            // Debug log the input parameters
+            $this->_writeLog("Executing passenger query with bookingId: $bookingId, userId: $userId", 'debug.txt');
            
-            $stmtpassenger = $this->conn->prepare('SELECT  temp_booking.booking_status,temp_booking.ticket_time_limit,temp_booking.mf_reference ,temp_booking.ticket_status 
+            // Security: Only booking owner can cancel their booking
+            $sql = 'SELECT  temp_booking.booking_status,temp_booking.ticket_time_limit,temp_booking.mf_reference ,temp_booking.ticket_status 
                                                     ,temp_booking.fare_type,temp_booking.child_count,temp_booking.void_window,temp_booking.dep_date,temp_booking.arrival_location ,travellers_details.id, travellers_details.first_name, travellers_details.last_name,travellers_details.title,
                                                     travellers_details.passenger_type,travellers_details.e_ticket_number FROM travellers_details 
                                             LEFT JOIN temp_booking ON travellers_details.flight_booking_id = temp_booking.id
-                                            WHERE travellers_details.flight_booking_id = :bookingId and temp_booking.user_id = :userId');
-
+                                            WHERE travellers_details.flight_booking_id = :bookingId and temp_booking.user_id = :userId';
+            
+            // Debug log the SQL query
+            $this->_writeLog("SQL Query: " . $sql, 'debug.txt');
+            
+            $stmtpassenger = $this->conn->prepare($sql);
             $stmtpassenger->execute(array('bookingId' => $bookingId, 'userId' => $userId));
 
             $result = $stmtpassenger->fetchAll(PDO::FETCH_ASSOC);
+            
+            // Debug log the result
+            $this->_writeLog("Query result: " . print_r($result, true), 'debug.txt');
+            
             return $result;
         } catch (PDOException $e) {
-            // Handle the exception (e.g., log the error)
+            // Log the error
+            $this->_writeLog("Database Error: " . $e->getMessage(), 'debug.txt');
             return null;
         }
     }

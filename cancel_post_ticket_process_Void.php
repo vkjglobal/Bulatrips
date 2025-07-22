@@ -209,7 +209,41 @@ if (isset($responseData['Success']) && $responseData['Success']) {
 		 if( $PTRStatus == "InProcess"){
 			             $message   =   "Your Canellation is :".$PTRStatus." This will update within ". $hours." Hours";
 			}
-			else{
+			else if($PTRStatus == "Completed"){
+                // Send completion email for immediate void completion
+                include_once('mail_send.php');
+                include_once('includes/class.Users.php');
+                
+                $objUser = new Users();
+                $userDetails = $objUser->getUserDetails($userId);
+                
+                if($userDetails && !empty($userDetails['email'])) {
+                    $email = $userDetails['email'];
+                    $name = $userDetails['first_name']." ".$userDetails['last_name'];
+                    $subject = "Flight Void Completed - Bulatrips";
+                    
+                    $content = '<p>Dear '.$name.',</p>
+                               <p>Your flight void request has been successfully completed.</p>
+                               <p><strong>Booking Details:</strong></p>
+                               <ul>
+                                   <li>Booking ID: '.$bookingId.'</li>
+                                   <li>MyFareBox Reference: '.$mfreNum.'</li>
+                                   <li>Status: Voided</li>
+                                   <li>Total Refund Amount: '.$Currency.' '.$TotalRefundAmount.'</li>
+                                   <li>Admin Charges: '.$Currency.' '.$AdminCharges.'</li>
+                                   <li>GST Charges: '.$Currency.' '.$GSTCharge.'</li>
+                                   <li>Voiding Fee: '.$Currency.' '.$TotalVoidingFee.'</li>
+                               </ul>
+                               <p>The refund will be processed within 7-14 business days to your original payment method.</p>
+                               <p>Thank you for choosing Bulatrips.</p>';
+                               
+                    $messageData = $objCancel->getEmailContent($content);
+                    $headers = "";
+                    
+                    sendMail($email, $subject, $messageData, $headers);
+                    
+                    $objCancel->_writeLog('Void completion email sent to user: '.$email.' for booking: '.$bookingId, 'void.txt');
+                }
 
              			$message   =   "Your Canellation is :".$PTRStatus." Total Refundable Amount is : "."\r\n". $Currency." ".$TotalRefundAmount;
          

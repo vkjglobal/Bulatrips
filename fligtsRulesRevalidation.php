@@ -41,6 +41,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
     $objBook->_writeLog('fsCode Received for MF:\nfsc' . $fsCode, 'revalidate.txt');
     $objBook->_writeLog('REsponse Received\n' . $logRes, 'revalidate.txt');
     $pricedItineraries = $responseData['Data']['PricedItineraries'];
+    
     if (isset($responseData['Data']['Errors']) && !empty($responseData['Data']['Errors'])) {
         require_once('includes/error_found.php');
     } else if (empty($responseData['Data']['PricedItineraries'])) {
@@ -116,9 +117,11 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                             <!-- <h2 class="title-typ2 mb-3 text-center">Flight Details</h2> -->
                             <?php
                             foreach ($pricedItineraries as $pricedItinerary) {
+                                // echo "IsPassportMandatory: ".$pricedItinerary['AirItineraryPricingInfo']['IsPassportMandatory'];
                                 $originDestinations = $pricedItinerary['OriginDestinationOptions'];
                                 $_SESSION['name-character-count'] = $pricedItinerary['PaxNameCharacterLimit'];
                             ?>
+
 
                                 <div class="booking-step mb-4">
                                     <div class="col-md-12 dark-blue-txt fw-500 p-0">
@@ -985,8 +988,15 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                             <div class="col-md-2 mb-4">
                                                 <input type="text" name="contactnumber" id="contactnumber" class="form-control" placeholder="Mobile Number" value="<?php echo $mobile;?>">
                                             </div>
+                                            
                                             <div class="col-md-2 mb-4">
-                                                <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address" value="<?php echo $email;?>">
+                                                <input type="text" name="contactemail" id="contactemail" class="form-control" placeholder="Email Address" value="<?php echo $email;?>"
+                                                <?php
+                                                if (isset($_SESSION['user_id']) && !empty($_SESSION['user_id'])) {
+                                                    echo "readonly";
+                                                }?>
+                                                >
+
                                             </div>
                                             <div class="col-md-2 mb-4">
                                                 <input type="text" name="contactpostcode" id="contactpostcode" class="form-control" placeholder="Postcode" value="<?php echo $zip_code;?>">
@@ -1009,6 +1019,10 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                         <input type="hidden" name="returndate" value="<?php echo $_SESSION['travel-return-depdate'] ?>">
                                         <input type="hidden" name="nameCharacterCount" value="<?php echo  $_SESSION['name-character-count'] ?>">
                                         <input type="hidden" name="pricedItineraries" value="<?php echo htmlspecialchars(json_encode($responseData['Data']['PricedItineraries'])); ?>">
+                                        
+                                        <input type='hidden' name='isPassportMandatory' value='<?php echo $pricedItinerary['IsPassportMandatory'];?>'>
+                                
+
                                         <input type="hidden" name="custId" value="<?php echo $_SESSION['customer_role-id']; ?>">
 
                                         <?php

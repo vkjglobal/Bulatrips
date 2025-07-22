@@ -20,7 +20,7 @@ class Payment extends Dbconnect{
         return $result;
     }
     public function user_payment($role){
-        $sql ="SELECT t.*,u.* FROM temp_booking AS t JOIN users AS u ON u.id = t.user_id WHERE u.role = $role ORDER BY t.id DESC";
+        $sql ="SELECT p.*, t.dep_location, t.arrival_location, t.mf_reference, t.contact_first_name, t.contact_last_name, t.contact_email, t.total_paid FROM payment_user AS p LEFT JOIN temp_booking AS t ON t.id = p.booking_id ORDER BY p.id DESC";
         $result = $this->db->selectCMSDB($sql) ;
         return $result;
     }

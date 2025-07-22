@@ -1,0 +1,4318 @@
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:08
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:09
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:42
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:43
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:03
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:17:04
+    [totalFareAPI] => 0
+    [markup_data] => Array
+        (
+            [id] => 2
+            [role_id] => 1
+            [commission_percentage] => 5.00
+            [created_date] => 2025-03-18 15:25:27
+            [status] => 0
+        )
+
+    [markup_percentage] => NOT_FOUND
+)
+
+

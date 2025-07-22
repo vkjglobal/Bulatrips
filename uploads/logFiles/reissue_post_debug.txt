@@ -1,0 +1,713 @@
+Array
+(
+    [timestamp] => 2025-07-08 15:37:25
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 15:37:33
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 15:48:35
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 15:53:49
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 15:54:26
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => business
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => business
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:05:15
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:19:36
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => economy
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:19:54
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => business
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => business
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:22:03
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => business
+            [new_return_date] => 2025-07-26
+            [return_cabin_class] => business
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 16:33:37
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => OneWay
+            [trip_type_selection] => OneWay
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:16:57
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [trip_type_selection] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-21
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-25
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:53:09
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [trip_type_selection] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-22
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-31
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+    [page] => 1
+    [air_trip_type] => Return
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:59:02
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [trip_type_selection] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-22
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-31
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+    [page] => 1
+    [air_trip_type] => Return
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 19:00:56
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [trip_type_selection] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-15
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-25
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+    [page] => 1
+    [air_trip_type] => Return
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-09 06:45:11
+    [all_post_data] => Array
+        (
+            [passengers] => Array
+                (
+                    [0] => 113
+                )
+
+            [mfreNum] => MF30839425
+            [bookingId] => 122
+            [userId] => 73
+            [flight_no_return] => 806
+            [selected-flights] => 623
+            [airline_code_return] => EK
+            [cabin_preference_return] => Economy
+            [air_trip_type] => Return
+            [trip_type_selection] => Return
+            [departure] => LHE
+            [arrival] => JED
+            [new_dep_date] => 2025-07-23
+            [cabin_class] => economy
+            [new_return_date] => 2025-07-31
+            [action] => search_reissue_flights
+            [selected_passengers] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+        )
+
+    [selected_passengers_raw] => [{"id":"113","firstName":"Ursula","lastName":"Peters","title":"Mr","eticket":"1765457557578","passengerType":"ADT"}]
+    [selected_passengers_decoded] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 113
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eticket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [passenger_count] => 1
+    [page] => 1
+    [air_trip_type] => Return
+)
+
+

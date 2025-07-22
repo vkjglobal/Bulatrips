@@ -22,6 +22,8 @@ include_once __DIR__ . '/class.Db_clientCron.php';
        curl_setopt($ch, CURLOPT_POST, true);
        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($requestData));
        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+       curl_setopt($ch, CURLOPT_TIMEOUT, 60); // 60 second timeout
+       curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 30); // 30 second connection timeout
        curl_setopt($ch, CURLOPT_HTTPHEADER, array(
            'Content-Type: application/json',
            'Authorization: Bearer ' . BEARER
@@ -29,10 +31,23 @@ include_once __DIR__ . '/class.Db_clientCron.php';
    
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = curl_error($ch);
         curl_close($ch);
+        
+        // Enhanced logging for debugging
+        $this->_writeLog("API Request to: " . $apiEndpoint, 'api_debug.txt');
+        $this->_writeLog("Request Data: " . json_encode($requestData), 'api_debug.txt');
+        $this->_writeLog("HTTP Code: " . $httpCode, 'api_debug.txt');
+        $this->_writeLog("Response: " . $response, 'api_debug.txt');
+        
+        if ($curlError) {
+            $this->_writeLog("CURL Error: " . $curlError, 'api_debug.txt');
+        }
+        
         return array(
         'httpCode' => $httpCode,
-        'responseData' => $response
+        'responseData' => $response,
+        'curlError' => $curlError
         );
     }
     public function updateInDB_cancelbooking($tableName,$ticketNum){
@@ -110,6 +125,41 @@ include_once __DIR__ . '/class.Db_clientCron.php';
                 return null;
             }
     }
+    
+    public function getSpecificPTR($ptrId = null, $mfRef = null)
+    {
+        try {
+            $conditions = [];
+            $params = [];
+            
+            if ($ptrId) {
+                $conditions[] = "ptr_id = :ptr_id";
+                $params['ptr_id'] = $ptrId;
+            }
+            
+            if ($mfRef) {
+                $conditions[] = "mf_ref_num = :mf_ref";
+                $params['mf_ref'] = $mfRef;
+            }
+            
+            if (empty($conditions)) {
+                return [];
+            }
+            
+            $whereClause = implode(' OR ', $conditions);
+            $query = "SELECT * FROM cancel_booking WHERE ($whereClause) AND (ptr_type = 'Refund' OR ptr_type = 'Void')";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           
+            return $result;
+        } catch (PDOException $e) {
+            // Handle the exception (e.g., log the error)
+            return [];
+        }
+    }
     public function getEmailContent($content){
         $messageDatacontent =   $content;
              $messageData      = '
@@ -169,6 +219,100 @@ include_once __DIR__ . '/class.Db_clientCron.php';
         </html>';
 
         return   $messageData;
+    }
+    
+    /**
+     * Handle PTRs that are stuck and returning "No records found"
+     * Mark them as failed after SLA expiry
+     */
+    public function handleStuckPTR($bookingId, $ptrId, $mfRef, $ptrType, $slaMinutes) {
+        try {
+            // Calculate if PTR is beyond SLA
+            $query = "SELECT created_date FROM cancel_booking WHERE id = :booking_id";
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute(['booking_id' => $bookingId]);
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            if ($result) {
+                $createdTime = strtotime($result['created_date']);
+                $currentTime = time();
+                $elapsedMinutes = ($currentTime - $createdTime) / 60;
+                
+                // If PTR is beyond SLA + 30 minutes buffer, mark as failed
+                if ($elapsedMinutes > ($slaMinutes + 30)) {
+                    $updateData = array(
+                        'ptr_status' => 'failed',
+                        'failure_reason' => 'PTR stuck in system - No records found after SLA expiry',
+                        'failed_at' => date('Y-m-d H:i:s')
+                    );
+                    $condition = "id = " . $bookingId;
+                    
+                    $this->update('cancel_booking', $updateData, $condition);
+                    
+                    $this->_writeLog("Marked PTR as failed - Booking: $bookingId, PTR: $ptrId, Elapsed: {$elapsedMinutes}min", 'api_debug.txt');
+                    
+                    return true;
+                }
+            }
+            
+            return false;
+        } catch (Exception $e) {
+            $this->_writeLog("Error handling stuck PTR: " . $e->getMessage(), 'api_debug.txt');
+            return false;
+        }
+    }
+    
+    /**
+     * Get PTRs that need immediate attention (beyond SLA)
+     */
+    public function getOverduePTRs() {
+        try {
+            $query = "SELECT *, 
+                      TIMESTAMPDIFF(MINUTE, created_date, NOW()) as elapsed_minutes,
+                      sla_minutes
+                      FROM cancel_booking 
+                      WHERE ptr_status = 'InProcess' 
+                      AND TIMESTAMPDIFF(MINUTE, created_date, NOW()) > (sla_minutes + 15)
+                      ORDER BY created_date ASC";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            $this->_writeLog("Error getting overdue PTRs: " . $e->getMessage(), 'api_debug.txt');
+            return [];
+        }
+    }
+    
+    /**
+     * Send alert email for stuck PTRs
+     */
+    public function sendStuckPTRAlert($ptrDetails) {
+        $subject = "URGENT: PTR Stuck Alert - PTR ID " . $ptrDetails['ptr_id'];
+        $content = "
+        <h3>PTR Processing Alert</h3>
+        <p><strong>PTR Details:</strong></p>
+        <ul>
+            <li>PTR ID: {$ptrDetails['ptr_id']}</li>
+            <li>MF Reference: {$ptrDetails['mf_ref_num']}</li>
+            <li>PTR Type: {$ptrDetails['ptr_type']}</li>
+            <li>Created: {$ptrDetails['created_date']}</li>
+            <li>SLA: {$ptrDetails['sla_minutes']} minutes</li>
+            <li>Elapsed: {$ptrDetails['elapsed_minutes']} minutes</li>
+            <li>Status: STUCK - No records found</li>
+        </ul>
+        <p><strong>Action Required:</strong></p>
+        <p>Please contact Mystifly support immediately for PTR ID {$ptrDetails['ptr_id']}</p>
+        ";
+        
+        $messageData = $this->getEmailContent($content);
+        
+        // You can implement email sending here
+        $this->_writeLog("Alert needed for stuck PTR: " . $ptrDetails['ptr_id'], 'api_debug.txt');
+        
+        return true;
     }
 }
 

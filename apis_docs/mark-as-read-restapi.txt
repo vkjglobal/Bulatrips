@@ -1,0 +1,49 @@
+MARK as READ - PostTicketingRequest (PTR)
+Introduction of “Mark as Read” API:
+MARK as READ PTR API service helps clients in changing the status of a specific PTR ID to READ status, by which the transactions can be fetched easily from PTR Queue API by sending the PTRCategory as ‘READ’. But once the PTR is marked as READ then it cannot be moved to UNREAD again.
+
+
+MARK as READ PTR - API Request:
+{
+  "id": "172",
+  "requestType": "void",
+  "MFRef": "MF102059018"
+}
+                
+MARK as READ PTR - API Response:
+{
+    "Data": {
+        "Id": 172,
+        "RequestType": "Void",
+        "Status": "Success"
+    },
+    "Success": true
+}
+​
+                
+
+MARK as READ PTR - API Request- Data Description
+Parameter Required  Example/Type Description
+PTRID Mandatory 140 PTRID tag needs to be passed by the client in request, by which client will get the details of the booking associated with that ID in the queue response.
+RequestType Mandatory VOID We need to pass the request type associated with the PTRID passed.
+MFREF Mandatory MF001223223 MF reference number associated with the PTR ID need to be passed in this tag.
+
+MARK as READ PTR - API Response - Data Description
+Parameter Example/Type  Description
+Data  --  --
+PTRDetails  --  --
+PTRID 172 PTRID tag will share the unique reference number for which the status been updated to READ.
+RequestType Void  PTR type associated with the ID
+Status  Success Will give the status of the API transaction.
+Success TRUE  Response
+
+MARK as READ PTR - API - Error Codes
+Error Message Comments
+SessionId cannot be null  Make sure the session ID is passed.
+Invalid SessionId Please check the session ID
+Invalid PTR ID  Make sure that we pass a valid PTR ID
+Invalid MFREF Please pass the actual MFREF in the request.
+Already marked as READ  PTRID already marked as read
+Invalid Request Type  Make sure that the Request type is passed as ‘READ’
+No records found. No data available for the requested id.
+Please verify the Request.  Please verify the request passed.

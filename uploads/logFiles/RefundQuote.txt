@@ -9118,3 +9118,3495 @@ REsponse Received\nArray
 
 step data empty Ticket is Non-Refundable.
 step end of refund quote ========= Ticket is Non-Refundable.
+-------------Thursday 26th of June 2025 07:20:03 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Thursday 26th of June 2025 07:20:27 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Thursday 26th of June 2025 07:20:37 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Thursday 26th of June 2025 07:22:19 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Friday 27th of June 2025 02:47:16 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Friday 27th of June 2025 02:49:51 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Friday 27th of June 2025 02:50:09 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+-------------Friday 27th of June 2025 02:51:30 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 02:54:27 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 02:54:57 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 02:55:25 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 02:56:12 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Refund quote request cannot be processed as the refund details are missing from the request.
+step end of refund quote ========= Refund quote request cannot be processed as the refund details are missing from the request.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 02:59:11 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750993151
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 03:00:14 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750993213
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 03:00:19 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750993218
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 03:00:39 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750993238
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 03:09:12 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750993751
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Clare
+            [lastname] => Warren
+            [title] => Mrs
+            [eticket] => TKT465507
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Clare
+            [lastName] => Warren
+            [title] => Mrs
+            [eTicket] => TKT465507
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Friday 27th of June 2025 03:14:50 AM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Clare
+                    [lastName] => Warren
+                    [title] => Mrs
+                    [eTicket] => TKT465507
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30750325_1750994089
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Diana
+            [lastname] => Ashley
+            [title] => MISS
+            [eticket] => TKT466724
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 07:53:22 AM-------------
+REsponse Received for MF:\nMF30839125
+userId is 73
+Booking ID is 121
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839125
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Diana
+                    [lastName] => Ashley
+                    [title] => MISS
+                    [eTicket] => TKT466724
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839125_1751961199
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Diana
+            [lastname] => Ashley
+            [title] => MISS
+            [eticket] => TKT466724
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 07:55:52 AM-------------
+REsponse Received for MF:\nMF30839125
+userId is 73
+Booking ID is 121
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839125
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Diana
+                    [lastName] => Ashley
+                    [title] => MISS
+                    [eTicket] => TKT466724
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839125_1751961351
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Diana
+            [lastname] => Ashley
+            [title] => MISS
+            [eticket] => TKT466724
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 08:47:35 AM-------------
+REsponse Received for MF:\nMF30839125
+userId is 73
+Booking ID is 121
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839125
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Diana
+                    [lastName] => Ashley
+                    [title] => MISS
+                    [eTicket] => TKT466724
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839125_1751964454
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data: Array
+(
+    [0] => Array
+        (
+            [firstname] => Diana
+            [lastname] => Ashley
+            [title] => MISS
+            [eticket] => TKT466724
+            [passengertype] => ADT
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 08:48:17 AM-------------
+REsponse Received for MF:\nMF30839125
+userId is 73
+Booking ID is 121
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839125
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Diana
+                    [lastName] => Ashley
+                    [title] => MISS
+                    [eTicket] => TKT466724
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839125_1751964497
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 15:50:56
+            [mf_reference] => MF30839125
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 12:40:00
+            [arrival_location] => JED
+            [id] => 112
+            [first_name] => Diana
+            [last_name] => Ashley
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466724
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:04:29 AM-------------
+REsponse Received for MF:\nMF30839125
+userId is 73
+Booking ID is 121
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839125
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Diana
+                    [lastName] => Ashley
+                    [title] => MISS
+                    [eTicket] => TKT466724
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839125_1751965468
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:05:28 AM-------------
+REsponse Received for MF:\nMF30838825
+userId is 73
+Booking ID is 118
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30838825
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Zephania
+                    [lastName] => Torres
+                    [title] => Mr
+                    [eTicket] => TKT466721
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30838825_1751965527
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 14:29:37
+            [mf_reference] => MF30838625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 09:55:00
+            [arrival_location] => JED
+            [id] => 107
+            [first_name] => Roary
+            [last_name] => Love
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557573
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roary
+            [lastName] => Love
+            [title] => Mr
+            [eTicket] => 1575457557573
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:06:03 AM-------------
+REsponse Received for MF:\nMF30838625
+userId is 73
+Booking ID is 116
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30838625
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Roary
+                    [lastName] => Love
+                    [title] => Mr
+                    [eTicket] => 1575457557573
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30838625_1751965562
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:06:17 AM-------------
+REsponse Received for MF:\nMF30839425
+userId is 73
+Booking ID is 122
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30839425
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eTicket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30839425_1751965576
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:06:45 AM-------------
+REsponse Received for MF:\nMF30838825
+userId is 73
+Booking ID is 118
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30838825
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Zephania
+                    [lastName] => Torres
+                    [title] => Mr
+                    [eTicket] => TKT466721
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30838825_1751965604
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:06:58 AM-------------
+REsponse Received for MF:\nMF30838825
+userId is 73
+Booking ID is 118
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30838825
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Zephania
+                    [lastName] => Torres
+                    [title] => Mr
+                    [eTicket] => TKT466721
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30838825_1751965617
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+-------------Tuesday 8th of July 2025 09:07:01 AM-------------
+REsponse Received for MF:\nMF30838825
+userId is 73
+Booking ID is 118
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF30838825
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Zephania
+                    [lastName] => Torres
+                    [title] => Mr
+                    [eTicket] => TKT466721
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote_MF30838825_1751965620
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Refund quote request cannot be processed as the refund details are missing from the request.
+)
+
+step data empty Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+step end of refund quote ========= Unable to process refund quote. This may be due to booking restrictions or timing limitations. Please contact customer support for assistance.
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838825","AllowChildPassenger":false,"passengers":[{"firstName":"Zephania","lastName":"Torres","title":"Mr","eTicket":"TKT466721","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30838825_1751965726","AdditionalNote":"Refund request for booking MF30838825","PreferenceOption":1}
+API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:00:41
+            [mf_reference] => MF30838825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 13:40:00
+            [arrival_location] => JED
+            [id] => 109
+            [first_name] => Zephania
+            [last_name] => Torres
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466721
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Zephania
+            [lastName] => Torres
+            [title] => Mr
+            [eTicket] => TKT466721
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838825","AllowChildPassenger":false,"passengers":[{"firstName":"Zephania","lastName":"Torres","title":"Mr","eTicket":"TKT466721","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30838825_1751965733","AdditionalNote":"Refund request for booking MF30838825","PreferenceOption":1}
+API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"ConversationId":"RefundQuote__1751968875","AdditionalNote":"Refund request for booking "}
+API Response: {"Data":null,"Success":false,"Message":null}
+-------------Tuesday 8th of July 2025 10:01:16 AM-------------
+REsponse Received for MF:\n
+userId is 73
+Booking ID is 122
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => 
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Ursula
+                    [lastName] => Peters
+                    [title] => Mr
+                    [eTicket] => 1765457557578
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [ConversationId] => RefundQuote__1751968875
+    [AdditionalNote] => Refund request for booking 
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => 
+)
+
+Empty response data with no message
+step end of refund quote ========= Unable to process refund request. Please try again later or contact customer support.
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30839425_1751969154","AdditionalNote":"Refund request for booking MF30839425"}
+API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 116
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 116, MF Ref: MF30838625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 14:29:37
+            [mf_reference] => MF30838625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 09:55:00
+            [arrival_location] => JED
+            [id] => 107
+            [first_name] => Roary
+            [last_name] => Love
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557573
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roary
+            [lastName] => Love
+            [title] => Mr
+            [eTicket] => 1575457557573
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 14:29:37
+    [mf_reference] => MF30838625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 09:55:00
+    [arrival_location] => JED
+    [id] => 107
+    [first_name] => Roary
+    [last_name] => Love
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557573
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 117
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838725
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 117, MF Ref: MF30838725, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 17:46:34
+            [mf_reference] => MF30838725
+            [ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 03:10:00
+            [arrival_location] => JED
+            [id] => 108
+            [first_name] => Hilel
+            [last_name] => Fischer
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557574
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Hilel
+            [lastName] => Fischer
+            [title] => Mrs
+            [eTicket] => 1575457557574
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838725","AllowChildPassenger":false,"passengers":[{"firstName":"Hilel","lastName":"Fischer","title":"Mrs","eTicket":"1575457557574","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557574"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-05 17:46:34
+    [mf_reference] => MF30838725
+    [ticket_status] => Flown
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-08 03:10:00
+    [arrival_location] => JED
+    [id] => 108
+    [first_name] => Hilel
+    [last_name] => Fischer
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557574
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 119
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 119, MF Ref: MF30838925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-05 18:32:38
+            [mf_reference] => MF30838925
+            [ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-08 09:55:00
+            [arrival_location] => JED
+            [id] => 110
+            [first_name] => Gloria
+            [last_name] => Sampson
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557575
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Gloria
+            [lastName] => Sampson
+            [title] => Mrs
+            [eTicket] => 1575457557575
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838925","AllowChildPassenger":false,"passengers":[{"firstName":"Gloria","lastName":"Sampson","title":"Mrs","eTicket":"1575457557575","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557575"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-05 18:32:38
+    [mf_reference] => MF30838925
+    [ticket_status] => Flown
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-08 09:55:00
+    [arrival_location] => JED
+    [id] => 110
+    [first_name] => Gloria
+    [last_name] => Sampson
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557575
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 121
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839125
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 121, MF Ref: MF30839125, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 15:50:56
+            [mf_reference] => MF30839125
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 12:40:00
+            [arrival_location] => JED
+            [id] => 112
+            [first_name] => Diana
+            [last_name] => Ashley
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466724
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839125","AllowChildPassenger":false,"passengers":[{"firstName":"Diana","lastName":"Ashley","title":"MISS","eTicket":"TKT466724","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt TKT466724"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 15:50:56
+    [mf_reference] => MF30839125
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 12:40:00
+    [arrival_location] => JED
+    [id] => 112
+    [first_name] => Diana
+    [last_name] => Ashley
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT466724
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 122
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839425
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 122, MF Ref: MF30839425, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-07 16:49:08
+            [mf_reference] => MF30839425
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-16 03:25:00
+            [arrival_location] => JED
+            [id] => 113
+            [first_name] => Ursula
+            [last_name] => Peters
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1765457557578
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Ursula
+            [lastName] => Peters
+            [title] => Mr
+            [eTicket] => 1765457557578
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-07 16:49:08
+    [mf_reference] => MF30839425
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-16 03:25:00
+    [arrival_location] => JED
+    [id] => 113
+    [first_name] => Ursula
+    [last_name] => Peters
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1765457557578
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 116
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 116, MF Ref: MF30838625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 14:29:37
+            [mf_reference] => MF30838625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 09:55:00
+            [arrival_location] => JED
+            [id] => 107
+            [first_name] => Roary
+            [last_name] => Love
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557573
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roary
+            [lastName] => Love
+            [title] => Mr
+            [eTicket] => 1575457557573
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 14:29:37
+    [mf_reference] => MF30838625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 09:55:00
+    [arrival_location] => JED
+    [id] => 107
+    [first_name] => Roary
+    [last_name] => Love
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557573
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 116
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 116, MF Ref: MF30838625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 14:29:37
+            [mf_reference] => MF30838625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 09:55:00
+            [arrival_location] => JED
+            [id] => 107
+            [first_name] => Roary
+            [last_name] => Love
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557573
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roary
+            [lastName] => Love
+            [title] => Mr
+            [eTicket] => 1575457557573
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 14:29:37
+    [mf_reference] => MF30838625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 09:55:00
+    [arrival_location] => JED
+    [id] => 107
+    [first_name] => Roary
+    [last_name] => Love
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557573
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 116
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30838625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 116, MF Ref: MF30838625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 14:29:37
+            [mf_reference] => MF30838625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 09:55:00
+            [arrival_location] => JED
+            [id] => 107
+            [first_name] => Roary
+            [last_name] => Love
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457557573
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roary
+            [lastName] => Love
+            [title] => Mr
+            [eTicket] => 1575457557573
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+HTTP Code: 503
+Raw API Response: <html>
+<head><title>503 Service Temporarily Unavailable</title></head>
+<body>
+<center><h1>503 Service Temporarily Unavailable</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 14:29:37
+    [mf_reference] => MF30838625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 09:55:00
+    [arrival_location] => JED
+    [id] => 107
+    [first_name] => Roary
+    [last_name] => Love
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457557573
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Void Window: 2025-07-17T16:29:59.997, Current Time: 2025-07-18 01:08:20
+Void window expired - switching to Direct Refund
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+Using Direct Refund API
+API Request: {"ptrType":"Refund","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Direct refund request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Void Window: 2025-07-17T16:29:59.997, Current Time: 2025-07-18 01:27:32
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Void Window: 2025-07-17T16:29:59.997, Current Time: 2025-07-18 01:30:15
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 126
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30964625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 126, MF Ref: MF30964625, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-19 06:10:03
+            [mf_reference] => MF30964625
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-17T16:29:59.997
+            [dep_date] => 2025-07-28 09:55:00
+            [arrival_location] => JED
+            [id] => 117
+            [first_name] => Roth
+            [last_name] => Faulkner
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 1575457559408
+        )
+
+)
+
+Void Window: 2025-07-17T16:29:59.997, Current Time: 2025-07-18 01:45:18
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Roth
+            [lastName] => Faulkner
+            [title] => Mr
+            [eTicket] => 1575457559408
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-19 06:10:03
+    [mf_reference] => MF30964625
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-17T16:29:59.997
+    [dep_date] => 2025-07-28 09:55:00
+    [arrival_location] => JED
+    [id] => 117
+    [first_name] => Roth
+    [last_name] => Faulkner
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 1575457559408
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 121
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF30839125
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 121, MF Ref: MF30839125, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-07-08 15:50:56
+            [mf_reference] => MF30839125
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-07-05T16:29:59.997
+            [dep_date] => 2025-07-21 12:40:00
+            [arrival_location] => JED
+            [id] => 112
+            [first_name] => Diana
+            [last_name] => Ashley
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT466724
+        )
+
+)
+
+Void Window: 2025-07-05T16:29:59.997, Current Time: 2025-07-19 10:56:59
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Diana
+            [lastName] => Ashley
+            [title] => MISS
+            [eTicket] => TKT466724
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF30839125","AllowChildPassenger":false,"passengers":[{"firstName":"Diana","lastName":"Ashley","title":"MISS","eTicket":"TKT466724","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-07-08 15:50:56
+    [mf_reference] => MF30839125
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-07-05T16:29:59.997
+    [dep_date] => 2025-07-21 12:40:00
+    [arrival_location] => JED
+    [id] => 112
+    [first_name] => Diana
+    [last_name] => Ashley
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT466724
+)
+

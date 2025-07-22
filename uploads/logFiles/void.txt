@@ -3520,3 +3520,130 @@ REsponse Received\nArray
 
 step data empty Void request is already submitted
 step end of void  ========= Void request is already submitted
+-------------Thursday 26th of June 2025 12:16:25 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 15513
+            [PTRType] => Void
+            [MFRef] => MF30750325
+            [SLAInMinutes] => 120
+            [PTRStatus] => InProcess
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Clare
+                            [LastName] => Warren
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => TKT465507
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 871.22
+                            [Currency] => USD
+                        )
+
+                )
+
+        )
+
+)
+
+Step 1Success InProcess
+step end of void  ========= Your Canellation is :InProcess This will update within 2 Hours
+-------------Thursday 26th of June 2025 12:18:01 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted
+-------------Thursday 26th of June 2025 03:59:58 PM-------------
+REsponse Received for MF:\nMF30750325
+userId is 73
+Booking ID is 112
+Request Received\nArray
+(
+    [ptrType] => void
+    [mFRef] => MF30750325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstname] => Clare
+                    [lastname] => Warren
+                    [title] => Mrs
+                    [eticket] => TKT465507
+                    [passengertype] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Kindly void booking
+)
+
+REsponse Received\nArray
+(
+    [Success] => 
+    [Data] => 
+    [Message] => Void request is already submitted
+)
+
+step data empty Void request is already submitted
+step end of void  ========= Void request is already submitted

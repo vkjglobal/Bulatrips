@@ -1,4 +1,9 @@
 <?php
+// Check if bypass flag is set (for AJAX requests)
+if (defined('BYPASS_FILTER_VALIDATION') && BYPASS_FILTER_VALIDATION === true) {
+    return;
+}
+
 require_once('includes/dbConnect.php');
 
 //error_log('Running filterValidation.php');
@@ -25,8 +30,13 @@ function filterAllVariable(&$data) {
     $searchArr = array('<', '>');
     $replaceArr = array('&lt;', '&gt;');
     foreach ($data as $key => $val) {
-        $data[$key] = filter($val); // Use the updated filter function
-        $data[$key] = str_replace($searchArr, $replaceArr, $data[$key]);
+        if (is_array($val)) {
+            // Recursively filter arrays
+            filterAllVariable($data[$key]);
+        } else {
+            $data[$key] = filter($val); // Use the updated filter function
+            $data[$key] = str_replace($searchArr, $replaceArr, $data[$key]);
+        }
     }
 }
 
@@ -34,10 +44,18 @@ function validateAllVariableIn($data) {
     if (count($data) == 0) return true;
 
     foreach ($data as $value) {
-        if (trim($value)) {
-            if (!validateQueryStringVariable($value)) {
-                error_log('Invalid variable: ' . $value);
+        // Handle arrays recursively
+        if (is_array($value)) {
+            if (!validateAllVariableIn($value)) {
                 return false;
+            }
+        } else {
+            // Only trim non-array values
+            if (trim($value)) {
+                if (!validateQueryStringVariable($value)) {
+                    error_log('Invalid variable: ' . $value);
+                    return false;
+                }
             }
         }
     }

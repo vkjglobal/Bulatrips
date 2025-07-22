@@ -262,7 +262,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $nationality = $data['nationality' . $i];
                     $frequentFlyer = $data['frequent_flyer' . $i] ?? '';
 
-                    if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
+                    if (empty($firstName) || empty($lastName) || empty($dob)  || empty($title) || empty($gender) || empty($nationality) || empty($bookingID)) {
                         $errorMessage = 'Please fill in all mandatory fields for adult';
                         header('Content-Type: application/json');
                         $errors = $errorMessage;
@@ -495,7 +495,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $passengerType = "CHD";
                     $nationality = $data['nationalityChild' . $i];
                     $frequentFlyer = $data['frequent_flyerChild' . $i] ?? '';
-                    if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
+                    if (empty($firstName) || empty($lastName) || empty($dob)  || empty($title) || empty($gender) || empty($nationality) || empty($bookingID)) {
                         // Handle the validation error (e.g., show an error message or redirect back with an error)
                         // For example, you can redirect back to the form page with an error message
                         $errorMessage = 'Please fill in all mandatory fields for child';
@@ -639,8 +639,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $passengerType = "INF";
                     $frequentFlyer = $data['frequent_flyerInfant' . $i] ?? '';
 
-
-                    if (empty($firstName) || empty($lastName) || empty($dob) || empty($passportNo) || empty($passpostExp) || empty($title) || empty($gender) || empty($issuingCountry) || empty($nationality) || empty($bookingID)) {
+                   
+                    if (empty($firstName) || empty($lastName) || empty($dob)  || empty($title) || empty($gender) || empty($nationality) || empty($bookingID)) {
                         // Handle the validation error (e.g., show an error message or redirect back with an error)
                         // For example, you can redirect back to the form page with an error message
                         $errorMessage = 'Please fill in all mandatory fields for infant ';

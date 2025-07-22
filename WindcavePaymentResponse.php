@@ -496,10 +496,10 @@ if (isset($response) && $response != '') {
                         insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
 
                         confirmationMail($toEmail, $subject, $transactionData, $headers);
+                        $redirection = true;
 
                         insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Sent", json_encode($response), @$_SESSION['user_id'], "Pending");
                         
-                        $redirection = true;
                         ?>
         <?php
                     }

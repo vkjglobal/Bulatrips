@@ -141,12 +141,22 @@ if( isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
                         <ul class="breadcrumbs">
                             <li><a href="index" style="text-decoration: underline !important;">Home</a></li>
                             <?php
-                
                                 if( isset($_SERVER["HTTP_REFERER"]) && $_SERVER["HTTP_REFERER"] != "" ) {
                                     $referrer = $_SERVER["HTTP_REFERER"];
                                     $fileName = basename(parse_url($referrer, PHP_URL_PATH));
                                     if( $fileName != "index" && $fileName != '' ) {?>
-                                        <li><a href="<?php echo $fileName;?>" style="text-decoration: underline !important;"><?php echo ucfirst($fileName);?></a></li>
+
+<?php
+    $ul_to_redirect = $fileName;
+    if($fileName == "fligtsRulesRevalidation") {
+        $fileName = "FlightRulesRevalidation";
+        $ul_to_redirect = "fligtsRulesRevalidation";
+    }
+?>
+
+
+
+                                        <li><a href="<?php echo $ul_to_redirect;?>" style="text-decoration: underline !important;"><?php echo ucfirst($fileName);?></a></li>
                                         <?php
                                     }
                                 }
@@ -186,7 +196,6 @@ if( isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
 
                                         <input type="hidden" class="form-control" name="searchFlights" id="searchFlights" value="<?php echo $redirect_to_flights;?>">
                                         <input type="hidden" class="form-control" name="usersignup" id="usersignup" value="usersignup">
-
                                         <div class="form-row">
 
                                             <div class="form-group col-md-6">
@@ -284,14 +293,28 @@ if( isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' ) {
                                                 <input type="password" class="form-control" name="userconfirm" id="confirmpassword" placeholder="Confirm Password" oninput="checkPasswords()" oninvalid="this.setCustomValidity('Passwords do not match')" autocomplete="off" >
                                             </div>
 
-                                            <div class="form-group chkbx col-12">
+
+                                            <div class="d-flex align-items-center justify-content-center ml-2 mb-3">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"  id="logintab-user" checked style="width: 19px;height: 19px; margin-top: 3px;">
+                                                    <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #121E7E;"> 
+                                                        <span class="chk-txt fs-13 fw-400">By continuing, I agree to Bulatrips
+                                                            <a href="privacy" target="_blank" class="text-primary">Privacy Policy</a> and 
+                                                            <a href="terms" target="_blank" class="text-primary">Terms & Conditions</a>
+                                                        </span>
+                                                        <label for="logintab-user" class="fz-13 fw-400" id="policyerror"></label>
+                                                    </label>
+                                                </div>
+                                            </div>
+
+                                            <!-- <div class="form-group chkbx col-12">
                                                 <input type="checkbox" id="logintab-user" checked>
                                                 <label for="logintab-user" class="fz-13 fw-400" id="policyerror">
                                                     <span class="chk-txt fs-13 fw-400">By continuing, I agree to Bulatrips
                                                         <a href="privacy" target="_blank" class="text-primary">Privacy Policy</a> and 
                                                         <a href="terms" target="_blank" class="text-primary">Terms & Conditions</a></span>
                                                 </label>
-                                            </div>
+                                            </div> -->
 
                                             <div class="form-group col-md-12">
                                                 <button type="submit" name="usersignup" class="btn border-radius-5 btn-typ1 fs-15 fw-400 w-100">Register</button>

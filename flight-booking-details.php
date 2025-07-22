@@ -41,11 +41,24 @@ $user_loggedin_status = isset($_SESSION['user_id']) ? true : false;
 
 $bookingId = $bookingData['id'];
 
+// Check if logged-in user owns this booking
+$user_owns_booking = false;
+if ($user_loggedin_status && isset($_SESSION['user_id'])) {
+    $user_owns_booking = ($_SESSION['user_id'] == $bookingData['user_id']);
+}
+
+// Allow access if:
+// 1. User is logged in and owns the booking (direct access)
+// 2. Valid token exists and (cookie exists or user logged in)
 if( 
-    ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) > strtotime(date('Y-m-d H:i:s')))
-    &&
-    ($cookie_exists || $user_loggedin_status)
-    ) {
+    $user_owns_booking 
+    || 
+    (
+        ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) > strtotime(date('Y-m-d H:i:s')))
+        &&
+        ($cookie_exists || $user_loggedin_status)
+    )
+) {
     //userinfo recent added 
     if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
         $stmt = $conn->prepare('SELECT * FROM users WHERE id = :id');
@@ -291,7 +304,49 @@ if(
         <!-- <div class=" container"> -->
 
             <?php
-                require_once('includes/no_result_found_booking.php');
+                // Check if we have local booking data to show as fallback
+                if (isset($bookingData) && !empty($bookingData['mf_reference'])) {
+                    echo '<div class="container mt-4">';
+                    echo '<div class="alert alert-warning">';
+                    echo '<i class="fas fa-exclamation-triangle mr-2"></i>';
+                    echo '<strong>Limited Information Available:</strong> We\'re showing cached booking details. For latest status, please try refreshing the page.';
+                    echo '</div>';
+                    
+                    // Show basic booking information from database
+                    echo '<div class="card">';
+                    echo '<div class="card-header">';
+                    echo '<h5 class="mb-0">Booking Information (From Cache)</h5>';
+                    echo '</div>';
+                    echo '<div class="card-body">';
+                    echo '<div class="row">';
+                    echo '<div class="col-md-6">';
+                    echo '<p><strong>Booking Reference:</strong> ' . htmlspecialchars($bookingData['mf_reference']) . '</p>';
+                    echo '<p><strong>Status:</strong> <span class="badge badge-info">' . ucfirst($bookingData['booking_status']) . '</span></p>';
+                    echo '<p><strong>Route:</strong> ' . htmlspecialchars($bookingData['dep_location']) . ' → ' . htmlspecialchars($bookingData['arrival_location']) . '</p>';
+                    echo '</div>';
+                    echo '<div class="col-md-6">';
+                    echo '<p><strong>Passenger:</strong> ' . htmlspecialchars($bookingData['contact_first_name'] . ' ' . $bookingData['contact_last_name']) . '</p>';
+                    echo '<p><strong>Total Paid:</strong> $' . number_format($bookingData['total_paid'], 2) . '</p>';
+                    echo '<p><strong>Booking Date:</strong> ' . date('d M Y', strtotime($bookingData['created_at'])) . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                    
+                    // Add action buttons
+                    echo '<div class="text-center mt-3">';
+                    echo '<button onclick="window.location.reload()" class="btn btn-primary mr-2">';
+                    echo '<i class="fas fa-redo mr-2"></i>Refresh for Latest Details';
+                    echo '</button>';
+                    echo '<a href="user-dashboard" class="btn btn-outline-secondary">';
+                    echo '<i class="fas fa-tachometer-alt mr-2"></i>Go to Dashboard';
+                    echo '</a>';
+                    echo '</div>';
+                    
+                    echo '</div>';
+                    echo '</div>';
+                    echo '</div>';
+                } else {
+                    require_once('includes/no_result_found_booking.php');
+                }
                 /*
                     $errStatus  =   1; // need to handle error case like repay mail etc
                     $Errmessage = "Error Received from airline :".$responseData['Message']. "No results received to show here .Please search again or check with your dashboard Booking details"; 
@@ -1238,37 +1293,93 @@ if(
                                 </div>
 
                             </div>
-                            <div class="form-row mb-3">
-                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
-                                    <a href="cancel_user.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Void/Cancel </a>
-                                    <small>Usually within 24 hours</small>
+                            <?php 
+                            // Check access permissions for PTR buttons (same as confirmation.php)
+                            $user_owns_booking = false;
+                            $is_guest_access = false;
+                            
+                            if (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '') {
+                                // Logged-in user - check if they own the booking
+                                $user_owns_booking = ($_SESSION['user_id'] == $bookingData['user_id']);
+                            } else {
+                                // Guest user - they accessed via token so they have rights
+                                $is_guest_access = true;
+                            }
+                            
+                            // Show PTR buttons for:
+                            // 1. Logged-in users who own the booking
+                            // 2. Guest users who accessed via token
+                            if (($user_owns_booking || $is_guest_access) && ($ticketStatus == 'Ticketed' || $bookingStatus == 'Booked')): 
+                            ?>
+                            <div class="row mb-3">
+                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                    <?php if ($is_guest_access): ?>
+                                    <a href="cancel_user.php?booking_id=<?php echo $bookingData['mf_reference']; ?>" 
+                                       class="btn btn-danger fs-14 w-100">
+                                        <i class="fas fa-times-circle"></i> Cancel Flight
+                                    </a>
+                                    <?php else: ?>
+                                    <a href="cancel_user.php?booking_id=<?php echo $bookingData['id']; ?>" 
+                                       class="btn btn-danger fs-14 w-100">
+                                        <i class="fas fa-times-circle"></i> Cancel Flight
+                                    </a>
+                                    <?php endif; ?>
+                                    <small>Smart void/refund system</small>
                                 </div>
-                                
-                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
-                                    <a href="dashboard-flight-reschedule-details.html" class="btn btn-typ3 fs-14 w-100">Reschedule</a>
-                                    <small>Anytime</small>
+                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                    <?php if ($is_guest_access): ?>
+                                    <a href="flight_booking_reissue.php?booking_id=<?php echo $bookingData['mf_reference']; ?>" 
+                                       class="btn btn-warning fs-14 w-100">
+                                        <i class="fas fa-exchange-alt"></i> Reschedule
+                                    </a>
+                                    <?php else: ?>
+                                    <a href="flight_booking_reissue.php?booking_id=<?php echo $bookingData['id']; ?>" 
+                                       class="btn btn-warning fs-14 w-100">
+                                        <i class="fas fa-exchange-alt"></i> Reschedule
+                                    </a>
+                                    <?php endif; ?>
+                                    <small>Change your flight</small>
                                 </div>
-                                <div class="col-lg-4 col-sm-6 mb-lg-0 mb-2">
-                                    <a href="cancel.php?booking_id=<?php echo $bookingId;?>" class="btn btn-typ3 fs-14 w-100">Refund Amount</a>
-                                    <small>Usually after 24 hours</small>
+                                <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
+                                    <button class="btn btn-info fs-14 w-100" onclick="downloadInvoice('<?php echo $bookingData['mf_reference']; ?>')">
+                                        <i class="fas fa-file-invoice"></i> Download Invoice
+                                    </button>
+                                    <small>Get your invoice</small>
                                 </div>
-                                <!-- <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                    <button id="downloadInvoice" class="btn btn-typ3 fs-14 w-100">Download Invoice</button>
-                                </div> -->
-                                <!-- <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
-                                    <input type="hidden" id="bookingid" value="<?php echo $bookingId?>">
-                                    <button id="downloadButton" class="btn btn-typ3 fs-14 w-100">Download Ticket</button>
-                                    <small>Anytime</small>
-                                </div> -->
-                                <div class="col-lg col-sm-6 mb-lg-0 mb-2">
-                                
-                            <!-- <form id="ticketForm" action="" method="POST"> -->
-                                    <input type="hidden" id="bookingid" value="<?php echo $bookingId?>">
-                                    <!-- <button type="submit" id="send-ticket-button" class="btn btn-typ3 fs-14 w-100">Send Ticket</button> -->
-                                    <!-- <button id="downloadButton">Download Ticket</button> -->
+                                <div class="col-lg-3 col-sm-6">
+                                    <button class="btn btn-success fs-14 w-100" onclick="downloadTicket('<?php echo $bookingData['mf_reference']; ?>')">
+                                        <i class="fas fa-ticket-alt"></i> Download Ticket
+                                    </button>
+                                    <small>Get your e-ticket</small>
                                 </div>
-                            <!-- </form> -->
                             </div>
+                            <?php elseif (isset($_SESSION['user_id']) && $_SESSION['user_id'] != '' && !$user_owns_booking): ?>
+                            <!-- Show only viewing options for logged-in users viewing other's bookings -->
+                            <div class="row mb-3">
+                                <div class="col-lg-6 col-sm-6 mb-lg-0 mb-2">
+                                    <button class="btn btn-info fs-14 w-100" onclick="downloadInvoice('<?php echo $bookingData['mf_reference']; ?>')">
+                                        <i class="fas fa-file-invoice"></i> Download Invoice
+                                    </button>
+                                    <small>Get your invoice</small>
+                                </div>
+                                <div class="col-lg-6 col-sm-6">
+                                    <button class="btn btn-success fs-14 w-100" onclick="downloadTicket('<?php echo $bookingData['mf_reference']; ?>')">
+                                        <i class="fas fa-ticket-alt"></i> Download Ticket
+                                    </button>
+                                    <small>Get your e-ticket</small>
+                                </div>
+                            </div>
+                            <?php else: ?>
+                            <!-- No buttons for users without access -->
+                            <div class="row mb-3">
+                                <div class="col-12 text-center">
+                                    <p class="text-muted">
+                                        <i class="fas fa-info-circle"></i> 
+                                        To manage this booking, please log in with the account used for booking or use the booking management token.
+                                    </p>
+                                </div>
+                            </div>
+                            <?php endif; ?>
                                     <!-- <div class="row mb-3">
                                 <div class="col-lg-3 col-sm-6 mb-lg-0 mb-2">
                                     <button class="btn btn-typ3 fs-14 w-100">Cancel Flight</button>
@@ -1369,19 +1480,7 @@ if(
                 $("html, body").animate({ scrollTop: 0 }, 500);
             })
 
-        //Download ticket code
-            // JavaScript code to handle the button click event
-            document.getElementById("downloadButton").addEventListener("click", function() {
-                // Redirect to the PHP script to initiate the download
-                const inputValue = document.getElementById("bookingid").value;
-                window.location.href = "ticket_testlatest.php?value=" + encodeURIComponent(inputValue);
-            });
-            //download Invoice
-            document.getElementById("downloadInvoice").addEventListener("click", function() {
-                // Redirect to the PHP script to initiate the download
-                const inputValue = document.getElementById("bookingid").value;
-                window.location.href = "invoice.php?value=" + encodeURIComponent(inputValue);
-            });
+        // Other existing functions here...
             $("#send-ticket-button").click(function() {
                 // Get the booking ID from the hidden input field
                 var bookingId = document.getElementById("bookingid").value;
@@ -1416,6 +1515,7 @@ if(
             window.location.href="flight-booking-details";
         }
         </script>
+
         <?php
     }
 } else {?>
@@ -1496,12 +1596,14 @@ if(
     </div>
     <?php
 
+        // Only send token if user is not logged in or doesn't own the booking
         if(
-            ($bookingData['manage_booking_token'] == "" || $bookingData['manage_booking_token'] == NULL)
-            || 
-            ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) < strtotime(date('Y-m-d H:i:s')))
-            
-            ) {
+            !$user_owns_booking && (
+                ($bookingData['manage_booking_token'] == "" || $bookingData['manage_booking_token'] == NULL)
+                || 
+                ($bookingData['manage_booking_token'] != "" && isset($bookingData['token_expiry']) && strtotime($bookingData['token_expiry']) < strtotime(date('Y-m-d H:i:s')))
+            )
+        ) {
             $token = substr(strval(random_int(1000000, 9999999)), 0, 7);
             $token_expiry = date('Y-m-d H:i:s', strtotime('+1 day'));
             $updateToken = $conn->prepare('UPDATE temp_booking SET manage_booking_token = :manage_booking_token, token_expiry = :token_expiry WHERE id = :id');
@@ -1554,7 +1656,8 @@ if(
                     </body>
                     </html>';
                     $headers="";
-                    confirmationMail($toEmail, $subject, $messageData,$headers);
+                $messageData;
+                confirmationMail($toEmail, $subject, $messageData,$headers);
         }
 }
 require_once("includes/login-modal.php");
@@ -1562,7 +1665,66 @@ require_once("includes/footer.php");
 ?>
 
 <script>
-    $("#tokenForm").submit(function(event) {
+// Download Invoice function (same as confirmation.php) 
+function downloadInvoice(mfRef) {
+    window.open('includes/generate_invoice.php?mf_ref=' + mfRef, '_blank');
+}
+
+// Download Ticket function (same as confirmation.php)
+function downloadTicket(mfRef) {
+    window.open('includes/generate_ticket.php?mf_ref=' + mfRef, '_blank');
+}
+
+// Add CSS to fix z-index issue for SweetAlert
+$('head').append('<style>.swal2-container { z-index: 999999 !important; } .swal2-popup { z-index: 999999 !important; }</style>');
+
+// PTR Button click handlers with confirmation (same as confirmation.php)
+$(document).ready(function() {
+    // Add confirmation for Cancel button
+    $(document).on('click', 'a[href*="cancel_user.php"]', function(e) {
+        e.preventDefault();
+        var cancelUrl = $(this).attr('href');
+        
+        Swal.fire({
+            title: 'Cancel Flight?',
+            text: 'Are you sure you want to proceed with flight cancellation? This action will start the PTR process.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#d33',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, proceed',
+            cancelButtonText: 'No, keep booking'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = cancelUrl;
+            }
+        });
+    });
+    
+    // Add confirmation for Reschedule button
+    $(document).on('click', 'a[href*="flight_booking_reissue.php"]', function(e) {
+        e.preventDefault();
+        var reissueUrl = $(this).attr('href');
+        
+        Swal.fire({
+            title: 'Reschedule Flight?',
+            text: 'This will start the flight change process. Additional charges may apply for fare differences.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonColor: '#f39c12',
+            cancelButtonColor: '#3085d6',
+            confirmButtonText: 'Yes, reschedule',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = reissueUrl;
+            }
+        });
+    });
+});
+
+// Token form submission handler
+$("#tokenForm").submit(function(event) {
             event.preventDefault();
             var tokenValue = $("input[name='tokenManagement']").val();
             if (tokenValue === "") {

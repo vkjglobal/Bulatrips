@@ -1,4 +1,4 @@
-$(window).on('load', function () {
+$(window).on("load", function () {
   // Function to set a cookie (renamed to setUserDataCookie)
   function setUserDataCookie(cookieName, value, days) {
     let expires = "";
@@ -29,10 +29,33 @@ $(window).on('load', function () {
   var infantArray = [];
   var contactDetailsData = [];
 
+  // Helper function to re-enable button safely
+  function reEnableButton($button) {
+    console.log("Attempting to re-enable button...");
+    console.log("Button object:", $button);
+    
+    if ($button && $button.length) {
+      $button.prop("disabled", false).html("Register");
+      console.log("Button re-enabled successfully");
+    } else {
+      console.log("Button not found, trying alternative selector...");
+      // Try alternative selectors
+      var altButton = $("button[type='submit'][name='usersignup'], button[name='usersignup']");
+      if (altButton.length) {
+        altButton.prop("disabled", false).html("Register");
+        console.log("Button re-enabled using alternative selector");
+      } else {
+        console.log("No button found with any selector");
+      }
+    }
+  }
+
   $("#user-signup").submit(function (event) {
     event.preventDefault();
 
-    var $button = $("button[name='usersignup']");
+    var $button = $("button[type='submit'][name='usersignup']");
+    console.log("Found button:", $button.length, $button);
+    
     $button
       .prop("disabled", true)
       .html('<i class="fa fa-spinner fa-spin"></i> Registering...');
@@ -57,7 +80,7 @@ $(window).on('load', function () {
     var policy = document.getElementById("logintab-user");
 
     valid = true;
-    
+
     if (address == "") {
       document.getElementById("address").style.borderColor = "red";
       valid = false;
@@ -93,7 +116,6 @@ $(window).on('load', function () {
       document.getElementById("zipcode").style.borderColor = "#CCC";
     }
 
-    
     if (fname == "") {
       // $('#userfname').after('<span class="text-danger fs-12 position-absolute" style="color:red">Country cannot be blank.</span>')
       document.getElementById("userfname").style.borderColor = "red";
@@ -148,15 +170,21 @@ $(window).on('load', function () {
     } else {
       document.getElementById("confirmpassword").style.borderColor = "#CCC";
     }
-    if (!policy.checked) {
+    if (policy && !policy.checked) {
+      // Remove any existing policy error messages first
+      $("#policyerror").next(".text-danger").remove();
       $("#policyerror").after(
         '<p class="text-danger fs-12 position-absolute" >Please accept the Privacy Policy and Terms of Use</p>'
       );
       valid = false;
+    } else if (policy && policy.checked) {
+      // Remove error message if checkbox is checked
+      $("#policyerror").next(".text-danger").remove();
     }
 
     if (!valid) {
-      $button.prop("disabled", false).html("Register");
+      console.log("Validation failed, re-enabling button...");
+      reEnableButton($button);
       return false;
     }
 
@@ -206,12 +234,23 @@ $(window).on('load', function () {
             confirmButtonColor: "#f57c00",
           });
         }
-        $button.prop("disabled", false).html("Register");
       },
-      error: function () {
-        alert("Error submitting form");
-        $button.prop("disabled", false).html("Register");
+      error: function (xhr, status, error) {
+        console.error("AJAX Error:", status, error);
+        Swal.fire({
+          title: "Connection Error",
+          text: "Unable to connect to server. Please try again.",
+          icon: "error",
+          confirmButtonText: "Close",
+          confirmButtonColor: "#f57c00",
+        });
       },
+      complete: function() {
+        // Always re-enable button after AJAX completes (success or error)
+        setTimeout(function() {
+          reEnableButton($button);
+        }, 100);
+      }
     });
   });
 
@@ -2290,6 +2329,13 @@ $(window).on('load', function () {
     }
     // .....................................................................................
     function continueExecution() {
+      // Get isPassportMandatoryValue at the beginning
+      var isPassportMandatory = document.querySelector(
+        'input[name="isPassportMandatory"]'
+      );
+      var isPassportMandatoryValue = isPassportMandatory ? isPassportMandatory.value : "false";
+      var isPassportMandatoryValue = "1";
+
       // const extraServiceInbound = [];
       if (extraSrviceData != null) {
         //  const extraServiceInbound = extraSrviceData.filter(service => service.Behavior === 'PER_PAX_INBOUND');
@@ -2318,9 +2364,9 @@ $(window).on('load', function () {
       // }
       // alert(extraServiceInbound);
 
-      addAdult();
-      addChild();
-      addInfant();
+      addAdult(isPassportMandatoryValue);
+      addChild(isPassportMandatoryValue);
+      addInfant(isPassportMandatoryValue);
 
       function generateExtraServiceOptions(
         extraServiceData,
@@ -2526,7 +2572,7 @@ $(window).on('load', function () {
       }
 
       // Nafees
-      function addAdult() {
+      function addAdult(isPassportMandatory) {
         const adultContainer = document.getElementById("adultcontainer");
 
         const endpoint = "includes/getCountriesList";
@@ -2561,8 +2607,16 @@ $(window).on('load', function () {
             if (!isLoggedIn) {
               $("#contactfirstname").val(contactsavedData.contactfirstname);
               $("#contactlastname").val(contactsavedData.contactlastname);
-              if ($("#contactcountry option[value='" +contactsavedData.contactcountry +"']").length > 0) {
-                $("#contactcountry").val(contactsavedData.contactcountry).change();
+              if (
+                $(
+                  "#contactcountry option[value='" +
+                    contactsavedData.contactcountry +
+                    "']"
+                ).length > 0
+              ) {
+                $("#contactcountry")
+                  .val(contactsavedData.contactcountry)
+                  .change();
               }
               $("#contactnumber").val(contactsavedData.contactnumber);
               $("#contactemail").val(contactsavedData.contactemail);
@@ -2637,7 +2691,9 @@ $(window).on('load', function () {
                     <label for="passportNo${i}">Passport Number:</label>
                         <input type="text" class="form-control" name="passportNo${i}" placeholder="Adult ${i} Passport No."  value="${
                 savedData.passportNo || ""
-              }">
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              }>
                         <span id="passportNoError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
@@ -2645,13 +2701,17 @@ $(window).on('load', function () {
                       <label for="pasprtExp${i}">Passport Expiry:</label>
                         <input type="date" name="pasprtExp${i}" class="form-control" placeholder="Adult ${i} Expiry Date" onfocus="(this.type='date')"  value="${
                 savedData.passportExpiry
-              }" >
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              } >
                         <span id="pasprtExpError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                     </div>
                     <div class="col-md-2 mb-2">
                     <label for="issuingCountry${i}">Passport Issuing Country:</label>
-                      <select name="issuingCountry${i}" class="form-control">
+                      <select name="issuingCountry${i}" class="form-control" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "disabled"
+              }>
                         ${countryData
                           .map(
                             (country) =>
@@ -2774,7 +2834,7 @@ $(window).on('load', function () {
       }
 
       //child details
-      function addChild() {
+      function addChild(isPassportMandatory) {
         const adultContainer = document.getElementById("childcontainer");
 
         const endpoint = "includes/getCountriesList";
@@ -2856,7 +2916,9 @@ $(window).on('load', function () {
                   <label for="passportNoChild${i}">Passport Number:</label>
                       <input type="text" class="form-control" name="passportNoChild${i}" placeholder="Child ${i} Passport No." value="${
                 savedData.passportNo || ""
-              }">
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              }>
                       <span id="passportNoChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
@@ -2864,13 +2926,17 @@ $(window).on('load', function () {
                   <label for="pasprtExpChild${i}">Passport Expiry:</label>
                       <input type="date" name="pasprtExpChild${i}" class="form-control" placeholder="Child ${i} Expiry Date" onfocus="(this.type='date')" value="${
                 savedData.passportExpiry
-              }" >
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              } >
                       <span id="pasprtExpChildError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-md-2 mb-2">
                   <label for="issuingcountryChild${i}">Passport Issuing Country:</label>
-                    <select name="issuingcountryChild${i}" class="form-control">
+                    <select name="issuingcountryChild${i}" class="form-control" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "disabled"
+              }>
                       ${countryData
                         .map(
                           (country) =>
@@ -2997,7 +3063,7 @@ $(window).on('load', function () {
 
       //Add Infant data
 
-      function addInfant() {
+      function addInfant(isPassportMandatory) {
         const adultContainer = document.getElementById("infantcontainer");
 
         const endpoint = "includes/getCountriesList";
@@ -3079,7 +3145,9 @@ $(window).on('load', function () {
                   <label for="passportNoInfant${i}">  Passport Number:</label>
                       <input type="text" class="form-control" name="passportNoInfant${i}" placeholder="Infant ${i} Passport No." value="${
                 savedData.passportNo || ""
-              }">
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              }>
                       <span id="passportNoInfantError${i}" class="text-danger fs-12 position-absolute validation-error"></span>
 
                   </div>
@@ -3087,13 +3155,17 @@ $(window).on('load', function () {
                   <label for="pasprtExpInfant${i}">  Passport Expiry:</label>
                       <input type="date" name="pasprtExpInfant${i}" class="form-control" placeholder="Infant ${i} Expiry Date" onfocus="(this.type='date')" value="${
                 savedData.passportExpiry
-              }" >
+              }" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "readonly disabled"
+              } >
                       <span id="pasprtExpInfantError${i}" class="text-danger fs-13 position-absolute validation-error"></span>
 
                   </div>
                   <div class="col-md-2 mb-2">
                   <label for="issuingcountryInfant${i}">  Passport Issuing Country:</label>
-                    <select name="issuingcountryInfant${i}" class="form-control">
+                    <select name="issuingcountryInfant${i}" class="form-control" ${
+                isPassportMandatory == "true" || isPassportMandatory == "1" ? "" : "disabled"
+              }>
                       ${countryData
                         .map(
                           (country) =>
@@ -3172,7 +3244,8 @@ $(window).on('load', function () {
 
   $("#booking-submit").submit(function (event) {
     event.preventDefault();
-    document.cookie = 'step_traveller_details_added=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    document.cookie =
+      "step_traveller_details_added=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
     // Validate form data
     // let adultCounter = 2;
@@ -3185,6 +3258,13 @@ $(window).on('load', function () {
     var childCounter = childCountInput.value;
     var infantCountInput = document.querySelector('input[name="infantCount"]');
     var infantCounter = infantCountInput.value;
+
+    var isPassportMandatory = document.querySelector(
+      'input[name="isPassportMandatory"]'
+    );
+    var isPassportMandatoryValue = isPassportMandatory.value;
+    var isPassportMandatoryValue = 1;
+
     //----------------------
     var depdatevalue = document.querySelector('input[name="depdate"]');
     var depdate = depdatevalue.value;
@@ -3289,27 +3369,32 @@ $(window).on('load', function () {
         clearError(lastNameInput);
       }
 
-      if (passportNoInput.value.trim() === "") {
-        displayError(passportNoInput, `Passpoet number ${i} is required`);
-        validationErrors.push(`Passpoet number ${i} is required`);
-      } else if (
-        document.querySelector("input[name=api_country_id]").value == 1499
+      if (
+        isPassportMandatoryValue == "true" ||
+        isPassportMandatoryValue == "1"
       ) {
-        if (
-          !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
-            passportNoInput.value.trim()
-          )
+        if (passportNoInput.value.trim() === "") {
+          displayError(passportNoInput, `Passport number ${i} is required`);
+          validationErrors.push(`Passport number ${i} is required`);
+        } else if (
+          document.querySelector("input[name=api_country_id]").value == 1499
         ) {
-          displayError(passportNoInput, `must contain alphanumeric`);
-          validationErrors.push(`must contain alphanumeric`);
+          if (
+            !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
+              passportNoInput.value.trim()
+            )
+          ) {
+            displayError(passportNoInput, `must contain alphanumeric`);
+            validationErrors.push(`must contain alphanumeric`);
+          } else {
+            clearError(passportNoInput);
+          }
+        } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInput.value.trim())) {
+          displayError(passportNoInput, `Max 9 characters allowed.`);
+          validationErrors.push(`Max 9 characters allowed.`);
         } else {
           clearError(passportNoInput);
         }
-      } else if (!/^[a-zA-Z0-9]{1,9}$/.test(passportNoInput.value.trim())) {
-        displayError(passportNoInput, `Max 9 characters allowed.`);
-        validationErrors.push(`Max 9 characters allowed.`);
-      } else {
-        clearError(passportNoInput);
       }
 
       if (sirLableValue === "") {
@@ -3327,16 +3412,10 @@ $(window).on('load', function () {
       }
 
       if (genderValue == "M" && sirLableValue !== "Mr") {
-        displayError(
-          sirLableSelect,
-          `Title should be "Mr"`
-        );
+        displayError(sirLableSelect, `Title should be "Mr"`);
         validationErrors.push(`Title for Male Adult ${i} should be "Mr"`);
       } else if (genderValue == "F" && sirLableValue === "Mr") {
-        displayError(
-          sirLableSelect,
-          `Title should be "Mrs or MISS"`
-        );
+        displayError(sirLableSelect, `Title should be "Mrs or MISS"`);
         validationErrors.push(
           `Title for Female Adult ${i} should be "Mrs or MISS"`
         );
@@ -3364,14 +3443,19 @@ $(window).on('load', function () {
       }
 
       const passportExpiryDate = new Date(pasprtExpInput.value.trim());
-      if (pasprtExpInput.value.trim() === "") {
-        displayError(pasprtExpInput, `Select Passport Expiry`);
-        validationErrors.push(`Passport Expiry for Adult ${i} is required`);
-      } else if (passportExpiryDate <= pasexpcheckdate) {
-        displayError(pasprtExpInput, `Invalid Exp Date`);
-        validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      } else {
-        clearError(pasprtExpInput);
+      if (
+        isPassportMandatoryValue == "true" ||
+        isPassportMandatoryValue == "1"
+      ) {
+        if (pasprtExpInput.value.trim() === "") {
+          displayError(pasprtExpInput, `Select Passport Expiry`);
+          validationErrors.push(`Passport Expiry for Adult ${i} is required`);
+        } else if (passportExpiryDate <= pasexpcheckdate) {
+          displayError(pasprtExpInput, `Invalid Exp Date`);
+          validationErrors.push(`Invalid EXP date for Adult ${i} `);
+        } else {
+          clearError(pasprtExpInput);
+        }
       }
     }
 
@@ -3450,30 +3534,37 @@ $(window).on('load', function () {
       } else {
         clearError(lastNameChildInput);
       }
-
-      if (passportNoChildInput.value.trim() === "") {
-        displayError(passportNoChildInput, `Passpoet number ${i} is required`);
-        validationErrors.push(`Passpoet number ${i} is required`);
-      } else if (
-        document.querySelector("input[name=api_country_id]").value == 1499
+      if (
+        isPassportMandatoryValue == "true" ||
+        isPassportMandatoryValue == "1"
       ) {
-        if (
-          !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
-            passportNoChildInput.value.trim()
-          )
+        if (passportNoChildInput.value.trim() === "") {
+          displayError(
+            passportNoChildInput,
+            `Passport number ${i} is required`
+          );
+          validationErrors.push(`Passport number ${i} is required`);
+        } else if (
+          document.querySelector("input[name=api_country_id]").value == 1499
         ) {
-          displayError(passportNoChildInput, `must contain alphanumeric`);
-          validationErrors.push(`must contain alphanumeric`);
+          if (
+            !/^(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z0-9]+$/.test(
+              passportNoChildInput.value.trim()
+            )
+          ) {
+            displayError(passportNoChildInput, `must contain alphanumeric`);
+            validationErrors.push(`must contain alphanumeric`);
+          } else {
+            clearError(passportNoChildInput);
+          }
+        } else if (
+          !/^[a-zA-Z0-9]{1,9}$/.test(passportNoChildInput.value.trim())
+        ) {
+          displayError(passportNoChildInput, `Max 9 characters allowed.`);
+          validationErrors.push(`Max 9 characters allowed.`);
         } else {
           clearError(passportNoChildInput);
         }
-      } else if (
-        !/^[a-zA-Z0-9]{1,9}$/.test(passportNoChildInput.value.trim())
-      ) {
-        displayError(passportNoChildInput, `Max 9 characters allowed.`);
-        validationErrors.push(`Max 9 characters allowed.`);
-      } else {
-        clearError(passportNoChildInput);
       }
 
       if (sirLableValue === "") {
@@ -3492,16 +3583,10 @@ $(window).on('load', function () {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MSTR"`
-        );
+        displayError(sirLableSelect, `Title should be "MSTR"`);
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MISS"`
-        );
+        displayError(sirLableSelect, `Title should be "MISS"`);
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
@@ -3534,14 +3619,19 @@ $(window).on('load', function () {
       }
 
       const passportExpiryDate = new Date(pasprtExpChildInput.value.trim());
-      if (pasprtExpChildInput.value.trim() === "") {
-        displayError(pasprtExpChildInput, `Select Passport Expiry`);
-        validationErrors.push(`Passport Expiry for Adult ${i} is required`);
-      } else if (passportExpiryDate <= pasexpcheckdate) {
-        displayError(pasprtExpChildInput, `Invalid Exp Date`);
-        validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      } else {
-        clearError(pasprtExpChildInput);
+      if (
+        isPassportMandatoryValue == "true" ||
+        isPassportMandatoryValue == "1"
+      ) {
+        if (pasprtExpChildInput.value.trim() === "") {
+          displayError(pasprtExpChildInput, `Select Passport Expiry`);
+          validationErrors.push(`Passport Expiry for Adult ${i} is required`);
+        } else if (passportExpiryDate <= pasexpcheckdate) {
+          displayError(pasprtExpChildInput, `Invalid Exp Date`);
+          validationErrors.push(`Invalid EXP date for Adult ${i} `);
+        } else {
+          clearError(pasprtExpChildInput);
+        }
       }
     }
 
@@ -3624,9 +3714,11 @@ $(window).on('load', function () {
         clearError(lastNameInfantInput);
       }
 
+      if (isPassportMandatoryValue == "true" || isPassportMandatoryValue == "1") {
+
       if (passportNoInfantInput.value.trim() === "") {
-        displayError(passportNoInfantInput, `Passpoet number ${i} is required`);
-        validationErrors.push(`Passpoet number ${i} is required`);
+        displayError(passportNoInfantInput, `Passport number ${i} is required`);
+        validationErrors.push(`Passport number ${i} is required`);
       } else if (
         document.querySelector("input[name=api_country_id]").value == 1499
       ) {
@@ -3645,8 +3737,9 @@ $(window).on('load', function () {
       ) {
         displayError(passportNoInfantInput, `Max 9 characters allowed.`);
         validationErrors.push(`Max 9 characters allowed.`);
-      } else {
-        clearError(passportNoInfantInput);
+        } else {
+          clearError(passportNoInfantInput);
+        }
       }
 
       if (sirLableValue === "") {
@@ -3665,16 +3758,10 @@ $(window).on('load', function () {
       //gender validation
 
       if (genderValue == "M" && sirLableValue !== "MSTR") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MSTR"`
-        );
+        displayError(sirLableSelect, `Title should be "MSTR"`);
         validationErrors.push(`Title for Male Adult ${i} should be "MSTR"`);
       } else if (genderValue == "F" && sirLableValue != "MISS") {
-        displayError(
-          sirLableSelect,
-          `Title should be "MISS"`
-        );
+        displayError(sirLableSelect, `Title should be "MISS"`);
         validationErrors.push(`Title for Female Adult ${i} should be "MISS"`);
       } else {
         clearError(sirLableSelect);
@@ -3705,14 +3792,19 @@ $(window).on('load', function () {
       }
 
       const passportExpiryDate = new Date(pasprtExpInfantInput.value.trim());
-      if (pasprtExpInfantInput.value.trim() === "") {
-        displayError(pasprtExpInfantInput, `Select Passport Expiry`);
-        validationErrors.push(`Passport Expiry for Adult ${i} is required`);
-      } else if (passportExpiryDate <= pasexpcheckdate) {
-        displayError(pasprtExpInfantInput, `Invalid Exp Date`);
-        validationErrors.push(`Invalid EXP date for Adult ${i} `);
-      } else {
-        clearError(pasprtExpInfantInput);
+      if (
+        isPassportMandatoryValue == "true" ||
+        isPassportMandatoryValue == "1"
+      ) {
+        if (pasprtExpInfantInput.value.trim() === "") {
+          displayError(pasprtExpInfantInput, `Select Passport Expiry`);
+          validationErrors.push(`Passport Expiry for Adult ${i} is required`);
+        } else if (passportExpiryDate <= pasexpcheckdate) {
+          displayError(pasprtExpInfantInput, `Invalid Exp Date`);
+          validationErrors.push(`Invalid EXP date for Adult ${i} `);
+        } else {
+          clearError(pasprtExpInfantInput);
+        }
       }
     }
 
@@ -3735,12 +3827,13 @@ $(window).on('load', function () {
       event.preventDefault();
     }
     if (contactfirstname == "") {
-      $("#contactfirstname").after('<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>');
+      $("#contactfirstname").after(
+        '<span class="text-danger fs-12 position-absolute" >First Name cannot be blank.</span>'
+      );
       valid = false;
     } else {
-      $("#contactfirstname").next('.text-danger').remove();
+      $("#contactfirstname").next(".text-danger").remove();
     }
-
 
     if (contactlastname == "") {
       $("#contactlastname").after(
@@ -3748,7 +3841,7 @@ $(window).on('load', function () {
       );
       valid = false;
     } else {
-      $("#contactlastname").next('.text-danger').remove();
+      $("#contactlastname").next(".text-danger").remove();
     }
 
     if (contactcountry == "") {
@@ -3757,7 +3850,7 @@ $(window).on('load', function () {
       );
       valid = false;
     } else {
-      $("#contactcountry").next('.text-danger').remove();
+      $("#contactcountry").next(".text-danger").remove();
     }
 
     if (contactnumber == "") {
@@ -3766,9 +3859,9 @@ $(window).on('load', function () {
       );
       valid = false;
     } else {
-      $("#contactnumber").next('.text-danger').remove();
+      $("#contactnumber").next(".text-danger").remove();
     }
-    
+
     if (
       $("#contactemail").val() === "" ||
       !emailReg.test($("#contactemail").val())
@@ -3783,7 +3876,7 @@ $(window).on('load', function () {
       if (nextElement.length) {
         nextElement.remove();
       }
-      $("#contactemail").next('.text-danger').remove();
+      $("#contactemail").next(".text-danger").remove();
     }
 
     if (contactpostcode == "") {
@@ -3792,7 +3885,7 @@ $(window).on('load', function () {
       );
       valid = false;
     } else {
-      $("#contactpostcode").next('.text-danger').remove();
+      $("#contactpostcode").next(".text-danger").remove();
     }
 
     // Set up form data for submission
@@ -3806,7 +3899,9 @@ $(window).on('load', function () {
         processData: false,
         success: function (response) {
           if (response.success) {
-            $(".main_price_view").html(response.total_updated_price_without_ipg);
+            $(".main_price_view").html(
+              response.total_updated_price_without_ipg
+            );
             $(".main_price_view_popup").html(response.total_updated_price);
             // Nafees
             for (let i = 1; i <= adultCounter; i++) {
@@ -3826,7 +3921,9 @@ $(window).on('load', function () {
                 ).value,
                 nationality: document.querySelector(`[name="nationality${i}"]`)
                   .value,
-                frequent_flyer: document.querySelector(`[name="frequent_flyer${i}"]`)
+                frequent_flyer: document.querySelector(
+                  `[name="frequent_flyer${i}"]`
+                )
                   ? document.querySelector(`[name="frequent_flyer${i}"]`).value
                   : "",
                 baggageService: document.querySelector(
@@ -3878,8 +3975,11 @@ $(window).on('load', function () {
                 nationality: document.querySelector(
                   `[name="nationalityChild${i}"]`
                 ).value,
-                frequent_flyer: document.querySelector(`[name="frequent_flyerChild${i}"]`)
-                  ? document.querySelector(`[name="frequent_flyerChild${i}"]`).value
+                frequent_flyer: document.querySelector(
+                  `[name="frequent_flyerChild${i}"]`
+                )
+                  ? document.querySelector(`[name="frequent_flyerChild${i}"]`)
+                      .value
                   : "",
                 baggageService: document.querySelector(
                   `[name="baggageServiceChild${i}"]`
@@ -3937,8 +4037,11 @@ $(window).on('load', function () {
                 nationality: document.querySelector(
                   `[name="nationalityinfant${i}"]`
                 ).value,
-                frequent_flyer: document.querySelector(`[name="frequent_flyerInfant${i}"]`)
-                  ? document.querySelector(`[name="frequent_flyerInfant${i}"]`).value
+                frequent_flyer: document.querySelector(
+                  `[name="frequent_flyerInfant${i}"]`
+                )
+                  ? document.querySelector(`[name="frequent_flyerInfant${i}"]`)
+                      .value
                   : "",
                 baggageService: document.querySelector(
                   `[name="baggageServiceInfant${i}"]`
@@ -3995,7 +4098,7 @@ $(window).on('load', function () {
             );
             setUserDataCookie("step_traveller_details_added", 1, 7);
 
-            if (response.email_exists == 'yes') {
+            if (response.email_exists == "yes") {
               $("#contactemail").after(
                 '<span class="text-danger fs-12 position-absolute">Email already exists. Please login or use different email.</span>'
               );
@@ -4504,6 +4607,14 @@ $(window).on('load', function () {
     var selectedText = $(this).find("option:selected").text();
     $("#selected_cabin_text").val(selectedText);
   });
+
+  // Real-time policy checkbox validation
+  $(document).on('change', '#logintab-user', function() {
+    if (this.checked) {
+      // Remove error message when checkbox is checked
+      $("#policyerror").next(".text-danger").remove();
+    }
+  });
 });
 
 $(window).on("load", function () {
@@ -4525,9 +4636,7 @@ $(document).ready(function () {
     );
     $(".close_payment_btn").attr("disabled", true);
     $(".close_payment_btn").hide();
-  
-    
-    
+
     $.ajax({
       url: "temp_booking_save",
       type: "post",
@@ -4536,7 +4645,7 @@ $(document).ready(function () {
         $("#loaderIcon").hide();
         // response.errors = [];
         // response.BookStatus = "CONFIRMED";
-        
+
         if (response.errors && response.errors.length > 0) {
           Swal.fire({
             title: "Booking Failed",

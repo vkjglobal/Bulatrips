@@ -652,7 +652,7 @@ $DBvideo = $newObj->get_video();
                             <h5 class="card-title">John Doe</h5>
                             <p class="text-warning mb-2">★★★★★</p>
                             <p class="card-text" style="color: #f57c00 !important;">
-                                "Great experience! Smart search made it super<br />easy to find the best deal. Highly recommend!"
+                                "Great experience! Smart search made it super <br class="before_768" /> easy to find the best deal. Highly recommend!"
                             </p>
                         </div>
                     </div>
@@ -665,7 +665,7 @@ $DBvideo = $newObj->get_video();
                             <h5 class="card-title">Ayesha Khan</h5>
                             <p class="text-warning mb-2">★★★★☆</p>
                             <p class="card-text" style="color: #f57c00 !important;">
-                                "Loved the transparent pricing and quick support.<br />A few more payment options would be great."
+                                "Loved the transparent pricing and quick support. <br class="before_768" /> A few more payment options would be great."
                             </p>
                         </div>
                     </div>
@@ -678,7 +678,7 @@ $DBvideo = $newObj->get_video();
                             <h5 class="card-title">Liam Smith</h5>
                             <p class="text-warning mb-2">★★★★★</p>
                             <p class="card-text" style="color: #f57c00 !important;">
-                                "Booking was smooth, and I could use my <br />frequent flyer points. Will definitely book again!"
+                                "Booking was smooth, and I could use my <br class="before_768" /> frequent flyer points. Will definitely book again!"
                             </p>
                         </div>
                     </div>

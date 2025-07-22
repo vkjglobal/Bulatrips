@@ -9,14 +9,57 @@
       public function insCncelSts($bookingId,$userId,$precancelsts,$errorCode='',$mfreNum="",$traceId='',$http_code_response="",$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='',$ticket_num ='',$AdminCharges='',$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status='',$meesage_new=''){
     
         $tableName = "cancel_booking"; //cms table name
-      //cho "**********************".$TotalRefundAmount;
-        $params = ['user_agent_id'=>$userId,'booking_id'=>$bookingId,'pre_post_ticket_status'=>$precancelsts,'err_code'=>$errorCode,'mf_ref_num'=>$mfreNum,'trace_id'=>$traceId,'http_code_response' =>$http_code_response,'ptr_id'=>$PTRId,'ptr_type' =>$PTRType,'sla_minutes'=>$SLAInMinutes,'ptr_status'=>$PTRStatus,'void_window'=> $VoidingWindow ,'ticket_number'=>$ticket_num,'admin_charge' =>$AdminCharges,
-                    'gst_charge' =>$GSTCharge,'total_void_fee'=>$TotalVoidingFee,'total_refund_amount'=>$TotalRefundAmount,'currency'=>$Currency,'cancel_status'=>$cancel_status,'message'=>$meesage_new];
-  //  print_r($params);exit;
-        $result =   $this->insertInto($tableName, $params) ;
-      //print_r($result);exit;
-       return $result;		
-       }
+        
+        // Handle empty PTR ID - set to NULL for database
+        if (empty($PTRId)) {
+            $PTRId = null;
+        }
+        
+        // Convert empty string values to NULL for numeric fields
+        $SLAInMinutes = empty($SLAInMinutes) ? null : $SLAInMinutes;
+        $AdminCharges = empty($AdminCharges) ? null : $AdminCharges;
+        $GSTCharge = empty($GSTCharge) ? null : $GSTCharge;
+        $TotalVoidingFee = empty($TotalVoidingFee) ? null : $TotalVoidingFee;
+        $TotalRefundAmount = empty($TotalRefundAmount) ? null : $TotalRefundAmount;
+        
+        // Debug log
+        $this->_writeLog("Inserting cancel booking with PTR ID: " . var_export($PTRId, true), 'debug.txt');
+        
+        $params = [
+            'user_agent_id' => $userId,
+            'booking_id' => $bookingId,
+            'pre_post_ticket_status' => $precancelsts,
+            'err_code' => $errorCode,
+            'mf_ref_num' => $mfreNum,
+            'trace_id' => $traceId,
+            'http_code_response' => $http_code_response,
+            'ptr_id' => $PTRId,
+            'ptr_type' => $PTRType,
+            'sla_minutes' => $SLAInMinutes,
+            'ptr_status' => $PTRStatus,
+            'void_window' => $VoidingWindow,
+            'ticket_number' => $ticket_num,
+            'admin_charge' => $AdminCharges,
+            'gst_charge' => $GSTCharge,
+            'total_void_fee' => $TotalVoidingFee,
+            'total_refund_amount' => $TotalRefundAmount,
+            'currency' => $Currency,
+            'cancel_status' => $cancel_status,
+            'message' => $meesage_new
+        ];
+        
+        // Debug log
+        $this->_writeLog("Insert params: " . print_r($params, true), 'debug.txt');
+        
+        try {
+            $result = $this->insertInto($tableName, $params);
+            $this->_writeLog("Insert result: " . var_export($result, true), 'debug.txt');
+            return $result;
+        } catch (Exception $e) {
+            $this->_writeLog("Insert error: " . $e->getMessage(), 'debug.txt');
+            throw $e;
+        }
+    }
 
        //===
        public function insCncelSts_Search($bookingId,$userId,$BookingStatus,$Resolution, $mfreNum,$ProcessingMethod,$PTRId,$PTRType,$CreditNoteNumber,$PTRStatus,$CreditNoteStatus, $ticket_num ,$pax_booking_id_transaction ,$PaxId,$TicketStatus,$TotalRefundAmount,$Currency,$is_active_booking_status,$cancel_status,$message=''){
@@ -127,6 +170,21 @@ public function BookCancelUsers($bookingId ,$userId)
     $MarkupData = $this->executeMarkupQuery($roleId);
         return $MarkupData;
     }
+    
+    public function get_booking_details($bookingId) {
+        $query = "SELECT mf_reference, user_id FROM temp_booking WHERE id = " . intval($bookingId);
+        $bookingData = $this->getLisQuery($query);
+        
+        // Debug log
+        $this->_writeLog("get_booking_details query: " . $query, 'RefundQuote.txt');
+        $this->_writeLog("get_booking_details result: " . print_r($bookingData, true), 'RefundQuote.txt');
+        
+        if (!empty($bookingData)) {
+            return $bookingData[0]; // Return first row
+        }
+        return false;
+    }
+    
     // Add more methods to use the inherited database class methods as needed
 
 //============================================================
@@ -143,14 +201,29 @@ public function callApi($endpoint,$requestData){
             'Content-Type: application/json',
             'Authorization: Bearer ' . BEARER
         ));
+        
+        // Add debug logging
+        $this->_writeLog('API Endpoint: ' . $apiEndpoint, 'api_debug.txt');
+        $this->_writeLog('Request Data: ' . json_encode($requestData), 'api_debug.txt');
     
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        
+        // Log response
+        $this->_writeLog('Response Code: ' . $httpCode, 'api_debug.txt');
+        $this->_writeLog('Response Body: ' . $response, 'api_debug.txt');
+        
+        if ($response === false) {
+            $error = curl_error($ch);
+            $this->_writeLog('Curl Error: ' . $error, 'api_debug.txt');
+        }
+        
         curl_close($ch);
+        
         return array(
-        'httpCode' => $httpCode,
-        'responseData' => $response
-    );
+            'httpCode' => $httpCode,
+            'responseData' => $response
+        );
 }
 public function _writeLog($content	=	"",$filename	=	"log.txt")
 	{		
@@ -165,13 +238,49 @@ public function _writeLog($content	=	"",$filename	=	"log.txt")
 
     return $hours;
 }
-public function getUSerDetails($tblname,$userId){
+    public function getUSerDetails($tblname,$userId){
 
      $result =   $this->getUserData($tblname,$userId);
       //print_r($result);exit;
        return $result;	
     
 }
+
+    // Store VoidQuote data for future reference
+    public function storeVoidQuote($bookingId, $mfRef, $voidQuoteResponse) {
+        $tableName = "void_quotes";
+        
+        $voidQuoteData = $voidQuoteResponse['Data'];
+        $params = [
+            'booking_id' => $bookingId,
+            'mf_ref' => $mfRef,
+            'ptr_type' => $voidQuoteData['PTRType'],
+            'ptr_status' => $voidQuoteData['PTRStatus'],
+            'voiding_window' => $voidQuoteData['VoidingWindow'],
+            'total_refund_amount' => 0, // Will be calculated from VoidQuotes
+            'currency' => '',
+            'passenger_details' => json_encode($voidQuoteData['VoidQuotes']),
+            'full_response' => json_encode($voidQuoteResponse),
+            'created_at' => date('Y-m-d H:i:s')
+        ];
+        
+        // Calculate total refund amount and get currency
+        $totalRefund = 0;
+        foreach ($voidQuoteData['VoidQuotes'] as $quote) {
+            $totalRefund += floatval($quote['TotalRefundAmount']);
+            $params['currency'] = $quote['Currency'];
+        }
+        $params['total_refund_amount'] = $totalRefund;
+        
+        try {
+            $result = $this->insertInto($tableName, $params);
+            $this->_writeLog('VoidQuote stored successfully for booking: ' . $bookingId, 'voidQuote.txt');
+            return $result;
+        } catch (Exception $e) {
+            $this->_writeLog('Error storing VoidQuote: ' . $e->getMessage(), 'voidQuote.txt');
+            return false;
+        }
+    }
 //mail content 
     public function getEmailContent($content){
 

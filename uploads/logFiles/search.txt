@@ -57,3 +57,243 @@ REsponse Received\nArray
 Step 1Success InProcess
 Step 1 Resolution RefundRequested
 step end of void  ========= 
+-------------Friday 27th of June 2025 03:04:34 AM-------------
+userId is 73
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 27th of June 2025 03:04:35 AM-------------
+userId is 73
+Booking ID is 9
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 27th of June 2025 03:04:35 AM-------------
+userId is 73
+Booking ID is 10
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 27th of June 2025 03:07:02 AM-------------
+userId is 73
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 4th of July 2025 12:07:29 PM-------------
+userId is 73
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 4th of July 2025 12:07:30 PM-------------
+userId is 73
+Booking ID is 9
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 4th of July 2025 12:07:31 PM-------------
+userId is 73
+Booking ID is 10
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Friday 4th of July 2025 12:37:40 PM-------------
+userId is 73
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Tuesday 8th of July 2025 07:52:39 AM-------------
+
+userId is 73
+userId is 73
+Booking ID is 8
+Booking ID is 8
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 15513
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+step end of void  ========= 
+-------------Tuesday 8th of July 2025 07:52:40 AM-------------
+userId is 73
+Booking ID is 9
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 
+-------------Tuesday 8th of July 2025 07:52:41 AM-------------
+userId is 73
+Booking ID is 10
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF30750325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF30750325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+
+step end of void  ========= 

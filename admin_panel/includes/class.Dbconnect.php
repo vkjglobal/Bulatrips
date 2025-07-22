@@ -20,7 +20,7 @@ class Dbconnect {
             $host = "localhost";
             $username = "root";
             $password = "";
-            $dbname = "bulatrips_db";
+            $dbname = "travelsite";
         }
         else if($_SERVER['HTTP_HOST'] == 'travelsite.reubrosample.tk') {
             $host = "localhost";

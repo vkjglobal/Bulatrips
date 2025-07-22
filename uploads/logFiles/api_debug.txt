@@ -1,0 +1,166 @@
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838825","AllowChildPassenger":false,"passengers":[{"firstName":"Zephania","lastName":"Torres","title":"Mr","eTicket":"TKT466721","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30838825_1751965726","AdditionalNote":"Refund request for booking MF30838825","PreferenceOption":1}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838825","AllowChildPassenger":false,"passengers":[{"firstName":"Zephania","lastName":"Torres","title":"Mr","eTicket":"TKT466721","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30838825_1751965733","AdditionalNote":"Refund request for booking MF30838825","PreferenceOption":1}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"ConversationId":"RefundQuote__1751968875","AdditionalNote":"Refund request for booking "}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":null}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"ConversationId":"RefundQuote_MF30839425_1751969154","AdditionalNote":"Refund request for booking MF30839425"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838725","AllowChildPassenger":false,"passengers":[{"firstName":"Hilel","lastName":"Fischer","title":"Mrs","eTicket":"1575457557574","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557574"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838925","AllowChildPassenger":false,"passengers":[{"firstName":"Gloria","lastName":"Sampson","title":"Mrs","eTicket":"1575457557575","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557575"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839125","AllowChildPassenger":false,"passengers":[{"firstName":"Diana","lastName":"Ashley","title":"MISS","eTicket":"TKT466724","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt TKT466724"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"ReissueQuote","mFRef":"MF30839425","AllowChildPassenger":"false","reissueQuoteRequestType":"OND","passengers":[{"firstname":"Ursula","lastname":"Peters","title":"Mr","eticket":"1765457557578","passengertype":"ADT"}],"originDestinations":[{"originLocationCode":"DXB","destinationLocationCode":"LHE","cabinPreference":"Y","departureDateTime":"07\/23\/2025","flightNumber":"623","airlineCode":"EK"}]}
+Response Code: 503
+Response Body: <html>
+<head><title>503 Service Temporarily Unavailable</title></head>
+<body>
+<center><h1>503 Service Temporarily Unavailable</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839425","AllowChildPassenger":false,"passengers":[{"firstName":"Ursula","lastName":"Peters","title":"Mr","eTicket":"1765457557578","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1765457557578"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30838625","AllowChildPassenger":false,"passengers":[{"firstName":"Roary","lastName":"Love","title":"Mr","eTicket":"1575457557573","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457557573"}
+Response Code: 503
+Response Body: <html>
+<head><title>503 Service Temporarily Unavailable</title></head>
+<body>
+<center><h1>503 Service Temporarily Unavailable</h1></center>
+<hr><center>nginx</center>
+</body>
+</html>
+
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Pls quote refund for tkt 1575457559408"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Test refund quote for debug"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Test void quote for debug"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Voiding window expired."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Test refund quote for debug"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Test void quote for debug"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Voiding window expired."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Refund","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Direct refund request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request for RefundQuote"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - Customer initiated","RefundType":"Full","Reason":"Customer Request","RefundDetails":{"RefundAmount":"ToBeDetermined","RefundReason":"Customer Request","RefundType":"Full"}}
+Response Code: 400
+Response Body: {"Success":false,"Data":["Cannot deserialize the current JSON object (e.g. {\"name\":\"value\"}) into type 'System.Collections.Generic.List`1[OnePointRestAPI.ValidationModels.RefundDetail]' because the type requires a JSON array (e.g. [1,2,3]) to deserialize correctly.\nTo fix this error either change the JSON to a JSON array (e.g. [1,2,3]) or change the deserialized type so that it is a normal .NET type (e.g. not a primitive type like integer, not a collection type like an array or List<T>) that can be deserialized from a JSON object. JsonObjectAttribute can also be added to the type to force it to deserialize from a JSON object.\nPath 'RefundDetails.RefundAmount', line 1, position 334. "],"Message":"Validation Error"}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Void quote test"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Voiding window expired."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"DirectRefund","mFRef":"MF30964625","AllowChildPassenger":false,"passengers":[{"firstName":"Roth","lastName":"Faulkner","title":"Mr","eTicket":"1575457559408","passengerType":"ADT"}],"AdditionalNote":"Direct refund test"}
+Response Code: 400
+Response Body: {"Success":false,"Data":["ptrType is not valid"],"Message":"Validation Error"}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF30839125","AllowChildPassenger":false,"passengers":[{"firstName":"Diana","lastName":"Ashley","title":"MISS","eTicket":"TKT466724","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}

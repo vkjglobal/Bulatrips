@@ -1,0 +1,36 @@
+Array
+(
+    [timestamp] => 2025-07-08 18:53:14
+    [http_code] => 200
+    [response_length] => 160473
+    [response_excerpt] => {"Data":{"ConversationId":"","FlightSegmentList":[{"DepartureAirportLocationCode":"LHE","ArrivalAirportLocationCode":"RUH","DepartureDateTime":"2025-07-22T04:15:00","ArrivalDateTime":"2025-07-22T06:30:00","stops":0,"JourneyDuration":255,"Equipment":null,"OperatingCarrierCode":"XY","OperatingFlightNumber":"","MarketingCarriercode":"XY","MarketingFlightNumber":"318","StopQuantityInfos":[],"SegmentRef":0},{"DepartureAirportLocationCode":"RUH","ArrivalAirportLocationCode":"JED","DepartureDateTime":"...
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 18:59:07
+    [http_code] => 200
+    [response_length] => 158435
+    [response_excerpt] => {"Data":{"ConversationId":"","FlightSegmentList":[{"DepartureAirportLocationCode":"LHE","ArrivalAirportLocationCode":"RUH","DepartureDateTime":"2025-07-22T04:15:00","ArrivalDateTime":"2025-07-22T06:30:00","stops":0,"JourneyDuration":255,"Equipment":null,"OperatingCarrierCode":"XY","OperatingFlightNumber":"","MarketingCarriercode":"XY","MarketingFlightNumber":"318","StopQuantityInfos":[],"SegmentRef":0},{"DepartureAirportLocationCode":"RUH","ArrivalAirportLocationCode":"JED","DepartureDateTime":"...
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-08 19:01:00
+    [http_code] => 200
+    [response_length] => 104013
+    [response_excerpt] => {"Data":{"ConversationId":"","FlightSegmentList":[{"DepartureAirportLocationCode":"LHE","ArrivalAirportLocationCode":"AUH","DepartureDateTime":"2025-07-15T04:20:00","ArrivalDateTime":"2025-07-15T06:40:00","stops":0,"JourneyDuration":200,"Equipment":"32A","OperatingCarrierCode":"EY","OperatingFlightNumber":"285","MarketingCarriercode":"EY","MarketingFlightNumber":"285","StopQuantityInfos":[],"SegmentRef":0},{"DepartureAirportLocationCode":"AUH","ArrivalAirportLocationCode":"JED","DepartureDateTim...
+)
+
+
+Array
+(
+    [timestamp] => 2025-07-09 06:45:16
+    [http_code] => 200
+    [response_length] => 197580
+    [response_excerpt] => {"Data":{"ConversationId":"","FlightSegmentList":[{"DepartureAirportLocationCode":"LHE","ArrivalAirportLocationCode":"RUH","DepartureDateTime":"2025-07-23T04:15:00","ArrivalDateTime":"2025-07-23T06:30:00","stops":0,"JourneyDuration":255,"Equipment":null,"OperatingCarrierCode":"XY","OperatingFlightNumber":"","MarketingCarriercode":"XY","MarketingFlightNumber":"318","StopQuantityInfos":[],"SegmentRef":0},{"DepartureAirportLocationCode":"RUH","ArrivalAirportLocationCode":"JED","DepartureDateTime":"...
+)
+
+

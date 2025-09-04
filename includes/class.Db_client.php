@@ -2,10 +2,34 @@
  include_once('includes/dbConnect.php');
  
 class Db_client {
-   private $conn;
+   protected $conn;
 
     public function __construct() {
         global $conn; // Use the global connection object from dbconnect.php
+        
+        // If global connection doesn't exist, create a new one
+        if (!isset($conn) || !$conn) {
+            // Handle CLI execution where HTTP_HOST is not set
+            if (!isset($_SERVER['HTTP_HOST'])) {
+                $_SERVER['HTTP_HOST'] = 'localhost';
+            }
+            
+            if ($_SERVER['HTTP_HOST'] == 'localhost') {
+                define('DB_HOST', 'localhost');
+                define('DB_USER', 'root');
+                define('DB_PASS', '');
+                define('DB_NAME', 'travelsite');
+                
+                try {
+                    $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+                } catch (PDOException $e) {
+                    throw new Exception("Database connection failed: " . $e->getMessage());
+                }
+            } else {
+                throw new Exception("Database connection not available for host: " . $_SERVER['HTTP_HOST']);
+            }
+        }
+        
         $this->conn = $conn;
     }
 
@@ -150,11 +174,34 @@ class Db_client {
             $this->_writeLog("Executing passenger query with bookingId: $bookingId, userId: $userId", 'debug.txt');
            
             // Security: Only booking owner can cancel their booking
-            $sql = 'SELECT  temp_booking.booking_status,temp_booking.ticket_time_limit,temp_booking.mf_reference ,temp_booking.ticket_status 
-                                                    ,temp_booking.fare_type,temp_booking.child_count,temp_booking.void_window,temp_booking.dep_date,temp_booking.arrival_location ,travellers_details.id, travellers_details.first_name, travellers_details.last_name,travellers_details.title,
-                                                    travellers_details.passenger_type,travellers_details.e_ticket_number FROM travellers_details 
-                                            LEFT JOIN temp_booking ON travellers_details.flight_booking_id = temp_booking.id
-                                            WHERE travellers_details.flight_booking_id = :bookingId and temp_booking.user_id = :userId';
+            $sql = 'SELECT  
+                                tb.booking_status,
+                                tb.ticket_time_limit,
+                                tb.mf_reference,
+                                tb.ticket_status AS booking_ticket_status,
+                                tb.fare_type,
+                                tb.child_count,
+                                tb.void_window,
+                                tb.dep_date,
+                                tb.arrival_location,
+                                td.id,
+                                td.first_name,
+                                td.last_name,
+                                td.title,
+                                td.passenger_type,
+                                td.e_ticket_number,
+                                td.ticket_status AS pass_ticket_status,
+                                td.void_status,
+                                td.ptr_id,
+                                td.reissue_status,
+                                td.reissue_ptr_id,
+                                td.reissue_quote_id,
+                                cb.cancel_status AS cb_cancel_status,
+                                cb.ptr_status AS cb_ptr_status
+                        FROM travellers_details td
+                        LEFT JOIN temp_booking tb ON td.flight_booking_id = tb.id
+                        LEFT JOIN cancel_booking cb ON cb.ticket_number = td.e_ticket_number AND cb.booking_id = tb.id
+                        WHERE td.flight_booking_id = :bookingId and tb.user_id = :userId';
             
             // Debug log the SQL query
             $this->_writeLog("SQL Query: " . $sql, 'debug.txt');

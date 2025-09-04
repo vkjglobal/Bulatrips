@@ -4,6 +4,9 @@ error_reporting(0);
 define("BEARER", "18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560");
 define("APIENDPOINT","https://restapidemo.myfarebox.com/api/");
 define("TARGET", "Test");
+
+// DEVELOPMENT MODE - Set to true for mock responses, false for real API calls
+define("MOCK_MODE", true);
 // STAGING CREDENTIALS ENDS
 
 // LIVE CREDENTIALS STARTS
@@ -19,6 +22,11 @@ define("WC_USERNAME","VKJGlobal_Dev_REST");
 define("WC_PASSWORD", "cc581f7b69e7817ee13f232b187560639236f29e8f2a969f871225178aa6a74d");
 // WINDCAVE CREDENTIALS ENDS
 
+
+// Handle CLI execution where HTTP_HOST is not set
+if (!isset($_SERVER['HTTP_HOST'])) {
+    $_SERVER['HTTP_HOST'] = 'localhost';
+}
 
 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https' : 'http';
 $domain = $_SERVER['HTTP_HOST'];

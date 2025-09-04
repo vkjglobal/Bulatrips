@@ -3,10 +3,32 @@
  include_once('includes/class.Db_client.php');
  class Cancel  extends Db_client{
 	public function __construct() {
-        parent::__construct(); // Call the constructor of the parent class (MyDatabaseClassPDO)
+        try {
+            parent::__construct(); // Call the constructor of the parent class (MyDatabaseClassPDO)
+        } catch (Exception $e) {
+            // If parent constructor fails, create connection manually
+            if (!isset($_SERVER['HTTP_HOST'])) {
+                $_SERVER['HTTP_HOST'] = 'localhost';
+            }
+            
+            if ($_SERVER['HTTP_HOST'] == 'localhost') {
+                define('DB_HOST', 'localhost');
+                define('DB_USER', 'root');
+                define('DB_PASS', '');
+                define('DB_NAME', 'travelsite');
+                
+                try {
+                    $this->conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
+                } catch (PDOException $e2) {
+                    throw new Exception("Database connection failed: " . $e2->getMessage());
+                }
+            } else {
+                throw new Exception("Database connection not available for host: " . $_SERVER['HTTP_HOST']);
+            }
+        }
     }
 
-      public function insCncelSts($bookingId,$userId,$precancelsts,$errorCode='',$mfreNum="",$traceId='',$http_code_response="",$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='',$ticket_num ='',$AdminCharges='',$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status='',$meesage_new=''){
+      public function insCncelSts($bookingId,$userId,$precancelsts,$errorCode='',$mfreNum="",$traceId='',$http_code_response="",$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='',$ticket_num ='',$AdminCharges='',$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status='',$meesage_new='',$traveller_id=0){
     
         $tableName = "cancel_booking"; //cms table name
         
@@ -15,12 +37,13 @@
             $PTRId = null;
         }
         
-        // Convert empty string values to NULL for numeric fields
-        $SLAInMinutes = empty($SLAInMinutes) ? null : $SLAInMinutes;
-        $AdminCharges = empty($AdminCharges) ? null : $AdminCharges;
-        $GSTCharge = empty($GSTCharge) ? null : $GSTCharge;
-        $TotalVoidingFee = empty($TotalVoidingFee) ? null : $TotalVoidingFee;
-        $TotalRefundAmount = empty($TotalRefundAmount) ? null : $TotalRefundAmount;
+        // Provide numeric defaults for NOT NULL numeric columns
+        $SLAInMinutes = ($SLAInMinutes === '' || $SLAInMinutes === null) ? 0 : intval($SLAInMinutes);
+        $AdminCharges = ($AdminCharges === '' || $AdminCharges === null) ? 0 : floatval($AdminCharges);
+        $GSTCharge = ($GSTCharge === '' || $GSTCharge === null) ? 0 : floatval($GSTCharge);
+        $TotalVoidingFee = ($TotalVoidingFee === '' || $TotalVoidingFee === null) ? 0.00 : floatval($TotalVoidingFee);
+        $TotalRefundAmount = ($TotalRefundAmount === '' || $TotalRefundAmount === null) ? 0.00 : floatval($TotalRefundAmount);
+        $PTRId = ($PTRId === '' || $PTRId === null) ? 0 : intval($PTRId);
         
         // Debug log
         $this->_writeLog("Inserting cancel booking with PTR ID: " . var_export($PTRId, true), 'debug.txt');
@@ -45,7 +68,8 @@
             'total_refund_amount' => $TotalRefundAmount,
             'currency' => $Currency,
             'cancel_status' => $cancel_status,
-            'message' => $meesage_new
+            'message' => $meesage_new,
+            'traveller_id' => $traveller_id
         ];
         
         // Debug log
@@ -101,6 +125,33 @@
       //print_r($result);exit;
        return $result;		
        }
+       
+    /**
+     * Get service transaction fees for refund operations
+     * @return array Array containing refund_fee and refund_addition
+     */
+    public function getServiceTransactionFees() {
+        try {
+            $query = "SELECT 
+                        (SELECT value FROM settings WHERE id = 9) as refund_fee,
+                        (SELECT value FROM settings WHERE id = 10) as refund_addition";
+            
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute();
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            
+            return [
+                'refund_fee' => floatval($result['refund_fee'] ?? 0),
+                'refund_addition' => floatval($result['refund_addition'] ?? 0)
+            ];
+        } catch (Exception $e) {
+            $this->_writeLog("Error fetching service transaction fees: " . $e->getMessage(), 'error.txt');
+            return [
+                'refund_fee' => 0,
+                'refund_addition' => 0
+            ];
+        }
+    }
        //update cancelbooking table
 
 

@@ -1,5 +1,7 @@
 <?php
-error_reporting(0);
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 session_start();
 
 require_once("includes/header.php");
@@ -724,7 +726,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         ?>
 
                                         <div class="form-row panel flight-details-tab-wrap" style="margin: 0px;">
-                                            
+
 
                                             <div class="tab-content text-center">
                                                 <div class="tab-pane p-lg-5 pt-5 p-3 pane1">
@@ -970,53 +972,56 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                             foreach ($fareListRef['PassengerFare'][2]['TaxBreakUp'] as $taxdata) {
                                                                                 $totalTax +=  $taxdata['Amount'];
                                                                             }
-                                                                            // $totalinfantfare=$fareListRef['PassengerFare'][2]['BaseFare']* $infantCount;?>
-                                                                            <li class="d-flex justify-content-between p-1"><span>Infant (<?php //echo $fareListRef['PassengerFare'][2]['BaseFare'] . 'x' . $infantCount; ?>)</span><span><?php //echo $totalinfantfare; ?></span></li><?php
-                                                                        } ?> 
+                                                                            // $totalinfantfare=$fareListRef['PassengerFare'][2]['BaseFare']* $infantCount;
+                                                                        ?>
+                                                                            <li class="d-flex justify-content-between p-1"><span>Infant (<?php //echo $fareListRef['PassengerFare'][2]['BaseFare'] . 'x' . $infantCount; 
+                                                                                                                                            ?>)</span><span><?php //echo $totalinfantfare; 
+                                                                                                                                                            ?></span></li><?php
+                                                                                                                                                                        } ?> 
                                                                            
 
                                                                             <!-- <li class="d-flex justify-content-between p-1"><span>Airline Charges & Taxes</span><span><?Php echo $totalTax; ?></span></li> -->
-                                                                            <!-- <li class="d-flex justify-content-between pw-500 pl-1 pr-1 bdr-t"><span>Airline Fare</span><span>43818</span></li> -->
-                                                                            <!-- </ul> -->
+                                                                        <!-- <li class="d-flex justify-content-between pw-500 pl-1 pr-1 bdr-t"><span>Airline Fare</span><span>43818</span></li> -->
+                                                                        <!-- </ul> -->
 
-                                                                            <!-- </li> -->
-                                                                            <li class="d-flex justify-content-between bg-b1b1b1 p-1 mt-1">
-                                                                                <?php
-                                                                                if (isset($adultCount) && $adultCount > 0) {
+                                                                        <!-- </li> -->
+                                                                        <li class="d-flex justify-content-between bg-b1b1b1 p-1 mt-1">
+                                                                            <?php
+                                                                            if (isset($adultCount) && $adultCount > 0) {
 
-                                                                                    $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
-                                                                                }
-                                                                                if (isset($childCount) && $childCount > 0) {
-                                                                                    $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
-                                                                                }
-                                                                                if (isset($infantCount) && $infantCount > 0) {
+                                                                                $totalAdultfare += $fareListRef['PassengerFare'][0]['TotalFare'] * $adultCount;
+                                                                            }
+                                                                            if (isset($childCount) && $childCount > 0) {
+                                                                                $totalChildfare += $fareListRef['PassengerFare'][1]['TotalFare'] * $childCount;
+                                                                            }
+                                                                            if (isset($infantCount) && $infantCount > 0) {
 
-                                                                                    $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
-                                                                                }
-                                                                                $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
-                                                                                $stmtmarkup->execute(array('role_id' => 1));
-                                                                                $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-
-
-                                                                                // $stmtmarkup->execute(array('role_id' => 1));
-                                                                                // $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
-                                                                                // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
-                                                                                $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
-                                                                                $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
-
-                                                                                $markupPercentage += $ticketing_fee;
-                                                                                $total_price = $markupPercentage + $totalFareAPI;
-
-                                                                                // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
-
-                                                                                // $total_price += $ipg_trasaction_percentage;
+                                                                                $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
+                                                                            }
+                                                                            $stmtmarkup = $conn->prepare('SELECT * FROM markup_commission WHERE role_id = :role_id');
+                                                                            $stmtmarkup->execute(array('role_id' => 1));
+                                                                            $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
 
 
-                                                                                ?>
+                                                                            // $stmtmarkup->execute(array('role_id' => 1));
+                                                                            // $markup = $stmtmarkup->fetch(PDO::FETCH_ASSOC);
+                                                                            // $totalFareAPI=$totalAdultfare+$totalChildfare+$totalinfantfare+$totalTax;
+                                                                            $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                                            $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
+
+                                                                            $markupPercentage += $ticketing_fee;
+                                                                            $total_price = $markupPercentage + $totalFareAPI;
+
+                                                                            // $ipg_trasaction_percentage = ($ipg_percentage / 100) * $total_price;
+
+                                                                            // $total_price += $ipg_trasaction_percentage;
 
 
-                                                                                <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo number_format(round($total_price, 2), 2); ?></strong>
-                                                                            </li>
+                                                                            ?>
+
+
+                                                                            <strong class="fw-600">Total Fare</strong><strong>&#36; <?php echo number_format(round($total_price, 2), 2); ?></strong>
+                                                                        </li>
                                                             </ul>
                                                         </div>
                                                         <div class="col-md-12">
@@ -1083,10 +1088,18 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                             if ($val['PaxType'] == 'INF') {
                                                                                                 $passengerType = "Infant";
                                                                                             }
-
+                            
+                                                                            
                                                                                             $total_refund = $refund_addition_fee_setting['value'] + $refund_fee_setting['value'];
 
                                                                                             if (!empty($val['RefundPenaltyAmount'])) {
+                              
+                                                                                                echo $refund_addition_fee_setting['value'];
+                                                                                                echo "----";
+                                                                                                echo $refund_fee_setting['value'];
+                                                                                                echo "----";
+                                                                                                echo $val['RefundPenaltyAmount'] * $usd_converion_rate;
+                                                                                                echo "----";
                                                                                                 $totDisplay =   ($val['RefundPenaltyAmount'] * $usd_converion_rate) + $total_refund;
                                                                                     ?>
                                                                                                 <td><?php echo $passengerType . ": $ " . number_format(round($totDisplay, 2), 2); ?></td>
@@ -1133,13 +1146,19 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                                                         if (!empty($val['ChangePenaltyAmount'])) {
-
-                                                                                            $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
+echo $reissue_addition_fee_setting['value'];
+echo "----";
+echo $reissue_fee_setting['value'];
+echo "----";
+echo ($val['ChangePenaltyAmount'] * $usd_converion_rate);
+echo "----";
+                          $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
                                                                                             $totDisplay =   ($val['ChangePenaltyAmount'] * $usd_converion_rate) + $total_refund;
 
-                                                                                            $ipg_trasaction_percentage = ($ipg_percentage / 100) * $totDisplay;
-                                                                                            $totDisplay += $ipg_trasaction_percentage;
-                                                                                    ?>
+                                                                                    //         $ipg_trasaction_percentage = ($ipg_percentage / 100) * $totDisplay;
+                                                                                    //         $totDisplay += $ipg_trasaction_percentage;
+                                                                                    // ?>
+                                                                                    
 
                                                                                             <td><?php echo $passengerType . ": $ " . number_format(round($totDisplay, 2), 2); ?></td>
                                                                                         <?php
@@ -1338,7 +1357,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                         $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
                                                     }
 
-                                                    $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                    echo $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
                                                     $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                                     $markupPercentage += $ticketing_fee;
                                                     $total_price = $markupPercentage + $totalFareAPI;

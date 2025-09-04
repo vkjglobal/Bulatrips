@@ -218,3 +218,51 @@ Array
 )
 
 
+Array
+(
+    [timestamp] => 2025-08-01 06:02:42
+    [endpoint] => https://restapidemo.myfarebox.com/api/v2/Search/Flight
+    [request_data] => Array
+        (
+            [OriginDestinationInformations] => Array
+                (
+                    [0] => Array
+                        (
+                            [DepartureDateTime] => 2025-08-12
+                            [OriginLocationCode] => LHE
+                            [DestinationLocationCode] => JED
+                        )
+
+                )
+
+            [TravelPreferences] => Array
+                (
+                    [MaxStopsQuantity] => All
+                    [CabinPreference] => Y
+                    [AirTripType] => OneWay
+                )
+
+            [PricingSourceType] => All
+            [PassengerTypeQuantities] => Array
+                (
+                    [0] => Array
+                        (
+                            [Code] => ADT
+                            [Quantity] => 1
+                        )
+
+                )
+
+            [RequestOptions] => TwoHundred
+            [NearByAirports] => 1
+            [Nationality] => string
+            [Target] => Test
+            [page_size] => 50
+            [page_number] => 1
+        )
+
+    [cabin_preference] => Y
+    [air_trip_type] => OneWay
+)
+
+

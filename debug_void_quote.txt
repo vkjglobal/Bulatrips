@@ -1,0 +1,259 @@
+MOCK_MODE is TRUE at 2025-08-16 05:06:13
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755320773_4947","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+MOCK_MODE is TRUE at 2025-08-16 05:06:21
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755320781_3258","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+About to check MOCK_MODE at 2025-08-16 05:12:46
+MOCK_MODE is TRUE at 2025-08-16 05:12:46
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755321166_5718","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 05:12:46
+Getting service transaction fees at 2025-08-16 05:12:46
+About to check MOCK_MODE at 2025-08-16 05:18:06
+MOCK_MODE is TRUE at 2025-08-16 05:18:06
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755321486_4421","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 05:18:06
+Getting service transaction fees at 2025-08-16 05:18:06
+About to check MOCK_MODE at 2025-08-16 06:24:29
+MOCK_MODE is TRUE at 2025-08-16 06:24:29
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755325469_7772","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 06:24:29
+Getting service transaction fees at 2025-08-16 06:24:29
+About to check MOCK_MODE at 2025-08-16 06:32:33
+MOCK_MODE is TRUE at 2025-08-16 06:32:33
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755325953_1830","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 06:32:33
+Getting service transaction fees at 2025-08-16 06:32:33
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Total amount calculated: 360
+About to check MOCK_MODE at 2025-08-16 06:38:04
+MOCK_MODE is TRUE at 2025-08-16 06:38:04
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755326284_1642","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 06:38:04
+Getting service transaction fees at 2025-08-16 06:38:04
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:12:20
+MOCK_MODE is TRUE at 2025-08-16 07:12:20
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755328340_2026","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:12:20
+Getting service transaction fees at 2025-08-16 07:12:20
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:17:11
+MOCK_MODE is TRUE at 2025-08-16 07:17:11
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755328631_1452","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:17:11
+Getting service transaction fees at 2025-08-16 07:17:11
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:26:18
+MOCK_MODE is TRUE at 2025-08-16 07:26:18
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755329178_2658","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:26:18
+Getting service transaction fees at 2025-08-16 07:26:18
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:30:24
+MOCK_MODE is TRUE at 2025-08-16 07:30:24
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755329424_4237","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:30:24
+Getting service transaction fees at 2025-08-16 07:30:24
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:33:25
+MOCK_MODE is TRUE at 2025-08-16 07:33:25
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755329605_3630","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:33:25
+Getting service transaction fees at 2025-08-16 07:33:25
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:38:20
+MOCK_MODE is TRUE at 2025-08-16 07:38:20
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755329900_3874","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:38:20
+Getting service transaction fees at 2025-08-16 07:38:20
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:46:24
+MOCK_MODE is TRUE at 2025-08-16 07:46:24
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755330384_4899","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:46:24
+Getting service transaction fees at 2025-08-16 07:46:24
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 07:57:43
+MOCK_MODE is TRUE at 2025-08-16 07:57:43
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755331063_8123","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 07:57:43
+Getting service transaction fees at 2025-08-16 07:57:43
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:08:38
+MOCK_MODE is TRUE at 2025-08-16 08:08:38
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755331718_2810","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:08:38
+Getting service transaction fees at 2025-08-16 08:08:38
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:11:38
+MOCK_MODE is TRUE at 2025-08-16 08:11:38
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755331898_1343","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:11:38
+Getting service transaction fees at 2025-08-16 08:11:38
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:16:25
+MOCK_MODE is TRUE at 2025-08-16 08:16:25
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755332185_3014","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:16:25
+Getting service transaction fees at 2025-08-16 08:16:25
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:24:30
+MOCK_MODE is TRUE at 2025-08-16 08:24:30
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755332670_7847","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:24:30
+Getting service transaction fees at 2025-08-16 08:24:30
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:29:47
+MOCK_MODE is TRUE at 2025-08-16 08:29:47
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755332987_9878","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:29:47
+Getting service transaction fees at 2025-08-16 08:29:47
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:37:18
+MOCK_MODE is TRUE at 2025-08-16 08:37:18
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755333438_5550","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:37:18
+Getting service transaction fees at 2025-08-16 08:37:18
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:38:09
+MOCK_MODE is TRUE at 2025-08-16 08:38:09
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755333489_1068","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:38:09
+Getting service transaction fees at 2025-08-16 08:38:09
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:44:16
+MOCK_MODE is TRUE at 2025-08-16 08:44:16
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755333856_8039","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:44:16
+Getting service transaction fees at 2025-08-16 08:44:16
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 08:49:52
+MOCK_MODE is TRUE at 2025-08-16 08:49:52
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755334192_5394","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 08:49:52
+Getting service transaction fees at 2025-08-16 08:49:52
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:13:02
+MOCK_MODE is TRUE at 2025-08-16 09:13:02
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755335582_8800","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:13:02
+Getting service transaction fees at 2025-08-16 09:13:02
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:18:15
+MOCK_MODE is TRUE at 2025-08-16 09:18:15
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755335895_5057","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:18:15
+Getting service transaction fees at 2025-08-16 09:18:15
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:23:59
+MOCK_MODE is TRUE at 2025-08-16 09:23:59
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755336239_4267","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:23:59
+Getting service transaction fees at 2025-08-16 09:23:59
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:28:19
+MOCK_MODE is TRUE at 2025-08-16 09:28:19
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755336499_8347","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:28:19
+Getting service transaction fees at 2025-08-16 09:28:19
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:44:48
+MOCK_MODE is TRUE at 2025-08-16 09:44:48
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755337488_4283","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:44:48
+Getting service transaction fees at 2025-08-16 09:44:48
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:48:56
+MOCK_MODE is TRUE at 2025-08-16 09:48:56
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755337736_5975","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:48:56
+Getting service transaction fees at 2025-08-16 09:48:56
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:52:25
+MOCK_MODE is TRUE at 2025-08-16 09:52:25
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755337945_1522","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:52:25
+Getting service transaction fees at 2025-08-16 09:52:25
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 09:57:22
+MOCK_MODE is TRUE at 2025-08-16 09:57:22
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755338242_3883","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 09:57:22
+Getting service transaction fees at 2025-08-16 09:57:22
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 10:12:00
+MOCK_MODE is TRUE at 2025-08-16 10:12:00
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755339120_7008","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 10:12:00
+Getting service transaction fees at 2025-08-16 10:12:00
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 10:24:23
+MOCK_MODE is TRUE at 2025-08-16 10:24:23
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755339863_9662","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 10:24:23
+Getting service transaction fees at 2025-08-16 10:24:23
+Service fees fetched: {"refund_fee":10,"refund_addition":50}
+Service fees extracted: 10 + 50
+Totals - base: 300, service: 60, final: 240
+About to check MOCK_MODE at 2025-08-16 11:00:01
+MOCK_MODE is TRUE at 2025-08-16 11:00:01
+Mock response generated: {"Success":true,"Data":{"PTRId":"PTR_1755342001_6896","PTRStatus":"InProcess","TotalRefundAmount":300,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"TotalVoidingFee":0,"SLAInMinutes":0,"Message":"Void quote request processed successfully"},"Message":"Void quote request processed successfully"}
+Response encoded and httpCode set at 2025-08-16 11:00:01
+Getting service transaction fees at 2025-08-16 11:00:01
+Service fees fetched: {"refund_fee":15,"refund_addition":50}
+Service fees extracted: 15 + 50
+Totals - base: 300, service: 65, final: 235

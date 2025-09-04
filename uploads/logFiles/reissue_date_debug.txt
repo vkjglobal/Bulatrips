@@ -467,3 +467,24 @@ Array
 )
 
 
+Array
+(
+    [new_dep_date] => 2025-08-12
+    [new_return_date] => 
+    [air_trip_type] => OneWay
+    [dep_date_valid] => 1
+    [return_date_valid] => 
+    [origin_destinations] => Array
+        (
+            [0] => Array
+                (
+                    [DepartureDateTime] => 2025-08-12
+                    [OriginLocationCode] => LHE
+                    [DestinationLocationCode] => JED
+                )
+
+        )
+
+)
+
+

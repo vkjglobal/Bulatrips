@@ -185,3 +185,14 @@ Array
 )
 
 
+Array
+(
+    [original_departure] => LHE
+    [original_arrival] => JED
+    [parsed_departure] => LHE
+    [parsed_arrival] => JED
+    [departure_length] => 3
+    [arrival_length] => 3
+)
+
+

@@ -1,1 +1,4 @@
 uploads/logFiles/revalidate.txt
+sendmail.php
+mail_send_bulk_newsletter.php
+mail_send.php

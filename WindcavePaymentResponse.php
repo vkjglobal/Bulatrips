@@ -1,5 +1,6 @@
 <?php
 session_start();
+error_reporting(1);
 ?>
 <script>
     deleteUserDataCookie("infantData");
@@ -261,6 +262,7 @@ if (isset($response) && $response != '') {
         $toEmail = $AP_country_name_fetch['contact_email'];
         $mfReferenceBookingNumber = $AP_country_name_fetch['mf_reference'];
 
+        
         if ($rowCount == 0) {
             $data = array(
                 "currency" => "usd",
@@ -281,7 +283,6 @@ if (isset($response) && $response != '') {
 
             if (isset($insPay) && $insPay != '') {
 
-                
                 
                 $subject = ($responseArray['transactions'][0]['responseText'] == 'APPROVED' ? "Payment Confirmation - Your Transaction Was Successful!" : 'For Failed Payment: "Payment Failed - Please Try Again');
                 $logoUrl = "https://bulatrips.com/images/Image-Logo-vec.png";
@@ -341,7 +342,7 @@ if (isset($response) && $response != '') {
                 $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
 
                 if ($bookingData['fare_type'] != "WebFare") {
-
+                    
                     $stmtbookingid = $conn->prepare('SELECT * FROM temp_booking WHERE fare_source_code = :farecode');
                     $stmtbookingid->execute(array('farecode' => $bookingData['fare_source_code']));
                     $bookingData = $stmtbookingid->fetch(PDO::FETCH_ASSOC);
@@ -375,6 +376,8 @@ if (isset($response) && $response != '') {
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Order Ticket Api Response Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                     }
+
+
                     if (!empty($responseTicket['Data']['Errors'])) {
                         $errMsg = $responseData['Data']['Errors'][0]['Message'];
                         $errCDE = $responseData['Data']['Errors'][0]['Code'];
@@ -446,6 +449,7 @@ if (isset($response) && $response != '') {
                         $objBook->_writeLog("", 'WindcavePaymentResponse.txt');
                         $objBook->_writeLog('-------------Transaction Refunded Close ' . date('l jS \of F Y h:i:s A') . '-------------', 'WindcavePaymentResponse.txt');
                         insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Refund Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
+                        $redirection = true;
                     } else {
                         $stmtupdate = $conn->prepare('UPDATE temp_booking SET ticket_status = :ticket_status WHERE id = :id');
                         $ticket_status = $responseTicketData['Data']['Success'];
@@ -454,7 +458,7 @@ if (isset($response) && $response != '') {
                         $stmtupdate->bindParam(':id', $id);
                         $stmtupdate->execute();
                         $ticketstatus = "ticket sucess";
-
+                        
                         insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Confirm Transaction Process Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
                         
                         $url = WC_URL . "transactions";
@@ -478,7 +482,7 @@ if (isset($response) && $response != '') {
                             'Content-Type: application/json',
                             'Authorization: Basic ' . base64_encode("$username:$password")
                         ]);
-
+                        
                         $response = curl_exec($ch);
                         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
                         curl_close($ch);
@@ -492,16 +496,13 @@ if (isset($response) && $response != '') {
                         
                         insertAuditLog($conn, $mfReferenceBookingNumber, "Payment", "Windcave Confirm Transaction process Api Response", json_encode($response), @$_SESSION['user_id'], "Pending");
 
-
-                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
-
-                        confirmationMail($toEmail, $subject, $transactionData, $headers);
-                        $redirection = true;
-
-                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Sent", json_encode($response), @$_SESSION['user_id'], "Pending");
                         
-                        ?>
-        <?php
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Initiated", json_encode($response), @$_SESSION['user_id'], "Pending");
+                        
+                        $redirection = true;
+                        confirmationMail($toEmail, $subject, $transactionData, $headers);
+                        
+                        insertAuditLog($conn, $mfReferenceBookingNumber, "Email", "Payment Confirmation Email Sent", json_encode($response), @$_SESSION['user_id'], "Pending");
                     }
                 } else if ($bookingData['fare_type'] == "WebFare") {
 
@@ -1003,6 +1004,7 @@ if (isset($response) && $response != '') {
 
             }
         }
+        
         $title = ucfirst("Payment " . $responseArray['transactions'][0]['responseText']);
         $transaction_id = $responseArray['transactions'][0]['id'];
         $session_id = $responseArray['id'];
@@ -1088,7 +1090,7 @@ if (isset($response) && $response != '') {
                 </div>
             </div>
         </div>
-    <?php
+        <?php
 
     } else {
     ?>

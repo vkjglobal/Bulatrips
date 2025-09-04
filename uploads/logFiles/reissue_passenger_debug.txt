@@ -358,3 +358,27 @@ Array
 )
 
 
+Array
+(
+    [timestamp] => 2025-08-01 06:02:42
+    [selected_passengers] => Array
+        (
+            [0] => Array
+                (
+                    [id] => 139
+                    [firstName] => Camden
+                    [lastName] => Bridges
+                    [title] => Mrs
+                    [eticket] => 
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [adult_count] => 1
+    [child_count] => 0
+    [infant_count] => 0
+    [total_count] => 1
+)
+
+

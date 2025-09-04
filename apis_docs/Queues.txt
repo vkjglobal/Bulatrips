@@ -1,0 +1,1248 @@
+Queues
+API / post-booking / Queues
+Queues API helps you get hold of bookings that are having a particular status, namely: Booking, Cancelled, Ticketed, Voided, Refunded, ScheduleChange.avatar
+POST
+https://restapidemo.myfarebox.com/api/v1/Queues
+API Contract/Request
+Copy
+|
+{
+  "CategoryId": "Cancelled",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/6
+
+1. Cancelled status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Cancelled",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "THE BOOKING IS CANCELLED."
+                ],
+                "RPH": 1,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2024-05-12T10:04:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF26847624"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "THE BOOKING IS CANCELLED."
+                ],
+                "RPH": 2,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2024-05-09T09:21:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF26817224"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "THE BOOKING IS CANCELLED."
+                ],
+                "RPH": 3,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2024-05-11T09:46:30",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF26817024"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "THE BOOKING IS CANCELLED."
+                ],
+                "RPH": 4,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2024-05-09T08:11:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF26814424"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+2. Booked status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Booking",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Confirmed! Call OrderTicket API for ticket issuance."
+                ],
+                "RPH": 1,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-23T07:19:35",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29529525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Confirmed! Call OrderTicket API for ticket issuance."
+                ],
+                "RPH": 2,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-21T11:38:36",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29513025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Confirmed! Call OrderTicket API for ticket issuance."
+                ],
+                "RPH": 3,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-17T11:44:53",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29496725"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+3. Ticketed status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Ticketed",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 1,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-17T06:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30937725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 2,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-17T06:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30936425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 3,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-17T09:45:23",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30927425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 4,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-17T09:22:18",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30926725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 5,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-11T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30903125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 6,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-09T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30873025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 7,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-09T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30871725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 8,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-03T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30812325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 9,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-05T05:58:36",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30798625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 10,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-03T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30798525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 11,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-05T05:49:02",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30798025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 12,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-06-11T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30589425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 13,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-06-11T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30588225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 14,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-23T06:51:39",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30336425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 15,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-22T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30333325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 16,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-19T08:52:54",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30291525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 17,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-09T12:45:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30154525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 18,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-02T05:28:13",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30115225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 19,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-04-14T11:29:47",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29926625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 20,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-04-14T09:44:29",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29925225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 21,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-03-21T05:01:42",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29657225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 22,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-03-21T04:56:35",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29656925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 23,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-03-13T06:36:04",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29594325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 24,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-25T13:35:12",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29541925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 25,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-21T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29535925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 26,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-21T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29535425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 27,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-23T06:15:51",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29528025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 28,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-20T14:30:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29511725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 29,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-18T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29508725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 30,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-20T11:12:33",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29503625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 31,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-18T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29503025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 32,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T12:44:16",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29497425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 33,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-17T11:34:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29497225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 34,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T11:48:07",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29496825"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 35,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-15T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29496525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 36,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T10:47:31",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29496325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 37,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T10:46:17",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29496225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 38,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T09:29:35",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29495225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 39,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-17T09:11:45",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29495125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 40,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-14T06:57:22",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29492925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 41,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-17T04:49:58",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29492725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 42,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-17T04:47:47",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29492625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 43,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T05:28:05",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29377925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 44,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T05:26:45",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29377825"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 45,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T05:22:54",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29377725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 46,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T05:09:54",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29377025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 47,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T10:56:25",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29369825"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 48,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T10:35:27",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29369625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 49,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T09:37:57",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29369225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 50,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T09:33:18",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29369125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 51,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T09:26:09",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29369025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 52,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-29T09:21:17",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29368925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 53,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-28T07:10:16",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29354625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 54,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-28T06:36:05",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29353125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 55,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-28T06:34:14",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29353025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 56,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-28T06:31:44",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29352925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 57,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-28T06:30:48",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29352825"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 58,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:42:56",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29347725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 59,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:28:59",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29347025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 60,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:24:56",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346825"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 61,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:24:52",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 62,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:21:49",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 63,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T12:09:42",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 64,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:42:01",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 65,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:41:15",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346225"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 66,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:36:26",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29346025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 67,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:26:46",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29345725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 68,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:19:47",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29345625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 69,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T11:10:55",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29345525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 70,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T10:52:52",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29344725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 71,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T10:46:19",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29344425"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 72,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-27T10:40:51",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29343925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 73,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T07:35:03",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29340625"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 74,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T07:28:36",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29340525"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 75,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T07:20:04",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29340325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 76,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-30T07:15:09",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29340025"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking Ticketed - Call TripDetails API! Eticket Number, Airline PNR, Terminal, Baggage and Special Service Request information updated."
+                ],
+                "RPH": 77,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-23T10:13:33",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29295125"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+4. Schedule Change status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "ScheduleChange",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Schedule change identified."
+                ],
+                "RPH": 1,
+                "ScheduleChangeIdentifiedAt": "0001-01-01T00:00:00",
+                "ScheduleChangeStatus": "NotAccepted",
+                "TravelStartDate": "2025-06-05T06:15:00",
+                "TypeOfScheduleChange": "Major Change",
+                "UniqueID": "MF29377925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Schedule change identified."
+                ],
+                "RPH": 2,
+                "ScheduleChangeIdentifiedAt": "0001-01-01T00:00:00",
+                "ScheduleChangeStatus": "NotAccepted",
+                "TravelStartDate": "2025-11-02T11:10:00",
+                "TypeOfScheduleChange": "Major Change",
+                "UniqueID": "MF30908125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Schedule change identified."
+                ],
+                "RPH": 3,
+                "ScheduleChangeIdentifiedAt": "0001-01-01T00:00:00",
+                "ScheduleChangeStatus": "NotAccepted",
+                "TravelStartDate": "2025-11-02T12:50:00",
+                "TypeOfScheduleChange": "Major Change",
+                "UniqueID": "MF30927425"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+5. Voided status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Voided",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking is Voided."
+                ],
+                "RPH": 1,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-06T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30149325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking is Voided."
+                ],
+                "RPH": 2,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-04-14T11:16:49",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29926325"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking is Voided."
+                ],
+                "RPH": 3,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-20T10:39:35",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29503125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking is Voided."
+                ],
+                "RPH": 4,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-23T07:32:49",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29291725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking is Voided."
+                ],
+                "RPH": 5,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-01-03T10:21:24",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29111724"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+6. Refunded status
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Refunded",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "Client Reference ID FreeTxt",
+        "Errors": [],
+        "MessageItems": [
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking has been Refunded."
+                ],
+                "RPH": 1,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-07-11T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30908125"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking has been Refunded."
+                ],
+                "RPH": 2,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-05-16T09:09:51",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF30291925"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking has been Refunded."
+                ],
+                "RPH": 3,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-04-11T11:33:43",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29926725"
+            },
+            {
+                "BookingMode": "OnePoint",
+                "Messages": [
+                    "Booking has been Refunded."
+                ],
+                "RPH": 4,
+                "ScheduleChangeStatus": null,
+                "TktTimeLimit": "2025-02-21T17:59:00",
+                "TypeOfScheduleChange": null,
+                "UniqueID": "MF29536125"
+            }
+        ],
+        "Success": true,
+        "Target": "Test"
+    },
+    "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed Scenario: When Invalid Category ID is passed
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "CategoryId": "Booked",
+  "Target": "Test",
+  "ConversationId": "Client Reference ID FreeTxt"
+}
+Response
+{
+    "Success": false,
+    "Data": [
+        "CategoryId is not valid"
+    ],
+    "Message": "Validation Error"
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+CategoryId	"Booking", "Cancelled", "ScheduleChange", "Voided", "Refunded", "Ticketed"	Status of the booking
+Target	"Production", ”Test”	Environment to connect with Mystifly
+ConversationId	Client Reference ID FreeTxt	Free Text - can be used for Tracking at Client end
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ConversationId	Client Reference ID FreeTxt	Free Text - can be used for Tracking at Client end
+Messages	“Booking Confirmed!”	Gives the information regarding the booking status
+ScheduleChangeStatus	null, "NotAccepted", "Accepted"	
+TktTimeLimit	"2025-02-23T07:19:35"	
+UniqueID	MFXXXXXXX	A unique reference number starts with MF followed by 8 digits
+Success	true/false	Returns the status in a Boolean
+Target	"Production", ”Test”	Environment to connect with Mystifly
+TypeOfScheduleChange	null, major, minor, mctinvalid, imminentqueue	"ScheduleChangeType": "MINOR"= SC due to minor change in flight timing max 15min, "ScheduleChangeType": "MAJOR"= SC due to flight timing exceeding 15min, "ScheduleChangeType": "MCTINVALID " = SC due to Misconnection, "ScheduleChangeType": "IMMINENTQUEUE "– SC booking which are priority where the departure date is in next 7days

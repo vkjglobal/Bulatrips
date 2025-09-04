@@ -3854,3 +3854,11 @@ REsponse Received\nArray
 
 step httpcode not 200 Invalid response format from API
 step end of reissue quote ========= Invalid response format from API
+-------------Wednesday 13th of August 2025 07:16:53 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"171","userId":"73","mfRef":"MF31252225","selectedPassengers":[{"id":"162","firstName":"Lucy","lastName":"Fisher","title":"Mr","eticket":"TKT471965","passengerType":"ADT"}],"newDepartureDate":"2025-08-25","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31252225","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Lucy","lastName":"Fisher","title":"Mr","eTicket":"TKT471965","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"AUH","cabinPreference":"Y","departureDateTime":"2025-08-25","flightNumber":289,"airlineCode":"EY"}]}
+ReissueQuote API Response: {"Success":false,"Data":null,"Message":"Changes are not permitted for this booking."}
+-------------Wednesday 13th of August 2025 07:17:10 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"171","userId":"73","mfRef":"MF31252225","selectedPassengers":[{"id":"162","firstName":"Lucy","lastName":"Fisher","title":"Mr","eticket":"TKT471965","passengerType":"ADT"}],"newDepartureDate":"2025-08-25","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31252225","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Lucy","lastName":"Fisher","title":"Mr","eTicket":"TKT471965","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"AUH","cabinPreference":"Y","departureDateTime":"2025-08-25","flightNumber":289,"airlineCode":"EY"}]}
+ReissueQuote API Response: {"Success":false,"Data":null,"Message":"Changes are not permitted for this booking."}

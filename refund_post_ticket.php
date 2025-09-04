@@ -1,6 +1,7 @@
 <?php
   include_once('includes/common_const.php');
   include_once('includes/class.cancel.php');
+  include_once('includes/mock_mystifly.php');
   $objCancel     =   new Cancel();
   
   // Check if this is an AJAX request
@@ -165,43 +166,45 @@
      
      // For example, creating the main request body array (following exact API documentation format)
      
-     // Choose the best API based on void window status
-     $ptrType = 'RefundQuote'; // Default
-     $additionalNote = 'Pls quote refund for tkt ' . $passengersArray[0]['eTicket'];
-     
-     if ($useVoidQuote) {
-         $ptrType = 'VoidQuote';
-         $additionalNote = 'Void quote request - best option for customer (full refund)';
-     } elseif ($useRefundQuote) {
-         $ptrType = 'RefundQuote';
-         $additionalNote = 'Refund quote request - void window expired';
-     }
+     // Always use RefundQuote for user-requested refunds
+     $ptrType = 'RefundQuote';
+     $additionalNote = 'Refund quote request - user requested refund';
      
      $requestData = array(
          'ptrType' => $ptrType,
          'mFRef' => $mfreNum,
          'AllowChildPassenger' => $hasChildPassenger,
-         'passengers' => array(
-             array(
-                 'firstName' => $passengersArray[0]['firstName'],
-                 'lastName' => $passengersArray[0]['lastName'],
-                 'title' => $passengersArray[0]['title'],
-                 'eTicket' => $passengersArray[0]['eTicket'],
-                 'passengerType' => $passengersArray[0]['passengerType']
-             )
-         ),
+         'passengers' => $passengersArray,
          'AdditionalNote' => $additionalNote
      );
 
      // Add debug logging
      $objCancel->_writeLog('Smart Selection: Using ' . $ptrType . ' API', 'RefundQuote.txt');
-     $objCancel->_writeLog('Reason: ' . ($useVoidQuote ? 'Void window active (best for customer)' : ($useRefundQuote ? 'Void window expired' : 'Default RefundQuote')), 'RefundQuote.txt');
+     $objCancel->_writeLog('Reason: User requested refund quote', 'RefundQuote.txt');
      $objCancel->_writeLog('API Request: ' . json_encode($requestData), 'RefundQuote.txt');
+     $objCancel->_writeLog('Total passengers being sent: ' . count($passengersArray), 'RefundQuote.txt');
 
      $endpoint   =   'PostTicketingRequest';
-     $result       =   $objCancel->callApi($endpoint,$requestData);
-     $httpCode = $result['httpCode'];
-     $response = $result['responseData'];
+     
+     // Check if we should use mock responses
+     if (MOCK_MODE) {
+         // Use mock response for development
+         if ($ptrType === 'VoidQuote') {
+             $mockResponse = MockMystifly::getVoidQuoteResponse($passengersArray);
+         } else {
+             $mockResponse = MockMystifly::getRefundQuoteResponse($passengersArray);
+         }
+         $response = json_encode($mockResponse);
+         $httpCode = 200;
+         
+         // Log mock usage
+         $objCancel->_writeLog('MOCK MODE: Using mock ' . $ptrType . ' response', 'RefundQuote.txt');
+     } else {
+         // Call real API
+         $result = $objCancel->callApi($endpoint,$requestData);
+         $httpCode = $result['httpCode'];
+         $response = $result['responseData'];
+     }
 
      // Add detailed debug logging
      $objCancel->_writeLog('HTTP Code: ' . $httpCode, 'RefundQuote.txt');
@@ -289,9 +292,21 @@
                 
                 $objCancel->_writeLog('Fallback RefundQuote Request: ' . json_encode($refundQuoteData), 'RefundQuote.txt');
                 
-                $fallbackResult = $objCancel->callApi($endpoint, $refundQuoteData);
-                $fallbackHttpCode = $fallbackResult['httpCode'];
-                $fallbackResponse = $fallbackResult['responseData'];
+                // Check if we should use mock responses for fallback
+                if (MOCK_MODE) {
+                    // Use mock response for development
+                    $mockResponse = MockMystifly::getRefundQuoteResponse($passengersArray);
+                    $fallbackResponse = json_encode($mockResponse);
+                    $fallbackHttpCode = 200;
+                    
+                    // Log mock usage
+                    $objCancel->_writeLog('MOCK MODE: Using mock RefundQuote fallback response', 'RefundQuote.txt');
+                } else {
+                    // Call real API
+                    $fallbackResult = $objCancel->callApi($endpoint, $refundQuoteData);
+                    $fallbackHttpCode = $fallbackResult['httpCode'];
+                    $fallbackResponse = $fallbackResult['responseData'];
+                }
                 
                 if ($fallbackResponse) {
                     $fallbackResponseData = json_decode($fallbackResponse, true);
@@ -327,8 +342,8 @@
                 }
             }
             
-            // Check if response has error message
-            if (!empty($responseData['Message'])) {
+            // Only treat as error if API explicitly returned Success=false with a message
+            if (isset($responseData['Success']) && $responseData['Success'] === false && !empty($responseData['Message'])) {
                 $errorMessage = $responseData['Message'];
                 
                 // Check for specific error messages
@@ -493,71 +508,68 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                     );
                 }
             } elseif ($useRefundQuote || $PTRType === 'RefundQuote') {
-                // RefundQuote Response
-                foreach($responseData['Data']['RefundQuotes'] as $k => $val){
-                    $ticket_num =   $val['ETicket'];
-                    $TotalFare =   $val['TotalFare'];                
-                     $UnusedFare =   $val['UnusedFare'];
-                     $CancellationCharge =   $val['CancellationCharge'];
-                    $NoShowCharge =   $val['NoShowCharge'];
-                     $TotalRefundAmount +=   $val['TotalRefundAmount'];
-                    //====================================
-                    if($NoShowCharge !=0){
-                    //  $markupFee_percentage_NoshowFee  =  $objCancel->MArkup_percentage_value(5);
-                      //$markupFee_percentage_NoshowFee =   $val['TotalRefundAmount'] * ($markupFee_percentage_NoshowFee/100);
-                    }
-                    
-                   
-                   //markupFee  = $TotalRefundAmount - $markupFee_percentage_val;
-                   $Currency =   $val['Currency'];
-             //      $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId,$PTRType,$SLAInMinutes,$PTRStatus,$VoidingWindow, $ticket_num  ,$AdminCharges ,$GSTCharge,$TotalVoidingFee,$TotalRefundAmount,$Currency,$cancel_status,$message='');                                                   
-                                      
-                                   //    $update_TravellerB_result      =    $objCancel->updateInDB_trav('travellers_details',$ticket_num);
-                                                         
+                // RefundQuote Response (mirror void-style breakdown)
+                $refundQuotesArr = isset($responseData['Data']['RefundQuotes']) && is_array($responseData['Data']['RefundQuotes'])
+                    ? $responseData['Data']['RefundQuotes'] : [];
 
+                $Currency = 'USD';
+                foreach ($refundQuotesArr as $k => $val) {
+                    $TotalRefundAmount += (float)($val['TotalRefundAmount'] ?? 0);
+                    if (!empty($val['Currency'])) { $Currency = $val['Currency']; }
                 }
-             //rint_r($markupFee_percentage);
-                     $markupFee_percentage = $objCancel->MArkup_percentage_value(4);
-                   $markupFee_percentage_val  = $markupFee_percentage[0]['commission_percentage'];
-                   $markupFee_percentage_val    =   $TotalRefundAmount * ($markupFee_percentage_val/100);
-                   $formattedRefund = number_format($markupFee_percentage_val, 2); // Format with two decimal places
+                // Fallback to top-level fields if per-passenger quotes not present
+                if (empty($refundQuotesArr)) {
+                    $TotalRefundAmount = (float)($responseData['Data']['TotalRefundAmount'] ?? 0);
+                    $Currency = $responseData['Data']['Currency'] ?? 'USD';
+                }
 
-                 //eho $markupFee_percentage_val;
-                    //=====================================
-                 // Prepare passenger refund details for UI
-                 $passengerRefunds = [];
-                 foreach($responseData['Data']['RefundQuotes'] as $k => $val){
-                     $passengerRefunds[] = [
-                         'name' => $val['FirstName'] . ' ' . $val['LastName'],
-                         'eTicket' => $val['ETicket'],
-                         'totalFare' => number_format($val['TotalFare'], 2),
-                         'unusedFare' => number_format($val['UnusedFare'], 2),
-                         'cancellationCharge' => number_format($val['CancellationCharge'], 2),
-                         'noShowCharge' => number_format($val['NoShowCharge'], 2),
-                         'refundAmount' => number_format($val['TotalRefundAmount'], 2)
-                     ];
-                 }
-                 
-                 $message   =   "Successfully called Refundquote for  Your Booking";
-                 $response_New = array(
-                     'success' => true,
-                     'message' => $message,
-                     'refund_type' => 'refund_quote',
-                     'refundamount' => $formattedRefund,
-                     'total_refund_api' => $TotalRefundAmount,
-                     'data' => [
-                         'ptrId' => $PTRId,
-                         'ptrType' => $PTRType,
-                         'ptrStatus' => $PTRStatus,
-                         'mfRef' => $mfreNum,
-                         'slaMinutes' => $SLAInMinutes,
-                         'slaHours' => $hours,
-                         'totalRefundAmount' => number_format($TotalRefundAmount, 2),
-                         'currency' => $Currency,
-                         'passengerRefunds' => $passengerRefunds,
-                         'apiMessage' => isset($responseData['Data']['Message']) ? $responseData['Data']['Message'] : ''
-                     ]
-                 );
+                // Service transaction fees from settings
+                $serviceFees = $objCancel->getServiceTransactionFees();
+                $refundBaseFee = (float)($serviceFees['refund_fee'] ?? 0);
+                $refundAdditionalMarkup = (float)($serviceFees['refund_addition'] ?? 0);
+                $serviceTotal = $refundBaseFee + $refundAdditionalMarkup;
+                $finalRefundAmount = max(0, $TotalRefundAmount - $serviceTotal);
+
+                // Prepare passenger refund details for UI
+                $passengerRefunds = [];
+                foreach ($refundQuotesArr as $k => $val) {
+                    $passengerRefunds[] = [
+                        'name' => trim(($val['FirstName'] ?? '').' '.($val['LastName'] ?? '')),
+                        'eTicket' => $val['ETicket'] ?? '',
+                        'totalFare' => number_format((float)($val['TotalFare'] ?? 0), 2),
+                        'unusedFare' => number_format((float)($val['UnusedFare'] ?? 0), 2),
+                        'cancellationCharge' => number_format((float)($val['CancellationCharge'] ?? 0), 2),
+                        'noShowCharge' => number_format((float)($val['NoShowCharge'] ?? 0), 2),
+                        'refundAmount' => number_format((float)($val['TotalRefundAmount'] ?? 0), 2)
+                    ];
+                }
+
+                $message   =   "Successfully called Refundquote for Your Booking";
+                $response_New = array(
+                    'success' => true,
+                    'message' => $message,
+                    'refund_type' => 'refund_quote',
+                    'total_refund_api' => $TotalRefundAmount,
+                    'data' => [
+                        'ptrId' => $PTRId,
+                        'ptrType' => $PTRType,
+                        'ptrStatus' => $PTRStatus,
+                        'mfRef' => $mfreNum,
+                        'slaMinutes' => $SLAInMinutes,
+                        'slaHours' => $hours,
+                        // values used by UI
+                        'totalRefundAmount' => $finalRefundAmount,
+                        'currency' => $Currency,
+                        // detailed breakdown
+                        'base_refund_amount' => $TotalRefundAmount,
+                        'refund_base_fee' => $refundBaseFee,
+                        'refund_additional_markup' => $refundAdditionalMarkup,
+                        'service_total' => $serviceTotal,
+                        'final_refund_amount' => $finalRefundAmount,
+                        'passengerRefunds' => $passengerRefunds,
+                        'apiMessage' => isset($responseData['Data']['Message']) ? $responseData['Data']['Message'] : ''
+                    ]
+                );
             }
       }
       else if(isset($responseData['Data']['Errors']) && is_array($responseData['Data']['Errors'])) {

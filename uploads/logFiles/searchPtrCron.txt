@@ -24,3 +24,857 @@ Request Received\nSuccessfully started - Enhanced version with delay handling
 Request Received\nSuccessfully started - Enhanced version with delay handling
 Cron job completed at Tuesday 8th of July 2025 07:52:39 AM
 Cron job completed at Tuesday 8th of July 2025 07:52:41 AM
+-------------Saturday 16th of August 2025 06:49:13 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 06:49:13 AM
+-------------Saturday 16th of August 2025 07:01:48 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:01:48 AM
+-------------Saturday 16th of August 2025 07:01:50 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:01:50 AM
+-------------Saturday 16th of August 2025 07:09:29 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:09:29 AM
+-------------Saturday 16th of August 2025 07:13:40 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:13:40 AM
+-------------Saturday 16th of August 2025 07:38:17 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:38:17 AM
+-------------Saturday 16th of August 2025 07:57:26 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 07:57:26 AM
+-------------Saturday 16th of August 2025 07:58:25 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+No records found for PTR 0 - checking if stuck
+PTR 0 still within acceptable timeframe
+Cron job completed at Saturday 16th of August 2025 07:58:27 AM
+-------------Saturday 16th of August 2025 08:00:36 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:00:36 AM
+-------------Saturday 16th of August 2025 08:01:12 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:12 AM
+-------------Saturday 16th of August 2025 08:01:22 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:22 AM
+-------------Saturday 16th of August 2025 08:01:23 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:23 AM
+-------------Saturday 16th of August 2025 08:01:23 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:23 AM
+-------------Saturday 16th of August 2025 08:01:24 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:24 AM
+-------------Saturday 16th of August 2025 08:01:25 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:25 AM
+-------------Saturday 16th of August 2025 08:01:34 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:34 AM
+-------------Saturday 16th of August 2025 08:01:35 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:35 AM
+-------------Saturday 16th of August 2025 08:01:36 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:36 AM
+-------------Saturday 16th of August 2025 08:01:37 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:37 AM
+-------------Saturday 16th of August 2025 08:01:38 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:38 AM
+-------------Saturday 16th of August 2025 08:01:39 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:39 AM
+-------------Saturday 16th of August 2025 08:01:39 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:39 AM
+-------------Saturday 16th of August 2025 08:01:39 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:39 AM
+-------------Saturday 16th of August 2025 08:01:40 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:01:40 AM
+-------------Saturday 16th of August 2025 08:03:18 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:03:19 AM
+-------------Saturday 16th of August 2025 08:03:52 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:03:52 AM
+-------------Saturday 16th of August 2025 08:08:45 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:08:45 AM
+-------------Saturday 16th of August 2025 08:10:07 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:10:07 AM
+-------------Saturday 16th of August 2025 08:10:48 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:10:48 AM
+-------------Saturday 16th of August 2025 08:11:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:11:43 AM
+-------------Saturday 16th of August 2025 08:16:29 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:16:29 AM
+-------------Saturday 16th of August 2025 08:24:36 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
+Cron job completed at Saturday 16th of August 2025 08:24:36 AM
+-------------Saturday 16th of August 2025 08:29:56 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+Cron job completed at Saturday 16th of August 2025 08:29:56 AM
+-------------Saturday 16th of August 2025 08:37:06 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 08:37:06 AM
+-------------Saturday 16th of August 2025 08:37:22 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+Cron job completed at Saturday 16th of August 2025 08:37:22 AM
+-------------Saturday 16th of August 2025 08:38:27 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+Cron job completed at Saturday 16th of August 2025 08:38:27 AM
+-------------Saturday 16th of August 2025 08:40:54 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:38:27
+            [void_status] => 2025-08-16 08:38:27
+            [cancel_type] => 2025-08-16 08:38:27
+            [cancel_date] => 2025-08-16 08:38:27
+        )
+
+)
+
+UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 08:40:54
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:40:54
+            [void_status] => 2025-08-16 08:40:54
+            [cancel_type] => 2025-08-16 08:40:54
+            [cancel_date] => 2025-08-16 08:40:54
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 08:40:54 AM
+-------------Saturday 16th of August 2025 08:41:04 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:40:54
+            [void_status] => 2025-08-16 08:40:54
+            [cancel_type] => 2025-08-16 08:40:54
+            [cancel_date] => 2025-08-16 08:40:54
+        )
+
+)
+
+UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 08:41:04
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:41:04
+            [void_status] => 2025-08-16 08:41:04
+            [cancel_type] => 2025-08-16 08:41:04
+            [cancel_date] => 2025-08-16 08:41:04
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 08:41:04 AM
+-------------Saturday 16th of August 2025 08:44:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 08:44:43
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:44:43
+            [void_status] => 2025-08-16 08:44:43
+            [cancel_type] => 2025-08-16 08:44:43
+            [cancel_date] => 2025-08-16 08:44:43
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 08:44:43 AM
+-------------Saturday 16th of August 2025 08:47:16 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => 2025-08-16 08:44:43
+            [void_status] => 2025-08-16 08:44:43
+            [cancel_type] => 2025-08-16 08:44:43
+            [cancel_date] => 2025-08-16 08:44:43
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 08:47:16
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 08:47:16
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 08:47:16 AM
+-------------Saturday 16th of August 2025 08:50:02 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 08:50:02
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 08:50:02
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 08:50:02 AM
+-------------Saturday 16th of August 2025 09:29:21 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:29:21 AM
+-------------Saturday 16th of August 2025 09:29:29 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:29:29 AM
+-------------Saturday 16th of August 2025 09:42:00 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket , MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket : Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 
+            [ticket_status] => TktInProcess
+            [void_status] => 
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 09:42:00
+)
+
+After traveller update for ticket : Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:42:00
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 09:42:00 AM
+-------------Saturday 16th of August 2025 09:43:24 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:43:24 AM
+-------------Saturday 16th of August 2025 09:44:51 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 09:44:51
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:44:51
+        )
+
+)
+
+Cron job completed at Saturday 16th of August 2025 09:44:51 AM
+-------------Saturday 16th of August 2025 09:49:01 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 09:49:01
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:49:01
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 09:49:01 AM
+-------------Saturday 16th of August 2025 09:49:04 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:49:04 AM
+-------------Saturday 16th of August 2025 09:52:29 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 09:52:29
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:52:29
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 09:52:29 AM
+-------------Saturday 16th of August 2025 09:52:32 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:52:32 AM
+-------------Saturday 16th of August 2025 09:57:24 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 09:57:24
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:57:24
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 09:57:24 AM
+-------------Saturday 16th of August 2025 09:57:26 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 09:57:26 AM
+-------------Saturday 16th of August 2025 10:22:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 10:22:43
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 10:22:43
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 10:22:43 AM
+-------------Saturday 16th of August 2025 10:23:36 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 10:23:36 AM
+-------------Saturday 16th of August 2025 10:24:25 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 10:24:25
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 10:24:25
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 10:24:25 AM
+-------------Saturday 16th of August 2025 10:24:27 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 16th of August 2025 10:24:27 AM
+-------------Saturday 16th of August 2025 11:17:05 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 11:17:05
+)
+
+After traveller update for ticket TKT4719689: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT4719689
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 11:17:05
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 11:17:05 AM
+-------------Saturday 16th of August 2025 11:19:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket , MF MF31290225)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%%'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket : Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 09:42:00
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%%'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-08-16 11:19:43
+)
+
+After traveller update for ticket : Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-08-16 11:19:43
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Cron job completed at Saturday 16th of August 2025 11:19:43 AM

@@ -297,3 +297,22 @@ REsponse Received\nArray
 )
 
 step end of void  ========= 
+-------------Saturday 16th of August 2025 07:58:27 AM-------------
+userId is 73
+Booking ID is 1
+Request Received\nArray
+(
+    [ptrType] => Refund
+    [MFRef] => MF31290325
+    [PTRId] => 0
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31290325
+REsponse Received\nArray
+(
+    [Data] => 
+    [Success] => 
+    [Message] => No records found.
+)
+

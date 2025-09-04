@@ -34,3 +34,12 @@ Array
 )
 
 
+Array
+(
+    [timestamp] => 2025-08-01 06:02:44
+    [http_code] => 200
+    [response_length] => 54881
+    [response_excerpt] => {"Data":{"ConversationId":"","FlightSegmentList":[{"DepartureAirportLocationCode":"LHE","ArrivalAirportLocationCode":"DOH","DepartureDateTime":"2025-08-12T09:55:00","ArrivalDateTime":"2025-08-12T11:35:00","stops":0,"JourneyDuration":220,"Equipment":"77W","OperatingCarrierCode":"QR","OperatingFlightNumber":"629","MarketingCarriercode":"QR","MarketingFlightNumber":"629","StopQuantityInfos":[],"SegmentRef":0},{"DepartureAirportLocationCode":"DOH","ArrivalAirportLocationCode":"JED","DepartureDateTim...
+)
+
+

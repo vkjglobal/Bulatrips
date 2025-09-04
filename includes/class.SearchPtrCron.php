@@ -8,10 +8,18 @@ include_once __DIR__ . '/class.Db_clientCron.php';
     }
     public function _writeLog($content	=	"",$filename	=	"log.txt")
 	{		
-		$fp 	=	fopen('../uploads/logFiles/'.$filename, "a+");			
-		fputs($fp,$content);		
-		fputs($fp, "\r\n");
-		fclose($fp);	
+		$path = __DIR__ . '/../uploads/logFiles/' . $filename;
+		$fp = @fopen($path, "a+");
+		if ($fp === false) {
+			// Fallback to project root path as best effort
+			$alt = dirname(__DIR__) . '/uploads/logFiles/' . $filename;
+			$fp = @fopen($alt, "a+");
+		}
+		if ($fp !== false) {
+			fputs($fp, $content);
+			fputs($fp, "\r\n");
+			fclose($fp);
+		}
 	}
     public function callApi($endpoint,$requestData){
         
@@ -64,16 +72,33 @@ include_once __DIR__ . '/class.Db_clientCron.php';
        return $result;		
     }
     public function updateInDB_trav($tableName,$ticketNum){
-    
+        // Log BEFORE values
+        try {
+            $before = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number LIKE '%".$ticketNum."%' LIMIT 1");
+            $this->_writeLog('Before traveller update for ticket '.$ticketNum.': '.print_r($before, true), 'searchPtrCron.txt');
+        } catch (Exception $e) {
+            $this->_writeLog('Before traveller update read failed: '.$e->getMessage(), 'searchPtrCron.txt');
+        }
+
         $updateData = array(
-                    'ticket_status' => 'cancelled'
-                );
-                $condition = "`e_ticket_number` LIKE '%".$ticketNum."%'";
-             //    LIKE '%MF23720823%' 
-     
-        $result =   $this->update($tableName, $updateData, $condition);
-      //print_r($result);exit;
-       return $result;		
+            'status' => 'cancelled', // use status column to avoid auto timestamp on ticket_status
+            'ticket_status' => 'cancelled',
+            'void_status' => 'Completed',
+            'cancel_type' => 'void',
+            'cancel_date' => date('Y-m-d H:i:s')
+        );
+        $condition = "`e_ticket_number` LIKE '%".$ticketNum."%'";
+        $result = $this->update($tableName, $updateData, $condition);
+
+        // Log AFTER values
+        try {
+            $after = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number LIKE '%".$ticketNum."%' LIMIT 1");
+            $this->_writeLog('After traveller update for ticket '.$ticketNum.': '.print_r($after, true), 'searchPtrCron.txt');
+        } catch (Exception $e) {
+            $this->_writeLog('After traveller update read failed: '.$e->getMessage(), 'searchPtrCron.txt');
+        }
+
+        return $result;
     }
     public function count_ticketed__temp_book($tableName,$bookingId){
 
@@ -313,6 +338,21 @@ include_once __DIR__ . '/class.Db_clientCron.php';
         $this->_writeLog("Alert needed for stuck PTR: " . $ptrDetails['ptr_id'], 'api_debug.txt');
         
         return true;
+    }
+
+    /**
+     * Get booking contact email and mf reference
+     */
+    public function getBookingContactEmail($bookingId) {
+        try {
+            $stmt = $this->conn->prepare("SELECT contact_email, mf_reference FROM temp_booking WHERE id = :id");
+            $stmt->execute(['id' => (int)$bookingId]);
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            return $row ?: [];
+        } catch (\PDOException $e) {
+            $this->_writeLog('Error fetching contact email: ' . $e->getMessage(), 'searchPtrCron.txt');
+            return [];
+        }
     }
 }
 

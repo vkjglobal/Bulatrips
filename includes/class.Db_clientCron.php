@@ -42,11 +42,16 @@ class Db_clientCron {
             $stmt = $this->conn->prepare($sql);
 
             foreach ($data as $key => $value) {
-                $stmt->bindParam(":{$key}", $value);
-               
+                // Use bindValue to avoid by-reference binding bugs
+                $stmt->bindValue(":{$key}", $value);
             }
          //   echo $sql;exit;
             $stmt->execute();
+            // Debug log of final SQL and bound data
+            if (method_exists($this, '_writeLog')) {
+                $this->_writeLog("UPDATE {$table} SET {$fields} WHERE {$condition}", 'searchPtrCron.txt');
+                $this->_writeLog('Bound data: '.print_r($data, true), 'searchPtrCron.txt');
+            }
             return $stmt->rowCount() > 0;
         } catch (PDOException $e) {
             // Handle the exception or log the error if needed

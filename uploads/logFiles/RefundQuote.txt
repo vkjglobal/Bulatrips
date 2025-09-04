@@ -12610,3 +12610,4913 @@ DB Passenger Data: Array
     [e_ticket_number] => TKT466724
 )
 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 148
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31164625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 149
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31165025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 160
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 158
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 161, MF Ref: MF31170925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:46:38
+            [mf_reference] => MF31170925
+            [ticket_status] => Voided
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-25 09:55:00
+            [arrival_location] => JED
+            [id] => 152
+            [first_name] => Miranda
+            [last_name] => Obrien
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470951
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Miranda
+            [lastName] => Obrien
+            [title] => Mrs
+            [eTicket] => TKT470951
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170925","AllowChildPassenger":false,"passengers":[{"firstName":"Miranda","lastName":"Obrien","title":"Mrs","eTicket":"TKT470951","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Booking is not eligible for refund"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:46:38
+    [mf_reference] => MF31170925
+    [ticket_status] => Voided
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-25 09:55:00
+    [arrival_location] => JED
+    [id] => 152
+    [first_name] => Miranda
+    [last_name] => Obrien
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470951
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 161, MF Ref: MF31170925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:46:38
+            [mf_reference] => MF31170925
+            [ticket_status] => Voided
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-25 09:55:00
+            [arrival_location] => JED
+            [id] => 152
+            [first_name] => Miranda
+            [last_name] => Obrien
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470951
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Miranda
+            [lastName] => Obrien
+            [title] => Mrs
+            [eTicket] => TKT470951
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170925","AllowChildPassenger":false,"passengers":[{"firstName":"Miranda","lastName":"Obrien","title":"Mrs","eTicket":"TKT470951","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Booking is not eligible for refund"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:46:38
+    [mf_reference] => MF31170925
+    [ticket_status] => Voided
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-25 09:55:00
+    [arrival_location] => JED
+    [id] => 152
+    [first_name] => Miranda
+    [last_name] => Obrien
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470951
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 161
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 161, MF Ref: MF31170925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:46:38
+            [mf_reference] => MF31170925
+            [ticket_status] => Voided
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-25 09:55:00
+            [arrival_location] => JED
+            [id] => 152
+            [first_name] => Miranda
+            [last_name] => Obrien
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470951
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Miranda
+            [lastName] => Obrien
+            [title] => Mrs
+            [eTicket] => TKT470951
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170925","AllowChildPassenger":false,"passengers":[{"firstName":"Miranda","lastName":"Obrien","title":"Mrs","eTicket":"TKT470951","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Booking is not eligible for refund"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:46:38
+    [mf_reference] => MF31170925
+    [ticket_status] => Voided
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-25 09:55:00
+    [arrival_location] => JED
+    [id] => 152
+    [first_name] => Miranda
+    [last_name] => Obrien
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470951
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 160
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170825
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 160, MF Ref: MF31170825, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:41:27
+            [mf_reference] => MF31170825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 151
+            [first_name] => Giacomo
+            [last_name] => Huffman
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470950
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 19:45:06
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Giacomo
+            [lastName] => Huffman
+            [title] => Mr
+            [eTicket] => TKT470950
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170825","AllowChildPassenger":false,"passengers":[{"firstName":"Giacomo","lastName":"Huffman","title":"Mr","eTicket":"TKT470950","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:41:27
+    [mf_reference] => MF31170825
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 151
+    [first_name] => Giacomo
+    [last_name] => Huffman
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470950
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 160
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170825
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 160, MF Ref: MF31170825, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:41:27
+            [mf_reference] => MF31170825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 151
+            [first_name] => Giacomo
+            [last_name] => Huffman
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470950
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 19:47:11
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Giacomo
+            [lastName] => Huffman
+            [title] => Mr
+            [eTicket] => TKT470950
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170825","AllowChildPassenger":false,"passengers":[{"firstName":"Giacomo","lastName":"Huffman","title":"Mr","eTicket":"TKT470950","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:41:27
+    [mf_reference] => MF31170825
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 151
+    [first_name] => Giacomo
+    [last_name] => Huffman
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470950
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 160
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170825
+            [user_id] => 73
+        )
+
+)
+
+RefundQuote Request Data: {"ptrType":"RefundQuote","mFRef":"MF31170825","AllowChildPassenger":false,"passengers":[{"firstName":"Giacomo","lastName":"Huffman","title":"Mr","eTicket":"TKT470950","passengerType":"ADT"}],"AdditionalNote":"Refund quote request"}
+RefundQuote HTTP Code: 200
+RefundQuote Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+RefundQuote Final response: {"status":"error","message":"This ticket is already being processed. Please wait or contact support.","error_type":"already_processing"}
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 159
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170725
+            [user_id] => 73
+        )
+
+)
+
+RefundQuote Request Data: {"ptrType":"RefundQuote","mFRef":"MF31170725","AllowChildPassenger":false,"passengers":[{"firstName":"Jameson","lastName":"Welch","title":"Mr","eTicket":"TKT470949","passengerType":"ADT"}],"AdditionalNote":"Refund quote request"}
+RefundQuote HTTP Code: 200
+RefundQuote Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+RefundQuote Final response: {"status":"error","message":"This ticket is already being processed. Please wait or contact support.","error_type":"already_processing"}
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 157
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170525
+            [user_id] => 73
+        )
+
+)
+
+RefundQuote Request Data: {"ptrType":"RefundQuote","mFRef":"MF31170525","AllowChildPassenger":false,"passengers":[{"firstName":"Kaden","lastName":"Wheeler","title":"MISS","eTicket":"TKT470947","passengerType":"ADT"}],"AdditionalNote":"Refund quote request"}
+RefundQuote HTTP Code: 200
+RefundQuote Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+RefundQuote Final response: {"status":"error","message":"This ticket is already being processed. Please wait or contact support.","error_type":"already_processing"}
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 159
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170725
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 159, MF Ref: MF31170725, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:38:44
+            [mf_reference] => MF31170725
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 150
+            [first_name] => Jameson
+            [last_name] => Welch
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470949
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 20:46:53
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jameson
+            [lastName] => Welch
+            [title] => Mr
+            [eTicket] => TKT470949
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170725","AllowChildPassenger":false,"passengers":[{"firstName":"Jameson","lastName":"Welch","title":"Mr","eTicket":"TKT470949","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:38:44
+    [mf_reference] => MF31170725
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 150
+    [first_name] => Jameson
+    [last_name] => Welch
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470949
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 159
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170725
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 159, MF Ref: MF31170725, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:38:44
+            [mf_reference] => MF31170725
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 150
+            [first_name] => Jameson
+            [last_name] => Welch
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470949
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 20:49:20
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jameson
+            [lastName] => Welch
+            [title] => Mr
+            [eTicket] => TKT470949
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170725","AllowChildPassenger":false,"passengers":[{"firstName":"Jameson","lastName":"Welch","title":"Mr","eTicket":"TKT470949","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:38:44
+    [mf_reference] => MF31170725
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 150
+    [first_name] => Jameson
+    [last_name] => Welch
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470949
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 159
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170725
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 159, MF Ref: MF31170725, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:38:44
+            [mf_reference] => MF31170725
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 150
+            [first_name] => Jameson
+            [last_name] => Welch
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470949
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 20:49:39
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jameson
+            [lastName] => Welch
+            [title] => Mr
+            [eTicket] => TKT470949
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: Void window expired
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170725","AllowChildPassenger":false,"passengers":[{"firstName":"Jameson","lastName":"Welch","title":"Mr","eTicket":"TKT470949","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:38:44
+    [mf_reference] => MF31170725
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 150
+    [first_name] => Jameson
+    [last_name] => Welch
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470949
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 159
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170725
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 159, MF Ref: MF31170725, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:38:44
+            [mf_reference] => MF31170725
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 150
+            [first_name] => Jameson
+            [last_name] => Welch
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470949
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-01 20:53:39
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jameson
+            [lastName] => Welch
+            [title] => Mr
+            [eTicket] => TKT470949
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170725","AllowChildPassenger":false,"passengers":[{"firstName":"Jameson","lastName":"Welch","title":"Mr","eTicket":"TKT470949","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:38:44
+    [mf_reference] => MF31170725
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 150
+    [first_name] => Jameson
+    [last_name] => Welch
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470949
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 154
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 154, MF Ref: MF31170225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:21:34
+            [mf_reference] => MF31170225
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 145
+            [first_name] => Irene
+            [last_name] => Williamson
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470944
+            [void_status] => 
+            [ptr_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-02 06:20:49
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Irene
+            [lastName] => Williamson
+            [title] => MISS
+            [eTicket] => TKT470944
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170225","AllowChildPassenger":false,"passengers":[{"firstName":"Irene","lastName":"Williamson","title":"MISS","eTicket":"TKT470944","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:21:34
+    [mf_reference] => MF31170225
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 145
+    [first_name] => Irene
+    [last_name] => Williamson
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470944
+    [void_status] => 
+    [ptr_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 160
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31170825
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 160, MF Ref: MF31170825, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-04 10:41:27
+            [mf_reference] => MF31170825
+            [ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-08-01T16:29:59.997
+            [dep_date] => 2025-08-25 03:10:00
+            [arrival_location] => JED
+            [id] => 151
+            [first_name] => Giacomo
+            [last_name] => Huffman
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT470950
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+        )
+
+)
+
+Void Window: 2025-08-01T16:29:59.997, Current Time: 2025-08-02 10:22:20
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Giacomo
+            [lastName] => Huffman
+            [title] => Mr
+            [eTicket] => TKT470950
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31170825","AllowChildPassenger":false,"passengers":[{"firstName":"Giacomo","lastName":"Huffman","title":"Mr","eTicket":"TKT470950","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-04 10:41:27
+    [mf_reference] => MF31170825
+    [ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-08-01T16:29:59.997
+    [dep_date] => 2025-08-25 03:10:00
+    [arrival_location] => JED
+    [id] => 151
+    [first_name] => Giacomo
+    [last_name] => Huffman
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT470950
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 168
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31251925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 169
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31252125
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 169
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31252125
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 171
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31252225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 176, MF Ref: MF31290325, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:12:34
+            [mf_reference] => MF31290325
+            [ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 167
+            [first_name] => Herrod
+            [last_name] => Knowles
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TEST123456789
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Herrod
+            [lastName] => Knowles
+            [title] => Mr
+            [eTicket] => TEST123456789
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290325","AllowChildPassenger":false,"passengers":[{"firstName":"Herrod","lastName":"Knowles","title":"Mr","eTicket":"TEST123456789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755273421_4445","PTRStatus":"InProcess","TotalRefundAmount":22000,"Currency":"INR","AdminCharges":1500,"GSTCharge":800,"CancellationCharges":2000,"SLAInMinutes":120,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:12:34
+    [mf_reference] => MF31290325
+    [ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 167
+    [first_name] => Herrod
+    [last_name] => Knowles
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TEST123456789
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 176, MF Ref: MF31290325, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:12:34
+            [mf_reference] => MF31290325
+            [ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 167
+            [first_name] => Herrod
+            [last_name] => Knowles
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TEST123456789
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Herrod
+            [lastName] => Knowles
+            [title] => Mr
+            [eTicket] => TEST123456789
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290325","AllowChildPassenger":false,"passengers":[{"firstName":"Herrod","lastName":"Knowles","title":"Mr","eTicket":"TEST123456789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755273694_4091","PTRStatus":"InProcess","TotalRefundAmount":22000,"Currency":"INR","AdminCharges":1500,"GSTCharge":800,"CancellationCharges":2000,"SLAInMinutes":120,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:12:34
+    [mf_reference] => MF31290325
+    [ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 167
+    [first_name] => Herrod
+    [last_name] => Knowles
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TEST123456789
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 176, MF Ref: MF31290325, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:12:34
+            [mf_reference] => MF31290325
+            [ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 167
+            [first_name] => Herrod
+            [last_name] => Knowles
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TEST123456789
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Herrod
+            [lastName] => Knowles
+            [title] => Mr
+            [eTicket] => TEST123456789
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290325","AllowChildPassenger":false,"passengers":[{"firstName":"Herrod","lastName":"Knowles","title":"Mr","eTicket":"TEST123456789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755274256_7942","PTRStatus":"InProcess","TotalRefundAmount":22000,"Currency":"INR","AdminCharges":1500,"GSTCharge":800,"CancellationCharges":2000,"SLAInMinutes":120,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:12:34
+    [mf_reference] => MF31290325
+    [ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 167
+    [first_name] => Herrod
+    [last_name] => Knowles
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TEST123456789
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 0
+get_booking_details result: Array
+(
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 0
+get_booking_details result: Array
+(
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 0
+get_booking_details result: Array
+(
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 0
+get_booking_details result: Array
+(
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 176
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755334524_7727","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755334546_3016","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335249_3985","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:07:29 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335249_3985
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335456_8466","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:10:56 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335456_8466
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335471_9724","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:11:11 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335471_9724
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335577_2150","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:12:57 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335577_2150
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335585_5605","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:13:05 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335585_5605
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335596_7139","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:13:16 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335596_7139
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for  Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335699_7811","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:14:59 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335699_7811
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335731_4323","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:15:31 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335731_4323
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755335865_5185","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:17:45 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755335865_5185
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755336067_7460","PTRStatus":"InProcess","TotalRefundAmount":280,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:21:07 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755336067_7460
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 280
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755336235_3555","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:23:55 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755336235_3555
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755336242_9563","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:24:02 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755336242_9563
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755336256_7224","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:24:16 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755336256_7224
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755336438_6214","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:27:18 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755336438_6214
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => TktInProcess
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755337316_3157","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => TktInProcess
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 09:41:56 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755337316_3157
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 175, MF Ref: MF31290225, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => cancelled
+            [ticket_time_limit] => 2025-08-15 15:06:32
+            [mf_reference] => MF31290225
+            [booking_ticket_status] => cancelled
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 
+            [dep_date] => 2025-08-18 11:30:00
+            [arrival_location] => LHE
+            [id] => 166
+            [first_name] => Bell
+            [last_name] => Roy
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => TKT4719689
+            [pass_ticket_status] => ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+No void window info - using RefundQuote
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bell
+            [lastName] => Roy
+            [title] => Mr
+            [eTicket] => TKT4719689
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31290225","AllowChildPassenger":false,"passengers":[{"firstName":"Bell","lastName":"Roy","title":"Mr","eTicket":"TKT4719689","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+MOCK MODE: Using mock RefundQuote response
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1755343146_1441","PTRStatus":"InProcess","TotalRefundAmount":270,"Currency":"USD","AdminCharges":0,"GSTCharge":0,"CancellationCharges":0,"SLAInMinutes":0,"Message":"Refund quote request processed successfully"},"Message":"Refund quote request processed successfully"}
+DB Passenger Data: Array
+(
+    [booking_status] => cancelled
+    [ticket_time_limit] => 2025-08-15 15:06:32
+    [mf_reference] => MF31290225
+    [booking_ticket_status] => cancelled
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 
+    [dep_date] => 2025-08-18 11:30:00
+    [arrival_location] => LHE
+    [id] => 166
+    [first_name] => Bell
+    [last_name] => Roy
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => TKT4719689
+    [pass_ticket_status] => ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 16th of August 2025 11:19:06 AM-------------
+REsponse Received for MF:\nMF31290225
+userId is 73
+Booking ID is 175
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31290225
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bell
+                    [lastName] => Roy
+                    [title] => Mr
+                    [eTicket] => TKT4719689
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => PTR_1755343146_1441
+            [PTRStatus] => InProcess
+            [TotalRefundAmount] => 270
+            [Currency] => USD
+            [AdminCharges] => 0
+            [GSTCharge] => 0
+            [CancellationCharges] => 0
+            [SLAInMinutes] => 0
+            [Message] => Refund quote request processed successfully
+        )
+
+    [Message] => Refund quote request processed successfully
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 175
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31290225
+            [user_id] => 73
+        )
+
+)
+

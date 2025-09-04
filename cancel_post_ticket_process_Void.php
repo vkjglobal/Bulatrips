@@ -1,323 +1,306 @@
 <?php
   include_once('includes/common_const.php');
   include_once('includes/class.cancel.php');
+  include_once('includes/dbConnect.php');
+  include_once('includes/mock_mystifly.php');
   $objCancel     =   new Cancel();
+  
+  // Check if this is an AJAX request
+  $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+  
+  if ($isAjax) {
+      // Handle AJAX JSON request
+      $json = file_get_contents('php://input');
+      $data = json_decode($json, true);
+      
+      if (!$data || !isset($data['booking_id'])) {
+          echo json_encode(['status' => 'error', 'message' => 'Invalid request data']);
+          exit;
+      }
+      
+      $bookingId = intval($data['booking_id']);
+      $passengerDetails = isset($data['passengerDetails']) ? $data['passengerDetails'] : [];
+      // capture values from quote if present
+      $finalRefundAmount = isset($data['final_refund_amount']) ? floatval($data['final_refund_amount']) : null;
+      $currencyFromQuote = isset($data['currency']) ? $data['currency'] : 'USD';
+      
+      // Get booking details from database
+      $bookingDetails = $objCancel->get_booking_details($bookingId);
+      if (!$bookingDetails) {
+          echo json_encode(['status' => 'error', 'message' => 'Booking not found']);
+          exit;
+      }
+      
+      $mfreNum = $bookingDetails['mf_reference'];
+      $userId = isset($bookingDetails['user_id']) ? intval($bookingDetails['user_id']) : (isset($_SESSION['user_id']) ? intval($_SESSION['user_id']) : 0);
+      
+      // Debug log for AJAX request
+      $objCancel->_writeLog("AJAX Void Request - Booking ID: $bookingId, MF Ref: $mfreNum, User ID: $userId", 'void.txt');
+      $objCancel->_writeLog("Passenger Details: " . json_encode($passengerDetails), 'void.txt');
+      
+      // Process passengers for AJAX request
+      $passengersArray = array();
+      foreach ($passengerDetails as $passenger) {
+          $passengersArray[] = array(
+              "firstName" => $passenger['firstname'],
+              "lastName" => $passenger['lastname'],
+              "title" => $passenger['title'],
+              "eTicket" => $passenger['eticket'],
+              "passengerType" => $passenger['passengertype']
+          );
+      }
+      
+  } else {
+      // Handle traditional form request (backward compatibility)
    if (!isset($_POST['mfreNum'])){
        echo "Err1";exit;
-
    }
-   else{
 
  $mfreNum   =  trim( $_POST['mfreNum']);
      $bookingId   =  trim($_POST['bookingId']);
       $userId   =   trim($_POST['userId']);
      $void_eligible   =   trim($_POST['void_eligible']);
-     //=======
+      
+      // Process passengers for traditional request
+      $bookCanusers_req = $objCancel->BookCancelUsers($bookingId, $userId);
+      $passengersArray = array();
+      foreach ($bookCanusers_req as $val) {
+          $passengersArray[] = array(
+              "firstName" => $val['first_name'],
+              "lastName" => $val['last_name'],
+              "title" => $val['title'],
+              "eTicket" => $val['e_ticket_number'],
+              "passengerType" => $val['passenger_type']
+          );
+      }
+  }
      
-// Escape and sanitize the data before storing them in hidden input fields
+  // Escape and sanitize the data
     $mfreNum = htmlspecialchars($mfreNum, ENT_QUOTES, 'UTF-8');
     $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
     $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
-    $void_eligible = filter_var($void_eligible, FILTER_SANITIZE_NUMBER_INT);
-     //=======
-     //echo "LLL".$mfreNum;exit;
-
-     $bookCanusers_req      =   $objCancel->BookCancelUsers($bookingId,$userId); 
-     $childpsnger        = $bookCanusers_req[0]['child_count'];
-    if($childpsnger === 0){
-        $allow_child    =   false;
-    }
-    elseif($childpsnger > 0){
-        $allow_child    =   true;
-    }
-
-    
-     //============request body for entire booking cancel============================================
-      if (isset($_POST['passengers']) && is_array($_POST['passengers'])) {
-    $passengers = $_POST['passengers'];
-
-     }
-  //  print_r($passengers);exit;
-     // Initialize the main passengers array
-     /*
-$passengersArray = array();
-
-foreach ($bookCanusers_req as $k => $val) {
-    $firstname = $val['first_name'];
-    $lastname = $val['last_name'];
-    $title = $val['title'];
-    $eticket = $val['e_ticket_number'];
-    $passenger_type = $val['passenger_type'];
-
-    // Create the passenger array for the current passenger
-    $passenger = array(
-        "firstName" => $firstname,
-        "lastName" => $lastname,
-        "title" => $title,
-        "eTicket" => $eticket,
-        "passengerType" => $passenger_type
-    );
-
-    // Add the passenger array to the main passengers array
-    $passengersArray[] = $passenger;
-}
-*/
-//print_r($passengersArray);exit;
-// Now you have the complete passengers array containing all passenger information
-// You can create the main request body array using this passengers array
-
-// For example, creating the main request body array
+  
+  // Check for child passengers
+  $childpsnger = isset($bookCanusers_req[0]['child_count']) ? $bookCanusers_req[0]['child_count'] : 0;
+  $allow_child = ($childpsnger > 0);
+  
+  // Create request data for Void API
 $requestData = array(
-    'ptrType' => 'void',
+      'ptrType' => 'Void',
     'mFRef' => $mfreNum,
     'AllowChildPassenger' => $allow_child,
-    'passengers' => $passengers,
-   'AdditionalNote'=> 'Kindly void booking'
-);
-//print_r($requestData);exit;
-
-
-
-//$mfreNum = "MF23709123";
-//===================test api request==========
-
- // Construct the API request payload
-    /*    $requestData = array(   
-             'ptrType' =>  'VoidQuote',
-              'mFRef' => $mfreNum,
-            'AllowChildPassenger' => false,
-             'passengers' => array(
-                 array(
-             'firstName' =>  'JAN',
-              'lastName' => 'JAN',
-            'title'      => 'Mr',
-             'eTicket' => 'TKT365204',
-            'passengerType'      => 'ADT'
-             )
-             ),
-            // 'ConversationId' => 'string',
-        );
-*/
-     // print_r($requestData); exit;
-
-        $endpoint   =   'PostTicketingRequest';
-        $result       =   $objCancel->callApi($endpoint,$requestData);
+      'passengers' => $passengersArray,
+      'AdditionalNote' => 'Kindly void booking'
+  );
+  
+  // Note: We don't include PTR ID in Void API call
+  // PTR ID is only used for VoidQuote, not for actual Void
+  
+  // Check if we should use mock responses
+  if (MOCK_MODE) {
+      // Use mock response for development
+      $mockResponse = MockMystifly::getVoidResponse('');
+      $response = json_encode($mockResponse);
+      $httpCode = 200;
+      
+      // Log mock usage
+      $objCancel->_writeLog('MOCK MODE: Using mock Void response', 'void.txt');
+  } else {
+      // Call real Void API
+      $endpoint = 'PostTicketingRequest';
+      $result = $objCancel->callApi($endpoint, $requestData);
         $httpCode = $result['httpCode'];
         $response = $result['responseData'];
-   //  echo $apiEndpoint."\n".BEARER;
- //  print_r($result);  exit;
-       
-        // Send the API request
-    //****************************************************************
-                                  /*         $response    =     '{
-                                                            "Success": true,
-                                                              "Data": {
-                                                                "PTRId": 10668,
-                                                                "PTRType": "Void",
-                                                                "MFRef": "MF23720823",
-                                                                "SLAInMinutes": 120,
-                                                                "PTRStatus": "InProcess",
-                                                                "VoidQuotes": [
-                                                                 {
-                                                                    "FirstName": "William",
-                                                                    "LastName": "William",
-                                                                    "Title": "Mr",
-                                                                    "PassengerType": "ADT",
-                                                                    "ETicket": "TKT365420",
-                                                                    "AdminCharges": "0.00",
-                                                                    "GSTCharge": "0.00",
-                                                                    "TotalVoidingFee": "0.00",
-                                                                    "TotalRefundAmount": "65.18",
-                                                                    "Currency": "USD"
-                                                                    },
-                                                                  {
-                                                                    "FirstName": "jack",
-                                                                    "LastName": "jack",
-                                                                    "Title": "Mr",
-                                                                    "PassengerType": "ADT",
-                                                                    "ETicket": "TKT365419",
-                                                                    "AdminCharges": "0.00",
-                                                                    "GSTCharge": "0.00",
-                                                                    "TotalVoidingFee": "0.00",
-                                                                    "TotalRefundAmount": "65.18",
-                                                                    "Currency": "USD"
-                                                                  }
-                                                                ]
-                                                              }
-                        }';     */
+  }
+  
+  // Log the request and response
+  $objCancel->_writeLog('Void Request Data: ' . json_encode($requestData), 'void.txt');
+  $objCancel->_writeLog('Void HTTP Code: ' . $httpCode, 'void.txt');
+  $objCancel->_writeLog('Void Raw API Response: ' . $response, 'void.txt');
          
         if ($response) {
             $responseData = json_decode($response, true);
     
-        }
-        $logRes =   print_r($responseData, true);
-          $logReQ =   print_r($requestData, true);
-            $objCancel->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','void.txt');
-                    $objCancel->_writeLog('REsponse Received for MF:\n'.$mfreNum,'void.txt');
-                      $objCancel->_writeLog('userId is '.$userId,'void.txt');
-                      $objCancel->_writeLog('Booking ID is '.$bookingId,'void.txt');
-                     $objCancel->_writeLog('Request Received\n'.$logReQ,'void.txt');
+      if (isset($responseData['Success']) && $responseData['Success']) {
+          $PTRId = $responseData['Data']['PTRId'] ?? '';
+          $PTRStatus = $responseData['Data']['PTRStatus'] ?? '';
+          // build message using quote amount if we have it
+          $amountText = '';
+          if (!is_null($finalRefundAmount)) {
+              $amountText = $currencyFromQuote . ' ' . number_format($finalRefundAmount, 2);
+          } elseif (isset($responseData['Data']['TotalRefundAmount'])) {
+              $amountText = ($responseData['Data']['Currency'] ?? 'USD') . ' ' . number_format($responseData['Data']['TotalRefundAmount'], 2);
+          }
+          $message = "Your Cancellation is: " . $PTRStatus . (strlen($amountText) ? " Total Refundable Amount is: " . $amountText : '');
+          
+          // Record PTR in cancel_booking for each passenger so cron can pick it up
+          foreach ($passengerDetails as $passenger) {
+              // Get traveller_id from the passenger's eticket
+              $travellerId = 0;
+              try {
+                  $travellerStmt = $conn->prepare("SELECT id FROM travellers_details WHERE e_ticket_number = ? AND flight_booking_id = ?");
+                  $travellerStmt->execute([$passenger['eticket'], $bookingId]);
+                  $travellerRow = $travellerStmt->fetch(PDO::FETCH_ASSOC);
+                  if ($travellerRow) {
+                      $travellerId = intval($travellerRow['id']);
+                  }
+              } catch (Exception $e) {
+                  $objCancel->_writeLog("Error getting traveller_id for eticket {$passenger['eticket']}: " . $e->getMessage(), 'void.txt');
+              }
+              
+              $objCancel->_writeLog("Attempting to insert into cancel_booking for booking ID: $bookingId, User ID: $userId, Traveller ID: $travellerId, Eticket: {$passenger['eticket']}", 'void.txt');
+              
+              try {
+                  // sanitize values to match DB types
+                  $userId = intval($userId);
+                  $ptrIdForDb = is_numeric($PTRId) ? intval($PTRId) : 0; // ptr_id column is INT
+                  $precancelsts = 'post';
+                  $errorCode = '';
+                  $traceId = '';
+                  $ptrType = 'Void';
+                  $SLAInMinutes = 0;
+                  $VoidingWindow = '';
+                  $AdminCharges = 0;
+                  $GSTCharge = 0;
+                  $TotalVoidingFee = 0.00;
+                  $TotalRefundAmount = !is_null($finalRefundAmount) ? $finalRefundAmount : floatval($responseData['Data']['TotalRefundAmount'] ?? 0);
+                  $Currency = !empty($currencyFromQuote) ? $currencyFromQuote : ($responseData['Data']['Currency'] ?? 'USD');
+                  $cancel_status = 0;
 
-        $objCancel->_writeLog('REsponse Received\n'.$logRes,'void.txt');
- 
-                        //write log
-    //    print_r($responseData);exit;
-        //=====================================
-     // $traceId    =    $responseData['Data']['TraceId'];
-      $precancelsts   =   'post';
-     $message = ""; 
-      $TotalRefundAmount =0;
-if (isset($responseData['Success']) && $responseData['Success']) {
-            $cancel_status  =   1;
-             $PTRId    =   $responseData['Data']['PTRId'];
-            $PTRType    =   $responseData['Data']['PTRType'];
-            $SLAInMinutes   =   $responseData['Data']['SLAInMinutes'];
-            $PTRStatus      =   $responseData['Data']['PTRStatus'];           
-            $objCancel->_writeLog('Step 1Success '.$PTRStatus,'void.txt');
-             // $objCancel->_writeLog('TotalVoidingFee '.$TotalVoidingFee.,'voidQuote.txt');
-             // $objCancel->_writeLog('TotalRefundAmount '.$TotalRefundAmount.,'voidQuote.txt');
-           $hours = $objCancel->calculateHoursFromSLAMinutes($SLAInMinutes);
-            foreach($responseData['Data']['VoidQuotes'] as $k => $val){
-                $ticket_num =   $val['ETicket'];
-                $AdminCharges =   $val['AdminCharges'];
-                $GSTCharge =   $val['GSTCharge'];
-                $TotalVoidingFee =   $val['TotalVoidingFee'];
-                $TotalRefundAmount +=   $val['TotalRefundAmount'];
-                $per_psnger_refund_amnt =   $val['TotalRefundAmount'];
-               $Currency =   $val['Currency'];                           
-//*********************************************************
-/* if($bookingId == 178){
-	$PTRStatus	=	"Completed";
-} */
-//**********************************************************
-               $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId,$PTRType,$SLAInMinutes,$PTRStatus,$VoidingWindow='', $ticket_num  ,$AdminCharges ,$GSTCharge,$TotalVoidingFee,$per_psnger_refund_amnt,$Currency,$cancel_status,$message='');                                                   
-                                  
-                               //    $update_TravellerB_result      =    $objCancel->updateInDB_trav('travellers_details',$ticket_num);
-                                                     
+                  $insertId = $objCancel->insCncelSts(
+                      $bookingId,
+                      $userId,
+                      $precancelsts,
+                      $errorCode,
+                      $mfreNum,
+                      $traceId,
+                      $httpCode,
+                      $ptrIdForDb,
+                      $ptrType,
+                      $SLAInMinutes,
+                      $PTRStatus,
+                      $VoidingWindow,
+                      $passenger['eticket'], // ticket_num for this specific passenger
+                      $AdminCharges,
+                      $GSTCharge,
+                      $TotalVoidingFee,
+                      $TotalRefundAmount,
+                      $Currency,
+                      $cancel_status,
+                      $message,
+                      $travellerId // Add traveller_id parameter
+                  );
 
-            }
-                 //   $count_ticketed_temp    =   $objCancel->count_ticketed__temp_book('travellers_details',$bookingId);
-                   // if($count_ticketed_temp == 0){
-                        //   update tempbooking and traveller details tables with cancelled sts 
-                    //   $update_tempB_result           =   $objCancel->updateInDB_temp_book('temp_booking',$mfreNum);
-                //    }
-                //    echo "LLL";print_r($TotalRefundAmount)  ;
-//mail code
-                                         
-            //   var_dump($update_TravellerB_result);exit;
-//print_r($PTRStatus);exit;
-		 if( $PTRStatus == "InProcess"){
-			             $message   =   "Your Canellation is :".$PTRStatus." This will update within ". $hours." Hours";
-			}
-			else if($PTRStatus == "Completed"){
-                // Send completion email for immediate void completion
-                include_once('mail_send.php');
-                include_once('includes/class.Users.php');
-                
-                $objUser = new Users();
-                $userDetails = $objUser->getUserDetails($userId);
-                
-                if($userDetails && !empty($userDetails['email'])) {
-                    $email = $userDetails['email'];
-                    $name = $userDetails['first_name']." ".$userDetails['last_name'];
-                    $subject = "Flight Void Completed - Bulatrips";
-                    
-                    $content = '<p>Dear '.$name.',</p>
-                               <p>Your flight void request has been successfully completed.</p>
-                               <p><strong>Booking Details:</strong></p>
-                               <ul>
-                                   <li>Booking ID: '.$bookingId.'</li>
-                                   <li>MyFareBox Reference: '.$mfreNum.'</li>
-                                   <li>Status: Voided</li>
-                                   <li>Total Refund Amount: '.$Currency.' '.$TotalRefundAmount.'</li>
-                                   <li>Admin Charges: '.$Currency.' '.$AdminCharges.'</li>
-                                   <li>GST Charges: '.$Currency.' '.$GSTCharge.'</li>
-                                   <li>Voiding Fee: '.$Currency.' '.$TotalVoidingFee.'</li>
-                               </ul>
-                               <p>The refund will be processed within 7-14 business days to your original payment method.</p>
-                               <p>Thank you for choosing Bulatrips.</p>';
-                               
-                    $messageData = $objCancel->getEmailContent($content);
-                    $headers = "";
-                    
-                    sendMail($email, $subject, $messageData, $headers);
-                    
-                    $objCancel->_writeLog('Void completion email sent to user: '.$email.' for booking: '.$bookingId, 'void.txt');
-                }
+                  $objCancel->_writeLog("Insert into cancel_booking result for traveller $travellerId: " . var_export($insertId, true), 'void.txt');
 
-             			$message   =   "Your Canellation is :".$PTRStatus." Total Refundable Amount is : "."\r\n". $Currency." ".$TotalRefundAmount;
-         
-					}
+                  // Fallback minimal insert if helper failed
+                  if (!$insertId) {
+                      $sql = "INSERT INTO cancel_booking (user_agent_id, booking_id, pre_post_ticket_status, mf_ref_num, err_code, trace_id, http_code_response, ptr_id, ptr_type, ptr_status, traveller_id, ticket_number, total_void_fee, total_refund_amount, cancel_status, created_date, void_window, sla_minutes, admin_charge, gst_charge, currency, message) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), ?, ?, ?, ?, ?, ?)";
+                      $stmt = $conn->prepare($sql);
+                      $stmt->execute([
+                          $userId,
+                          $bookingId,
+                          $precancelsts,
+                          $mfreNum,
+                          '', // err_code
+                          '', // trace_id
+                          $httpCode,
+                          $ptrIdForDb,
+                          $ptrType,
+                          $PTRStatus,
+                          $travellerId,
+                          $passenger['eticket'],
+                          0.00, // total_void_fee
+                          $TotalRefundAmount,
+                          $Currency,
+                          $cancel_status,
+                          '', // created_date handled by NOW()
+                          '', // void_window
+                          0, // sla_minutes
+                          0, // admin_charge
+                          0, // gst_charge
+                          $Currency,
+                          $message
+                      ]);
+                      $objCancel->_writeLog('Fallback insert executed for traveller ' . $travellerId . '; rows: '.$stmt->rowCount(), 'void.txt');
+                  }
+              } catch (Exception $e) {
+                  $objCancel->_writeLog('insert cancel_booking failed for traveller ' . $travellerId . ': '.$e->getMessage(), 'void.txt');
+              }
+          }
+
+          // Update void status in database for selected passengers
+          if ($isAjax && !empty($passengerDetails)) {
+              $objCancel->_writeLog("Updating void status for " . count($passengerDetails) . " passengers", 'void.txt');
+              foreach ($passengerDetails as $passenger) {
+                  $updateQuery = 'UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id';
+                  $stmt = $conn->prepare($updateQuery);
+                  $updateData = [
+                      'void_status' => 'InProcess',
+                      'ptr_id' => $PTRId,
+                      'eticket' => $passenger['eticket'],
+                      'booking_id' => $bookingId
+                  ];
+                  $objCancel->_writeLog("Update query: " . $updateQuery, 'void.txt');
+                  $objCancel->_writeLog("Update data: " . json_encode($updateData), 'void.txt');
+                  $result = $stmt->execute($updateData);
+                  $objCancel->_writeLog("Update result: " . ($result ? 'success' : 'failed') . ", rows affected: " . $stmt->rowCount(), 'void.txt');
+              }
+          }
+          
                               $response_New = array(
-                    'status' => 'success', // You can set this to 'error' in case of an error
+              'status' => 'success',
                     'message' => $message,
                     'ptr_id' => $PTRId,
 			 'ptr_status' => $PTRStatus,
-                    'refundamount' => $TotalRefundAmount
-                );
+              'mf_ref' => $mfreNum
+          );
+          
+      } else {
+          // Handle specific errors
+          $message = isset($responseData['Message']) ? $responseData['Message'] : 'Unknown error occurred';
+          
+          // Check for specific error types
+          if (strpos($message, 'Split PNR') !== false) {
+              $response_New = array(
+                  'status' => 'error',
+                  'message' => 'Mystifly is returning a "Split PNR" error for this booking. This may be due to: 1) Ticket already in process, 2) Mystifly internal issue, or 3) Special booking restrictions. Please contact our support team for assistance.',
+                  'error_type' => 'split_pnr_required'
+              );
+          } elseif (strpos($message, 'already') !== false || strpos($message, 'process') !== false) {
+                         $response_New = array(
+                  'status' => 'error',
+                  'message' => 'This ticket is already being processed. Please wait or contact support.',
+                  'error_type' => 'already_processing'
+              );
+          } else {
+                         $response_New = array(
+                  'status' => 'error',
+            'message' => $message
+        );
+          }
       }
-      else if(isset($responseData['Data']['Errors']) && is_array($responseData['Data']['Errors'])) {
-     // print_r($responseData['Data']['Errors']);exit;
-    foreach ($responseData['Data']['Errors'] as $error) {
-        $errorCode = $error['Code'];
-        $errorMessage = $error['Message'];
-       $cancel_status = 0;
-       $message_new = $errorMessage;
-                         //    $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='', $ticket_num=''  ,$AdminCharges='' ,$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status,$message_new);                                                   
-
-         //  $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode,$mfreNum,$traceId,$httpCode,$cancel_status);
-           //echo $errorCode;exit;
-        $message    = "Problem in Cancellation";
-          $cancel_status = 0;
+  } else {
                          $response_New = array(
-            'status' => 'error', // You can set this to 'error' in case of an error
-            'message' => $message
-        );
-                                      $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='', $ticket_num=''  ,$AdminCharges='' ,$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status,$message_new);                                                   
-
-         $objCancel->_writeLog('Step data of errors  '.$errorMessage,'void.txt');
- 
-            }
-           
-        } //== end of if error ===
-        else if($httpCode !=200)
-        {
-              $cancel_status = 0;
-            // Handle other status codes like 404, 500, etc.
-            $message =  "API request failed with status code: " . $httpCode;
-            $message_new    = $message;
-                              $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId='',$PTRType='',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='', $ticket_num=''  ,$AdminCharges='' ,$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status,$message_new);                                                   
-         
-                         $response_New = array(
-            'status' => 'error', // You can set this to 'error' in case of an error
-            'message' => $message
-        );
-         $objCancel->_writeLog('step httpcode not 200 '.$message,'void.txt');
-        }
-        else if(empty($responseData['Data'])){
-            if(!empty($responseData['Message'])){
-                           
-                              $cancel_status = 0;
-               
-                        $message    =   $responseData['Message'];
-                         $message_new    = $message;
-                                                        $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId='',$PTRType='void',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='', $ticket_num=''  ,$AdminCharges='' ,$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status,$message_new);                                                   
-
-                        //Booking is not eligible for voiding. -may be not under void window param
-                         $response_New = array(
-                            'status' => 'error', // You can set this to 'error' in case of an error
-                            'message' => $message
+          'status' => 'error',
+          'message' => 'No response from Void API'
                         );
-                                      $objCancel->_writeLog('step data empty '.$message,'void.txt');
-
             }
 
+  $objCancel->_writeLog('Final response: ' . json_encode($response_New), 'void.txt');
 
-        }
-         $objCancel->_writeLog('step end of void  ========= '.$message,'void.txt');
+  // Return JSON response for AJAX requests
+  if ($isAjax) {
 echo json_encode($response_New);
 exit;
-
-
+  }
+  
+  // For traditional form requests, redirect or show message
+  if (isset($response_New['status']) && $response_New['status'] === 'success') {
+      header('Location: user-dashboard.php?message=void_success');
+      exit;
+  } else {
+      echo "Error: " . ($response_New['message'] ?? 'Unknown error occurred');
+      exit;
    }
 ?>

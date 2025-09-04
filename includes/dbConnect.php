@@ -1,5 +1,10 @@
 <?php
 // DB credentials.
+// Handle CLI execution where HTTP_HOST is not set
+if (!isset($_SERVER['HTTP_HOST'])) {
+    $_SERVER['HTTP_HOST'] = 'localhost';
+}
+
 if ($_SERVER['HTTP_HOST'] == 'localhost:8080') {
     define('DB_HOST', 'localhost'); // Host name
     define('DB_USER', 'root'); // db user name

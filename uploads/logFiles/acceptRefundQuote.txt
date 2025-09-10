@@ -46,3 +46,290 @@ REquest Received\nArray
 REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1755343146_1441","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
 Accept RefundQuote Success: InProcess
 Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1755343146_1441","ptr_id":"PTR_1755343146_1441","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 05:33:53 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439224_9867","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+-------------Tuesday 9th of September 2025 05:34:15 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439251_7773","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+-------------Tuesday 9th of September 2025 05:35:50 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439349_2478","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+-------------Tuesday 9th of September 2025 05:36:35 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439352_2442","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+-------------Tuesday 9th of September 2025 05:41:59 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439717_7874","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757439717_7874","ptr_id":"PTR_1757439717_7874","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 05:43:44 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => AcceptRefundQuote
+    [mFRef] => MF31554025
+    [PTRId] => 0
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757439811_4991","PTRType":"AcceptRefundQuote","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757439811_4991","ptr_id":"PTR_1757439811_4991","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 05:54:51 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Vaughan
+                    [lastName] => Butler
+                    [title] => MISS
+                    [eTicket] => TKT475562
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [PtrId] => 1757440488
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757440488_6646","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757440488_6646","ptr_id":"PTR_1757440488_6646","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 06:12:30 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Leah
+                    [lastName] => Acevedo
+                    [title] => MISS
+                    [eTicket] => TKT475561
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [PtrId] => 1757441549
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757441549_1115","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757441549_1115","ptr_id":"PTR_1757441549_1115","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 06:25:52 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 1
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Lael
+                    [lastName] => Juarez
+                    [title] => MSTR
+                    [eTicket] => TKT475563
+                    [passengerType] => CHD
+                )
+
+        )
+
+    [PtrId] => 1757442351
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757442351_8132","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757442351_8132","ptr_id":"PTR_1757442351_8132","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 06:38:29 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Vaughan
+                    [lastName] => Butler
+                    [title] => MISS
+                    [eTicket] => TKT475562
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [PtrId] => 1757443109
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757443109_2732","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757443109_2732","ptr_id":"PTR_1757443109_2732","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 06:41:31 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 1
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Leah
+                    [lastName] => Acevedo
+                    [title] => MISS
+                    [eTicket] => TKT475561
+                    [passengerType] => ADT
+                )
+
+            [1] => Array
+                (
+                    [firstName] => Lael
+                    [lastName] => Juarez
+                    [title] => MSTR
+                    [eTicket] => TKT475563
+                    [passengerType] => CHD
+                )
+
+        )
+
+    [PtrId] => 1757443290
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757443290_5910","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757443290_5910","ptr_id":"PTR_1757443290_5910","ptr_status":"InProcess","ptr_type":"Refund"}
+-------------Tuesday 9th of September 2025 06:50:50 PM-------------
+REsponse Received for MF:\nMF31554025
+userId is 73
+Booking ID is 180
+REquest Received\nArray
+(
+    [ptrType] => Refund
+    [mFRef] => MF31554025
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Leah
+                    [lastName] => Acevedo
+                    [title] => MISS
+                    [eTicket] => TKT475561
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [PtrId] => 1757443849
+    [PreferenceOption] => 1
+    [AcceptQuote] => yes
+    [AdditionalNote] => Cancel and refund earliest
+)
+
+REsponse Received\n{"Success":true,"Data":{"PTRId":"PTR_1757443849_5952","PTRType":"Refund","PTRStatus":"InProcess","SLAInMinutes":120,"Message":"Refund request accepted and is being processed"},"Message":"Refund request accepted and is being processed"}
+Accept RefundQuote Success: InProcess
+Accept RefundQuote Response: {"status":"success","message":"Refund request has been accepted and is being processed. PTR ID: PTR_1757443849_5952","ptr_id":"PTR_1757443849_5952","ptr_status":"InProcess","ptr_type":"Refund"}

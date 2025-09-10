@@ -129,7 +129,20 @@
              );
              $passengersArray[] = $passengerData;
          }
-     } else {
+     } elseif (isset($data['passengerDetails']) && is_array($data['passengerDetails'])) {
+        // Support alternate key from frontend
+        $receivedPassengers = $data['passengerDetails'];
+        foreach ($receivedPassengers as $passenger) {
+            $passengerData = array(
+                "firstName" => $passenger['firstname'],
+                "lastName" => $passenger['lastname'],
+                "title" => $passenger['title'],
+                "eTicket" => $passenger['eticket'],
+                "passengerType" => $passenger['passengertype']
+            );
+            $passengersArray[] = $passengerData;
+        }
+    } else {
          // Fallback: Get passengers from database if not provided in POST
          foreach ($bookCanusers_req as $k => $val) {
              $firstname = $val['first_name'];
@@ -523,11 +536,25 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                     $Currency = $responseData['Data']['Currency'] ?? 'USD';
                 }
 
-                // Service transaction fees from settings
+                // Service transaction fees from settings (per passenger)
                 $serviceFees = $objCancel->getServiceTransactionFees();
-                $refundBaseFee = (float)($serviceFees['refund_fee'] ?? 0);
-                $refundAdditionalMarkup = (float)($serviceFees['refund_addition'] ?? 0);
-                $serviceTotal = $refundBaseFee + $refundAdditionalMarkup;
+                $refundBaseFeePerPax = (float)($serviceFees['refund_fee'] ?? 0);
+                $refundAdditionalPerPax = (float)($serviceFees['refund_addition'] ?? 0);
+                $numPassengers = count($passengersArray);
+                
+                // Get IPG percentage
+                $ipgRow = $objCancel->getLisQuery("SELECT value FROM settings WHERE `key` = 'ipg_transaction_percentage' LIMIT 1");
+                $ipgPercentage = isset($ipgRow[0]['value']) ? floatval($ipgRow[0]['value']) : 0.0;
+                
+                // Calculate fees (IPG on net amount after service fees)
+                $refundBaseFeeTotal = $refundBaseFeePerPax * max(1, $numPassengers);
+                $refundAdditionalTotal = $refundAdditionalPerPax * max(1, $numPassengers);
+                
+                // Apply IPG percentage on base refund amount (before service fees, like void)
+                $ipgAmount = ($ipgPercentage > 0) ? ($ipgPercentage / 100.0) * $TotalRefundAmount : 0.0;
+                
+                // Final calculation
+                $serviceTotal = $refundBaseFeeTotal + $refundAdditionalTotal + $ipgAmount;
                 $finalRefundAmount = max(0, $TotalRefundAmount - $serviceTotal);
 
                 // Prepare passenger refund details for UI
@@ -562,8 +589,11 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                         'currency' => $Currency,
                         // detailed breakdown
                         'base_refund_amount' => $TotalRefundAmount,
-                        'refund_base_fee' => $refundBaseFee,
-                        'refund_additional_markup' => $refundAdditionalMarkup,
+                        // Show per-passenger fees in the popup (values from settings)
+                        'refund_base_fee' => $refundBaseFeePerPax,
+                        'refund_additional_markup' => $refundAdditionalPerPax,
+                        'ipg_percentage' => $ipgPercentage,
+                        'ipg_amount' => $ipgAmount,
                         'service_total' => $serviceTotal,
                         'final_refund_amount' => $finalRefundAmount,
                         'passengerRefunds' => $passengerRefunds,

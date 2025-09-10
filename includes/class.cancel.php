@@ -43,7 +43,15 @@
         $GSTCharge = ($GSTCharge === '' || $GSTCharge === null) ? 0 : floatval($GSTCharge);
         $TotalVoidingFee = ($TotalVoidingFee === '' || $TotalVoidingFee === null) ? 0.00 : floatval($TotalVoidingFee);
         $TotalRefundAmount = ($TotalRefundAmount === '' || $TotalRefundAmount === null) ? 0.00 : floatval($TotalRefundAmount);
-        $PTRId = ($PTRId === '' || $PTRId === null) ? 0 : intval($PTRId);
+        // Normalize PTR for cancel_booking: store numeric-only
+        $ptrIdForDb = null;
+        if (!empty($PTRId)) {
+            if (is_numeric($PTRId)) {
+                $ptrIdForDb = intval($PTRId);
+            } elseif (preg_match('/(\d+)/', (string)$PTRId, $m)) {
+                $ptrIdForDb = intval($m[1]);
+            }
+        }
         
         // Debug log
         $this->_writeLog("Inserting cancel booking with PTR ID: " . var_export($PTRId, true), 'debug.txt');
@@ -56,7 +64,7 @@
             'mf_ref_num' => $mfreNum,
             'trace_id' => $traceId,
             'http_code_response' => $http_code_response,
-            'ptr_id' => $PTRId,
+            'ptr_id' => $ptrIdForDb,
             'ptr_type' => $PTRType,
             'sla_minutes' => $SLAInMinutes,
             'ptr_status' => $PTRStatus,
@@ -133,8 +141,8 @@
     public function getServiceTransactionFees() {
         try {
             $query = "SELECT 
-                        (SELECT value FROM settings WHERE id = 9) as refund_fee,
-                        (SELECT value FROM settings WHERE id = 10) as refund_addition";
+                        (SELECT value FROM settings WHERE `key` = 'refund_fee' LIMIT 1) as refund_fee,
+                        (SELECT value FROM settings WHERE `key` = 'refund_addition' LIMIT 1) as refund_addition";
             
             $stmt = $this->conn->prepare($query);
             $stmt->execute();

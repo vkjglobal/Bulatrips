@@ -167,13 +167,31 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                     $pre_booking_status        =   $val['booking_status'];
                                     $pre_ticket_time_limit     =   $val['ticket_time_limit'];
                                     $pre_mf_reference          =  $val['mf_reference'];
-                                    $pre_ticket_status         =   $val['ticket_status'];
+                                    // Use exact cancellation page status logic
+                                    $voidStatus = $val['void_status'] ?? null;
+                                    $passengerTicketStatus = $val['pass_ticket_status'] ?? ($val['status'] ?? ($val['ticket_status'] ?? null));
+                                    $cbCancel = isset($val['cb_cancel_status']) ? intval($val['cb_cancel_status']) : null;
+                                    $cbPtr = $val['cb_ptr_status'] ?? null;
+                                    $isCancelled = ($passengerTicketStatus && strtolower($passengerTicketStatus) === 'cancelled')
+                                        || ($voidStatus === 'Completed')
+                                        || ($cbCancel === 1 || ($cbPtr && strtolower($cbPtr) === 'completed'));
                                     $fare_type                  =   $val['fare_type'];
+                                    
+                                    // Derive display ticket status exactly like cancellation page
+                                    if ($isCancelled) {
+                                        $ticketStatus = 'Cancelled';
+                                        $isTicketed = false;
+                                    } elseif (!empty($val['e_ticket_number'])) {
+                                        $ticketStatus = 'Ticketed';
+                                        $isTicketed = true;
+                                    } else {
+                                        $ticketStatus = 'Not Ticketed';
+                                        $isTicketed = false;
+                                    }
                                     
                                     // Reissue status checking (like void system)
                                     $reissueStatus = $val['reissue_status'] ?? null;
                                     $isReissueInProcess = ($reissueStatus === 'InProcess');
-                                    $isTicketed = ($pre_ticket_status === 'Ticketed');
                                     
                                     if ($isReissueInProcess) {
                                         $hasReissueInProcess = true;
@@ -202,7 +220,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                     }
                                     
                                     // Smart checkbox logic (like void system)
-                                    $checkboxDisabled = !$isTicketed || $isReissueInProcess;
+                                    $checkboxDisabled = !$isTicketed || $isReissueInProcess || $isCancelled;
                                     $checkboxClass = $checkboxDisabled ? 'chkbox disabled' : 'chkbox';
                                 ?>
                                     <tr>
@@ -228,14 +246,14 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <span class="badge <?php echo $isTicketed ? 'bg-success' : 'bg-warning text-dark'; ?>">
-                                                <?php echo ucfirst($pre_ticket_status); ?>
+                                            <span class="badge <?php echo $isCancelled ? 'bg-danger text-white' : (!empty($val['e_ticket_number']) ? 'bg-success' : 'bg-danger text-white'); ?>">
+                                                <?php echo $ticketStatus; ?>
                                             </span>
                                             <?php if (!empty($val['e_ticket_number'])): ?>
                                                 <br><small class="text-muted">Ticket: <?php echo htmlspecialchars($val['e_ticket_number']); ?></small>
                                             <?php endif; ?>
-                                            <?php if ($isReissueInProcess): ?>
-                                                <br><small class="text-info">PTR ID: <?php echo htmlspecialchars($val['reissue_ptr_id'] ?? 'N/A'); ?></small>
+                                            <?php if ($isReissueInProcess && !empty($val['reissue_ptr_id'])): ?>
+                                                <br><small class="text-info">PTR ID: <?php echo htmlspecialchars($val['reissue_ptr_id']); ?></small>
                                             <?php endif; ?>
                                         </td>
                                         <td>
@@ -540,6 +558,9 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
             }
 
             // Prepare ReissueQuote request data (Documentation-based)
+            // Stash selected passenger ids for accept step
+            try { window._selectedReissuePassengerIds = (selectedPassengers || []).map(function(p){ return p.id; }); } catch(e) { window._selectedReissuePassengerIds = []; }
+
             var requestData = {
                 action: 'get_reissue_quote',
                 bookingId: document.getElementById('bookingId').value,
@@ -580,12 +601,37 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                 console.log('ReissueQuote Response:', data);
                 
                 if (data.success) {
-                    // After PTR is created, show polling banner and poll GetExchangeQuote to fetch options
-                    showPollingStatus(data.ptrId, data.slaMinutes || 60, 'Fetching reissue quote...');
-                    fetchGetExchangeQuote(data.ptrId);
+                    // Email-based flow: Show success message instead of polling
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Reissue Request Submitted!',
+                        html: `
+                            <div style="text-align: left;">
+                                <p><strong>PTR ID:</strong> ${data.ptrId}</p>
+                                <p><strong>Processing Time:</strong> Up to ${data.slaMinutes || 60} minutes</p>
+                                <hr>
+                                <p><i class="fas fa-envelope mr-2"></i><strong>Next Steps:</strong></p>
+                                <p>You will receive an email with reissue quote options within ${data.slaMinutes || 60} minutes. The email will include:</p>
+                                <ul style="text-align: left; margin-left: 20px;">
+                                    <li>Available flight options with fare differences</li>
+                                    <li>Direct links to accept or decline each option</li>
+                                    <li>Payment details if additional charges apply</li>
+                                </ul>
+                            </div>
+                        `,
+                        confirmButtonText: 'Go to Dashboard',
+                        confirmButtonColor: '#0029ff'
+                    }).then(() => {
+                        window.location.href = 'user-dashboard.php';
+                    });
                 } else {
                     // Show error message
-                    alert('Error: ' + (data.message || 'Failed to get reissue quote'));
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Reissue Request Failed',
+                        text: data.message || 'Failed to submit reissue request',
+                        confirmButtonColor: '#d33'
+                    });
                 }
                 
                 // Reset button
@@ -625,8 +671,10 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                 bookingId: document.getElementById('bookingId').value,
                 userId: document.getElementById('USerid').value
             };
+            
+            console.log('GetExchangeQuote Payload:', payload);
 
-            fetch('reissue_get_exchange.php', {
+            fetch('reissue_get_exchange', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -637,6 +685,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
             })
             .then(r => r.json())
             .then(res => {
+                console.log('GetExchangeQuote Response:', res);
                 if (!res.success) {
                     // If not ready, schedule retry and update countdown
                     updatePollingStatus('Waiting for quote (auto-refresh)...');
@@ -644,12 +693,13 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                     setTimeout(function(){ fetchGetExchangeQuote(ptrId); }, 10000);
                     return;
                 }
+                // Check for quote completion: Status=Completed AND Resolution=QuoteUpdated
                 if (res.status && res.status.toLowerCase() === 'completed' && res.resolution && res.resolution.toLowerCase() === 'quoteupdated') {
                     hidePollingStatus();
                     showOptionsModal(res.ptrId, res.requestedPreferences || []);
                 } else {
                     // keep polling until completed+quoteupdated
-                    updatePollingStatus('Fetching reissue quote...');
+                    updatePollingStatus('Waiting for quote (auto-refresh)...');
                     startCountdown(10, function(s){ updatePollingCountdown(s); });
                     setTimeout(function(){ fetchGetExchangeQuote(ptrId); }, 10000);
                 }
@@ -658,20 +708,27 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
         }
 
         function showOptionsModal(ptrId, preferences) {
+            console.log('showOptionsModal called with:', {ptrId: ptrId, preferences: preferences});
             var optionsHtml = '';
             if (!preferences || preferences.length === 0) {
                 optionsHtml = '<p>No options returned yet. Please try again shortly.</p>';
             } else {
-                optionsHtml = '<div class="list-group">' + preferences.map(function(p){
+                optionsHtml = '<div>' + preferences.map(function(p, index){
+                    console.log('Processing preference:', p);
                     var fare = (p.QuotedFares && p.QuotedFares[0]) ? p.QuotedFares[0] : {};
                     var total = fare.TotalFareDifference || 0;
                     var currency = fare.Currency || 'USD';
-                    return '<label class="list-group-item">' +
-                        '<input type="radio" name="reissue_option" value="'+p.Option+'" class="mr-2" />' +
-                        '<strong>Option '+p.Option+'</strong> — Total: '+total+' '+currency+
-                        '</label>';
+                    var option = p.Option || (index + 1);
+                    var radioId = 'reissue_option_' + option;
+                    return '<div style="padding: 15px; border: 2px solid #ddd; margin-bottom: 10px; border-radius: 5px;">' +
+                        '<input type="radio" id="' + radioId + '" name="reissue_option" value="'+option+'" style="margin-right: 10px;" />' +
+                        '<label for="' + radioId + '" style="cursor: pointer; font-weight: normal;">' +
+                        '<strong>Option '+option+'</strong> — Total: <span style="color: #28a745; font-size: 18px; font-weight: bold;">'+total+' '+currency+'</span>' +
+                        '</label>' +
+                        '</div>';
                 }).join('') + '</div>';
             }
+            console.log('Generated optionsHtml:', optionsHtml);
 
             var modalHtml = `
                 <div class="modal fade" id="reissueQuoteModal" tabindex="-1" role="dialog">
@@ -681,7 +738,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                 <h5 class="modal-title"><i class="fas fa-calculator mr-2"></i>Reissue Quote Options</h5>
                                 <div class="ml-auto d-flex align-items-center">
                                     <small class="text-muted mr-3">Need new fares?</small>
-                                    <button type="button" class="btn btn-sm btn-outline-primary mr-2" onclick="window._refreshOptions('${ptrId}')">Refresh now</button>
+                                    <button type="button" class="btn btn-sm btn-outline-primary mr-2" onclick="window._refreshOptions()">Refresh now</button>
                                     <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                 </div>
                             </div>
@@ -698,7 +755,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
             if (existingModal) existingModal.remove();
             document.body.insertAdjacentHTML('beforeend', modalHtml);
             $('#reissueQuoteModal').modal('show');
-            window._refreshOptions = function(pid){ fetchGetExchangeQuote(pid); };
+            window._refreshOptions = function(pid){ fetchGetExchangeQuote(pid || window.currentPtrId); };
         }
 
         window.acceptSelectedOption = function(ptrId) {
@@ -710,10 +767,13 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                 mfreNum: document.getElementById('precancelValue').value,
                 ptrId: ptrId,
                 preferenceOption: option,
-                acceptQuote: 'yes'
+                acceptQuote: 'yes',
+                bookingId: document.getElementById('bookingId').value,
+                userId: document.getElementById('USerid').value,
+                passengerIds: (window._selectedReissuePassengerIds || [])
             };
 
-            fetch('reissue_accept_quote.php', {
+            fetch('reissue_accept_quote', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -741,7 +801,7 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                 bookingId: document.getElementById('bookingId').value,
                 userId: document.getElementById('USerid').value
             };
-            fetch('reissue_get_exchange.php', {
+            fetch('reissue_get_exchange', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -797,12 +857,12 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                 + '<i class="fas fa-sync fa-spin mr-2"></i>'
                 + '<div><strong id="poll-message">'+ (message || 'Processing...') +'</strong><br><small>SLA ~ '+(slaMinutes||60)+' mins | Next refresh in <span id="poll-countdown">10</span>s</small></div>'
                 + '<div class="ml-auto">'
-                + '<button type="button" class="btn btn-sm btn-outline-primary" onclick="window._manualPoll('+ptrId+')">Refresh now</button>'
+                + '<button type="button" class="btn btn-sm btn-outline-primary" onclick="window._manualPoll()">Refresh now</button>'
                 + '</div>'
                 + '</div>';
             var container = document.querySelector('.container');
             if (container) container.insertAdjacentHTML('afterbegin', html);
-            window._manualPoll = function(pid){ fetchGetExchangeQuote(pid); };
+            window._manualPoll = function(){ fetchGetExchangeQuote(window.currentPtrId); };
         }
 
         function updatePollingStatus(message){

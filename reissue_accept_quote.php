@@ -23,12 +23,25 @@ if (empty($input)) {
 }
 
 $mfreNum = isset($input['mfreNum']) ? trim($input['mfreNum']) : '';
-$ptrId = isset($input['ptrId']) ? intval($input['ptrId']) : 0;
+$ptrId = isset($input['ptrId']) ? trim($input['ptrId']) : '';
 $preferenceOption = isset($input['preferenceOption']) ? intval($input['preferenceOption']) : 1;
 $acceptQuote = isset($input['acceptQuote']) ? strtolower(trim($input['acceptQuote'])) : 'yes';
+$bookingId = isset($input['bookingId']) ? intval($input['bookingId']) : 0;
+$userId = isset($input['userId']) ? intval($input['userId']) : 0;
+$passengerIds = isset($input['passengerIds']) && is_array($input['passengerIds']) ? $input['passengerIds'] : [];
+
+// Extract numeric PTR for API call
+$numericPtrId = 0;
+if (!empty($ptrId)) {
+    if (is_numeric($ptrId)) {
+        $numericPtrId = intval($ptrId);
+    } elseif (preg_match('/(\d+)/', $ptrId, $m)) {
+        $numericPtrId = intval($m[1]);
+    }
+}
 
 if (empty($mfreNum) || empty($ptrId)) {
-	echo json_encode(['success' => false, 'message' => 'Missing required parameters']);
+	echo json_encode(['success' => false, 'message' => 'Missing required parameters: mfreNum=' . $mfreNum . ', ptrId=' . $ptrId]);
 	exit;
 }
 
@@ -40,7 +53,7 @@ if (!in_array($acceptQuote, ['yes', 'no'])) {
 $requestData = array(
 	'ptrType' => 'ReIssueQuote',
 	'mFRef' => $mfreNum,
-	'PTRId' => $ptrId,
+	'PTRId' => $numericPtrId,
 	'PreferenceOption' => $preferenceOption,
 	'AcceptQuote' => $acceptQuote
 );
@@ -86,12 +99,55 @@ if (!isset($responseData['Success']) || !$responseData['Success']) {
 
 $data = isset($responseData['Data']) ? $responseData['Data'] : [];
 
+// Persist PTR acceptance similar to refund/void
+try {
+    if ($bookingId > 0 && $userId > 0) {
+        $ptrString = isset($data['PTRId']) ? (string)$data['PTRId'] : (string)$ptrId;
+        $sla = isset($data['SLAInMinutes']) ? intval($data['SLAInMinutes']) : 0;
+        if (!empty($passengerIds)) {
+            // Insert per passenger rows; also set travellers_details markers
+            foreach ($passengerIds as $pid) {
+                $pid = intval($pid);
+                // Lookup e-ticket and traveller id
+                $row = $objCancel->getLisQuery("SELECT id, e_ticket_number FROM travellers_details WHERE flight_booking_id = ".intval($bookingId)." AND id = ".$pid." LIMIT 1");
+                $travId = 0; $ticketNum = '';
+                if (!empty($row)) { $travId = intval($row[0]['id']); $ticketNum = $row[0]['e_ticket_number']; }
+                // Insert into cancel_booking
+                $objCancel->insCncelSts(
+                    $bookingId, $userId, 'post', '', $mfreNum,
+                    '', 200, $ptrString, 'Reissue', $sla,
+                    'InProcess', '', $ticketNum, '', '',
+                    0, 'USD', 0, 'ReissueQuote accepted by user', $travId
+                );
+                // Update travellers_details
+                if ($travId > 0) {
+                    $objCancel->update('travellers_details', array(
+                        'reissue_status' => 'InProcess',
+                        'reissue_ptr_id' => $ptrString,
+                        'cancel_type' => 'reissue'
+                    ), "id = ".$travId);
+                }
+            }
+        } else {
+            // Booking-level fallback
+            $objCancel->insCncelSts(
+                $bookingId, $userId, 'post', '', $mfreNum,
+                '', 200, $ptrString, 'Reissue', $sla,
+                'InProcess', '', '', '', '',
+                0, 'USD', 0, 'ReissueQuote accepted by user'
+            );
+        }
+    }
+} catch (Exception $e) {
+    $objCancel->_writeLog('Reissue accept persist error: '.$e->getMessage(), 'reissueQuote.txt');
+}
+
 echo json_encode([
 	'success' => true,
 	'ptrId' => isset($data['PTRId']) ? $data['PTRId'] : $ptrId,
-	'ptrType' => isset($data['PTRType']) ? $data['PTRType'] : null,
-	'status' => isset($data['PTRStatus']) ? $data['PTRStatus'] : null,
-	'slaMinutes' => isset($data['SLAInMinutes']) ? $data['SLAInMinutes'] : null,
+	'ptrType' => isset($data['PTRType']) ? $data['PTRType'] : 'ReIssue',
+	'status' => isset($data['PTRStatus']) ? $data['PTRStatus'] : 'InProcess',
+	'slaMinutes' => isset($data['SLAInMinutes']) ? $data['SLAInMinutes'] : 60,
 	'message' => isset($data['Message']) ? $data['Message'] : ($responseData['Message'] ?? 'Success')
 ]);
 

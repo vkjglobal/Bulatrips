@@ -4024,3 +4024,734 @@ Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id =
 Update data: {"void_status":"InProcess","ptr_id":"PTR_1755342892_6227","eticket":"TKT4719689","booking_id":"175"}
 Update result: success, rows affected: 1
 Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1755342892_6227","ptr_status":"InProcess","mf_ref":"MF31290225"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"159TGV655","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"159TGV655","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757072041_3451","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: 159TGV655
+Insert into cancel_booking result for traveller 182: '21'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757072041_3451","eticket":"159TGV655","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757072041_3451","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"789JHG456","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"789JHG456","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757072312_7621","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: 789JHG456
+Insert into cancel_booking result for traveller 179: '22'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757072312_7621","eticket":"789JHG456","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757072312_7621","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159HGF123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159HGF123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757072967_8936","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159HGF123
+Insert into cancel_booking result for traveller 180: '23'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757072967_8936","eticket":"159HGF123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757072967_8936","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159HGF123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159HGF123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757073992_6764","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159HGF123
+Insert into cancel_booking result for traveller 180: '24'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757073992_6764","eticket":"159HGF123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757073992_6764","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159HGF123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159HGF123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757074071_9278","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159HGF123
+Insert into cancel_booking result for traveller 180: '25'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757074071_9278","eticket":"159HGF123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757074071_9278","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159HGF123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159HGF123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757074876_6142","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159HGF123
+Insert into cancel_booking result for traveller 180: '26'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757074876_6142","eticket":"159HGF123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757074876_6142","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159HGF123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159HGF123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757076006_6087","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159HGF123
+Insert into cancel_booking result for traveller 180: '27'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757076006_6087","eticket":"159HGF123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757076006_6087","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159JHG123","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159JHG123","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757077411_7296","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159JHG123
+Insert into cancel_booking result for traveller 180: '28'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757077411_7296","eticket":"159JHG123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 235.00","ptr_id":"PTR_1757077411_7296","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"159JHG123","passengertype":"ADT"},{"firstname":"Xerxes","lastname":"Blackwell","title":"MSTR","eticket":"789UYY123","passengertype":"INF"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"159JHG123","passengerType":"ADT"},{"firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eTicket":"789UYY123","passengerType":"INF"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757083710_9378","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 159JHG123
+Insert into cancel_booking result for traveller 180: '29'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 183, Eticket: 789UYY123
+Insert into cancel_booking result for traveller 183: '30'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757083710_9378","eticket":"159JHG123","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757083710_9378","eticket":"789UYY123","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757083710_9378","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"123ASD789","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"753POL789","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"123ASD789","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"753POL789","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757084849_6768","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 123ASD789
+Insert into cancel_booking result for traveller 180: '31'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: 753POL789
+Insert into cancel_booking result for traveller 182: '32'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757084849_6768","eticket":"123ASD789","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757084849_6768","eticket":"753POL789","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757084849_6768","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"123ASD789","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"753POL789","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"123ASD789","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"753POL789","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757086375_7589","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 123ASD789
+Insert into cancel_booking result for traveller 180: '33'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: 753POL789
+Insert into cancel_booking result for traveller 182: '34'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757086375_7589","eticket":"123ASD789","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757086375_7589","eticket":"753POL789","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757086375_7589","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"123ASD789","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"753POL789","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"123ASD789","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"753POL789","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757091507_1764","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 123ASD789
+Insert into cancel_booking result for traveller 180: '35'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: 753POL789
+Insert into cancel_booking result for traveller 182: '36'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757091507_1764","eticket":"123ASD789","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757091507_1764","eticket":"753POL789","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757091507_1764","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"123ASD789","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"753POL789","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"123ASD789","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"753POL789","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757091817_8107","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 123ASD789
+Insert into cancel_booking result for traveller 180: '37'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: 753POL789
+Insert into cancel_booking result for traveller 182: '38'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757091817_8107","eticket":"123ASD789","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757091817_8107","eticket":"753POL789","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757091817_8107","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"123ASD789","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"123ASD789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757093237_7461","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 123ASD789
+Insert into cancel_booking result for traveller 180: '39'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757093237_7461","eticket":"123ASD789","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757093237_7461","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"888JJJ666","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"888JJJ666","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757093934_2128","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: 888JJJ666
+Insert into cancel_booking result for traveller 179: '40'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757093934_2128","eticket":"888JJJ666","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757093934_2128","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757095069_7725","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '41'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757095069_7725","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757095069_7725","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757099165_1428","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '42'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '43'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757099165_1428","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757099165_1428","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 156.50","ptr_id":"PTR_1757099165_1428","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757101358_2771","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '44'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757101358_2771","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757101358_2771","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757101419_2127","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '45'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757101419_2127","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757101419_2127","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757101751_1089","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '46'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757101751_1089","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757102070_6832","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '47'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757102070_6832","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757102070_6832","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757102867_4021","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '48'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757102867_4021","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757102867_4021","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757103255_8733","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '49'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757103255_8733","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757103255_8733","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757103775_9320","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '50'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757103775_9320","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757103775_9320","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757104319_9075","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '51'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757104319_9075","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757104319_9075","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757104512_6608","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '52'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757104512_6608","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757104512_6608","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757104855_2719","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '53'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757104855_2719","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757104855_2719","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757104903_9081","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '54'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757104903_9081","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757104903_9081","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757105408_4927","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '55'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757105408_4927","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757105408_4927","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757152717_8050","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '56'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757152717_8050","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 221.50","ptr_id":"PTR_1757152717_8050","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757153590_9094","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '57'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757153590_9094","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757153590_9094","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757153738_9478","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '58'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '59'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757153738_9478","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757153738_9478","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 162.35","ptr_id":"PTR_1757153738_9478","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757154215_4343","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '60'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '61'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '62'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154215_4343","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154215_4343","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154215_4343","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 100.28","ptr_id":"PTR_1757154215_4343","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757154665_8097","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '63'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '64'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '65'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154665_8097","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154665_8097","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757154665_8097","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 100.28","ptr_id":"PTR_1757154665_8097","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155020_7829","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '66'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '67'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '68'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155020_7829","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155020_7829","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155020_7829","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 100.28","ptr_id":"PTR_1757155020_7829","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155315_2326","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '69'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '70'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155315_2326","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155315_2326","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 162.35","ptr_id":"PTR_1757155315_2326","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155485_5156","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '71'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155485_5156","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757155485_5156","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155671_6922","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '72'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155671_6922","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757155671_6922","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155814_5003","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '73'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155814_5003","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757155814_5003","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757155908_7294","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '74'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757155908_7294","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757155908_7294","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757156043_1697","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '75'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '76'
+Updating void status for 2 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757156043_1697","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757156043_1697","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 162.35","ptr_id":"PTR_1757156043_1697","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757156204_2596","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '77'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '78'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '79'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757156204_2596","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757156204_2596","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757156204_2596","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 100.28","ptr_id":"PTR_1757156204_2596","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"},{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"789UYT567","passengertype":"ADT"},{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"ABC100XYZ","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"},{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"789UYT567","passengerType":"ADT"},{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"ABC100XYZ","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757160971_8362","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '80'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: 789UYT567
+Insert into cancel_booking result for traveller 180: '81'
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: ABC100XYZ
+Insert into cancel_booking result for traveller 182: '82'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757160971_8362","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757160971_8362","eticket":"789UYT567","booking_id":"180"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757160971_8362","eticket":"ABC100XYZ","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 100.28","ptr_id":"PTR_1757160971_8362","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"PPL98908","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"PPL98908","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757164282_1593","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: PPL98908
+Insert into cancel_booking result for traveller 179: '83'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757164282_1593","eticket":"PPL98908","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757164282_1593","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"TKT475564","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475564","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757436012_9455","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: TKT475564
+Insert into cancel_booking result for traveller 179: '84'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757436012_9455","eticket":"TKT475564","booking_id":"180"}
+Update result: success, rows affected: 4
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757436012_9455","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"TKT475564","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475564","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757439277_3614","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: TKT475564
+Insert into cancel_booking result for traveller 179: '87'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757439277_3614","eticket":"TKT475564","booking_id":"180"}
+Update result: success, rows affected: 4
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757439277_3614","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"TKT475564","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475564","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757439836_5141","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: TKT475564
+Insert into cancel_booking result for traveller 182: '92'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757439836_5141","eticket":"TKT475564","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757439836_5141","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Leah","lastname":"Acevedo","title":"MISS","eticket":"TKT475561","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757442115_5723","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 179, Eticket: TKT475561
+Insert into cancel_booking result for traveller 179: '95'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757442115_5723","eticket":"TKT475561","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757442115_5723","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Cecilia","lastname":"Jefferson","title":"MISS","eticket":"TKT475564","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"TKT475564","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757443340_5806","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 182, Eticket: TKT475564
+Insert into cancel_booking result for traveller 182: '4'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757443340_5806","eticket":"TKT475564","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757443340_5806","ptr_status":"InProcess","mf_ref":"MF31554025"}

@@ -26,14 +26,24 @@ if (empty($input)) {
 }
 
 $mfreNum = isset($input['mfreNum']) ? trim($input['mfreNum']) : '';
-$ptrId = isset($input['ptrId']) ? intval($input['ptrId']) : 0;
+$ptrId = isset($input['ptrId']) ? trim($input['ptrId']) : '';
 $bookingId = isset($input['bookingId']) ? intval($input['bookingId']) : 0;
 $userId = isset($input['userId']) ? intval($input['userId']) : 0;
+
+// Extract numeric PTR for API call
+$numericPtrId = 0;
+if (!empty($ptrId)) {
+    if (is_numeric($ptrId)) {
+        $numericPtrId = intval($ptrId);
+    } elseif (preg_match('/(\d+)/', $ptrId, $m)) {
+        $numericPtrId = intval($m[1]);
+    }
+}
 
 if (empty($mfreNum) || empty($ptrId)) {
 	echo json_encode([
 		'success' => false,
-		'message' => 'Missing required parameters'
+		'message' => 'Missing required parameters: mfreNum=' . $mfreNum . ', ptrId=' . $ptrId
 	]);
 	exit;
 }
@@ -41,11 +51,13 @@ if (empty($mfreNum) || empty($ptrId)) {
 $requestData = array(
 	'ptrType' => 'GetExchangeQuote',
 	'MFRef' => $mfreNum,
-	'PTRId' => $ptrId,
+	'PTRId' => $numericPtrId,
 	'Page' => 1
 );
 
 $objCancel->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','reissueQuote.txt');
+$objCancel->_writeLog('GetExchangeQuote Raw Input: ' . $rawInput, 'reissueQuote.txt');
+$objCancel->_writeLog('GetExchangeQuote Parsed Input: ' . json_encode($input), 'reissueQuote.txt');
 $objCancel->_writeLog('GetExchangeQuote Request: '.json_encode($requestData),'reissueQuote.txt');
 
 // Check if we should use mock responses
@@ -57,6 +69,7 @@ if (MOCK_MODE) {
     
     // Log mock usage
     $objCancel->_writeLog('MOCK MODE: Using mock GetExchangeQuote response', 'reissueQuote.txt');
+    $objCancel->_writeLog('MOCK MODE: Mock response data: ' . json_encode($mockResponse), 'reissueQuote.txt');
 } else {
     // Call real API
     $endpoint = 'Search/PostTicketingRequest';

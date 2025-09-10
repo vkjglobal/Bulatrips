@@ -1,8 +1,15 @@
 <?php
-error_reporting(0);
-ini_set('display_errors', 0); 
+error_reporting(E_ALL);
+// Do not echo notices/warnings in JSON responses
+ini_set('display_errors', 0);
+// Ensure we return JSON and avoid stray output
+if (!headers_sent()) {
+    header('Content-Type: application/json');
+}
+ob_start();
 include_once('includes/common_const.php');
 include_once('includes/class.cancel.php');
+include_once('mail_send.php');
 
 $objCancel = new Cancel();
 
@@ -21,11 +28,15 @@ $mfreNum = '';
 $ptrId = '';
 $acceptQuote = 'yes';
 $preferenceOption = 1;
+$passengerDetails = [];
 
 if (is_array($data) && isset($data['booking_id'])) {
     // From AJAX JSON
     $bookingId = trim($data['booking_id']);
     $ptrId = isset($data['ptr_id']) ? trim($data['ptr_id']) : '';
+    if (isset($data['passengerDetails']) && is_array($data['passengerDetails'])) {
+        $passengerDetails = $data['passengerDetails'];
+    }
     // Derive mf reference and user id from DB
     $bookingDetails = $objCancel->get_booking_details((int)$bookingId);
     if ($bookingDetails) {
@@ -42,10 +53,10 @@ if (is_array($data) && isset($data['booking_id'])) {
     $userId = isset($_POST['userId']) ? trim($_POST['userId']) : '';
     $preferenceOption = isset($_POST['preferenceOption']) ? (int)$_POST['preferenceOption'] : 1;
 } else {
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Missing required parameters'
-    ]);
+    $out = ['status' => 'error', 'message' => 'Missing required parameters'];
+    // Clean any previous output before sending JSON
+    @ob_clean();
+    echo json_encode($out);
     exit;
 }
 
@@ -61,13 +72,41 @@ if (!in_array($acceptQuote, ['yes', 'no'])) {
     exit;
 }
 
-// Prepare API request data
+// Build passengers array per Mystifly docs
+$passengersArray = [];
+$hasChildPassenger = false;
+if (!empty($passengerDetails) && is_array($passengerDetails)) {
+    foreach ($passengerDetails as $p) {
+        $passengersArray[] = [
+            'firstName' => $p['firstname'] ?? '',
+            'lastName' => $p['lastname'] ?? '',
+            'title' => $p['title'] ?? '',
+            'eTicket' => $p['eticket'] ?? '',
+            'passengerType' => $p['passengertype'] ?? ''
+        ];
+        $pt = strtoupper(trim($p['passengertype'] ?? ''));
+        if ($pt === 'CHD' || $pt === 'INF') { $hasChildPassenger = true; }
+    }
+}
+
+// Extract numeric portion of PTR ID for live API
+$numericPtrId = 0;
+if (is_numeric($ptrId)) {
+    $numericPtrId = (int)$ptrId;
+} elseif (preg_match('/(\d+)/', (string)$ptrId, $m)) {
+    $numericPtrId = (int)$m[1];
+}
+
+// Prepare API request data (Refund acceptance)
 $requestData = array(
-    'ptrType' => 'AcceptRefundQuote',
+    'ptrType' => 'Refund',
     'mFRef' => $mfreNum,
-    'PTRId' => is_numeric($ptrId) ? (int)$ptrId : 0,
+    'AllowChildPassenger' => $hasChildPassenger,
+    'passengers' => $passengersArray,
+    'PtrId' => $numericPtrId,
     'PreferenceOption' => $preferenceOption,
-    'AcceptQuote' => $acceptQuote
+    'AcceptQuote' => $acceptQuote,
+    'AdditionalNote' => 'Cancel and refund earliest'
 );
 
 try {
@@ -79,7 +118,7 @@ try {
             'Success' => true,
             'Data' => [
                 'PTRId' => $ptrId ?: ('PTR_' . time() . '_' . rand(1000,9999)),
-                'PTRType' => 'AcceptRefundQuote',
+                'PTRType' => 'Refund',
                 'PTRStatus' => 'InProcess',
                 'SLAInMinutes' => 120,
                 'Message' => 'Refund request accepted and is being processed'
@@ -125,17 +164,103 @@ try {
         $objCancel->_writeLog('Accept RefundQuote Success: '.$PTRStatus, 'acceptRefundQuote.txt');
         
         // Update database with acceptance status
-        $bookCanIns = $objCancel->insCncelSts(
-            $bookingId, $userId, $precancelsts, $errorCode = '', $mfreNum, 
-            $traceId = '', $httpCode, $PTRId, $PTRType, $SLAInMinutes, 
-            $PTRStatus, $VoidingWindow = '', $ticket_num = '', 
-            $AdminCharges = '', $GSTCharge = '', $TotalVoidingFee = '', 
-            $TotalRefundAmount = '', $Currency = '', $cancel_status, 
-            'RefundQuote accepted by user'
-        );
+        $finalRefundFromQuote = isset($data['final_refund_amount']) ? floatval($data['final_refund_amount']) : 0.0;
+        $currencyFromQuote = isset($data['currency_from_quote']) && $data['currency_from_quote'] !== '' ? $data['currency_from_quote'] : 'USD';
+        if (!empty($passengerDetails)) {
+            $numSel = max(1, count($passengerDetails));
+            $perPaxAmount = $finalRefundFromQuote > 0 ? ($finalRefundFromQuote / $numSel) : 0.0;
+            foreach ($passengerDetails as $pax) {
+                $ticketNum = $pax['eticket'] ?? '';
+                $travId = 0;
+                if ($ticketNum !== '') {
+                    $row = $objCancel->getLisQuery("SELECT id FROM travellers_details WHERE flight_booking_id = ".intval($bookingId)." AND e_ticket_number = '".addslashes($ticketNum)."' LIMIT 1");
+                    if (!empty($row) && isset($row[0]['id'])) { $travId = intval($row[0]['id']); }
+                }
+                $objCancel->insCncelSts(
+                    $bookingId, $userId, $precancelsts, $errorCode = '', $mfreNum,
+                    $traceId = '', $httpCode, $PTRId, $PTRType, $SLAInMinutes,
+                    $PTRStatus, $VoidingWindow = '', $ticketNum,
+                    $AdminCharges = '', $GSTCharge = '', $TotalVoidingFee = '',
+                    $TotalRefundAmount = $perPaxAmount, $Currency = $currencyFromQuote, $cancel_status,
+                    'RefundQuote accepted by user', $travId
+                );
+                // Update travellers_details with cancel_type and ptr_id string
+                if (!empty($ticketNum)) {
+                    $cond = "`e_ticket_number` = '".addslashes($ticketNum)."' AND `flight_booking_id` = ".intval($bookingId);
+                    $objCancel->update('travellers_details', array(
+                        'cancel_type' => 'refund',
+                        'ptr_id' => (string)$PTRId
+                    ), $cond);
+                }
+            }
+        } else {
+            $objCancel->insCncelSts(
+                $bookingId, $userId, $precancelsts, $errorCode = '', $mfreNum,
+                $traceId = '', $httpCode, $PTRId, $PTRType, $SLAInMinutes,
+                $PTRStatus, $VoidingWindow = '', $ticket_num = '',
+                $AdminCharges = '', $GSTCharge = '', $TotalVoidingFee = '',
+                $TotalRefundAmount = $finalRefundFromQuote, $Currency = $currencyFromQuote, $cancel_status,
+                'RefundQuote accepted by user'
+            );
+        }
+
+        // Mirror void flow: mark selected passengers as InProcess with PTR on travellers_details
+        try {
+            if (!empty($passengerDetails)) {
+                foreach ($passengerDetails as $pax) {
+                    if (!empty($pax['eticket'])) {
+                        $condition = "`e_ticket_number` = '".addslashes($pax['eticket'])."' AND `flight_booking_id` = ".intval($bookingId);
+                        $objCancel->update('travellers_details', array(
+                            'void_status' => 'InProcess'
+                            // Do not set ptr_id here for refund InProcess to keep UI clean
+                        ), $condition);
+                    }
+                }
+            }
+        } catch (Exception $e) {
+            $objCancel->_writeLog('Error updating travellers_details for refund InProcess: '.$e->getMessage(), 'acceptRefundQuote.txt');
+        }
 
         if ($acceptQuote === 'yes') {
             $message = "Refund request has been accepted and is being processed. PTR ID: " . $PTRId;
+            
+            // Send immediate "in process" email for refund acceptance
+            try {
+                $rows = $objCancel->getLisQuery("SELECT contact_email, mf_reference, contact_first_name, contact_last_name FROM temp_booking WHERE id = " . intval($bookingId) . " LIMIT 1");
+                $contact = is_array($rows) && isset($rows[0]) ? $rows[0] : [];
+                $recipient = $contact['contact_email'] ?? '';
+                $mfRef = $contact['mf_reference'] ?? $mfreNum;
+                $contactName = 'Customer';
+                if (!empty($contact['contact_first_name']) || !empty($contact['contact_last_name'])) {
+                    $fn = trim($contact['contact_first_name'] ?? '');
+                    $ln = trim($contact['contact_last_name'] ?? '');
+                    $full = trim($fn.' '.$ln);
+                    if ($full !== '') { $contactName = $full; }
+                }
+                
+                if (!empty($recipient)) {
+                    $subject = 'Flight Refund - In Process';
+                    $headerBar = 'Refund Update';
+                    $emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
+                        .'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
+                        .'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
+                        .'<tr><td align="center" style="padding:20px 0 10px 0;"><img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrips" style="height:50px;width:auto;display:block;margin:10px auto;"></td></tr>'
+                        .'<tr><td align="center" style="background-color:#0029ff;color:#ffffff;font-size:18px;font-weight:bold;padding:14px;">'.$headerBar.'</td></tr>'
+                        .'<tr><td style="padding:22px;font-size:15px;line-height:1.6;color:#333333;">'
+                        .'<p style="margin:0 0 12px 0;">Dear '.htmlspecialchars($contactName).',</p>'
+                        .'<p style="margin:0 0 18px 0;">Your Refund request has been <strong>'.htmlspecialchars($PTRStatus).'</strong>.</p>'
+                        .'<div style="background:#f1f1f1;border-radius:6px;padding:14px;">'
+                        .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($mfRef).'</span></div>'
+                        .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">PTR ID:</span> <span>'.htmlspecialchars($PTRId).'</span></div>'
+                        .'<div style="margin:0;"><span style="font-weight:bold;">Status:</span> <span>'.htmlspecialchars($PTRStatus).'</span></div>'
+                        .'</div>'
+                        .'<p style="margin:18px 0 0 0;color:#555555;">We will notify you by email once the airline completes processing.</p>'
+                        .'</td></tr></table></body></html>';
+                    sendMail($recipient, $subject, $emailHtml);
+                }
+            } catch (Exception $e) {
+                $objCancel->_writeLog('Refund in-process email failed: '.$e->getMessage(), 'acceptRefundQuote.txt');
+            }
         } else {
             $message = "Refund request has been declined successfully.";
         }
@@ -184,6 +309,11 @@ try {
 }
 
 $objCancel->_writeLog('Accept RefundQuote Response: '.json_encode($response_New), 'acceptRefundQuote.txt');
+// Clean buffer and output pure JSON
+@ob_clean();
+if (!headers_sent()) {
+    header('Content-Type: application/json');
+}
 echo json_encode($response_New);
 exit;
 ?> 

@@ -71,10 +71,27 @@ try {
     $bookCanusers = $objCancel->BookCancelUsers($bookingId, $userId);
     $validPassengers = [];
     
+    // Debug log
+    $objCancel->_writeLog('Selected passengers from UI: ' . json_encode($selectedPassengers), 'reissueQuote.txt');
+    $objCancel->_writeLog('DB passengers count: ' . count($bookCanusers), 'reissueQuote.txt');
+    
     foreach ($selectedPassengers as $passenger) {
         foreach ($bookCanusers as $bookingPassenger) {
             if ($bookingPassenger['id'] == $passenger['id']) {
-                if ($bookingPassenger['ticket_status'] === 'Ticketed') {
+                // Use same logic as UI: check e_ticket_number presence and status
+                $passengerTicketStatus = $bookingPassenger['pass_ticket_status'] ?? ($bookingPassenger['status'] ?? ($bookingPassenger['ticket_status'] ?? null));
+                $voidStatus = $bookingPassenger['void_status'] ?? null;
+                $cbCancel = isset($bookingPassenger['cb_cancel_status']) ? intval($bookingPassenger['cb_cancel_status']) : null;
+                $cbPtr = $bookingPassenger['cb_ptr_status'] ?? null;
+                $isCancelled = ($passengerTicketStatus && strtolower($passengerTicketStatus) === 'cancelled')
+                    || ($voidStatus === 'Completed')
+                    || ($cbCancel === 1 || ($cbPtr && strtolower($cbPtr) === 'completed'));
+                
+                $isTicketed = !empty($bookingPassenger['e_ticket_number']) && !$isCancelled;
+                
+                $objCancel->_writeLog('Passenger ID ' . $passenger['id'] . ': ticketed=' . ($isTicketed ? 'yes' : 'no') . ', e_ticket=' . ($bookingPassenger['e_ticket_number'] ?? 'null') . ', cancelled=' . ($isCancelled ? 'yes' : 'no'), 'reissueQuote.txt');
+                
+                if ($isTicketed) {
                     $validPassengers[] = [
                         'firstName' => $passenger['firstName'],
                         'lastName' => $passenger['lastName'],
@@ -88,8 +105,10 @@ try {
         }
     }
     
+    $objCancel->_writeLog('Valid passengers after filtering: ' . count($validPassengers), 'reissueQuote.txt');
+    
     if (empty($validPassengers)) {
-        echo json_encode(['success' => false, 'message' => 'No valid ticketed passengers found']);
+        echo json_encode(['success' => false, 'message' => 'No valid ticketed passengers found. Please select passengers with tickets who are not cancelled.']);
         exit;
     }
     
@@ -163,8 +182,8 @@ try {
     
     // Check if we should use mock responses
     if (MOCK_MODE) {
-        // Use mock response for development
-        $mockResponse = MockMystifly::getReissueQuoteResponse($validPassengers);
+        // Use mock response for development with actual form data
+        $mockResponse = MockMystifly::getReissueQuoteResponse($validPassengers, $requestData);
         $response = json_encode($mockResponse);
         $httpCode = 200;
         
@@ -202,15 +221,65 @@ try {
         
         // Update database with reissue status
         foreach ($selectedPassengers as $passenger) {
+            // Update travellers_details
             $updateData = [
                 'reissue_status' => 'InProcess',
                 'reissue_ptr_id' => $ptrId,
-                'reissue_quote_id' => $ptrId
+                'reissue_quote_id' => $ptrId,
+                'cancel_type' => 'reissue'
             ];
             $condition = "id = " . intval($passenger['id']);
             $objCancel->update('travellers_details', $updateData, $condition);
+            
+            // Insert into cancel_booking for cron monitoring
+            $travId = intval($passenger['id']);
+            $eTicket = $passenger['eTicket'] ?? '';
+            $objCancel->insCncelSts(
+                $bookingId, $userId, 'post', '', $mfRef,
+                '', 200, $ptrId, 'Reissue', $slaMinutes,
+                $ptrStatus, '', $eTicket, '', '',
+                0, 'USD', 0, 'ReissueQuote request submitted', $travId
+            );
         }
         
+        // Send immediate confirmation email
+        try {
+            include_once('mail_send.php');
+            $contactRows = $objCancel->getLisQuery("SELECT contact_email, contact_first_name, contact_last_name, mf_reference FROM temp_booking WHERE id = ".intval($bookingId)." LIMIT 1");
+            $contact = !empty($contactRows) ? $contactRows[0] : [];
+            $recipient = $contact['contact_email'] ?? '';
+            $contactName = 'Customer';
+            if (!empty($contact['contact_first_name']) || !empty($contact['contact_last_name'])) {
+                $fn = trim($contact['contact_first_name'] ?? '');
+                $ln = trim($contact['contact_last_name'] ?? '');
+                $full = trim($fn.' '.$ln);
+                if ($full !== '') { $contactName = $full; }
+            }
+            
+            if (!empty($recipient)) {
+                $subject = 'Reissue Request Submitted - Quote Processing';
+                $emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
+                    .'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
+                    .'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
+                    .'<tr><td align="center" style="padding:20px 0 10px 0;"><img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrips" style="height:50px;width:auto;display:block;margin:10px auto;"></td></tr>'
+                    .'<tr><td align="center" style="background-color:#0029ff;color:#ffffff;font-size:18px;font-weight:bold;padding:14px;">Reissue Update</td></tr>'
+                    .'<tr><td style="padding:22px;font-size:15px;line-height:1.6;color:#333333;">'
+                    .'<p style="margin:0 0 12px 0;">Dear '.htmlspecialchars($contactName).',</p>'
+                    .'<p style="margin:0 0 18px 0;">Your reissue request has been submitted and is being processed.</p>'
+                    .'<div style="background:#f1f1f1;border-radius:6px;padding:14px;">'
+                    .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">PTR ID:</span> <span>'.htmlspecialchars($ptrId).'</span></div>'
+                    .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($contact['mf_reference'] ?? $mfRef).'</span></div>'
+                    .'<div style="margin:0;"><span style="font-weight:bold;">Processing Time:</span> <span>Up to '.htmlspecialchars($slaMinutes).' minutes</span></div>'
+                    .'</div>'
+                    .'<p style="margin:18px 0 0 0;color:#555555;">You will receive another email with quote options once the airline completes processing. The email will include direct links to accept or decline the reissue options.</p>'
+                    .'</td></tr></table></body></html>';
+                sendMail($recipient, $subject, $emailHtml);
+                $objCancel->_writeLog('Reissue request confirmation email sent to: ' . $recipient, 'reissueQuote.txt');
+            }
+        } catch (Exception $e) {
+            $objCancel->_writeLog('Reissue confirmation email failed: ' . $e->getMessage(), 'reissueQuote.txt');
+        }
+
         // Return success response
         echo json_encode([
             'success' => true,

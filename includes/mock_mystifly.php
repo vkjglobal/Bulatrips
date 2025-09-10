@@ -85,11 +85,14 @@ class MockMystifly {
     /**
      * Generate ReissueQuote Response
      */
-    public static function getReissueQuoteResponse($passengers) {
+    public static function getReissueQuoteResponse($passengers, $requestData = []) {
         return [
             'Success' => true,
             'Data' => [
                 'PTRId' => 'PTR_' . time() . '_' . rand(1000, 9999),
+                'PTRType' => 'ReissueQuote',
+                'MFRef' => $requestData['mFRef'] ?? 'MF31554025',
+                'SLAInMinutes' => 60,
                 'PTRStatus' => 'InProcess',
                 'Message' => 'Reissue quote request processed successfully'
             ],
@@ -98,31 +101,109 @@ class MockMystifly {
     }
     
     /**
-     * Generate GetExchangeQuote Response
+     * Generate GetExchangeQuote Response (Per Mystifly Documentation)
      */
     public static function getGetExchangeQuoteResponse($ptrId) {
         return [
             'Success' => true,
             'Data' => [
                 'PTRId' => $ptrId,
+                'PTRType' => 'ReIssueQuote',
                 'Status' => 'Completed',
+                'MFRef' => 'MF31554025',
+                'CreatedOn' => date('Y-m-d\TH:i:s.v'),
+                'RequestCompletionTime' => date('Y-m-d\TH:i:s.v'),
+                'CreatedByName' => 'Mystifly API Team',
                 'Resolution' => 'QuoteUpdated',
+                'Passengers' => [
+                    [
+                        'ETicket' => 'TKT475564',
+                        'PassengerType' => 'ADT',
+                        'Tittle' => 'MISS',
+                        'FirstName' => 'Vaughan',
+                        'LastName' => 'Butler'
+                    ]
+                ],
                 'RequestedPreferences' => [
                     [
-                        'PreferenceId' => 'PREF_' . rand(1000, 9999),
-                        'FareDifference' => 1500,
-                        'Currency' => 'INR',
-                        'NewDepartureDate' => date('Y-m-d', strtotime('+2 days')),
-                        'NewCabinClass' => 'Economy',
-                        'Message' => 'Option 1: 2 days later, Economy class'
+                        'Option' => 1,
+                        'CreatedOn' => date('Y-m-d\TH:i:s.v'),
+                        'QuotedSegments' => [
+                            [
+                                'Origin' => 'LHE',
+                                'Destination' => 'JED',
+                                'CabinClass' => 'Y',
+                                'DepartureDatetime' => date('Y-m-d\T10:00:00', strtotime('+2 days')),
+                                'ArrivalDateTime' => date('Y-m-d\T14:30:00', strtotime('+2 days')),
+                                'AirlineCode' => 'QR',
+                                'FlightNumber' => 629,
+                                'Duration' => '4.30',
+                                'Stops' => 0,
+                                'BookingClass' => 'S',
+                                'isReturn' => false
+                            ]
+                        ],
+                        'QuotedFares' => [
+                            [
+                                'PassengerType' => 'ADT',
+                                'BaseFareDifference' => 45.50,
+                                'TaxDifference' => 8.25,
+                                'AdminFee' => 0,
+                                'GST' => 0,
+                                'NoShowPenalty' => 0,
+                                'Currency' => 'USD',
+                                'Penalty' => 25.00,
+                                'PassengerCount' => 1,
+                                'TotalFareDifference' => 78.75
+                            ]
+                        ],
+                        'PTRRemarks' => [
+                            [
+                                'Remarks' => 'Reissue available with fare difference',
+                                'Reason' => '',
+                                'RemarksType' => 'QuoteRemarks'
+                            ]
+                        ]
                     ],
                     [
-                        'PreferenceId' => 'PREF_' . rand(1000, 9999),
-                        'FareDifference' => 2500,
-                        'Currency' => 'INR',
-                        'NewDepartureDate' => date('Y-m-d', strtotime('+3 days')),
-                        'NewCabinClass' => 'Business',
-                        'Message' => 'Option 2: 3 days later, Business class'
+                        'Option' => 2,
+                        'CreatedOn' => date('Y-m-d\TH:i:s.v'),
+                        'QuotedSegments' => [
+                            [
+                                'Origin' => 'LHE',
+                                'Destination' => 'JED',
+                                'CabinClass' => 'C',
+                                'DepartureDatetime' => date('Y-m-d\T15:45:00', strtotime('+3 days')),
+                                'ArrivalDateTime' => date('Y-m-d\T20:15:00', strtotime('+3 days')),
+                                'AirlineCode' => 'QR',
+                                'FlightNumber' => 631,
+                                'Duration' => '4.30',
+                                'Stops' => 0,
+                                'BookingClass' => 'J',
+                                'isReturn' => false
+                            ]
+                        ],
+                        'QuotedFares' => [
+                            [
+                                'PassengerType' => 'ADT',
+                                'BaseFareDifference' => 125.00,
+                                'TaxDifference' => 15.50,
+                                'AdminFee' => 0,
+                                'GST' => 0,
+                                'NoShowPenalty' => 0,
+                                'Currency' => 'USD',
+                                'Penalty' => 25.00,
+                                'PassengerCount' => 1,
+                                'TotalFareDifference' => 165.50
+                            ]
+                        ],
+                        'PTRRemarks' => [
+                            [
+                                'Remarks' => 'Business class upgrade available',
+                                'Reason' => '',
+                                'RemarksType' => 'QuoteRemarks'
+                            ]
+                        ]
                     ]
                 ]
             ],

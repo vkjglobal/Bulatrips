@@ -56,7 +56,7 @@ if (!isset($_SESSION['user_id'])) {
                                 <i class="fas fa-info-circle mr-2"></i>
                                 <strong>Note:</strong> Only ticketed passengers can be selected for cancellation. 
                                 Non-ticketed passengers will be disabled until tickets are issued.
-                                <br><strong>Important:</strong> For bookings with multiple passengers, void operations may require PNR splitting. If void fails, try the refund option instead.
+                                
                             </div>
                         </div>
 
@@ -130,7 +130,7 @@ if (!isset($_SESSION['user_id'])) {
                                                     <label for="passenger_<?php echo $passenger['id']; ?>" class="mb-0"></label>
                                                     <?php elseif ($isVoidInProcess || $isCancelled): ?>
                                                         <input type="checkbox" disabled>
-                                                        <label class="mb-0" style="opacity: 0.5;" title="<?php echo $isCancelled ? 'Cancelled' : 'Void in progress'; ?>"></label>
+                                                        <label class="mb-0" style="opacity: 0.5;" title="<?php echo $isCancelled ? 'Cancelled' : 'Void/Cancel in progress'; ?>"></label>
                                                     <?php else: ?>
                                                         <input type="checkbox" disabled>
                                                         <label class="mb-0" style="opacity: 0.5;"></label>
@@ -144,11 +144,13 @@ if (!isset($_SESSION['user_id'])) {
                                             <td>
                                                 <?php if ($isVoidInProcess): ?>
                                                     <span class="badge bg-warning text-dark">
-                                                        Void In Progress
+                                                        Void/Cancel In Progress
                                                     </span>
-                                                    <br><small class="text-muted">PTR ID: <?php echo htmlspecialchars($passenger['ptr_id'] ?? 'N/A'); ?></small>
+                                                    <?php if (!empty($passenger['ptr_id'])): ?>
+                                                    <br><small class="text-muted">PTR ID: <?php echo htmlspecialchars($passenger['ptr_id']); ?></small>
+                                                    <?php endif; ?>
                                                 <?php else: ?>
-                                                    <span class="badge <?php echo $isCancelled ? 'bg-danger' : (!empty($passenger['e_ticket_number']) ? 'bg-success' : 'bg-warning text-dark'); ?>">
+                                                    <span class="badge <?php echo $isCancelled ? 'bg-danger text-white' : (!empty($passenger['e_ticket_number']) ? 'bg-success' : 'bg-danger text-white'); ?>">
                                                     <?php echo $ticketStatus; ?>
                                                 </span>
                                                 <?php if (!empty($passenger['e_ticket_number'])): ?>
@@ -169,37 +171,36 @@ if (!isset($_SESSION['user_id'])) {
                         <!-- Smart Cancellation Action Button -->
                         <div class="cancellation-actions mb-3">
                             <?php
-                            // Smart logic: Check if any passengers are ticketed
-                            $hasTicketedPassengers = false;
-                            $allPassengersNotTicketed = true;
-                            
+                            // Determine if any passenger is ticketed AND still eligible (not cancelled and not in-process)
+                            $hasAvailableTicketed = false;
+                            $firstTicketedPassenger = null;
                             foreach ($bookCanusers as $passenger) {
-                                if (!empty($passenger['e_ticket_number'])) {
-                                    $hasTicketedPassengers = true;
-                                    $allPassengersNotTicketed = false;
+                                $voidStatusIter = $passenger['void_status'] ?? null;
+                                $passengerTicketStatusIter = $passenger['pass_ticket_status'] ?? ($passenger['status'] ?? ($passenger['ticket_status'] ?? null));
+                                $cbCancelIter = isset($passenger['cb_cancel_status']) ? intval($passenger['cb_cancel_status']) : null;
+                                $cbPtrIter = $passenger['cb_ptr_status'] ?? null;
+                                $isCancelledIter = ($passengerTicketStatusIter && strtolower($passengerTicketStatusIter) === 'cancelled')
+                                    || ($voidStatusIter === 'Completed')
+                                    || ($cbCancelIter === 1 || ($cbPtrIter && strtolower($cbPtrIter) === 'completed'));
+                                if (!empty($passenger['e_ticket_number']) && !$isCancelledIter && $voidStatusIter !== 'InProcess') {
+                                    $hasAvailableTicketed = true;
+                                    $firstTicketedPassenger = $passenger;
                                     break;
                                 }
                             }
                             
                             // Smart button logic
-                            if ($allPassengersNotTicketed) {
-                                // No tickets issued yet - show message
+                            if (!$hasAvailableTicketed) {
+                                // No eligible ticketed passengers → hide buttons
                                 ?>
                                 <div class="alert alert-info">
                                     <i class="fas fa-info-circle mr-2"></i>
-                                    <strong>Tickets Not Issued Yet</strong><br>
-                                    Your tickets have not been issued yet. Please wait for ticket issuance before requesting cancellation.
+                                    <strong>No Eligible Tickets</strong><br>
+                                    All passengers are either not ticketed or already cancelled.
                                 </div>
                                 <?php
-                            } elseif ($hasTicketedPassengers) {
+                            } else {
                                 // Check void window for smart button
-                                $firstTicketedPassenger = null;
-                                foreach ($bookCanusers as $passenger) {
-                                    if (!empty($passenger['e_ticket_number'])) {
-                                        $firstTicketedPassenger = $passenger;
-                                        break;
-                                    }
-                                }
                                 
                                 if ($firstTicketedPassenger) {
                                     $voidWindow = $firstTicketedPassenger['void_window'];
@@ -211,34 +212,44 @@ if (!isset($_SESSION['user_id'])) {
                                         $voidWindowActive = ($currentDateTime <= $voidWindowDateTime);
                                     }
                                     
-                                    // Check if any passenger has void in progress
+                                    // Determine if there is at least one selectable ticketed passenger
                                     $hasVoidInProgress = false;
+                                    $hasAvailableTicketed = false;
                                     foreach ($bookCanusers as $passenger) {
-                                        if (isset($passenger['void_status']) && $passenger['void_status'] === 'InProcess') {
+                                        $voidStatusIter = $passenger['void_status'] ?? null;
+                                        if ($voidStatusIter === 'InProcess') {
                                             $hasVoidInProgress = true;
+                                        }
+                                        $passengerTicketStatusIter = $passenger['pass_ticket_status'] ?? ($passenger['status'] ?? ($passenger['ticket_status'] ?? null));
+                                        $cbCancelIter = isset($passenger['cb_cancel_status']) ? intval($passenger['cb_cancel_status']) : null;
+                                        $cbPtrIter = $passenger['cb_ptr_status'] ?? null;
+                                        $isCancelledIter = ($passengerTicketStatusIter && strtolower($passengerTicketStatusIter) === 'cancelled')
+                                            || ($voidStatusIter === 'Completed')
+                                            || ($cbCancelIter === 1 || ($cbPtrIter && strtolower($cbPtrIter) === 'completed'));
+                                        if (!empty($passenger['e_ticket_number']) && !$isCancelledIter && $voidStatusIter !== 'InProcess') {
+                                            $hasAvailableTicketed = true;
                                             break;
                                         }
                                     }
-                                    
-                                    // Smart button based on void status and window
-                                    if ($hasVoidInProgress) {
-                                        // Show void in progress message - hide all buttons
+
+                                    // Smart button based on availability, void status, and window
+                                    if (!$hasAvailableTicketed && $hasVoidInProgress) {
                                         ?>
                                         <div class="alert alert-warning">
                                             <i class="fas fa-clock mr-2"></i>
-                                            <strong>Void Request In Progress</strong><br>
-                                            Your void request is currently being processed. Please wait for completion before making any additional requests.
-                                </div>
+                                            <strong>Void/Cancel Request In Progress</strong><br>
+                                            Your void/cancel request is currently being processed. Please wait for completion before making any additional requests.
+                                        </div>
                                         <?php
                                     } elseif (MOCK_MODE || $voidWindowActive) {
                                         // In MOCK_MODE, always show both buttons for testing
                                         ?>
                                         <div class="text-center">
                                             <button type="button" class="btn btn-danger btn-lg me-3" onclick="submitCancellation('void')">
-                                        <i class="fas fa-ban mr-2"></i>Void Ticket
+                                        <i class="fas fa-ban mr-2"></i>Void/Cancel Ticket
                                     </button>
                                             <button type="button" class="btn btn-info btn-lg" onclick="submitCancellation('refund')">
-                                        <i class="fas fa-money-bill-wave mr-2"></i>Request Refund
+                                        <i class="fas fa-money-bill-wave mr-2"></i>Request Refund/Cancel
                                     </button>
                                             <?php if (MOCK_MODE): ?>
                                             <small class="text-muted d-block mt-2">
@@ -248,7 +259,7 @@ if (!isset($_SESSION['user_id'])) {
                                             <?php else: ?>
                                             <small class="text-muted d-block mt-2">
                                                 <i class="fas fa-clock mr-1"></i>
-                                                Void window active - minimal charges apply
+                                                Void/Cancel window active - minimal charges apply
                                             </small>
                                 <?php endif; ?>
                             </div>
@@ -257,11 +268,11 @@ if (!isset($_SESSION['user_id'])) {
                                         ?>
                                         <div class="text-center">
                                             <button type="button" class="btn btn-info btn-lg" onclick="submitCancellation('refund')">
-                                                <i class="fas fa-money-bill-wave mr-2"></i>Request Refund
+                                                <i class="fas fa-money-bill-wave mr-2"></i>Request Refund/Cancel
                                             </button>
                                             <small class="text-muted d-block mt-2">
                                                 <i class="fas fa-info-circle mr-1"></i>
-                                                Void window expired - refund quote will be provided
+                                                Void/Cancel window expired - refund/cancel quote will be provided
                                             </small>
                             </div>
                                         <?php
@@ -420,7 +431,8 @@ function showRefundConfirmation(quoteData, bookingId, passengerIds) {
     const baseRefund = Number(dd.base_refund_amount || dd.TotalRefundAmount || 0);
     const refundBaseFee = Number(dd.refund_base_fee || 0);
     const refundAdditional = Number(dd.refund_additional_markup || 0);
-    const serviceTotal = Number(dd.service_total || (refundBaseFee + refundAdditional));
+    const ipgAmount = Number(dd.ipg_amount || 0);
+    const serviceTotal = Number(dd.service_total || (refundBaseFee + refundAdditional + ipgAmount));
     const finalRefund = Number(dd.final_refund_amount || Math.max(0, baseRefund - serviceTotal));
     const ptrId = dd.ptrId || quoteData.ptr_id || null;
 
@@ -429,14 +441,15 @@ function showRefundConfirmation(quoteData, bookingId, passengerIds) {
         html: `
             <div class="text-left" style="margin-top:10px">
                 <div style="font-size: 20px; font-weight: bold; color: #28a745; margin: 10px 0; text-align:center;">
-                    Final Refund Amount: ${currency} ${finalRefund.toLocaleString()}
+                    Final Refund Amount: ${currency} ${finalRefund.toFixed(2)}
                 </div>
                 <hr/>
                 <div style="font-size: 14px;">
-                    <div><strong>Base Refund:</strong> ${currency} ${baseRefund.toLocaleString()}</div>
-                    <div><strong>Refund Base Fee:</strong> - ${currency} ${refundBaseFee.toLocaleString()}</div>
-                    <div><strong>Refund Additional markup:</strong> - ${currency} ${refundAdditional.toLocaleString()}</div>
-                    <div><strong>Total Deductions:</strong> - ${currency} ${serviceTotal.toLocaleString()}</div>
+                    <div><strong>Base Refund:</strong> ${currency} ${baseRefund.toFixed(2)}</div>
+                    <div><strong>Refund Base Fee:</strong> - ${currency} ${refundBaseFee.toFixed(2)}</div>
+                    <div><strong>Refund Additional markup:</strong> - ${currency} ${refundAdditional.toFixed(2)}</div>
+                    <div><strong>IPG Transaction Fee:</strong> - ${currency} ${ipgAmount.toFixed(2)}</div>
+                    <div><strong>Total Deductions:</strong> - ${currency} ${serviceTotal.toFixed(2)}</div>
                 </div>
             </div>
         `,
@@ -490,9 +503,15 @@ function processRefundAccept(bookingId, passengerIds, refundPayload = {}) {
     .then(res => res.json())
     .then(data => {
         if (data.status === 'success') {
+            const statusText = data.ptr_status || 'InProcess';
+            const currencyDisp = refundPayload.currency || 'USD';
+            const amountDisp = Number(refundPayload.finalRefundAmount || 0).toFixed(2);
             Swal.fire({
-                title: 'Refund Request Successful!',
-                text: data.message || 'Your refund request has been submitted.',
+                title: `Your Refund is: ${statusText}`,
+                html: `<div style="text-align:left;">`
+                    + `<div><strong>Total Refundable Amount is:</strong> ${currencyDisp} ${amountDisp}</div>`
+                    + `<div style="margin-top:8px;">Please check your email for further details.</div>`
+                    + `</div>`,
                 icon: 'success',
                 confirmButtonText: 'OK'
             }).then(() => location.reload());
@@ -662,7 +681,7 @@ function processVoidQuote(bookingId, passengerIds) {
 function showVoidConfirmation(quoteData, bookingId, passengerIds) {
     // Handle both old and new response formats
     let refundAmount, currency;
-    let baseRefund = 0, refundBaseFee = 0, refundAdditional = 0, serviceTotal = 0;
+    let baseRefund = 0, refundBaseFee = 0, refundAdditional = 0, ipgAmount = 0, serviceTotal = 0;
     
     if (quoteData.data) {
         // New response format (from mock_mystifly.php)
@@ -670,7 +689,8 @@ function showVoidConfirmation(quoteData, bookingId, passengerIds) {
         baseRefund = Number(quoteData.data.TotalRefundAmount || quoteData.data.base_refund_amount || 0);
         refundBaseFee = Number(quoteData.data.refund_base_fee || 0);
         refundAdditional = Number(quoteData.data.refund_additional_markup || 0);
-        serviceTotal = Number(quoteData.data.service_total || (refundBaseFee + refundAdditional));
+        ipgAmount = Number(quoteData.data.ipg_amount || 0);
+        serviceTotal = Number(quoteData.data.service_total || (refundBaseFee + refundAdditional + ipgAmount));
         const finalAmountNew = Number(quoteData.data.final_refund_amount || (baseRefund - serviceTotal));
         refundAmount = finalAmountNew;
         currency = quoteData.data.Currency || quoteData.data.currency || 'USD';
@@ -679,7 +699,8 @@ function showVoidConfirmation(quoteData, bookingId, passengerIds) {
         baseRefund = Number(quoteData.base_refund_amount || 0);
         refundBaseFee = Number(quoteData.refund_base_fee || 0);
         refundAdditional = Number(quoteData.refund_additional_markup || 0);
-        serviceTotal = Number(quoteData.service_total || (refundBaseFee + refundAdditional));
+        ipgAmount = Number(quoteData.ipg_amount || 0);
+        serviceTotal = Number(quoteData.service_total || (refundBaseFee + refundAdditional + ipgAmount));
         const finalAmountOld = Number(quoteData.final_refund_amount || quoteData.refundamount || 0);
         refundAmount = finalAmountOld;
         currency = quoteData.currency || 'USD';
@@ -690,14 +711,15 @@ function showVoidConfirmation(quoteData, bookingId, passengerIds) {
         html: `
             <div class="text-left" style="margin-top:10px">
                 <div style="font-size: 20px; font-weight: bold; color: #28a745; margin: 10px 0; text-align:center;">
-                    Final Refund Amount: ${currency} ${Number(refundAmount).toLocaleString()}
+                    Final Refund Amount: ${currency} ${Number(refundAmount).toFixed(2)}
                 </div>
                 <hr/>
                 <div style="font-size: 14px;">
-                    <div><strong>Base Refund:</strong> ${currency} ${Number(baseRefund).toLocaleString()}</div>
-                    <div><strong>Refund Base Fee:</strong> - ${currency} ${Number(refundBaseFee).toLocaleString()}</div>
-                    <div><strong>Refund Additional markup:</strong> - ${currency} ${Number(refundAdditional).toLocaleString()}</div>
-                    <div><strong>Total Deductions:</strong> - ${currency} ${Number(serviceTotal).toLocaleString()}</div>
+                    <div><strong>Base Refund:</strong> ${currency} ${Number(baseRefund).toFixed(2)}</div>
+                    <div><strong>Refund Base Fee:</strong> - ${currency} ${Number(refundBaseFee).toFixed(2)}</div>
+                    <div><strong>Refund Additional markup:</strong> - ${currency} ${Number(refundAdditional).toFixed(2)}</div>
+                    <div><strong>IPG Transaction Fee:</strong> - ${currency} ${Number(ipgAmount).toFixed(2)}</div>
+                    <div><strong>Total Deductions:</strong> - ${currency} ${Number(serviceTotal).toFixed(2)}</div>
                 </div>
             </div>
         `,

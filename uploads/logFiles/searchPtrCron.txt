@@ -1,255 +1,18 @@
--------------Monday 14th of April 2025 06:51:52 AM-------------
-Request Received\nSuccessfully started
--------------Wednesday 30th of April 2025 05:00:35 AM-------------
-Request Received\nSuccessfully started
--------------Wednesday 30th of April 2025 10:19:48 AM-------------
-Request Received\nSuccessfully started
--------------Monday 5th of May 2025 05:14:56 PM-------------
-Request Received\nSuccessfully started
--------------Friday 27th of June 2025 03:04:33 AM-------------
+-------------Friday 5th of September 2025 08:41:02 PM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Friday 27th of June 2025 03:04:35 AM
--------------Friday 27th of June 2025 03:07:01 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Friday 27th of June 2025 03:07:02 AM
--------------Friday 4th of July 2025 12:07:27 PM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Friday 4th of July 2025 12:07:31 PM
--------------Friday 4th of July 2025 12:37:39 PM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Friday 4th of July 2025 12:37:40 PM
--------------Tuesday 8th of July 2025 07:52:38 AM-------------
-
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Tuesday 8th of July 2025 07:52:39 AM
-Cron job completed at Tuesday 8th of July 2025 07:52:41 AM
--------------Saturday 16th of August 2025 06:49:13 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 06:49:13 AM
--------------Saturday 16th of August 2025 07:01:48 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:01:48 AM
--------------Saturday 16th of August 2025 07:01:50 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:01:50 AM
--------------Saturday 16th of August 2025 07:09:29 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:09:29 AM
--------------Saturday 16th of August 2025 07:13:40 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:13:40 AM
--------------Saturday 16th of August 2025 07:38:17 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:38:17 AM
--------------Saturday 16th of August 2025 07:57:26 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 07:57:26 AM
--------------Saturday 16th of August 2025 07:58:25 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-No records found for PTR 0 - checking if stuck
-PTR 0 still within acceptable timeframe
-Cron job completed at Saturday 16th of August 2025 07:58:27 AM
--------------Saturday 16th of August 2025 08:00:36 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:00:36 AM
--------------Saturday 16th of August 2025 08:01:12 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:12 AM
--------------Saturday 16th of August 2025 08:01:22 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:22 AM
--------------Saturday 16th of August 2025 08:01:23 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:23 AM
--------------Saturday 16th of August 2025 08:01:23 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:23 AM
--------------Saturday 16th of August 2025 08:01:24 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:24 AM
--------------Saturday 16th of August 2025 08:01:25 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:25 AM
--------------Saturday 16th of August 2025 08:01:34 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:34 AM
--------------Saturday 16th of August 2025 08:01:35 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:35 AM
--------------Saturday 16th of August 2025 08:01:36 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:36 AM
--------------Saturday 16th of August 2025 08:01:37 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:37 AM
--------------Saturday 16th of August 2025 08:01:38 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:38 AM
--------------Saturday 16th of August 2025 08:01:39 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:39 AM
--------------Saturday 16th of August 2025 08:01:39 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:39 AM
--------------Saturday 16th of August 2025 08:01:39 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:39 AM
--------------Saturday 16th of August 2025 08:01:40 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:01:40 AM
--------------Saturday 16th of August 2025 08:03:18 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:03:19 AM
--------------Saturday 16th of August 2025 08:03:52 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:03:52 AM
--------------Saturday 16th of August 2025 08:08:45 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:08:45 AM
--------------Saturday 16th of August 2025 08:10:07 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:10:07 AM
--------------Saturday 16th of August 2025 08:10:48 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:10:48 AM
--------------Saturday 16th of August 2025 08:11:43 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:11:43 AM
--------------Saturday 16th of August 2025 08:16:29 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:16:29 AM
--------------Saturday 16th of August 2025 08:24:36 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT471965, MF MF31290325)
-Cron job completed at Saturday 16th of August 2025 08:24:36 AM
--------------Saturday 16th of August 2025 08:29:56 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-Cron job completed at Saturday 16th of August 2025 08:29:56 AM
--------------Saturday 16th of August 2025 08:37:06 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 08:37:06 AM
--------------Saturday 16th of August 2025 08:37:22 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-Cron job completed at Saturday 16th of August 2025 08:37:22 AM
--------------Saturday 16th of August 2025 08:38:27 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-Cron job completed at Saturday 16th of August 2025 08:38:27 AM
--------------Saturday 16th of August 2025 08:40:54 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:38:27
-            [void_status] => 2025-08-16 08:38:27
-            [cancel_type] => 2025-08-16 08:38:27
-            [cancel_date] => 2025-08-16 08:38:27
-        )
-
-)
-
-UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [void_status] => Completed
-    [cancel_type] => void
-    [cancel_date] => 2025-08-16 08:40:54
-)
-
-After traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:40:54
-            [void_status] => 2025-08-16 08:40:54
-            [cancel_type] => 2025-08-16 08:40:54
-            [cancel_date] => 2025-08-16 08:40:54
-        )
-
-)
-
-Cron job completed at Saturday 16th of August 2025 08:40:54 AM
--------------Saturday 16th of August 2025 08:41:04 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ptr_status] => completed
-    [cancel_status] => 1
-)
-
-Before traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:40:54
-            [void_status] => 2025-08-16 08:40:54
-            [cancel_type] => 2025-08-16 08:40:54
-            [cancel_date] => 2025-08-16 08:40:54
-        )
-
-)
-
-UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [void_status] => Completed
-    [cancel_type] => void
-    [cancel_date] => 2025-08-16 08:41:04
-)
-
-After traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:41:04
-            [void_status] => 2025-08-16 08:41:04
-            [cancel_type] => 2025-08-16 08:41:04
-            [cancel_date] => 2025-08-16 08:41:04
-        )
-
-)
-
-Cron job completed at Saturday 16th of August 2025 08:41:04 AM
--------------Saturday 16th of August 2025 08:44:43 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ptr_status] => completed
-    [cancel_status] => 1
-)
-
-Before traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => PPL98908
             [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
@@ -258,91 +21,48 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [void_status] => Completed
-    [cancel_type] => void
-    [cancel_date] => 2025-08-16 08:44:43
-)
-
-After traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:44:43
-            [void_status] => 2025-08-16 08:44:43
-            [cancel_type] => 2025-08-16 08:44:43
-            [cancel_date] => 2025-08-16 08:44:43
-        )
-
-)
-
-Cron job completed at Saturday 16th of August 2025 08:44:43 AM
--------------Saturday 16th of August 2025 08:47:16 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ptr_status] => completed
-    [cancel_status] => 1
-)
-
-Before traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => 2025-08-16 08:44:43
-            [void_status] => 2025-08-16 08:44:43
-            [cancel_type] => 2025-08-16 08:44:43
-            [cancel_date] => 2025-08-16 08:44:43
-        )
-
-)
-
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 08:47:16
+    [cancel_date] => 2025-09-05 20:41:02
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => PPL98908
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 08:47:16
+            [cancel_date] => 2025-09-05 20:41:02
         )
 
 )
 
-Cron job completed at Saturday 16th of August 2025 08:47:16 AM
--------------Saturday 16th of August 2025 08:50:02 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025de639"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Friday 5th of September 2025 08:41:06 PM
+-------------Friday 5th of September 2025 08:41:50 PM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => 789UYT567
             [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
@@ -351,109 +71,49 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 08:50:02
+    [cancel_date] => 2025-09-05 20:41:50
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => 789UYT567
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 08:50:02
+            [cancel_date] => 2025-09-05 20:41:50
         )
 
 )
 
-Cron job completed at Saturday 16th of August 2025 08:50:02 AM
--------------Saturday 16th of August 2025 09:29:21 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025de63f"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Friday 5th of September 2025 08:41:54 PM
+-------------Friday 5th of September 2025 08:50:17 PM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:29:21 AM
--------------Saturday 16th of August 2025 09:29:29 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:29:29 AM
--------------Saturday 16th of August 2025 09:42:00 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket , MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%%'
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket : Array
+Before traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => 
-            [ticket_status] => TktInProcess
-            [void_status] => 
-            [cancel_type] => 
-            [cancel_date] => 
-        )
-
-)
-
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%%'
-Bound data: Array
-(
-    [status] => cancelled
-    [ticket_status] => cancelled
-    [void_status] => Completed
-    [cancel_type] => void
-    [cancel_date] => 2025-08-16 09:42:00
-)
-
-After traveller update for ticket : Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => 
-            [ticket_status] => cancelled
-            [void_status] => Completed
-            [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:42:00
-        )
-
-)
-
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 09:42:00 AM
--------------Saturday 16th of August 2025 09:43:24 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:43:24 AM
--------------Saturday 16th of August 2025 09:44:51 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
-Bound data: Array
-(
-    [ptr_status] => completed
-    [cancel_status] => 1
-)
-
-Before traveller update for ticket TKT4719689: Array
-(
-    [0] => Array
-        (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -461,46 +121,50 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 09:44:51
+    [cancel_date] => 2025-09-05 20:50:17
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => ABC100XYZ
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:44:51
+            [cancel_date] => 2025-09-05 20:50:17
         )
 
 )
 
-Cron job completed at Saturday 16th of August 2025 09:44:51 AM
--------------Saturday 16th of August 2025 09:49:01 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025de66c"}
+Payment refund email sent to nafeesdroidor@gmail.com for amount USD 221.50
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Friday 5th of September 2025 08:50:24 PM
+-------------Saturday 6th of September 2025 10:13:22 AM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -508,56 +172,53 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 09:49:01
+    [cancel_date] => 2025-09-06 10:13:22
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => PPL98908
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:49:01
+            [cancel_date] => 2025-09-06 10:13:22
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 09:49:01 AM
--------------Saturday 16th of August 2025 09:49:04 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025e4b69"}
+Payment refund email sent to nafeesdroidor@gmail.com for amount USD 224.43
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Saturday 6th of September 2025 10:13:33 AM
+-------------Saturday 6th of September 2025 10:14:50 AM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:49:04 AM
--------------Saturday 16th of August 2025 09:52:29 AM-------------
+Cron job completed at Saturday 6th of September 2025 10:14:50 AM
+-------------Saturday 6th of September 2025 10:16:29 AM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -565,56 +226,46 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 09:52:29
+    [cancel_date] => 2025-09-06 10:16:29
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => 789UYT567
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:52:29
+            [cancel_date] => 2025-09-06 10:16:29
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 09:52:29 AM
--------------Saturday 16th of August 2025 09:52:32 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:52:32 AM
--------------Saturday 16th of August 2025 09:57:24 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e4d9b"}
+Payment refund email sent to nafeesdroidor@gmail.com for amount USD 162.35
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -622,56 +273,50 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 09:57:24
+    [cancel_date] => 2025-09-06 10:16:34
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => ABC100XYZ
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:57:24
+            [cancel_date] => 2025-09-06 10:16:34
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 09:57:24 AM
--------------Saturday 16th of August 2025 09:57:26 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025e4daf"}
+Payment refund email sent to nafeesdroidor@gmail.com for amount USD 162.35
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=2
+Cron job completed at Saturday 6th of September 2025 10:16:41 AM
+-------------Saturday 6th of September 2025 10:23:50 AM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 09:57:26 AM
--------------Saturday 16th of August 2025 10:22:43 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -679,56 +324,45 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 10:22:43
+    [cancel_date] => 2025-09-06 10:23:50
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => PPL98908
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 10:22:43
+            [cancel_date] => 2025-09-06 10:23:50
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 10:22:43 AM
--------------Saturday 16th of August 2025 10:23:36 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 10:23:36 AM
--------------Saturday 16th of August 2025 10:24:25 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025e51fa"}
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -736,56 +370,45 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 10:24:25
+    [cancel_date] => 2025-09-06 10:23:51
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket 789UYT567: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => 789UYT567
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 10:24:25
+            [cancel_date] => 2025-09-06 10:23:51
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 10:24:25 AM
--------------Saturday 16th of August 2025 10:24:27 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-Cron job completed at Saturday 16th of August 2025 10:24:27 AM
--------------Saturday 16th of August 2025 11:17:05 AM-------------
-Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket TKT4719689, MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%TKT4719689%'
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5201"}
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket TKT4719689: Array
+Before traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
-            [ticket_status] => ticketed
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
             [void_status] => InProcess
             [cancel_type] => 
             [cancel_date] => 
@@ -793,88 +416,1429 @@ Before traveller update for ticket TKT4719689: Array
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%TKT4719689%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 11:17:05
+    [cancel_date] => 2025-09-06 10:23:53
 )
 
-After traveller update for ticket TKT4719689: Array
+After traveller update for ticket ABC100XYZ: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => TKT4719689
+            [e_ticket_number] => ABC100XYZ
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 11:17:05
+            [cancel_date] => 2025-09-06 10:23:53
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
-Bound data: Array
-(
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
-)
-
-Cron job completed at Saturday 16th of August 2025 11:17:05 AM
--------------Saturday 16th of August 2025 11:19:43 AM-------------
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5208"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=3
+Aggregated payment refund email sent to nafeesdroidor@gmail.com total=USD 300.84 refunds=3
+Cron job completed at Saturday 6th of September 2025 10:23:59 AM
+-------------Saturday 6th of September 2025 10:30:59 AM-------------
 Request Received\nSuccessfully started - Enhanced version with delay handling
-MOCK auto-complete for PTR 0 (ticket , MF MF31290225)
-UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` LIKE '%%'
+Cron job completed at Saturday 6th of September 2025 10:30:59 AM
+-------------Saturday 6th of September 2025 10:31:15 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [ptr_status] => completed
     [cancel_status] => 1
 )
 
-Before traveller update for ticket : Array
+Before traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => 
-            [ticket_status] => cancelled
-            [void_status] => Completed
-            [cancel_type] => void
-            [cancel_date] => 2025-08-16 09:42:00
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
         )
 
 )
 
-UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` LIKE '%%'
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
 Bound data: Array
 (
     [status] => cancelled
     [ticket_status] => cancelled
     [void_status] => Completed
     [cancel_type] => void
-    [cancel_date] => 2025-08-16 11:19:43
+    [cancel_date] => 2025-09-06 10:31:15
 )
 
-After traveller update for ticket : Array
+After traveller update for ticket PPL98908: Array
 (
     [0] => Array
         (
-            [e_ticket_number] => 
+            [e_ticket_number] => PPL98908
             [ticket_status] => cancelled
             [void_status] => Completed
             [cancel_type] => void
-            [cancel_date] => 2025-08-16 11:19:43
+            [cancel_date] => 2025-09-06 10:31:15
         )
 
 )
 
-UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31290225%'
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5583"}
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
 Bound data: Array
 (
-    [ticket_status] => cancelled
-    [booking_status] => cancelled
+    [ptr_status] => completed
+    [cancel_status] => 1
 )
 
-Cron job completed at Saturday 16th of August 2025 11:19:43 AM
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:31:17
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:31:17
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5585"}
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:31:19
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:31:19
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5587"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=3
+Individual payment refund email sent to nafeesdroidor@gmail.com amount=USD 100.28 txn=00000003025e5583
+Individual payment refund email sent to nafeesdroidor@gmail.com amount=USD 100.28 txn=00000003025e5585
+Individual payment refund email sent to nafeesdroidor@gmail.com amount=USD 100.28 txn=00000003025e5587
+Cron job completed at Saturday 6th of September 2025 10:31:30 AM
+-------------Saturday 6th of September 2025 10:37:14 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:37:14
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:37:14
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025e579b"}
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:37:16
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:37:16
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e579d"}
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:37:18
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:37:18
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025e57a4"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=3
+Consolidated payment refund email sent to nafeesdroidor@gmail.com total=USD 300.84 refunds=3
+Consolidated refund record failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total_refund_amount' in 'field list'
+Cron job completed at Saturday 6th of September 2025 10:37:24 AM
+-------------Saturday 6th of September 2025 10:42:03 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:42:03
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:42:03
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"success","refund_txn":"00000003025e58c2"}
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:42:05
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:42:05
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e58c3"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=2
+Consolidated payment refund email sent to nafeesdroidor@gmail.com total=USD 324.70 refunds=2
+Consolidated refund record failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total_refund_amount' in 'field list'
+Cron job completed at Saturday 6th of September 2025 10:42:15 AM
+-------------Saturday 6th of September 2025 10:44:54 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:44:54
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:44:54
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"success","refund_txn":"00000003025e593c"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Consolidated payment refund email sent to nafeesdroidor@gmail.com total=USD 224.43 refunds=1
+Consolidated refund record failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'total_refund_amount' in 'field list'
+Cron job completed at Saturday 6th of September 2025 10:45:02 AM
+-------------Saturday 6th of September 2025 10:47:55 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:47:55
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:47:55
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e59aa"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Consolidated payment refund email sent to nafeesdroidor@gmail.com total=USD 224.43 refunds=1
+Consolidated refund record created for booking 180 amount=USD 224.43
+Cron job completed at Saturday 6th of September 2025 10:48:01 AM
+-------------Saturday 6th of September 2025 10:50:23 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:50:23
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:50:23
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Saturday 6th of September 2025 10:50:27 AM
+-------------Saturday 6th of September 2025 10:50:44 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 6th of September 2025 10:50:44 AM
+-------------Saturday 6th of September 2025 10:51:59 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:51:59
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:51:59
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+Cron job completed at Saturday 6th of September 2025 10:52:03 AM
+-------------Saturday 6th of September 2025 10:54:37 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:54:37
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:54:37
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"success","refund_txn":"00000003025e5a00"}
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:54:39
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:54:39
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=2
+Consolidated payment refund email sent to nafeesdroidor@gmail.com total=USD 162.35 refunds=1
+Cron job completed at Saturday 6th of September 2025 10:54:46 AM
+-------------Saturday 6th of September 2025 10:56:56 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:56:56
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:56:56
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket PPL98908
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:56:58
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:56:58
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket 789UYT567
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 10:56:59
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 10:56:59
+        )
+
+)
+
+PartialRefund: Processing individual passenger refund for booking 180, ticket ABC100XYZ
+PartialRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=3
+Cron job completed at Saturday 6th of September 2025 10:57:03 AM
+-------------Saturday 6th of September 2025 10:58:11 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 6th of September 2025 10:58:11 AM
+-------------Saturday 6th of September 2025 12:16:56 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 12:16:56
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 12:16:56
+        )
+
+)
+
+MOCK auto-complete for PTR 0 (ticket 789UYT567, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '789UYT567'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 12:16:56
+)
+
+After traveller update for ticket 789UYT567: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 789UYT567
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 12:16:56
+        )
+
+)
+
+MOCK auto-complete for PTR 0 (ticket ABC100XYZ, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'ABC100XYZ'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 12:16:56
+)
+
+After traveller update for ticket ABC100XYZ: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => ABC100XYZ
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 12:16:56
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=3
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 100.28
+ConsolidatedRefund result: {"status":"error","message":"SQLSTATE[42S21]: Column already exists: 1060 Duplicate column name 'refund_status'"}
+Cron job completed at Saturday 6th of September 2025 12:17:01 PM
+-------------Saturday 6th of September 2025 01:11:38 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket PPL98908, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'PPL98908'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-06 13:11:38
+)
+
+After traveller update for ticket PPL98908: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => PPL98908
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 13:11:38
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"00000003025e5e30"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=00000003025e5e30
+Cron job completed at Saturday 6th of September 2025 01:11:48 PM
+-------------Tuesday 9th of September 2025 04:40:40 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT475564, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475564'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475564: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475564
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => void
+            [cancel_date] => 2025-09-06 13:11:38
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475564'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 16:40:40
+)
+
+After traveller update for ticket TKT475564: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475564
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 16:40:40
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040190f25f"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=000000040190f25f
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Tuesday 9th of September 2025 04:41:40 PM
+-------------Tuesday 9th of September 2025 04:46:15 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 9th of September 2025 04:46:15 PM
+-------------Tuesday 9th of September 2025 06:39:06 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 0 (ticket TKT475562, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475562'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475562: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475562
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475562'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 18:39:06
+)
+
+After traveller update for ticket TKT475562: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475562
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 18:39:06
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 192.85
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040190f6c7"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 192.85 txn=000000040190f6c7
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Tuesday 9th of September 2025 06:39:16 PM
+-------------Tuesday 9th of September 2025 06:41:37 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR PTR_1757443290_5910 (ticket TKT475561, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475561'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475561: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475561
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475561'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 18:41:37
+)
+
+After traveller update for ticket TKT475561: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475561
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 18:41:37
+        )
+
+)
+
+MOCK auto-complete for PTR PTR_1757443290_5910 (ticket TKT475563, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475563'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475563: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475563
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475563'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 18:41:37
+)
+
+After traveller update for ticket TKT475563: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475563
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 18:41:37
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=2
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 63.93
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040190f6e5"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 63.93 txn=000000040190f6e5
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Tuesday 9th of September 2025 06:41:51 PM
+-------------Tuesday 9th of September 2025 06:42:39 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR  (ticket TKT475564, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475564'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475564: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475564
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475564'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 18:42:39
+)
+
+After traveller update for ticket TKT475564: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475564
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 18:42:39
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040190f6f5"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=000000040190f6f5
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Tuesday 9th of September 2025 06:42:57 PM
+-------------Tuesday 9th of September 2025 06:51:26 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757443849 (ticket TKT475561, MF MF31554025)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475561'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475561: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475561
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => PTR_1757443849_5952
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475561'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-09 18:51:26
+)
+
+After traveller update for ticket TKT475561: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475561
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-09 18:51:26
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 192.85
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040190f7ef"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 192.85 txn=000000040190f7ef
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Tuesday 9th of September 2025 06:51:37 PM
+-------------Tuesday 9th of September 2025 06:51:47 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 9th of September 2025 06:51:47 PM
+-------------Wednesday 10th of September 2025 05:29:40 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Wednesday 10th of September 2025 05:29:40 AM
+-------------Wednesday 10th of September 2025 05:41:31 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Wednesday 10th of September 2025 05:41:31 AM
+-------------Wednesday 10th of September 2025 05:50:56 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757482800 (ticket , MF MF31554025)
+Skip updateInDB_cancelbooking: empty ticket number
+Skip updateInDB_trav: empty ticket number
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 0.00
+ConsolidatedRefund result: {"skipped":true,"reason":"invalid_payment_data"}
+Payment refund email sent to nafeesdroidor@gmail.com status=unknown total=USD 0.00 txn=N/A
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Wednesday 10th of September 2025 05:51:06 AM
+-------------Wednesday 10th of September 2025 05:52:11 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757482800 (ticket , MF MF31554025)
+Skip updateInDB_cancelbooking: empty ticket number
+Skip updateInDB_trav: empty ticket number
+MOCK auto-complete for PTR 1757483510 (ticket , MF MF31554025)
+Skip updateInDB_cancelbooking: empty ticket number
+Skip updateInDB_trav: empty ticket number
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=2
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 0.00
+ConsolidatedRefund result: {"skipped":true,"reason":"invalid_payment_data"}
+Payment refund email sent to nafeesdroidor@gmail.com status=unknown total=USD 0.00 txn=N/A
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Wednesday 10th of September 2025 05:52:20 AM
+-------------Wednesday 10th of September 2025 06:00:39 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Wednesday 10th of September 2025 06:00:42 AM
+-------------Wednesday 10th of September 2025 06:12:37 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
+Skip updateInDB_cancelbooking: empty ticket number
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Wednesday 10th of September 2025 06:12:40 AM
+-------------Wednesday 10th of September 2025 06:16:34 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
+Skip updateInDB_cancelbooking: empty ticket number
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Wednesday 10th of September 2025 06:16:37 AM
+-------------Wednesday 10th of September 2025 06:18:36 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
+Skip updateInDB_cancelbooking: empty ticket number
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Wednesday 10th of September 2025 06:18:40 AM
+-------------Wednesday 10th of September 2025 06:20:07 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
+Skip updateInDB_cancelbooking: empty ticket number
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Wednesday 10th of September 2025 06:20:10 AM

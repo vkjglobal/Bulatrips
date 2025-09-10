@@ -69,6 +69,13 @@ if ($isAjax) {
 $mfreNum = htmlspecialchars($mfreNum, ENT_QUOTES, 'UTF-8');
 $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
 
+// Determine passenger count
+$numPassengers = count($passengersArray);
+
+// Helper: get IPG percentage
+$ipgRow = $objCancel->getLisQuery("SELECT value FROM settings WHERE `key` = 'ipg_transaction_percentage' LIMIT 1");
+$ipgPercentage = isset($ipgRow[0]['value']) ? floatval($ipgRow[0]['value']) : 0.0;
+
 // Check for child passengers
 $childpsnger = 0;
 if ($isAjax && isset($passengerDetails[0]['child_count'])) {
@@ -113,21 +120,27 @@ if (MOCK_MODE) {
     $serviceFees = $objCancel->getServiceTransactionFees();
     file_put_contents('debug_void_quote.txt', "Service fees fetched: " . json_encode($serviceFees) . "\n", FILE_APPEND);
     
-    $refundBaseFee = $serviceFees['refund_fee'];
-    $refundAdditionalMarkup = $serviceFees['refund_addition'];
+    $refundBaseFeePerPax = floatval($serviceFees['refund_fee']);
+    $refundAdditionalPerPax = floatval($serviceFees['refund_addition']);
     
-    file_put_contents('debug_void_quote.txt', "Service fees extracted: " . $refundBaseFee . " + " . $refundAdditionalMarkup . "\n", FILE_APPEND);
+            // Calculate final refund amount after deducting fees (IPG on net amount)
+            $baseRefundAmount = floatval($mockResponse['Data']['TotalRefundAmount']);
+            $refundBaseFeeTotal = $refundBaseFeePerPax * max(1, $numPassengers);
+            $refundAdditionalTotal = $refundAdditionalPerPax * max(1, $numPassengers);
+            
+            // First subtract service fees from base
+            $amountAfterServiceFees = max(0, $baseRefundAmount - $refundBaseFeeTotal - $refundAdditionalTotal);
+            
+            // Then apply IPG percentage on the net amount (after service fees)
+            $ipgAmount = ($ipgPercentage > 0) ? ($ipgPercentage / 100.0) * $amountAfterServiceFees : 0.0;
+            
+            // Final calculation
+            $serviceTotal = $refundBaseFeeTotal + $refundAdditionalTotal + $ipgAmount;
+            $finalRefundAmount = max(0, $baseRefundAmount - $serviceTotal);
     
-    // Calculate final refund amount after deducting service fees
-    $baseRefundAmount = floatval($mockResponse['Data']['TotalRefundAmount']);
-    $serviceTotal = floatval($refundBaseFee + $refundAdditionalMarkup);
-    $finalRefundAmount = max(0, $baseRefundAmount - $serviceTotal);
+    $objCancel->_writeLog('MOCK MODE: Base amount: ' . $baseRefundAmount . ', Fees: base(' . $refundBaseFeeTotal . '), add(' . $refundAdditionalTotal . '), ipg(' . $ipgAmount . ') => Final: ' . $finalRefundAmount, 'voidquote.txt');
     
-    file_put_contents('debug_void_quote.txt', "Totals - base: {$baseRefundAmount}, service: {$serviceTotal}, final: {$finalRefundAmount}\n", FILE_APPEND);
-    
-    $objCancel->_writeLog('MOCK MODE: Base amount: ' . $baseRefundAmount . ', Service fees: ' . $refundBaseFee . ' + ' . $refundAdditionalMarkup . ' => Final: ' . $finalRefundAmount, 'voidquote.txt');
-    
-    // For MOCK_MODE, directly create the expected response format
+    // Build response for UI
     $response_New = array(
         'status' => 'success',
         'message' => 'Void Quote Received: InProcess. Final Refundable Amount is: USD ' . $finalRefundAmount,
@@ -136,11 +149,16 @@ if (MOCK_MODE) {
         'refundamount' => $finalRefundAmount,
         'currency' => 'USD',
         // breakdown fields for UI
-        'base_refund_amount' => $baseRefundAmount,
-        'refund_base_fee' => $refundBaseFee,
-        'refund_additional_markup' => $refundAdditionalMarkup,
-        'service_total' => $serviceTotal,
-        'final_refund_amount' => $finalRefundAmount,
+        'data' => array(
+            'TotalRefundAmount' => $baseRefundAmount,
+            'refund_base_fee' => $refundBaseFeeTotal,
+            'refund_additional_markup' => $refundAdditionalTotal,
+            'ipg_percentage' => $ipgPercentage,
+            'ipg_amount' => $ipgAmount,
+            'service_total' => $serviceTotal,
+            'final_refund_amount' => $finalRefundAmount,
+            'Currency' => 'USD'
+        ),
         'admin_charges' => 0,
         'gst_charge' => 0,
         'voiding_fee' => 0,
@@ -183,7 +201,8 @@ if (MOCK_MODE) {
             
             $objCancel->_writeLog('VoidQuote Success - PTRStatus: ' . $PTRStatus, 'voidquote.txt');
             
-            $TotalRefundAmount = 0;
+            // Aggregate base refund from API quotes
+            $TotalRefundAmount = 0.0;
             $Currency = '';
             $AdminCharges = 0;
             $GSTCharge = 0;
@@ -191,7 +210,7 @@ if (MOCK_MODE) {
             
             if (isset($responseData['Data']['VoidQuotes']) && !empty($responseData['Data']['VoidQuotes'])) {
                 foreach($responseData['Data']['VoidQuotes'] as $val) {
-                    $TotalRefundAmount += $val['TotalRefundAmount'];
+                    $TotalRefundAmount += floatval($val['TotalRefundAmount']);
                     $Currency = $val['Currency'];
                     $AdminCharges += $val['AdminCharges'];
                     $GSTCharge += $val['GSTCharge'];
@@ -199,21 +218,41 @@ if (MOCK_MODE) {
                 }
             }
             
-            // Get service transaction fees
+            // Get service transaction fees (per passenger)
             $serviceFees = $objCancel->getServiceTransactionFees();
-            $refundBaseFee = $serviceFees['refund_fee'];
-            $refundAdditionalMarkup = $serviceFees['refund_addition'];
+            $refundBaseFeePerPax = floatval($serviceFees['refund_fee']);
+            $refundAdditionalPerPax = floatval($serviceFees['refund_addition']);
             
-            // Calculate total refund amount including service fees
-            $totalRefundAmount = $TotalRefundAmount + $refundBaseFee + $refundAdditionalMarkup;
+            // Calculate totals (IPG on net amount after service fees)
+            $baseRefundAmount = $TotalRefundAmount;
+            $refundBaseFeeTotal = $refundBaseFeePerPax * max(1, $numPassengers);
+            $refundAdditionalTotal = $refundAdditionalPerPax * max(1, $numPassengers);
+            
+            // First subtract service fees from base
+            $amountAfterServiceFees = max(0, $baseRefundAmount - $refundBaseFeeTotal - $refundAdditionalTotal);
+            
+            // Then apply IPG percentage on the net amount (after service fees)
+            $ipgAmount = ($ipgPercentage > 0) ? ($ipgPercentage / 100.0) * $amountAfterServiceFees : 0.0;
+            
+            // Final calculation
+            $serviceTotal = $refundBaseFeeTotal + $refundAdditionalTotal + $ipgAmount;
+            $finalRefundAmount = max(0, $baseRefundAmount - $serviceTotal);
             
             $response_New = array(
                 'status' => 'success',
-                'message' => 'Void Quote Received: ' . $PTRStatus . ' Total Refundable Amount is: USD ' . $totalRefundAmount,
+                'message' => 'Void Quote Received: ' . $PTRStatus . ' Final Refundable Amount is: ' . $Currency . ' ' . $finalRefundAmount,
                 'ptr_id' => $PTRId,
                 'ptr_status' => $PTRStatus,
-                'refundamount' => $totalRefundAmount,
-                'currency' => 'USD',
+                'refundamount' => $finalRefundAmount,
+                'currency' => $Currency,
+                // Provide breakdown for UI (old style keys for fallback)
+                'base_refund_amount' => $baseRefundAmount,
+                'refund_base_fee' => $refundBaseFeeTotal,
+                'refund_additional_markup' => $refundAdditionalTotal,
+                'ipg_percentage' => $ipgPercentage,
+                'ipg_amount' => $ipgAmount,
+                'service_total' => $serviceTotal,
+                'final_refund_amount' => $finalRefundAmount,
                 'admin_charges' => 0,
                 'gst_charge' => 0,
                 'voiding_fee' => 0,

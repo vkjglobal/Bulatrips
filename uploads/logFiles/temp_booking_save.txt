@@ -5898,3 +5898,141 @@ Array
 
 
 -------------If there are errors Close Friday 15th of August 2025 12:12:55 PM-------------
+-------------Public/Private Open Friday 5th of September 2025 11:02:24 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-09-07T11:02:15
+            [TraceId] => 25090516-d8bca84c-57b1-4a29-baeb-721f20e26d03
+            [UniqueID] => MF31553725
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 5th of September 2025 11:02:24 AM-------------
+-------------If there are errors Open Friday 5th of September 2025 11:02:24 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 177
+)
+
+
+-------------If there are errors Close Friday 5th of September 2025 11:02:24 AM-------------
+-------------Public/Private Open Friday 5th of September 2025 11:10:42 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => BOOKINGINPROCESS
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-09-05T11:10:54
+            [TraceId] => 25090516-4f0495a9-2f66-44df-8e1c-d3290b71c894
+            [UniqueID] => MF31553825
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 5th of September 2025 11:10:42 AM-------------
+-------------If there are errors Open Friday 5th of September 2025 11:10:42 AM-------------
+Booking BOOKINGINPROCESS: 
+Array
+(
+    [BookStatus] => BOOKINGINPROCESS
+    [faretype] => Public
+    [bookingid] => 178
+)
+
+
+-------------If there are errors Close Friday 5th of September 2025 11:10:42 AM-------------
+-------------Public/Private Open Friday 5th of September 2025 11:19:41 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Success] => 
+    [Data] => Array
+        (
+            [0] => Could not convert string to DateTime: 0000-00-00. Path 'TravelerInfo.AirTravelers[0].Passport.ExpiryDate', line 1, position 540. 
+        )
+
+    [Message] => Validation Error
+)
+
+
+-------------Public/Private Close Friday 5th of September 2025 11:19:41 AM-------------
+-------------If there are errors Open Friday 5th of September 2025 11:19:41 AM-------------
+
+Array
+(
+    [bookingid] => 179
+    [BookStatus] => Failed
+    [ticketstatus] => Failed
+    [faretype] => Public
+    [errors] => Null Status Received from Airline
+    [status] => 
+    [errCde] => 000
+)
+
+
+-------------If there are errors Close Friday 5th of September 2025 11:19:41 AM-------------
+-------------Public/Private Open Friday 5th of September 2025 11:21:18 AM-------------
+API URL Response: https://restapidemo.myfarebox.com/api/v1/Book/Flight
+Array
+(
+    [Data] => Array
+        (
+            [ClientUTCOffset] => 0
+            [ConversationId] => 
+            [Errors] => Array
+                (
+                )
+
+            [Status] => CONFIRMED
+            [Success] => 1
+            [Target] => Test
+            [TktTimeLimit] => 2025-09-07T11:21:08
+            [TraceId] => 25090516-4f0495a9-2f66-44df-8e1c-d3290b71c894
+            [UniqueID] => MF31554025
+        )
+
+    [Success] => 1
+)
+
+
+-------------Public/Private Close Friday 5th of September 2025 11:21:18 AM-------------
+-------------If there are errors Open Friday 5th of September 2025 11:21:18 AM-------------
+Booking Confirmed: 
+Array
+(
+    [BookStatus] => CONFIRMED
+    [faretype] => Public
+    [bookingid] => 180
+)
+
+
+-------------If there are errors Close Friday 5th of September 2025 11:21:18 AM-------------

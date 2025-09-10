@@ -59,22 +59,56 @@ include_once __DIR__ . '/class.Db_clientCron.php';
         );
     }
     public function updateInDB_cancelbooking($tableName,$ticketNum){
+        if (empty($ticketNum)) {
+            $this->_writeLog('Skip updateInDB_cancelbooking: empty ticket number', 'searchPtrCron.txt');
+            return false;
+        }
     
         $updateData = array(
                     'ptr_status' => 'completed',
                     'cancel_status' =>1
                 );
-                $condition = "`ticket_number` LIKE '%".$ticketNum."%'";
-             //    LIKE '%MF23720823%' 
+                $condition = "`ticket_number` = '".addslashes($ticketNum)."'";
+             //    LIKE '%MF23720823%'
      
         $result =   $this->update($tableName, $updateData, $condition);
      
+        // Also propagate PTR ID from travellers_details into cancel_booking for consistency
+        try {
+            $row = $this->getLisQuery("SELECT ptr_id FROM travellers_details WHERE e_ticket_number LIKE '%".$ticketNum."%' ORDER BY id DESC LIMIT 1");
+            if (!empty($row) && isset($row[0]['ptr_id']) && $row[0]['ptr_id'] !== null && $row[0]['ptr_id'] !== '') {
+                $ptrIdRaw = $row[0]['ptr_id'];
+                // ptrIdRaw may look like 'PTR_1757093237_7461' → extract the main numeric segment
+                $ptrId = 0;
+                if (is_numeric($ptrIdRaw)) {
+                    $ptrId = (int)$ptrIdRaw;
+                } else {
+                    if (preg_match('/(\d{6,})/', $ptrIdRaw, $m)) {
+                        $ptrId = (int)$m[1];
+                    }
+                }
+                if ($ptrId > 0) {
+                $sql = "UPDATE cancel_booking SET ptr_id = :ptr_id WHERE `ticket_number` = :t";
+                $stmt = $this->conn->prepare($sql);
+                $stmt->bindValue(':ptr_id', $ptrId);
+                $stmt->bindValue(':t', $ticketNum);
+                $stmt->execute();
+                }
+            }
+        } catch (\Exception $e) {
+            $this->_writeLog('Error updating ptr_id in cancel_booking: '.$e->getMessage(), 'searchPtrCron.txt');
+        }
+
        return $result;		
     }
     public function updateInDB_trav($tableName,$ticketNum){
+        if (empty($ticketNum)) {
+            $this->_writeLog('Skip updateInDB_trav: empty ticket number', 'searchPtrCron.txt');
+            return false;
+        }
         // Log BEFORE values
         try {
-            $before = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number LIKE '%".$ticketNum."%' LIMIT 1");
+            $before = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number = '".addslashes($ticketNum)."' LIMIT 1");
             $this->_writeLog('Before traveller update for ticket '.$ticketNum.': '.print_r($before, true), 'searchPtrCron.txt');
         } catch (Exception $e) {
             $this->_writeLog('Before traveller update read failed: '.$e->getMessage(), 'searchPtrCron.txt');
@@ -87,12 +121,12 @@ include_once __DIR__ . '/class.Db_clientCron.php';
             'cancel_type' => 'void',
             'cancel_date' => date('Y-m-d H:i:s')
         );
-        $condition = "`e_ticket_number` LIKE '%".$ticketNum."%'";
+        $condition = "`e_ticket_number` = '".addslashes($ticketNum)."'";
         $result = $this->update($tableName, $updateData, $condition);
 
         // Log AFTER values
         try {
-            $after = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number LIKE '%".$ticketNum."%' LIMIT 1");
+            $after = $this->getLisQuery("SELECT e_ticket_number, ticket_status, void_status, cancel_type, cancel_date FROM travellers_details WHERE e_ticket_number = '".addslashes($ticketNum)."' LIMIT 1");
             $this->_writeLog('After traveller update for ticket '.$ticketNum.': '.print_r($after, true), 'searchPtrCron.txt');
         } catch (Exception $e) {
             $this->_writeLog('After traveller update read failed: '.$e->getMessage(), 'searchPtrCron.txt');
@@ -136,7 +170,7 @@ include_once __DIR__ . '/class.Db_clientCron.php';
        
             // Validate the email address
             try {
-                $query = "SELECT * FROM cancel_booking WHERE mf_ref_num != '' AND (ptr_type = 'Refund' OR  ptr_type = 'Void') AND `ptr_status` = 'InProcess'";
+                $query = "SELECT * FROM cancel_booking WHERE mf_ref_num != '' AND (ptr_type = 'Refund' OR  ptr_type = 'Void' OR ptr_type = 'Reissue') AND `ptr_status` = 'InProcess'";
 
                 $stmt = $this->conn->prepare($query);
 
@@ -172,7 +206,7 @@ include_once __DIR__ . '/class.Db_clientCron.php';
             }
             
             $whereClause = implode(' OR ', $conditions);
-            $query = "SELECT * FROM cancel_booking WHERE ($whereClause) AND (ptr_type = 'Refund' OR ptr_type = 'Void')";
+            $query = "SELECT * FROM cancel_booking WHERE ($whereClause) AND (ptr_type = 'Refund' OR ptr_type = 'Void' OR ptr_type = 'Reissue')";
 
             $stmt = $this->conn->prepare($query);
             $stmt->execute($params);

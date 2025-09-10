@@ -1,8 +1,12 @@
 <?php
-  include_once('includes/common_const.php');
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+include_once('includes/common_const.php');
   include_once('includes/class.cancel.php');
   include_once('includes/dbConnect.php');
   include_once('includes/mock_mystifly.php');
+  include_once('mail_send.php');
   $objCancel     =   new Cancel();
   
   // Check if this is an AJAX request
@@ -247,8 +251,60 @@ $requestData = array(
                   $objCancel->_writeLog("Update result: " . ($result ? 'success' : 'failed') . ", rows affected: " . $stmt->rowCount(), 'void.txt');
               }
           }
-          
-                              $response_New = array(
+          // Send immediate IN-PROCESS email (informational)
+          try {
+              // Fetch contact email and MF reference directly
+              $contactStmt = $conn->prepare("SELECT contact_email, mf_reference, contact_first_name, contact_last_name FROM temp_booking WHERE id = :id");
+              $contactStmt->execute(['id' => (int)$bookingId]);
+              $contact = $contactStmt->fetch(PDO::FETCH_ASSOC) ?: [];
+              $recipient = $contact['contact_email'] ?? '';
+              $mfRef = $contact['mf_reference'] ?? $mfreNum;
+              $nameRow = $objCancel->getLisQuery("SELECT contact_first_name, contact_last_name FROM temp_booking WHERE id = ".(int)$bookingId." LIMIT 1");
+              $contactName = 'Customer';
+              if (!empty($nameRow)) {
+                  $fn = trim($nameRow[0]['contact_first_name'] ?? '');
+                  $ln = trim($nameRow[0]['contact_last_name'] ?? '');
+                  $full = trim($fn.' '.$ln);
+                  if ($full !== '') { $contactName = $full; }
+              }
+              $subject = 'Flight Cancellation - In Process';
+              $headerBar = 'Cancellation Update';
+              // Build rows for selected passengers
+              $rows = '';
+              foreach ($passengerDetails as $passenger) {
+                  $rows .= '<tr>'
+                      .'<td style="padding:8px 12px;border-bottom:1px solid #eee;">'.htmlspecialchars($passenger['title'].' '.$passenger['firstname'].' '.$passenger['lastname']).'</td>'
+                      .'<td style="padding:8px 12px;border-bottom:1px solid #eee;">'.htmlspecialchars((string)$PTRId).'</td>'
+                      .'<td style="padding:8px 12px;border-bottom:1px solid #eee;">'.htmlspecialchars($PTRStatus).'</td>'
+                      .'</tr>';
+              }
+              $amountDisp = !is_null($finalRefundAmount) ? ($currencyFromQuote.' '.number_format((float)$finalRefundAmount,2)) : '';
+              $amountLine = $amountDisp !== '' ? '<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Total Amount:</span> <span>'.$amountDisp.'</span></div>' : '';
+              $emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
+                .'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
+                .'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
+                .'<tr><td align="center" style="padding:20px 0 10px 0;"><img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrips" style="height:50px;width:auto;display:block;margin:10px auto;"></td></tr>'
+                .'<tr><td align="center" style="background-color:#0029ff;color:#ffffff;font-size:18px;font-weight:bold;padding:14px;">'.$headerBar.'</td></tr>'
+                .'<tr><td style="padding:22px;font-size:15px;line-height:1.6;color:#333333;">'
+                .'<p style="margin:0 0 12px 0;">Dear '.htmlspecialchars($contactName).',</p>'
+                .'<p style="margin:0 0 18px 0;">Your Void request has been <strong>'.htmlspecialchars($PTRStatus).'</strong>.</p>'
+                .'<div style="background:#f1f1f1;border-radius:6px;padding:14px;">'
+                .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($mfRef).'</span></div>'
+                .$amountLine
+                .'</div>'
+                .'<div style="margin-top:16px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
+                .'<thead><tr><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">Passenger</th><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">PTR ID</th><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">Status</th></tr></thead>'
+                .'<tbody>'.$rows.'</tbody></table></div>'
+                .'<p style="margin:18px 0 0 0;color:#555555;">We will notify you by email once the airline completes processing.</p>'
+                .'</td></tr></table></body></html>';
+              if (!empty($recipient)) {
+                  sendMail($recipient, $subject, $emailHtml);
+              }
+          } catch (Exception $e) {
+              $objCancel->_writeLog('In-process email failed: '.$e->getMessage(), 'void.txt');
+          }
+ 
+                               $response_New = array(
               'status' => 'success',
                     'message' => $message,
                     'ptr_id' => $PTRId,

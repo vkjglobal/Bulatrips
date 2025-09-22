@@ -123,6 +123,19 @@ foreach($resultBooking as $resultBookingdata){
 					if ($full !== '') { $contactName = $full; }
 				}
 				
+				// Collect selected traveller ids for this PTR to keep acceptance scoped
+				$passengerIdsCsv = '';
+				try {
+					$paxRows = $objBookCron->getLisQuery("SELECT traveller_id FROM cancel_booking WHERE booking_id = ".(int)$bookingId." AND ptr_id = '".addslashes((string)$ptr_id)."' AND message = 'ReissueQuote request submitted' AND traveller_id > 0");
+					if (!empty($paxRows)) {
+						$ids = [];
+						foreach ($paxRows as $r) { $ids[] = (int)$r['traveller_id']; }
+						$passengerIdsCsv = implode(',', array_unique($ids));
+					}
+				} catch (Exception $e) {
+					$objBookCron->_writeLog('Collect pax ids failed: '.$e->getMessage(), 'searchPtrCron.txt');
+				}
+				
 				if (!empty($contactEmail)) {
 					// Generate secure tokens for accept/decline links
 					$acceptToken1 = md5($ptr_id . $bookingId . 'reissue_secret_key');
@@ -130,11 +143,56 @@ foreach($resultBooking as $resultBookingdata){
 					$declineToken = md5($ptr_id . $bookingId . 'decline_secret_key');
 					
 					$baseUrl = ENVIRONMENT_VAR;
-					$acceptUrl1 = $baseUrl . "reissue_email_handler.php?action=accept&ptr_id=" . urlencode($ptr_id) . "&option=1&booking_id=" . $bookingId . "&token=" . $acceptToken1;
-					$acceptUrl2 = $baseUrl . "reissue_email_handler.php?action=accept&ptr_id=" . urlencode($ptr_id) . "&option=2&booking_id=" . $bookingId . "&token=" . $acceptToken2;
+					$extraPax = $passengerIdsCsv !== '' ? ('&pax=' . urlencode($passengerIdsCsv)) : '';
+					$acceptUrl1 = $baseUrl . "reissue_email_handler.php?action=accept&ptr_id=" . urlencode($ptr_id) . "&option=1&booking_id=" . $bookingId . "&token=" . $acceptToken1 . $extraPax;
+					$acceptUrl2 = $baseUrl . "reissue_email_handler.php?action=accept&ptr_id=" . urlencode($ptr_id) . "&option=2&booking_id=" . $bookingId . "&token=" . $acceptToken2 . $extraPax;
 					$declineUrl = $baseUrl . "reissue_email_handler.php?action=decline&ptr_id=" . urlencode($ptr_id) . "&booking_id=" . $bookingId . "&token=" . $declineToken;
 					
-					$subject = 'Reissue Quote Ready - Action Required';
+					// Build enriched options from MockMystifly GetExchangeQuote
+					if (!class_exists('MockMystifly')) { include_once(__DIR__.'/../includes/mock_mystifly.php'); }
+					$mockQuote = MockMystifly::getGetExchangeQuoteResponse($ptr_id);
+					$prefs = $mockQuote['Data']['RequestedPreferences'] ?? [];
+					$optionsHtml = '';
+					foreach ($prefs as $pref) {
+						$option = intval($pref['Option'] ?? 0);
+						$legs = $pref['QuotedSegments'] ?? [];
+						$fare = ($pref['QuotedFares'][0] ?? []);
+						if (empty($legs)) { continue; }
+						$legsHtml = '';
+						foreach ($legs as $idx => $seg) {
+							$cabinCode = strtoupper($seg['CabinClass'] ?? 'Y');
+							$cabinName = ($cabinCode === 'C') ? 'Business' : (($cabinCode === 'F') ? 'First' : (($cabinCode === 'W' || $cabinCode === 'S') ? 'Premium Economy' : 'Economy'));
+							$depFmt = isset($seg['DepartureDatetime']) ? date('d M Y, H:i', strtotime($seg['DepartureDatetime'])) : '';
+							$arrFmt = isset($seg['ArrivalDateTime']) ? date('d M Y, H:i', strtotime($seg['ArrivalDateTime'])) : '';
+							$duration = $seg['Duration'] ?? '';
+							$stops = isset($seg['Stops']) ? intval($seg['Stops']) : 0;
+							$flightDetails = ($seg['AirlineCode'] ?? '').' '.($seg['FlightNumber'] ?? '');
+							$bookingClass = $seg['BookingClass'] ?? '';
+							$legsHtml .= '<div style="background:#f9fbff;border-radius:6px;padding:12px 14px;margin:10px 0;border:1px solid #e6ecff;">'
+								.'<div style="font-weight:bold;margin:0 0 6px 0;">'.($idx === 0 ? 'Departure' : 'Return').' Details</div>'
+								.'<div style="margin:0 0 6px 0;"><strong>Route:</strong> '.htmlspecialchars(($seg['Origin'] ?? '').' → '.($seg['Destination'] ?? '')).'</div>'
+								.'<div style="margin:0 0 6px 0;"><strong>Departure:</strong> '.htmlspecialchars($depFmt).' &nbsp; <strong>Arrival:</strong> '.htmlspecialchars($arrFmt).'</div>'
+								.'<div style="margin:0 0 0 0;"><strong>Flight:</strong> '.htmlspecialchars($flightDetails).' &nbsp; <strong>Cabin:</strong> '.htmlspecialchars($cabinName.' ('.$cabinCode.')').' &nbsp; <strong>Booking Class:</strong> '.htmlspecialchars($bookingClass).'</div>'
+								.'<div style="margin:6px 0 0 0;color:#555;"><strong>Duration:</strong> '.htmlspecialchars($duration).' &nbsp; <strong>Stops:</strong> '.intval($stops).'</div>'
+							.'</div>';
+						}
+						$totalCost = $fare['TotalFareDifference'] ?? 0;
+						$currency = $fare['Currency'] ?? 'USD';
+						$baseFare = $fare['BaseFareDifference'] ?? 0;
+						$taxDiff = $fare['TaxDifference'] ?? 0;
+						$penalty = $fare['Penalty'] ?? 0;
+						$acceptUrl = ($option === 1) ? $acceptUrl1 : $acceptUrl2;
+						$borderColor = ($option == 1) ? '#28a745' : '#007bff';
+						$bgColor = ($option == 1) ? '#f8fff8' : '#f8f9ff';
+						$optionsHtml .= '<div style="border:2px solid '.$borderColor.';border-radius:8px;padding:20px;margin:15px 0;background:'.$bgColor.';">'
+							.'<h4 style="color:'.$borderColor.';margin:0 0 10px 0;">Option '.$option.'</h4>'
+							.$legsHtml
+							.'<p style="margin:8px 0 6px 0;"><strong>Total Cost:</strong> <span style="font-size:18px;color:'.$borderColor.';">$'.number_format((float)$totalCost, 2).' '.htmlspecialchars($currency).'</span></p>'
+							.'<p style="margin:0 0 12px 0;font-size:13px;color:#555;">Base: $'.number_format((float)$baseFare, 2).' + Tax: $'.number_format((float)$taxDiff, 2).' + Penalty: $'.number_format((float)$penalty, 2).'</p>'
+							.'<div style="text-align:center;"><a href="'.$acceptUrl.'" style="display:inline-block;background:'.$borderColor.';color:#ffffff;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Accept Option '.$option.'</a></div>'
+						.'</div>';
+					}
+
 					$emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
 						.'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
 						.'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
@@ -147,26 +205,25 @@ foreach($resultBooking as $resultBookingdata){
 						.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">PTR ID:</span> <span>'.htmlspecialchars($ptr_id).'</span></div>'
 						.'<div style="margin:0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($mfRefForEmail).'</span></div>'
 						.'</div>'
-						.'<div style="border:2px solid #28a745;border-radius:8px;padding:20px;margin:15px 0;background:#f8fff8;">'
-						.'<h4 style="color:#28a745;margin:0 0 10px 0;">Option 1 - Economy Class</h4>'
-						.'<p style="margin:0 0 10px 0;"><strong>Total Cost:</strong> <span style="font-size:18px;color:#28a745;">$78.75 USD</span></p>'
-						.'<p style="margin:0 0 15px 0;">2 days later departure, Economy class</p>'
-						.'<div style="text-align:center;"><a href="'.$acceptUrl1.'" style="display:inline-block;background:#28a745;color:#ffffff;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Accept Option 1</a></div>'
-						.'</div>'
-						.'<div style="border:2px solid #007bff;border-radius:8px;padding:20px;margin:15px 0;background:#f8f9ff;">'
-						.'<h4 style="color:#007bff;margin:0 0 10px 0;">Option 2 - Business Class</h4>'
-						.'<p style="margin:0 0 10px 0;"><strong>Total Cost:</strong> <span style="font-size:18px;color:#007bff;">$165.50 USD</span></p>'
-						.'<p style="margin:0 0 15px 0;">3 days later departure, Business class</p>'
-						.'<div style="text-align:center;"><a href="'.$acceptUrl2.'" style="display:inline-block;background:#007bff;color:#ffffff;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Accept Option 2</a></div>'
-						.'</div>'
+						.$optionsHtml
 						.'<div style="text-align:center;margin:20px 0;">'
 						.'<a href="'.$declineUrl.'" style="display:inline-block;background:#6c757d;color:#ffffff;padding:10px 20px;text-decoration:none;border-radius:6px;">Decline Reissue</a>'
 						.'</div>'
 						.'<p style="margin:18px 0 0 0;color:#555555;font-size:13px;">This link will expire in 24 hours. If you need assistance, please contact our support team.</p>'
 						.'</td></tr></table></body></html>';
 					
-					send_mail_smart($contactEmail, $subject, $emailHtml);
+					send_mail_smart($contactEmail, 'Reissue Quote Ready - Action Required', $emailHtml);
 					$objBookCron->_writeLog('MOCK MODE: Reissue quote options email sent to: ' . $contactEmail, 'searchPtrCron.txt');
+					// Mark processed so this row is not reprocessed on next cron run
+					try {
+						// Use the cron DB helper update() instead of accessing the connection directly
+						$objBookCron->update('cancel_booking', [
+							'message' => 'ReissueQuote email sent',
+							'cancel_status' => 1
+						], "id = ".(int)$resultBookingdata['id']);
+					} catch (Exception $e) {
+						$objBookCron->_writeLog('Failed to mark cancel_booking row as emailed: '.$e->getMessage(), 'searchPtrCron.txt');
+					}
 				}
 				
 				echo "<div style='color: blue;'><strong>PTR $ptr_id REISSUE QUOTE READY (MOCK):</strong> Quote options email sent.</div>";
@@ -185,6 +242,19 @@ foreach($resultBooking as $resultBookingdata){
 						$condition = "`e_ticket_number` = '".addslashes($ticketNum)."' AND `flight_booking_id` = ".intval($bookingId);
 						$objBookCron->update('travellers_details', $updateData, $condition);
 						$objBookCron->_writeLog('MOCK MODE: Updated ticket '.$ticketNum.' to new ticket '.$newTicketNumber, 'searchPtrCron.txt');
+					} else {
+						// Fallback: update by traveller_id if ticket number not recorded in cancel_booking
+						$travIdFallback = isset($resultBookingdata['traveller_id']) ? (int)$resultBookingdata['traveller_id'] : 0;
+						if ($travIdFallback > 0) {
+							$updateData = [
+								'e_ticket_number' => $newTicketNumber,
+								'reissue_status' => 'Completed',
+								'ticket_status' => 'Ticketed'
+							];
+							$condition = "id = ".$travIdFallback;
+							$objBookCron->update('travellers_details', $updateData, $condition);
+							$objBookCron->_writeLog('MOCK MODE: Updated by traveller_id '.$travIdFallback.' to new ticket '.$newTicketNumber, 'searchPtrCron.txt');
+						}
 					}
 					
 					// Send reissue completion email
@@ -202,7 +272,27 @@ foreach($resultBooking as $resultBookingdata){
 					
 					if (!empty($contactEmail)) {
 						$subject = 'Flight Reissue Completed - New Tickets Issued';
-						$newTicketNumber = 'TKT' . rand(100000, 999999); // Mock new ticket
+						// Try to load accepted itinerary for email
+						$itineraryHtml = '';
+						try {
+							$ptrNumeric = is_numeric($ptr_id) ? (string)intval($ptr_id) : (preg_match('/(\d{6,})/', (string)$ptr_id, $mx) ? (string)intval($mx[1]) : (string)$ptr_id);
+							$rIti = $objBookCron->getLisQuery("SELECT message FROM cancel_booking WHERE booking_id = ".(int)$bookingId." AND ptr_id = '".addslashes($ptrNumeric)."' AND message IS NOT NULL AND message <> '' ORDER BY id DESC LIMIT 1");
+							if (!empty($rIti)) {
+								$js = json_decode($rIti[0]['message'], true);
+								if (json_last_error() === JSON_ERROR_NONE && !empty($js['outbound'])) {
+									$ob = $js['outbound'];
+									$depFmt = !empty($ob['dep_date']) ? date('d M Y, H:i', strtotime($ob['dep_date'])) : '';
+									$arrFmt = !empty($ob['arrival_date']) ? date('d M Y, H:i', strtotime($ob['arrival_date'])) : '';
+									$itineraryHtml = '<div style="background:#f9fbff;border-radius:6px;padding:12px 14px;margin:0 0 14px 0;border:1px solid #e6ecff;">'
+										.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Route:</span> '.htmlspecialchars(($ob['origin'] ?? '').' → '.($ob['destination'] ?? '')).'</div>'
+										.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Departure:</span> '.htmlspecialchars($depFmt).'</div>'
+										.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Arrival:</span> '.htmlspecialchars($arrFmt).'</div>'
+										.'<div style="margin:0 0 0 0;"><span style="font-weight:bold;">Cabin:</span> '.htmlspecialchars($ob['cabin_preference'] ?? '').' &nbsp; <span style="font-weight:bold;">Flight:</span> '.htmlspecialchars(($ob['airline_code'] ?? '').' '.($ob['flight_no'] ?? '')).'</div>'
+									.'</div>';
+								}
+							}
+						} catch (\Exception $e) { /* ignore */ }
+						// Use the SAME $newTicketNumber generated above for DB update
 						$emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
 							.'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
 							.'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
@@ -216,6 +306,31 @@ foreach($resultBooking as $resultBookingdata){
 							.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($mfRefForEmail).'</span></div>'
 							.'<div style="margin:0;"><span style="font-weight:bold;">New Ticket Number:</span> <span style="color:#28a745;font-weight:bold;">'.htmlspecialchars($newTicketNumber).'</span></div>'
 							.'</div>'
+							.(!empty($itineraryHtml) ? $itineraryHtml : '')
+							.((function() use ($objBookCron, $bookingId, $ptr_id) {
+								$ptrNumeric = is_numeric($ptr_id) ? (string)intval($ptr_id) : (preg_match('/(\d{6,})/', (string)$ptr_id, $mx) ? (string)intval($mx[1]) : (string)$ptr_id);
+								$rows = $objBookCron->getLisQuery("SELECT message FROM cancel_booking WHERE booking_id = ".(int)$bookingId." AND ptr_id = '".addslashes($ptrNumeric)."' AND message IS NOT NULL AND message <> '' ORDER BY id DESC LIMIT 1");
+								if (empty($rows)) { return ''; }
+								$js = json_decode($rows[0]['message'], true);
+								if (json_last_error() !== JSON_ERROR_NONE) { return ''; }
+								$blocks = '';
+								foreach ([['key' => 'outbound_segments', 'label' => 'Departure'], ['key' => 'return_segments', 'label' => 'Return']] as $group) {
+									$key = $group['key']; $label = $group['label'];
+									if (empty($js[$key]) || !is_array($js[$key])) { continue; }
+									foreach ($js[$key] as $idx => $seg) {
+										$depFmt = !empty($seg['dep_date']) ? date('d M Y, H:i', strtotime($seg['dep_date'])) : '';
+										$arrFmt = !empty($seg['arrival_date']) ? date('d M Y, H:i', strtotime($seg['arrival_date'])) : '';
+										$route = htmlspecialchars(($seg['origin'] ?? '').' → '.($seg['destination'] ?? ''));
+										$blocks .= '<div style="background:#f9fbff;border-radius:6px;padding:12px 14px;margin:0 0 14px 0;border:1px solid #e6ecff;">'
+											.'<div style="font-weight:bold;margin:0 0 6px 0;">'.$label.' Segment '.($idx+1).'</div>'
+											.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Route:</span> '.$route.'</div>'
+											.'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Departure:</span> '.htmlspecialchars($depFmt).' &nbsp; <span style="font-weight:bold;">Arrival:</span> '.htmlspecialchars($arrFmt).'</div>'
+											.'<div style="margin:0 0 0 0;"><span style="font-weight:bold;">Cabin:</span> '.htmlspecialchars($seg['cabin_preference'] ?? '').' &nbsp; <span style="font-weight:bold;">Flight:</span> '.htmlspecialchars(($seg['airline_code'] ?? '').' '.($seg['flight_no'] ?? '')).'</div>'
+										.'</div>';
+									}
+								}
+								return $blocks;
+							})())
 							.'<p style="margin:18px 0 22px 0;">Your old ticket has been cancelled and replaced with the new ticket above. Please save this information for your records.</p>'
 							.'<div style="text-align:center;margin:0 0 8px 0;"><a href="'.ENVIRONMENT_VAR.'cancel_user?booking_id='.$bookingId.'" style="display:inline-block; background:#0029ff; color:#ffffff; text-decoration:none; padding:12px 18px; border-radius:6px; font-weight:bold;">View Booking Details</a></div>'
 							.'<p style="margin:12px 0 0 0;color:#555555;">Thank you for choosing Bulatrips.</p>'
@@ -621,9 +736,12 @@ foreach($resultBooking as $resultBookingdata){
 												// Get flight details
 												$segment = !empty($quotedSegments) ? $quotedSegments[0] : [];
 												$cabinClass = $segment['CabinClass'] ?? 'Y';
-												$cabinName = ($cabinClass === 'C') ? 'Business' : (($cabinClass === 'F') ? 'First' : 'Economy');
+												$cabinName = ($cabinClass === 'C') ? 'Business' : (($cabinClass === 'F') ? 'First' : (($cabinClass === 'W' || $cabinClass === 'S') ? 'Premium Economy' : 'Economy'));
 												$flightDetails = ($segment['AirlineCode'] ?? '') . ' ' . ($segment['FlightNumber'] ?? '');
 												$depDate = isset($segment['DepartureDatetime']) ? date('M d, Y', strtotime($segment['DepartureDatetime'])) : '';
+												$arrDate = isset($segment['ArrivalDateTime']) ? date('d M Y, H:i', strtotime($segment['ArrivalDateTime'])) : '';
+												$duration = $segment['Duration'] ?? '';
+												$stops = isset($segment['Stops']) ? intval($segment['Stops']) : 0;
 												
 												$acceptToken = md5($PTRId . $bookingId . $option . 'reissue_secret_key');
 												$acceptUrl = $baseUrl . "reissue_email_handler.php?action=accept&ptr_id=" . urlencode($PTRId) . "&option=" . $option . "&booking_id=" . $bookingId . "&token=" . $acceptToken;
@@ -633,12 +751,12 @@ foreach($resultBooking as $resultBookingdata){
 												
 												$optionsHtml .= '<div style="border:2px solid '.$borderColor.';border-radius:8px;padding:20px;margin:15px 0;background:'.$bgColor.';">'
 													.'<h4 style="color:'.$borderColor.';margin:0 0 10px 0;">Option '.$option.' - '.$cabinName.' Class</h4>'
-													.'<p style="margin:0 0 5px 0;"><strong>Flight:</strong> '.$flightDetails.'</p>'
-													.'<p style="margin:0 0 5px 0;"><strong>Date:</strong> '.$depDate.'</p>'
-													.'<p style="margin:0 0 10px 0;"><strong>Total Cost:</strong> <span style="font-size:18px;color:'.$borderColor.';">$'.number_format($totalCost, 2).' '.$currency.'</span></p>'
-													.'<p style="margin:0 0 15px 0;font-size:13px;color:#666;">Base: $'.number_format($baseFare, 2).' + Tax: $'.number_format($taxDiff, 2).' + Penalty: $'.number_format($penalty, 2).'</p>'
+													.'<p style="margin:0 0 6px 0;"><strong>Route:</strong> '.htmlspecialchars(($segment['Origin'] ?? '').' → '.($segment['Destination'] ?? '')).'</p>'
+													.'<p style="margin:0 0 6px 0;"><strong>Departure:</strong> '.htmlspecialchars($depDate).' &nbsp; <strong>Arrival:</strong> '.htmlspecialchars($arrDate).'</p>'
+													.'<p style="margin:0 0 6px 0;"><strong>Flight:</strong> '.htmlspecialchars($flightDetails).' &nbsp; <strong>Duration:</strong> '.htmlspecialchars($duration).' &nbsp; <strong>Stops:</strong> '.intval($stops).'</p>'
+													.'<p style="margin:0 0 10px 0;"><strong>Total Cost:</strong> <span style="font-size:18px;color:'.$borderColor.';">$'.number_format((float)$totalCost, 2).' '.htmlspecialchars($currency).'</span></p>'
 													.'<div style="text-align:center;"><a href="'.$acceptUrl.'" style="display:inline-block;background:'.$borderColor.';color:#ffffff;padding:12px 24px;text-decoration:none;border-radius:6px;font-weight:bold;">Accept Option '.$option.'</a></div>'
-													.'</div>';
+												.'</div>';
 											}
 										}
 									}
@@ -687,6 +805,44 @@ foreach($resultBooking as $resultBookingdata){
 								// This will call TripDetails API and update database
 							}
 							
+							// Read accepted itinerary (dates/class) stored at accept time and update DB
+							try {
+								$ptrNumeric = is_numeric($PTRId) ? (string)intval($PTRId) : (preg_match('/(\d{6,})/', (string)$PTRId, $mx) ? (string)intval($mx[1]) : (string)$PTRId);
+								$rows = $objBookCron->getLisQuery("SELECT message FROM cancel_booking WHERE booking_id = ".(int)$bookingId." AND ptr_id = '".addslashes($ptrNumeric)."' AND message IS NOT NULL AND message <> '' ORDER BY id DESC LIMIT 1");
+								if (!empty($rows)) {
+									$msg = $rows[0]['message'];
+									$data = json_decode($msg, true);
+									if (json_last_error() === JSON_ERROR_NONE && !empty($data['outbound'])) {
+										$ob = $data['outbound'];
+										$depDate = $ob['dep_date'] ?? '';
+										$arrDate = $ob['arrival_date'] ?? '';
+										$airline = $ob['airline_code'] ?? '';
+										$flightNo = $ob['flight_no'] ?? '';
+										$cabin = $ob['cabin_preference'] ?? '';
+										// Update temp_booking (top card) and primary flight_segment row for this booking
+										if (!empty($depDate)) {
+											$objBookCron->update('temp_booking', ['dep_date' => $depDate], "id = ".(int)$bookingId);
+										}
+										$segRow = $objBookCron->getLisQuery("SELECT id FROM flight_segment WHERE booking_id = ".(int)$bookingId." ORDER BY id ASC LIMIT 1");
+										if (!empty($segRow)) {
+											$segId = (int)$segRow[0]['id'];
+											$updates = [];
+											if (!empty($depDate)) { $updates['dep_date'] = $depDate; }
+											if (!empty($arrDate)) { $updates['arrival_date'] = $arrDate; }
+											if (!empty($cabin)) { $updates['cabin_preference'] = $cabin; }
+											if (!empty($airline)) { $updates['airline_code'] = $airline; }
+											if (!empty($flightNo)) { $updates['flight_no'] = $flightNo; }
+											if (!empty($updates)) {
+												$objBookCron->update('flight_segment', $updates, "id = ".$segId);
+												$objBookCron->_writeLog('Updated itinerary for booking '.$bookingId.' from accept cache: '.json_encode($updates), 'searchPtrCron.txt');
+											}
+										}
+									}
+								}
+							} catch (\Exception $e) {
+								$objBookCron->_writeLog('Failed to apply accepted itinerary: '.$e->getMessage(), 'searchPtrCron.txt');
+							}
+
 							$objBookCron->_writeLog('Reissue completed for PTR: ' . $PTRId, 'searchPtrCron.txt');
 						}
 					
@@ -773,7 +929,7 @@ foreach ($bookingEmailQueue as $bId => $payload) {
 		.'</table>'
 		.'</div>'
 		.'<p style="margin:18px 0 22px 0;">You can review the details in your Booking Manager.</p>'
-		.'<div style="text-align:center;margin:0 0 8px 0;"><a href="'.$cancelUrl.'" style="display:inline-block; background:#ff7a00; color:#ffffff; text-decoration:none; padding:12px 18px; border-radius:6px; font-weight:bold;">Manage your Booking</a></div>'
+		.'<div style="text-align:center;margin:0 0 8px 0;"><a href="'.$cancelUrl.'" style="display:inline-block; background:#0029ff; color:#ffffff; text-decoration:none; padding:12px 18px; border-radius:6px; font-weight:bold;">Manage your Booking</a></div>'
 		.'<p style="margin:12px 0 0 0;color:#555555;">Thank you for choosing Bulatrips.</p>'
 		.'</td></tr></table></body></html>';
 

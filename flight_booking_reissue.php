@@ -177,10 +177,17 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                         || ($cbCancel === 1 || ($cbPtr && strtolower($cbPtr) === 'completed'));
                                     $fare_type                  =   $val['fare_type'];
                                     
+                                    // Reissue status checking (like void system) - CHECK THIS FIRST
+                                    $reissueStatus = $val['reissue_status'] ?? null;
+                                    $isReissueInProcess = ($reissueStatus === 'InProcess');
+                                    
                                     // Derive display ticket status exactly like cancellation page
                                     if ($isCancelled) {
                                         $ticketStatus = 'Cancelled';
                                         $isTicketed = false;
+                                    } elseif ($isReissueInProcess) {
+                                        $ticketStatus = 'Reissue In Progress';
+                                        $isTicketed = false; // Don't show as ticketed when reissue in progress
                                     } elseif (!empty($val['e_ticket_number'])) {
                                         $ticketStatus = 'Ticketed';
                                         $isTicketed = true;
@@ -188,10 +195,6 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                         $ticketStatus = 'Not Ticketed';
                                         $isTicketed = false;
                                     }
-                                    
-                                    // Reissue status checking (like void system)
-                                    $reissueStatus = $val['reissue_status'] ?? null;
-                                    $isReissueInProcess = ($reissueStatus === 'InProcess');
                                     
                                     if ($isReissueInProcess) {
                                         $hasReissueInProcess = true;
@@ -246,7 +249,17 @@ if (!isset($_SESSION['user_id'])) { //for test  environment
                                             <?php endif; ?>
                                         </td>
                                         <td>
-                                            <span class="badge <?php echo $isCancelled ? 'bg-danger text-white' : (!empty($val['e_ticket_number']) ? 'bg-success' : 'bg-danger text-white'); ?>">
+                                            <span class="badge <?php 
+                                                if ($isCancelled) {
+                                                    echo 'bg-danger text-white';
+                                                } elseif ($isReissueInProcess) {
+                                                    echo 'bg-warning text-dark';
+                                                } elseif (!empty($val['e_ticket_number'])) {
+                                                    echo 'bg-success text-white';
+                                                } else {
+                                                    echo 'bg-danger text-white';
+                                                }
+                                            ?>">
                                                 <?php echo $ticketStatus; ?>
                                             </span>
                                             <?php if (!empty($val['e_ticket_number'])): ?>

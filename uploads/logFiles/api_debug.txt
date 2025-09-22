@@ -368,3 +368,21 @@ API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingReques
 Request Data: {"ptrType":"Refund","MFRef":"MF31290325","PTRId":0,"Page":1}
 HTTP Code: 200
 Response: {"Data":null,"Success":false,"Message":"No records found."}
+Alert needed for stuck PTR: 1757771031
+Alert needed for stuck PTR: 1757771866
+Alert needed for stuck PTR: 1757772441
+Alert needed for stuck PTR: 1757772607
+Alert needed for stuck PTR: 1757772919
+Alert needed for stuck PTR: 1757773343
+Alert needed for stuck PTR: 1757771031
+Alert needed for stuck PTR: 1757771866
+Alert needed for stuck PTR: 1757772441
+Alert needed for stuck PTR: 1757772607
+Alert needed for stuck PTR: 1757772919
+Alert needed for stuck PTR: 1757773343
+Alert needed for stuck PTR: 1757771031
+Alert needed for stuck PTR: 1757771866
+Alert needed for stuck PTR: 1757772441
+Alert needed for stuck PTR: 1757772607
+Alert needed for stuck PTR: 1757772919
+Alert needed for stuck PTR: 1757773343

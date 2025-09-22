@@ -195,52 +195,113 @@ if(
 
             // $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus WHERE flight_booking_id  = :bookingId');
                 // $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
-            $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus,e_ticket_number=:ticketNumber WHERE flight_booking_id  = :bookingId and passport_number=:PassportNumber');
+            // Use a more specific update approach - match by passenger order/index instead of just passport
+            $passengerIndex = 0;
 
             // Set the values
             $ticketStatus = $tripDetails['TicketStatus'];
             $id = $bookingId;
-            foreach ($passengerDetail as $passengerInfo) {
+            // Get database passengers in order to match with API response
+            $dbPassengers = $conn->prepare('SELECT id, first_name, last_name, passport_number FROM travellers_details WHERE flight_booking_id = :bookingId ORDER BY id');
+            $dbPassengers->execute(['bookingId' => $id]);
+            $dbPassengerList = $dbPassengers->fetchAll(PDO::FETCH_ASSOC);
             
+            foreach ($passengerDetail as $index => $passengerInfo) {
                 if(isset($passengerInfo['ETickets'][0]['ETicketNumber'])){
-                                $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
-                                $ticketStatusType   =   $passengerInfo['ETickets'][0]['ETicketType'];
-                            }elseif(!empty($ticketStatus)){
-                                $ticketStatusType   = $ticketStatus;
-                                $ticketNumber="";
-                            }
-                            else{
-                                $ticketNumber="";
-                                $ticketStatusType ="";
-                            }
+                    $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
+                    $ticketStatusType = $passengerInfo['ETickets'][0]['ETicketType'];
+                } elseif(!empty($ticketStatus)){
+                    $ticketStatusType = $ticketStatus;
+                    $ticketNumber = "";
+                } else {
+                    $ticketNumber = "";
+                    $ticketStatusType = "";
+                }
+                
+                $apiFirstName = $passengerInfo['Passenger']['PaxName']['PassengerFirstName'];
+                $apiLastName = $passengerInfo['Passenger']['PaxName']['PassengerLastName'];
                 $PassportNumber = $passengerInfo['Passenger']['PassportNumber'];
-        
-                // Bind the parameters and execute the update statement
-                $stmtupdatetravellers->bindParam(':ticketNumber', $ticketNumber, PDO::PARAM_STR);
-                $stmtupdatetravellers->bindParam(':PassportNumber', $PassportNumber, PDO::PARAM_STR);
-                $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatus);
-                $stmtupdatetravellers->bindParam(':bookingId', $id);
-                $stmtupdatetravellers->execute();
+                
+                // Try to match by passenger index first (most reliable)
+                if (isset($dbPassengerList[$index]) && !empty($ticketNumber)) {
+                    $dbPassenger = $dbPassengerList[$index];
+                    
+                    // Check if passenger already has ticket status and e_ticket_number - DON'T UPDATE if they exist
+                    $checkStmt = $conn->prepare('SELECT ticket_status, e_ticket_number, void_status, reissue_status FROM travellers_details WHERE id = :passengerId');
+                    $checkStmt->execute(['passengerId' => $dbPassenger['id']]);
+                    $currentData = $checkStmt->fetch(PDO::FETCH_ASSOC);
+                    
+                    if ($currentData) {
+                        // Skip update if ticket_status or e_ticket_number already exists
+                        if (!empty($currentData['ticket_status']) || !empty($currentData['e_ticket_number'])) {
+                            $objBook->_writeLog("SKIPPED: Passenger ID {$dbPassenger['id']} ({$dbPassenger['first_name']} {$dbPassenger['last_name']}) already has ticket_status='{$currentData['ticket_status']}' or e_ticket_number='{$currentData['e_ticket_number']}' - NOT UPDATING", 'tripConfirm.txt');
+                            continue;
+                        }
+                        
+                        // Also skip if void_status or reissue_status is in process
+                        if (!empty($currentData['void_status']) || !empty($currentData['reissue_status'])) {
+                            $objBook->_writeLog("SKIPPED: Passenger ID {$dbPassenger['id']} has PTR in process (void_status='{$currentData['void_status']}', reissue_status='{$currentData['reissue_status']}') - NOT UPDATING", 'tripConfirm.txt');
+                            continue;
+                        }
+                    }
+                    
+                    // Only update if no existing data
+                    $stmtByIndex = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus, e_ticket_number = :ticketNumber WHERE id = :passengerId');
+                    $updateResult = $stmtByIndex->execute([
+                        'ticketStatus' => $ticketStatus,
+                        'ticketNumber' => $ticketNumber,
+                        'passengerId' => $dbPassenger['id']
+                    ]);
+                    
+                    if ($updateResult && $stmtByIndex->rowCount() > 0) {
+                        $objBook->_writeLog("SUCCESS: Updated passenger ID {$dbPassenger['id']} ({$dbPassenger['first_name']} {$dbPassenger['last_name']}) with ticket $ticketNumber", 'tripConfirm.txt');
+                        continue;
+                    }
+                }
+                
+                // Fallback: Try updating by name match (with same protection)
+                if (!empty($ticketNumber)) {
+                    // First check if passenger already has ticket data
+                    $checkByName = $conn->prepare('SELECT id, ticket_status, e_ticket_number, void_status, reissue_status FROM travellers_details WHERE flight_booking_id = :bookingId AND first_name = :firstName AND last_name = :lastName');
+                    $checkByName->execute([
+                        'bookingId' => $id,
+                        'firstName' => $apiFirstName,
+                        'lastName' => $apiLastName
+                    ]);
+                    $nameData = $checkByName->fetch(PDO::FETCH_ASSOC);
+                    
+                    if ($nameData) {
+                        // Skip if already has ticket data or PTR in process
+                        if (!empty($nameData['ticket_status']) || !empty($nameData['e_ticket_number']) || 
+                            !empty($nameData['void_status']) || !empty($nameData['reissue_status'])) {
+                            $objBook->_writeLog("SKIPPED: $apiFirstName $apiLastName already has ticket data or PTR in process - NOT UPDATING", 'tripConfirm.txt');
+                        } else {
+                            // Safe to update
+                            $stmtByName = $conn->prepare('UPDATE travellers_details SET ticket_status = :ticketStatus, e_ticket_number = :ticketNumber WHERE flight_booking_id = :bookingId AND first_name = :firstName AND last_name = :lastName');
+                            $nameUpdateResult = $stmtByName->execute([
+                                'ticketStatus' => $ticketStatus,
+                                'ticketNumber' => $ticketNumber,
+                                'bookingId' => $id,
+                                'firstName' => $apiFirstName,
+                                'lastName' => $apiLastName
+                            ]);
+                            
+                            if ($nameUpdateResult && $stmtByName->rowCount() > 0) {
+                                $objBook->_writeLog("SUCCESS: Updated by name match - $apiFirstName $apiLastName with ticket $ticketNumber", 'tripConfirm.txt');
+                            }
+                        }
+                    } else {
+                        $objBook->_writeLog("FAILED: Could not find passenger $apiFirstName $apiLastName for ticket $ticketNumber", 'tripConfirm.txt');
+                    }
+                }
+                
+                $passengerIndex++;
             }
-
-            // Bind the parameters
-            // $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatus);
-            // $stmtupdatetravellers->bindParam(':bookingId', $id);
-
-
-
-            // Execute the query
-            $stmtupdatetravellers->execute();
-
-    
-
-
 
             $tripDetailsfare = $responseData['Data']['TripDetailsResult']['TravelItinerary']['TripDetailsPTC_FareBreakdowns'];
             // echo "<pre/>";print_r($tripDetailsfare);exit;
             foreach ($tripDetailsfare as $tripDetailsfares) {
-                $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET basic_fare = :basicFare ,
-                    total_pass_fare = :totalPassFare, tax = :tax ,free_checkin_baggage = :baggageInfo,free_cabin_baggage = :cabinBaggage WHERE flight_booking_id  = :bookingId and passenger_type =:passengerType');
+                $stmtupdatetravellers = $conn->prepare('UPDATE travellers_details SET basic_fare = :basicFare, total_pass_fare = :totalPassFare, tax = :tax, free_checkin_baggage = :baggageInfo, free_cabin_baggage = :cabinBaggage WHERE flight_booking_id = :bookingId AND passenger_type = :passengerType');
 
                 $basicFare = $tripDetailsfares['TripDetailsPassengerFare']['EquiFare']['Amount'];
                 $tax = $tripDetailsfares['TripDetailsPassengerFare']['Tax']['Amount'];
@@ -248,7 +309,6 @@ if(
                 $passengerType = $tripDetailsfares['PassengerTypeQuantity']['Code'];
                 $baggageInfo = $tripDetailsfares['BaggageInfo'][0];
                 $cabinBaggage = $tripDetailsfares['CabinBaggageInfo'][0];
-                $bookingId = $bookingId;
 
                 // Bind the parameters
                 $stmtupdatetravellers->bindParam(':bookingId', $bookingId);

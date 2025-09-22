@@ -40,3 +40,32 @@
 [2025-09-10 05:40:05] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
 [2025-09-10 05:51:52] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
 [2025-09-10 05:58:25] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 08:50:37] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-09-13 08:53:46] Email SENT to=nafeesdroidor@gmail.com subject=Flight Refund - In Process
+[2025-09-13 09:10:14] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 09:16:26] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 09:20:38] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 09:23:30] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 09:23:50] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 10:20:11] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 10:26:25] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 11:12:12] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 11:14:43] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 11:23:02] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 11:34:50] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 11:41:05] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 12:22:13] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 12:22:58] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 13:43:56] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 13:57:52] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 14:07:23] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 14:10:11] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 14:15:24] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-13 14:22:28] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-18 02:30:49] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-09-18 02:32:59] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-09-18 02:33:33] Email SENT to=nafeesdroidor@gmail.com subject=Flight Refund - In Process
+[2025-09-18 02:34:38] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-18 02:41:50] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-09-18 02:52:44] Email SENT to=nafeesdroidor@gmail.com subject=Flight Refund - In Process
+[2025-09-18 02:58:00] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing

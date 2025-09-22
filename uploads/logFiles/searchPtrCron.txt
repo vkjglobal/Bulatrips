@@ -1842,3 +1842,961 @@ MOCK auto-complete for PTR 1757483902 (ticket , MF MF31554025, type Reissue)
 Skip updateInDB_cancelbooking: empty ticket number
 MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
 Cron job completed at Wednesday 10th of September 2025 06:20:10 AM
+-------------Saturday 13th of September 2025 08:50:45 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR  (ticket TKT475562, MF MF31554025, type Void)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475562'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475562: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475562
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475562'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-13 08:50:45
+)
+
+After traveller update for ticket TKT475562: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475562
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-13 08:50:45
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"00000004019244a5"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=00000004019244a5
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Saturday 13th of September 2025 08:50:52 AM
+-------------Saturday 13th of September 2025 09:00:33 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757753619 (ticket TKT475563, MF MF31554025, type Refund)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475563'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT475563: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475563
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => PTR_1757753619_5758
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT475563'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-13 09:00:33
+)
+
+After traveller update for ticket TKT475563: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT475563
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-13 09:00:33
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 192.85
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040192459e"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 192.85 txn=000000040192459e
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Saturday 13th of September 2025 09:00:45 AM
+-------------Saturday 13th of September 2025 10:21:18 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757754610 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757754982 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757755235 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757755406 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757755427 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757758801 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:21:44 AM
+-------------Saturday 13th of September 2025 10:26:48 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:26:51 AM
+-------------Saturday 13th of September 2025 10:31:40 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:31:53 AM
+-------------Saturday 13th of September 2025 10:32:34 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:32:38 AM
+-------------Saturday 13th of September 2025 10:32:42 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:32:47 AM
+-------------Saturday 13th of September 2025 10:36:16 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757759181 (ticket TKT475560, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475560'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT475560' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT259331
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT475560 to new ticket TKT259331
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757759181 (ticket TKT475561, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475561'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT475561' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT484087
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT475561 to new ticket TKT484087
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757759181 (ticket TKT475562, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475562'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT475562' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT581960
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT475562 to new ticket TKT581960
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757759181 (ticket TKT475563, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475563'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT475563' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT172905
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT475563 to new ticket TKT172905
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757759181 (ticket TKT475564, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT475564'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT475564' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT310941
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT475564 to new ticket TKT310941
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:36:38 AM
+-------------Saturday 13th of September 2025 10:37:30 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:37:34 AM
+-------------Saturday 13th of September 2025 10:48:30 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:48:36 AM
+-------------Saturday 13th of September 2025 10:51:56 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:52:02 AM
+-------------Saturday 13th of September 2025 10:53:23 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 10:53:25 AM
+-------------Saturday 13th of September 2025 11:04:31 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:08:29 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757759181 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 1
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:08:31 AM
+-------------Saturday 13th of September 2025 11:08:57 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 11:08:57 AM
+-------------Saturday 13th of September 2025 11:12:28 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757761929 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 1
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:12:30 AM
+-------------Saturday 13th of September 2025 11:12:35 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 11:12:35 AM
+-------------Saturday 13th of September 2025 11:15:04 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757762079 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 1
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:15:08 AM
+-------------Saturday 13th of September 2025 11:18:35 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 11:18:35 AM
+-------------Saturday 13th of September 2025 11:23:14 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757762578 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 7
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:23:18 AM
+-------------Saturday 13th of September 2025 11:23:37 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757762578 (ticket TKT484087, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT484087'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT484087' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT824644
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT484087 to new ticket TKT824644
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 11:23:40 AM
+-------------Saturday 13th of September 2025 11:34:00 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 11:34:00 AM
+-------------Saturday 13th of September 2025 11:35:41 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757763286 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 9
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:35:44 AM
+-------------Saturday 13th of September 2025 11:36:07 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757763286 (ticket TKT824644, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT824644'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT824644' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT551080
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT824644 to new ticket TKT551080
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 11:36:10 AM
+-------------Saturday 13th of September 2025 11:37:09 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 11:37:09 AM
+-------------Saturday 13th of September 2025 11:41:13 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757763662 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 11
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 11:41:15 AM
+-------------Saturday 13th of September 2025 11:41:38 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757763662 (ticket TKT551080, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT551080'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT551080' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT892577
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT551080 to new ticket TKT892577
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 11:41:40 AM
+-------------Saturday 13th of September 2025 12:10:55 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 12:10:55 PM
+-------------Saturday 13th of September 2025 12:23:20 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757766130 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 13
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+MOCK auto-complete for PTR 1757766175 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 14
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 12:23:27 PM
+-------------Saturday 13th of September 2025 01:42:31 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 3 overdue PTRs
+Cron job completed at Saturday 13th of September 2025 01:42:31 PM
+-------------Saturday 13th of September 2025 01:42:40 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 3 overdue PTRs
+Cron job completed at Saturday 13th of September 2025 01:42:40 PM
+-------------Saturday 13th of September 2025 01:43:58 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757771031 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 15
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 01:44:01 PM
+-------------Saturday 13th of September 2025 01:46:41 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757771031 (ticket TKT892577, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT892577'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT892577' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT883571
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT892577 to new ticket TKT883571
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 01:46:46 PM
+-------------Saturday 13th of September 2025 01:46:50 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 01:46:50 PM
+-------------Saturday 13th of September 2025 01:58:03 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757771866 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 17
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 01:58:09 PM
+-------------Saturday 13th of September 2025 01:59:17 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757771866 (ticket TKT883571, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT883571'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT883571' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT180165
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT883571 to new ticket TKT180165
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR 1757771866 (ticket TKT883571, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT883571'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT883571' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT520341
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT883571 to new ticket TKT520341
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 01:59:25 PM
+-------------Saturday 13th of September 2025 02:07:30 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757772441 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 20
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 02:07:32 PM
+-------------Saturday 13th of September 2025 02:09:54 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 02:09:54 PM
+-------------Saturday 13th of September 2025 02:10:25 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757772607 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 21
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 02:10:32 PM
+-------------Saturday 13th of September 2025 02:15:07 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 13th of September 2025 02:15:07 PM
+-------------Saturday 13th of September 2025 02:15:37 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757772919 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 22
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 02:15:41 PM
+-------------Saturday 13th of September 2025 02:22:32 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757773343 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 23
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Saturday 13th of September 2025 02:22:35 PM
+-------------Saturday 13th of September 2025 02:23:34 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757773343 (ticket TKT180165, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT180165'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT180165' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT625739
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT180165 to new ticket TKT625739
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Saturday 13th of September 2025 02:23:38 PM
+-------------Thursday 18th of September 2025 02:28:40 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 6 overdue PTRs
+Cron job completed at Thursday 18th of September 2025 02:28:40 AM
+-------------Thursday 18th of September 2025 02:28:46 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 6 overdue PTRs
+Cron job completed at Thursday 18th of September 2025 02:28:46 AM
+-------------Thursday 18th of September 2025 02:30:59 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1757773343 (ticket TKT625739, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT625739'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT625739' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT829809
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT625739 to new ticket TKT829809
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+MOCK auto-complete for PTR  (ticket TKT581960, MF MF31554025, type Void)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT581960'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT581960: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT581960
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => reissue
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT581960'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-18 02:31:01
+)
+
+After traveller update for ticket TKT581960: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT581960
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-18 02:31:01
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040193db2d"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=000000040193db2d
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Found 6 overdue PTRs
+Cron job completed at Thursday 18th of September 2025 02:31:09 AM
+-------------Thursday 18th of September 2025 02:33:02 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR  (ticket TKT581960, MF MF31554025, type Void)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT581960'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT581960: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT581960
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT581960'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-18 02:33:02
+)
+
+After traveller update for ticket TKT581960: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT581960
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-18 02:33:02
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040193db3a"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=000000040193db3a
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Thursday 18th of September 2025 02:33:10 AM
+-------------Thursday 18th of September 2025 02:33:45 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758162807 (ticket TKT310941, MF MF31554025, type Refund)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT310941'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT310941: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT310941
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => refund
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT310941'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-18 02:33:45
+)
+
+After traveller update for ticket TKT310941: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT310941
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-18 02:33:45
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 192.85
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040193db40"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 192.85 txn=000000040193db40
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Thursday 18th of September 2025 02:33:52 AM
+-------------Thursday 18th of September 2025 02:34:47 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758162876 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 29
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Thursday 18th of September 2025 02:34:50 AM
+-------------Thursday 18th of September 2025 02:35:10 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Thursday 18th of September 2025 02:35:10 AM
+-------------Thursday 18th of September 2025 02:35:18 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758162876 (ticket TKT829809, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT829809'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT829809' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT510483
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT829809 to new ticket TKT510483
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Thursday 18th of September 2025 02:35:20 AM
+-------------Thursday 18th of September 2025 02:43:28 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR  (ticket TKT510483, MF MF31554025, type Void)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT510483'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT510483: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT510483
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT510483'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-18 02:43:28
+)
+
+After traveller update for ticket TKT510483: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT510483
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-18 02:43:28
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 224.43
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040193dbd2"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 224.43 txn=000000040193dbd2
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Thursday 18th of September 2025 02:43:43 AM
+-------------Thursday 18th of September 2025 02:53:16 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758163956 (ticket TKT172905, MF MF31554025, type Refund)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT172905'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket TKT172905: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT172905
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => refund
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = 'TKT172905'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-18 02:53:16
+)
+
+After traveller update for ticket TKT172905: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => TKT172905
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-18 02:53:16
+        )
+
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Refund - Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 180 total=USD 192.85
+ConsolidatedRefund result: {"status":"failed","reason":"DECLINED","http":201,"refund_txn":"000000040193dc3a"}
+Payment refund email sent to nafeesdroidor@gmail.com status=failed total=USD 192.85 txn=000000040193dc3a
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 180
+Cron job completed at Thursday 18th of September 2025 02:53:23 AM
+-------------Thursday 18th of September 2025 03:00:35 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758164278 (ticket , MF MF31554025, type Reissue)
+MOCK MODE: Reissue quote options email sent to: nafeesdroidor@gmail.com
+UPDATE cancel_booking SET message = :message, cancel_status = :cancel_status WHERE id = 33
+Bound data: Array
+(
+    [message] => ReissueQuote email sent
+    [cancel_status] => 1
+)
+
+Cron job completed at Thursday 18th of September 2025 03:00:39 AM
+-------------Thursday 18th of September 2025 03:03:18 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+MOCK auto-complete for PTR 1758164278 (ticket TKT581960, MF MF31554025, type Reissue)
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = 'TKT581960'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+UPDATE travellers_details SET e_ticket_number = :e_ticket_number, reissue_status = :reissue_status, ticket_status = :ticket_status WHERE `e_ticket_number` = 'TKT581960' AND `flight_booking_id` = 180
+Bound data: Array
+(
+    [e_ticket_number] => TKT911344
+    [reissue_status] => Completed
+    [ticket_status] => Ticketed
+)
+
+MOCK MODE: Updated ticket TKT581960 to new ticket TKT911344
+MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
+Cron job completed at Thursday 18th of September 2025 03:03:19 AM

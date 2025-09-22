@@ -4755,3 +4755,55 @@ Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id =
 Update data: {"void_status":"InProcess","ptr_id":"PTR_1757443340_5806","eticket":"TKT475564","booking_id":"180"}
 Update result: success, rows affected: 1
 Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757443340_5806","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Lael","lastname":"Juarez","title":"MSTR","eticket":"TKT475562","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT475562","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1757753434_9754","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 181, Eticket: TKT475562
+Insert into cancel_booking result for traveller 181: '1'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1757753434_9754","eticket":"TKT475562","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1757753434_9754","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Lael","lastname":"Juarez","title":"MSTR","eticket":"TKT581960","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT581960","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1758162645_7647","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 181, Eticket: TKT581960
+Insert into cancel_booking result for traveller 181: '26'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1758162645_7647","eticket":"TKT581960","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1758162645_7647","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Lael","lastname":"Juarez","title":"MSTR","eticket":"TKT581960","passengertype":"CHD"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT581960","passengerType":"CHD"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1758162778_4239","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 181, Eticket: TKT581960
+Insert into cancel_booking result for traveller 181: '27'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1758162778_4239","eticket":"TKT581960","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1758162778_4239","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 180, MF Ref: MF31554025, User ID: 73
+Passenger Details: [{"firstname":"Vaughan","lastname":"Butler","title":"MISS","eticket":"TKT510483","passengertype":"ADT"}]
+MOCK MODE: Using mock Void response
+Void Request Data: {"ptrType":"Void","mFRef":"MF31554025","AllowChildPassenger":false,"passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT510483","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":"PTR_1758163306_7411","PTRStatus":"InProcess","Message":"Void request accepted and is being processed"},"Message":"Void request accepted and is being processed"}
+Attempting to insert into cancel_booking for booking ID: 180, User ID: 73, Traveller ID: 180, Eticket: TKT510483
+Insert into cancel_booking result for traveller 180: '31'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":"PTR_1758163306_7411","eticket":"TKT510483","booking_id":"180"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1758163306_7411","ptr_status":"InProcess","mf_ref":"MF31554025"}

@@ -4530,3 +4530,253 @@ ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowC
 MOCK MODE: Using mock ReissueQuote response
 ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757483902_4638","PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
 Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 08:53:24 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757753604_1736","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Exception: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'ReissueQuote request submitted' for column 'cancel_status' at row 1
+-------------Saturday 13th of September 2025 09:05:16 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}]
+DB passengers count: 5
+Passenger ID 183: ticketed=yes, e_ticket=TKT475564, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eTicket":"TKT475564","passengerType":"INF"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757754316_2424","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Exception: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'ReissueQuote request submitted' for column 'cancel_status' at row 1
+-------------Saturday 13th of September 2025 09:05:22 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}]
+DB passengers count: 5
+Passenger ID 183: ticketed=yes, e_ticket=TKT475564, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eTicket":"TKT475564","passengerType":"INF"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757754322_3476","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Exception: SQLSTATE[HY000]: General error: 1366 Incorrect integer value: 'ReissueQuote request submitted' for column 'cancel_status' at row 1
+-------------Saturday 13th of September 2025 09:10:10 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}]
+DB passengers count: 5
+Passenger ID 183: ticketed=yes, e_ticket=TKT475564, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eTicket":"TKT475564","passengerType":"INF"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757754610_8799","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 09:16:22 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"183","firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eticket":"TKT475564","passengerType":"INF"}]
+DB passengers count: 5
+Passenger ID 183: ticketed=yes, e_ticket=TKT475564, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Xerxes","lastName":"Blackwell","title":"MSTR","eTicket":"TKT475564","passengerType":"INF"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757754982_8212","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 09:20:35 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757755235_2646","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 09:23:26 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757755406_9055","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 09:23:47 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757755427_6679","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 10:20:01 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757758801_1733","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 10:26:21 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT475561","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT475561, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT475561","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757759181_8410","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:12:09 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT484087, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT484087","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757761929_3165","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:14:39 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT484087, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT484087","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757762079_6683","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:22:58 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT484087","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT484087, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT484087","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757762578_4010","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:34:46 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT824644","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT824644","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT824644, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT824644","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757763286_6517","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 11:41:02 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT551080","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT551080","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT551080, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT551080","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757763662_7581","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 12:22:10 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT892577","passengerType":"ADT"}],"newDepartureDate":"2025-09-16","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT892577","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT892577, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT892577","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-16","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757766130_1188","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 12:22:55 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}],"newDepartureDate":"2025-09-16","newCabinClass":"Y","newReturnDate":"2025-09-21","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}]
+DB passengers count: 5
+Passenger ID 181: ticketed=yes, e_ticket=TKT581960, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":true,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT581960","passengerType":"CHD"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-16","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"Y","departureDateTime":"2025-09-21","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757766175_8161","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 01:43:51 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT892577","passengerType":"ADT"}],"newDepartureDate":"2025-09-15","newCabinClass":"S","newReturnDate":"2025-09-27","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT892577","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT892577, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT892577","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"S","departureDateTime":"2025-09-15","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"S","departureDateTime":"2025-09-27","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757771031_6178","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 01:57:46 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT883571","passengerType":"ADT"}],"newDepartureDate":"2025-09-18","newCabinClass":"Y","newReturnDate":"2025-09-27","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT883571","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT883571, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT883571","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-18","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"Y","departureDateTime":"2025-09-27","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757771866_7475","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 02:07:21 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"179","firstName":"Leah","lastName":"Acevedo","title":"MISS","eticket":"TKT259331","passengerType":"ADT"}],"newDepartureDate":"2025-09-20","newCabinClass":"C","newReturnDate":"2025-09-30","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"179","firstName":"Leah","lastName":"Acevedo","title":"MISS","eticket":"TKT259331","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 179: ticketed=yes, e_ticket=TKT259331, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Leah","lastName":"Acevedo","title":"MISS","eTicket":"TKT259331","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"C","departureDateTime":"2025-09-20","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"C","departureDateTime":"2025-09-30","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757772441_8399","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 02:10:07 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}],"newDepartureDate":"2025-09-19","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}]
+DB passengers count: 5
+Passenger ID 181: ticketed=yes, e_ticket=TKT581960, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":true,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT581960","passengerType":"CHD"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-19","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757772607_9184","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 02:15:19 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"182","firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eticket":"TKT172905","passengerType":"CHD"}],"newDepartureDate":"2025-09-19","newCabinClass":"Y","newReturnDate":"2025-09-27","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"182","firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eticket":"TKT172905","passengerType":"CHD"}]
+DB passengers count: 5
+Passenger ID 182: ticketed=yes, e_ticket=TKT172905, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":true,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Cecilia","lastName":"Jefferson","title":"MISS","eTicket":"TKT172905","passengerType":"CHD"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-19","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"Y","departureDateTime":"2025-09-27","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757772919_7425","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Saturday 13th of September 2025 02:22:23 PM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT180165","passengerType":"ADT"}],"newDepartureDate":"2025-09-20","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT180165","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT180165, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT180165","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-20","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1757773343_9673","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Thursday 18th of September 2025 02:34:36 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT829809","passengerType":"ADT"}],"newDepartureDate":"2025-09-25","newCabinClass":"Y","newReturnDate":null,"segmentSelection":"outbound"}
+Selected passengers from UI: [{"id":"180","firstName":"Vaughan","lastName":"Butler","title":"MISS","eticket":"TKT829809","passengerType":"ADT"}]
+DB passengers count: 5
+Passenger ID 180: ticketed=yes, e_ticket=TKT829809, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Vaughan","lastName":"Butler","title":"MISS","eTicket":"TKT829809","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"Y","departureDateTime":"2025-09-25","flightNumber":629,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1758162876_1212","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Thursday 18th of September 2025 02:57:58 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"180","userId":"73","mfRef":"MF31554025","selectedPassengers":[{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}],"newDepartureDate":"2025-09-24","newCabinClass":"S","newReturnDate":"2025-09-27","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"181","firstName":"Lael","lastName":"Juarez","title":"MSTR","eticket":"TKT581960","passengerType":"CHD"}]
+DB passengers count: 5
+Passenger ID 181: ticketed=yes, e_ticket=TKT581960, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowChildPassenger":true,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Lael","lastName":"Juarez","title":"MSTR","eTicket":"TKT581960","passengerType":"CHD"}],"originDestinations":[{"originLocationCode":"LHE","destinationLocationCode":"DOH","cabinPreference":"S","departureDateTime":"2025-09-24","flightNumber":629,"airlineCode":"QR"},{"originLocationCode":"DOH","destinationLocationCode":"LHE","cabinPreference":"S","departureDateTime":"2025-09-27","flightNumber":1182,"airlineCode":"QR"}]}
+MOCK MODE: Using mock ReissueQuote response
+ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1758164278_8117","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
+Reissue request confirmation email sent to: nafeesdroidor@gmail.com

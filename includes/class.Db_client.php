@@ -64,9 +64,11 @@ class Db_client {
             $sql = "UPDATE {$table} SET {$fields} WHERE {$condition}"; 
             $stmt = $this->conn->prepare($sql);
 
+            // IMPORTANT: use bindValue here instead of bindParam to avoid by-reference
+            // binding bugs when iterating. bindParam would bind the same variable
+            // reference repeatedly causing all placeholders to take the last value.
             foreach ($data as $key => $value) {
-                $stmt->bindParam(":{$key}", $value);
-               
+                $stmt->bindValue(":{$key}", $value);
             }
          //   echo $sql;exit;
             $stmt->execute();

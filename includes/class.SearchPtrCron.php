@@ -170,7 +170,13 @@ include_once __DIR__ . '/class.Db_clientCron.php';
        
             // Validate the email address
             try {
-                $query = "SELECT * FROM cancel_booking WHERE mf_ref_num != '' AND (ptr_type = 'Refund' OR  ptr_type = 'Void' OR ptr_type = 'Reissue') AND `ptr_status` = 'InProcess'";
+                // Only fetch truly pending rows. Exclude rows we have already notified or completed
+                $query = "SELECT * FROM cancel_booking 
+                          WHERE mf_ref_num != '' 
+                          AND (ptr_type IN ('Refund','Void','Reissue')) 
+                          AND ptr_status = 'InProcess'
+                          AND cancel_status = 0
+                          AND (message IS NULL OR message = '' OR message NOT LIKE '%email sent%')";
 
                 $stmt = $this->conn->prepare($query);
 

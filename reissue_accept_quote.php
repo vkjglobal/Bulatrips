@@ -50,6 +50,8 @@ if (!in_array($acceptQuote, ['yes', 'no'])) {
 	exit;
 }
 
+$acceptedItineraryJson = '';
+
 $requestData = array(
 	'ptrType' => 'ReIssueQuote',
 	'mFRef' => $mfreNum,
@@ -60,6 +62,83 @@ $requestData = array(
 
 $objCancel->_writeLog('-------------'.date('l jS \of F Y h:i:s A').'-------------','reissueQuote.txt');
 $objCancel->_writeLog('Accept ReissueQuote Request: '.json_encode($requestData),'reissueQuote.txt');
+
+// Fetch the quoted segments for the selected option
+if (MOCK_MODE) {
+	try {
+		$quote = MockMystifly::getGetExchangeQuoteResponse($numericPtrId ?: $ptrId);
+		if (!empty($quote['Data']['RequestedPreferences'])) {
+			$opts = $quote['Data']['RequestedPreferences'];
+			foreach ($opts as $pref) {
+				if (intval($pref['Option'] ?? 0) === intval($preferenceOption)) {
+					$legs = $pref['QuotedSegments'] ?? [];
+					$itinerary = ['outbound_segments' => [], 'return_segments' => []];
+					foreach ($legs as $lg) {
+						$cabinCode = strtoupper($lg['CabinClass'] ?? 'Y');
+						$map = ['Y' => 'Economy', 'W' => 'PremiumEconomy', 'S' => 'PremiumEconomy', 'C' => 'Business', 'J' => 'Business', 'F' => 'First'];
+						$cabinName = $map[$cabinCode] ?? 'Economy';
+						$one = [
+							'origin' => $lg['Origin'] ?? '',
+							'destination' => $lg['Destination'] ?? '',
+							'dep_date' => isset($lg['DepartureDatetime']) ? date('Y-m-d H:i:s', strtotime($lg['DepartureDatetime'])) : '',
+							'arrival_date' => isset($lg['ArrivalDateTime']) ? date('Y-m-d H:i:s', strtotime($lg['ArrivalDateTime'])) : '',
+							'airline_code' => $lg['AirlineCode'] ?? '',
+							'flight_no' => strval($lg['FlightNumber'] ?? ''),
+							'cabin_preference' => $cabinName,
+							'cabin_code' => $cabinCode,
+							'booking_class' => $lg['BookingClass'] ?? '',
+							'duration' => $lg['Duration'] ?? '',
+							'stops' => isset($lg['Stops']) ? intval($lg['Stops']) : 0
+						];
+						if (!empty($lg['isReturn'])) { $itinerary['return_segments'][] = $one; } else { $itinerary['outbound_segments'][] = $one; }
+					}
+					if (!empty($itinerary['outbound_segments']) || !empty($itinerary['return_segments'])) { $acceptedItineraryJson = json_encode($itinerary); }
+					break;
+				}
+			}
+		}
+	} catch (Exception $e) {
+		$objCancel->_writeLog('Itinerary capture failed (MOCK): '.$e->getMessage(), 'reissueQuote.txt');
+	}
+} else {
+	try {
+		// Live: call GetExchangeQuote to read the quoted segments
+		$geqReq = ['PTRId' => $numericPtrId];
+		$geq = $objCancel->callApi('GetExchangeQuote', $geqReq);
+		$geqData = json_decode($geq['responseData'] ?? '{}', true);
+		if (!empty($geqData['Data']['RequestedPreferences'])) {
+			foreach ($geqData['Data']['RequestedPreferences'] as $pref) {
+				if (intval($pref['Option'] ?? 0) === intval($preferenceOption)) {
+					$legs = $pref['QuotedSegments'] ?? [];
+					$itinerary = ['outbound_segments' => [], 'return_segments' => []];
+					foreach ($legs as $lg) {
+						$cabinCode = strtoupper($lg['CabinClass'] ?? 'Y');
+						$map = ['Y' => 'Economy', 'W' => 'PremiumEconomy', 'S' => 'PremiumEconomy', 'C' => 'Business', 'J' => 'Business', 'F' => 'First'];
+						$cabinName = $map[$cabinCode] ?? 'Economy';
+						$one = [
+							'origin' => $lg['Origin'] ?? '',
+							'destination' => $lg['Destination'] ?? '',
+							'dep_date' => isset($lg['DepartureDatetime']) ? date('Y-m-d H:i:s', strtotime($lg['DepartureDatetime'])) : '',
+							'arrival_date' => isset($lg['ArrivalDateTime']) ? date('Y-m-d H:i:s', strtotime($lg['ArrivalDateTime'])) : '',
+							'airline_code' => $lg['AirlineCode'] ?? '',
+							'flight_no' => strval($lg['FlightNumber'] ?? ''),
+							'cabin_preference' => $cabinName,
+							'cabin_code' => $cabinCode,
+							'booking_class' => $lg['BookingClass'] ?? '',
+							'duration' => $lg['Duration'] ?? '',
+							'stops' => isset($lg['Stops']) ? intval($lg['Stops']) : 0
+						];
+						if (!empty($lg['isReturn'])) { $itinerary['return_segments'][] = $one; } else { $itinerary['outbound_segments'][] = $one; }
+					}
+					if (!empty($itinerary['outbound_segments']) || !empty($itinerary['return_segments'])) { $acceptedItineraryJson = json_encode($itinerary); }
+					break;
+				}
+			}
+		}
+	} catch (Exception $e) {
+		$objCancel->_writeLog('Itinerary capture failed (LIVE): '.$e->getMessage(), 'reissueQuote.txt');
+	}
+}
 
 // Check if we should use mock responses
 if (MOCK_MODE) {
@@ -116,8 +195,8 @@ try {
                 $objCancel->insCncelSts(
                     $bookingId, $userId, 'post', '', $mfreNum,
                     '', 200, $ptrString, 'Reissue', $sla,
-                    'InProcess', '', $ticketNum, '', '',
-                    0, 'USD', 0, 'ReissueQuote accepted by user', $travId
+                    'InProcess', '', $ticketNum, 0, 0,
+                    0, 0, 'USD', 0, $acceptedItineraryJson ?: 'ReissueQuote accepted by user', $travId
                 );
                 // Update travellers_details
                 if ($travId > 0) {
@@ -133,8 +212,8 @@ try {
             $objCancel->insCncelSts(
                 $bookingId, $userId, 'post', '', $mfreNum,
                 '', 200, $ptrString, 'Reissue', $sla,
-                'InProcess', '', '', '', '',
-                0, 'USD', 0, 'ReissueQuote accepted by user'
+                'InProcess', '', '', 0, 0,
+                0, 0, 'USD', 0, $acceptedItineraryJson ?: 'ReissueQuote accepted by user'
             );
         }
     }

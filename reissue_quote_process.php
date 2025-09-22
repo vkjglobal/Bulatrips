@@ -237,8 +237,8 @@ try {
             $objCancel->insCncelSts(
                 $bookingId, $userId, 'post', '', $mfRef,
                 '', 200, $ptrId, 'Reissue', $slaMinutes,
-                $ptrStatus, '', $eTicket, '', '',
-                0, 'USD', 0, 'ReissueQuote request submitted', $travId
+                $ptrStatus, '', $eTicket, 0, 0,
+                0, 0, 'USD', 0, 'ReissueQuote request submitted', $travId
             );
         }
         

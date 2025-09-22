@@ -56,6 +56,37 @@ if (empty($bookingId) || empty($selectedPassengers) || empty($newDepDate)) {
     exit;
 }
 
+// Compare against current booking dates to prevent same-date submissions
+try {
+    $booking = new Booking($conn);
+    $resultBooking = $booking->getBookingDetailsbyId($bookingId);
+    if (!empty($resultBooking)) {
+        $currentOutbound = $resultBooking[0]['dep_date'] ?? '';
+        $currentOutboundYmd = $currentOutbound ? date('Y-m-d', strtotime($currentOutbound)) : '';
+        $newOutboundYmd = date('Y-m-d', strtotime($newDepDate));
+
+        // For return date, read the paired segment
+        $currentReturnYmd = '';
+        $arrival_location_db = $resultBooking[0]['arrival_location'] ?? '';
+        $retRows = $objCancel->ReturnDepDate($bookingId, $userId, $arrival_location_db);
+        if (!empty($retRows) && !empty($retRows[0]['dep_date'])) {
+            $currentReturnYmd = date('Y-m-d', strtotime($retRows[0]['dep_date']));
+        }
+        $newReturnYmd = $newReturnDate ? date('Y-m-d', strtotime($newReturnDate)) : '';
+
+        $isOutboundSame = ($currentOutboundYmd !== '' && $newOutboundYmd === $currentOutboundYmd);
+        $isReturnSame = ($newReturnYmd !== '' && $currentReturnYmd !== '' && $newReturnYmd === $currentReturnYmd);
+
+        // If round trip and both dates are unchanged OR one-way and outbound unchanged → block
+        if (($airTripType === 'Return' && $isOutboundSame && $isReturnSame) || ($airTripType !== 'Return' && $isOutboundSame)) {
+            echo '<div class="alert alert-warning">Selected dates are the same as your current itinerary. Please choose a different date.</div>';
+            exit;
+        }
+    }
+} catch (Exception $e) {
+    // Non-blocking if date check fails
+}
+
 // For round-trip, also validate return date
 if ($airTripType === 'Return' && empty($newReturnDate)) {
     echo '<div class="alert alert-danger">Please provide a return date for round-trip reissue.</div>';

@@ -1,0 +1,44 @@
+2. Get Refund Quote
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "RefundQuote",
+  "MFRef": "MF24648423", 
+  "PTRId": 12668,
+  "Page": 1
+}
+Response
+{
+    "Success": true,
+    "Data": {
+        "PTRId": 12668,
+        "PTRType": "RefundQuote",
+        "PTRStatus": "Completed",
+        "MFRef": "MF24648423",
+        "RefundQuotes": [
+            {
+                "FirstName": "PARVEZ",
+                "LastName": "AHMED",
+                "Title": "Mr",
+                "PassengerType": "ADT",
+                "Eticket": "AD2NGS",
+                "TotalFare": 78.35,
+                "UnusedFare": 78.35,
+                "CancellationCharge": 36.01,
+                "NoShowCharge": 0.0,
+                "Tax": 0.0,
+                "AdminCharges": 0.0,
+                "GSTCharge": 0.0,
+                "TotalRefundCharges": 36.01,
+                "TotalRefundAmount": 42.34,
+                "Currency": "USD",
+                "YQ_Tax": 0.0,
+                "YR_Tax": 0.0,
+                "OtherTaxesK3": 0.0,
+                "ExtraServiceCharge": 0.0
+            }
+        ]
+    }
+}

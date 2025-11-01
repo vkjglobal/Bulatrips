@@ -386,3 +386,451 @@ Alert needed for stuck PTR: 1757772441
 Alert needed for stuck PTR: 1757772607
 Alert needed for stuck PTR: 1757772919
 Alert needed for stuck PTR: 1757773343
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"TKT310911","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Passenger ticket number not matching."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"ReIssueQuote","mFRef":"MF31554025","PTRId":1758164278,"PreferenceOption":2,"AcceptQuote":"yes"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"You are not authorize to perform any action on this PTR, as this records does not belongs to you."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16625,"PTRType":"VoidQuote","MFRef":"MF31807925","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-09-26T16:29:59.997","VoidQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"1511.90","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16625."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16626,"PTRType":"RefundQuote","MFRef":"MF31807925","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","TotalFare":1511.9,"UnusedFare":1511.9,"CancellationCharge":281.71,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":281.71,"TotalRefundAmount":1230.19,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16626."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16627,"PTRType":"RefundQuote","MFRef":"MF31807925","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","TotalFare":1511.9,"UnusedFare":1511.9,"CancellationCharge":281.71,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":281.71,"TotalRefundAmount":1230.19,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16627."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16628,"PTRType":"VoidQuote","MFRef":"MF31807925","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-09-26T16:29:59.997","VoidQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"1511.90","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16628."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16629,"PTRType":"Void","MFRef":"MF31807925","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"1511.90","Currency":"USD"}]}}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31807925","PTRId":"16629","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":16629,"PTRType":"Void","MFRef":"MF31807925","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":18674,"PTRId":16629,"PaxId":478562,"TicketNumber":"0985459002018","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Linda","LastName":"Hull","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31807925","PTRId":"16629","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":16629,"PTRType":"Void","MFRef":"MF31807925","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":18674,"PTRId":16629,"PaxId":478562,"TicketNumber":"0985459002018","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Linda","LastName":"Hull","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"ReissueQuote","mFRef":"MF31807925","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"BLR","destinationLocationCode":"SIN","cabinPreference":"Y","departureDateTime":"2025-09-29","flightNumber":2392,"airlineCode":"AI"},{"originLocationCode":"SIN","destinationLocationCode":"BLR","cabinPreference":"Y","departureDateTime":"2025-10-11","flightNumber":8104,"airlineCode":"AI"}]}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Void request PTR 16629 is already in process"}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31807925","PTRId":"16629","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":16629,"PTRType":"Void","MFRef":"MF31807925","BookingStatus":"Voided","PTRStatus":"Completed","CreditNoteNumber":"3101644","TotalRefundAmount":"1511.90","Currency":"USD","CreatedBy":"XPay Global","Resolution":"Voided","CreditNoteStatus":"Paid","pTRPaxDetails":[{"Id":18674,"PTRId":16629,"PaxId":478562,"TicketNumber":"0985459002018","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Linda","LastName":"Hull","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"GetExchangeQuote","MFRef":"MF31554025","PTRId":"1758164278","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRId":0,"CreatedOn":"0001-01-01T00:00:00","RequestCompletionTime":"0001-01-01T00:00:00"},"Success":true}
+Alert needed for stuck PTR: 1758164278
+Alert needed for stuck PTR: 1758164278
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31822825","AllowChildPassenger":false,"passengers":[{"firstName":"Cairo","lastName":"Vega","title":"Mr","eTicket":"0985459002594","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Please use Split PNR feature to divide the passengers."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31822825","AllowChildPassenger":false,"passengers":[{"firstName":"Cairo","lastName":"Vega","title":"Mr","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kasimir","lastName":"Bishop","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Xyla","lastName":"Melton","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kato","lastName":"Witt","title":"MISS","eTicket":"0985459002594","passengerType":"CHD"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31822825","AllowChildPassenger":false,"passengers":[{"firstName":"Cairo","lastName":"Vega","title":"Mr","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kasimir","lastName":"Bishop","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Xyla","lastName":"Melton","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kato","lastName":"Witt","title":"MISS","eTicket":"0985459002594","passengerType":"CHD"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31822825","AllowChildPassenger":false,"passengers":[{"firstName":"Cairo","lastName":"Vega","title":"Mr","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kasimir","lastName":"Bishop","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Xyla","lastName":"Melton","title":"MISS","eTicket":"0985459002594","passengerType":"ADT"},{"firstName":"Kato","lastName":"Witt","title":"MISS","eTicket":"0985459002594","passengerType":"CHD"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16995,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16995."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16996,"PTRType":"RefundQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16996."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16997,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16997."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16998,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16998."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":16999,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 16999."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17000,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17000."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17001,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17001."}}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17002,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17002."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17003,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17003."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request PTR 16996 is already in process."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17006,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17006."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17010,"PTRType":"VoidQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Faith","LastName":"Harmon","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002789","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"903.37","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17010."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002793","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Data":null,"Success":false,"Message":"The remote server returned an error: (500) Internal Server Error."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002791","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002792","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17014,"PTRType":"VoidQuote","MFRef":"MF31892925","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Kenneth","LastName":"Duffy","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002791","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Reed","LastName":"Espinoza","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002792","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Dieter","LastName":"Pacheco","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002793","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17014."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002791","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002792","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Kenneth","LastName":"Duffy","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002791","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Reed","LastName":"Espinoza","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002792","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Dieter","LastName":"Pacheco","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002793","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"}]}}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF31895525","AllowChildPassenger":false,"passengers":[{"firstName":"Bianca","lastName":"Fields","title":"Ms","eTicket":"0985459004562","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17018,"PTRType":"VoidQuote","MFRef":"MF31895525","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-07T16:29:59.997","VoidQuotes":[{"FirstName":"Bianca","LastName":"Fields","Title":"Ms","PassengerType":"ADT","ETicket":"0985459004562","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"764.39","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17018."}}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Voided","PTRStatus":"Completed","CreditNoteNumber":"3101654","TotalRefundAmount":"2310.18","Currency":"USD","CreatedBy":"XPay Global","Resolution":"Voided","CreditNoteStatus":"Paid","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Voided","PTRStatus":"Completed","CreditNoteNumber":"3101654","TotalRefundAmount":"2310.18","Currency":"USD","CreatedBy":"XPay Global","Resolution":"Voided","CreditNoteStatus":"Paid","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF31892925","PTRId":"17016","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","BookingStatus":"Voided","PTRStatus":"Completed","CreditNoteNumber":"3101654","TotalRefundAmount":"2310.18","Currency":"USD","CreatedBy":"XPay Global","Resolution":"Voided","CreditNoteStatus":"Paid","pTRPaxDetails":[{"Id":19004,"PTRId":17016,"PaxId":479635,"TicketNumber":"0985459002791","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Kenneth","LastName":"Duffy","EMDFee":0.0},{"Id":19005,"PTRId":17016,"PaxId":479636,"TicketNumber":"0985459002792","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mrs","FirstName":"Reed","LastName":"Espinoza","EMDFee":0.0},{"Id":19006,"PTRId":17016,"PaxId":479637,"TicketNumber":"0985459002793","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Dieter","LastName":"Pacheco","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17156,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17156."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17157,"PTRType":"RefundQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17157."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17158,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17158."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17159,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17159."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17161,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17161."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17162,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17162."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17163,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17163."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17164,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17164."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17165,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17165."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17166,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17166."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17167,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17167."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17168,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17168."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 0
+Response Body: 
+Curl Error: Failed to connect to restapidemo.myfarebox.com port 443 after 21040 ms: Couldn't connect to server
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 0
+Response Body: 
+Curl Error: OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to restapidemo.myfarebox.com:443 
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17169,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17169."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17170,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17170."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17171,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17171."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17172,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17172."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17173,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17173."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17174,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17174."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17175,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17175."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32025425","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Void request for the selected passengers is already in process."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32025425","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Void request for the selected passengers is already in process."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31895525","AllowChildPassenger":false,"passengers":[{"firstName":"Bianca","lastName":"Fields","title":"Ms","eTicket":"0985459004562","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17337,"PTRType":"RefundQuote","MFRef":"MF31895525","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17337."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF31895525","AllowChildPassenger":false,"passengers":[{"firstName":"Bianca","lastName":"Fields","title":"Ms","eTicket":"0985459004562","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":false,"Data":null,"Message":"Refund quote request PTR 17337 is already in process."}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32074725","AllowChildPassenger":false,"passengers":[{"firstName":"Stuart","lastName":"Justice","title":"Mrs","eTicket":"0985459008600","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17366,"PTRType":"VoidQuote","MFRef":"MF32074725","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-16T16:29:59.997","VoidQuotes":[{"FirstName":"Stuart","LastName":"Justice","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459008600","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"162.30","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17366."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32079125","AllowChildPassenger":false,"passengers":[{"firstName":"Nayda","lastName":"Hunt","title":"Mr","eTicket":"0985459008626","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17376,"PTRType":"VoidQuote","MFRef":"MF32079125","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-16T16:29:59.997","VoidQuotes":[{"FirstName":"Nayda","LastName":"Hunt","Title":"Mr","PassengerType":"ADT","ETicket":"0985459008626","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"162.30","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17376."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"Void","mFRef":"MF32079125","AllowChildPassenger":false,"passengers":[{"firstName":"Nayda","lastName":"Hunt","title":"Mr","eTicket":"0985459008626","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17377,"PTRType":"Void","MFRef":"MF32079125","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Nayda","LastName":"Hunt","Title":"Mr","PassengerType":"ADT","ETicket":"0985459008626","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"162.30","Currency":"USD"}]}}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF32079125","PTRId":"17377","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17377,"PTRType":"Void","MFRef":"MF32079125","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":19494,"PTRId":17377,"PaxId":482020,"TicketNumber":"0985459008626","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Nayda","LastName":"Hunt","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF32079125","PTRId":"17377","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17377,"PTRType":"Void","MFRef":"MF32079125","BookingStatus":"Ticketed","PTRStatus":"InProcess","CreatedBy":"XPay Global","Resolution":"","pTRPaxDetails":[{"Id":19494,"PTRId":17377,"PaxId":482020,"TicketNumber":"0985459008626","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Nayda","LastName":"Hunt","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Request to: https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+Request Data: {"ptrType":"Void","MFRef":"MF32079125","PTRId":"17377","Page":1}
+HTTP Code: 200
+Response: {"Data":{"PTRDetail":[{"PTRId":17377,"PTRType":"Void","MFRef":"MF32079125","BookingStatus":"Voided","PTRStatus":"Completed","CreditNoteNumber":"3101659","TotalRefundAmount":"162.30","Currency":"USD","CreatedBy":"XPay Global","Resolution":"Voided","CreditNoteStatus":"Paid","pTRPaxDetails":[{"Id":19494,"PTRId":17377,"PaxId":482020,"TicketNumber":"0985459008626","TicketStatus":1,"IsActive":true,"PassengerType":"ADT","Title":"Mr","FirstName":"Nayda","LastName":"Hunt","EMDFee":0.0}],"PTRTypeStatus":0}]},"Success":true}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"VoidQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Void quote request"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17418,"PTRType":"VoidQuote","MFRef":"MF32121625","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-17T16:29:59.997","VoidQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"162.30","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17418."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17419,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17419."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17420,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17420."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17421,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17421."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17422,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17422."}}
+API Endpoint: https://restapidemo.myfarebox.com/api/PostTicketingRequest
+Request Data: {"ptrType":"RefundQuote","mFRef":"MF32122025","AllowChildPassenger":false,"passengers":[{"firstName":"David","lastName":"Gamble","title":"Mrs","eTicket":"0985459009409","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Response Code: 200
+Response Body: {"Success":true,"Data":{"PTRId":17423,"PTRType":"RefundQuote","MFRef":"MF32122025","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"David","LastName":"Gamble","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009409","TotalFare":1051.8,"UnusedFare":1051.8,"CancellationCharge":234.37,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":234.37,"TotalRefundAmount":817.43,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17423."}}

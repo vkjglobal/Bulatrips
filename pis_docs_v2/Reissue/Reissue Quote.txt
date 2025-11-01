@@ -1,0 +1,49 @@
+1. Reissue Quote
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "ReissueQuote",
+  "mFRef": "MF20267522",
+  "AllowChildPassenger": true,
+  "reissueQuoteRequestType": "Segment",
+  "passengers": [
+    {
+      "firstName": "Parvez",
+      "lastName": "Ahmed",
+      "title": "MR",
+      "eTicket": "TKT308893",
+      "passengerType": "ADT"
+    }
+  ],
+  "originDestinations": [
+    {
+      "originLocationCode": "BLR",
+      "destinationLocationCode": "IXE",
+      "cabinPreference": "Y",
+      "departureDateTime": "2022-05-22",
+      "flightNumber": 3008,
+      "airlineCode": "SG"
+    },
+ {
+      "originLocationCode": "IXE",
+      "destinationLocationCode": "DXB",
+      "cabinPreference": "Y",
+      "departureDateTime": "2022-05-22",
+      "flightNumber": 59,
+      "airlineCode": "SG"
+    }
+  ], 
+}
+Response
+{
+  "Success": true,
+  "Data": {
+    "PTRId": 8985,
+    "PTRType": "ReIssueQuote",
+    "MFRef": "MF20267522",
+    "SLAInMinutes": 30,
+    "PTRStatus": "InProcess"
+  }
+}

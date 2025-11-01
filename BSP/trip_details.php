@@ -9,7 +9,7 @@ $endpoint   =   'v1.1/TripDetails/{MFRef}';
 $apiEndpoint = APIENDPOINT.$endpoint;
 $bearerToken   =   BEARER;
 
-$mfRef = "MF28846424";
+$mfRef = "MF32025425";
 $apiEndpoint = str_replace('{MFRef}', $mfRef, $apiEndpoint);
 
 $ch = curl_init();

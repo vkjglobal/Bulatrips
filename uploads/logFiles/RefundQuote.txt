@@ -26797,3 +26797,4857 @@ get_booking_details result: Array
 
 )
 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 180
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31554025
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 181, MF Ref: MF31751525, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-09-24 08:53:29
+            [mf_reference] => MF31751525
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-09-22T16:29:59.997
+            [dep_date] => 2025-09-30 09:55:00
+            [arrival_location] => JED
+            [id] => 184
+            [first_name] => Dillon
+            [last_name] => Blevins
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 1572796453163
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-09-22T16:29:59.997, Current Time: 2025-09-22 17:04:37
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Dillon
+            [lastName] => Blevins
+            [title] => MISS
+            [eTicket] => 1572796453163
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-09-24 08:53:29
+    [mf_reference] => MF31751525
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-09-22T16:29:59.997
+    [dep_date] => 2025-09-30 09:55:00
+    [arrival_location] => JED
+    [id] => 184
+    [first_name] => Dillon
+    [last_name] => Blevins
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => 1572796453163
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 181
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31751525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 181, MF Ref: MF31751525, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-09-24 08:53:29
+            [mf_reference] => MF31751525
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-09-22T16:29:59.997
+            [dep_date] => 2025-09-30 09:55:00
+            [arrival_location] => JED
+            [id] => 184
+            [first_name] => Dillon
+            [last_name] => Blevins
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 1572796453163
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-09-22T16:29:59.997, Current Time: 2025-09-22 17:04:56
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Dillon
+            [lastName] => Blevins
+            [title] => MISS
+            [eTicket] => 1572796453163
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31751525","AllowChildPassenger":false,"passengers":[{"firstName":"Dillon","lastName":"Blevins","title":"MISS","eTicket":"1572796453163","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request cannot be processed as the refund details are missing from the request."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-09-24 08:53:29
+    [mf_reference] => MF31751525
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-09-22T16:29:59.997
+    [dep_date] => 2025-09-30 09:55:00
+    [arrival_location] => JED
+    [id] => 184
+    [first_name] => Dillon
+    [last_name] => Blevins
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => 1572796453163
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 186
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31807925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 186
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31807925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 186, MF Ref: MF31807925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-09-27 09:57:15
+            [mf_reference] => MF31807925
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-09-26T16:29:59.997
+            [dep_date] => 2025-09-30 00:30:00
+            [arrival_location] => ADL
+            [id] => 189
+            [first_name] => Linda
+            [last_name] => Hull
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459002018
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-09-26T16:29:59.997, Current Time: 2025-09-26 10:38:57
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Linda
+            [lastName] => Hull
+            [title] => Mrs
+            [eTicket] => 0985459002018
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":16626,"PTRType":"RefundQuote","MFRef":"MF31807925","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","TotalFare":1511.9,"UnusedFare":1511.9,"CancellationCharge":281.71,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":281.71,"TotalRefundAmount":1230.19,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16626."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-09-27 09:57:15
+    [mf_reference] => MF31807925
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-09-26T16:29:59.997
+    [dep_date] => 2025-09-30 00:30:00
+    [arrival_location] => ADL
+    [id] => 189
+    [first_name] => Linda
+    [last_name] => Hull
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459002018
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Friday 26th of September 2025 10:39:07 AM-------------
+REsponse Received for MF:\nMF31807925
+userId is 73
+Booking ID is 186
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31807925
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Linda
+                    [lastName] => Hull
+                    [title] => Mrs
+                    [eTicket] => 0985459002018
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 16626
+            [PTRType] => RefundQuote
+            [MFRef] => MF31807925
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Linda
+                            [LastName] => Hull
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459002018
+                            [TotalFare] => 1511.9
+                            [UnusedFare] => 1511.9
+                            [CancellationCharge] => 281.71
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 281.71
+                            [TotalRefundAmount] => 1230.19
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 16626.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote request submitted successfully
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 186
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31807925
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 186, MF Ref: MF31807925, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-09-27 09:57:15
+            [mf_reference] => MF31807925
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-09-26T16:29:59.997
+            [dep_date] => 2025-09-30 00:30:00
+            [arrival_location] => ADL
+            [id] => 189
+            [first_name] => Linda
+            [last_name] => Hull
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459002018
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-09-26T16:29:59.997, Current Time: 2025-09-26 10:39:15
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Linda
+            [lastName] => Hull
+            [title] => Mrs
+            [eTicket] => 0985459002018
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":16627,"PTRType":"RefundQuote","MFRef":"MF31807925","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","TotalFare":1511.9,"UnusedFare":1511.9,"CancellationCharge":281.71,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":281.71,"TotalRefundAmount":1230.19,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16627."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-09-27 09:57:15
+    [mf_reference] => MF31807925
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-09-26T16:29:59.997
+    [dep_date] => 2025-09-30 00:30:00
+    [arrival_location] => ADL
+    [id] => 189
+    [first_name] => Linda
+    [last_name] => Hull
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459002018
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Friday 26th of September 2025 10:39:23 AM-------------
+REsponse Received for MF:\nMF31807925
+userId is 73
+Booking ID is 186
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31807925
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Linda
+                    [lastName] => Hull
+                    [title] => Mrs
+                    [eTicket] => 0985459002018
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 16627
+            [PTRType] => RefundQuote
+            [MFRef] => MF31807925
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Linda
+                            [LastName] => Hull
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459002018
+                            [TotalFare] => 1511.9
+                            [UnusedFare] => 1511.9
+                            [CancellationCharge] => 281.71
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 281.71
+                            [TotalRefundAmount] => 1230.19
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 16627.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote request submitted successfully
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 186
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31807925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 186
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31807925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 187
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31822825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 187
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31822825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 187
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31822825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 187
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31822825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 08:12:16
+            [mf_reference] => MF31892825
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-09 20:35:00
+            [arrival_location] => JFK
+            [id] => 195
+            [first_name] => Faith
+            [last_name] => Harmon
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459002789
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-07 05:17:43
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Faith
+            [lastName] => Harmon
+            [title] => Mrs
+            [eTicket] => 0985459002789
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":16996,"PTRType":"RefundQuote","MFRef":"MF31892825","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 16996."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-07 08:12:16
+    [mf_reference] => MF31892825
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-07T16:29:59.997
+    [dep_date] => 2025-10-09 20:35:00
+    [arrival_location] => JFK
+    [id] => 195
+    [first_name] => Faith
+    [last_name] => Harmon
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459002789
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Tuesday 7th of October 2025 05:17:47 AM-------------
+REsponse Received for MF:\nMF31892825
+userId is 73
+Booking ID is 189
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31892825
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Faith
+                    [lastName] => Harmon
+                    [title] => Mrs
+                    [eTicket] => 0985459002789
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 16996
+            [PTRType] => RefundQuote
+            [MFRef] => MF31892825
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+            [RefundQuotes] => Array
+                (
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 16996.
+        )
+
+)
+
+Step 1Success InProcess
+step end of refund quote ========= ✅ Void Quote request submitted successfully
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 08:12:16
+            [mf_reference] => MF31892825
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-09 20:35:00
+            [arrival_location] => JFK
+            [id] => 195
+            [first_name] => Faith
+            [last_name] => Harmon
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459002789
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-07 05:35:01
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Faith
+            [lastName] => Harmon
+            [title] => Mrs
+            [eTicket] => 0985459002789
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request PTR 16996 is already in process."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-07 08:12:16
+    [mf_reference] => MF31892825
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-07T16:29:59.997
+    [dep_date] => 2025-10-09 20:35:00
+    [arrival_location] => JFK
+    [id] => 195
+    [first_name] => Faith
+    [last_name] => Harmon
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459002789
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 189
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892825
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 190
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31892925
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 191, MF Ref: MF31895525, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-07 06:59:50
+Void window active - using VoidQuote (best option for customer)
+step end of refund quote ========= 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 191, MF Ref: MF31895525, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-07 06:59:57
+Void window active - using VoidQuote (best option for customer)
+step end of refund quote ========= 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 191, MF Ref: MF31895525, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-07 07:00:19
+Void window active - using VoidQuote (best option for customer)
+step end of refund quote ========= 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 05:42:25
+Void window active - using VoidQuote (best option for customer)
+step end of refund quote ========= 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 05:43:16
+Void window active - using VoidQuote (best option for customer)
+step end of refund quote ========= 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:04:48
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - user requested refund"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17157,"PTRType":"RefundQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17157."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:04:53 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - user requested refund
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17157
+            [PTRType] => RefundQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+            [RefundQuotes] => Array
+                (
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17157.
+        )
+
+)
+
+Step 1Success InProcess
+step end of refund quote ========= ✅ Void Quote request submitted successfully
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:08:35
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17159,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17159."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:08:39 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17159
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17159.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:21:25
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17161,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17161."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:21:29 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17161
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17161.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:29:58
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17163,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17163."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:30:01 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17163
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17163.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:30:15
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17164,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17164."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:30:18 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17164
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17164.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:34:12
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17165,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17165."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:34:14 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17165
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17165.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:34:30
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17167,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17167."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:34:32 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17167
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17167.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:37:08
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+API Error - HTTP Code: 0, Response: 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:37:48
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+API Error - HTTP Code: 0, Response: 
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:41:17
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17169,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17169."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:41:19 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17169
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17169.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:42:02
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17171,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17171."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:42:04 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17171
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17171.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+AJAX Request - Raw input: {"booking_id":"192","passengerDetails":[{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-13 06:41:01
+            [mf_reference] => MF32007325
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-13T16:29:59.997
+            [dep_date] => 2025-10-14 01:40:00
+            [arrival_location] => JFK
+            [id] => 200
+            [first_name] => Haley
+            [last_name] => Michael
+            [title] => Mr
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459006457
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-13T16:29:59.997, Current Time: 2025-10-13 06:44:38
+Void window active - using VoidQuote (best option for customer)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Haley
+            [lastName] => Michael
+            [title] => Mr
+            [eTicket] => 0985459006457
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using VoidQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"VoidQuote","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Void quote request - within void window"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17174,"PTRType":"VoidQuote","MFRef":"MF32007325","SLAInMinutes":60,"PTRStatus":"Completed","VoidingWindow":"2025-10-13T16:29:59.997","VoidQuotes":[{"FirstName":"Haley","LastName":"Michael","Title":"Mr","PassengerType":"ADT","ETicket":"0985459006457","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"702.06","Currency":"USD"}],"Message":"Request for void quote has been submitted successfully. Your Request# is 17174."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-13 06:41:01
+    [mf_reference] => MF32007325
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-13T16:29:59.997
+    [dep_date] => 2025-10-14 01:40:00
+    [arrival_location] => JFK
+    [id] => 200
+    [first_name] => Haley
+    [last_name] => Michael
+    [title] => Mr
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459006457
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Monday 13th of October 2025 06:44:40 AM-------------
+REsponse Received for MF:\nMF32007325
+userId is 73
+Booking ID is 192
+Request Received\nArray
+(
+    [ptrType] => VoidQuote
+    [mFRef] => MF32007325
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Haley
+                    [lastName] => Michael
+                    [title] => Mr
+                    [eTicket] => 0985459006457
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Void quote request - within void window
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17174
+            [PTRType] => VoidQuote
+            [MFRef] => MF32007325
+            [SLAInMinutes] => 60
+            [PTRStatus] => Completed
+            [VoidingWindow] => 2025-10-13T16:29:59.997
+            [VoidQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Haley
+                            [LastName] => Michael
+                            [Title] => Mr
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459006457
+                            [AdminCharges] => 0.00
+                            [GSTCharge] => 0.00
+                            [TotalVoidingFee] => 0.00
+                            [TotalRefundAmount] => 702.06
+                            [Currency] => USD
+                        )
+
+                )
+
+            [Message] => Request for void quote has been submitted successfully. Your Request# is 17174.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= ✅ Void Quote successful - Best option for you (minimal charges)
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32007325
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32025425
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 192
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32025425
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 191, MF Ref: MF31895525, User ID: 73
+AJAX Request - Raw input: {"booking_id":"191","passengerDetails":[{"firstname":"Bianca","lastname":"Fields","title":"MISS","eticket":"0985459004562","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-14 15:55:39
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bianca
+            [lastName] => Fields
+            [title] => Ms
+            [eTicket] => 0985459004562
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31895525","AllowChildPassenger":false,"passengers":[{"firstName":"Bianca","lastName":"Fields","title":"Ms","eTicket":"0985459004562","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17337,"PTRType":"RefundQuote","MFRef":"MF31895525","SLAInMinutes":60,"PTRStatus":"InProcess","RefundQuotes":[],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17337."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-07 07:55:46
+    [mf_reference] => MF31895525
+    [booking_ticket_status] => Flown
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-07T16:29:59.997
+    [dep_date] => 2025-10-08 01:40:00
+    [arrival_location] => JFK
+    [id] => 199
+    [first_name] => Bianca
+    [last_name] => Fields
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459004562
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Tuesday 14th of October 2025 03:55:44 PM-------------
+REsponse Received for MF:\nMF31895525
+userId is 73
+Booking ID is 191
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF31895525
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Bianca
+                    [lastName] => Fields
+                    [title] => Ms
+                    [eTicket] => 0985459004562
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17337
+            [PTRType] => RefundQuote
+            [MFRef] => MF31895525
+            [SLAInMinutes] => 60
+            [PTRStatus] => InProcess
+            [RefundQuotes] => Array
+                (
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17337.
+        )
+
+)
+
+Step 1Success InProcess
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 191
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF31895525
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 191, MF Ref: MF31895525, User ID: 73
+AJAX Request - Raw input: {"booking_id":"191","passengerDetails":[{"firstname":"Bianca","lastname":"Fields","title":"MISS","eticket":"0985459004562","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-07 07:55:46
+            [mf_reference] => MF31895525
+            [booking_ticket_status] => Flown
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-07T16:29:59.997
+            [dep_date] => 2025-10-08 01:40:00
+            [arrival_location] => JFK
+            [id] => 199
+            [first_name] => Bianca
+            [last_name] => Fields
+            [title] => MISS
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459004562
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-07T16:29:59.997, Current Time: 2025-10-14 15:56:17
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Bianca
+            [lastName] => Fields
+            [title] => Ms
+            [eTicket] => 0985459004562
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF31895525","AllowChildPassenger":false,"passengers":[{"firstName":"Bianca","lastName":"Fields","title":"Ms","eTicket":"0985459004562","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":false,"Data":null,"Message":"Refund quote request PTR 17337 is already in process."}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-07 07:55:46
+    [mf_reference] => MF31895525
+    [booking_ticket_status] => Flown
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-07T16:29:59.997
+    [dep_date] => 2025-10-08 01:40:00
+    [arrival_location] => JFK
+    [id] => 199
+    [first_name] => Bianca
+    [last_name] => Fields
+    [title] => MISS
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459004562
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 194
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32074725
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 195
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32079125
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 195
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32079125
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 196
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32121625
+            [user_id] => 73
+        )
+
+)
+
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 196
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32121625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 196, MF Ref: MF32121625, User ID: 73
+AJAX Request - Raw input: {"booking_id":"196","passengerDetails":[{"firstname":"Jakeem","lastname":"Delacruz","title":"Mrs","eticket":"0985459009406","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-17T16:29:59.997, Current Time: 2025-10-18 07:18:45
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jakeem
+            [lastName] => Delacruz
+            [title] => Mrs
+            [eTicket] => 0985459009406
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17419,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17419."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-17 23:29:00
+    [mf_reference] => MF32121625
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-17T16:29:59.997
+    [dep_date] => 2025-12-09 13:40:00
+    [arrival_location] => MAA
+    [id] => 204
+    [first_name] => Jakeem
+    [last_name] => Delacruz
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459009406
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 18th of October 2025 07:18:49 AM-------------
+REsponse Received for MF:\nMF32121625
+userId is 73
+Booking ID is 196
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32121625
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Jakeem
+                    [lastName] => Delacruz
+                    [title] => Mrs
+                    [eTicket] => 0985459009406
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17419
+            [PTRType] => RefundQuote
+            [MFRef] => MF32121625
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Jakeem
+                            [LastName] => Delacruz
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459009406
+                            [TotalFare] => 162.3
+                            [UnusedFare] => 162.3
+                            [CancellationCharge] => 96.9
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 96.9
+                            [TotalRefundAmount] => 65.4
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17419.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 196
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32121625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 196, MF Ref: MF32121625, User ID: 73
+AJAX Request - Raw input: {"booking_id":"196","passengerDetails":[{"firstname":"Jakeem","lastname":"Delacruz","title":"Mrs","eticket":"0985459009406","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-17T16:29:59.997, Current Time: 2025-10-18 07:19:48
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jakeem
+            [lastName] => Delacruz
+            [title] => Mrs
+            [eTicket] => 0985459009406
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17420,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17420."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-17 23:29:00
+    [mf_reference] => MF32121625
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-17T16:29:59.997
+    [dep_date] => 2025-12-09 13:40:00
+    [arrival_location] => MAA
+    [id] => 204
+    [first_name] => Jakeem
+    [last_name] => Delacruz
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459009406
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 18th of October 2025 07:19:52 AM-------------
+REsponse Received for MF:\nMF32121625
+userId is 73
+Booking ID is 196
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32121625
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Jakeem
+                    [lastName] => Delacruz
+                    [title] => Mrs
+                    [eTicket] => 0985459009406
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17420
+            [PTRType] => RefundQuote
+            [MFRef] => MF32121625
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Jakeem
+                            [LastName] => Delacruz
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459009406
+                            [TotalFare] => 162.3
+                            [UnusedFare] => 162.3
+                            [CancellationCharge] => 96.9
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 96.9
+                            [TotalRefundAmount] => 65.4
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17420.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 196
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32121625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 196, MF Ref: MF32121625, User ID: 73
+AJAX Request - Raw input: {"booking_id":"196","passengerDetails":[{"firstname":"Jakeem","lastname":"Delacruz","title":"Mrs","eticket":"0985459009406","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-17T16:29:59.997, Current Time: 2025-10-18 07:21:14
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jakeem
+            [lastName] => Delacruz
+            [title] => Mrs
+            [eTicket] => 0985459009406
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17421,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17421."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-17 23:29:00
+    [mf_reference] => MF32121625
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-17T16:29:59.997
+    [dep_date] => 2025-12-09 13:40:00
+    [arrival_location] => MAA
+    [id] => 204
+    [first_name] => Jakeem
+    [last_name] => Delacruz
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459009406
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 18th of October 2025 07:21:19 AM-------------
+REsponse Received for MF:\nMF32121625
+userId is 73
+Booking ID is 196
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32121625
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Jakeem
+                    [lastName] => Delacruz
+                    [title] => Mrs
+                    [eTicket] => 0985459009406
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17421
+            [PTRType] => RefundQuote
+            [MFRef] => MF32121625
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Jakeem
+                            [LastName] => Delacruz
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459009406
+                            [TotalFare] => 162.3
+                            [UnusedFare] => 162.3
+                            [CancellationCharge] => 96.9
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 96.9
+                            [TotalRefundAmount] => 65.4
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17421.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Successfully called Refundquote for Your Booking
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 196
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32121625
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 196, MF Ref: MF32121625, User ID: 73
+AJAX Request - Raw input: {"booking_id":"196","passengerDetails":[{"firstname":"Jakeem","lastname":"Delacruz","title":"Mrs","eticket":"0985459009406","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-17 23:29:00
+            [mf_reference] => MF32121625
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-09 13:40:00
+            [arrival_location] => MAA
+            [id] => 204
+            [first_name] => Jakeem
+            [last_name] => Delacruz
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009406
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-17T16:29:59.997, Current Time: 2025-10-18 09:53:14
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => Jakeem
+            [lastName] => Delacruz
+            [title] => Mrs
+            [eTicket] => 0985459009406
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32121625","AllowChildPassenger":false,"passengers":[{"firstName":"Jakeem","lastName":"Delacruz","title":"Mrs","eTicket":"0985459009406","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17422,"PTRType":"RefundQuote","MFRef":"MF32121625","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"Jakeem","LastName":"Delacruz","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009406","TotalFare":162.3,"UnusedFare":162.3,"CancellationCharge":96.9,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":96.9,"TotalRefundAmount":65.4,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17422."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-17 23:29:00
+    [mf_reference] => MF32121625
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-17T16:29:59.997
+    [dep_date] => 2025-12-09 13:40:00
+    [arrival_location] => MAA
+    [id] => 204
+    [first_name] => Jakeem
+    [last_name] => Delacruz
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459009406
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 18th of October 2025 09:53:19 AM-------------
+REsponse Received for MF:\nMF32121625
+userId is 73
+Booking ID is 196
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32121625
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => Jakeem
+                    [lastName] => Delacruz
+                    [title] => Mrs
+                    [eTicket] => 0985459009406
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17422
+            [PTRType] => RefundQuote
+            [MFRef] => MF32121625
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => Jakeem
+                            [LastName] => Delacruz
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459009406
+                            [TotalFare] => 162.3
+                            [UnusedFare] => 162.3
+                            [CancellationCharge] => 96.9
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 96.9
+                            [TotalRefundAmount] => 65.4
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17422.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Refund quote request submitted successfully. You will receive the quote details via email within 0 hour(s).
+get_booking_details query: SELECT mf_reference, user_id FROM temp_booking WHERE id = 197
+get_booking_details result: Array
+(
+    [0] => Array
+        (
+            [mf_reference] => MF32122025
+            [user_id] => 73
+        )
+
+)
+
+AJAX Request - Booking ID: 197, MF Ref: MF32122025, User ID: 73
+AJAX Request - Raw input: {"booking_id":"197","passengerDetails":[{"firstname":"David","lastname":"Gamble","title":"Mrs","eticket":"0985459009409","passengertype":"ADT"}]}
+Database query result: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-20 14:21:38
+            [mf_reference] => MF32122025
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-08 02:30:00
+            [arrival_location] => JFK
+            [id] => 205
+            [first_name] => David
+            [last_name] => Gamble
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009409
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Received passengers data from DB: Array
+(
+    [0] => Array
+        (
+            [booking_status] => Booked
+            [ticket_time_limit] => 2025-10-20 14:21:38
+            [mf_reference] => MF32122025
+            [booking_ticket_status] => Ticketed
+            [fare_type] => Public
+            [child_count] => 0
+            [void_window] => 2025-10-17T16:29:59.997
+            [dep_date] => 2025-12-08 02:30:00
+            [arrival_location] => JFK
+            [id] => 205
+            [first_name] => David
+            [last_name] => Gamble
+            [title] => Mrs
+            [passenger_type] => ADT
+            [e_ticket_number] => 0985459009409
+            [pass_ticket_status] => Ticketed
+            [void_status] => 
+            [ptr_id] => 
+            [reissue_status] => 
+            [reissue_ptr_id] => 
+            [reissue_quote_id] => 
+            [cb_cancel_status] => 
+            [cb_ptr_status] => 
+        )
+
+)
+
+Void Window: 2025-10-17T16:29:59.997, Current Time: 2025-10-18 09:55:03
+Void window expired - using RefundQuote (get quote first)
+Final passengers array: Array
+(
+    [0] => Array
+        (
+            [firstName] => David
+            [lastName] => Gamble
+            [title] => Mrs
+            [eTicket] => 0985459009409
+            [passengerType] => ADT
+        )
+
+)
+
+Smart Selection: Using RefundQuote API
+Reason: User requested refund quote
+API Request: {"ptrType":"RefundQuote","mFRef":"MF32122025","AllowChildPassenger":false,"passengers":[{"firstName":"David","lastName":"Gamble","title":"Mrs","eTicket":"0985459009409","passengerType":"ADT"}],"AdditionalNote":"Refund quote request - void window expired"}
+Total passengers being sent: 1
+HTTP Code: 200
+Raw API Response: {"Success":true,"Data":{"PTRId":17423,"PTRType":"RefundQuote","MFRef":"MF32122025","SLAInMinutes":0,"PTRStatus":"Completed","RefundQuotes":[{"FirstName":"David","LastName":"Gamble","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459009409","TotalFare":1051.8,"UnusedFare":1051.8,"CancellationCharge":234.37,"NoShowCharge":0.0,"Tax":0.0,"AdminCharges":0.0,"GSTCharge":0.0,"TotalRefundCharges":234.37,"TotalRefundAmount":817.43,"Currency":"USD","YQ_Tax":0.0,"YR_Tax":0.0,"OtherTaxesK3":0.0,"ExtraServiceCharge":0.0}],"Message":"Request for refund quote has been submitted successfully. Your Request# is 17423."}}
+DB Passenger Data: Array
+(
+    [booking_status] => Booked
+    [ticket_time_limit] => 2025-10-20 14:21:38
+    [mf_reference] => MF32122025
+    [booking_ticket_status] => Ticketed
+    [fare_type] => Public
+    [child_count] => 0
+    [void_window] => 2025-10-17T16:29:59.997
+    [dep_date] => 2025-12-08 02:30:00
+    [arrival_location] => JFK
+    [id] => 205
+    [first_name] => David
+    [last_name] => Gamble
+    [title] => Mrs
+    [passenger_type] => ADT
+    [e_ticket_number] => 0985459009409
+    [pass_ticket_status] => Ticketed
+    [void_status] => 
+    [ptr_id] => 
+    [reissue_status] => 
+    [reissue_ptr_id] => 
+    [reissue_quote_id] => 
+    [cb_cancel_status] => 
+    [cb_ptr_status] => 
+)
+
+-------------Saturday 18th of October 2025 09:55:11 AM-------------
+REsponse Received for MF:\nMF32122025
+userId is 73
+Booking ID is 197
+Request Received\nArray
+(
+    [ptrType] => RefundQuote
+    [mFRef] => MF32122025
+    [AllowChildPassenger] => 
+    [passengers] => Array
+        (
+            [0] => Array
+                (
+                    [firstName] => David
+                    [lastName] => Gamble
+                    [title] => Mrs
+                    [eTicket] => 0985459009409
+                    [passengerType] => ADT
+                )
+
+        )
+
+    [AdditionalNote] => Refund quote request - void window expired
+)
+
+REsponse Received\nArray
+(
+    [Success] => 1
+    [Data] => Array
+        (
+            [PTRId] => 17423
+            [PTRType] => RefundQuote
+            [MFRef] => MF32122025
+            [SLAInMinutes] => 0
+            [PTRStatus] => Completed
+            [RefundQuotes] => Array
+                (
+                    [0] => Array
+                        (
+                            [FirstName] => David
+                            [LastName] => Gamble
+                            [Title] => Mrs
+                            [PassengerType] => ADT
+                            [ETicket] => 0985459009409
+                            [TotalFare] => 1051.8
+                            [UnusedFare] => 1051.8
+                            [CancellationCharge] => 234.37
+                            [NoShowCharge] => 0
+                            [Tax] => 0
+                            [AdminCharges] => 0
+                            [GSTCharge] => 0
+                            [TotalRefundCharges] => 234.37
+                            [TotalRefundAmount] => 817.43
+                            [Currency] => USD
+                            [YQ_Tax] => 0
+                            [YR_Tax] => 0
+                            [OtherTaxesK3] => 0
+                            [ExtraServiceCharge] => 0
+                        )
+
+                )
+
+            [Message] => Request for refund quote has been submitted successfully. Your Request# is 17423.
+        )
+
+)
+
+Step 1Success Completed
+step end of refund quote ========= Refund quote request submitted successfully. You will receive the quote details via email within 0 hour(s).

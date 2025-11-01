@@ -1,0 +1,238 @@
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failure
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "ReissueQuote",
+  "mFRef": "MF20267522",
+  "AllowChildPassenger": true,
+  "reissueQuoteRequestType": "Segment",
+  "passengers": [
+    {
+      "firstName": "Parvez",
+      "lastName": "Ahmed",
+      "title": "MR",
+      "eTicket": "TKT308893",
+      "passengerType": "ADT"
+    }
+  ],
+  "originDestinations": [
+    {
+      "originLocationCode": "BLR",
+      "destinationLocationCode": "",
+      "cabinPreference": "Y",
+      "departureDateTime": "05-22",
+      "flightNumber": 3008,
+      "airlineCode": "SG"
+    },
+ {
+      "originLocationCode": "IXE",
+      "destinationLocationCode": "DXB",
+      "cabinPreference": "Y",
+      "departureDateTime": "2022-05-22",
+      "flightNumber": 59,
+      "airlineCode": "SG"
+    }
+  ], 
+}
+Response
+{
+  "Success": true,
+  "Data": {
+    "PTRId": 8985,
+    "PTRType": "ReIssueQuote",
+    "MFRef": "MF20267522",
+    "SLAInMinutes": 30,
+    "PTRStatus": "Error"
+  }
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+{		
+"ptrType":	"ReissueQuote",	Indicates the PTR functionality requested for
+"mFRef":	"MF15170620"	A unique Mystifly reference number starts with MF followed by 8 digits
+"AllowChildPassenger":	false,	True should be passed when a Child pax is associated in the booking
+"reissueQuoteRequestType":	"Segment",	Clients need to pass this tag as OND to get the Reissue Quote instantly
+"passengers": [		Passenger Details associated with the booking need to be passed.
+{		
+"firstName":	"Md",	First Name of the passenger associated with the booking.
+"lastName":	"Mubarak",	Last Name of the passenger associated with the booking.
+"title":	"MR",	Tittle of the passenger associated with the booking.
+"eTicket":	"1234580095753",	e-ticket number of the passenger associated with the booking.
+"passengerType":	"ADT"	Passenger type ADT/CHD/INF associated with the booking.
+}		
+],		
+"originDestinations": [		This parameter indicates the segment
+{		
+"originLocationCode":	"JFK",	IATA Code of the Airport or City
+"destinationLocationCode":	"IST",	IATA Code of the Airport or City
+"cabinPreference":	"Y",	Y=Economy, C=Business, F=First and S=Premium Economy
+"departureDateTime":	"2020-10-15",	Specifies the date and time for the departure of the flight as scheduled.
+"flightNumber":	12,	Flight number
+"airlineCode":	"TK"	Airline IATA Code
+},		
+{		
+"originLocationCode":	"IST",	IATA Code of the Airport or City
+"destinationLocationCode":	"LHR",	IATA Code of the Airport or City
+"cabinPreference":	"Y",	Y=Economy, C=Business, F=First and S=Premium Economy
+"departureDateTime":	"2020-10-16",	Specifies the date and time for the departure of the flight as scheduled.
+"flightNumber":	1979,	Number of the flight.
+"airlineCode":	"TK"	Airline IATA Code
+}		
+],		
+}		
+"ptrType":	"GetExchangeQuote", Yes	Indicates the PTR functionality requested for
+"MFRef":	"MF15170620", Yes	MF number associated with the booking.
+"PTRId":	5274, Yes	PTR ID associated with the ReIssueQuote RQ
+"Page":	1 Yes	Page number to view PTR ID transaction details min 1 max of 25 records
+}		
+{		
+"PTRId"	5274,	ReissueQuote PTR ID should be passed that you would like to proceed
+"PreferenceOption":	1,	Preference Option number for itinerary selection
+"AcceptQuote":	"yes",	Pass "Yes" if accepted for RefundQuote to apply for REFUND, to Reject pass "NO"
+"AdditionalNote":	"Free Text",	Message for the agent should be passed here - Freetext
+}		
+{		
+"ptrType":	"GetExchangeQuote",	Indicates the PTR functionality requested for
+"MFRef":	"MF15170620",	MF number associated with the booking.
+"PTRId":	5274,	PTR ID associated with the ReIssueQuote RQ
+"Page":	1	Page number to view PTR ID transaction details min 1 max of 25 records
+}		
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ReissueQuote Request: Create PostTicketingRequest (PTR)		
+{ "Success":	true,	This tag will share the status of the request
+"Data": {		
+"PTRId":	5274,	PTR ID associated with the ReIssueQuote RQ
+"PTRType":	"ReIssueQuote",	Indicates the PTR functionality requested for
+"MFRef":	"MF15170620",	MF number associated with the booking.
+"SLAInMinutes":	60,	Maximum timeline for processing the request raised
+"PTRStatus":	"InProcess"	Status of the PTR request will be provided.
+}		
+}		
+GetExchangeQuote Request: Search PostTicketingRequest (PTR)		
+{		
+"Data": {		
+"PTRId":	5274,	PTR ID associated with the ReIssueQuote RQ
+"PTRType":	"ReIssueQuote",	Indicates the PTR functionality requested for
+"Status":	"Completed",	Status of the PTR request will be provided.
+"MFRef":	"MF15170620",	Mystifly reference starts with MF followed by 8 digits.
+"CreatedOn":	"2020-08-12T21:37:39.94",	Create PTR creation time
+"RequestCompletionTime":	"2020-08-12T21:37:39.94",	Create PTR request completion time
+"CreatedByName":	"Mystifly API Team",	Client UserName for reference
+"Resolution":	"QuoteUpdated",	Status of the of the PTR ID generated will be shown
+"Passengers": [		
+{		
+"ETicket":	"1234580095753",	ETicket of the passenger specified in the booking
+"PassengerType":	"ADT",	Type of the passenger specified in the booking
+"Tittle":	"MR",	Title of the passenger specified in the booking
+"FirstName":	“Md”	Passenger First Name mentioned in booking
+"LastName":	“Mubarak”	Passenger Last name mentioned in the booking
+}		
+],		
+"RequestedPreferences":[		Nested Tag
+{		
+"Option":	1,	Unique ID for the specific Itinerary preference
+"CreatedOn":	"2020-08-12T21:37:39.94",	PTR request creation time
+"QuotedSegments": [		
+{		
+"Origin":	"JFK",	IATA code of the airport the flight is scheduled to depart
+"Destination":	"IST",	IATA code of the airport the flight is scheduled to arrive a
+"CabinClass":	"Y",	Y=Economy, C=Business, F=First and S=Premium Economy
+"DepartureDatetime":	"2020-10-15T00:10:00",	YYYY-MM-DDT00:00:00 format of departure date & time
+"ArrivalDateTime":	"2020-10-15T16:50:00",	YYYY-MM-DDT00:00:00 format of arrival date & time.
+"AirlineCode":	"TK",	Airline IATA Code for the marketing airline
+"FlightNumber":	12,	Flight Number
+"Duration":	"9.40",	HH:MM format for the Duration of the flight
+"Stops":	0,	Indicates the number of stops
+"BookingClass":	"S",	Indicates the RBD code for the itinerary
+"isReturn":	FALSE	Indicates the Direction ID
+},		
+{		
+"Origin":	"IST",	IATA code of the airport the flight is scheduled to depart
+"Destination":	"LHR",	IATA code of the airport the flight is scheduled to arrive a
+"CabinClass":	"Y",	Y=Economy, C=Business, F=First and S=Premium Economy
+"DepartureDatetime":	"2020-10-16T07:45:00",	YYYY-MM-DDT00:00:00 format of departure date and time
+"ArrivalDateTime":	"2020-10-16T09:50:00",	YYYY-MM-DDT00:00:00 format of arrival date and time.
+"AirlineCode":	"TK",	Airline IATA Code for the marketing airline
+"FlightNumber":	1979,	Flight Number
+"Duration":	"4.05",	HH:MM format for the Duration of the flight
+"Stops":	0,	Indicates the number of stops
+"BookingClass":	"S",	Indicates the RBD code for the itinerary
+"isReturn":	FALSE	Indicates the Direction ID
+}		
+],		
+"QuotedFares": [		Nested Tag
+{		
+"PassengerType":	"ADT",	Passenger type given at the time of booking must be passed.
+"BaseFareDifference":	56,	Base Fare Difference for Reissue linked with the booking
+"TaxDifference":	4,	Tax Difference for Reissue linked with the booking
+"AdminFee":	0,	Admin fees for Reissue associated with the booking
+"GST":	0,	Dynamic value only if it is applicable If not ‘0’ will be passed
+"NoShowPenalty":	0,	Dynamic value only if it is applicable If not ‘0’ will be passed
+"Currency":	"USD",	The currency code in which the above charges are provided
+"Penalty":	30,	The change fees for Reissue associated with the booking
+"PassengerCount":	1,	Indicates the number of passengers
+"TotalFareDifference":	90	Total Reissue charges associated with the booking
+}		
+],		
+"PTRRemarks”: [		Nested Tag
+{		
+"Remarks":	"Not valid until re-issued",	Additional note
+"Reason":	"",	Reason for Reissue/ReIssue Quote rejection
+"RemarksType":	"QuoteRemarks"	Remarks passed by operations agent.
+}		
+]		
+}		
+]		
+},		
+"Success":	TRUE	This tag will share the status of the request.
+}		
+Accept ReissueQuote Request - Create PostTicketingResponse		
+{		
+"Success":	true,	This tag will share the status of the request.
+"Data": {		
+"PTRId":	5274,	PTR ID associated with the Reissue Quote RQ
+"PTRType":	"ReIssue",	PTR Type tag will help the client to identify the response parameter, whether the
+"SLAInMinutes":	60,	Will share the max timeline for processing the request raised.
+"PTRStatus":	"InProcess",	Status of the booking.
+"Message":	Free Text	"Your request for reissue has been submitted successfully.Our team will process it within 60 minutes."
+}		
+}		
+GetExchangeQuote Request: Search PostTicketingResponse (PTR)	-	-
+{		
+"Data": {		
+"PTRId":	5274,	PTR ID associated with the ReIssueQuote RQ
+"PTRType":	"ReIssueQuote",	Indicates the PTR functionality requested for
+"MFRef":	"MF15170620",	Mystifly reference starts with MF followed by 8 digits.
+"BookingStatus":	"Exchanged",	Booking Status of the booking
+"PTRStatus":	"Completed",	Status of the PTR request will be provided.
+"CreatedByName":	"Mystifly",	Client UserName for reference
+"Resolution":	"Reissued",	Status of the of the PTR ID generated will be shown
+"pTRPaxDetails": [		
+{		
+"Id":	5875,	Booking ID for a particular Transaction
+"PTRId":	5274,	PTR – ID from the Quote response
+"PaxId"	223499,	Specified Passenger unique number
+"TicketNumber":`	"1234580095753",	Ticket Number of passengers
+"TicketStatus":	1,	1 - True or 0 - false
+"IsActive":	true,	Boolean value, to check the booking status as active or not
+"PassengerType":	"ADT"	Passenger type ADT/CHD/INF associated with the booking.
+"PassengerType":	"ADT"	Passenger type ADT/CHD/INF associated with the booking.
+"Title":	"Mr",	Tittle of the passenger associated with the booking.
+"FirstName":	"Alan",	First Name of the passenger associated with the booking.
+"LastName":	"Tan",	Last Name of the passenger associated with the booking.
+}		
+]		
+}		
+]		
+},		
+"Success":	true,	
+}		

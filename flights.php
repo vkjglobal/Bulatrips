@@ -66,7 +66,8 @@ $responseData  = $_SESSION['response'];
 $pricedItineraries = $responseData['Data']['PricedItineraries'];
 
 $totalFlights = count($pricedItineraries);
-$flightsPerPage = 16;
+// $flightsPerPage = 16;
+$flightsPerPage = 1600;
 $totalPages = ceil($totalFlights / $flightsPerPage);
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
 $startIndex = ($page - 1) * $flightsPerPage;

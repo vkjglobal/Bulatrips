@@ -1,13 +1,20 @@
 <?php
+  // Enable error reporting for debugging
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+  
   include_once('includes/common_const.php');
   include_once('includes/class.cancel.php');
   include_once('includes/mock_mystifly.php');
   $objCancel     =   new Cancel();
   
+  // Set JSON header for all responses
+  header('Content-Type: application/json');
+  
   // Check if this is an AJAX request
   $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-  
-  if ($isAjax) {
+    
+    if ($isAjax) {
       // Handle AJAX JSON request
       $json = file_get_contents('php://input');
       $data = json_decode($json, true);
@@ -32,6 +39,7 @@
       
       // Debug log for AJAX request
       $objCancel->_writeLog("AJAX Request - Booking ID: $bookingId, MF Ref: $mfreNum, User ID: $userId", 'RefundQuote.txt');
+      $objCancel->_writeLog("AJAX Request - Raw input: " . $json, 'RefundQuote.txt');
       
   } else {
       // Handle traditional form request (backward compatibility)
@@ -54,7 +62,10 @@
      //=======
      //echo "LLL".$mfreNum;exit;
 
-     $bookCanusers_req      =   $objCancel->BookCancelUsers($bookingId,$userId); 
+     $bookCanusers_req      =   $objCancel->BookCancelUsers($bookingId,$userId);
+     
+     // Debug: Log database query results
+     $objCancel->_writeLog("Database query result: " . print_r($bookCanusers_req, true), 'RefundQuote.txt'); 
          
      //============request body for entire booking cancel============================================
      
@@ -100,69 +111,65 @@
      // Initialize the main passengers array
      $passengersArray = array();
      
-     if (isset($_POST['passengers']) && is_array($_POST['passengers'])) {
-         $receivedPassengers = $_POST['passengers'];
-         
-         // Convert frontend passenger data to API format
-         foreach ($receivedPassengers as $passenger) {
-             $passengerData = array(
-                 "firstName" => $passenger['firstname'],
-                 "lastName" => $passenger['lastname'],
-                 "title" => $passenger['title'],
-                 "eTicket" => $passenger['eticket'],
-                 "passengerType" => $passenger['passengertype']
-             );
-             $passengersArray[] = $passengerData;
-         }
-     } elseif (isset($data['passengers']) && is_array($data['passengers'])) {
-         // Handle AJAX JSON request passenger data
-         $receivedPassengers = $data['passengers'];
-         
-         // Convert frontend passenger data to API format
-         foreach ($receivedPassengers as $passenger) {
-             $passengerData = array(
-                 "firstName" => $passenger['firstname'],
-                 "lastName" => $passenger['lastname'],
-                 "title" => $passenger['title'],
-                 "eTicket" => $passenger['eticket'],
-                 "passengerType" => $passenger['passengertype']
-             );
-             $passengersArray[] = $passengerData;
-         }
-     } elseif (isset($data['passengerDetails']) && is_array($data['passengerDetails'])) {
-        // Support alternate key from frontend
-        $receivedPassengers = $data['passengerDetails'];
-        foreach ($receivedPassengers as $passenger) {
-            $passengerData = array(
-                "firstName" => $passenger['firstname'],
-                "lastName" => $passenger['lastname'],
-                "title" => $passenger['title'],
-                "eTicket" => $passenger['eticket'],
-                "passengerType" => $passenger['passengertype']
-            );
-            $passengersArray[] = $passengerData;
-        }
-    } else {
-         // Fallback: Get passengers from database if not provided in POST
-         foreach ($bookCanusers_req as $k => $val) {
-             $firstname = $val['first_name'];
-             $lastname = $val['last_name'];
+     // Always get ALL ticketed passengers from database (not just selected ones)
+     // This is required because Mystifly API doesn't support partial passenger refund
+     // Note: We ignore frontend passenger data and use database data for consistency
+     foreach ($bookCanusers_req as $k => $val) {
+         // Only include ticketed passengers
+         if (!empty($val['e_ticket_number'])) {
+             // Normalize title format as requested by Mystifly
              $title = $val['title'];
-             $eticket = $val['e_ticket_number'];
-             $passenger_type = $val['passenger_type'];
-
-             // Create the passenger array for the current passenger
-             $passenger = array(
-                 "firstName" => $firstname,
-                 "lastName" => $lastname,
+             if (strtoupper($title) === 'MISS') {
+                 $title = 'Ms';
+             }
+             
+             $passengerData = array(
+                 "firstName" => $val['first_name'],
+                 "lastName" => $val['last_name'],
                  "title" => $title,
-                 "eTicket" => $eticket,
-                 "passengerType" => $passenger_type
+                 "eTicket" => $val['e_ticket_number'],
+                 "passengerType" => $val['passenger_type']
              );
-
-             // Add the passenger array to the main passengers array
-             $passengersArray[] = $passenger;
+             $passengersArray[] = $passengerData;
          }
+     }
+     
+     // Check if we have any ticketed passengers
+     if (empty($passengersArray)) {
+         $objCancel->_writeLog('No ticketed passengers found for refund request', 'RefundQuote.txt');
+         echo json_encode([
+             'status' => 'error',
+             'message' => 'No ticketed passengers found in this booking. Refund cannot be processed.',
+             'error_type' => 'no_ticketed_passengers'
+         ]);
+         exit;
+     }
+     
+     // Duplicate request prevention - Check if RefundQuote already pending
+     try {
+         $duplicateCheck = $objCancel->getLisQuery("SELECT id, ptr_id, created_date FROM cancel_booking WHERE booking_id = ".(int)$bookingId." AND ptr_type = 'RefundQuote' AND ptr_status = 'InProcess' AND (message IS NULL OR message = '' OR message NOT LIKE '%Quote emailed%') ORDER BY id DESC LIMIT 1");
+         
+         if (!empty($duplicateCheck)) {
+             $existingPtrId = $duplicateCheck[0]['ptr_id'];
+             $createdTime = $duplicateCheck[0]['created_date'];
+             $createdTimeFormatted = date('d M Y, H:i', strtotime($createdTime));
+             
+             $objCancel->_writeLog('Duplicate RefundQuote request blocked - Existing PTR: '.$existingPtrId, 'RefundQuote.txt');
+             
+             echo json_encode([
+                 'success' => false,
+                 'status' => 'duplicate_request',
+                 'message' => 'A refund quote request is already in process for this booking.',
+                 'error_type' => 'duplicate_refund_quote',
+                 'existing_ptr_id' => $existingPtrId,
+                 'submitted_at' => $createdTimeFormatted,
+                 'note' => 'Please check your email or wait for the quote to be processed. You can also check your booking status.'
+             ]);
+             exit;
+         }
+     } catch (Exception $e) {
+         $objCancel->_writeLog('Duplicate check error: '.$e->getMessage(), 'RefundQuote.txt');
+         // Continue with request if check fails
      }
      
      // Debug: Log final passengers array
@@ -177,19 +184,34 @@
          }
      }
      
-     // For example, creating the main request body array (following exact API documentation format)
+    // For example, creating the main request body array (following exact API documentation format)
+    
+    // Use smart selection based on void window
+    if ($useVoidQuote) {
+        $ptrType = 'VoidQuote';
+        $additionalNote = 'Void quote request - within void window';
+    } else {
+        $ptrType = 'RefundQuote';
+        $additionalNote = 'Refund quote request - void window expired';
+    }
      
-     // Always use RefundQuote for user-requested refunds
-     $ptrType = 'RefundQuote';
-     $additionalNote = 'Refund quote request - user requested refund';
-     
-     $requestData = array(
+    $requestData = array(
          'ptrType' => $ptrType,
          'mFRef' => $mfreNum,
          'AllowChildPassenger' => $hasChildPassenger,
          'passengers' => $passengersArray,
          'AdditionalNote' => $additionalNote
      );
+
+    // Prepare a safe default response container to avoid returning null
+    $response_New = array(
+        'success' => false,
+        'status' => 'error',
+        'message' => '',
+        'http_code' => null,
+        'raw_request' => $requestData,
+        'raw_response' => null
+    );
 
      // Add debug logging
      $objCancel->_writeLog('Smart Selection: Using ' . $ptrType . ' API', 'RefundQuote.txt');
@@ -217,6 +239,39 @@
          $result = $objCancel->callApi($endpoint,$requestData);
          $httpCode = $result['httpCode'];
          $response = $result['responseData'];
+         $curlError = isset($result['curlError']) ? $result['curlError'] : '';
+         
+         // Check for Mystifly API 500 errors and handle gracefully
+        if ($httpCode !== 200 || empty($response)) {
+            $objCancel->_writeLog('API Error - HTTP Code: ' . $httpCode . ', Response: ' . $response, 'RefundQuote.txt');
+            
+            // Build error message
+            $errorMessage = 'Mystifly API is currently unavailable (HTTP ' . $httpCode . ').';
+            if (!empty($curlError)) {
+                $errorMessage .= ' Connection Error: ' . $curlError;
+            }
+            $errorMessage .= ' Please try again later or contact support.';
+            
+            $response_New['message'] = $errorMessage;
+            $response_New['error_type'] = 'api_unavailable';
+            $response_New['http_code'] = $httpCode;
+            $response_New['raw_response'] = $response;
+            $response_New['curl_error'] = $curlError;
+            echo json_encode($response_New);
+            exit;
+        }
+         
+         // Check for 500 error in response body
+         $responseData = json_decode($response, true);
+        if (isset($responseData['Message']) && strpos($responseData['Message'], '500') !== false) {
+            $objCancel->_writeLog('Mystifly 500 Error: ' . $responseData['Message'], 'RefundQuote.txt');
+            $response_New['message'] = $responseData['Message'];
+            $response_New['error_type'] = 'mystifly_500_error';
+            $response_New['http_code'] = $httpCode;
+            $response_New['raw_response'] = $response;
+            echo json_encode($response_New);
+            exit;
+        }
      }
 
      // Add detailed debug logging
@@ -269,11 +324,11 @@
             
             // Check for JSON decode errors
             if (json_last_error() !== JSON_ERROR_NONE) {
-                $response_New = array(
-                    'status' => 'error',
-                    'code' => 'INVALID_RESPONSE',
-                    'message' => 'Invalid response from server. Please try again.'
-                );
+                $response_New['status'] = 'error';
+                $response_New['code'] = 'INVALID_RESPONSE';
+                $response_New['message'] = 'Invalid response from server. Please try again.';
+                $response_New['http_code'] = isset($httpCode) ? $httpCode : null;
+                $response_New['raw_response'] = $response;
                 echo json_encode($response_New);
                 exit;
             }
@@ -378,6 +433,8 @@
                             'phone' => '+1-XXX-XXX-XXXX',
                             'reference' => $mfreNum
                         ],
+                        'raw_request' => $requestData,
+                        'raw_response' => $response,
                         'debug_info' => [
                             'api_message' => $errorMessage,
                             'mf_reference' => $mfreNum,
@@ -416,6 +473,8 @@
                         'status' => 'error',
                         'code' => 'ALREADY_IN_PROCESS',
                         'message' => 'A refund request for this booking is already being processed. Please check your booking status or contact support for updates.',
+                        'raw_request' => $requestData,
+                        'raw_response' => $response,
                         'debug_info' => [
                             'api_message' => $errorMessage,
                             'mf_reference' => $mfreNum
@@ -425,7 +484,9 @@
                     $response_New = array(
                         'status' => 'error',
                         'code' => 'API_ERROR',
-                        'message' => $errorMessage
+                        'message' => $errorMessage,
+                        'raw_request' => $requestData,
+                        'raw_response' => $response
                     );
                 }
                 echo json_encode($response_New);
@@ -481,6 +542,27 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                         ];
                     }
                     
+                    // Calculate service fees (same as VoidQuote button)
+                    $serviceFees = $objCancel->getServiceTransactionFees();
+                    $refundBaseFeePerPax = (float)($serviceFees['refund_fee'] ?? 0);
+                    $refundAdditionalPerPax = (float)($serviceFees['refund_addition'] ?? 0);
+                    $numPassengers = count($passengersArray);
+                    
+                    // Get IPG percentage
+                    $ipgRow = $objCancel->getLisQuery("SELECT value FROM settings WHERE `key` = 'ipg_transaction_percentage' LIMIT 1");
+                    $ipgPercentage = isset($ipgRow[0]['value']) ? floatval($ipgRow[0]['value']) : 0.0;
+                    
+                    // Calculate fees
+                    $refundBaseFeeTotal = $refundBaseFeePerPax * max(1, $numPassengers);
+                    $refundAdditionalTotal = $refundAdditionalPerPax * max(1, $numPassengers);
+                    
+                    // Apply IPG percentage on base amount (before service fees)
+                    $ipgAmount = ($ipgPercentage > 0) ? ($ipgPercentage / 100.0) * $TotalRefundAmount : 0.0;
+                    
+                    // Final calculation
+                    $serviceTotal = $refundBaseFeeTotal + $refundAdditionalTotal + $ipgAmount;
+                    $finalRefundAmount = max(0, $TotalRefundAmount - $serviceTotal);
+                    
                     $message = "✅ Void Quote successful - Best option for you (minimal charges)";
                     $response_New = array(
                         'success' => true,
@@ -494,8 +576,15 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                             'mfRef' => $mfreNum,
                             'slaMinutes' => $SLAInMinutes,
                             'slaHours' => $hours,
-                            'totalRefundAmount' => number_format($TotalRefundAmount, 2),
+                            'totalRefundAmount' => $TotalRefundAmount,
                             'currency' => $Currency,
+                            'base_refund_amount' => $TotalRefundAmount,
+                            'refund_base_fee' => $refundBaseFeeTotal,
+                            'refund_additional_markup' => $refundAdditionalTotal,
+                            'ipg_percentage' => $ipgPercentage,
+                            'ipg_amount' => $ipgAmount,
+                            'service_total' => $serviceTotal,
+                            'final_refund_amount' => $finalRefundAmount,
                             'voidQuotes' => $voidQuotes,
                             'note' => 'Void process offers minimal charges as you are within the void window',
                             'apiMessage' => isset($responseData['Data']['Message']) ? $responseData['Data']['Message'] : ''
@@ -571,12 +660,55 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                     ];
                 }
 
-                $message   =   "Successfully called Refundquote for Your Booking";
+                // Store RefundQuote PTR in database for cron monitoring
+                $cancel_status = 0; // InProcess - cron will check and email when ready
+                
+                foreach ($passengersArray as $passenger) {
+                    // Get traveller_id
+                    $travellerId = 0;
+                    try {
+                        $travRow = $objCancel->getLisQuery("SELECT id FROM travellers_details WHERE e_ticket_number = '".addslashes($passenger['eTicket'])."' AND flight_booking_id = ".(int)$bookingId." LIMIT 1");
+                        if (!empty($travRow)) {
+                            $travellerId = intval($travRow[0]['id']);
+                        }
+                    } catch (Exception $e) {
+                        $objCancel->_writeLog("Error getting traveller_id: " . $e->getMessage(), 'RefundQuote.txt');
+                    }
+                    
+                    // Store in cancel_booking for cron to monitor
+                    $objCancel->insCncelSts(
+                        $bookingId,
+                        $userId,
+                        $precancelsts,
+                        '', // error_code
+                        $mfreNum,
+                        '', // trace_id
+                        200, // http_code
+                        $PTRId,
+                        'RefundQuote', // ptr_type
+                        $SLAInMinutes,
+                        $PTRStatus, // InProcess
+                        '', // void_window
+                        $passenger['eTicket'],
+                        0, // admin_charges
+                        0, // gst_charge
+                        0, // total_void_fee
+                        0, // total_refund_amount (will be calculated by cron)
+                        $Currency,
+                        $cancel_status,
+                        'RefundQuote request submitted - awaiting quote', // message
+                        $travellerId
+                    );
+                }
+                
+                // Calculate expected email time
+                $expectedEmailTimeUTC = gmdate('d M Y, H:i', time() + ($SLAInMinutes * 60)) . ' UTC';
+                
+                $message = "Refund quote request submitted successfully. You will receive the quote details via email within " . $hours . " hour(s).";
                 $response_New = array(
                     'success' => true,
                     'message' => $message,
-                    'refund_type' => 'refund_quote',
-                    'total_refund_api' => $TotalRefundAmount,
+                    'refund_type' => 'refund_quote_submitted', // Changed to indicate email-based flow
                     'data' => [
                         'ptrId' => $PTRId,
                         'ptrType' => $PTRType,
@@ -584,19 +716,9 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                         'mfRef' => $mfreNum,
                         'slaMinutes' => $SLAInMinutes,
                         'slaHours' => $hours,
-                        // values used by UI
-                        'totalRefundAmount' => $finalRefundAmount,
-                        'currency' => $Currency,
-                        // detailed breakdown
-                        'base_refund_amount' => $TotalRefundAmount,
-                        // Show per-passenger fees in the popup (values from settings)
-                        'refund_base_fee' => $refundBaseFeePerPax,
-                        'refund_additional_markup' => $refundAdditionalPerPax,
-                        'ipg_percentage' => $ipgPercentage,
-                        'ipg_amount' => $ipgAmount,
-                        'service_total' => $serviceTotal,
-                        'final_refund_amount' => $finalRefundAmount,
-                        'passengerRefunds' => $passengerRefunds,
+                        'expected_email_time_utc' => $expectedEmailTimeUTC,
+                        'workflow' => 'email_based',
+                        'note' => 'Please check your email for the refund quote. You will receive detailed breakdown and accept/decline options.',
                         'apiMessage' => isset($responseData['Data']['Message']) ? $responseData['Data']['Message'] : ''
                     ]
                 );
@@ -634,10 +756,13 @@ if (isset($responseData['Success']) && $responseData['Success']) {
             $message_new    = $message;
           $bookCanIns      =   $objCancel->insCncelSts($bookingId,$userId,$precancelsts,$errorCode ='', $mfreNum,$traceId='',$httpCode,$PTRId='',$PTRType='refundQuote',$SLAInMinutes='',$PTRStatus='',$VoidingWindow='', $ticket_num=''  ,$AdminCharges='' ,$GSTCharge='',$TotalVoidingFee='',$TotalRefundAmount='',$Currency='',$cancel_status,$message);                                                   
          
-                         $response_New = array(
-            'success' => false, // You can set this to 'error' in case of an error
-            'message' => $message
-        );
+                        $response_New = array(
+           'success' => false,
+           'message' => $message,
+           'http_code' => $httpCode,
+           'raw_request' => $requestData,
+           'raw_response' => $response
+       );
          $objCancel->_writeLog('step httpcode not 200 '.$message,'RefundQuote.txt');
         }
         else if(empty($responseData['Data'])){
@@ -661,6 +786,8 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                             'success' => false,
                             'code' => 'API_ERROR',
                             'message' => $message,
+                            'raw_request' => $requestData,
+                            'raw_response' => $response,
                             'debug_info' => [
                                 'original_message' => $responseData['Message'],
                                 'mf_reference' => $mfreNum,
@@ -668,20 +795,30 @@ if (isset($responseData['Success']) && $responseData['Success']) {
                             ]
                         );
                                       $objCancel->_writeLog('step data empty '.$message,'RefundQuote.txt');
-
+                    }
             } else {
                 // No message provided, generic error
                 $message = "Unable to process refund request. Please try again later or contact customer support.";
                 $response_New = array(
                     'success' => false,
                     'code' => 'UNKNOWN_ERROR', 
-                    'message' => $message
+                    'message' => $message,
+                    'raw_request' => $requestData,
+                    'raw_response' => $response
                 );
                 $objCancel->_writeLog('Empty response data with no message', 'RefundQuote.txt');
             }
+        $objCancel->_writeLog('step end of refund quote ========= '.$message,'RefundQuote.txt');
+        // Ensure we never return null to the client
+        if (!isset($response_New) || empty($response_New)) {
+            $response_New = array(
+                'success' => false,
+                'status' => 'error',
+                'message' => 'No structured response was generated. Please try again.',
+                'http_code' => isset($httpCode) ? $httpCode : null,
+                'raw_request' => $requestData,
+                'raw_response' => isset($response) ? $response : null
+            );
         }
-         $objCancel->_writeLog('step end of refund quote ========= '.$message,'RefundQuote.txt');
-echo json_encode($response_New);
-exit;
-
-?>
+        echo json_encode($response_New);
+        exit;

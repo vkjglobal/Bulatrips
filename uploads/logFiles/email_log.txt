@@ -69,3 +69,6 @@
 [2025-09-18 02:41:50] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
 [2025-09-18 02:52:44] Email SENT to=nafeesdroidor@gmail.com subject=Flight Refund - In Process
 [2025-09-18 02:58:00] Email SENT to=nafeesdroidor@gmail.com subject=Reissue Request Submitted - Quote Processing
+[2025-09-26 10:41:13] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-10-07 06:50:48] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process
+[2025-10-16 08:41:10] Email SENT to=nafeesdroidor@gmail.com subject=Flight Cancellation - In Process

@@ -19,19 +19,48 @@ if ($isAjax) {
     $data = json_decode($input, true);
     
     $bookingId = $data['booking_id'] ?? null;
-    $passengerDetails = $data['passengerDetails'] ?? [];
+    $userId = $data['user_id'] ?? null;
     
-    // For AJAX requests, use the provided passenger details
+    // For AJAX requests, ALWAYS get passenger details from database to ensure unique eTicket numbers
+    // This fixes the issue where frontend might send same eTicket for all passengers
+    $bookCanusers_req = $objCancel->BookCancelUsers($bookingId, $userId);
+    
     $passengersArray = array();
-    foreach ($passengerDetails as $passenger) {
-        $passengersArray[] = array(
-            "firstName" => $passenger['firstname'],
-            "lastName" => $passenger['lastname'],
-            "title" => $passenger['title'],
-            "eTicket" => $passenger['eticket'],
-            "passengerType" => $passenger['passengertype']
-        );
+    foreach ($bookCanusers_req as $val) {
+        // Only include ticketed passengers
+        if (!empty($val['e_ticket_number'])) {
+            // Normalize title format as requested by Mystifly
+            $title = $val['title'];
+            if (strtoupper($title) === 'MISS') {
+                $title = 'Ms';
+            }
+            
+            $passengersArray[] = array(
+                "firstName" => $val['first_name'],
+                "lastName" => $val['last_name'],
+                "title" => $title,
+                "eTicket" => $val['e_ticket_number'],
+                "passengerType" => $val['passenger_type']
+            );
+        }
     }
+    
+    // Check if we have any ticketed passengers
+    if (empty($passengersArray)) {
+        $objCancel->_writeLog('No ticketed passengers found for VoidQuote request', 'voidquote.txt');
+        echo json_encode([
+            'status' => 'error',
+            'message' => 'No ticketed passengers found in this booking. VoidQuote cannot be processed.',
+            'error_type' => 'no_ticketed_passengers'
+        ]);
+        exit;
+    }
+    
+    // Log passenger details for debugging
+    $objCancel->_writeLog('VoidQuote AJAX - Passenger details: ' . json_encode($passengersArray), 'voidquote.txt');
+    
+    // Log the complete request data that will be sent to Mystifly
+    $objCancel->_writeLog('VoidQuote AJAX - Complete request data: ' . json_encode($requestData), 'voidquote.txt');
     
     // Get booking details from database
     $bookingDetails = $objCancel->get_booking_details($bookingId);
@@ -51,13 +80,22 @@ if ($isAjax) {
     
     $passengersArray = array();
     foreach ($bookCanusers_req as $val) {
-        $passengersArray[] = array(
-            "firstName" => $val['first_name'],
-            "lastName" => $val['last_name'],
-            "title" => $val['title'],
-            "eTicket" => $val['e_ticket_number'],
-            "passengerType" => $val['passenger_type']
-        );
+        // Only include ticketed passengers
+        if (!empty($val['e_ticket_number'])) {
+            // Normalize title format as requested by Mystifly
+            $title = $val['title'];
+            if (strtoupper($title) === 'MISS') {
+                $title = 'Ms';
+            }
+            
+            $passengersArray[] = array(
+                "firstName" => $val['first_name'],
+                "lastName" => $val['last_name'],
+                "title" => $title,
+                "eTicket" => $val['e_ticket_number'],
+                "passengerType" => $val['passenger_type']
+            );
+        }
     }
     
     // Get booking details
@@ -201,6 +239,39 @@ if (MOCK_MODE) {
             
             $objCancel->_writeLog('VoidQuote Success - PTRStatus: ' . $PTRStatus, 'voidquote.txt');
             
+            // Validate void window - Check if void window has expired
+            if (!empty($VoidingWindow)) {
+                $voidDeadlineUTC = strtotime($VoidingWindow);
+                $currentTimeUTC = time();
+                
+                // Check if void window has expired
+                if ($currentTimeUTC > $voidDeadlineUTC) {
+                    $objCancel->_writeLog('Void window expired for MF: ' . $mfreNum . ' | Deadline was: ' . $VoidingWindow, 'voidquote.txt');
+                    
+                    $response_New = array(
+                        'status' => 'error',
+                        'message' => 'Void window has expired. This booking is no longer eligible for instant void. Please use refund option instead.',
+                        'error_type' => 'void_window_expired',
+                        'void_window_deadline' => gmdate('d M Y, H:i', $voidDeadlineUTC) . ' UTC',
+                        'current_time' => gmdate('d M Y, H:i', $currentTimeUTC) . ' UTC',
+                        'expired_hours_ago' => round(($currentTimeUTC - $voidDeadlineUTC) / 3600, 1)
+                    );
+                    
+                    if ($isAjax) {
+                        echo json_encode($response_New);
+                    }
+                    exit;
+                }
+                
+                // Calculate remaining time in void window
+                $remainingSeconds = $voidDeadlineUTC - $currentTimeUTC;
+                $remainingMinutes = floor($remainingSeconds / 60);
+                $remainingHours = floor($remainingMinutes / 60);
+                $remainingMins = $remainingMinutes % 60;
+                
+                $objCancel->_writeLog('Void window OK - Remaining time: ' . $remainingHours . 'h ' . $remainingMins . 'm', 'voidquote.txt');
+            }
+            
             // Aggregate base refund from API quotes
             $TotalRefundAmount = 0.0;
             $Currency = '';
@@ -238,6 +309,30 @@ if (MOCK_MODE) {
             $serviceTotal = $refundBaseFeeTotal + $refundAdditionalTotal + $ipgAmount;
             $finalRefundAmount = max(0, $baseRefundAmount - $serviceTotal);
             
+            // Calculate void window details for UTC display
+            $voidWindowUTC = '';
+            $remainingVoidTime = '';
+            $voidDeadlineFormatted = '';
+            
+            if (!empty($VoidingWindow)) {
+                $voidDeadlineUTC = strtotime($VoidingWindow);
+                $currentTimeUTC = time();
+                $voidWindowUTC = gmdate('d M Y, H:i', $voidDeadlineUTC) . ' UTC';
+                
+                $remainingSeconds = $voidDeadlineUTC - $currentTimeUTC;
+                $remainingMinutes = floor($remainingSeconds / 60);
+                $remainingHours = floor($remainingMinutes / 60);
+                $remainingMins = $remainingMinutes % 60;
+                
+                if ($remainingHours > 0) {
+                    $remainingVoidTime = $remainingHours . ' hours ' . $remainingMins . ' minutes';
+                } else {
+                    $remainingVoidTime = $remainingMinutes . ' minutes';
+                }
+                
+                $voidDeadlineFormatted = $VoidingWindow;
+            }
+            
             $response_New = array(
                 'status' => 'success',
                 'message' => 'Void Quote Received: ' . $PTRStatus . ' Final Refundable Amount is: ' . $Currency . ' ' . $finalRefundAmount,
@@ -257,17 +352,22 @@ if (MOCK_MODE) {
                 'gst_charge' => 0,
                 'voiding_fee' => 0,
                 'voiding_window' => $VoidingWindow,
-                'sla_minutes' => 0,
+                'voiding_window_utc' => $voidWindowUTC,
+                'remaining_void_time' => $remainingVoidTime,
+                'void_deadline_formatted' => $voidDeadlineFormatted,
+                'sla_minutes' => 0,  // VoidQuote is instant (0 SLA)
                 'booking_id' => $bookingId,
                 'passenger_details' => $passengerDetails
             );
             
         } else {
-            // Handle errors
+            // Handle errors - show raw Mystifly error message
             $message = isset($responseData['Message']) ? $responseData['Message'] : 'Unknown error occurred';
             $response_New = array(
                 'status' => 'error',
-                'message' => $message
+                'message' => $message,
+                'raw_response' => $responseData, // Include full response for debugging
+                'raw_request' => $requestData // Include full request for debugging
             );
         }
     } else {

@@ -2800,3 +2800,572 @@ Bound data: Array
 MOCK MODE: Updated ticket TKT581960 to new ticket TKT911344
 MOCK MODE: Reissue completion email sent to: nafeesdroidor@gmail.com
 Cron job completed at Thursday 18th of September 2025 03:03:19 AM
+-------------Monday 22nd of September 2025 10:35:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 22nd of September 2025 10:35:44 AM
+-------------Monday 22nd of September 2025 10:35:45 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 22nd of September 2025 10:35:46 AM
+-------------Monday 22nd of September 2025 10:35:47 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 22nd of September 2025 10:35:47 AM
+-------------Monday 22nd of September 2025 04:57:31 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 22nd of September 2025 04:57:35 PM
+-------------Thursday 25th of September 2025 06:43:21 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Thursday 25th of September 2025 06:43:24 AM
+-------------Friday 26th of September 2025 10:41:30 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Friday 26th of September 2025 10:41:34 AM
+-------------Friday 26th of September 2025 10:41:45 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Friday 26th of September 2025 10:41:49 AM
+-------------Friday 26th of September 2025 10:54:38 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002018'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002018: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002018
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002018'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-09-26 10:54:39
+)
+
+After traveller update for ticket 0985459002018: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002018
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-09-26 10:54:39
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31807925%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 186 total=USD 1,511.90
+ConsolidatedRefund result: {"status":"success","refund_txn":"00000003025ffa4f"}
+Payment refund email sent to nafeesdroidor@gmail.com status=success total=USD 1,511.90 txn=00000003025ffa4f
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 186
+Found 2 overdue PTRs
+Cron job completed at Friday 26th of September 2025 10:54:51 AM
+-------------Monday 29th of September 2025 09:08:25 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 29th of September 2025 09:08:26 AM
+-------------Monday 29th of September 2025 09:12:48 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 29th of September 2025 09:12:49 AM
+-------------Monday 29th of September 2025 09:15:15 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Found 2 overdue PTRs
+Cron job completed at Monday 29th of September 2025 09:15:16 AM
+-------------Monday 29th of September 2025 09:15:50 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Monday 29th of September 2025 09:15:50 AM
+-------------Tuesday 7th of October 2025 04:50:16 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 7th of October 2025 04:50:16 AM
+-------------Tuesday 7th of October 2025 05:52:05 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 7th of October 2025 05:52:05 AM
+-------------Tuesday 7th of October 2025 06:51:06 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 7th of October 2025 06:51:14 AM
+-------------Tuesday 7th of October 2025 07:10:48 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:49
+)
+
+After traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:53
+)
+
+After traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:53
+)
+
+After traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-07 07:10:53
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31892925%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:54
+)
+
+After traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:54
+)
+
+After traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-07 07:10:53
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:54
+)
+
+After traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-07 07:10:54
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31892925%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002791'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:55
+)
+
+After traveller update for ticket 0985459002791: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002792'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:55
+)
+
+After traveller update for ticket 0985459002792: Array
+(
+)
+
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-07 07:10:54
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459002793'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-07 07:10:55
+)
+
+After traveller update for ticket 0985459002793: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459002793
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-07 07:10:55
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF31892925%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=9
+ConsolidatedRefund: Processing single Windcave refund for booking 190 total=USD 2,310.18
+ConsolidatedRefund result: {"status":"success","refund_txn":"0000000302611e13"}
+Payment refund email sent to nafeesdroidor@gmail.com status=success total=USD 2,310.18 txn=0000000302611e13
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 190
+Cron job completed at Tuesday 7th of October 2025 07:11:07 AM
+-------------Monday 13th of October 2025 05:30:08 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Monday 13th of October 2025 05:30:08 AM
+-------------Tuesday 14th of October 2025 03:28:43 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:28:43 PM
+-------------Tuesday 14th of October 2025 03:57:15 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:15 PM
+-------------Tuesday 14th of October 2025 03:57:20 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:20 PM
+-------------Tuesday 14th of October 2025 03:57:20 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:20 PM
+-------------Tuesday 14th of October 2025 03:57:25 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:25 PM
+-------------Tuesday 14th of October 2025 03:57:27 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:27 PM
+-------------Tuesday 14th of October 2025 03:57:27 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:27 PM
+-------------Tuesday 14th of October 2025 03:57:28 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:28 PM
+-------------Tuesday 14th of October 2025 03:57:31 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:31 PM
+-------------Tuesday 14th of October 2025 03:57:31 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:31 PM
+-------------Tuesday 14th of October 2025 03:57:32 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:32 PM
+-------------Tuesday 14th of October 2025 03:57:33 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:33 PM
+-------------Tuesday 14th of October 2025 03:57:34 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:34 PM
+-------------Tuesday 14th of October 2025 03:57:34 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:34 PM
+-------------Tuesday 14th of October 2025 03:57:35 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:35 PM
+-------------Tuesday 14th of October 2025 03:57:36 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:36 PM
+-------------Tuesday 14th of October 2025 03:57:37 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:37 PM
+-------------Tuesday 14th of October 2025 03:57:37 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:37 PM
+-------------Tuesday 14th of October 2025 03:57:38 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:38 PM
+-------------Tuesday 14th of October 2025 03:57:39 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:39 PM
+-------------Tuesday 14th of October 2025 03:57:40 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:40 PM
+-------------Tuesday 14th of October 2025 03:57:44 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:44 PM
+-------------Tuesday 14th of October 2025 03:57:46 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:57:46 PM
+-------------Tuesday 14th of October 2025 03:58:07 PM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Tuesday 14th of October 2025 03:58:07 PM
+-------------Thursday 16th of October 2025 08:41:34 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+-------------Thursday 16th of October 2025 08:42:54 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Thursday 16th of October 2025 08:42:59 AM
+-------------Thursday 16th of October 2025 10:18:35 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+UPDATE cancel_booking SET ptr_status = :ptr_status, cancel_status = :cancel_status WHERE `ticket_number` = '0985459008626'
+Bound data: Array
+(
+    [ptr_status] => completed
+    [cancel_status] => 1
+)
+
+Before traveller update for ticket 0985459008626: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459008626
+            [ticket_status] => Ticketed
+            [void_status] => InProcess
+            [cancel_type] => 
+            [cancel_date] => 
+        )
+
+)
+
+UPDATE travellers_details SET status = :status, ticket_status = :ticket_status, void_status = :void_status, cancel_type = :cancel_type, cancel_date = :cancel_date WHERE `e_ticket_number` = '0985459008626'
+Bound data: Array
+(
+    [status] => cancelled
+    [ticket_status] => cancelled
+    [void_status] => Completed
+    [cancel_type] => void
+    [cancel_date] => 2025-10-16 10:18:37
+)
+
+After traveller update for ticket 0985459008626: Array
+(
+    [0] => Array
+        (
+            [e_ticket_number] => 0985459008626
+            [ticket_status] => cancelled
+            [void_status] => Completed
+            [cancel_type] => void
+            [cancel_date] => 2025-10-16 10:18:37
+        )
+
+)
+
+UPDATE temp_booking SET ticket_status = :ticket_status, booking_status = :booking_status WHERE `mf_reference` LIKE '%MF32079125%'
+Bound data: Array
+(
+    [ticket_status] => cancelled
+    [booking_status] => cancelled
+)
+
+Aggregated email attempt to nafeesdroidor@gmail.com subject=Flight Cancellation - Void Completed sent=1 passengers=1
+ConsolidatedRefund: Processing single Windcave refund for booking 195 total=USD 162.30
+ConsolidatedRefund result: {"status":"success","refund_txn":"000000030265c6ac"}
+Payment refund email sent to nafeesdroidor@gmail.com status=success total=USD 162.30 txn=000000030265c6ac
+Admin payment refund notification sent to no-reply@bulatrips.com for booking 195
+Cron job completed at Thursday 16th of October 2025 10:18:50 AM
+-------------Thursday 16th of October 2025 10:19:09 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Thursday 16th of October 2025 10:19:09 AM
+-------------Saturday 18th of October 2025 06:17:43 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 18th of October 2025 06:17:43 AM
+-------------Saturday 18th of October 2025 07:03:07 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 18th of October 2025 07:03:07 AM
+-------------Saturday 18th of October 2025 07:03:15 AM-------------
+Request Received\nSuccessfully started - Enhanced version with delay handling
+Cron job completed at Saturday 18th of October 2025 07:03:15 AM

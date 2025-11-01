@@ -1,4 +1,7 @@
 <?php
+// Force UTC timezone for consistent void window calculations worldwide
+date_default_timezone_set('UTC');
+
 error_reporting(0);
 // STAGING CREDENTIALS STARTS
 define("BEARER", "18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560");
@@ -6,7 +9,8 @@ define("APIENDPOINT","https://restapidemo.myfarebox.com/api/");
 define("TARGET", "Test");
 
 // DEVELOPMENT MODE - Set to true for mock responses, false for real API calls
-define("MOCK_MODE", true);
+// define("MOCK_MODE", true);
+define("MOCK_MODE", false);
 // STAGING CREDENTIALS ENDS
 
 // LIVE CREDENTIALS STARTS

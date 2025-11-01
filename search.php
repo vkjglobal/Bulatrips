@@ -119,8 +119,8 @@ require_once('includes/dbConnect.php');
             );
             array_push($requestData['OriginDestinationInformations'], $returnDetails);
         }
+        $_SESSION['SEACH_REQUEST_DATA'] = $requestData;
         // Send the API request
-
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $apiEndpoint);
         curl_setopt($ch, CURLOPT_POST, true);

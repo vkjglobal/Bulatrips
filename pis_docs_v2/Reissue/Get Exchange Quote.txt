@@ -1,0 +1,82 @@
+2. Get Exchange Quote
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "GetExchangeQuote",
+  "MFRef": "MF20267522",  
+  "PTRId": 8985,  
+  "Page": 1
+}
+Response
+{
+  "Data": {
+    "PTRId": 8985,
+    "PTRType": "ReIssueQuote",
+    "Status": "Completed",
+    "MFRef": "MF20267522",
+    "CreatedOn": "2022-04-14T10:58:21.273",
+    "RequestCompletionTime": "2022-04-14T10:58:21.273",
+    "CreatedByName": "M Mubarak",
+    "Resolution": "QuoteUpdated",
+    "Passengers": [
+      {
+        "ETicket": "TKT308893",
+        "PassengerType": "ADT",
+        "Tittle": "MR",
+        "FirstName": "BHARATH",
+        "LastName": "BL"
+      }
+    ],
+    "RequestedPreferences": [
+      {
+        "Option": 1,
+        "CreatedOn": "2022-04-14T10:58:21.273",
+        "QuotedSegments": [
+          {
+            "Origin": "BLR",
+            "Destination": "IXE",
+            "CabinClass": "Y",
+            "DepartureDatetime": "2022-05-22T20:00:00",
+            "ArrivalDateTime": "2022-05-22T21:10:00",
+            "AirlineCode": "SG",
+            "FlightNumber": 3008,
+            "Duration": "1.10",
+            "Stops": 0,
+            "BookingClass": "Y",
+            "isReturn": true
+          },
+          {
+            "Origin": "IXE",
+            "Destination": "DXB",
+            "CabinClass": "Y",
+            "DepartureDatetime": "2022-05-22T23:55:00",
+            "ArrivalDateTime": "2022-05-23T02:00:00",
+            "AirlineCode": "SG",
+            "FlightNumber": 59,
+            "Duration": "3.35",
+            "Stops": 0,
+            "BookingClass": "Y",
+            "isReturn": true
+          }
+        ],
+        "QuotedFares": [
+          {
+            "PassengerType": "ADT",
+            "BaseFareDifference": 10,
+            "TaxDifference": 0,
+            "AdminFee": 0,
+            "GST": 0,
+            "NoShowPenalty": 0,
+            "Currency": "USD",
+            "Penalty": 60,
+            "PassengerCount": 1,
+            "TotalFareDifference": 70
+          }
+        ]
+      }
+    ]
+  },
+  "Success": true
+}

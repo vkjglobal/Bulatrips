@@ -42,16 +42,27 @@ include_once('includes/common_const.php');
       $objCancel->_writeLog("AJAX Void Request - Booking ID: $bookingId, MF Ref: $mfreNum, User ID: $userId", 'void.txt');
       $objCancel->_writeLog("Passenger Details: " . json_encode($passengerDetails), 'void.txt');
       
-      // Process passengers for AJAX request
+      // Get ALL passengers from database for AJAX request (not just selected ones)
+      // This is required because Mystifly API doesn't support partial passenger void
+      $bookCanusers_req = $objCancel->BookCancelUsers($bookingId, $userId);
       $passengersArray = array();
-      foreach ($passengerDetails as $passenger) {
-          $passengersArray[] = array(
-              "firstName" => $passenger['firstname'],
-              "lastName" => $passenger['lastname'],
-              "title" => $passenger['title'],
-              "eTicket" => $passenger['eticket'],
-              "passengerType" => $passenger['passengertype']
-          );
+      foreach ($bookCanusers_req as $val) {
+          // Only include ticketed passengers
+          if (!empty($val['e_ticket_number'])) {
+              // Normalize title format as requested by Mystifly
+              $title = $val['title'];
+              if (strtoupper($title) === 'MISS') {
+                  $title = 'Ms';
+              }
+              
+              $passengersArray[] = array(
+                  "firstName" => $val['first_name'],
+                  "lastName" => $val['last_name'],
+                  "title" => $title,
+                  "eTicket" => $val['e_ticket_number'],
+                  "passengerType" => $val['passenger_type']
+              );
+          }
       }
       
   } else {
@@ -69,13 +80,22 @@ include_once('includes/common_const.php');
       $bookCanusers_req = $objCancel->BookCancelUsers($bookingId, $userId);
       $passengersArray = array();
       foreach ($bookCanusers_req as $val) {
-          $passengersArray[] = array(
-              "firstName" => $val['first_name'],
-              "lastName" => $val['last_name'],
-              "title" => $val['title'],
-              "eTicket" => $val['e_ticket_number'],
-              "passengerType" => $val['passenger_type']
-          );
+          // Only include ticketed passengers
+          if (!empty($val['e_ticket_number'])) {
+              // Normalize title format as requested by Mystifly
+              $title = $val['title'];
+              if (strtoupper($title) === 'MISS') {
+                  $title = 'Ms';
+              }
+              
+              $passengersArray[] = array(
+                  "firstName" => $val['first_name'],
+                  "lastName" => $val['last_name'],
+                  "title" => $title,
+                  "eTicket" => $val['e_ticket_number'],
+                  "passengerType" => $val['passenger_type']
+              );
+          }
       }
   }
      
@@ -83,6 +103,17 @@ include_once('includes/common_const.php');
     $mfreNum = htmlspecialchars($mfreNum, ENT_QUOTES, 'UTF-8');
     $bookingId = filter_var($bookingId, FILTER_SANITIZE_NUMBER_INT);
     $userId = filter_var($userId, FILTER_SANITIZE_NUMBER_INT);
+  
+  // Check if we have any ticketed passengers
+  if (empty($passengersArray)) {
+      $objCancel->_writeLog('No ticketed passengers found for void request', 'void.txt');
+      echo json_encode([
+          'status' => 'error',
+          'message' => 'No ticketed passengers found in this booking. Void cannot be processed.',
+          'error_type' => 'no_ticketed_passengers'
+      ]);
+      exit;
+  }
   
   // Check for child passengers
   $childpsnger = isset($bookCanusers_req[0]['child_count']) ? $bookCanusers_req[0]['child_count'] : 0;
@@ -95,7 +126,10 @@ $requestData = array(
     'AllowChildPassenger' => $allow_child,
       'passengers' => $passengersArray,
       'AdditionalNote' => 'Kindly void booking'
-  );
+);
+
+// Log the complete request data that will be sent to Mystifly
+$objCancel->_writeLog('Void Request - Complete request data: ' . json_encode($requestData), 'void.txt');
   
   // Note: We don't include PTR ID in Void API call
   // PTR ID is only used for VoidQuote, not for actual Void
@@ -115,6 +149,29 @@ $requestData = array(
       $result = $objCancel->callApi($endpoint, $requestData);
         $httpCode = $result['httpCode'];
         $response = $result['responseData'];
+        
+        // Check for Mystifly API errors
+        if ($httpCode !== 200 || empty($response)) {
+            $objCancel->_writeLog('Void API Error - HTTP Code: ' . $httpCode . ', Response: ' . $response, 'void.txt');
+            echo json_encode([
+                'status' => 'error', 
+                'message' => 'Mystifly API is currently unavailable (HTTP ' . $httpCode . '). Please try again later.',
+                'error_type' => 'api_unavailable'
+            ]);
+            exit;
+        }
+        
+        // Check for 500 error in response body
+        $tempData = json_decode($response, true);
+        if (isset($tempData['Message']) && strpos($tempData['Message'], '500') !== false) {
+            $objCancel->_writeLog('Mystifly Void 500 Error: ' . $tempData['Message'], 'void.txt');
+            echo json_encode([
+                'status' => 'error',
+                'message' => 'Mystifly API is experiencing issues. Please try again in a few minutes.',
+                'error_type' => 'mystifly_500_error'
+            ]);
+            exit;
+        }
   }
   
   // Log the request and response
@@ -128,6 +185,12 @@ $requestData = array(
       if (isset($responseData['Success']) && $responseData['Success']) {
           $PTRId = $responseData['Data']['PTRId'] ?? '';
           $PTRStatus = $responseData['Data']['PTRStatus'] ?? '';
+          $SLAInMinutes = $responseData['Data']['SLAInMinutes'] ?? 120; // Default 2 hours if not provided
+          
+          // Calculate expected completion time in UTC
+          $processingStartedUTC = gmdate('d M Y, H:i') . ' UTC';
+          $expectedCompletionUTC = gmdate('d M Y, H:i', time() + ($SLAInMinutes * 60)) . ' UTC';
+          
           // build message using quote amount if we have it
           $amountText = '';
           if (!is_null($finalRefundAmount)) {
@@ -157,12 +220,12 @@ $requestData = array(
               try {
                   // sanitize values to match DB types
                   $userId = intval($userId);
-                  $ptrIdForDb = is_numeric($PTRId) ? intval($PTRId) : 0; // ptr_id column is INT
+                  $ptrIdForDb = (string)$PTRId; // ptr_id column is VARCHAR(64), keep as string
                   $precancelsts = 'post';
                   $errorCode = '';
                   $traceId = '';
                   $ptrType = 'Void';
-                  $SLAInMinutes = 0;
+                  $SLAInMinutesForDb = $SLAInMinutes; // Use actual SLA from API response
                   $VoidingWindow = '';
                   $AdminCharges = 0;
                   $GSTCharge = 0;
@@ -181,7 +244,7 @@ $requestData = array(
                       $httpCode,
                       $ptrIdForDb,
                       $ptrType,
-                      $SLAInMinutes,
+                      $SLAInMinutesForDb, // Use actual SLA from API response
                       $PTRStatus,
                       $VoidingWindow,
                       $passenger['eticket'], // ticket_num for this specific passenger
@@ -220,7 +283,7 @@ $requestData = array(
                           $cancel_status,
                           '', // created_date handled by NOW()
                           '', // void_window
-                          0, // sla_minutes
+                          $SLAInMinutesForDb, // Use actual SLA from API response
                           0, // admin_charge
                           0, // gst_charge
                           $Currency,
@@ -280,6 +343,17 @@ $requestData = array(
               }
               $amountDisp = !is_null($finalRefundAmount) ? ($currencyFromQuote.' '.number_format((float)$finalRefundAmount,2)) : '';
               $amountLine = $amountDisp !== '' ? '<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">Total Amount:</span> <span>'.$amountDisp.'</span></div>' : '';
+              
+              // Add SLA timeline information
+              $slaHours = round($SLAInMinutes / 60, 1);
+              $slaInfoBox = '<div style="background:#e7f3ff; border-left:4px solid #0d6efd; padding:15px; margin:15px 0; border-radius:4px;">'
+                  .'<p style="margin:0 0 8px 0; font-weight:bold; color:#084298;">⏰ Processing Timeline</p>'
+                  .'<div style="margin:0 0 6px 0; font-size:14px; color:#084298;"><strong>Processing Started:</strong> '.htmlspecialchars($processingStartedUTC).'</div>'
+                  .'<div style="margin:0 0 6px 0; font-size:14px; color:#084298;"><strong>Expected Completion:</strong> '.htmlspecialchars($expectedCompletionUTC).'</div>'
+                  .'<div style="margin:0 0 6px 0; font-size:14px; color:#084298;"><strong>Processing Time:</strong> Up to '.$slaHours.' hours</div>'
+                  .'<p style="margin:8px 0 0 0; font-size:13px; color:#666; font-style:italic;">Note: Times shown in UTC (Universal Time). Please adjust for your local timezone.</p>'
+                  .'</div>';
+              
               $emailHtml = '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>'
                 .'<body style="margin:0;padding:20px;background-color:#f5f7fb;font-family:Arial,sans-serif;color:#333333;">'
                 .'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:8px;box-shadow:0 0 10px rgba(0,0,0,0.08);">'
@@ -292,6 +366,7 @@ $requestData = array(
                 .'<div style="margin:0 0 6px 0;"><span style="font-weight:bold;">MFReference:</span> <span>'.htmlspecialchars($mfRef).'</span></div>'
                 .$amountLine
                 .'</div>'
+                .$slaInfoBox
                 .'<div style="margin-top:16px;"><table width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;">'
                 .'<thead><tr><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">Passenger</th><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">PTR ID</th><th align="left" style="padding:8px 12px;border-bottom:2px solid #0029ff;">Status</th></tr></thead>'
                 .'<tbody>'.$rows.'</tbody></table></div>'
@@ -309,32 +384,22 @@ $requestData = array(
                     'message' => $message,
                     'ptr_id' => $PTRId,
 			 'ptr_status' => $PTRStatus,
-              'mf_ref' => $mfreNum
+              'mf_ref' => $mfreNum,
+              'sla_minutes' => $SLAInMinutes,
+              'expected_completion_utc' => $expectedCompletionUTC,
+              'processing_started_utc' => $processingStartedUTC,
+              'estimated_completion_hours' => round($SLAInMinutes / 60, 1)
           );
           
       } else {
-          // Handle specific errors
+          // Handle errors - show raw Mystifly error message
           $message = isset($responseData['Message']) ? $responseData['Message'] : 'Unknown error occurred';
-          
-          // Check for specific error types
-          if (strpos($message, 'Split PNR') !== false) {
-              $response_New = array(
-                  'status' => 'error',
-                  'message' => 'Mystifly is returning a "Split PNR" error for this booking. This may be due to: 1) Ticket already in process, 2) Mystifly internal issue, or 3) Special booking restrictions. Please contact our support team for assistance.',
-                  'error_type' => 'split_pnr_required'
-              );
-          } elseif (strpos($message, 'already') !== false || strpos($message, 'process') !== false) {
-                         $response_New = array(
-                  'status' => 'error',
-                  'message' => 'This ticket is already being processed. Please wait or contact support.',
-                  'error_type' => 'already_processing'
-              );
-          } else {
-                         $response_New = array(
-                  'status' => 'error',
-            'message' => $message
-        );
-          }
+          $response_New = array(
+              'status' => 'error',
+              'message' => $message,
+              'raw_response' => $responseData, // Include full response for debugging
+              'raw_request' => $requestData // Include full request for debugging
+          );
       }
   } else {
                          $response_New = array(

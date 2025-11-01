@@ -364,25 +364,67 @@ if (isset($bookingData['mf_reference'])) {
         // Set the values
         $ticketStatus = $tripDetails['TicketStatus'];
         $id = $bookingId;
-        foreach ($passengerDetail as $passengerInfo) {
-
-
-            if (isset($passengerInfo['ETickets'][0]['ETicketNumber'])) {
-                $ticketNumber = $passengerInfo['ETickets'][0]['ETicketNumber'];
-                $ticketStatusType   =   $passengerInfo['ETickets'][0]['ETicketType'];
-            } elseif (!empty($ticketStatus)) {
-                $ticketStatusType   = $ticketStatus;
-                $ticketNumber = "";
-            } else {
-                $ticketNumber = "";
-                $ticketStatusType = "";
-            }
+        
+        // Debug: Log the overall trip details structure
+        error_log("Confirmation - TripDetails structure: " . json_encode($tripDetails));
+        
+        foreach ($passengerDetail as $index => $passengerInfo) {
             $PassportNumber = $passengerInfo['Passenger']['PassportNumber'];
+            $passengerName = $passengerInfo['Passenger']['PaxName']['PassengerFirstName'] . ' ' . $passengerInfo['Passenger']['PaxName']['PassengerLastName'];
+
+            // Debug: Log the passenger info structure
+            error_log("Confirmation - Passenger $passengerName ETickets structure: " . json_encode($passengerInfo['ETickets'] ?? []));
+            error_log("Confirmation - Passenger $passengerName Full structure: " . json_encode($passengerInfo));
+
+            // Check if this passenger has individual tickets
+            if (isset($passengerInfo['ETickets']) && !empty($passengerInfo['ETickets'])) {
+                // Find the ticket for this specific passenger
+                $passengerTicket = null;
+                foreach ($passengerInfo['ETickets'] as $ticket) {
+                    if (isset($ticket['ETicketNumber'])) {
+                        $passengerTicket = $ticket;
+                        break; // Use the first valid ticket for this passenger
+                    }
+                }
+                
+                if ($passengerTicket) {
+                    $ticketNumber = $passengerTicket['ETicketNumber'];
+                    $ticketStatusType = $passengerTicket['ETicketType'] ?? $ticketStatus;
+                    error_log("Confirmation - Passenger $passengerName - Individual ticket: $ticketNumber, status: $ticketStatusType");
+                } else {
+                    $ticketNumber = "";
+                    $ticketStatusType = $ticketStatus;
+                    error_log("Confirmation - Passenger $passengerName - No individual ticket, using overall status: $ticketStatusType");
+                }
+            } else {
+                // Alternative approach: Check if there's a separate tickets array in trip details
+                // that might be indexed by passenger order
+                if (isset($tripDetails['ETickets']) && is_array($tripDetails['ETickets']) && isset($tripDetails['ETickets'][$index])) {
+                    $ticketData = $tripDetails['ETickets'][$index];
+                    if (isset($ticketData['ETicketNumber'])) {
+                        $ticketNumber = $ticketData['ETicketNumber'];
+                        $ticketStatusType = $ticketData['ETicketType'] ?? $ticketStatus;
+                        error_log("Confirmation - Passenger $passengerName - Ticket from trip details index $index: $ticketNumber, status: $ticketStatusType");
+                    } else {
+                        $ticketNumber = "";
+                        $ticketStatusType = $ticketStatus;
+                        error_log("Confirmation - Passenger $passengerName - No ticket at index $index, using overall status: $ticketStatusType");
+                    }
+                } elseif (!empty($ticketStatus)) {
+                    $ticketStatusType = $ticketStatus;
+                    $ticketNumber = "";
+                    error_log("Confirmation - Passenger $passengerName - Using overall status: $ticketStatusType");
+                } else {
+                    $ticketNumber = "";
+                    $ticketStatusType = "";
+                    error_log("Confirmation - Passenger $passengerName - No ticket info available");
+                }
+            }
 
             // Bind the parameters and execute the update statement
             $stmtupdatetravellers->bindParam(':ticketNumber', $ticketNumber, PDO::PARAM_STR);
             $stmtupdatetravellers->bindParam(':PassportNumber', $PassportNumber, PDO::PARAM_STR);
-            $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatus);
+            $stmtupdatetravellers->bindParam(':ticketStatus', $ticketStatusType);
             $stmtupdatetravellers->bindParam(':bookingId', $id);
             $stmtupdatetravellers->execute();
         }

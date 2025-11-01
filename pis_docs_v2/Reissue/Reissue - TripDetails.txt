@@ -1,0 +1,21 @@
+5. Reissue - TripDetails
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "UniqueID": "MFXXXXXXXX"
+}
+Response
+ "ETickets": [
+                    {
+                        "ItemRPH": 1,
+                        "ETicketNumber": "123w45",
+                        "ETicketType": "Reissued"
+                    },
+                    {
+                        "ItemRPH": 2,
+                        "ETicketNumber": "s3s34ee",
+                        "ETicketType": "Ticketed"
+                    }
+              ]

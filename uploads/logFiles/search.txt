@@ -316,3 +316,1185 @@ REsponse Received\nArray
     [Message] => No records found.
 )
 
+-------------Monday 22nd of September 2025 10:35:44 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Monday 22nd of September 2025 10:35:46 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Monday 22nd of September 2025 10:35:47 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Monday 22nd of September 2025 04:57:34 PM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Thursday 25th of September 2025 06:43:24 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:41:31 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:41:32 AM-------------
+userId is 73
+Booking ID is 186
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31807925
+    [PTRId] => 16629
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31807925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 16629
+                            [PTRType] => Void
+                            [MFRef] => MF31807925
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 18674
+                                            [PTRId] => 16629
+                                            [PaxId] => 478562
+                                            [TicketNumber] => 0985459002018
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Linda
+                                            [LastName] => Hull
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:41:46 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:41:47 AM-------------
+userId is 73
+Booking ID is 186
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31807925
+    [PTRId] => 16629
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31807925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 16629
+                            [PTRType] => Void
+                            [MFRef] => MF31807925
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 18674
+                                            [PTRId] => 16629
+                                            [PaxId] => 478562
+                                            [TicketNumber] => 0985459002018
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Linda
+                                            [LastName] => Hull
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:54:39 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Friday 26th of September 2025 10:54:39 AM-------------
+userId is 73
+Booking ID is 186
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31807925
+    [PTRId] => 16629
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31807925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 16629
+                            [PTRType] => Void
+                            [MFRef] => MF31807925
+                            [BookingStatus] => Voided
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101644
+                            [TotalRefundAmount] => 1511.90
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Voided
+                            [CreditNoteStatus] => Paid
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 18674
+                                            [PTRId] => 16629
+                                            [PaxId] => 478562
+                                            [TicketNumber] => 0985459002018
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Linda
+                                            [LastName] => Hull
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Voided
+step end of void  ========= 
+-------------Monday 29th of September 2025 09:08:26 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Monday 29th of September 2025 09:12:49 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Monday 29th of September 2025 09:15:16 AM-------------
+userId is 73
+Booking ID is 180
+Request Received\nArray
+(
+    [ptrType] => GetExchangeQuote
+    [MFRef] => MF31554025
+    [PTRId] => 1758164278
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31554025
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRId] => 0
+            [CreatedOn] => 0001-01-01T00:00:00
+            [RequestCompletionTime] => 0001-01-01T00:00:00
+        )
+
+    [Success] => 1
+)
+
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 06:51:06 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 06:51:09 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 06:51:12 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 07:10:49 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Voided
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101654
+                            [TotalRefundAmount] => 2310.18
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Voided
+                            [CreditNoteStatus] => Paid
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Voided
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 07:10:54 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Voided
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101654
+                            [TotalRefundAmount] => 2310.18
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Voided
+                            [CreditNoteStatus] => Paid
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Voided
+step end of void  ========= 
+-------------Tuesday 7th of October 2025 07:10:55 AM-------------
+userId is 73
+Booking ID is 190
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF31892925
+    [PTRId] => 17016
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF31892925
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17016
+                            [PTRType] => Void
+                            [MFRef] => MF31892925
+                            [BookingStatus] => Voided
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101654
+                            [TotalRefundAmount] => 2310.18
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Voided
+                            [CreditNoteStatus] => Paid
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19004
+                                            [PTRId] => 17016
+                                            [PaxId] => 479635
+                                            [TicketNumber] => 0985459002791
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Kenneth
+                                            [LastName] => Duffy
+                                            [EMDFee] => 0
+                                        )
+
+                                    [1] => Array
+                                        (
+                                            [Id] => 19005
+                                            [PTRId] => 17016
+                                            [PaxId] => 479636
+                                            [TicketNumber] => 0985459002792
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mrs
+                                            [FirstName] => Reed
+                                            [LastName] => Espinoza
+                                            [EMDFee] => 0
+                                        )
+
+                                    [2] => Array
+                                        (
+                                            [Id] => 19006
+                                            [PTRId] => 17016
+                                            [PaxId] => 479637
+                                            [TicketNumber] => 0985459002793
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Dieter
+                                            [LastName] => Pacheco
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Voided
+step end of void  ========= 
+-------------Thursday 16th of October 2025 08:41:35 AM-------------
+userId is 73
+Booking ID is 195
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF32079125
+    [PTRId] => 17377
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF32079125
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17377
+                            [PTRType] => Void
+                            [MFRef] => MF32079125
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19494
+                                            [PTRId] => 17377
+                                            [PaxId] => 482020
+                                            [TicketNumber] => 0985459008626
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Nayda
+                                            [LastName] => Hunt
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+-------------Thursday 16th of October 2025 08:42:55 AM-------------
+userId is 73
+Booking ID is 195
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF32079125
+    [PTRId] => 17377
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF32079125
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17377
+                            [PTRType] => Void
+                            [MFRef] => MF32079125
+                            [BookingStatus] => Ticketed
+                            [PTRStatus] => InProcess
+                            [CreatedBy] => XPay Global
+                            [Resolution] => 
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19494
+                                            [PTRId] => 17377
+                                            [PaxId] => 482020
+                                            [TicketNumber] => 0985459008626
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Nayda
+                                            [LastName] => Hunt
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success InProcess
+Step 1 Resolution 
+step end of void  ========= 
+-------------Thursday 16th of October 2025 10:18:37 AM-------------
+userId is 73
+Booking ID is 195
+Request Received\nArray
+(
+    [ptrType] => Void
+    [MFRef] => MF32079125
+    [PTRId] => 17377
+    [Page] => 1
+)
+
+REsponse Received for MF:\nMF32079125
+REsponse Received\nArray
+(
+    [Data] => Array
+        (
+            [PTRDetail] => Array
+                (
+                    [0] => Array
+                        (
+                            [PTRId] => 17377
+                            [PTRType] => Void
+                            [MFRef] => MF32079125
+                            [BookingStatus] => Voided
+                            [PTRStatus] => Completed
+                            [CreditNoteNumber] => 3101659
+                            [TotalRefundAmount] => 162.30
+                            [Currency] => USD
+                            [CreatedBy] => XPay Global
+                            [Resolution] => Voided
+                            [CreditNoteStatus] => Paid
+                            [pTRPaxDetails] => Array
+                                (
+                                    [0] => Array
+                                        (
+                                            [Id] => 19494
+                                            [PTRId] => 17377
+                                            [PaxId] => 482020
+                                            [TicketNumber] => 0985459008626
+                                            [TicketStatus] => 1
+                                            [IsActive] => 1
+                                            [PassengerType] => ADT
+                                            [Title] => Mr
+                                            [FirstName] => Nayda
+                                            [LastName] => Hunt
+                                            [EMDFee] => 0
+                                        )
+
+                                )
+
+                            [PTRTypeStatus] => 0
+                        )
+
+                )
+
+        )
+
+    [Success] => 1
+)
+
+Step 1Success Completed
+Step 1 Resolution Voided
+step end of void  ========= 

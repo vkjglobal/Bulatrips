@@ -4807,3 +4807,94 @@ Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id =
 Update data: {"void_status":"InProcess","ptr_id":"PTR_1758163306_7411","eticket":"TKT510483","booking_id":"180"}
 Update result: success, rows affected: 1
 Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 224.43","ptr_id":"PTR_1758163306_7411","ptr_status":"InProcess","mf_ref":"MF31554025"}
+AJAX Void Request - Booking ID: 186, MF Ref: MF31807925, User ID: 73
+Passenger Details: [{"firstname":"Linda","lastname":"Hull","title":"Mrs","eticket":"0985459002018","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31807925","AllowChildPassenger":false,"passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":16629,"PTRType":"Void","MFRef":"MF31807925","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Linda","LastName":"Hull","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002018","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"1511.90","Currency":"USD"}]}}
+Attempting to insert into cancel_booking for booking ID: 186, User ID: 73, Traveller ID: 189, Eticket: 0985459002018
+Insert into cancel_booking result for traveller 189: '36'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":16629,"eticket":"0985459002018","booking_id":"186"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 1,381.79","ptr_id":16629,"ptr_status":"InProcess","mf_ref":"MF31807925"}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open."}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open."}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open."}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Unable to void ticket: The ticket status does not allow voiding at this time. This could be due to: 1) Ticket already used\/flown, 2) Airline restrictions, 3) Void window expired, or 4) Ticket in transitional state. Please try the refund option instead or contact support.","error_type":"coupon_status_error","suggested_action":"Try refund option instead"}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open."}
+AJAX Void Request - Booking ID: 189, MF Ref: MF31892825, User ID: 73
+Passenger Details: [{"firstname":"Faith","lastname":"Harmon","title":"Mrs","eticket":"0985459002789","passengertype":"ADT"}]
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892825","AllowChildPassenger":false,"passengers":[{"firstName":"Faith","lastName":"Harmon","title":"Mrs","eTicket":"0985459002789","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open."}
+AJAX Void Request - Booking ID: 190, MF Ref: MF31892925, User ID: 73
+Passenger Details: [{"firstname":"Kenneth","lastname":"Duffy","title":"Mr","eticket":"0985459002791","passengertype":"ADT"},{"firstname":"Reed","lastname":"Espinoza","title":"Mrs","eticket":"0985459002792","passengertype":"ADT"},{"firstname":"Dieter","lastname":"Pacheco","title":"Mr","eticket":"0985459002793","passengertype":"ADT"}]
+Void Request - Complete request data: {"ptrType":"Void","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002791","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002792","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void Request Data: {"ptrType":"Void","mFRef":"MF31892925","AllowChildPassenger":false,"passengers":[{"firstName":"Kenneth","lastName":"Duffy","title":"Mr","eTicket":"0985459002791","passengerType":"ADT"},{"firstName":"Reed","lastName":"Espinoza","title":"Mrs","eTicket":"0985459002792","passengerType":"ADT"},{"firstName":"Dieter","lastName":"Pacheco","title":"Mr","eTicket":"0985459002793","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":17016,"PTRType":"Void","MFRef":"MF31892925","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Kenneth","LastName":"Duffy","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002791","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Reed","LastName":"Espinoza","Title":"Mrs","PassengerType":"ADT","ETicket":"0985459002792","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"},{"FirstName":"Dieter","LastName":"Pacheco","Title":"Mr","PassengerType":"ADT","ETicket":"0985459002793","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"770.06","Currency":"USD"}]}}
+Attempting to insert into cancel_booking for booking ID: 190, User ID: 73, Traveller ID: 196, Eticket: 0985459002791
+Insert into cancel_booking result for traveller 196: '37'
+Attempting to insert into cancel_booking for booking ID: 190, User ID: 73, Traveller ID: 197, Eticket: 0985459002792
+Insert into cancel_booking result for traveller 197: '38'
+Attempting to insert into cancel_booking for booking ID: 190, User ID: 73, Traveller ID: 198, Eticket: 0985459002793
+Insert into cancel_booking result for traveller 198: '39'
+Updating void status for 3 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":17016,"eticket":"0985459002791","booking_id":"190"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":17016,"eticket":"0985459002792","booking_id":"190"}
+Update result: success, rows affected: 1
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":17016,"eticket":"0985459002793","booking_id":"190"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 2,020.00","ptr_id":17016,"ptr_status":"InProcess","mf_ref":"MF31892925"}
+AJAX Void Request - Booking ID: 192, MF Ref: MF32007325, User ID: 73
+Passenger Details: [{"firstname":"Haley","lastname":"Michael","title":"Mr","eticket":"0985459006457","passengertype":"ADT"}]
+Void Request - Complete request data: {"ptrType":"Void","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void Request Data: {"ptrType":"Void","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":false,"Data":null,"Message":"Coupon status is not open."}
+Final response: {"status":"error","message":"Coupon status is not open.","raw_response":{"Success":false,"Data":null,"Message":"Coupon status is not open."},"raw_request":{"ptrType":"Void","mFRef":"MF32007325","AllowChildPassenger":false,"passengers":[{"firstName":"Haley","lastName":"Michael","title":"Mr","eTicket":"0985459006457","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}}
+AJAX Void Request - Booking ID: 195, MF Ref: MF32079125, User ID: 73
+Passenger Details: [{"firstname":"Nayda","lastname":"Hunt","title":"Mr","eticket":"0985459008626","passengertype":"ADT"}]
+Void Request - Complete request data: {"ptrType":"Void","mFRef":"MF32079125","AllowChildPassenger":false,"passengers":[{"firstName":"Nayda","lastName":"Hunt","title":"Mr","eTicket":"0985459008626","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void Request Data: {"ptrType":"Void","mFRef":"MF32079125","AllowChildPassenger":false,"passengers":[{"firstName":"Nayda","lastName":"Hunt","title":"Mr","eTicket":"0985459008626","passengerType":"ADT"}],"AdditionalNote":"Kindly void booking"}
+Void HTTP Code: 200
+Void Raw API Response: {"Success":true,"Data":{"PTRId":17377,"PTRType":"Void","MFRef":"MF32079125","SLAInMinutes":120,"PTRStatus":"InProcess","VoidQuotes":[{"FirstName":"Nayda","LastName":"Hunt","Title":"Mr","PassengerType":"ADT","ETicket":"0985459008626","AdminCharges":"0.00","GSTCharge":"0.00","TotalVoidingFee":"0.00","TotalRefundAmount":"162.30","Currency":"USD"}]}}
+Attempting to insert into cancel_booking for booking ID: 195, User ID: 73, Traveller ID: 203, Eticket: 0985459008626
+Insert into cancel_booking result for traveller 203: '40'
+Updating void status for 1 passengers
+Update query: UPDATE travellers_details SET void_status = :void_status, ptr_id = :ptr_id WHERE e_ticket_number = :eticket AND flight_booking_id = :booking_id
+Update data: {"void_status":"InProcess","ptr_id":17377,"eticket":"0985459008626","booking_id":"195"}
+Update result: success, rows affected: 1
+Final response: {"status":"success","message":"Your Cancellation is: InProcess Total Refundable Amount is: USD 92.92","ptr_id":17377,"ptr_status":"InProcess","mf_ref":"MF32079125"}

@@ -1,0 +1,137 @@
+Void Request Search API
+API / post-booking / Void Request Search API
+Search Post Ticketing Request API is performed to check the status of the PTR ID generated from the “Void” response created, this API also gives the information about the Booking status, Passenger details and Void amount associated for the booking.avatar
+POST
+https://restapidemo.myfarebox.com/api/Search/PostTicketingRequest
+API Contract/Request
+Copy
+|
+{
+  "ptrType": "Void",
+  "MFRef": "MF15171220", 
+  "PTRId": 5287,
+  "Page": 1
+}
+    
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/1
+
+1. Search Void
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "Void",
+  "MFRef": "MF15171220", 
+  "PTRId": 5287,
+  "Page": 1
+}
+    
+Response
+{
+  "Data": {
+    "PTRDetail": [
+      {
+        "PTRId": 5287,
+        "PTRType": "Void",
+        "MFRef": "MF15171220",
+        "BookingStatus": "Voided",
+        "PTRStatus": "Completed",
+        "CreditNoteNumber": "3100208",
+        "TotalRefundAmount": "239.75",
+        "Currency": "USD",
+        "CreatedBy": "Mystifly API Team",
+        "Resolution": "Voided",
+        "CreditNoteStatus": "Paid",
+        "pTRPaxDetails": [
+          {
+            "Id": 5890,
+            "PTRId": 5287,
+            "PaxId": 223505,
+            "TicketNumber": "5654345667787",
+            "TicketStatus": 1,
+            "IsActive": true,
+            "PassengerType": "ADT",
+            "Tittle": "Mr",
+            "FirstName": "Alex",
+            "LastName": "Tan"
+          }
+        ]
+      }
+    ]
+  },
+  "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed Scenario: When Invalid PTRId is Passed
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "Void",
+  "MFRef": "MF29503100", 
+  "PTRId": 14920,
+  "Page": 1
+}
+Response
+{
+    "Data": null,
+    "Success": false,
+    "Message": "No records found."
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+{		
+"ptrType":	"Void",	Indicates the PTR functionality requested for
+"mFRef":	"MF15171220",	Mystifly reference starts with MF followed by 8 digits.
+"PTRCategory":	"All"	None, NotRead, Read, All, Please pass by default pass All.
+"PTRStatus"	"None"	None, Requested, InProcess, Completed, Rejected, QuoteChanged
+"PTRId":	5287,	PTR ID is Unique reference number generated for the VOID request.
+"ShowProcessingMethod":	True,	True indicates if the PTR ID was processed Auto/Manuall, if False no tag passed
+"Page":	1	Page number to view PTR ID transaction details min 1 max of 25 records
+}		
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+{		
+"Data": {		
+"PTRDetail": [		
+{		
+"PTRId":	5287,	PTR ID is Unique reference number generated for the VOID request.
+"PTRType":	"Void",	Indicates the PTR functionality requested for
+"MFRef":	"MF15171220",	Mystifly reference starts with MF followed by 8 digits.
+"BookingStatus":	"Voided",	Status of the Booking or the MF number will be passed
+"PTRStatus":	" Completed",	Status of the PTR request will be provided.
+"CreditNoteNumber":	"3100208",	Unique ID generated for tracking the Credit note number for Refund status
+"TotalRefundAmount":	"239.75",	Total refund amount post Voiding the ticket.
+"Currency":	"USD",	Refund amount that will be credited as per currency associated with booking
+"CreatedBy":	"Mystifly",	Client UserName for reference
+"Resolution":	"Voided",	Status of the PTR ID, if "Rejected" reason will be passed next to the tag.
+"CreditNoteStatus":	"Paid",	Status of Credit note for particular transaction
+"PTRPaxDetails": [		
+{		
+"Id":	5890,	Booking ID for a particular Transaction
+"PTRId":	5287,	PTR – ID from the Quote response
+"PaxId"	223505,	Specified Passenger unique number
+"TicketNumber":	"5654345667787",	Ticket Number of passengers
+"TicketStatus":	1,	1 - True or 0 - false
+"IsActive":	true,	Boolean value, to check the booking status as active or not
+"PassengerType":	"ADT"	Passenger type ADT/CHD/INF associated with the booking.
+"Title":	"Mr",	Tittle of the passenger associated with the booking.
+"FirstName":	"Alex",	First Name of the passenger associated with the booking.
+"LastName":	"Tan",	Last Name of the passenger associated with the booking.
+}		
+]		
+}		
+]		
+},		
+"Success":	true,	
+}		

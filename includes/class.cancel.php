@@ -43,15 +43,8 @@
         $GSTCharge = ($GSTCharge === '' || $GSTCharge === null) ? 0 : floatval($GSTCharge);
         $TotalVoidingFee = ($TotalVoidingFee === '' || $TotalVoidingFee === null) ? 0.00 : floatval($TotalVoidingFee);
         $TotalRefundAmount = ($TotalRefundAmount === '' || $TotalRefundAmount === null) ? 0.00 : floatval($TotalRefundAmount);
-        // Normalize PTR for cancel_booking: store numeric-only
-        $ptrIdForDb = null;
-        if (!empty($PTRId)) {
-            if (is_numeric($PTRId)) {
-                $ptrIdForDb = intval($PTRId);
-            } elseif (preg_match('/(\d+)/', (string)$PTRId, $m)) {
-                $ptrIdForDb = intval($m[1]);
-            }
-        }
+        // PTR ID for cancel_booking: store as string (column is VARCHAR(64))
+        $ptrIdForDb = !empty($PTRId) ? (string)$PTRId : null;
         
         // Debug log
         $this->_writeLog("Inserting cancel booking with PTR ID: " . var_export($PTRId, true), 'debug.txt');
@@ -267,21 +260,24 @@ public function callApi($endpoint,$requestData){
     
         $response = curl_exec($ch);
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        $curlError = '';
+        
+        // Check for curl errors
+        if ($response === false) {
+            $curlError = curl_error($ch);
+            $this->_writeLog('Curl Error: ' . $curlError, 'api_debug.txt');
+        }
         
         // Log response
         $this->_writeLog('Response Code: ' . $httpCode, 'api_debug.txt');
         $this->_writeLog('Response Body: ' . $response, 'api_debug.txt');
         
-        if ($response === false) {
-            $error = curl_error($ch);
-            $this->_writeLog('Curl Error: ' . $error, 'api_debug.txt');
-        }
-        
         curl_close($ch);
         
         return array(
             'httpCode' => $httpCode,
-            'responseData' => $response
+            'responseData' => $response,
+            'curlError' => $curlError
         );
 }
 public function _writeLog($content	=	"",$filename	=	"log.txt")

@@ -1,0 +1,20 @@
+3. Accept Reissue Quote
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "ReIssueQuote",
+  "mFRef": "MF20267522",
+  "PTRId": 8985,
+  "PreferenceOption": 1, 
+  "AcceptQuote":"yes",
+  "AdditionalNote": "Please Reissue as for quoted fare"
+ 
+}
+Response
+{
+  "Success": false,
+  "Data": null,
+  "Message": "Reissue is in process"
+}

@@ -1,0 +1,5096 @@
+Search v2 - Branded Fares
+API / pre-booking / Search v2 - Branded Fares
+Search V2 is the latest and upgraded version of Search V1, with a major difference in the response structure, which is now aligned with the endpoint used based on the results that change between V1 and V2. A key feature introduced in this version is Branded Fares/Fare Families, allowing users to view specific fare offerings from airlines. This API version has been regularly updated over the past 2.5 years to ensure that users receive the latest data, including direct access to branded fares from airlines. Search V2 provides a streamlined way to access airline data and search for the lowest and best fares. The request requires only a few parameters, while the response provides extensive information with many parameters.avatar
+POST
+https://restapidemo.myfarebox.com/api/v2/Search/Flight
+API Contract/Request
+Copy
+|
+{
+    "OriginDestinationInformations": [
+        {
+            "DepartureDateTime": "2025-4-11T00:00:00",
+            "OriginLocationCode": "BLR",
+            "DestinationLocationCode": "DEL
+        }
+    ],
+    "TravelPreferences": {
+        "MaxStopsQuantity": "All",
+        "VendorPreferenceCodes": [],
+        "VendorExcludeCodes": [],
+        "Preferences": {
+            "CabinClassPreference": {
+                "CabinType": "Y",
+                "PreferenceLevel": "Preferred"
+            }
+        },
+        "AirTripType": "OneWay"
+    },
+    "PricingSourceType": "All",
+    "IsRefundable": false,
+    "PassengerTypeQuantities": [
+        {
+            "Code": "ADT",
+            "Quantity": "1"
+        }
+    ],
+    "RequestOptions": "FiveHundred",
+    "NearByAirports": true,
+    "IsResidentFare": false,
+    "Nationality": "",
+    "Target": "Test",
+    "ConversationId": "string",
+    "Provider": "All",
+    "IsInfantWithSeat": false
+}
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/1
+
+1. Search V2
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "OriginDestinationInformations": [
+        {
+            "DepartureDateTime": "2024-4-11T00:00:00",
+            "OriginLocationCode": "DEL",
+            "DestinationLocationCode": "BOM"
+        }
+    ],
+    "TravelPreferences": {
+        "MaxStopsQuantity": "All",
+        "VendorPreferenceCodes": [],
+        "VendorExcludeCodes": [],
+        "Preferences": {
+            "CabinClassPreference": {
+                "CabinType": "Y",
+                "PreferenceLevel": "Preferred"
+            }
+        },
+        "AirTripType": "OneWay"
+    },
+    "PricingSourceType": "All",
+    "IsRefundable": false,
+    "PassengerTypeQuantities": [
+        {
+            "Code": "ADT",
+            "Quantity": "1"
+        }
+    ],
+    "RequestOptions": "FiveHundred",
+    "NearByAirports": true,
+    "IsResidentFare": false,
+    "Nationality": "",
+    "Target": "Test",
+    "ConversationId": "string",
+    "Provider": "All",
+    "IsInfantWithSeat": false
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "FlightSegmentList": [
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T03:20:00",
+                "ArrivalDateTime": "2023-11-16T09:05:00",
+                "stops": 0,
+                "JourneyDuration": 615,
+                "Equipment": "77W",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "872",
+                "StopQuantityInfos": [],
+                "SegmentRef": 0
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-17T07:20:00",
+                "ArrivalDateTime": "2023-11-17T07:40:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1001",
+                "StopQuantityInfos": [],
+                "SegmentRef": 1
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T10:20:00",
+                "ArrivalDateTime": "2023-11-16T10:45:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1009",
+                "StopQuantityInfos": [],
+                "SegmentRef": 2
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T11:40:00",
+                "ArrivalDateTime": "2023-11-16T12:05:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "295",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1011",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1011",
+                "StopQuantityInfos": [],
+                "SegmentRef": 3
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-17T07:15:00",
+                "ArrivalDateTime": "2023-11-17T07:40:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "77W",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "90",
+                "StopQuantityInfos": [],
+                "SegmentRef": 4
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T03:55:00",
+                "ArrivalDateTime": "2023-11-16T10:00:00",
+                "stops": 0,
+                "JourneyDuration": 575,
+                "Equipment": "789",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "130",
+                "StopQuantityInfos": [],
+                "SegmentRef": 5
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T13:30:00",
+                "ArrivalDateTime": "2023-11-16T13:50:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1017",
+                "StopQuantityInfos": [],
+                "SegmentRef": 6
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T15:45:00",
+                "ArrivalDateTime": "2023-11-16T16:05:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1021",
+                "StopQuantityInfos": [],
+                "SegmentRef": 7
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-17T08:35:00",
+                "ArrivalDateTime": "2023-11-17T09:00:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1007",
+                "StopQuantityInfos": [],
+                "SegmentRef": 8
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T14:10:00",
+                "ArrivalDateTime": "2023-11-16T14:25:00",
+                "stops": 0,
+                "JourneyDuration": 75,
+                "Equipment": "E90",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1019",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1019",
+                "StopQuantityInfos": [],
+                "SegmentRef": 9
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T16:40:00",
+                "ArrivalDateTime": "2023-11-16T17:00:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1023",
+                "StopQuantityInfos": [],
+                "SegmentRef": 10
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-17T08:30:00",
+                "ArrivalDateTime": "2023-11-17T09:00:00",
+                "stops": 0,
+                "JourneyDuration": 90,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "117",
+                "StopQuantityInfos": [],
+                "SegmentRef": 11
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T17:35:00",
+                "ArrivalDateTime": "2023-11-16T17:55:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1031",
+                "StopQuantityInfos": [],
+                "SegmentRef": 12
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T18:50:00",
+                "ArrivalDateTime": "2023-11-16T19:15:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1027",
+                "StopQuantityInfos": [],
+                "SegmentRef": 13
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T20:30:00",
+                "ArrivalDateTime": "2023-11-16T20:50:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1033",
+                "StopQuantityInfos": [],
+                "SegmentRef": 14
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T03:20:00",
+                "ArrivalDateTime": "2023-11-16T08:25:00",
+                "stops": 0,
+                "JourneyDuration": 575,
+                "Equipment": "77W",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "872",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "872",
+                "StopQuantityInfos": [],
+                "SegmentRef": 15
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T13:30:00",
+                "ArrivalDateTime": "2023-11-16T13:50:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1017",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1017",
+                "StopQuantityInfos": [],
+                "SegmentRef": 16
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T10:15:00",
+                "ArrivalDateTime": "2023-11-16T10:45:00",
+                "stops": 0,
+                "JourneyDuration": 90,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1009",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1009",
+                "StopQuantityInfos": [],
+                "SegmentRef": 17
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T16:40:00",
+                "ArrivalDateTime": "2023-11-16T17:00:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "295",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1023",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1023",
+                "StopQuantityInfos": [],
+                "SegmentRef": 18
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T15:45:00",
+                "ArrivalDateTime": "2023-11-16T16:05:00",
+                "stops": 0,
+                "JourneyDuration": 80,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1021",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1021",
+                "StopQuantityInfos": [],
+                "SegmentRef": 19
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T07:35:00",
+                "ArrivalDateTime": "2023-11-16T11:30:00",
+                "stops": 0,
+                "JourneyDuration": 565,
+                "Equipment": "788",
+                "OperatingCarrierCode": "AI",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "AI",
+                "MarketingFlightNumber": "111",
+                "StopQuantityInfos": [],
+                "SegmentRef": 20
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "FCO",
+                "DepartureDateTime": "2023-11-16T03:50:00",
+                "ArrivalDateTime": "2023-11-16T08:10:00",
+                "stops": 0,
+                "JourneyDuration": 530,
+                "Equipment": "339",
+                "OperatingCarrierCode": "AZ",
+                "OperatingFlightNumber": "769",
+                "MarketingCarriercode": "AZ",
+                "MarketingFlightNumber": "769",
+                "StopQuantityInfos": [],
+                "SegmentRef": 21
+            },
+            {
+                "DepartureAirportLocationCode": "FCO",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T14:10:00",
+                "ArrivalDateTime": "2023-11-16T16:05:00",
+                "stops": 0,
+                "JourneyDuration": 175,
+                "Equipment": "32S",
+                "OperatingCarrierCode": "AZ",
+                "OperatingFlightNumber": "204",
+                "MarketingCarriercode": "AZ",
+                "MarketingFlightNumber": "204",
+                "StopQuantityInfos": [],
+                "SegmentRef": 22
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T03:20:00",
+                "ArrivalDateTime": "2023-11-16T08:25:00",
+                "stops": 0,
+                "JourneyDuration": 575,
+                "Equipment": "77W",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "872",
+                "MarketingCarriercode": "AF",
+                "MarketingFlightNumber": "8440",
+                "StopQuantityInfos": [],
+                "SegmentRef": 23
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "CDG",
+                "DepartureDateTime": "2023-11-16T10:20:00",
+                "ArrivalDateTime": "2023-11-16T11:45:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "223",
+                "OperatingCarrierCode": "AF",
+                "OperatingFlightNumber": "1341",
+                "MarketingCarriercode": "AF",
+                "MarketingFlightNumber": "1341",
+                "StopQuantityInfos": [],
+                "SegmentRef": 24
+            },
+            {
+                "DepartureAirportLocationCode": "CDG",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T16:10:00",
+                "ArrivalDateTime": "2023-11-16T16:35:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "223",
+                "OperatingCarrierCode": "AF",
+                "OperatingFlightNumber": "1280",
+                "MarketingCarriercode": "AF",
+                "MarketingFlightNumber": "1280",
+                "StopQuantityInfos": [],
+                "SegmentRef": 25
+            },
+            {
+                "DepartureAirportLocationCode": "CDG",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T13:15:00",
+                "ArrivalDateTime": "2023-11-16T13:45:00",
+                "stops": 0,
+                "JourneyDuration": 90,
+                "Equipment": "223",
+                "OperatingCarrierCode": "AF",
+                "OperatingFlightNumber": "1780",
+                "MarketingCarriercode": "AF",
+                "MarketingFlightNumber": "1780",
+                "StopQuantityInfos": [],
+                "SegmentRef": 26
+            },
+            {
+                "DepartureAirportLocationCode": "AMS",
+                "ArrivalAirportLocationCode": "CDG",
+                "DepartureDateTime": "2023-11-16T09:30:00",
+                "ArrivalDateTime": "2023-11-16T10:55:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "321",
+                "OperatingCarrierCode": "AF",
+                "OperatingFlightNumber": "1241",
+                "MarketingCarriercode": "AF",
+                "MarketingFlightNumber": "1241",
+                "StopQuantityInfos": [],
+                "SegmentRef": 27
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "CDG",
+                "DepartureDateTime": "2023-11-16T01:45:00",
+                "ArrivalDateTime": "2023-11-16T07:25:00",
+                "stops": 0,
+                "JourneyDuration": 610,
+                "Equipment": "332",
+                "OperatingCarrierCode": "AF",
+                "OperatingFlightNumber": "225",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "2369",
+                "StopQuantityInfos": [],
+                "SegmentRef": 28
+            },
+            {
+                "DepartureAirportLocationCode": "CDG",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T09:30:00",
+                "ArrivalDateTime": "2023-11-16T10:55:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1228",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1228",
+                "StopQuantityInfos": [],
+                "SegmentRef": 29
+            },
+            {
+                "DepartureAirportLocationCode": "CDG",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T10:20:00",
+                "ArrivalDateTime": "2023-11-16T11:45:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73H",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1230",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1230",
+                "StopQuantityInfos": [],
+                "SegmentRef": 30
+            },
+            {
+                "DepartureAirportLocationCode": "CDG",
+                "ArrivalAirportLocationCode": "AMS",
+                "DepartureDateTime": "2023-11-16T09:05:00",
+                "ArrivalDateTime": "2023-11-16T10:30:00",
+                "stops": 0,
+                "JourneyDuration": 85,
+                "Equipment": "73J",
+                "OperatingCarrierCode": "KL",
+                "OperatingFlightNumber": "1224",
+                "MarketingCarriercode": "KL",
+                "MarketingFlightNumber": "1224",
+                "StopQuantityInfos": [],
+                "SegmentRef": 31
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "MUC",
+                "DepartureDateTime": "2023-11-16T01:50:00",
+                "ArrivalDateTime": "2023-11-16T06:15:00",
+                "stops": 0,
+                "JourneyDuration": 535,
+                "Equipment": "359",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "763",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "763",
+                "StopQuantityInfos": [],
+                "SegmentRef": 32
+            },
+            {
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T14:45:00",
+                "ArrivalDateTime": "2023-11-16T15:50:00",
+                "stops": 0,
+                "JourneyDuration": 125,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "2476",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "2476",
+                "StopQuantityInfos": [],
+                "SegmentRef": 33
+            },
+            {
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T07:00:00",
+                "ArrivalDateTime": "2023-11-16T08:05:00",
+                "stops": 0,
+                "JourneyDuration": 125,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "2470",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "2470",
+                "StopQuantityInfos": [],
+                "SegmentRef": 34
+            },
+            {
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T11:55:00",
+                "ArrivalDateTime": "2023-11-16T13:00:00",
+                "stops": 0,
+                "JourneyDuration": 125,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "2474",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "2474",
+                "StopQuantityInfos": [],
+                "SegmentRef": 35
+            },
+            {
+                "DepartureAirportLocationCode": "MUC",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T09:20:00",
+                "ArrivalDateTime": "2023-11-16T10:25:00",
+                "stops": 0,
+                "JourneyDuration": 125,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "2472",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "2472",
+                "StopQuantityInfos": [],
+                "SegmentRef": 36
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "FRA",
+                "DepartureDateTime": "2023-11-16T03:35:00",
+                "ArrivalDateTime": "2023-11-16T07:55:00",
+                "stops": 0,
+                "JourneyDuration": 530,
+                "Equipment": "744",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "761",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "761",
+                "StopQuantityInfos": [],
+                "SegmentRef": 37
+            },
+            {
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T09:00:00",
+                "ArrivalDateTime": "2023-11-16T09:45:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "902",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "902",
+                "StopQuantityInfos": [],
+                "SegmentRef": 38
+            },
+            {
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T12:00:00",
+                "ArrivalDateTime": "2023-11-16T12:45:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "906",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "906",
+                "StopQuantityInfos": [],
+                "SegmentRef": 39
+            },
+            {
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T10:00:00",
+                "ArrivalDateTime": "2023-11-16T10:45:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32Q",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "904",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "904",
+                "StopQuantityInfos": [],
+                "SegmentRef": 40
+            },
+            {
+                "DepartureAirportLocationCode": "FRA",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T14:00:00",
+                "ArrivalDateTime": "2023-11-16T14:45:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LH",
+                "OperatingFlightNumber": "908",
+                "MarketingCarriercode": "LH",
+                "MarketingFlightNumber": "908",
+                "StopQuantityInfos": [],
+                "SegmentRef": 41
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "ALA",
+                "DepartureDateTime": "2023-11-16T02:30:00",
+                "ArrivalDateTime": "2023-11-16T06:45:00",
+                "stops": 0,
+                "JourneyDuration": 225,
+                "Equipment": "320",
+                "OperatingCarrierCode": "KC",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KC",
+                "MarketingFlightNumber": "964",
+                "StopQuantityInfos": [],
+                "SegmentRef": 42
+            },
+            {
+                "DepartureAirportLocationCode": "ALA",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T10:55:00",
+                "ArrivalDateTime": "2023-11-16T16:10:00",
+                "stops": 1,
+                "JourneyDuration": 675,
+                "Equipment": "32Q",
+                "OperatingCarrierCode": "KC",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "KC",
+                "MarketingFlightNumber": "663",
+                "StopQuantityInfos": [
+                    {
+                        "LocationCode": "SCO",
+                        "ArrivalDateTime": "2023-11-16T13:15:00",
+                        "DepartureDateTime": "2023-11-16T14:15:00",
+                        "Duration": 60
+                    }
+                ],
+                "SegmentRef": 43
+            },
+            {
+                "DepartureAirportLocationCode": "DEL",
+                "ArrivalAirportLocationCode": "ZRH",
+                "DepartureDateTime": "2023-11-16T02:05:00",
+                "ArrivalDateTime": "2023-11-16T06:20:00",
+                "stops": 0,
+                "JourneyDuration": 525,
+                "Equipment": "333",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "147",
+                "StopQuantityInfos": [],
+                "SegmentRef": 44
+            },
+            {
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T10:20:00",
+                "ArrivalDateTime": "2023-11-16T11:15:00",
+                "stops": 0,
+                "JourneyDuration": 115,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "318",
+                "StopQuantityInfos": [],
+                "SegmentRef": 45
+            },
+            {
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T20:55:00",
+                "ArrivalDateTime": "2023-11-16T21:40:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "340",
+                "StopQuantityInfos": [],
+                "SegmentRef": 46
+            },
+            {
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T18:25:00",
+                "ArrivalDateTime": "2023-11-16T19:15:00",
+                "stops": 0,
+                "JourneyDuration": 110,
+                "Equipment": "32Q",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "338",
+                "StopQuantityInfos": [],
+                "SegmentRef": 47
+            },
+            {
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T17:05:00",
+                "ArrivalDateTime": "2023-11-16T17:50:00",
+                "stops": 0,
+                "JourneyDuration": 105,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "326",
+                "StopQuantityInfos": [],
+                "SegmentRef": 48
+            },
+            {
+                "DepartureAirportLocationCode": "ZRH",
+                "ArrivalAirportLocationCode": "LHR",
+                "DepartureDateTime": "2023-11-16T15:30:00",
+                "ArrivalDateTime": "2023-11-16T16:20:00",
+                "stops": 0,
+                "JourneyDuration": 110,
+                "Equipment": "32N",
+                "OperatingCarrierCode": "LX",
+                "OperatingFlightNumber": "",
+                "MarketingCarriercode": "LX",
+                "MarketingFlightNumber": "324",
+                "StopQuantityInfos": [],
+                "SegmentRef": 49
+            }
+        ],
+        "ItineraryReferenceList": [
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSKL872LIGHT",
+                "ItineraryRef": 0
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1001LIGHT",
+                "ItineraryRef": 1
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1009LIGHT",
+                "ItineraryRef": 2
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1011LIGHT",
+                "ItineraryRef": 3
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL90LIGHT",
+                "ItineraryRef": 4
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSKL130LIGHT",
+                "ItineraryRef": 5
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1017LIGHT",
+                "ItineraryRef": 6
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1021LIGHT",
+                "ItineraryRef": 7
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1007LIGHT",
+                "ItineraryRef": 8
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 6,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSKL872LIGHT",
+                "ItineraryRef": 9
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1019LIGHT",
+                "ItineraryRef": 10
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1023LIGHT",
+                "ItineraryRef": 11
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL117LIGHT",
+                "ItineraryRef": 12
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1031LIGHT",
+                "ItineraryRef": 13
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1027LIGHT",
+                "ItineraryRef": 14
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "LIGHT",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1033LIGHT",
+                "ItineraryRef": 15
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSKL872",
+                "ItineraryRef": 16
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1017",
+                "ItineraryRef": 17
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1009",
+                "ItineraryRef": 18
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1023",
+                "ItineraryRef": 19
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSLHRKL1021",
+                "ItineraryRef": 20
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "S",
+                "FareFamily": "",
+                "SeatsRemaining": 1,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "2PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "SOWDLLH",
+                "ATAinfoRef": "DELLHRAI111",
+                "ItineraryRef": 21
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "O",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "OCLOWIA",
+                "ATAinfoRef": "DELFCOAZ769",
+                "ItineraryRef": 22
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "O",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "OCLOWIA",
+                "ATAinfoRef": "FCOLHRAZ204",
+                "ItineraryRef": 23
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSAF8440",
+                "ItineraryRef": 24
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSCDGAF1341",
+                "ItineraryRef": 25
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "CDGLHRAF1280",
+                "ItineraryRef": 26
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "CDGLHRAF1780",
+                "ItineraryRef": 27
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "",
+                "SeatsRemaining": 2,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSAF8440",
+                "ItineraryRef": 28
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "AMSCDGAF1241",
+                "ItineraryRef": 29
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "",
+                "SeatsRemaining": 3,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELAMSAF8440",
+                "ItineraryRef": 30
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "X",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "DELCDGKL2369",
+                "ItineraryRef": 31
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "CDGAMSKL1228",
+                "ItineraryRef": 32
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "CDGAMSKL1230",
+                "ItineraryRef": 33
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "0PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "XSC0BILF",
+                "ATAinfoRef": "CDGAMSKL1224",
+                "ItineraryRef": 34
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "DELMUCLH763",
+                "ItineraryRef": 35
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "MUCLHRLH2476",
+                "ItineraryRef": 36
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "MUCLHRLH2470",
+                "ItineraryRef": 37
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "MUCLHRLH2474",
+                "ItineraryRef": 38
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "MUCLHRLH2472",
+                "ItineraryRef": 39
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "DELFRALH761",
+                "ItineraryRef": 40
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "FRALHRLH902",
+                "ItineraryRef": 41
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "FRALHRLH906",
+                "ItineraryRef": 42
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "FRALHRLH904",
+                "ItineraryRef": 43
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "K",
+                "FareFamily": "",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "7KG"
+                    }
+                ],
+                "FareBasisCodes": "KNCOWAA",
+                "ATAinfoRef": "FRALHRLH908",
+                "ItineraryRef": 44
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "V",
+                "FareFamily": "CLASSIC",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "VSFO",
+                "ATAinfoRef": "DELALAKC964CLASSIC",
+                "ItineraryRef": 45
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "V",
+                "FareFamily": "CLASSIC",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "VSFO",
+                "ATAinfoRef": "ALALHRKC663CLASSIC",
+                "ItineraryRef": 46
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "DELZRHLX147ECOSAVER",
+                "ItineraryRef": 47
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "ZRHLHRLX318ECOSAVER",
+                "ItineraryRef": 48
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "ZRHLHRLX340ECOSAVER",
+                "ItineraryRef": 49
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "ZRHLHRLX338ECOSAVER",
+                "ItineraryRef": 50
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "ZRHLHRLX326ECOSAVER",
+                "ItineraryRef": 51
+            },
+            {
+                "CabinClassCode": "Y",
+                "CabinClassType": "Economy",
+                "RBD": "L",
+                "FareFamily": "ECOSAVER",
+                "SeatsRemaining": 9,
+                "CheckinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "1PC"
+                    }
+                ],
+                "CabinBaggage": [
+                    {
+                        "Type": "ADT",
+                        "Value": "SB"
+                    }
+                ],
+                "FareBasisCodes": "LNCOWAA",
+                "ATAinfoRef": "ZRHLHRLX324ECOSAVER",
+                "ItineraryRef": 52
+            }
+        ],
+        "FulfillmentDetailsList": [
+            {
+                "ExchangeTATinMinutes": "60",
+                "RefundTATinMinutes": "90",
+                "TicketingTATinMinutes": "30",
+                "VoidTATinMinutes": "30",
+                "FulfillmentDetailsRef": 0
+            }
+        ],
+        "PenaltiesInfoList": [
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "",
+                        "RefundAllowed": false,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "16610",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 0
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "",
+                        "RefundAllowed": false,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "16650",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 1
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "21000",
+                        "RefundAllowed": true,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "17000",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 2
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "12000",
+                        "RefundAllowed": true,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "8000",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 3
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "",
+                        "RefundAllowed": false,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "13330",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 4
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "3325",
+                        "RefundAllowed": true,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "3325",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 5
+            },
+            {
+                "Penaltydetails": [
+                    {
+                        "PaxType": "ADT",
+                        "RefundPenaltyAmount": "",
+                        "RefundAllowed": false,
+                        "Currency": "INR",
+                        "ChangePenaltyAmount": "13325",
+                        "ChangeAllowed": true
+                    }
+                ],
+                "PenaltiesInfoRef": 6
+            }
+        ],
+        "FlightFaresList": [
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "73.00",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "21.37",
+                                "TaxCode": "YQ"
+                            },
+                            {
+                                "Amount": "161.84",
+                                "TaxCode": "YR"
+                            },
+                            {
+                                "Amount": "46.89",
+                                "TaxCode": "XT"
+                            },
+                            {
+                                "Amount": "1.31",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "304.41"
+                    }
+                ],
+                "FareRef": 0
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "73.01",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "2.71",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "9.18",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "8.87",
+                                "TaxCode": "CJ"
+                            },
+                            {
+                                "Amount": "10.17",
+                                "TaxCode": "RN"
+                            },
+                            {
+                                "Amount": "21.37",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "2.01",
+                                "TaxCode": "YRF"
+                            },
+                            {
+                                "Amount": "160.23",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "1.31",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "304.89"
+                    }
+                ],
+                "FareRef": 1
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "181.38",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "99.90",
+                                "TaxCode": "YQ"
+                            },
+                            {
+                                "Amount": "1.20",
+                                "TaxCode": "YR"
+                            },
+                            {
+                                "Amount": "29.18",
+                                "TaxCode": "XT"
+                            },
+                            {
+                                "Amount": "3.26",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "314.92"
+                    }
+                ],
+                "FareRef": 2
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "97.19",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "3.91",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "8.39",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "8.03",
+                                "TaxCode": "HB"
+                            },
+                            {
+                                "Amount": "8.69",
+                                "TaxCode": "IT3"
+                            },
+                            {
+                                "Amount": "1.64",
+                                "TaxCode": "MJ"
+                            },
+                            {
+                                "Amount": "3.43",
+                                "TaxCode": "VT"
+                            },
+                            {
+                                "Amount": "160.23",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "7.48",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "1.75",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "316.77"
+                    }
+                ],
+                "FareRef": 3
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "74.31",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "8.87",
+                                "TaxCode": "CJ"
+                            },
+                            {
+                                "Amount": "10.17",
+                                "TaxCode": "RN"
+                            },
+                            {
+                                "Amount": "5.38",
+                                "TaxCode": "FR7"
+                            },
+                            {
+                                "Amount": "2.77",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "9.29",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "12.84",
+                                "TaxCode": "QX"
+                            },
+                            {
+                                "Amount": "21.37",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "2.01",
+                                "TaxCode": "YRF"
+                            },
+                            {
+                                "Amount": "160.23",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "2.01",
+                                "TaxCode": "YRF"
+                            },
+                            {
+                                "Amount": "1.34",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "326.62"
+                    }
+                ],
+                "FareRef": 4
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "74.31",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "8.87",
+                                "TaxCode": "CJ"
+                            },
+                            {
+                                "Amount": "10.17",
+                                "TaxCode": "RN"
+                            },
+                            {
+                                "Amount": "5.38",
+                                "TaxCode": "FR7"
+                            },
+                            {
+                                "Amount": "13.07",
+                                "TaxCode": "QX"
+                            },
+                            {
+                                "Amount": "2.77",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "9.29",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "21.37",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "2.01",
+                                "TaxCode": "YRF"
+                            },
+                            {
+                                "Amount": "160.23",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "2.01",
+                                "TaxCode": "YRF"
+                            },
+                            {
+                                "Amount": "1.34",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "326.85"
+                    }
+                ],
+                "FareRef": 5
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "91.55",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "9.73",
+                                "TaxCode": "DE"
+                            },
+                            {
+                                "Amount": "18.51",
+                                "TaxCode": "RA2"
+                            },
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "3.62",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "9.60",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "171.06",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "20.85",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "1.65",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "342.60"
+                    }
+                ],
+                "FareRef": 6
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "91.62",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "0.75",
+                                "TaxCode": "IN"
+                            },
+                            {
+                                "Amount": "3.62",
+                                "TaxCode": "K38"
+                            },
+                            {
+                                "Amount": "9.60",
+                                "TaxCode": "K3B"
+                            },
+                            {
+                                "Amount": "14.19",
+                                "TaxCode": "P2"
+                            },
+                            {
+                                "Amount": "1.09",
+                                "TaxCode": "WO"
+                            },
+                            {
+                                "Amount": "10.70",
+                                "TaxCode": "DE"
+                            },
+                            {
+                                "Amount": "25.16",
+                                "TaxCode": "RA2"
+                            },
+                            {
+                                "Amount": "171.06",
+                                "TaxCode": "YQI"
+                            },
+                            {
+                                "Amount": "20.85",
+                                "TaxCode": "YRI"
+                            },
+                            {
+                                "Amount": "1.65",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "350.29"
+                    }
+                ],
+                "FareRef": 7
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "191.37",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "119.88",
+                                "TaxCode": "YQ"
+                            },
+                            {
+                                "Amount": "0.00",
+                                "TaxCode": "YR"
+                            },
+                            {
+                                "Amount": "37.99",
+                                "TaxCode": "XT"
+                            },
+                            {
+                                "Amount": "3.44",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "352.68"
+                    }
+                ],
+                "FareRef": 8
+            },
+            {
+                "FareType": "Public",
+                "Currency": "USD",
+                "PassengerFare": [
+                    {
+                        "PaxType": "ADT",
+                        "Quantity": 1,
+                        "BaseFare": "120.48",
+                        "TaxBreakUp": [
+                            {
+                                "Amount": "170.98",
+                                "TaxCode": "YQ"
+                            },
+                            {
+                                "Amount": "18.71",
+                                "TaxCode": "YR"
+                            },
+                            {
+                                "Amount": "48.42",
+                                "TaxCode": "XT"
+                            },
+                            {
+                                "Amount": "2.17",
+                                "TaxCode": "GST"
+                            }
+                        ],
+                        "TotalFare": "360.76"
+                    }
+                ],
+                "FareRef": 9
+            }
+        ],
+        "PricedItineraries": [
+            {
+                "FareSourceCode": "Y29oMEJKMjd1SGJJYkhmRU1vWkx5OVQ4NHA0ak1FNGZwN21wUkFVT0s0RzZkL3lKZEF5QkdCUG1YdHBFTnRJa29vZGQyY3NIVlRZWEZrcVNkN1BEV0s2VDJqUXBuRUQ1QzRnMS9uVTJ1dEQ3aEsvZUV1b3hQSFdlSkxGWGkyK09mVW5EdEVYWjZaQy9tYW56UHVsRE4yV2NjK1dUeG00Mzc1SW03UTg3d01rPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 1,
+                        "ItineraryRef": 1,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "NTVXQlNzYW90ejRRQWUwd2tZL2h4eS9kUzNzMHJFbWdEK2c5eEM0Q1l3QzF2Tno3ZkVleWdnOVltbGdCWkVWY2xEbk9pdVE3SzY5MER5ZnNqUDA4S0swMmhxcXJNOUdQdDhFWHQ1aVVMNVpRbW80ekpPOWZWQTBkVC9ZZnJoOWdGc3dvTkMwLzZ2TDdGUDd2Z2hXTTBYNE91QTBacEJ5NzUvTjZDMjRCdFlrPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 2,
+                        "ItineraryRef": 2,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "dUdxb0RHOWF0Z0xURDRmTHAxNG1tSDdaRytaK1psSTBDMnZvZkZxakRXM2I2VFg4bmQ1TGh5SzZQMGpCMVA1dDJ4MUlxVitocFpXMGRKb3pkb3JqdkpwLytacnRRK2o5U3dyUXlJbER3QWtqUHVLTHBHTEtEUlJYWWp0NndhelZuc1dCcUgvTVBSS2RXUG1VYi8vMDgwWFQ2MG1RU2NKdnRKOEhMVWZBTStRPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 3,
+                        "ItineraryRef": 3,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "U0JJYkRnMDVOdXVrak9pWmJyQ2VoM0NMSHJuQnFnbFAzNmNWUnlZUzJwcHF6TXRqb2VVRGluNzB2VlNYTytjZDRHbUJ3ckg1NUg1dkFRUHZTNXR3ZFpDUUl5dzkzdWhGUzMwaXpPYVVBd0RneGl2clpxaU1uajdkUmsxcCt4TVE1dy8zbXFTMDY0c3UzZm05R3VSUjZIUkNQc3B3L2dZVElybVowZllJQzBJPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 4,
+                        "ItineraryRef": 4,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "S1hJMTVwOUdIcjJWZ0ZhcFI1SUJ3Ymk2cEFIbjVDeUQ1a0x4UkRWSzN1UTdzTk81ZVRhb0hKcnRSUlg5YzIxYUJLODE3MzN6cDBHWXVlOUYwUnAyOGV6bFFXdUFJRVZQMzRnZTlvQ0diOUpiRHkvVGFFZGJhZ1NSZVFPbm5iMG11eTBNRk5pM3JXck5HRWZtZ1RmcGRDcmVZRWlZTTllTHovRFBLdnMzMHlNPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 6,
+                        "ItineraryRef": 6,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ZFpraTkrSitFMDhGZzBhaEZSb2tVci82ZXNhRkVHdWVMTDBXL29GSmttVDdXOTdOUHk1MW1aYWcrNVp6anBiV1pjZmpyTzc4czQvM2F5d3QrSFYzaEt0aHVEUHdTSFVFZlJDVGF1WFJRRmMwVlhKYmlQR0lTWEJyZTVha2RoQ1VaM1JBMUdJRVZUTWgvV0NNekcxWFhJZDlkQzMzWjNtWEZtWlFmWTI5Ulo4PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 6,
+                        "ItineraryRef": 6,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "QVk5Ym5MTVl5NXJVcDlRemdLeWQ1cnNTa2hsTnlySkptL3J4czBtdTMzdDVHQnNKbWdFT0JOTlV1V1gyamNmUmIrK1Q1M2poKzlaeEVQK1VaZVlZeHBlR1dZZ2hycGM4aXZVdVRkMnE5QnlZTzRaNjIxdkRHS2cvenRXa3AxRkVOSWNUNGs5dFBKck9IWUgyY0swNTR1WmlSU3JaSUhtbTI0UGUxT3doR1JNPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 7,
+                        "ItineraryRef": 7,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "b2ZydFhGU0g1Z2dtUVN3Ymp5S2dDMC9aajlyck1QKytZSFdMbW5uYndvR1FoczJHSDBTMGRJWk0xZUdLS0Z0L2taSDNWYXViOXBKc2wzdDhiU3VtbmNuR1hVTTQvYmwzN01FK0t6VE80dUs3L2s5a2g1OGF0d3J0U3JuWG1BcjBkYmdaL1k2SUo4MlkyaC9FQ29aZmQ3enVOVEkwNWNwOEdyWm5kRWZITmxBPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 8,
+                        "ItineraryRef": 8,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ZEoyaGNRa1hUcmozNk9hMkVtVUVwSjFlOVBGZ3p5a01KMnY0VGcreldWKzkvNkhyTzdkWnk2VXA5QnYxRlYxcDc2ejh5bno5Um5lYzJhVjhoZlJPQWQ0R2I4UVVGL3k5TDM2MXJvNGpSTHNOb0hHMW8rb1VPWEZNZ0FJWG80TGpqYjFlVE80d1B1WElmd2ZJdU10b05STkZPd2RwRkhlOVc5M1FpelJFSXNvPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 9,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 9,
+                        "ItineraryRef": 10,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPNTVNTGhuWnZnWnEzYzFwREt2bEV6TGRzTEMrUmkveUlWWU5BQlQ4Vml3R05mN1JNSS9YRHZvem9kMWI5MFJDaFdud0xGQnpzMFowQjdNZEtCQ05GTzcwKzcwM2hMbnMreGhXcU9Cc2dHSit2RDdCM04zcnZITStUTi9ZQ1BHK2tFdVhadmVHQisyM0pxTmhrNUJCbkM4PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 3,
+                        "ItineraryRef": 3,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "eXpTRTRmVkdRTGtyODRacHM0czdyVVUvNkdVbGpvVXR3Tm1jd1pTdVJBTXZxeTQzcmZTS1ZoS3cwVWFEblpiVDJGSVV5R2s4MFNzTHVBUUtvUlR0VXhSdUlva3NTNGhyUUYxWi9ZQVJYYlhmUW5LVEwvRm5aaFkxRWtCQUoySVBWS1QrOFdsYWxrUmppQ0FIVDZrdkpQRVNHRUUxU2g0MXpvRW5xVG5YMG5JPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 10,
+                        "ItineraryRef": 11,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "TmpjODUvaFFyQXJ5K3FaVy9meTdIR3VxMGFPZ0N2aDJSUlErQlY4Z0QxaGdOTjA3bmNPaEhHcE9ONC9PT0c4cmR2Q0IxWEtoYXg2UGhNSDFPRGF0TGNhZURFMkVtZmR5QVYycnhvSXNxYldweUVzcnl5UUgvV2ZiNldETHFlRm9LblJWWldQei9wVDVLZ2NIUVlFVFZCM0hEL3RjdHZJejh5R3RjTHZkczBjPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 11,
+                        "ItineraryRef": 12,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "dEpTMUw3K0FYNXlPQ1RDVVdEcE5TR2g5TUVkK1dubEMvcUJnTWE0Rit6MUNGS2ZXUmRRbmxwcVJIajU1QitBa1NjNldENkNNTm00aVBBd1VPOHI5VFk4SStUMDV4NGl4WFhEWXBHeUZEM211cmhiSHpmRzh5ZUk2Y3UvaXp5ZHZDaUpOM2hxRnY2WEZzYjhKYmVlclR5Zy95TEkvcmZrUEMzcWJFN0NyTG8wPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 12,
+                        "ItineraryRef": 13,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "VFRZYUxkYyt2L2hvMlYrZkFjcFNNMzE5bXJNVmVlK3pvREtkaU5CWFlRQmlGK3lQSzhkYW5PdVpISy9XTHZjQnh2ZGZTWnNUZjluSVYxSFFLa1dsNytVRWxCNWZuejJBVnZOSnpUU3hQT1ZRcExvcENxTElYUWtNQ3hsN3dvQWs3a3JITkdkb1hTVHZIcjVkc1BwbXJJSzJvS2lldW5wUmU4MWxnakZ3cmdJPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 1,
+                        "ItineraryRef": 1,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ZEp0Y0ZQekFtSDFVZWJ6NW95MHgveTU3RzdJMkhEYkIxTnQybGRJRS9tQ2lWeVoyNDdjaHJjTVpvT0NrY3IxLy9QWXJkTXRnMFhtSUxKRVlvRXEzYytYWGVISkxiSnc5bXVKbG5aTFVFblVXcUhUb2VkMDEvNEc1TWlLUkhnWmcyb2VaTDBIWElZMzZXSUtiTktkSDNkZGpDMENlYS9WS0JmcnRaRkYwZGM0PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 11,
+                        "ItineraryRef": 12,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "YzZBc0lJY1p3UEtNZUR1NTV0cUFKKzhlaS9WU1U3Z1YyTW1kb1FVT0tod2xqRGJqVFpvSW9NMktiMzA3QUdMTDRUVlc4Qktoczd0VGZkQjhZWElCaW94SytuOC9mMHVvK2dTZ1hxUlRmQWxoeGJYT21kTFMvODhlRE54THpBQWd1WEtMOHlqU1A0VzRLenFHandCbjdkRjNHc0wweU84YUsyRW0rbGFidnZBPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 8,
+                        "ItineraryRef": 8,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ZmIzYTIwNExzMTA2S3F3b1RGY2dHRldraUppcUlYVWtWaGRINFdSV0k2dGYwZGxwV2FwZzRYZklDZHovV0FiejVFSDdtc1lyb3p4cTdaeEtwU1dqVytyek11OUVwOTROcitzeEMrNEtmM01qbnBERU91UC9HWFVraWUvNDBDcHBkQW50dVRWSHhrVmYvMHAyb1RBMnpmRWgvVHU4WXRIZnJCaVc3aTVQZW84PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 13,
+                        "ItineraryRef": 14,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "emg1bmNubXBNQ0gxS0t1aEpqeTVNRS9LSWpuV016TW5ZWG5mVWZtL3JtbXlteTNpSitlUzVDbk5WVHBrdUpXTzdnaktuQVJHT3JWVDJpRGVCOXZ4MGNTalZDeVgvN1ArUVlvY2YvQW5XdW5rcnBPMkFpVnhXVVZEOCtMZVk1aTgveUdCUmJFUU1HN3p3bEQ4a2xmampodG55SkZ1eWI1SFpvaTA2Q01UdHJVPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 12,
+                        "ItineraryRef": 13,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "bHZodmxwdWYydnFBYzFKcWQzTkhXdzVUaFpxTnA2enl5MDIrUk4rTWR2QkhHYUR2dStKVzZDVldBTWtDOEwyNFJic3BHN2tJbmtUczJnaEdOazFIOEx3eXgwT2thcnlSWDBVZ0VGTEgyUnJZYjZnVDB5bG9RR0xNc3JZQmpQYXhsd3RMNUhHemZuSTlzOTVGcU1aZEhwaWc5MVBieW1jaCszTnJ0bFAwWUZ3PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 10,
+                        "ItineraryRef": 11,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "T0tVc3l1S3VtRnZ5YWZ4SWgyNU1nVnVhZjJRV3pyTXpXVzMxNjdzWDc0bXVMeStvVXJ2T2lUb1cyM3FjeHBnYi96VU93VmZJQ2RISUdlU0ZBTXZta3VhVmt4blNEOG4wd09pZUdUdFgxNXFNdHpjenFmWXZyTU83Wk1yVXhuOVZoc0RyNkI0Uk5TVnkvanA2SEJqOTRHQTdOY2lkZjNLYkczY1RTSUFZSjljPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 5,
+                        "ItineraryRef": 5,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 4,
+                        "ItineraryRef": 4,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "Nk1UczZMdjR5Vzl6THhKcjFKK3MvRzhtRDMrejh3TDVTUjh1YzhNazRzeVJ6NjFKdDZjNkRKSzNuS1NuTmI5WTdjUDlESi9uV0xlUTBDdFZWRitCMHpwdk9XakJ6VkZvSkdBQnlxcERJcngzTytnaWdpWS9WSmhNT3BtQzRWK2VWTTBqbVlCSVhDNG1sdnI0ejN2VmpwaDZsTXloYzVJNThLSW5NNE9ib2lnPQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 14,
+                        "ItineraryRef": 15,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "VTZUMVRmd1FiTDBrYmxUekVMRGRjT3BFcGZUQTZWQkNybk00bW5OdFJjM0h1Y2dQeWJKUVJvYTFqNFEzYk5KOFNkTTFBTWY5a0VuU3VjMWZObjRtVG1jajNnYXpCbllqNnlKRVg4UnBiVm1KekNjWGRRZU5QclQweEhmS3hobDFGU0dqa0FTa1daRUQvd3VBZnpPeVk5bXNkNGE3bXpPQkU3Z055TGVQbCt3PQ==",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 0,
+                        "ItineraryRef": 0,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 7,
+                        "ItineraryRef": 7,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 0,
+                "PenaltiesInfoRef": 0,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "cnVPaHJkNmNtZFBpQ0FsWnJTTVBGM1lpaUFvOExlZFBiNWo0Z2RsU3RkODF4RGhJQll4a2hlRk5rSzUwMlMzSmxyajBsbUw5QTV6OFp4bEMvaDk0Z0JSVXMvTFlyL05XbHhEQmJ0ZjJZMFY1WVRtWjQ5NW9iWUE2eCthUXpkaGljdzU3M3RyUFNwQnJkNkRlZzl3YVFRPT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 15,
+                        "ItineraryRef": 16,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 16,
+                        "ItineraryRef": 17,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 1,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "MGdIaVhmYTZyc0oyYjAxcXdoQnlxUnpRT0M3SmZoa0tYd3pYU2NTNDRVaHR6VkQwamNlMWNDdDVydkdOWk53YVg5Zi9vbTZwVDhENEYrQU1ESjQvK0pGMER6cGxZTkVTMmJJNDFLY0lEMjd3cXZxN1lxVlY2MmxSRWk5dm1sRjh1aFJGV0xNZ1JmUER6RGo3MHMrMTl3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 15,
+                        "ItineraryRef": 16,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 17,
+                        "ItineraryRef": 18,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 1,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "c21zQVhMbDlocFBWMjd6MlhNSzlPdVlSbSthdjNlQ3V5MVFiOWtINGRvVVd1Ynl6MFdBMWhXZHZYeDJaNW9vTFJCYXJGYldYSlZlR0szTW9oNGpQczhMQlpXUHorVXd6aEtHQmFPaVZFcnpzZEtYUzM2TmhlRjVDOStCOVNEY2ZxTFF4cnVMY3JObDlOeVQyYmp2cHlnPT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 15,
+                        "ItineraryRef": 16,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 18,
+                        "ItineraryRef": 19,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 1,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "azdRQ2F5cDdTWnBzRjFXK3dCdkFpWnAzK3NEQjBjS3U2RnZNYWRSZHllRWpId3kzcjd5MmxabFg1REJOUXBhMW9iamFBOHQ3cGhFUi9CMnJQbHI1MGpTanYwNWVseElpYVEyUnRXekM1b01CUytoV1M1SnFDTW1BeVNqTkFHQ2c0ZjVzbEd5SGhBVlFPbXN3cER5Mkt3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 15,
+                        "ItineraryRef": 16,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 19,
+                        "ItineraryRef": 20,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 1,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "eVBYSW1HTEQ3QXlWNkdpa3YvZ1VNQWNxZE1oUUtmbTVkTGNVelVNVlFBL0NZUXhvaUJ5bzBnSS82S1oxd21venpaMXdHWW4yd2VFOFhLMnNNMFZDc0ZFSU4xRklxTGtRRkpsVlhzWnJVanZndUduY3lWUlZKajFzWXY2MEoycUpwdUYvT25RMWViQlNkbWRab1JkcGlURFl6QUkvc1EwSVNkQ1dZYzdlQTNvPQ==",
+                "ValidatingCarrier": "AI",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 20,
+                        "ItineraryRef": 21,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 2,
+                "PenaltiesInfoRef": 2,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "cW1vMWZFYWdvdTIvQ3Z4VnZMc3NmUzNOVzJQY0s5WXlaNTM2d3l5YnNBL083OFRDckhyZVg5MHBueG9tcGpVbDB2MTNnbUtTZnZxamp4ZDBSY2w5ZXRXRzBmeUpvM283MC8zZm0wK3RibWVZYUVneXJtRWdhaHN0SFJJR3JmcG00ZUFaaUEwM3R5RFQ4MDdkY21UTDFnPT0=",
+                "ValidatingCarrier": "AZ",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 21,
+                        "ItineraryRef": 22,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 22,
+                        "ItineraryRef": 23,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 3,
+                "PenaltiesInfoRef": 3,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "K09pUWN0MFg5Y0txL1VGUXd1OER6cDNnMDZZcUJvcXpTT09OY2FVbUVoTTdGTGlreWhHaU5hVCs5a1F5eTYwWVEycE5xd25NNFBiVXJzaVdTcTdYYkRYSmFhZEpmSUZ6TkJoZzRsVXlPWWh6VVhVVkpMdHJTNitNQW1YemlxQmJQQW1Wb3R5UHRuUXovYVJuWWxMTXd3PT0=",
+                "ValidatingCarrier": "AF",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 23,
+                        "ItineraryRef": 24,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 24,
+                        "ItineraryRef": 25,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 25,
+                        "ItineraryRef": 26,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 4,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "dVAwUU8wdTR5ejZtcnlvc01jUFdkL3IxMHU4MVlETW1HVnQ3d2lUV2R3ZzRmOExpTno2S3JCNlg5a0MzUmQzTEd2OXE4TnB0NXRodTcweVJGcitDYncvZWdURXQwNittZFRZSlc5Wlp4OWFsZUs0RDU3L05CTjM2RVNtby92ZmFpMkd4VjV6SUhxT3haampjVG1UMmRnPT0=",
+                "ValidatingCarrier": "AF",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 23,
+                        "ItineraryRef": 24,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 24,
+                        "ItineraryRef": 25,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 26,
+                        "ItineraryRef": 27,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 4,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "SzczYlNNdHN5YmcwdXhidXNMUlhuSndEV1BLWGlpUHdrRWtWQmdhVHU5QkFBRlkwcEFSMFVyZmsyMjZFVmFObDdDcmVMTHhZUVViSVBBand6NExUenhnOFVqSjZpVFdSQytpSTUwYklxeW9wQi9Uc3ZoWkZKdlNnOWlMQkV1S2MzT3JvVW40b3dTVnlKSmJYQ0RvSGhRPT0=",
+                "ValidatingCarrier": "AF",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 23,
+                        "ItineraryRef": 28,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 27,
+                        "ItineraryRef": 29,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 25,
+                        "ItineraryRef": 26,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 4,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "a1pmVmc4QURQTmlrUjB3Ym1BblpMQmhaSTh1Z1JJcmUxVUNmRnBjV0ovb1VWOFJCSkVHVEJkVGZMcU94WTl3NWRQSXlDc3pKZTZXOVlLL296Z3plZEtJMWdoSDkxOGNGVXowL1ZHdmJ3d215Sm5tMkxTdUlMSU5wUEpicGl3MjRvNjVjb3l6K2ZYUEQ2UHFlMFRKeXJ3PT0=",
+                "ValidatingCarrier": "AF",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 23,
+                        "ItineraryRef": 30,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 27,
+                        "ItineraryRef": 29,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 26,
+                        "ItineraryRef": 27,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 4,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "LzNFL0N3L3FqRVdsWEo0ekd5NTVzYTBIcjZXbWFuaU56cUVQSkVYZUM2Z0l4VW4ybDl4aTcxbEM4dElNbGJBcmhtcVRraWllby8rNStXN0V3d2l6dG5scmcraDZ0QnpGTjN6WEFPalhPZTZTQytIZ25aZkZRUTkzdjRPSjdvK0JoYVdkL0cxbjRUaUZzVmlyOWlEeVl3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 28,
+                        "ItineraryRef": 31,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 29,
+                        "ItineraryRef": 32,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 16,
+                        "ItineraryRef": 17,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 5,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "WFB0amtVM0g5OGdER2xPYWwxa051cTJ6bFVqWXVodk05a0JLZ2V6c29hM0lHMzV1ZmR1dGNXNXAyQmVyOHliekJBNTNDTmRGTEpNaVNLYUJXOE1QNXpkemJ1RXJHUzdUMXZQY3ZPai9PM1BteEt2RHFwUlpGN1c1Vkw2b0N1ZUdLK3pqUkNPa2VNQWpUVytDVm1UOHh3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 28,
+                        "ItineraryRef": 31,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 30,
+                        "ItineraryRef": 33,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 16,
+                        "ItineraryRef": 17,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 5,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "WExacnNKd2RWbjlOL3drWTVwTjV6MGR2TFNYQWE2RXFWbkgxb1lJVGQxM2VNYXRQbFpUVXdNaEUzUWhDSk80eVp3RVhjWkc2UzJHUzQ0T0s2eGUwV1JxRnhrWWU2RWsrUmpaRHZvMUJNVng5OFZxSmhob0ZrRzFhR3hqVlMrdUNsQXBwY0NhVDIyZUdpbWdqZHZIRzd3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 28,
+                        "ItineraryRef": 31,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 31,
+                        "ItineraryRef": 34,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 19,
+                        "ItineraryRef": 20,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 5,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "R0RWNFBMOEx0aHZZS3pXb2ppUmkvL3psQzdaQWpWbHoyTXQreDBabFBDbEs2SWtKOWVWbFJDcHdhV0ZMbG9wb3dGNFpRRGtrUkZpSktCblVFbzVtQnNMTDNQQnFtd3hES2FsQ1RDWk1DQkt5UTBvWUdvN05DRkF4cGp1WXlERmF1OEkvSXpQU0pOT1pNZ0ZMc255K1J3PT0=",
+                "ValidatingCarrier": "KL",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 28,
+                        "ItineraryRef": 31,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 31,
+                        "ItineraryRef": 34,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 16,
+                        "ItineraryRef": 17,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 5,
+                "PenaltiesInfoRef": 1,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ZHl6cE9OdFQ4Z1BxZFdid1JyRHFyNEJZZGtoT0ptb0lld1hieEFZRXliQ2VMTktJTzN1OWRWR0lsVGNuZ2wybk40Mi8wNEVVMjlleldzYUt5aG5pSWFnNklKSU1wRmxSOUgzWTNuZXdsbkk0b3VaanlQa0JiaHFsS2lubzFQQkFLeFhqenFVTlp0K1NoemdIM3ora2V3PT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 32,
+                        "ItineraryRef": 35,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 33,
+                        "ItineraryRef": 36,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 6,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "TWpaYWZ1QU02c2Y5NGNCWUIyWHlrQXp3a05uZEs1WEVwVlMvaHdKSUlRcW4vMmpDV25ReGpWZFh2SWNaMHBkQndVN2phaDlZVGV4aklsRzBEYkZWdm84M1FGc3VYQjdlTDd5bnpPbVl0dzRoWk9aZzBHNHVFNTUrQ0VrT3NJL0FVWldLRmtCR0NkQ1NsQkJTMnlXNWVnPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 32,
+                        "ItineraryRef": 35,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 34,
+                        "ItineraryRef": 37,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 6,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "WHZWNkJCVFRiODlCZC9hSnlsZWlLM01ENk9MUmdWb0xOdmtEWGtnSHpTWW1sYUxFSjRaMEZqSm8vaWw3YkIyb0xPMytxcXlRVjhTcHMwRlJYOVY2ekpFMzgwUGFhM25GdTluK2tOYnFCbklIc3NhS0tiNk92WHdLL0xkR0pHUVh5UlBTM0pSSjEwemM3Y2wrc0ZocXFBPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 32,
+                        "ItineraryRef": 35,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 35,
+                        "ItineraryRef": 38,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 6,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "b00wNlYwL25RWnZJLytoTmFJNUgvZ1VyOEFxbko3VWpPL0ZQWnkrM21DQjFGWDRFVExaQ3E5NGhWWXYrYkludGg5cXFWcWFmR3RrZ3puTnd3eEhPVXdzbkdEaFVwQys0R2VlVklVWFJKc1hlQ0lQQmZ4SlRQM3A4SFdvZHlIdzIxVkZITHJCWUYxU2ZPVUJCZDU3UEtRPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 32,
+                        "ItineraryRef": 35,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 36,
+                        "ItineraryRef": 39,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 6,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "WDU2RituWHdCTDFTcjhrdzNlKzIrc1FyRVVCTStQZmZNMkVTS3RwQys4a0Z3TEJheUJ5aFczMDFSM04vbUZ0VXpHZitnN1Q5dzFwaGNLUEVRTkZSN1p5WGhzcVZ2Zk1FU2JKSG5ZdCtyMkxNRHZKSFpKWkFUUzAxQ1NJRmROVzBLWXRrWHpremk4YjNjaVV6MFRtK01RPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 37,
+                        "ItineraryRef": 40,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 38,
+                        "ItineraryRef": 41,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 7,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "aUV4WjNIOWtZdXZsN01FWW9MdkFlS0VFbWtGSHhsZ0hZZC9tNVFNUzRmeEtIcDNsVkx1MEdUbVhRSzUwWVROM2VXTlNWejVIVm55L1ZWSzRURzFBaVMwcTN5YjBMRmJNVkZ1RDdXcmlVTnRmd3h5UDJNWjl2RDFxQjZmRmIwQjlFbU4yMnNGL0JMZGk4N0J2MnliL0FnPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 37,
+                        "ItineraryRef": 40,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 39,
+                        "ItineraryRef": 42,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 7,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "ako1OXNkRjJ2cWJTUEs3WjFXbE8vdSs1d1ZuNzFta0ZaQ1hxTHBxYVhHNWxtemhWTFJmWjAvMkJENTJpT2xMNGVyVUR4Q1F2WUJjWDNEVkpWeXJFUXNOSnl1SUUrK1ZCbC90L2lTS1hkNTdPMm85aUNkWncweWQ3VnM0NkVlOFpWV096d3g5TGU1Uk01M21NQk1HRTVnPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 37,
+                        "ItineraryRef": 40,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 40,
+                        "ItineraryRef": 43,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 7,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "b29reitOWTE0YXpxdDNpdWg4MklPc3FoNFBKSDE2cjlBbFlTR00zUjdHRlExdUM5cC9tZ2lMOWpUWWIrcnlRdXJ6Qkk4eWRsZXIzRlpFZXNwcFAwT0ZBQVo4enRSTWVQdnlaQWs5djd6cU1oekFMdzVkUEE2dWFZVmdlTjZOZFdaV3duZ1BJbjBtU216R0Ewa3RaZzBRPT0=",
+                "ValidatingCarrier": "LH",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 37,
+                        "ItineraryRef": 40,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 41,
+                        "ItineraryRef": 44,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 7,
+                "PenaltiesInfoRef": 4,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "UWRMZXJKTkdsME1SUEV0ZlU4bGl4UHB1Q2QwdmZVNkhRNVBWTDB0N01McjJnUTYwYU4vRk1EOHNmR09rTHhQQkFWVVRiYkN1UXhFY1JMVXJuV1hqVExsTS91MUNVRXpYYkhhcmgzL2U4TERiV1M5WVpRNHhMWVdLM1NySW9xNE5BSC9ka1FhbVBBckRMRGF1NHpKNG13VHF3aWtlWUNBYmFVQVZ0VlpkNzEwPQ==",
+                "ValidatingCarrier": "KC",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 42,
+                        "ItineraryRef": 45,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 43,
+                        "ItineraryRef": 46,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 8,
+                "PenaltiesInfoRef": 5,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "bXI5S3ZaMjgrUjQ5MWhiMitXeGtqSDAvN3RWaTFLVUlaMG9yVDJuRHVBNmNIcEVkT3FSeW16SlhjM3g4Wk01WTJZUFRDaXFpN1BseXRqWmFEazZzOHcvaXk2MU04TDFaZkpPZnQ1VnR2K1NEVmhwSUZHUC9BMTZjUnk1eGxwcnBwUGYzNERsKzZHWEl5elQ3c0pncmtLRVRkZS9sdVJuTEYzcVVYYVpYL3VnPQ==",
+                "ValidatingCarrier": "LX",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 44,
+                        "ItineraryRef": 47,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 45,
+                        "ItineraryRef": 48,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 9,
+                "PenaltiesInfoRef": 6,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "RVR2VzhOSUxVQ1VuYXRvWGo0cXZEMXNrRkZraDhCalI4Wk9qQ0ZDTlplVDl6U0RpbktNTUhZZGkrVTduMkJQMHdhTGNvbzEwM1paeU5UcW5yNGJlMnBmZDB0NFdxUUJDbXlhWE4vZElRR0FtRUFFRmF6ZG01azhoR2QxbUp1a0RiWUtSM0pXQzRMNm9EUTZpNEJoakFVcS9HQkR1czhBaHh5QjVHRkk4VkhBPQ==",
+                "ValidatingCarrier": "LX",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 44,
+                        "ItineraryRef": 47,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 46,
+                        "ItineraryRef": 49,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 9,
+                "PenaltiesInfoRef": 6,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "dHJONHliUmhSL1BSdDNJME4zSjZjclAvcTBqWStRYVBST0xHcWdqbmlXVklxNjVTZzRIS1ZZV1g0QlVzZVV4U0dZZXZMbkNRVkRVaHYzbG5nNXVBRGV5a3QvbVJ3WHJsbWFvS0ljNkJMUEVZbjJHYTJsRmZxdldrZWVIejRwN0tieXNQb2NjNVVHSjkxMFR3ZnVvbmY2RWJuUHg2Zm44TU9teUtmS3ZrSGJ3PQ==",
+                "ValidatingCarrier": "LX",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 44,
+                        "ItineraryRef": 47,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 47,
+                        "ItineraryRef": 50,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 9,
+                "PenaltiesInfoRef": 6,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "aWNoZ0czS2hEVmhOYmRpMUFpOGFrSktBd29nNG5KNGMyNHMzb09Fb2VKS3VtK1BXVmxHY041T1Y0RDFiOU9GZmhaQWFGRjVFWTc2Y1c1SE5ySEhnZWxNUVVnT2JMV2FqZU9ZQTJwdWlmZjJib1BMajRTV3hiR0R5Y0szcGdKOXdVbEVWSW5YWVR4cUFuYllJb0F3SWJUQVhkR1FyT0swbUZuLzRqYm52M0VjPQ==",
+                "ValidatingCarrier": "LX",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 44,
+                        "ItineraryRef": 47,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 48,
+                        "ItineraryRef": 51,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 9,
+                "PenaltiesInfoRef": 6,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            },
+            {
+                "FareSourceCode": "RFJQVk1UdnZMYS82SlROK2J3QWE0U3AwUjZ0S2ZROW9tZ0t3NXFlUEgvQTJNNWx4M0kraGFGdGFoVEUrWlBGcHowVGovc3JTVlRKZnIxNWlrQ0ZqMmt4V3pCMDZwcEtCTVh2T1daYythdkZ2TVFlay9BQmpkbTBlSE50RXA5VS8yRkFoN1BZaDM3YlBNTVk4SXhKblFCZWprbDFLaklsUDIxK2hsRUIwYjVvPQ==",
+                "ValidatingCarrier": "LX",
+                "OriginDestinations": [
+                    {
+                        "SegmentRef": 44,
+                        "ItineraryRef": 47,
+                        "LegIndicator": "0"
+                    },
+                    {
+                        "SegmentRef": 49,
+                        "ItineraryRef": 52,
+                        "LegIndicator": "0"
+                    }
+                ],
+                "FareRef": 9,
+                "PenaltiesInfoRef": 6,
+                "FulfillmentDetailsRef": 0,
+                "Provider": "MYSTIFLY"
+            }
+        ],
+        "GroupedItems": [
+            {
+                "Itins": [
+                    "0"
+                ],
+                "Segments": [
+                    "0",
+                    "1"
+                ]
+            },
+            {
+                "Itins": [
+                    "1"
+                ],
+                "Segments": [
+                    "0",
+                    "2"
+                ]
+            },
+            {
+                "Itins": [
+                    "2"
+                ],
+                "Segments": [
+                    "0",
+                    "3"
+                ]
+            },
+            {
+                "Itins": [
+                    "3"
+                ],
+                "Segments": [
+                    "0",
+                    "4"
+                ]
+            },
+            {
+                "Itins": [
+                    "4"
+                ],
+                "Segments": [
+                    "5",
+                    "6"
+                ]
+            },
+            {
+                "Itins": [
+                    "5"
+                ],
+                "Segments": [
+                    "0",
+                    "6"
+                ]
+            },
+            {
+                "Itins": [
+                    "6"
+                ],
+                "Segments": [
+                    "5",
+                    "7"
+                ]
+            },
+            {
+                "Itins": [
+                    "7"
+                ],
+                "Segments": [
+                    "0",
+                    "8"
+                ]
+            },
+            {
+                "Itins": [
+                    "8"
+                ],
+                "Segments": [
+                    "0",
+                    "9"
+                ]
+            },
+            {
+                "Itins": [
+                    "9"
+                ],
+                "Segments": [
+                    "5",
+                    "3"
+                ]
+            },
+            {
+                "Itins": [
+                    "10"
+                ],
+                "Segments": [
+                    "5",
+                    "10"
+                ]
+            },
+            {
+                "Itins": [
+                    "11"
+                ],
+                "Segments": [
+                    "0",
+                    "11"
+                ]
+            },
+            {
+                "Itins": [
+                    "12"
+                ],
+                "Segments": [
+                    "5",
+                    "12"
+                ]
+            },
+            {
+                "Itins": [
+                    "13"
+                ],
+                "Segments": [
+                    "5",
+                    "1"
+                ]
+            },
+            {
+                "Itins": [
+                    "14"
+                ],
+                "Segments": [
+                    "5",
+                    "11"
+                ]
+            },
+            {
+                "Itins": [
+                    "15"
+                ],
+                "Segments": [
+                    "5",
+                    "8"
+                ]
+            },
+            {
+                "Itins": [
+                    "16"
+                ],
+                "Segments": [
+                    "0",
+                    "13"
+                ]
+            },
+            {
+                "Itins": [
+                    "17"
+                ],
+                "Segments": [
+                    "0",
+                    "12"
+                ]
+            },
+            {
+                "Itins": [
+                    "18"
+                ],
+                "Segments": [
+                    "0",
+                    "10"
+                ]
+            },
+            {
+                "Itins": [
+                    "19"
+                ],
+                "Segments": [
+                    "5",
+                    "4"
+                ]
+            },
+            {
+                "Itins": [
+                    "20"
+                ],
+                "Segments": [
+                    "0",
+                    "14"
+                ]
+            },
+            {
+                "Itins": [
+                    "21"
+                ],
+                "Segments": [
+                    "0",
+                    "7"
+                ]
+            },
+            {
+                "Itins": [
+                    "22"
+                ],
+                "Segments": [
+                    "15",
+                    "16"
+                ]
+            },
+            {
+                "Itins": [
+                    "23"
+                ],
+                "Segments": [
+                    "15",
+                    "17"
+                ]
+            },
+            {
+                "Itins": [
+                    "24"
+                ],
+                "Segments": [
+                    "15",
+                    "18"
+                ]
+            },
+            {
+                "Itins": [
+                    "25"
+                ],
+                "Segments": [
+                    "15",
+                    "19"
+                ]
+            },
+            {
+                "Itins": [
+                    "26"
+                ],
+                "Segments": [
+                    "20"
+                ]
+            },
+            {
+                "Itins": [
+                    "27"
+                ],
+                "Segments": [
+                    "21",
+                    "22"
+                ]
+            },
+            {
+                "Itins": [
+                    "28"
+                ],
+                "Segments": [
+                    "23",
+                    "24",
+                    "25"
+                ]
+            },
+            {
+                "Itins": [
+                    "29"
+                ],
+                "Segments": [
+                    "23",
+                    "24",
+                    "26"
+                ]
+            },
+            {
+                "Itins": [
+                    "30"
+                ],
+                "Segments": [
+                    "23",
+                    "27",
+                    "25"
+                ]
+            },
+            {
+                "Itins": [
+                    "31"
+                ],
+                "Segments": [
+                    "23",
+                    "27",
+                    "26"
+                ]
+            },
+            {
+                "Itins": [
+                    "32"
+                ],
+                "Segments": [
+                    "28",
+                    "29",
+                    "16"
+                ]
+            },
+            {
+                "Itins": [
+                    "33"
+                ],
+                "Segments": [
+                    "28",
+                    "30",
+                    "16"
+                ]
+            },
+            {
+                "Itins": [
+                    "34"
+                ],
+                "Segments": [
+                    "28",
+                    "31",
+                    "19"
+                ]
+            },
+            {
+                "Itins": [
+                    "35"
+                ],
+                "Segments": [
+                    "28",
+                    "31",
+                    "16"
+                ]
+            },
+            {
+                "Itins": [
+                    "36"
+                ],
+                "Segments": [
+                    "32",
+                    "33"
+                ]
+            },
+            {
+                "Itins": [
+                    "37"
+                ],
+                "Segments": [
+                    "32",
+                    "34"
+                ]
+            },
+            {
+                "Itins": [
+                    "38"
+                ],
+                "Segments": [
+                    "32",
+                    "35"
+                ]
+            },
+            {
+                "Itins": [
+                    "39"
+                ],
+                "Segments": [
+                    "32",
+                    "36"
+                ]
+            },
+            {
+                "Itins": [
+                    "40"
+                ],
+                "Segments": [
+                    "37",
+                    "38"
+                ]
+            },
+            {
+                "Itins": [
+                    "41"
+                ],
+                "Segments": [
+                    "37",
+                    "39"
+                ]
+            },
+            {
+                "Itins": [
+                    "42"
+                ],
+                "Segments": [
+                    "37",
+                    "40"
+                ]
+            },
+            {
+                "Itins": [
+                    "43"
+                ],
+                "Segments": [
+                    "37",
+                    "41"
+                ]
+            },
+            {
+                "Itins": [
+                    "44"
+                ],
+                "Segments": [
+                    "42",
+                    "43"
+                ]
+            },
+            {
+                "Itins": [
+                    "45"
+                ],
+                "Segments": [
+                    "44",
+                    "45"
+                ]
+            },
+            {
+                "Itins": [
+                    "46"
+                ],
+                "Segments": [
+                    "44",
+                    "46"
+                ]
+            },
+            {
+                "Itins": [
+                    "47"
+                ],
+                "Segments": [
+                    "44",
+                    "47"
+                ]
+            },
+            {
+                "Itins": [
+                    "48"
+                ],
+                "Segments": [
+                    "44",
+                    "48"
+                ]
+            },
+            {
+                "Itins": [
+                    "49"
+                ],
+                "Segments": [
+                    "44",
+                    "49"
+                ]
+            }
+        ]
+    },
+    "Success": true,
+    "Message": "Success"
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed scenario: There should be atleast one ADT passenger.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations":[
+    {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "TPA",
+      "DestinationLocationCode": "LGA"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 0
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER019",
+                "Message": "There should be atleast one ADT passenger."
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "There should be atleast one ADT passenger."
+}
+2. Failed scenario: Flights not found for the given search condition.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations":[
+    {
+      "DepartureDateTime": "2023-10-20T00:00:00",
+      "OriginLocationCode": "TPA",
+      "DestinationLocationCode": "LGA"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER021",
+                "Message": "Flights not found for the given search condition "
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Flights not found for the given search condition "
+}
+3. False Scenario: DestinationLocationCode cannot be null
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "BLR",
+      "DestinationLocationCode": ""
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER008",
+                "Message": "DestinationLocationCode cannot be null"
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "DestinationLocationCode cannot be null"
+}
+4. Failed Scenario: Invalid AirTripType. OneWay cannot have more than one OriginDestinationInformation
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-09T00:00:00",
+      "OriginLocationCode": "DXB",
+      "DestinationLocationCode": "AMS"
+},
+   {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "AMS",
+      "DestinationLocationCode": "DXB"
+    }
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Oneway"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fivehundred",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER014",
+                "Message": "Invalid AirTripType. OneWay cannot have more than one OriginDestinationInformation."
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid AirTripType. OneWay cannot have more than one OriginDestinationInformation."
+}
+5. Failed Scenario: Invalid AirTripType.Return cannot have only two OriginDestinationInformation
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "BLR",
+      "DestinationLocationCode": "DXB"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Return"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER015",
+                "Message": "Invalid AirTripType. Return cannot have only two OriginDestinationInformation."
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid AirTripType. Return cannot have only two OriginDestinationInformation."
+}
+6. Failed Scenario: Invalid DestinationLocationCode. Should be three letter airport or city code of format
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "BLR",
+      "DestinationLocationCode": "Dubai"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER009",
+                "Message": "Invalid DestinationLocationCode. Should be three letter airport or city code of format ^[A-Z][A-Z][A-Z]$"
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid DestinationLocationCode. Should be three letter airport or city code of format ^[A-Z][A-Z][A-Z]$"
+}
+7. Invalid VendorExcludeCode. Should be two letter airline code of format.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-11-16T00:00:00",
+      "OriginLocationCode": "SIN",
+      "DestinationLocationCode": "BKK"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+     "VendorPreferenceCodes": [
+      "SQ"
+       ],
+    "VendorExcludeCodes": [
+      ""
+      ],
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": true,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER013",
+                "Message": "Invalid VendorExcludeCode. Should be two letter ailine code of format ^[A-Z|0-9][A-Z|0-9]$"
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid VendorExcludeCode. Should be two letter ailine code of format ^[A-Z|0-9][A-Z|0-9]$"
+}
+8. Invalid VendorPreferenceCode. Should be two letter airline code of format
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-11-16T00:00:00",
+      "OriginLocationCode": "SIN",
+      "DestinationLocationCode": "BKK"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+     "VendorPreferenceCodes": [
+      ""
+       ],
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": true,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER011",
+                "Message": "Invalid VendorPreferenceCode. Should be two letter ailine code of format ^[A-Z|0-9][A-Z|0-9]$"
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid VendorPreferenceCode. Should be two letter ailine code of format ^[A-Z|0-9][A-Z|0-9]$"
+}
+9. Missing session info in Header Please validate format Bearer
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations":[
+    {
+      "DepartureDateTime": "2023-10-20T00:00:00",
+      "OriginLocationCode": "TPA",
+      "DestinationLocationCode": "LGA"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+  "Success": false,
+  "Data": null,
+  "Message": "Missing session info in Header/Please validate format 'Bearer<Space><SessionId>'"
+}
+10. Failed Scenario: Target is not valid
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-09T00:00:00",
+      "OriginLocationCode": "DXB",
+      "DestinationLocationCode": "AMS"
+},
+   {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "AMS",
+      "DestinationLocationCode": "DXB"
+    }
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Return"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fivehundred",
+  "NearByAirports": true,
+  "Target": "",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Success": false,
+    "Data": [
+        "Target is not valid"
+    ],
+    "Message": "Validation Error"
+}
+11. Failed Scenario: Search RQ for Travel date should be more than or equal to today
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations":[
+    {
+      "DepartureDateTime": "2023-09-04T00:00:00",
+      "OriginLocationCode": "TPA",
+      "DestinationLocationCode": "LGA"
+},
+   
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "OneWay"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fifty",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER022",
+                "Message": "Travel date should be more than or equal to today"
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Travel date should be more than or equal to today"
+}
+12. Invalid OriginLocationCode. Should be three letter airport or city code of format
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-09T00:00:00",
+      "OriginLocationCode": "BL",
+      "DestinationLocationCode": "AMS"
+},
+   {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "AMS",
+      "DestinationLocationCode": "DXB"
+    }
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Return"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fivehundred",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER007",
+                "Message": "Invalid OriginLocationCode. Should be three letter airport or city code of format ^[A-Z][A-Z][A-Z]$"
+            },
+            {
+                "Code": "ERSER009",
+                "Message": "Invalid combination of OriginLocationCode or destinationLocationCode for return AirTripType."
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "Invalid OriginLocationCode. Should be three letter airport or city code of format ^[A-Z][A-Z][A-Z]$"
+}
+13. OriginLocationCode cannot be null
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-09T00:00:00",
+      "OriginLocationCode": "",
+      "DestinationLocationCode": ""
+},
+   {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "AMS",
+      "DestinationLocationCode": "DXB"
+    }
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "All",
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Return"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fivehundred",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [
+            {
+                "Code": "ERSER006",
+                "Message": "OriginLocationCode cannot be null"
+            },
+            {
+                "Code": "ERSER008",
+                "Message": "DestinationLocationCode cannot be null"
+            },
+            {
+                "Code": "ERSER009",
+                "Message": "Invalid combination of OriginLocationCode or destinationLocationCode for return AirTripType."
+            }
+        ],
+        "PricedItineraries": [],
+        "Success": false,
+        "Target": "Test",
+        "TraceId": ""
+    },
+    "Success": false,
+    "Message": "OriginLocationCode cannot be null"
+}
+14. TravelPreferences.MaxStopsQuantity is not valid.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "OriginDestinationInformations": [
+    {
+      "DepartureDateTime": "2023-10-09T00:00:00",
+      "OriginLocationCode": "DXB",
+      "DestinationLocationCode": "AMS"
+},
+   {
+      "DepartureDateTime": "2023-10-16T00:00:00",
+      "OriginLocationCode": "AMS",
+      "DestinationLocationCode": "DXB"
+    }
+  ],
+  "TravelPreferences": {
+    "MaxStopsQuantity": "",
+    "CabinPreference": "Y",
+    "Preferences": {
+      "CabinClassPreference": {
+        "CabinType": "Y",
+        "PreferenceLevel": "Preferred"
+      }
+    },
+    "AirTripType": "Return"
+  },
+  "PricingSourceType": "All",
+  "IsRefundable": false,
+  "PassengerTypeQuantities": [
+    {
+      "Code": "ADT",
+      "Quantity": 1
+    }
+  ],
+  "RequestOptions": "Fivehundred",
+  "NearByAirports": true,
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Success": false,
+    "Data": [
+        "TravelPreferences.MaxStopsQuantity is not valid"
+    ],
+    "Message": "Validation Error"
+}
+15. DepartureDateTime : Date error
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+   "DepartureDateTime": "2024-06-02T00:00:00",
+   "OriginLocationCode": "DAC",
+   "DestinationLocationCode": "BKK"
+ }
+Response
+"Errors": [
+            {
+                "Code": "ERSER022",
+                "Message": "Travel date should be more than or equal to today"
+            }
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+{		Open - Nested Tag
+"OriginDestinationInformations": [		Open - "OriginDestinationInformations"
+{		Open - Nested Tag
+"DepartureDateTime":	"2019-12-27T04:12:58.593Z",	Departure city Date and Time
+"DepartureWindow":	"string",	Date and time for the departure of the flight
+"ArrivalWindow":	"string",	Date and time for the departure of the flight
+"OriginLocationCode":	"MEL",	Departure city code
+"DestinationLocationCode":	"DXB",	Destination city code
+}		Closed Nested tag
+],		Closed Nested tag
+"TravelPreferences": {		Open:"TravelPreferences"
+"MaxStopsQuantity":	"Direct", "OneStop", "All",	To Specify the option of the flight
+"VendorPreferenceCodes": [		Include the Specific airline in results
+"EY"	Two letter code of the airline
+],		Closed Nested tag
+"VendorExcludeCodes": [		Exclude the Specific airline in results
+"SU"	Two letter code of the airline
+],		Closed Nested tag
+"CabinPreference":	"Y", "S", "C", "F",	Y=Economy,C=Business,F=First & S=Premium Economy
+"Preferences": {		Open - Nested Tag
+"CabinClassPreference": {		Open - "CabinClassPreference"
+"PreferenceLevel":	Preferred/Restricted	"Preferred - Lowest fare available results shown Restricted - Only specified class results shown"
+}		Closed Nested tag
+},		Closed Nested tag
+"AirTripType":	"OneWay","Return", "OpenJaw" & "Circle"	Type of trip returned by the search.
+},		Closed Nested tag
+"PricingSourceType":	"Public","Private", & "All"	"Public & Private are Scheduled Airline fare. WebFare are LCC Airline fares."
+"PassengerTypeQuantities": [		Open : "PassengerTypeQuantities"
+{		Open - Nested Tag
+"Code":	"ADT", "CHD", and "INF"	Types of the Passenger Adult Child or Infant
+"Quantity":	1	Indicates the Number of Passenger
+}		Closed Nested tag
+],		Closed Nested tag
+"RequestOptions":	"Fifty","Hundred","TwoHundred"	Number of flight results given in resposne
+"Nationality":	"string",	2 letter Country code
+"Target":	"Test", "Prod",	Envioronment to connect with Mystifly
+"ConversationId":	"string",	Free Text - can be used for Tracking
+}		Closed Nested tag
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+FlightSegmentList: [		FlightSegmentList: Nested Tag
+{		FlightSegmentList: Open Tag
+SegmentRef:	0,	Unique Identification number associated with the flight number."0"= 1st flight details
+DepartureAirportLocationCode:	MEL,	Indicates- 3 letter code of departure city
+ArrivalAirportLocationCode:	KUL,	Indicates- 3 letter code of Arrival city
+DepartureDateTime:	2020-02-27T07:45:00,	Indicates- Depature time of the flight
+ArrivalDateTime:	2020-02-27T15:25:00,	Indicates- Arrival time of the flight
+stops:	1,	Indicates- Number of stopover within a Segment
+JourneyDuration:	640,	Indicates- duration of flight in minutes.
+Equipment:	738,	Indicates- Type of an Aircraft
+OperatingCarrierCode:	OD,	Indicates- 2 letter Airline code who has the operational control of an Aircraft
+OperatingFlightNumber:	178,	Indicates- Flight number of an Operating carrier who has the operational control of an Aircraft
+MarketingCarriercode:	OD,	Indicates- carrier who sells the Flight ticket.
+MarketingFlightNumber:	178,	Indicates- Number of the Flight of Marketing carrier who sells the Flight Ticket
+StopQuantityInfos: [	[	StopQuantityInfos Nested Tag
+{		StopQuantityInfos Open tag
+LocationCode:	DPS,	Stop Over 3 letter city code
+ArrivalDateTime:	2020-02-27T11:25:00,	Stop Over city Arrival date and time
+DepartureDateTime:	2020-02-27T12:25:00,	Stop Over city Departure date and time
+Duration:	60	Total Stop Over duration time
+}		StopQuantityInfos Closed tag
+]		StopQuantityInfos Nested Tag
+},		FlightSegmentList: Closed Tag
+]		FlightSegmentList: Nested Tag
+ItineraryReferenceList: [		ItineraryReferenceList Nested Tag
+{		ItineraryReferenceList Open Tag
+ItineraryRef:	0,	Unique Identification number associated with the flight number. "0"= 1st flight details
+CabinClassCode:	Y,	Y=Economy,C=Business,F=First & S=Premium Economy
+RBD:	B,	Reservation Booking designator
+FareFamily:	Free Text,	different Fare options provided by Airline
+SeatsRemaining:	9,	Indicates the remaining Seats for sale
+FareAttribute:	Next Version,	Next Version,
+CheckinBaggage: [	[	Open "CheckinBaggage"
+{		Open Nested Tag
+Type:	ADT,	Types of the Passenger Adult Child or Infant
+Value:	1PC, "23KG"	No Check-in of Baggage in PC or Weight in KG
+}		Closed "CheckinBaggage"
+],		Closed Nested Tag
+CabinBaggage: [	[	Open : "CabinBaggage"
+{		Open Nested Tag
+Type:	ADT,	Types of the Passenger Adult Child or Infant
+Value:	SB	No carry bag of Baggage in weight
+}		Closed : "CabinBaggage"
+],		Closed Nested Tag
+FareBasisCodes: []		Detail of Fare Basis.
+},	Closed Nested Tag	
+FulfillmentDetailsList: [		Open : FulfillmentDetailsList
+{		Open Nested Tag
+FulfillmentDetailsRef:	0,	Reference ID of Fulfillment
+ExchangeTATinMinutes:	60,	Time limit for Ticket Exchange
+RefundTATinMinutes:	120,	Time Limit for Ticket Refund
+TicketingTATinMinutes:	45,	Time Limit for Ticket issuance
+VoidTATinMinutes:	30	Time limit for voiding ticket
+},		Closed Nesteg Tag
+],		Closed : FulfillmentDetailsList
+PenaltiesInfoList: [		Open : PenaltiesInfoList
+{		Open Nested Tag
+PenaltiesInfoRef:	0,	Penalties Reference Number
+Penaltydetails: [		Open : Penaltydetails
+{		Open Nested Tag
+PaxType:	ADT,	Types of the Passenger Adult Child or Infant
+RefundPenaltyAmount:	74.40,	Penalty amount for Refund
+RefundAllowed:	true,	Indicates if refund is permitted or not permitted
+Currency:	USD,	Country code if the currency
+ChangePenaltyAmount:	75.04,	Penalty amount for Changes
+ChangeAllowed:	true/false	Indicates if Changes is permitted or not permitted
+}		Closed Nested Tag
+]		Closed Nested Tag
+},		Closed Nested Tag
+]		Closed : PenaltiesInfoList
+FlightFaresList: [		Open : FlightFaresList
+{		Open Nested Tag
+FareRef:	0,	Refernce number for the fare
+FareType:	Public,	Public, Private and WebFare
+Currency:	USD,	Country code if the currency
+PassengerFare: [		Open : PassengerFare
+{		Open Nested Tag
+PaxType:	ADT,	Types of the Passenger Adult Child or Infant
+Quantity:	1,	Indicates the Number of Passenger
+BaseFare:	91.16,	Amount of Base fare
+TaxBreakUp: [		Open : TaxBreakUp
+{		Open Nested Tag
+Amount:	10.87,	Amount of Tax
+TaxCode:	D5	Tax code
+},		Closed Nested Tag
+{		Open Nested Tag
+Amount:	14.49,	Amount of Tax
+TaxCode:	YQ	Tax code
+},		Closed Nested Tag
+{		Open Nested Tag
+Amount:	3.71,	Amount of Tax
+TaxCode:	YR	Tax code
+}		Closed Nested Tag
+],		Closed : TaxBreakUp
+TotalFare:	120.23	Total Amount Base fare + Tax
+}		Closed Nested Tag
+]		Closed Nested Tag
+},		Closed Nested Tag
+]		Closed Nested Tag
+PricedItineraries: [		Open : PricedItineraries
+{		Open Nested Tag
+FareSourceCode:	R0h82uw8uwlZ=,	FSC is unique identification no
+ValidatingCarrier:	QF,	2 letter code of Validating carrier
+OriginDestinations: [		Open : OriginDestinations"
+{		Open Nested Tag
+ItineraryRef:	0,	Reference no for the Itinerary
+SegmentRef:	0,	Reference no of the segment
+LegIndicator:	0	Reference no of the each sector 0- outbound 1 - Inbound
+},		Closed : OriginDestinations"
+{		Open Nested Tag
+ItineraryRef:	1,	Reference no for the Itinerary
+SegmentRef:	1,	Reference no of the segment
+LegIndicator:	0	Reference no of the each sector
+}		Closed Nesed Tag
+],		Closed Nesed Tag
+FareRef:	0,	Reference number for the selected Fare
+PenaltiesInfoRef:	0,	Reference number for the selected Fare
+FulfillmentDetailsRef:	0	Reference number for the selected Fare
+},		Closed Nesed Tag
+]		

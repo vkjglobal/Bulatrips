@@ -355,27 +355,292 @@ include_once __DIR__ . '/class.Db_clientCron.php';
      * Send alert email for stuck PTRs
      */
     public function sendStuckPTRAlert($ptrDetails) {
-        $subject = "URGENT: PTR Stuck Alert - PTR ID " . $ptrDetails['ptr_id'];
-        $content = "
-        <h3>PTR Processing Alert</h3>
-        <p><strong>PTR Details:</strong></p>
-        <ul>
-            <li>PTR ID: {$ptrDetails['ptr_id']}</li>
-            <li>MF Reference: {$ptrDetails['mf_ref_num']}</li>
-            <li>PTR Type: {$ptrDetails['ptr_type']}</li>
-            <li>Created: {$ptrDetails['created_date']}</li>
-            <li>SLA: {$ptrDetails['sla_minutes']} minutes</li>
-            <li>Elapsed: {$ptrDetails['elapsed_minutes']} minutes</li>
-            <li>Status: STUCK - No records found</li>
-        </ul>
-        <p><strong>Action Required:</strong></p>
-        <p>Please contact Mystifly support immediately for PTR ID {$ptrDetails['ptr_id']}</p>
-        ";
+        $ptr_id = $ptrDetails['ptr_id'];
+        $mf_ref = $ptrDetails['mf_ref_num'];
+        $ptr_type = $ptrDetails['ptr_type'];
+        $elapsed = $ptrDetails['elapsed_minutes'];
+        $sla = $ptrDetails['sla_minutes'];
+        $booking_id = $ptrDetails['booking_id'];
         
-        $messageData = $this->getEmailContent($content);
+        // Format times for better readability
+        $createdTime = date('d M Y, H:i:s', strtotime($ptrDetails['created_date']));
+        $expectedCompletionTime = date('d M Y, H:i:s', strtotime($ptrDetails['created_date']) + ($sla * 60));
+        $currentTime = date('d M Y, H:i:s');
         
-        // You can implement email sending here
-        $this->_writeLog("Alert needed for stuck PTR: " . $ptrDetails['ptr_id'], 'api_debug.txt');
+        // Calculate delay in hours and minutes
+        $delayMinutes = $elapsed - $sla;
+        $delayHours = floor($delayMinutes / 60);
+        $delayMins = $delayMinutes % 60;
+        $delayText = ($delayHours > 0 ? $delayHours . " hours " : "") . $delayMins . " minutes";
+        
+        // Get customer email for reference
+        $contact = $this->getBookingContactEmail($booking_id);
+        $customerEmail = isset($contact['contact_email']) ? trim($contact['contact_email']) : 'Not Available';
+        
+        // Admin alert email content
+        $adminSubject = "🚨 URGENT: PTR Stuck Alert - PTR ID " . $ptr_id;
+        $adminContent = '
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <style>
+                .critical-alert { background: #f8d7da; border: 3px solid #dc3545; padding: 20px; border-radius: 8px; margin: 20px; }
+                .info-table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                .info-table td { padding: 10px; border-bottom: 1px solid #ddd; }
+                .info-table tr:nth-child(even) { background: #f9f9f9; }
+                .label { font-weight: bold; width: 220px; color: #555; }
+                .action-box { background: #dc3545; color: white; padding: 20px; margin: 20px 0; border-radius: 5px; }
+            </style>
+        </head>
+        <body style="font-family: Arial, sans-serif; padding: 20px; background: #f5f5f5;">
+            <div class="critical-alert">
+                <h2 style="color: #dc3545; margin-top: 0; font-size: 24px;">⚠️ CRITICAL: PTR STUCK ALERT</h2>
+                
+                <h3 style="color: #333; border-bottom: 2px solid #dc3545; padding-bottom: 5px;">PTR Information:</h3>
+                <table class="info-table">
+                    <tr>
+                        <td class="label">PTR ID:</td>
+                        <td><strong style="color: #dc3545; font-size: 18px;">' . htmlspecialchars($ptr_id) . '</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="label">MF Reference:</td>
+                        <td><strong>' . htmlspecialchars($mf_ref) . '</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="label">Booking ID:</td>
+                        <td>' . htmlspecialchars($booking_id) . '</td>
+                    </tr>
+                    <tr>
+                        <td class="label">PTR Type:</td>
+                        <td>' . htmlspecialchars($ptr_type) . '</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Customer Email:</td>
+                        <td>' . htmlspecialchars($customerEmail) . '</td>
+                    </tr>
+                </table>
+                
+                <h3 style="color: #333; border-bottom: 2px solid #dc3545; padding-bottom: 5px;">Timing Analysis (UTC):</h3>
+                <table class="info-table">
+                    <tr>
+                        <td class="label">Created At:</td>
+                        <td>' . $createdTime . '</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Expected Completion:</td>
+                        <td>' . $expectedCompletionTime . '</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Current Time:</td>
+                        <td>' . $currentTime . '</td>
+                    </tr>
+                    <tr>
+                        <td class="label">SLA Time:</td>
+                        <td>' . $sla . ' minutes (' . round($sla/60, 1) . ' hours)</td>
+                    </tr>
+                    <tr>
+                        <td class="label">Elapsed Time:</td>
+                        <td>' . $elapsed . ' minutes (' . round($elapsed/60, 1) . ' hours)</td>
+                    </tr>
+                    <tr style="background: #f8d7da;">
+                        <td class="label">⚠️ DELAY:</td>
+                        <td><strong style="color: #dc3545; font-size: 18px;">' . $delayText . ' OVERDUE</strong></td>
+                    </tr>
+                </table>
+                
+                <div class="action-box">
+                    <h3 style="margin: 0 0 15px 0;">🚨 IMMEDIATE ACTIONS REQUIRED:</h3>
+                    <ol style="margin: 0; padding-left: 20px; line-height: 2;">
+                        <li><strong>Contact Mystifly Support:</strong> support@mystifly.com</li>
+                        <li><strong>Provide PTR ID:</strong> ' . htmlspecialchars($ptr_id) . '</li>
+                        <li><strong>Provide MF Reference:</strong> ' . htmlspecialchars($mf_ref) . '</li>
+                        <li><strong>Check Mystifly Dashboard</strong> for manual intervention</li>
+                        <li><strong>Customer Has Been Notified:</strong> ' . htmlspecialchars($customerEmail) . '</li>
+                        <li><strong>Manual Cron Check:</strong> <a href="' . (defined('ENVIRONMENT_VAR') ? ENVIRONMENT_VAR : 'http://localhost/bulatrips/') . 'CronJob/cronSearchPtr?ptr_id=' . $ptr_id . '" style="color: white; text-decoration: underline;">Run Manual Check</a></li>
+                    </ol>
+                </div>
+                
+                <p style="margin-top: 20px; padding: 15px; background: #fff3cd; border-radius: 5px; border-left: 4px solid #ffc107;">
+                    <strong>⚡ Quick Link:</strong> 
+                    <a href="' . (defined('ENVIRONMENT_VAR') ? ENVIRONMENT_VAR : 'http://localhost/bulatrips/') . 'cancel_user?booking_id=' . $booking_id . '" style="color: #0d6efd; text-decoration: none; font-weight: bold;">→ View Booking Details</a>
+                </p>
+                
+                <p style="font-size: 11px; color: #999; margin-top: 30px; border-top: 1px solid #ddd; padding-top: 15px;">
+                    This alert was automatically generated by Bulatrips PTR Monitoring System<br>
+                    Alert Time: ' . gmdate('d M Y, H:i:s') . ' UTC<br>
+                    System: Production | Environment: Live | Severity: CRITICAL
+                </p>
+            </div>
+        </body>
+        </html>';
+        
+        // Send to admin and monitoring email
+        $adminEmails = [
+            'admin@bulatrips.com',
+            'mindinstructions@gmail.com'
+        ];
+        
+        foreach ($adminEmails as $adminEmail) {
+            try {
+                if (function_exists('sendMail')) {
+                    sendMail($adminEmail, $adminSubject, $adminContent);
+                    $this->_writeLog("Stuck PTR alert sent to: " . $adminEmail . " for PTR: " . $ptr_id, 'searchPtrCron.txt');
+                }
+            } catch (Exception $e) {
+                $this->_writeLog("Failed to send alert email to {$adminEmail}: " . $e->getMessage(), 'searchPtrCron.txt');
+            }
+        }
+        
+        return true;
+    }
+    
+    /**
+     * Send delay notification to customer
+     * Triggered when PTR processing takes longer than expected
+     */
+    public function sendCustomerDelayNotification($ptrDetails) {
+        $booking_id = $ptrDetails['booking_id'];
+        $ptr_id = $ptrDetails['ptr_id'];
+        $ptr_type = $ptrDetails['ptr_type'];
+        $sla = $ptrDetails['sla_minutes'];
+        
+        // Get customer email
+        $contact = $this->getBookingContactEmail($booking_id);
+        $customerEmail = isset($contact['contact_email']) ? trim($contact['contact_email']) : '';
+        $mf_ref = isset($contact['mf_reference']) ? $contact['mf_reference'] : $ptrDetails['mf_ref_num'];
+        
+        if (empty($customerEmail)) {
+            $this->_writeLog("No customer email found for booking: " . $booking_id, 'searchPtrCron.txt');
+            return false;
+        }
+        
+        // Get customer name
+        $contactName = 'Customer';
+        try {
+            $stmt = $this->conn->prepare("SELECT contact_first_name, contact_last_name FROM temp_booking WHERE id = :id LIMIT 1");
+            $stmt->execute(['id' => (int)$booking_id]);
+            $row = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if ($row) {
+                $first = trim($row['contact_first_name'] ?? '');
+                $last = trim($row['contact_last_name'] ?? '');
+                $full = trim($first . ' ' . $last);
+                if ($full !== '') {
+                    $contactName = $full;
+                }
+            }
+        } catch (\PDOException $e) {
+            // Use default name
+        }
+        
+        // Calculate expected completion time in UTC
+        $createdTimestamp = strtotime($ptrDetails['created_date']);
+        $originalExpectedUTC = gmdate('d M Y, H:i', $createdTimestamp + ($sla * 60)) . ' UTC';
+        $newEstimatedUTC = gmdate('d M Y, H:i', time() + 1800) . ' UTC'; // +30 mins from now
+        
+        // Determine process type text
+        $processText = ($ptr_type === 'Void') ? 'cancellation' : strtolower($ptr_type);
+        
+        $customerSubject = "Processing Update - Your " . ucfirst($processText) . " Request (Booking #" . $booking_id . ")";
+        $customerContent = '
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body style="margin:0; padding:20px; background-color:#f5f7fb; font-family:Arial,sans-serif;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:600px; margin:0 auto; background-color:#ffffff; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.08);">
+                <tr>
+                    <td align="center" style="padding:20px 0 10px 0;">
+                        <img src="https://bulatrips.com/images/Image-Logo-vec.png" alt="Bulatrips" style="height:50px; width:auto; display:block; margin:10px auto;">
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td align="center" style="background-color:#ffc107; color:#000; font-size:18px; font-weight:bold; padding:14px;">
+                        ⏳ Processing Update
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="padding:22px; font-size:15px; line-height:1.6; color:#333;">
+                        <p style="margin:0 0 12px 0;">Dear ' . htmlspecialchars($contactName) . ',</p>
+                        
+                        <p style="margin:0 0 18px 0;">
+                            Thank you for your patience. Your ' . $processText . ' request is being processed by the airline.
+                        </p>
+                        
+                        <div style="background:#fff3cd; border-left:4px solid #ffc107; padding:15px; margin:0 0 20px 0; border-radius: 4px;">
+                            <p style="margin:0 0 8px 0; font-weight:bold; color:#856404; font-size: 16px;">
+                                ⏰ Processing is taking longer than expected
+                            </p>
+                            <p style="margin:0; color:#856404; font-size:14px;">
+                                The airline is experiencing high volume. We appreciate your patience and will update you as soon as the process is complete.
+                            </p>
+                        </div>
+                        
+                        <div style="background:#f1f1f1; border-radius:6px; padding:14px; margin:0 0 20px 0;">
+                            <div style="margin:0 0 8px 0;">
+                                <span style="font-weight:bold;">Booking Reference:</span> 
+                                <span>' . htmlspecialchars($mf_ref) . '</span>
+                            </div>
+                            <div style="margin:0 0 8px 0;">
+                                <span style="font-weight:bold;">PTR ID:</span> 
+                                <span>' . htmlspecialchars($ptr_id) . '</span>
+                            </div>
+                            <div style="margin:0;">
+                                <span style="font-weight:bold;">Request Type:</span> 
+                                <span>' . ucfirst($processText) . '</span>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#e7f3ff; border-left:4px solid #0d6efd; padding:15px; margin:0 0 20px 0; border-radius: 4px;">
+                            <p style="margin:0 0 12px 0; font-weight:bold; color:#084298; font-size: 16px;">📅 Timeline Information</p>
+                            <div style="margin:0 0 8px 0; font-size:14px; color:#084298;">
+                                <strong>Original Expected Time:</strong> ' . $originalExpectedUTC . '
+                            </div>
+                            <div style="margin:0 0 12px 0; font-size:14px; color:#084298;">
+                                <strong>New Estimated Time:</strong> ' . $newEstimatedUTC . '
+                            </div>
+                            <p style="margin:0; font-size:13px; color:#666; font-style: italic;">
+                                Note: Times shown in UTC (Universal Time). Please adjust for your local timezone.
+                            </p>
+                        </div>
+                        
+                        <p style="margin:0 0 18px 0; font-size: 15px;">
+                            We are monitoring your request closely and will send you a confirmation email as soon as it is completed by the airline.
+                        </p>
+                        
+                        <p style="margin:0; color:#555; font-size:14px;">
+                            If you have any questions, please contact our support team.
+                        </p>
+                        
+                        <p style="margin:18px 0 0 0; color:#555;">
+                            Thank you for choosing Bulatrips.
+                        </p>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td style="padding:15px; background-color:#f8f9fa; text-align:center; font-size:12px; color:#666;">
+                        <p style="margin:0;">This is an automated notification from Bulatrips PTR Monitoring System</p>
+                        <p style="margin:5px 0 0 0;">Alert generated at: ' . gmdate('d M Y, H:i:s') . ' UTC</p>
+                    </td>
+                </tr>
+            </table>
+        </body>
+        </html>';
+        
+        // Send to customer
+        try {
+            if (function_exists('sendMail')) {
+                sendMail($customerEmail, $customerSubject, $customerContent);
+                $this->_writeLog("Customer delay notification sent to: " . $customerEmail . " for PTR: " . $ptr_id, 'searchPtrCron.txt');
+            }
+        } catch (Exception $e) {
+            $this->_writeLog("Failed to send customer notification: " . $e->getMessage(), 'searchPtrCron.txt');
+        }
         
         return true;
     }

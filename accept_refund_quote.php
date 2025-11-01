@@ -13,51 +13,113 @@ include_once('mail_send.php');
 
 $objCancel = new Cancel();
 
-// Support both JSON AJAX and form POST
-$isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
-$data = null;
-if ($isAjax) {
-    $json = file_get_contents('php://input');
-    $data = json_decode($json, true);
-}
+// Secret key for token validation
+$TOKEN_SECRET = 'bulatrips_refund_secret_2025_xyz';
 
-// Initialize inputs
-$bookingId = '';
-$userId = '';
-$mfreNum = '';
-$ptrId = '';
-$acceptQuote = 'yes';
-$preferenceOption = 1;
-$passengerDetails = [];
+// Check if this is an email link request (with token)
+$isEmailLink = isset($_GET['token']) && isset($_GET['ptr_id']) && isset($_GET['booking_id']) && isset($_GET['action']);
 
-if (is_array($data) && isset($data['booking_id'])) {
-    // From AJAX JSON
-    $bookingId = trim($data['booking_id']);
-    $ptrId = isset($data['ptr_id']) ? trim($data['ptr_id']) : '';
-    if (isset($data['passengerDetails']) && is_array($data['passengerDetails'])) {
-        $passengerDetails = $data['passengerDetails'];
+if ($isEmailLink) {
+    // Email link request - validate token
+    $receivedToken = trim($_GET['token']);
+    $ptrId = trim($_GET['ptr_id']);
+    $bookingId = trim($_GET['booking_id']);
+    $action = trim($_GET['action']); // 'yes' or 'no'
+    
+    // Generate expected token
+    $expectedToken = hash('sha256', $ptrId . $bookingId . $action . $TOKEN_SECRET);
+    
+    // Validate token
+    if ($receivedToken !== $expectedToken) {
+        @ob_clean();
+        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="font-family:Arial; padding:40px; text-align:center;">'
+            .'<div style="max-width:500px; margin:0 auto; padding:30px; background:#f8d7da; border-radius:8px; border:2px solid #dc3545;">'
+            .'<h2 style="color:#dc3545;">🔒 Invalid or Expired Link</h2>'
+            .'<p>This refund quote link is invalid or has expired.</p>'
+            .'<p style="font-size:14px; color:#666;">Please request a new refund quote or contact support.</p>'
+            .'<a href="'.(defined('ENVIRONMENT_VAR') ? ENVIRONMENT_VAR : 'http://localhost/bulatrips/').'user-dashboard.php" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#0029ff; color:#fff; text-decoration:none; border-radius:5px;">Go to Dashboard</a>'
+            .'</div></body></html>';
+        exit;
     }
-    // Derive mf reference and user id from DB
+    
+    // Token valid - proceed
+    $acceptQuote = ($action === 'yes') ? 'yes' : 'no';
+    $preferenceOption = 1;
+    $passengerDetails = [];
+    
+    // Get booking details from database
     $bookingDetails = $objCancel->get_booking_details((int)$bookingId);
     if ($bookingDetails) {
         $mfreNum = $bookingDetails['mf_reference'];
         $userId = $bookingDetails['user_id'];
+    } else {
+        @ob_clean();
+        echo '<!DOCTYPE html><html><body style="font-family:Arial; padding:40px; text-align:center;"><h2>Booking not found</h2></body></html>';
+        exit;
     }
-    $acceptQuote = 'yes';
-} else if (isset($_POST['mfreNum']) && isset($_POST['ptrId']) && isset($_POST['acceptQuote'])) {
-    // Backward-compatible form POST
-    $mfreNum = trim($_POST['mfreNum']);
-    $ptrId = trim($_POST['ptrId']);
-    $acceptQuote = trim($_POST['acceptQuote']);
-    $bookingId = isset($_POST['bookingId']) ? trim($_POST['bookingId']) : '';
-    $userId = isset($_POST['userId']) ? trim($_POST['userId']) : '';
-    $preferenceOption = isset($_POST['preferenceOption']) ? (int)$_POST['preferenceOption'] : 1;
+    
+    // Get passengers from database
+    $bookCanusers = $objCancel->BookCancelUsers($bookingId, $userId);
+    foreach ($bookCanusers as $pax) {
+        if (!empty($pax['e_ticket_number'])) {
+            $passengerDetails[] = [
+                'firstname' => $pax['first_name'],
+                'lastname' => $pax['last_name'],
+                'title' => $pax['title'],
+                'eticket' => $pax['e_ticket_number'],
+                'passengertype' => $pax['passenger_type']
+            ];
+        }
+    }
+    
+    $objCancel->_writeLog("Email link access - PTR: $ptrId, Booking: $bookingId, Action: $action", 'acceptRefundQuote.txt');
+    
 } else {
-    $out = ['status' => 'error', 'message' => 'Missing required parameters'];
-    // Clean any previous output before sending JSON
-    @ob_clean();
-    echo json_encode($out);
-    exit;
+    // Support both JSON AJAX and form POST
+    $isAjax = isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) === 'xmlhttprequest';
+    $data = null;
+    if ($isAjax) {
+        $json = file_get_contents('php://input');
+        $data = json_decode($json, true);
+    }
+
+    // Initialize inputs
+    $bookingId = '';
+    $userId = '';
+    $mfreNum = '';
+    $ptrId = '';
+    $acceptQuote = 'yes';
+    $preferenceOption = 1;
+    $passengerDetails = [];
+
+    if (is_array($data) && isset($data['booking_id'])) {
+        // From AJAX JSON
+        $bookingId = trim($data['booking_id']);
+        $ptrId = isset($data['ptr_id']) ? trim($data['ptr_id']) : '';
+        if (isset($data['passengerDetails']) && is_array($data['passengerDetails'])) {
+            $passengerDetails = $data['passengerDetails'];
+        }
+        // Derive mf reference and user id from DB
+        $bookingDetails = $objCancel->get_booking_details((int)$bookingId);
+        if ($bookingDetails) {
+            $mfreNum = $bookingDetails['mf_reference'];
+            $userId = $bookingDetails['user_id'];
+        }
+        $acceptQuote = 'yes';
+    } else if (isset($_POST['mfreNum']) && isset($_POST['ptrId']) && isset($_POST['acceptQuote'])) {
+        // Backward-compatible form POST
+        $mfreNum = trim($_POST['mfreNum']);
+        $ptrId = trim($_POST['ptrId']);
+        $acceptQuote = trim($_POST['acceptQuote']);
+        $bookingId = isset($_POST['bookingId']) ? trim($_POST['bookingId']) : '';
+        $userId = isset($_POST['userId']) ? trim($_POST['userId']) : '';
+        $preferenceOption = isset($_POST['preferenceOption']) ? (int)$_POST['preferenceOption'] : 1;
+    } else {
+        $out = ['status' => 'error', 'message' => 'Missing required parameters'];
+        @ob_clean();
+        echo json_encode($out);
+        exit;
+    }
 }
 
 // Sanitize inputs
@@ -65,11 +127,44 @@ $mfreNum = htmlspecialchars($mfreNum, ENT_QUOTES, 'UTF-8');
 $acceptQuote = strtolower($acceptQuote);
 
 if (!in_array($acceptQuote, ['yes', 'no'])) {
-    echo json_encode([
-        'status' => 'error',
-        'message' => 'Invalid acceptance value'
-    ]);
+    if ($isEmailLink) {
+        @ob_clean();
+        echo '<!DOCTYPE html><html><body style="font-family:Arial; padding:40px; text-align:center;"><h2>Invalid action</h2></body></html>';
+    } else {
+        echo json_encode(['status' => 'error', 'message' => 'Invalid acceptance value']);
+    }
     exit;
+}
+
+// Handle decline action
+if ($acceptQuote === 'no') {
+    $objCancel->_writeLog("Refund quote declined - PTR: $ptrId, Booking: $bookingId", 'acceptRefundQuote.txt');
+    
+    // Mark as declined in database
+    try {
+        $objCancel->update('cancel_booking', [
+            'ptr_status' => 'Declined',
+            'message' => 'Customer declined refund quote'
+        ], "ptr_id = '".addslashes($ptrId)."' AND booking_id = ".(int)$bookingId);
+    } catch (Exception $e) {
+        $objCancel->_writeLog("Error marking as declined: " . $e->getMessage(), 'acceptRefundQuote.txt');
+    }
+    
+    if ($isEmailLink) {
+        @ob_clean();
+        echo '<!DOCTYPE html><html><head><meta charset="UTF-8"></head><body style="font-family:Arial; padding:40px; text-align:center;">'
+            .'<div style="max-width:500px; margin:0 auto; padding:30px; background:#fff; border-radius:8px; border:2px solid #6c757d; box-shadow:0 0 10px rgba(0,0,0,0.1);">'
+            .'<div style="font-size:60px; margin-bottom:20px;">❌</div>'
+            .'<h2 style="color:#333;">Refund Declined</h2>'
+            .'<p>You have declined the refund quote for Booking #'.htmlspecialchars($bookingId).'</p>'
+            .'<p style="font-size:14px; color:#666;">Your booking remains active. If you change your mind, you can request a new refund quote.</p>'
+            .'<a href="'.(defined('ENVIRONMENT_VAR') ? ENVIRONMENT_VAR : 'http://localhost/bulatrips/').'cancel_user?booking_id='.htmlspecialchars($bookingId).'" style="display:inline-block; margin-top:20px; padding:12px 24px; background:#0029ff; color:#fff; text-decoration:none; border-radius:5px;">View Booking</a>'
+            .'</div></body></html>';
+        exit;
+    } else {
+        echo json_encode(['status' => 'success', 'message' => 'Refund quote declined successfully']);
+        exit;
+    }
 }
 
 // Build passengers array per Mystifly docs
@@ -265,13 +360,49 @@ try {
             $message = "Refund request has been declined successfully.";
         }
 
-        $response_New = array(
-            'status' => 'success',
-            'message' => $message,
-            'ptr_id' => $PTRId,
-            'ptr_status' => $PTRStatus,
-            'ptr_type' => $PTRType
-        );
+        // Build response based on request type
+        if ($isEmailLink) {
+            // Show HTML success page for email link access
+            $slaHours = round($SLAInMinutes / 60, 1);
+            $expectedCompletionUTC = gmdate('d M Y, H:i', time() + ($SLAInMinutes * 60)) . ' UTC';
+            
+            @ob_clean();
+            echo '<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"></head>'
+                .'<body style="font-family:Arial; padding:40px; background:#f5f7fb;">'
+                .'<div style="max-width:600px; margin:0 auto; padding:40px; background:#fff; border-radius:8px; box-shadow:0 0 15px rgba(0,0,0,0.1); text-align:center;">'
+                .'<div style="font-size:70px; margin-bottom:20px;">✅</div>'
+                .'<h2 style="color:#28a745; margin:0 0 15px 0;">Refund Request Accepted!</h2>'
+                .'<p style="font-size:16px; color:#333; margin:0 0 25px 0;">Your refund request is now being processed by the airline.</p>'
+                .'<div style="background:#e7f3ff; border-left:4px solid #0d6efd; padding:15px; margin:20px 0; text-align:left; border-radius:4px;">'
+                .'<p style="margin:0 0 8px 0; font-weight:bold; color:#084298;"><i class="fas fa-info-circle"></i> Request Details:</p>'
+                .'<div style="font-size:14px; color:#084298; margin:4px 0;"><strong>PTR ID:</strong> '.htmlspecialchars($PTRId).'</div>'
+                .'<div style="font-size:14px; color:#084298; margin:4px 0;"><strong>Booking:</strong> #'.htmlspecialchars($bookingId).'</div>'
+                .'<div style="font-size:14px; color:#084298; margin:4px 0;"><strong>Status:</strong> '.htmlspecialchars($PTRStatus).'</div>'
+                .'</div>'
+                .'<div style="background:#fff3cd; border-left:4px solid #ffc107; padding:15px; margin:20px 0; text-align:left; border-radius:4px;">'
+                .'<p style="margin:0 0 8px 0; font-weight:bold; color:#856404;">⏰ Processing Timeline:</p>'
+                .'<div style="font-size:13px; color:#856404; margin:4px 0;"><strong>Expected Completion:</strong> '.htmlspecialchars($expectedCompletionUTC).'</div>'
+                .'<div style="font-size:13px; color:#856404; margin:4px 0;"><strong>Processing Time:</strong> Up to '.$slaHours.' hours</div>'
+                .'<p style="margin:10px 0 0 0; font-size:12px; color:#666; font-style:italic;">We will email you when the refund is completed.</p>'
+                .'</div>'
+                .'<div style="margin-top:30px;">'
+                .'<a href="'.(defined('ENVIRONMENT_VAR') ? ENVIRONMENT_VAR : 'http://localhost/bulatrips/').'cancel_user?booking_id='.htmlspecialchars($bookingId).'" style="display:inline-block; padding:12px 24px; background:#0029ff; color:#fff; text-decoration:none; border-radius:5px;">View Booking Status</a>'
+                .'</div>'
+                .'<p style="font-size:12px; color:#999; margin-top:30px;">Thank you for choosing Bulatrips</p>'
+                .'</div></body></html>';
+            exit;
+        } else {
+            // JSON response for AJAX
+            $response_New = array(
+                'status' => 'success',
+                'message' => $message,
+                'ptr_id' => $PTRId,
+                'ptr_status' => $PTRStatus,
+                'ptr_type' => $PTRType,
+                'sla_minutes' => $SLAInMinutes,
+                'expected_completion_utc' => gmdate('d M Y, H:i', time() + ($SLAInMinutes * 60)) . ' UTC'
+            );
+        }
 
     } else {
         // Handle API errors

@@ -1,0 +1,33 @@
+3. Accept Refund
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "RefundQuote",
+  "mFRef": "MF24648423",
+ "passengers": [
+    {
+      "firstName": "Parvez",
+      "lastName": "Ahmed",
+      "title": "Mr",
+      "eTicket": "AD2NGS",
+      "passengerType": "ADT"
+    }
+  ],
+  "PtrId": 12668, 
+  "PreferenceOption":1, 
+  "AcceptQuote": "yes",   
+  "AdditionalNote": "Cancel and refund earliest"
+}
+Response
+{
+    "Success": true,
+    "Data": {
+        "PTRId": 12668,
+        "PTRType": "Refund",
+        "SLAInMinutes": 1440,
+        "PTRStatus": "InProcess",
+        "Message": "Request for refund has been submitted successfully.Your Request# is 12668"
+    }
+}

@@ -1062,9 +1062,33 @@ if (!empty($overduePTRs)) {
 		echo "<strong>SLA:</strong> {$overdue['sla_minutes']} minutes";
 		echo "</div>";
 		
-		// Send alert for severely overdue PTRs (more than 4 hours)
-		if ($overdue['elapsed_minutes'] > 240) {
+		// Multi-level alert system based on delay severity
+		$elapsed = $overdue['elapsed_minutes'];
+		$sla = $overdue['sla_minutes'];
+		$delayMinutes = $elapsed - $sla;
+		
+		// Level 1: Grace period (SLA + 0-15 mins) - Log only
+		if ($delayMinutes > 0 && $delayMinutes <= 15) {
+			$objBookCron->_writeLog("PTR {$overdue['ptr_id']} in grace period, delay: {$delayMinutes} minutes", 'searchPtrCron.txt');
+		}
+		
+		// Level 2: Moderate delay (SLA + 15-45 mins) - Log with warning
+		if ($delayMinutes > 15 && $delayMinutes <= 45) {
+			$objBookCron->_writeLog("PTR {$overdue['ptr_id']} moderately delayed: {$delayMinutes} minutes", 'delays.txt');
+			echo "<div style='color: orange;'>⚠️ Moderate delay detected</div>";
+		}
+		
+		// Level 3: Customer notification (SLA + 45 mins)
+		if ($delayMinutes > 45 && $delayMinutes <= 60) {
+			$objBookCron->sendCustomerDelayNotification($overdue);
+			$objBookCron->_writeLog("PTR {$overdue['ptr_id']} - Customer delay notification sent", 'searchPtrCron.txt');
+			echo "<div style='color: #ffc107;'>📧 Customer delay notification sent</div>";
+		}
+		
+		// Level 4: CRITICAL - Admin alert (SLA + 60 mins = 1 hour delay)
+		if ($delayMinutes > 60) {
 			$objBookCron->sendStuckPTRAlert($overdue);
+			echo "<div style='color: red; font-weight: bold;'>🚨 CRITICAL ALERT: Admin + Customer notified</div>";
 		}
 	}
 	echo "</div>";

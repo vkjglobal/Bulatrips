@@ -4780,3 +4780,11 @@ ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31554025","AllowC
 MOCK MODE: Using mock ReissueQuote response
 ReissueQuote API Response: {"Success":true,"Data":{"PTRId":"PTR_1758164278_8117","PTRType":"ReissueQuote","MFRef":"MF31554025","SLAInMinutes":60,"PTRStatus":"InProcess","Message":"Reissue quote request processed successfully"},"Message":"Reissue quote request processed successfully"}
 Reissue request confirmation email sent to: nafeesdroidor@gmail.com
+-------------Friday 26th of September 2025 10:45:48 AM-------------
+ReissueQuote Request: {"action":"get_reissue_quote","bookingId":"186","userId":"73","mfRef":"MF31807925","selectedPassengers":[{"id":"189","firstName":"Linda","lastName":"Hull","title":"Mrs","eticket":"0985459002018","passengerType":"ADT"}],"newDepartureDate":"2025-09-29","newCabinClass":"Y","newReturnDate":"2025-10-11","segmentSelection":"both"}
+Selected passengers from UI: [{"id":"189","firstName":"Linda","lastName":"Hull","title":"Mrs","eticket":"0985459002018","passengerType":"ADT"}]
+DB passengers count: 1
+Passenger ID 189: ticketed=yes, e_ticket=0985459002018, cancelled=no
+Valid passengers after filtering: 1
+ReissueQuote API Request: {"ptrType":"ReissueQuote","mFRef":"MF31807925","AllowChildPassenger":false,"reissueQuoteRequestType":"Segment","passengers":[{"firstName":"Linda","lastName":"Hull","title":"Mrs","eTicket":"0985459002018","passengerType":"ADT"}],"originDestinations":[{"originLocationCode":"BLR","destinationLocationCode":"SIN","cabinPreference":"Y","departureDateTime":"2025-09-29","flightNumber":2392,"airlineCode":"AI"},{"originLocationCode":"SIN","destinationLocationCode":"BLR","cabinPreference":"Y","departureDateTime":"2025-10-11","flightNumber":8104,"airlineCode":"AI"}]}
+ReissueQuote API Response: {"Success":false,"Data":null,"Message":"Void request PTR 16629 is already in process"}

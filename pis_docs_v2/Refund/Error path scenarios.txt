@@ -1,0 +1,95 @@
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. When the refund quote API is triggered more than once
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "RefundQuote",
+  "mFRef": "MF29587620",
+  "passengers": [
+    {
+      "firstName": "Kushara",
+      "lastName": "Devi",
+      "title": "MRS",
+      "eTicket": "TKT450880",
+      "passengerType": "ADT"
+    }
+  ],
+  "AdditionalNote": "Pls quote refund for tkt TKT450191"
+}
+ 
+ 
+Response
+{
+    "Success": false,
+    "Data": null,
+    "Message": "RefundQuote request PTR 14938 is already in process"
+}
+ 
+2. When incorrect MF number is used
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "ptrType": "RefundQuote",
+  "mFRef": "MF29589820",
+  "passengers": [
+    {
+      "firstName": "Kushara",
+      "lastName": "Devi",
+      "title": "MRS",
+      "eTicket": "TKT450880",
+      "passengerType": "ADT"
+    }
+  ],
+  "AdditionalNote": "Pls quote refund for tkt TKT450191"
+}
+ 
+ 
+Response
+{
+    "Data": null,
+    "Success": false,
+    "Message": "Invalid MFRef."
+}
+ 
+Request Parameters
+
+
+
+
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+{		Open tag
+"ptrType":	: "RefundQuote",	Indicates the PTR functionality requested for
+"mFRef":	"MF15170620",	Mystifly reference starts with MF followed by 8 digits.
+"AllowChildPassenger":	false,	True/false Pass "true" only if any CHILD pax associated with the booking.
+"passengers":	[	Passenger details associated with the booking.
+{		Passenger details opening tag
+"firstName":	"Alex",	First Name of the passenger associated with the booking.
+"lastName":	"Tan",	Last Name of the passenger associated with the booking.
+"title":	"MR",	Tittle of the passenger associated with the booking.
+"eTicket":	"1234580096000",	e-ticket number of the passenger associated with the booking.
+"passengerType":	"ADT"	Passenger type ADT/CHD/INF associated with the booking.
+}		Passenger detail closing tag
+],		Passenger details final closing tag
+"AdditionalNote":	Free Text	Message for the agent should be passed here - Freetext
+}		Close tag
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+{		Open tag
+Success":	true,	Status of the PTR request will be provided.
+Data": {		Details of PTR open tag
+"PTRId":	5275,	PTR ID is Unique reference number generated for the RefundQuote request.
+"PTRType":	"RefundQuote",	Indicates the PTR functionality requested for.
+"MFRef":	"MF15170620",	Mystifly reference starts with MF followed by 8 digits.
+"SLAInMinutes": 60, Maximum timeline for processing the request raised	60,	Maximum timeline for processing the request raised
+"PTRStatus":	" InProcess",	Status of the PTR request will be provided.
+"Message": "Free Text" "Request for refund quote has been submitted successfully. Your Request# is 5275."	"Free Text"	"Request for refund quote has been submitted successfully. Your Request# is 5275."
+}		Closing tag for data of PTR
+}		Close tag

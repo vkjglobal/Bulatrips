@@ -1,0 +1,618 @@
+Revalidation
+API / pre-booking / Revalidation
+This API is used to verify the availability of the fare for the selected itinerary. The API connects with the supplier and checks real-time if the selected fare is valid and available.avatar
+POST
+https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight
+API Contract/Request
+Copy
+|
+{
+  "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/1
+
+1. Successful Response
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+  "Target": "Test",
+  "ConversationId": "A1234"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "A1234",
+        "Errors": [],
+        "IsValid": true,
+        "IsValidReason": "NoChanges",
+        "PricedItineraries": [
+            {
+                "AirItineraryPricingInfo": {
+                    "DivideInPartyIndicator": false,
+                    "FareInfos": [
+                        {
+                            "FareReference": "X"
+                        },
+                        {
+                            "FareReference": "L"
+                        }
+                    ],
+                    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaThKU0RJakladldFV2x1a29IRDFvVkFBei9wQUYwWDlDZ012VGRMd09QcDhpWmtDNkowenVhNE5zK1BOeEl3OU9BPQ==",
+                    "FareType": "Public",
+                    "IsRefundable": "No",
+                    "ItinTotalFare": {
+                        "BaseFare": {
+                            "Amount": "6067.35",
+                            "CurrencyCode": "INR",
+                            "DecimalPlaces": 2
+                        },
+                        "EquivFare": {
+                            "Amount": "73.00",
+                            "CurrencyCode": "USD",
+                            "DecimalPlaces": 2
+                        },
+                        "ServiceTax": {
+                            "Amount": "1.31",
+                            "CurrencyCode": "USD",
+                            "DecimalPlaces": 2
+                        },
+                        "TotalFare": {
+                            "Amount": "304.43",
+                            "CurrencyCode": "USD",
+                            "DecimalPlaces": 2
+                        },
+                        "TotalTax": {
+                            "Amount": "231.43",
+                            "CurrencyCode": "USD",
+                            "DecimalPlaces": 2
+                        }
+                    },
+                    "PTC_FareBreakdowns": [
+                        {
+                            "BaggageInfo": [
+                                "0PC",
+                                "0PC"
+                            ],
+                            "CabinBaggageInfo": [
+                                "SB",
+                                "SB"
+                            ],
+                            "FareBasisCodes": [
+                                "XSC0BILF",
+                                "XSC0BILF"
+                            ],
+                            "PassengerFare": {
+                                "BaseFare": {
+                                    "Amount": "6067.35",
+                                    "CurrencyCode": "INR",
+                                    "DecimalPlaces": 2
+                                },
+                                "EquivFare": {
+                                    "Amount": "73.00",
+                                    "CurrencyCode": "USD",
+                                    "DecimalPlaces": 2
+                                },
+                                "ServiceTax": {
+                                    "Amount": "1.31",
+                                    "CurrencyCode": "USD",
+                                    "DecimalPlaces": 2
+                                },
+                                "Surcharges": [],
+                                "Taxes": [
+                                    {
+                                        "Amount": "21.37",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "YQ"
+                                    },
+                                    {
+                                        "Amount": "2.00",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "YR"
+                                    },
+                                    {
+                                        "Amount": "159.85",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "YR"
+                                    },
+                                    {
+                                        "Amount": "0.75",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "IN"
+                                    },
+                                    {
+                                        "Amount": "11.88",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "K3"
+                                    },
+                                    {
+                                        "Amount": "14.15",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "P2"
+                                    },
+                                    {
+                                        "Amount": "1.09",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "WO"
+                                    },
+                                    {
+                                        "Amount": "8.87",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "CJ"
+                                    },
+                                    {
+                                        "Amount": "10.16",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "RN"
+                                    },
+                                    {
+                                        "Amount": "1.31",
+                                        "CurrencyCode": "USD",
+                                        "DecimalPlaces": 2,
+                                        "TaxCode": "GST"
+                                    }
+                                ],
+                                "TotalFare": {
+                                    "Amount": "304.43",
+                                    "CurrencyCode": "USD",
+                                    "DecimalPlaces": 2
+                                }
+                            },
+                            "PassengerTypeQuantity": {
+                                "Code": "ADT",
+                                "Quantity": 1
+                            },
+                            "PenaltiesInfo": [
+                                {
+                                    "Allowed": false,
+                                    "Amount": "",
+                                    "CurrencyCode": "",
+                                    "PenaltyType": "Cancel"
+                                },
+                                {
+                                    "Allowed": true,
+                                    "Amount": "16610.0",
+                                    "CurrencyCode": "INR",
+                                    "PenaltyType": "Exchange"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "DirectionInd": "OneWay",
+                "FirstNameCharacterLimit": 50,
+                "Fulfillmentdetails": {
+                    "Exchange": {
+                        "TATinMinutes": "60"
+                    },
+                    "Refund": {
+                        "TATinMinutes": "90"
+                    },
+                    "Ticketing": {
+                        "TATinMinutes": "30"
+                    },
+                    "Void": {
+                        "TATinMinutes": "30"
+                    }
+                },
+                "HoldAllowed": "True",
+                "IsPassportMandatory": true,
+                "LastNameCharacterLimit": 46,
+                "OriginDestinationOptions": [
+                    {
+                        "FlightSegments": [
+                            {
+                                "ArrivalAirportLocationCode": "AMS",
+                                "ArrivalDateTime": "2023-11-16T10:00:00",
+                                "CabinClassCode": "Y",
+                                "CabinClassText": "LIGHT",
+                                "CabinClassType": "Economy",
+                                "DepartureAirportLocationCode": "DEL",
+                                "DepartureDateTime": "2023-11-16T03:55:00",
+                                "Eticket": true,
+                                "FlightNumber": "130",
+                                "JourneyDuration": 575,
+                                "MarketingAirlineCode": "KL",
+                                "MarriageGroup": "",
+                                "MealCode": "",
+                                "OperatingAirline": {
+                                    "Code": "KL",
+                                    "Equipment": "789",
+                                    "FlightNumber": ""
+                                },
+                                "ResBookDesigCode": "X",
+                                "ResBookDesigText": "LIGHT",
+                                "SeatsRemaining": {
+                                    "BelowMinimum": false,
+                                    "Number": 4
+                                },
+                                "StopQuantity": 0,
+                                "StopQuantityInfo": {
+                                    "ArrivalDateTime": "0001-01-01T00:00:00",
+                                    "DepartureDateTime": "0001-01-01T00:00:00",
+                                    "Duration": 0,
+                                    "LocationCode": ""
+                                }
+                            },
+                            {
+                                "ArrivalAirportLocationCode": "LHR",
+                                "ArrivalDateTime": "2023-11-16T12:05:00",
+                                "CabinClassCode": "Y",
+                                "CabinClassText": "LIGHT",
+                                "CabinClassType": "Economy",
+                                "DepartureAirportLocationCode": "AMS",
+                                "DepartureDateTime": "2023-11-16T11:40:00",
+                                "Eticket": true,
+                                "FlightNumber": "1011",
+                                "JourneyDuration": 85,
+                                "MarketingAirlineCode": "KL",
+                                "MarriageGroup": "",
+                                "MealCode": "",
+                                "OperatingAirline": {
+                                    "Code": "KL",
+                                    "Equipment": "295",
+                                    "FlightNumber": "1011"
+                                },
+                                "ResBookDesigCode": "L",
+                                "ResBookDesigText": "LIGHT",
+                                "SeatsRemaining": {
+                                    "BelowMinimum": false,
+                                    "Number": 4
+                                },
+                                "StopQuantity": 0,
+                                "StopQuantityInfo": {
+                                    "ArrivalDateTime": "0001-01-01T00:00:00",
+                                    "DepartureDateTime": "0001-01-01T00:00:00",
+                                    "Duration": 0,
+                                    "LocationCode": ""
+                                }
+                            }
+                        ]
+                    }
+                ],
+                "PaxNameCharacterLimit": 60,
+                "Provider": "MYSTIFLY",
+                "RequiredFieldsToBook": [
+                    "Passport",
+                    "Passport No",
+                    "DOB",
+                    "PassengerNationality",
+                    "PostCode",
+                    "Gender",
+                    "Email",
+                    "IssueCountry",
+                    "ExpiredOn",
+                    "Title",
+                    "ContactNumber"
+                ],
+                "SequenceNumber": 1,
+                "TicketType": "eTicket",
+                "ValidatingAirlineCode": "KL",
+                "VoidWindowTLinMins": "699"
+            }
+        ],
+        "Success": true,
+        "Target": "Test",
+        "TraceId": "23092010-123407b5-80da-4d02-844a-4d7481136035",
+        "ExtraServices": {
+            "NameNumbers": [],
+            "Services": []
+        }
+    },
+    "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed Scenario: Faresource code NULL
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "",
+  "Target": "Test",
+  "ConversationId": "12345678"
+}
+Response
+500 Internal Server Error
+2. Failed Scenario: FareSourceCode is expired
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "alF5aHJGU204WHc4RG9ESmFnWFFvbFRmSGNlSTdlamZKZVhTMWU1L1ZCL2NoUWxuSVQwTVdEbmlWN0dadTh2WkxDTHgwV3E1Qnh0YmYyQWszbEJoRHFxV3d3R1l4S0prajBWTHl4Vm56YkRBM3ZISlkxVkhHVHdZL3pHMk1DWkhONkIya2hMb0dNelIzQU94NGxnM01nPT0=",
+  "Target": "Test",
+  "ConversationId": "9f44675e-4452-4baa-bcf3-2588e1ba4f46"
+}
+Response
+{
+  "Data": {
+    "ConversationId": "2d0b1516-5384-4988-875a-31120a134c3e",
+    "Errors": [
+      {
+        "Code": "ERREV004",
+        "Message": "FareSourceCode is Expired"
+      }
+    ],
+    "IsValid": false,
+    "IsValidReason": "",
+    "PricedItineraries": [
+      
+    ],
+    "Success": false,
+    "Target": 2,
+    "TraceId": "",
+    "ExtraServices": {
+      "NameNumbers": [
+        
+      ],
+      "Services": [
+        
+      ]
+    }
+  },
+  "Success": false,
+  "Message": "FareSourceCode is Expired"
+}
+3. Failed Scenario: Invalid Session ID.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "aExrMHR2akdid2xsWVN1M0JJUVEzQlB0aHVSdnAwREdveDBjS0k5ajhBWUlmVVE0OWFEOS8zdnIvT2NWOUllVkdmMEdacDRhUXdtTTVjWHFXWk9mdFJqbkNnSnNEeUhaa0tWcGxndVJTTVF2M1hnRG15VjVTenh4UjZYZ2FNNFhGeVA5YzFuNExSRytkUWVqMkJ4MVFRPT0=",
+  "Target": "Test",
+  "ConversationId": "12345678"
+}
+Response
+{
+    "Success": false,
+    "Data": null,
+    "Message": "Invalid Session"
+}
+4. Failed Scenario: Seat sold out
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPeFN5YjU5b0JwUTZwQzJYTVJ5OHAvSTFKN2R5R1FIUWlVTDdCa2srakhtUys0M24wNEtQY0VDalMydkZaYkJZMGZOdFloNnliUEVwVVJFMm4yVnJHRy8vZENESGxXUklmWTU2VGNZZDg5cWdsejRoalB4SVBtSjVjZTZ4VWhGLzBvb0ZNUm1BY0xPWnlnNnoyZTRCN21BPQ==",
+  "Target": "Test",
+  "ConversationId": ""
+}
+Response
+{
+  "Data": {
+    "ConversationId": "",
+    "Errors": [
+      {
+        "Code": "ERREV012",
+        "Message": "SeatsSoldOut for the Revalidated itinerary, retry new Search"
+      }
+    ],
+    "IsValid": false,
+    "IsValidReason": "SeatsSoldOut",
+    "PricedItineraries": [
+      
+    ],
+    "Success": true,
+    "Target": 2,
+    "TraceId": "",
+    "ExtraServices": {
+      "NameNumbers": [
+        
+      ],
+      "Services": [
+        
+      ]
+    }
+  },
+  "Success": false,
+  "Message": "SeatsSoldOut for the Revalidated itinerary, retry new Search"
+}
+5. Failed Scenario: Session ID null
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "aExrMHR2akdid2xsWVN1M0JJUVEzQlB0aHVSdnAwREdveDBjS0k5ajhBWUlmVVE0OWFEOS8zdnIvT2NWOUllVkdmMEdacDRhUXdtTTVjWHFXWk9mdFJqbkNnSnNEeUhaa0tWcGxndVJTTVF2M1hnRG15VjVTenh4UjZYZ2FNNFhGeVA5YzFuNExSRytkUWVqMkJ4MVFRPT0=",
+  "Target": "Test",
+  "ConversationId": "12345678"
+}
+Response
+{
+    "Success": false,
+    "Data": null,
+    "Message": "Missing session info in Header/Please validate format 'Bearer<Space><SessionId>'"
+}
+6. Failed Scenario: Invalid Faresourcecode
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "aExrMHR2akdid2xsWVN1M0JJUVEzQlB0aHVSdnAwREdveDBjS0k5ajhBWUlmVVE0OWFEOS8zdnIvT2NWOUllVkdmMEdacDRhUXdtTTVjWHFXWk9mdFJqbkNnSnNEeUhaa0tWcGxndVJTTVF2M1hnRG15VjVTenh4UjZYZ2FNNFhGeVA5YzFuNExSRytkUWVqMkJ4MVFRPT=",
+  "Target": "Test",
+  "ConversationId": "12345678"
+}
+Response
+{
+    "Success": false,
+    "Message": "RevalidateFlight: Cannot RevalidateFlight as the searchIdentifier is empty. InputFareSourceCode: aExrMHR2akdid2xsWVN1M0JJUVEzQlB0aHVSdnAwREdveDBjS0k5ajhBWUlmVVE0OWFEOS8zdnIvT2NWOUllVkdmMEdacDRhUXdtTTVjWHFXWk9mdFJqbkNnSnNEeUhaa0tWcGxndVJTTVF2M1hnRG15VjVTenh4UjZYZ2FNNFhGeVA5YzFuNExSRytkUWVqMkJ4MVFRPT= .",
+    "Data": null
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+FareSourceCode:	XXXXXXXXXXXX	A Unique FSC for every single itinerary generated
+Target:	Test, "Production",	Environment to connect with Mystifly
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ConversationId:	XXXXX,	Free Text - can be used for Tracking at Client end
+Errors:	[],	Error message caused for the failures in Revalidation
+IsValid:	true	True-No changes in the selected itinerary. False- Change in the selected itinerary. Ex: Fare, Class etc Note :the itinerary comparison should always be made between the search and revalidated itinerary to identify if there is any difference.
+PricedItineraries:	[],	All the itineraries returned will be in sequential order
+AirItineraryPricingInfo:	{},	Information about the price for the itinerary
+DivideInPartyIndicator:	string,	We will provide, if we get the response from Supplier
+FareInfos:	{},	Open “FareInfos”
+FareReference:	L	Departure Flight RBD code for the itinerary (Provided if the information is passed by the supplier in response)
+FareReference:	U	Arrival Flight RBD code for the itinerary (Provided if the information is passed by the supplier in response)
+FareSourceCode:	XXXXXXXX	A Unique FSC for every single itinerary generated
+FareType:	“Private"	Indicates the ‘source’ requested for – can be either Public or Private for GDS carriers. Source type ‘WebFare’ indicates the carrier is an LCC.
+IsRefundable:	true,	indicates if the itinerary is refundable true/false.
+ItinTotalFare:	{},	Fare details
+Amount:	9428.40,	Total base fare value in Local currency
+CurrencyCode:	INR,	Base fare in Local currency (Origin country)
+DecimalPlaces:	2	Only 2 decimals are allowed.
+EquivFare:	{},	Base fare in Equivalent currency
+Amount:	132.62,	Equivalent amount shown is set, as per account the configuration.
+CurrencyCode:	USD,	Currency code, as per account the configuration.
+DecimalPlaces:	2	Only 2 decimals are allowed.
+Amount:	358.80,	Total amount of fare.
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed.
+TotalTax:	{},	Total Taxes information
+Amount:	226.18,	Total tax value
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed
+PTC_FareBreakdowns:	[],	Passenger wise fare break down
+BaggageInfo:	[],	Check-in baggage information
+25KG,		Departure bag details (Either it will be in KG/PC/SB-Standard Baggage, as passed from supplier)
+30KG		Arrival Bag details (Either it will be in KG/PC/SB-Standard Baggage, as passed from supplier)
+CabinBaggageInfo:	[],	Cabin baggage information
+SB,		SB indicated to standard baggage, as per airline policy.
+SB		SB indicated to standard baggage, as per airline policy.
+FareBasisCodes:	[],	Airline fare basis infromation
+LEXAPIN1,		Departure fare basis (If there is no fare basis passed from supplier, Mystifly generates a SUDO code)
+UEXESIN1		Arrival fare basis (If there is no fare basis passed from supplier, Mystifly generates a SUDO code)
+PassengerFare:	{},	Total fare breakdown
+BaseFare:	{},	Base fare breakdown
+Amount:	9428.40,	Base fare value
+CurrencyCode:	INR,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed.
+EquivFare:	{},	Base fare in Equivalent currency
+Amount:	132.62,	Equivalent amount for base fare
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed.
+Surcharges:	[],	If provided by the supplier details will be added (Surcharge is part of the base fare)
+Taxes:	[],	Taxes break down
+Amount:	5.72,	Tax value
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2,	Only 2 decimals are allowed.
+TaxCode:	WO	Tax code
+Amount:	20.49,	Tax value
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2,	Only 2 decimals are allowed.
+TaxCode:	AE	Tax code
+TotalFare:	{},	Total fare value
+Amount:	358.80,	Total fare amount
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed.
+PassengerTypeQuantity:	{},	Number of passenger
+Code:	ADT,	Passenger type code
+Quantity:	1	Quantity of specific passenger type
+PenaltiesInfo:	[],	Penalties information
+Allowed:	true,	True -Indicates Airline supports the functionality False- They don’t support the functionality
+Amount:	154.72,	Penalty charges
+CurrencyCode:	USD,	Currency code
+PenaltyType:	Cancel	Type of the Penalty supported.
+Allowed:	true,	True -Indicates Airline supports the functionality False- They don’t support the functionality
+Amount:	56.26,	Penalty charges
+CurrencyCode:	USD,	Currency code
+PenaltyType:	Exchange	Type of the Penalty supported.
+DirectionInd:	Return,	Indicates the direction of the itinerary
+IsPassportMandatory:	true/false,	Read RequiredFieldsToBook
+OriginDestinationOptions:	[],	OriginDestinationOption specifies the opening information for every sector
+FlightSegments:	[],	All the legs in the itinerary will be shown
+ArrivalAirportLocationCode:	DXB,	IATA code of the airport the flight is scheduled to arrive (As per arrival time zone)
+ArrivalDateTime:	2020-02-03T06:50:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time
+CabinClassCode:	Y, "S", "C", "F"	Specifies the class code if the cabin is economy, business, premium economy or First Class
+CabinClassText: "",	Basic / Lite	Provided data by the supplier
+DepartureAirportLocationCode:	BLR,	IATA code of the airport the flight is scheduled to depart
+DepartureDateTime:	2020-02-03T04:20:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time (As per origin time zone)
+Eticket:	true/false,	Specifies the type of the ticket
+FlightNumber:	569,	Indicates the number of the flight
+JourneyDuration:	240,	Duration of the flight in minutes
+MarketingAirlineCode:	EK,	Airline IATA Code of the marketing airline
+MarriageGroup:	O,	Group code for the marriage code
+MealCode:	,	
+OperatingAirline:	{},	OperatingAirline shows the information for the airline that administrates the flight
+Code:	EK,	Airline IATA Code
+Equipment:	77W,	Information of the equipment being used (Provided by the supplier)
+FlightNumber:	569	Indicates the number of the flight
+ResBookDesigCode:	L,	Specifies the RBD code for the itinerary
+ResBookDesigText:	,	Specifies the RBD text for the segment
+SeatsRemaining:	{},	Information shows on the number of seats available
+BelowMinimum:	true/false,	Indicates if the number of seats available are under the required minimum
+Number:	7	Static value passed by the supplier on number seats available for the itinerary
+StopQuantity:	0,	Technical stopover
+StopQuantityInfo:	{},	Stopovers. Note - This information will be shared in response only if there is a stopover available for that itinerary
+ArrivalDateTime:	0001-01-01T00:00:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time
+DepartureDateTime:	0001-01-01T00:00:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time
+Duration:	0,	Duration of the stopover
+LocationCode:	,	Location of the stopover
+FlightSegments:	[],	All the legs in the itinerary will be shown
+ArrivalAirportLocationCode:	BLR,	IATA code of the airport the flight is scheduled to arrive
+ArrivalDateTime:	2020-02-14T02:55:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time (As per arrival time zone)
+CabinClassCode:	Y, "S", "C", "F",	Specifies the class code if the cabin is economy, business, premium economy or First Class
+CabinClassText:	,	Provided data by the supplier
+DepartureAirportLocationCode:	DXB,	IATA code of the airport the flight is scheduled to depart
+DepartureDateTime:	2020-02-13T21:50:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time (As per origin time zone)
+Eticket:	true,	Specifies the type of the ticket
+FlightNumber:	568,	Indicates the number of the flight
+JourneyDuration:	215,	Duration of the flight in minutes
+MarketingAirlineCode:	EK,	Airline IATA Code of the marketing airline
+MarriageGroup:	O,	Group code for the marriage code
+MealCode:	,	
+OperatingAirline:	{},	OperatingAirline shows the information for the airline that administrates the flight
+Code:	EK,	Airline IATA Code
+Equipment:	77W,	Information of the equipment being used (Provided by the supplier)
+FlightNumber:	568	Number of the flight
+ResBookDesigCode:	U,	Specifies the RBD code for the itinerary
+ResBookDesigText: "",		Specifies the RBD text for the segment
+SeatsRemaining:	{},	Information shows on the number of seats available
+BelowMinimum:	true,	Indicates if the number of seats available are under the required minimum = true/false
+Number:	7	Static value passed by the supplier on number seats available for the itinerary
+StopQuantity:	0,	Technical stopover
+StopQuantityInfo:	{},	Stopovers. Note - This information will be shared in response only if there is a stopover available for that itinerary
+ArrivalDateTime:	0001-01-01T00:00:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time
+DepartureDateTime:	0001-01-01T00:00:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time
+Duration:	0,	Duration of the stopover
+LocationCode:	,	Location of the stopover
+PaxNameCharacterLimit:	60,	Indicates the maximum characters allowed for the passenger’s name including spaces and title
+RequiredFieldsToBook:	[],	All possible fields which are mandatory for booking, as shown below.
+Passport,	Mandate	Details are mandate and should be passed
+Passport No,	Mandate	Details are mandate and should be passed
+DOB,	Mandate	Details are mandate and should be passed
+PassengerNationality,	Mandate	Details are mandate and should be passed
+PostCode,	Mandate	Details are mandate and should be passed
+Gender,	Mandate	Details are mandate and should be passed
+Email,	Mandate	Details are mandate and should be passed
+IssueCountry,	Mandate	Details are mandate and should be passed
+ExpiredOn,	Mandate	Details are mandate and should be passed
+Title,	Mandate	Details are mandate and should be passed
+ContactNumber	Mandate	Details are mandate and should be passed
+SequenceNumber:	1,	Specifies the itineraries sequence number in the search
+TicketType: "eTicket",	eTicket,	Specifies the type of the ticket
+ValidatingAirlineCode:	EK	Specifies the validation Airline
+Success:	true,	Returns the search status in a Boolean - true/false,
+Target:	“Production”	Target specified in the request captured an passed in the response " Test" and “Production”
+ExtraServices:	{},	ExtraServices passes the information with the following properties.
+Services:	[],	Account number always starts with MCN
+Success:	true/"false"	Returns the search status

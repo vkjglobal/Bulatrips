@@ -1,0 +1,166 @@
+Bulatrips - Fare Selection & Booking Flow
+Date: October 22, 2025
+________________________________________
+1. HOMEPAGE
+Add new checkbox:
+☐ Show only flights with checked baggage included
+DEFAULT STATE: UNCHECKED
+________________________________________
+2. RESULTS PAGE
+2.1 Filter Section (Top of results, always visible)
+┌─────────────────────────────────────────────────────────┐
+│ 🔍 FILTER RESULTS:                                       │
+│                                                          │
+│ ☐ Checked baggage included                 │
+│ ☐ Cabin baggage only                                   │
+│ ☐ Refundable fares only                                │
+│ ☐ Date changes allowed                                 │
+│                                                          │
+│ [Apply Filters] [Clear All]         Showing: 15 flights │
+└─────────────────────────────────────────────────────────┘
+Logic: Remove flights that don't match selected criteria. Show cheapest fare that matches.
+________________________________________
+2.2 Change Button Text
+Change: "BOOK NOW" → "SELECT FARES & BOOK"
+________________________________________
+3. FARE SELECTION POPUP
+When: User clicks "SELECT FARES & BOOK"
+Display: All available fare options (1-4) for BOTH departure and return legs
+┌────────────────────────────────────────────────────────────┐
+│  ✈️ SELECT FARES FOR YOUR TRIP                             │
+├────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ✈️ DEPARTURE: DEL → DXB (Nov 10, 2025)                   │
+│  Oman Air • 13:00 → 09:50 • 13h 35m                        │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ LITE - $160.00                                     │  │
+│  │   🎒 Cabin bag only • ❌ Non-refundable              │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ SAVER - $210.00                                    │  │
+│  │   ✅ 1 Checked bag (23kg) • ❌ Non-refundable        │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ FLEX - $285.00                                     │  │
+│  │   ✅ 1 Checked bag (23kg) • ✅ Refundable            │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│                                                             │
+│  ✈️ RETURN: DXB → DEL (Nov 17, 2025)                      │
+│  Oman Air • 22:45 → 13:35 • 4h 10m                         │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ LITE - $155.20                                     │  │
+│  │   🎒 Cabin bag only • ❌ Non-refundable              │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ SAVER - $205.00                                    │  │
+│  │   ✅ 1 Checked bag (23kg) • ❌ Non-refundable        │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ┌──────────────────────────────────────────────────────┐  │
+│  │ ○ FLEX - $280.00                                     │  │
+│  │   ✅ 1 Checked bag (23kg) • ✅ Refundable            │  │
+│  └──────────────────────────────────────────────────────┘  │
+│                                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│                                                             │
+│  TOTAL PRICE: $315.20                                      │
+│  (Lite: Departure + Lite: Return)                          │
+│                                                             │
+│  [← Back to Results]           [Continue to Booking →]     │
+└────────────────────────────────────────────────────────────┘
+Requirements:
+•	User MUST select one fare per leg (radio buttons)
+•	Total updates dynamically as selections change
+•	"Continue to Booking" disabled until both legs selected
+•	Use Fare Family names from API (Lite/Saver/Flex/etc.)
+•	If no name, use: Basic/Standard/Flex
+________________________________________
+4. CONFIRMATION POPUP
+When: User clicks "Continue to Booking"
+┌────────────────────────────────────────────────────────────┐
+│  ⚠️ CONFIRM YOUR BOOKING                                   │
+├────────────────────────────────────────────────────────────┤
+│                                                             │
+│  TOTAL PRICE: $315.20                                      │
+│                                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│                                                             │
+│  ✈️ DEPARTURE: DEL → DXB (Nov 10, 2025)                   │
+│  Oman Air • 13:00 → 09:50                                  │
+│  Fare: Lite - $160.00 (Public - Non-Refundable)            │
+│                                                             │
+│  ✅ INCLUDED:                                               │
+│     • Cabin bag (7kg)                                      │
+│     • Seat assignment at check-in                          │
+│                                                             │
+│  ❌ NOT INCLUDED:                                           │
+│     • Checked baggage                                      │
+│     • Advance seat selection                               │
+│     • Meals                                                │
+│                                                             │
+│  ⚠️ NON-REFUNDABLE • Changes: $50 fee                      │
+│                                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│                                                             │
+│  ✈️ RETURN: DXB → DEL (Nov 17, 2025)                      │
+│  Oman Air • 22:45 → 13:35                                  │
+│  Fare: Lite - $155.20 (Public - Non-Refundable)            │
+│                                                             │
+│  ✅ INCLUDED:                                               │
+│     • Cabin bag (7kg)                                      │
+│     • Seat assignment at check-in                          │
+│                                                             │
+│  ❌ NOT INCLUDED:                                           │
+│     • Checked baggage                                      │
+│     • Advance seat selection                               │
+│     • Meals                                                │
+│                                                             │
+│  ⚠️ NON-REFUNDABLE • Changes: $50 fee                      │
+│                                                             │
+│  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   │
+│                                                             │
+│  ☐ I understand each leg's fare conditions                 │
+│                                                             │
+│  [← Change Fares]            [Continue to Payment →]       │
+└────────────────────────────────────────────────────────────┘
+Requirements:
+•	Mandatory checkbox - must be checked to proceed
+•	"Continue to Payment" disabled until checked
+•	"Change Fares" returns to fare selection popup
+•	Show separate details for each leg
+•	For Webfare: Add note "Ticket issued immediately after payment"
+________________________________________
+5. PAYMENT PAGE
+Add banner at top:
+⚠️ Departure: Cabin bag only, Non-refundable • Return: Cabin bag only, Non-refundable
+________________________________________
+6. DATA NEEDED FROM API
+For EACH leg (departure AND return), provide all fare options (1-4) with:
+•	Price per leg
+•	Fare Type (Public/Private/Webfare) - auto-determined
+•	Fare Family name (Lite/Saver/Value/Flex/Business) - if available
+•	Checked baggage: Yes/No + kg amount
+•	Cabin baggage: Yes/No + kg amount
+•	Refundable: Yes/No
+•	Change fee: amount or "Free" or "Not allowed"
+•	Meal inclusion: Yes/No
+•	Seat selection: Free/Paid/At check-in
+________________________________________
+IMPORTANT NOTES
+Filters:
+•	❌ Fare Type (Public/Private/Webfare) - NOT a filter, auto-determined by API
+•	❌ Fare Family - NOT a filter, used for DISPLAY only in fare selection
+Webfare:
+Show note: "Ticket issued immediately after payment"
+Homepage Checkbox:
+•	DEFAULT: UNCHECKED
+________________________________________
+END OF SPECS
+

@@ -1,0 +1,1204 @@
+BookFlight
+API / pre-booking / BookFlight
+This API helps in the process of booking an itinerary by letting users pass Traveller information. It enables users to provide details like passenger name, contact information etc., Passengers should verify the specific naming rules and character limits for surnames when booking flights, as they are subject to each airline's policy. This ensures that the provided surname complies with the airline's system and avoids any issues during check-in or boarding.avatar
+POST
+https://restapidemo.myfarebox.com/api/v1/Book/Flight
+API Contract/Request
+Copy
+|
+
+{
+"FareSourceCode": "UktsWWJhTFNBS2ZsYmlISW91ZU9wc2xMejR4RXRlOUZhMDFBSVJuN29VL0MxRmN3R1YzWng3TXJndlhrTEJaUmFSaWdCSGlRKzFHL2FmZG1UdWUzQ0s2VTNuMWk5eUNwUHVCQ2tsaHpCUkg2SFlTRm1idi9aRDFKRzE5UU40eVd6S0tpUEsrdmtqOExDMU12dVMrMHdRWnAyQ1ZZU056bGUwRnlaNERSb3hBPQ==",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Jhon",
+"PassengerLastName": "Doe"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z87S6789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+},
+"ExtraServices1_1": [
+          {
+            "ExtraServiceId": 7
+          }
+],
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test"
+}
+
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/2
+
+1. Hold Allowed True Booking
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+ {
+  "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+   "TravelerInfo": {
+    "AirTravelers": [
+      {
+        "PassengerType": "ADT",
+        "Gender": "M",
+        "PassengerName": {
+          "PassengerTitle": "MR",
+          "PassengerFirstName": "Venkata Reddy",
+          "PassengerLastName": "Saddala"
+        },
+        "DateOfBirth": "1988-01-03T00:00:00",
+        "Passport": {
+          "PassportNumber": "Z876789",
+          "ExpiryDate": "2025-01-03T00:00:00",
+          "Country": "IN"
+        
+        },
+       "PassengerNationality": "IN",
+       "NationalID": "IN"
+      }
+    ],
+    "CountryCode": "91",
+    "AreaCode": "080",
+    "PhoneNumber": "87657897",
+    "Email": "apisupport@mystifly.com",
+    "PostCode": "560028"
+  },
+  "Target": "Test"
+  }
+Response
+{
+    "Data": {
+        "ClientUTCOffset": 5.3,
+        "ConversationId": "",
+        "Errors": [],
+        "Status": "CONFIRMED",
+        "Success": true,
+        "Target": "Test",
+        "TktTimeLimit": "2023-09-23T10:10:23",
+        "TraceId": "23092010-123407b5-80da-4d02-844a-4d7481136035",
+        "UniqueID": "MFXXXXXXXX"
+    },
+    "Success": true
+}
+2. Hold Allowed False Booking
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+ {
+  "FareSourceCode": "WDNsdDVwek9sOHJwTy9MWGZYVzRuT2kxSHBNSzdoTHdvclIzR3F0eEFSMkkxSHljVGFCWmxXUm5hb21oQjAycEVjeWFpVUc2T2gvRC9hdEFGMDRGdHBjWVBtalJWSkdVQ2MyWHc2UnRBaGluSFNtSk5TZ21WL2dDM041MXlwU0NGK2luNVFya0RLWlkrc0pMcVQ2eUt3PT0=",
+   "TravelerInfo": {
+    "AirTravelers": [
+      {
+        "PassengerType": "ADT",
+        "Gender": "M",
+        "PassengerName": {
+          "PassengerTitle": "MR",
+          "PassengerFirstName": "Venkata Reddy",
+          "PassengerLastName": "Saddala"
+        },
+        "DateOfBirth": "1995-05-10T00:00:00",
+        "Passport": {
+          "PassportNumber": "Z876789",
+          "ExpiryDate": "2025-01-03T00:00:00",
+          "Country": "IN"
+        
+        },
+       "PassengerNationality": "IN",
+       "NationalID": "IN"
+      }
+    ],
+    "CountryCode": "91",
+    "AreaCode": "080",
+    "PhoneNumber": "87657897",
+    "Email": "apisupport@mystifly.com",
+    "PostCode": "560028"
+  },
+  "Target": "Test"
+  }
+Response
+{
+    "Data": {
+        "ClientUTCOffset": 5.3,
+        "ConversationId": "",
+        "Errors": [],
+        "Status": "CONFIRMED",
+        "Success": true,
+        "Target": "Test",
+        "TktTimeLimit": "2023-09-14T20:49:27",
+        "TraceId": "23091420-6db66d3f-89bc-43df-9ef3-474f6d35dbf3",
+        "UniqueID": "MFXXXXXXXX"
+    },
+    "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Itinerary Price has been revised - Kindly Re - Search for updated price.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"ClientMarkup": 0.0,
+"ConversationId": "",
+"FareSourceCode": "T0pXaXVKNmk5dFY5YWgvWXQwOHNLS3c3NDRUUm43Tm5sbU9rakM2ZmJDVEhndjYxcUpyWDhEcVJzV05FWFN5dEYxN1hsQ1g0VTdWdDZWZ2UrUm9sd3FRV0Vxa1BmdHF4My9OcWRoWGdnV2k5SU9lVHhaYlEwQWFxbU9zMmN3dTNiQzdNelZLN1FLMVpZWVNtd0NrUTJBPT0=",
+"PaymentCardInfo": null,
+"PaymentTransactionID": "",
+"SessionId": "4A160474-C4DF-47A8-8B35-66F8B2B4558F-6053",
+"Target": 3,
+"TravelerInfo": {
+"AirTravelers": [
+{
+"DateOfBirth": "1976-09-19T00:00:00",
+"ExtraServices": [],
+"ExtraServices1_1": [],
+"FrequentFlyerNumber": "",
+"Gender": 1,
+"NationalID": "BG",
+"PassengerName": {
+"PassengerFirstName": "Mehmed",
+"PassengerLastName": "Aliev",
+"PassengerTitle": 1
+},
+"PassengerNationality": "BG",
+"PassengerType": 1,
+"Passport": {
+"Country": "BG",
+"ExpiryDate": "2043-09-06T00:00:00",
+"PassportNumber": null
+},
+"Seats": {
+"SeatSelectionKey": []
+},
+"SpecialServiceRequest": {
+"MealPreference": 0,
+"RequestedSegments": null,
+"SeatPreference": 0
+}
+},
+{
+"DateOfBirth": "1991-10-20T00:00:00",
+"ExtraServices": [],
+"ExtraServices1_1": [],
+"FrequentFlyerNumber": "",
+"Gender": 1,
+"NationalID": "TR",
+"PassengerName": {
+"PassengerFirstName": "Ozan",
+"PassengerLastName": "Ozer",
+"PassengerTitle": 1
+},
+"PassengerNationality": "TR",
+"PassengerType": 1,
+"Passport": {
+"Country": "TR",
+"ExpiryDate": "2043-09-06T00:00:00",
+"PassportNumber": null
+},
+"Seats": {
+"SeatSelectionKey": []
+},
+"SpecialServiceRequest": {
+"MealPreference": 0,
+"RequestedSegments": null,
+"SeatPreference": 0
+}
+}
+],
+"AreaCode": "",
+"CountryCode": "90",
+"Email": "439836870@skyisthecap.org",
+"PhoneNumber": "5522126169",
+"PostCode": "75974"
+}
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Itinerary Price has been revised - Kindly Re - Search for updated price."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Itinerary Price has been revised - Kindly Re - Search for updated price."
+}
+2. Inventory Lost - Request an alternate flight.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Inventory Lost - Request an alternate flight."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Inventory Lost - Request an alternate flight."
+}
+3. Pending Need - Awaiting carrier response - Booking Unconfirmed.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": "Pending Need - Awaiting carrier response - Booking Unconfirmed."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": "Pending Need - Awaiting carrier response - Booking Unconfirmed."
+}
+4. Unable to confirm - Request an alternate flight
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Unable to confirm - Request an alternate flight "
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": "Unable to confirm - Request an alternate flight."
+}
+5. Host not responding - Unable to end the record
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Host not responding - Unable to end the record."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Host not responding - Unable to end the record."
+}
+6. Booking already in progress
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Booking already in progress "
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Booking already in progress "
+}
+7. You do not have sufficient balance in your account for booking
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " You do not have sufficient balance in your account for booking."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " You do not have sufficient balance in your account for booking."
+}
+8. At least one adult age must be 18 years or more as on date of travel.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " At least one adult age must be 18 years or more as on date of travel."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " At least one adult age must be 18 years or more as on date of travel."
+}
+9. Passenger Name (First/Last) cannot have Special Characters
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Passenger Name (First/Last) cannot have Special Characters "
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Passenger Name (First/Last) cannot have Special Characters "
+}
+10. Country cannot be null
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Country cannot be null ”
+"
+}
+],
+"Sttus": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Country cannot be null
+"
+}
+11. There should be at least one traveller for booking
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " There should be at least one traveller for booking."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " There should be at least one traveller for booking."
+}
+12. There are no Extra services for the given flight option
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " There are no Extra services for the given flight option."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " There are no Extra services for the given flight option."
+}
+13. Booking already exists with one or more same PAX and segment
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Booking already exists with one or more same PAX and segment. Ref# MF691280323."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Booking already exists with one or more same PAX and segment. Ref# MF691280323."
+}
+14. Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Oops! The FareSourceCode belongs to the search results already used for a Booking. Please request fresh search results."
+}
+15. Passport Details - Mandate Details Missing
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Passport Details - Mandate Details Missing."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Passport Details - Mandate Details Missing."
+}
+16. Passenger last name should be more than one character for this airline host
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Passenger last name should be more than one character for this airline host."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Passenger last name should be more than one character for this airline host."
+}
+17. Booking already exists with one or more same PAX and segment.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+"FareSourceCode": "RFlKZXA5R1dob3dGOVJHaHlsQTRoZUVqczVHWDJKNlFBSkZZUmQ3eUVuQ05UZnlLMUlyNE5POVJ5bmQ3ejBUT0V5ZnJvdWV6YUtldlNwbW5mci95RVJrV2VtOEVjYmtJVWhtcGNhR1FwQUxKSlJSSTgrcW4wSDZwbFZ0c0hFSWsrelB4ZjZTZWlZa1VZTTBuNlNoV1ZRPT0=",
+"TravelerInfo": {
+"AirTravelers": [
+{
+"PassengerType": "ADT",
+"Gender": "M",
+"PassengerName": {
+"PassengerTitle": "MR",
+"PassengerFirstName": "Rajasekhar Reddy",
+"PassengerLastName": "Yeduguri"
+},
+"DateOfBirth": "1988-01-03T00:00:00",
+"Passport": {
+"PassportNumber": "Z876789",
+"ExpiryDate": "2025-01-03T00:00:00",
+"Country": "IN"
+
+},
+"PassengerNationality": "IN",
+"NationalID": "IN"
+}
+],
+"CountryCode": "91",
+"AreaCode": "080",
+"PhoneNumber": "87657897",
+"Email": "apisupport@mystifly.com",
+"PostCode": "560028"
+},
+"Target": "Test",
+}
+Response
+{
+"Data": {
+"ClientUTCOffset": 0.0,
+"ConversationId": "",
+"Errors": [
+{
+"Code": "ERBUK083",
+"Message": " Booking already exists with one or more same PAX and segment. Ref# MF691052423."
+}
+],
+"Status": "",
+"Success": false,
+"Target": "Test",
+"TktTimeLimit": null,
+"TraceId": "",
+"UniqueID": ""
+},
+"Success": false,
+"Message": " Booking already exists with one or more same PAX and segment. Ref# MF691052423."
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+FareSourceCode:	XXXXXXXXXXX	A Unique FSC for every single itinerary
+TravelerInfo:	{},	This is an mandate information (All the passengers and their details wil be passed)
+AirTravelers:	[],	The details of every passengers will be passed, if more than one passenger then multiple AirTravelers information should be passed
+PassengerType:	ADT “CHD” “INF”	Type of the passenger. Adult-ADT, Child-CHD, Infant-INF
+Gender:	M “F” “U”,	Gender of the passenger
+PassengerName:	{},	Passenger name and the length of the name should not exceed based on the max character limit from search response, characters including the title and spaces between
+PassengerTitle:	Mr,"Mrs","Ms",“Miss”,"Mstr"	Title of the passenger
+PassengerFirstName:	MOHAMMED,	First name of the passenger
+PassengerLastName:	MUBARAK	Last Name/Family Name
+DateOfBirth:	1988-01-03T00:00:00,	Passengers birth date in YYYY-MM-DDTHH:MM:SS format
+Passport:	{},	The passenger’s passport information; Required - if the revalidation response indicates passport field as required for the itinerary, than it is mandate to pass the details
+PassportNumber:	Z876789,	Passport number
+ExpiryDate:	2025-01-03T00:00:00,	Passengers passport expiry in YYYY-MM-DDTHH:MM:SS format
+Country:	IN	Issuing Country of the passport
+SpecialServiceRequest:	{},	Full-service carriers provide SSR as an optional field
+SeatPreference:	Any,	Seat preferences, Window – W, Any
+MealPreference:	Any,	Meal preferences
+RequestedSegments:	[],	Requested segment for SSR
+Origin:	BLR,	IATA code of the airport the flight is scheduled to depart
+Destination:	DXB,	IATA code of the airport the flight is scheduled to arrive
+FlightNumber:	EK569,	Indicates the number of the flight
+DepartureDateTime:	2020-02-03T00:00:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time (As per origin time zone)
+RequestSSRs:	[],	Optional
+SSRCode:	Any,	Optional
+FreeText:	Meal MOML	Optional
+PassengerNationality:	IN,	Nationality of passenger
+NationalID:	IN	Optional
+CountryCode:	91,	Dialing Country code
+AreaCode:	080,	Area code of the phone number
+PhoneNumber:	87657897,	Phone number of the passenger/client (As per IATA 830D, where the details need to be passed for any Involuntary changes in flight operations)
+Email:	apisupport@mystifly.com,	Email address of the passenger/client (As per IATA 830D, where the details need to be passed for any Involuntary changes in flight operations)
+PostCode:	560028	
+Target:	Test “Production”	Target specified in the request captured an passed in the response
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ClientUTCOffset:	5.3,	
+ConversationId:	,	Free Text - can be used for Tracking at Client end
+Errors: [],		Error message caused for the failures in Revalidation
+IsPriceChange:	true/false,	
+IsScheduleChange:	true/false,	
+Status:	CONFIRMED “PENDING” “BookingInProcess”	Indicates the status of the booking whether confirmed/ Pending/ \n 1. Booking API returned booking status ""Pending"" with MF Number: then the client need to mark the booking as "in progress" and need to call the tripdetails or message queue at regular intervals to get the updated status. \n 2. Booking API returned booking status ""Pending"" without MF Number: Please consider it as a direct failure. \n 3. Supplier returned booking status ""Confirmed"" with MF Number: Please consider it as a successful transaction \n 4. Booking API returned booking status “BookingInProcess” indicates booking might get Confirmed or Unconfirmed based on the airline confirmation.
+Success:	true/false,	Returns the search status in a Boolean
+Target:	Test “Production”	Target specified in the request captured an passed in the response
+TktTimeLimit:	2020-01-04T17:29:00,	Ticketing time limit for the booking, within which the booking had to be ticketed
+UniqueID:	MF11830888	A unique Mystifly reference number starts with MF followed by 8 digits
+Success:	true/false,	Returns the search status in a Boolean

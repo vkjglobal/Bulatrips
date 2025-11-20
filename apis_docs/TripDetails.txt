@@ -1,0 +1,376 @@
+TripDetails
+API / pre-booking / TripDetails
+This API allows users to seamlessly access and obtain vital information like timings, flight numbers and other details associated with Order ticket.avatar
+GET
+https://restapidemo.myfarebox.com/api/TripDetails/{MFRef}
+API Contract/Request
+Copy
+|
+https://restapidemo.myfarebox.com/api/TripDetails/MFXXXXXXXX
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/2
+
+1. TripDetails
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "MFRef": "MFXXXXXXXX"
+}
+Response
+{
+    "Success": true,
+    "Data": {
+        "TripDetailsResult": {
+            "Provider": "MYSTIFLY",
+            "Success": true,
+            "TravelItinerary": {
+                "MFRef": "MFXXXXXXXX",
+                "TripType": "OneWay",
+                "TicketStatus": "Ticketed",
+                "BookingStatus": "Booked",
+                "Origin": "DEL",
+                "Destination": "LHR",
+                "FareType": "Public",
+                "PassengerInfos": [
+                    {
+                        "Passenger": {
+                            "Gender": "M",
+                            "DateOfBirth": "1988-01-03T00:00:00",
+                            "EmailAddress": "apisupport@mystifly.com",
+                            "PhoneNumber": "87657897",
+                            "PassportExpiresOn": "2025-01-03T00:00:00",
+                            "PassportNationality": "Indian",
+                            "PassengerNationality": "Indian",
+                            "PostCode": "560028",
+                            "PassportIssuanceCountry": "India",
+                            "PassengerType": "ADT",
+                            "PaxName": {
+                                "PassengerTitle": "MR",
+                                "PassengerFirstName": "Samskruthi",
+                                "PassengerLastName": "Keshavan"
+                            },
+                            "PassportNumber": "Z876789",
+                            "NationalID": "IN",
+                            "NameNumber": 379348,
+                            "TicketStatus": "Ticketed"
+                        },
+                        "ETickets": [
+                            {
+                                "ItemRPH": 1,
+                                "ETicketNumber": "TKT379348",
+                                "ETicketType": "Ticketed"
+                            }
+                        ]
+                    }
+                ],
+                "TripDetailsPTC_FareBreakdowns": [
+                    {
+                        "PassengerTypeQuantity": {
+                            "Code": "ADT",
+                            "Quantity": 1
+                        },
+                        "TripDetailsPassengerFare": {
+                            "EquiFare": {
+                                "Amount": "73.00",
+                                "CurrencyCode": "USD",
+                                "DecimalPlaces": 2
+                            },
+                            "Tax": {
+                                "Amount": "231.41",
+                                "CurrencyCode": "USD",
+                                "DecimalPlaces": 2
+                            },
+                            "ServiceTax": {
+                                "Amount": "1.31",
+                                "CurrencyCode": "USD",
+                                "DecimalPlaces": 2
+                            },
+                            "TotalFare": {
+                                "Amount": "304.41",
+                                "CurrencyCode": "USD",
+                                "DecimalPlaces": 2
+                            },
+                            "AirportTaxBreakUp": "YQ 3.25,YQ 3.25,US 0.21,US 0.21,YC 0.07,XY 0.08,XA 0.06,AY 0.07,WO 0.04,IN 0.30,IN 0.25,YM 0.13,XF 0.05,YQ 21.37,YR 2.00,YR 159.85,IN 0.75,K3 11.88,P2 14.15,WO 1.09,CJ 8.87,RN 10.16"
+                        },
+                        "BaggageInfo": [
+                            "0PC",
+                            "0PC"
+                        ],
+                        "CabinBaggageInfo": [
+                            "SB",
+                            "SB"
+                        ],
+                        "IsPenaltyDetailsAvailable": true,
+                        "AirRefundCharges": {
+                            "IsRefundableBeforeDeparture": "No",
+                            "IsRefundableAfterDeparture": "InformationNotAvailable"
+                        },
+                        "AirExchangeCharges": {
+                            "IsExchangeableBeforeDeparture": "Yes",
+                            "IsExchangeableAfterDeparture": "InformationNotAvailable",
+                            "ExchangeCharges": [
+                                {
+                                    "ChargeBeforeDeparture": 199.85,
+                                    "HoursBeforeDeparture": 0.0,
+                                    "PassengerType": "ADT",
+                                    "AdminCharges": 0.0,
+                                    "Currency": "USD"
+                                }
+                            ]
+                        },
+                        "AirVoidCharges": {
+                            "IsVoidable": "Yes",
+                            "PassengerType": "ADT",
+                            "AdminCharges": 0.0,
+                            "Currency": "USD",
+                            "VoidingWindow": "2023-09-20T21:47:59.997",
+                            "VoidingFee": 0.0
+                        }
+                    }
+                ],
+                "VoidingWindow": "2023-09-20T21:47:59.997",
+                "ClientUTCOffset": 5.3,
+                "Itineraries": [
+                    {
+                        "ItineraryInfo": {
+                            "ReservationItems": [
+                                {
+                                    "ItemRPH": 1,
+                                    "DepartureDateTime": "2023-11-16T03:55:00",
+                                    "ArrivalDateTime": "2023-11-16T10:00:00",
+                                    "StopQuantity": 0,
+                                    "FlightNumber": "130",
+                                    "ResBookDesigCode": "X",
+                                    "JourneyDuration": "575",
+                                    "AirlinePNR": "M33LIV",
+                                    "NumberInParty": 1,
+                                    "DepartureAirportLocationCode": "DEL",
+                                    "DepartureTerminal": "",
+                                    "ArrivalAirportLocationCode": "AMS",
+                                    "ArrivalTerminal": "",
+                                    "OperatingAirlineCode": "KL",
+                                    "AirEquipmentType": "789",
+                                    "MarketingAirlineCode": "KL",
+                                    "Baggage": "0PC",
+                                    "FlightStatus": "HK",
+                                    "IsReturn": false,
+                                    "CabinClass": "Y",
+                                    "CabinClassType": "Economy",
+                                    "ATAinfoRef": "DELAMSKL130LIGHT",
+                                    "FareFamily": "LIGHT"
+                                },
+                                {
+                                    "ItemRPH": 2,
+                                    "DepartureDateTime": "2023-11-16T11:40:00",
+                                    "ArrivalDateTime": "2023-11-16T12:05:00",
+                                    "StopQuantity": 0,
+                                    "FlightNumber": "1011",
+                                    "ResBookDesigCode": "L",
+                                    "JourneyDuration": "85",
+                                    "AirlinePNR": "M33LIV",
+                                    "NumberInParty": 1,
+                                    "DepartureAirportLocationCode": "AMS",
+                                    "DepartureTerminal": "",
+                                    "ArrivalAirportLocationCode": "LHR",
+                                    "ArrivalTerminal": "",
+                                    "OperatingAirlineCode": "KL",
+                                    "AirEquipmentType": "295",
+                                    "MarketingAirlineCode": "KL",
+                                    "Baggage": "0PC",
+                                    "FlightStatus": "HK",
+                                    "IsReturn": false,
+                                    "CabinClass": "Y",
+                                    "CabinClassType": "Economy",
+                                    "ATAinfoRef": "AMSLHRKL1011LIGHT",
+                                    "FareFamily": "LIGHT"
+                                }
+                            ]
+                        },
+                        "Type": "TravelItinerary"
+                    }
+                ],
+                "TransactionDetails": {
+                    "Transactions": [
+                        {
+                            "Type": "Invoice",
+                            "Number": 11006616,
+                            "Amount": 304.42,
+                            "Currency": "USD",
+                            "PTRId": "NA"
+                        }
+                    ]
+                },
+                "BookingNotes": [],
+                "TicketingTimeLimit": "2023-09-23T10:10:23.343",
+                "BookingMode": 0,
+                "ReroutingAllowed": "NO",
+                "SpoilageFee": 0.0
+            },
+            "BookingCreatedOn": "2023-09-20T10:10:23"
+        }
+    }
+}
+2. TripDetails - Reissue
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "MFRef": "MFXXXXXXXX"
+}
+Response
+ "ETickets": [
+                    {
+                        "ItemRPH": 1,
+                        "ETicketNumber": "123w45",
+                        "ETicketType": "Reissued"
+                    },
+                    {
+                        "ItemRPH": 2,
+                        "ETicketNumber": "s3s34ee",
+                        "ETicketType": "Ticketed"
+                    }
+              ]
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed Scenario: Invalid MFRef
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "UniqueID": "MFXXXXXXX"
+}
+Response
+{
+    "Data": null,
+    "Success": false,
+    "Message": "Invalid MFRef."
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+"UniqueID":	"MF12988888"	A unique mystifly reference number starts with MF followed by 8 digits
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+Success:	true/false,	Returns the search status in a Boolean
+TripDetailsResult:	{},	TripDetails will pass the infromation with the following properties
+Success:	true/false,	Returns the search status in a Boolean
+TravelItinerary:	{},	TravelItinerary will pass the information with the following properties
+MFRef:	MF12988888,	A unique mystifly reference number starts with MF followed by 8 digits
+TripType:	OneWay / "Return"	
+"TicketStatus":	“TktInProcess” , "Ticketed" , “BookingInProcess”	The ticket status associated with the itinerary. \n Note: For LCC itineraries if you get the Ticket Status as "TktInProgress"/’BookingInProcess’ in the response.\n Please call the tripdetails call for the next 60 minutes may be \n once in 10 minutes and check the status updated for TicketStatus in the response. In some cases, our supplier might take some time to share the ticket details.
+BookingStatus:	"Booked", "Not-Booked", "Cancelled"	Status of the Booking Booked: When the booking is confirmed, the status is updated to "Booked". Not-Booked: If the booking confirmation fails, the status is updated to "Not-Booked". Cancelled: When the booking is cancelled, the status is updated to "Cancelled".
+Origin:	SIN,	IATA code for the Origin
+Destination:	TPE,	IATA code for the destination
+FareType:	Public,	Indicates the ‘source’ requested for – can be either public or private for GDS carriers. Source type ‘WebFare’ indicates the carrier is an LCC
+ExtraServices	{}	
+Type	BAGGAGE / "MEAL" / "OTHERS"	
+CheckInType	AIRPORT / "ONLINE"	This Tag specify that Checkin can be through ONLINE or at AIRPORT.
+PassengerInfos:	[],	PassengerInfos will pass the ifnromation with the following properties
+Passenger:	{},	Paseenger details
+Gender:	M,	Gender of the passenger
+DateOfBirth:	1989-03-12T00:00:00,	Birth date of the passenger
+PassportExpiresOn:	2025-03-12T00:00:00,	Passport expiry date
+PassportNationality:	Indian,	Passport nationailty
+PassengerNationality:	Indian,	Nationality of the passenger
+PassportIssuanceCountry:	India,	Location of the passport issued
+PassengerType:	ADT,	Type of the passenger. Adult-ADT, Child-CHD, Infant-INF
+PaxName:	{},	PaxName will pass the information with the following properties
+PassengerTitle:	MR,	Title of the passenger
+PassengerFirstName:	MOHAMMED,	First Name
+PassengerLastName:	MUBARAK	Last Name/Family Name
+PassportNumber:	Z8667567,	PassportNumber
+NameNumber:	178178,	Name number of passengers
+TicketStatus:	Ticketed	The ticket status associated with the itinerary. \n Note: For LCC itineraries if you get the Ticket Status as "TktInProgress"/’BookingInProcess’ in the response. \n Please call the tripdetails call for the next 60 minutes may be once in 10 minutes and check the status updated for TicketStatus in the response. In some cases, our supplier might take some time to share the ticket details.
+ETickets:	[],	Etickets will pass the information with the following properties
+ItemRPH:	1,	Reference place holder specifies the number of the passenger
+ETicketNumber:	TKT334124,	Specifies the unique eticket number
+ETicketType:	Ticketed	ETicket status
+TripDetailsPTC_FareBreakdowns:	[],	The information with regards to passenger farebreakdowns will be passed with the following properties
+PassengerTypeQuantity:	{},	Number of passenger
+Code:	ADT,	Type of the passenger. Adult-ADT, Child-CHD, Infant-INF
+Quantity:	1	Quantity of specific passenger type
+TripDetailsPassengerFare:	{},	TripDetailsPassengerFare will pass the information with the following properties
+EquiFare:	{},	Equivalent fare specifies the exact converted from the local currency i.e. base fare to equivalent fare to the client currency
+Amount:	493.28,	Price of the itinerary
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed
+Tax:	{},	Tax contains all the fields as BaseFare
+Amount:	263.35,	Total Tax Value
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed
+TotalFare:	{},	Total fare value
+Amount:	756.63,	Total fare amount
+CurrencyCode:	USD,	Currency code
+DecimalPlaces:	2	Only 2 decimals are allowed
+AirportTaxBreakUp:	QR 0.05,QR 0.05,QR 0.04,QR 0.04,WG 0.06,WG 0.06,IN 1447.00,K3 1258.00,WO 154.00,ZR 92.00,YQ 3712.00	
+BaggageInfo:	[],	Check-in baggage information
+1PC,		Departure bag details (Either it will be in KG/PC/SB-Standard Baggage, as passed from supplier)
+1PC,		Arrival bag details (Either it will be in KG/PC/SB-Standard Baggage, as passed from supplier)
+CabinBaggageInfo:	[],	Hand baggage information
+7KG,		Departure bag details (Either it will be in KG/SB-Standard Baggage, as passed from supplier)
+7KG,		Arrival bag details (Either it will be in KG/SB-Standard Baggage, as passed from supplier)
+IsPenaltyDetailsAvailable:	true/false,	Will show if IsPenaltyDetailsAvailable in the response or not
+AirVoidCharges:	{},	Will show the actual amount that will be refunded if the booking is voided
+IsVoidable:	Yes,	
+PassengerType:	ADT,	Type of the passenger. Adult-ADT, Child-CHD, Infant-INF
+AdminCharges:	20,	Charges to void the ticket if any.
+Currency:	USD,	Currency code
+VoidingWindow:	2020-03-12 18:29:59	Voiding period
+VoidingWindow:	2020-03-12T18:29:59,	Voiding period
+ClientUTCOffset:	5.3,	
+Itineraries:	[],	
+ItineraryInfo:	{},	
+ReservationItems:	[],	
+ItemRPH:	1,	Specifies number of segments in the Booking
+DepartureDateTime:	2020-06-12T18:25:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time (As per origin time zone)
+ArrivalDateTime:	2020-06-12T19:35:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time
+StopQuantity:	0,	Technical stopover
+FlightNumber:	654,	Indicates the number of the flight
+ResBookDesigCode:	N,	Specifies the RBD code for the itinerary
+JourneyDuration:	130,	Duration of the flight in minutes
+AirlinePNR:	QGUVRJ,	Confirmation reference from the airline
+NumberInParty:	1,	Number of passengers
+DepartureAirportLocationCode:	SIN,	IATA code of the airport the flight is scheduled to depart
+DepartureTerminal:	4,	Airport Terminal information
+ArrivalAirportLocationCode:	SGN,	IATA code of the airport the flight is scheduled to arrive (As per arrival time zone)
+ArrivalTerminal:	2,	Airport Terminal information
+OperatingAirlineCode:	VN,	Airline IATA Code
+AirEquipmentType:	321,	Specifies the aircraft equipment type
+MarketingAirlineCode:	VN,	Airline IATA Code
+Baggage:	1PC,	Baggage allowance
+FlightStatus:	HK,	Status of the Booking
+IsReturn:	true/false,	
+CabinClass:	Y	Specifies the cabin class
+ItemRPH:	2,	Specifies number of segments in the Booking
+DepartureDateTime:	2020-06-16T08:40:00,	YYYY-MM-DDT00:00:00 format for the flight departure date and time (As per origin time zone)
+ArrivalDateTime:	2020-06-16T10:20:00,	YYYY-MM-DDT00:00:00 format for the flight arrival date and time
+StopQuantity:	0,	Technical stopover
+FlightNumber:	601,	Indicates the number of the flight
+ResBookDesigCode:	N,	Specifies the RBD code for the itinerary
+JourneyDuration:	100,	Duration of the flight in minutes
+AirlinePNR:	QGUVRJ,	Confirmation reference from the airline
+NumberInParty:	1,	Number of passengers
+DepartureAirportLocationCode:	SGN,	IATA code of the airport the flight is scheduled to depart
+DepartureTerminal:	2,	Airport Terminal information
+ArrivalAirportLocationCode:	SIN,	IATA code of the airport the flight is scheduled to arrive (As per arrival time zone)
+ArrivalTerminal:	40,	Airport Terminal information
+OperatingAirlineCode:	VN,	Airline IATA Code
+AirEquipmentType:	321,	Specifies the aircraft equipment type
+MarketingAirlineCode:	VN,	Airline IATA Code
+Baggage:	1PC,	Baggage allowance
+FlightStatus:	HK,	Status of the Booking
+IsReturn:	true/false,	
+CabinClass:	Y	
+Type:	TravelItinerary	TravelItinerary will pass the information with the following properties
+TransactionDetails:	{},	
+BookingNotes:	[],	
+TicketingTimeLimit:	2020-03-13 4:59:00	

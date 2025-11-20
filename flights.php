@@ -1,17 +1,107 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// error_reporting(E_ALL);
+// ini_set('display_errors', 1);
 
 session_start();
+
+// Handle filter removal from homepage (session-based filters) - BEFORE header output
+if (isset($_GET['remove_checked_baggage']) && $_GET['remove_checked_baggage'] == '1') {
+    if (isset($_SESSION['search_values']['checked_baggage_filter'])) {
+        unset($_SESSION['search_values']['checked_baggage_filter']);
+    }
+    // Remove the parameter from URL to avoid redirect loop
+    $params = $_GET;
+    unset($params['remove_checked_baggage']);
+    $redirectUrl = '?' . http_build_query($params);
+    header('Location: ' . $redirectUrl);
+    exit;
+}
 
 require_once("includes/header.php");
 require_once('includes/dbConnect.php');
 require_once('includes/common_const.php');
 
-
 // ini_set('display_errors', 1); ini_set('display_startup_errors', 1); error_reporting(E_ALL);
 ?>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<!-- Fix z-index for datepicker calendar to appear above sticky banner and modify search section -->
+<style>
+    /* Ensure datepicker appears above everything */
+    .ui-datepicker {
+        z-index: 99999 !important;
+        box-shadow: 0 3px 15px rgba(0,0,0,0.3) !important;
+    }
+    
+    /* Lower z-index for blue bar so datepicker appears above it */
+    .midbar-wrapper-inner {
+        z-index: 10 !important;
+    }
+    
+    #modify-search-result {
+        z-index: 5 !important;
+    }
+    
+    /* Fix for mobile view - ensure calendar appears above modify search section */
+    @media (max-width: 767px) {
+        /* Remove extra space at top on mobile */
+        .midbar-wrapper-inner {
+            position: sticky !important;
+            top: 48px !important;
+            z-index: 10 !important;
+            padding-top: 8px !important;
+            padding-bottom: 8px !important;
+            margin-top: 0 !important;
+            margin-bottom: 10px !important;
+            max-height: calc(100vh - 60px) !important;
+            overflow-y: visible !important;
+        }
+        #modify-search-result {
+            position: relative !important;
+            z-index: 5 !important;
+            background: rgba(18, 30, 126, 0.95) !important;
+            margin-top: 0 !important;
+            padding-top: 10px !important;
+            padding-bottom: 20px !important;
+            max-height: calc(100vh - 140px) !important;
+            overflow-y: auto !important;
+            overflow-x: hidden !important;
+        }
+        /* Remove extra spacing from form elements on mobile */
+        #modify-search-result .flight-search {
+            padding-top: 0 !important;
+            padding-bottom: 15px !important;
+        }
+        #modify-search-result .d-flex {
+            margin-top: 0 !important;
+        }
+        /* Ensure form fields have proper spacing on mobile */
+        #modify-search-result .form-fields {
+            margin-bottom: 10px !important;
+        }
+        /* Smooth scrolling for modify search section */
+        #modify-search-result {
+            -webkit-overflow-scrolling: touch !important;
+            scroll-behavior: smooth !important;
+        }
+        /* Style scrollbar for better UX */
+        #modify-search-result::-webkit-scrollbar {
+            width: 4px;
+        }
+        #modify-search-result::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        #modify-search-result::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 2px;
+        }
+        /* Very high z-index for calendar - position handled by JS */
+        .ui-datepicker {
+            z-index: 99999 !important;
+            max-width: 95vw !important;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5) !important;
+        }
+    }
+</style>
 
 <?php
 $airport_depart = getAirPortLocationsByAirportCode($_SESSION['search_values']['airport'], $conn);
@@ -65,13 +155,400 @@ $responseData  = $_SESSION['response'];
 
 $pricedItineraries = $responseData['Data']['PricedItineraries'];
 
-$totalFlights = count($pricedItineraries);
-// $flightsPerPage = 16;
-$flightsPerPage = 1600;
+// ============================================
+// ============================================
+// STEP 2: FLIGHT GROUPING LOGIC (BRANDED FARES)
+// ============================================
+
+// Get other necessary data arrays from API response
+$segmentList = $responseData['Data']['FlightSegmentList'] ?? [];
+$itineraryRefList = $responseData['Data']['ItineraryReferenceList'] ?? [];
+$faresList = $responseData['Data']['FlightFaresList'] ?? [];
+$penaltiesList = $responseData['Data']['PenaltiesInfoList'] ?? [];
+
+// Initialize grouped flights array
+$groupedFlights = [];
+
+// GROUPING LOGIC: Group flights by segment combination
+foreach ($pricedItineraries as $index => $itinerary) {
+    
+    // Create Unique Flight Key based on segments (not fare)
+    $flightKey = '';
+    $segmentDetails = []; // Store for display later
+    
+    foreach ($itinerary['OriginDestinations'] as $od) {
+        $segmentRef = $od['SegmentRef'];
+        $segment = $segmentList[$segmentRef] ?? null;
+        
+        if ($segment) {
+            // Build unique key using flight number, date, and route
+            $flightKey .= $segment['MarketingCarriercode'] . 
+                          $segment['MarketingFlightNumber'] . '_' .
+                          $segment['DepartureDateTime'] . '_' .
+                          $segment['DepartureAirportLocationCode'] . 
+                          $segment['ArrivalAirportLocationCode'] . '|';
+            
+            // Store segment for later use
+            $segmentDetails[] = $segment;
+        }
+    }
+    
+    // Skip if no valid segments found
+    if (empty($flightKey)) continue;
+    
+    // Initialize Group if Not Exists
+    if (!isset($groupedFlights[$flightKey])) {
+        $groupedFlights[$flightKey] = [
+            'master_itinerary' => $itinerary,  // Will use for display
+            'segments' => $segmentDetails,      // Flight segments
+            'fare_options' => [],               // All fare variants
+            'flight_key' => $flightKey          // For debugging
+        ];
+    }
+    
+    // Extract Fare Family Information
+    // For return trips, we need to identify which leg this fare belongs to
+    // Check if this itinerary has both departure (LegIndicator=0) and return (LegIndicator=1) legs
+    $departureOD = null;
+    $returnOD = null;
+    
+    foreach ($itinerary['OriginDestinations'] as $od) {
+        $legIndicator = $od['LegIndicator'] ?? -1;
+        if ($legIndicator == 0) {
+            $departureOD = $od;
+        } elseif ($legIndicator == 1) {
+            $returnOD = $od;
+        }
+    }
+    
+    // Use departure leg by default (for one-way or to determine primary fare family)
+    // In return trips, the fare family might be for the whole trip, but we'll use departure leg's fare family
+    $targetOD = $departureOD ?? $itinerary['OriginDestinations'][0] ?? null;
+    if (!$targetOD) continue;
+    
+    $itineraryRef = $targetOD['ItineraryRef'] ?? null;
+    if ($itineraryRef === null) continue;
+    
+    // Get fare family details
+    $itineraryRefData = $itineraryRefList[$itineraryRef] ?? [];
+    $fareFamily = $itineraryRefData['FareFamily'] ?? '';
+    
+    // If empty, try to get from return leg if available
+    if (empty($fareFamily) && $returnOD) {
+        $returnItineraryRef = $returnOD['ItineraryRef'] ?? null;
+        if ($returnItineraryRef !== null) {
+            $returnItineraryRefData = $itineraryRefList[$returnItineraryRef] ?? [];
+            $fareFamily = $returnItineraryRefData['FareFamily'] ?? '';
+        }
+    }
+    
+    // If empty, use a default name
+    if (empty($fareFamily)) {
+        $fareFamily = 'Standard';
+    }
+    
+    // Get fare details
+    $fareRef = $itinerary['FareRef'] ?? null;
+    if ($fareRef === null) continue;
+    
+    $fareDetails = $faresList[$fareRef] ?? [];
+    
+    // Get price
+    $totalTripPrice = $fareDetails['PassengerFare'][0]['TotalFare'] ?? 0;
+    
+    // Get refundability info from PenaltiesInfoList
+    $penaltiesInfoRef = $itinerary['PenaltiesInfoRef'] ?? null;
+    $isRefundable = false;
+    $refundPenaltyAmount = '';
+    if ($penaltiesInfoRef !== null && isset($penaltiesList[$penaltiesInfoRef])) {
+        $penaltiesInfo = $penaltiesList[$penaltiesInfoRef];
+        if (isset($penaltiesInfo['Penaltydetails'][0]['RefundAllowed'])) {
+            $isRefundable = $penaltiesInfo['Penaltydetails'][0]['RefundAllowed'];
+            $refundPenaltyAmount = $penaltiesInfo['Penaltydetails'][0]['RefundPenaltyAmount'] ?? '';
+        }
+    }
+    
+    // Get return leg fare family if available
+    $returnFareFamily = '';
+    $returnItineraryRef = null;
+    if ($returnOD) {
+        $returnItineraryRef = $returnOD['ItineraryRef'] ?? null;
+        if ($returnItineraryRef !== null) {
+            $returnItineraryRefData = $itineraryRefList[$returnItineraryRef] ?? [];
+            $returnFareFamily = $returnItineraryRefData['FareFamily'] ?? '';
+            if (empty($returnFareFamily)) {
+                $returnFareFamily = 'Standard';
+            }
+        }
+    }
+    
+    // Calculate per-leg price
+    // For return trips: API provides total for both legs, so divide by 2
+    // For one-way trips: use the total price as-is
+    $isReturnTrip = ($returnOD !== null && $returnItineraryRef !== null);
+    $perLegPrice = $isReturnTrip ? ($totalTripPrice / 2) : $totalTripPrice;
+    
+    // Add Fare Option to Group
+    $groupedFlights[$flightKey]['fare_options'][] = [
+        // Basic Info
+        'fare_family' => $fareFamily,
+        'fare_source_code' => $itinerary['FareSourceCode'] ?? '',
+        'fare_ref' => $fareRef,
+        'itinerary_ref' => $itineraryRef,
+        
+        // Leg Information
+        'leg_type' => 'departure', // This fare option belongs to departure leg
+        'departure_itinerary_ref' => $itineraryRef,
+        'departure_fare_family' => $fareFamily,
+        'return_itinerary_ref' => $returnItineraryRef,
+        'return_fare_family' => $returnFareFamily,
+        
+        // Pricing
+        'price' => floatval($perLegPrice),
+        'total_trip_price' => floatval($totalTripPrice),
+        'is_return_trip' => $isReturnTrip,
+        'currency' => $fareDetails['Currency'] ?? 'USD',
+        'fare_type' => $fareDetails['FareType'] ?? 'Public',
+        
+        // Refundability Info
+        'is_refundable' => $isRefundable,
+        'refund_penalty_amount' => $refundPenaltyAmount,
+        
+        // Baggage Info (from departure leg)
+        'checked_baggage' => $itineraryRefData['CheckinBaggage'] ?? [],
+        'cabin_baggage' => $itineraryRefData['CabinBaggage'] ?? [],
+        
+        // Additional Details
+        'fare_basis_code' => $itineraryRefData['FareBasisCodes'] ?? '',
+        'seats_remaining' => $itineraryRefData['SeatsRemaining'] ?? 0,
+        'rbd' => $itineraryRefData['RBD'] ?? '',
+        'original_index' => $index,
+        
+        // Store full itinerary reference for return leg lookup
+        'master_itinerary' => $itinerary // Store for return leg extraction
+    ];
+    
+    // Store full itinerary separately (not in button data)
+    $groupedFlights[$flightKey]['fare_options_full'][$fareFamily] = $itinerary;
+}
+
+// Sort Fare Options by Price (Cheapest First)
+foreach ($groupedFlights as $key => &$group) {
+    if (!empty($group['fare_options'])) {
+        usort($group['fare_options'], function($a, $b) {
+            return $a['price'] <=> $b['price'];
+        });
+    }
+}
+unset($group); // Break reference
+
+// Extract all unique airlines from flights for filter dropdown
+$uniqueAirlines = [];
+foreach ($groupedFlights as $flightGroup) {
+    $pricedItinerary = $flightGroup['master_itinerary'];
+    $airlineCode = $pricedItinerary['ValidatingCarrier'] ?? '';
+    if (!empty($airlineCode) && !isset($uniqueAirlines[$airlineCode])) {
+        // Get airline name from database
+        $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
+        $code = '%' . $airlineCode . '%';
+        $stmtairline->bindParam(':code', $code);
+        $stmtairline->execute();
+        $airlineData = $stmtairline->fetch(PDO::FETCH_ASSOC);
+        
+        $uniqueAirlines[$airlineCode] = [
+            'code' => $airlineCode,
+            'name' => $airlineData ? $airlineData['name'] : $airlineCode
+        ];
+    }
+}
+// Sort airlines by name
+uasort($uniqueAirlines, function($a, $b) {
+    return strcmp($a['name'], $b['name']);
+});
+
+// Apply filters BEFORE pagination
+$filteredFlights = [];
+
+// Check if checked_baggage filter is set from homepage search or from filter panel
+$filterCheckedBaggage = !empty($_GET['checked_baggage']) || !empty($searchValue['checked_baggage_filter']);
+
+$filterCabinOnly = !empty($_GET['cabin_only']);
+$filterRefundable = !empty($_GET['refundable']);
+$filterDateChanges = !empty($_GET['date_changes']);
+$filterAirlines = isset($_GET['airlines']) && is_array($_GET['airlines']) ? $_GET['airlines'] : [];
+
+$hasAnyFilter = $filterCheckedBaggage || $filterCabinOnly || $filterRefundable || $filterDateChanges || !empty($filterAirlines);
+
+if ($hasAnyFilter) {
+    $flightIndex = 0;
+    foreach ($groupedFlights as $flightKey => $flightGroup) {
+        $pricedItinerary = $flightGroup['master_itinerary'];
+        
+        // Extract actual API data for filter logic
+        // Get penalty info for refundable and date change checks
+        $penaltyListRefid = $pricedItinerary['PenaltiesInfoRef'] ?? null;
+        $penaltyListRef = null;
+        if ($penaltyListRefid !== null && isset($responseData['Data']['PenaltiesInfoList'][$penaltyListRefid])) {
+            $penaltyListRef = $responseData['Data']['PenaltiesInfoList'][$penaltyListRefid];
+        }
+        
+        // Check refundable - Handle boolean, int, and string types
+        $isRefundableFare = false;
+        if ($penaltyListRef && isset($penaltyListRef['Penaltydetails'][0]['RefundAllowed'])) {
+            $refundValue = $penaltyListRef['Penaltydetails'][0]['RefundAllowed'];
+            $isRefundableFare = ($refundValue === true || $refundValue === 1 || $refundValue === '1');
+        }
+        
+        // Check date change allowed - Handle boolean, int, and string types
+        $isDateChangeAllowed = false;
+        if ($penaltyListRef && isset($penaltyListRef['Penaltydetails'][0]['ChangeAllowed'])) {
+            $changeValue = $penaltyListRef['Penaltydetails'][0]['ChangeAllowed'];
+            $isDateChangeAllowed = ($changeValue === true || $changeValue === 1 || $changeValue === '1');
+        }
+        
+        // Check baggage info - FIXED for roundtrip flights
+        $hasCheckedBaggage = false;
+        $hasCabinBaggage = false;
+        $zeroCheckedBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A', 'NOT APPLICABLE'];
+        $zeroCabinBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A', 'NOT APPLICABLE'];
+        
+        $FlightItineraryList = $responseData['Data']['ItineraryReferenceList'];
+        
+        // For roundtrip flights, track each leg separately
+        $legBaggageStatus = [];
+        $legIndex = 0;
+        
+        foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
+            $baggageRef = $originDestination['ItineraryRef'] ?? null;
+            if ($baggageRef === null || !isset($FlightItineraryList[$baggageRef])) {
+                $legBaggageStatus[$legIndex] = ['checked' => false, 'cabin' => false];
+                $legIndex++;
+                continue;
+            }
+            
+            $baggageInfo = $FlightItineraryList[$baggageRef];
+            
+            // Track for this specific leg
+            $legHasCheckedBaggage = false;
+            $legHasCabinBaggage = false;
+            
+            // CheckinBaggage: "SB" or "0PC" means NO checked baggage
+            if (!empty($baggageInfo['CheckinBaggage'])) {
+                foreach ((array) $baggageInfo['CheckinBaggage'] as $bagItem) {
+                    $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                    if ($value !== '' && !in_array($value, $zeroCheckedBaggageValues, true)) {
+                        $legHasCheckedBaggage = true;
+                        break;
+                    }
+                }
+            }
+            
+            // CabinBaggage: "SB" means YES cabin baggage available
+            if (!empty($baggageInfo['CabinBaggage'])) {
+                foreach ((array) $baggageInfo['CabinBaggage'] as $bagItem) {
+                    $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                    if ($value !== '' && !in_array($value, $zeroCabinBaggageValues, true)) {
+                        $legHasCabinBaggage = true;
+                        break;
+                    }
+                }
+            }
+            
+            $legBaggageStatus[$legIndex] = [
+                'checked' => $legHasCheckedBaggage,
+                'cabin' => $legHasCabinBaggage
+            ];
+            
+            $legIndex++;
+        }
+        
+        // Now determine overall baggage status
+        // For checked baggage filter: ALL legs must have checked baggage
+        $allLegsHaveCheckedBaggage = true;
+        $anyLegHasCheckedBaggage = false;
+        $anyLegHasCabinBaggage = false;
+        
+        foreach ($legBaggageStatus as $leg) {
+            if (!$leg['checked']) {
+                $allLegsHaveCheckedBaggage = false;
+            } else {
+                $anyLegHasCheckedBaggage = true;
+            }
+            
+            if ($leg['cabin']) {
+                $anyLegHasCabinBaggage = true;
+            }
+        }
+        
+        // For filter: Use allLegsHaveCheckedBaggage for roundtrip, or anyLegHasCheckedBaggage for one-way
+        $totalLegs = count($legBaggageStatus);
+        if ($totalLegs > 1) {
+            // Roundtrip: ALL legs must have checked baggage
+            $hasCheckedBaggage = $allLegsHaveCheckedBaggage;
+        } else {
+            // One-way: Just check if the single leg has it
+            $hasCheckedBaggage = $anyLegHasCheckedBaggage;
+        }
+        
+        $hasCabinBaggage = $anyLegHasCabinBaggage;
+        
+        // Strict cabin-only: must have some cabin baggage AND zero checked baggage on ALL legs
+        $isCabinOnlyFare = $anyLegHasCabinBaggage && !$anyLegHasCheckedBaggage;
+        
+        $flightIndex++;
+        
+        // Apply filters
+        $matches = true;
+        
+        // FIXED: Make checked baggage and cabin-only mutually exclusive
+        // If both are selected, cabin-only takes precedence (show only cabin baggage flights)
+        if ($filterCheckedBaggage && $filterCabinOnly) {
+            // When both selected, treat as cabin-only
+            if (!$isCabinOnlyFare) {
+                $matches = false;
+            }
+        } elseif ($filterCheckedBaggage && !$hasCheckedBaggage) {
+            $matches = false;
+        } elseif ($filterCabinOnly && !$isCabinOnlyFare) {
+            $matches = false;
+        }
+        
+        if ($filterRefundable && !$isRefundableFare) {
+            $matches = false;
+        }
+        
+        if ($filterDateChanges && !$isDateChangeAllowed) {
+            $matches = false;
+        }
+        
+        // Check airline filter
+        if (!empty($filterAirlines)) {
+            $flightAirlineCode = $pricedItinerary['ValidatingCarrier'] ?? '';
+            if (!in_array($flightAirlineCode, $filterAirlines)) {
+                $matches = false;
+            }
+        }
+        
+        if ($matches) {
+            $filteredFlights[$flightKey] = $flightGroup;
+        }
+    }
+} else {
+    $filteredFlights = $groupedFlights;
+}
+
+// Update pagination to use filtered flights
+$totalFlights = count($filteredFlights);
+$flightsPerPage = 20; // Reduced from 1600 since showing unique flights
 $totalPages = ceil($totalFlights / $flightsPerPage);
 $page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+if ($page < 1) $page = 1;
+if ($page > $totalPages && $totalPages > 0) $page = $totalPages;
 $startIndex = ($page - 1) * $flightsPerPage;
-$currentPageFlights = array_slice($pricedItineraries, $startIndex, $flightsPerPage);
+
+// Convert filtered array to indexed array for slicing
+$filteredFlightsArray = array_values($filteredFlights);
+$currentPageFlights = array_slice($filteredFlightsArray, $startIndex, $flightsPerPage);
 
 
 $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
@@ -132,9 +609,12 @@ if (isset($ticketing_fee_setting['value']) && $ticketing_fee_setting['value'] !=
 }
 
 if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
+    // If API returned errors, set empty flights array so page continues normally
     if (isset($responseData['Data']['Errors'])) {
-        require_once('includes/no_result_found.php');
-    } else { ?>
+        $groupedFlights = [];
+        $pricedItineraries = [];
+    }
+    ?>
 
 
         <!-- TOP BAR DETAILED AND SEARCH AGAIN SECTION STARTS -->
@@ -230,17 +710,16 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                         </span>
                                     </div>
                                 </span>
+                            </div>
 
-
-                                <div class="d-flex align-items-center justify-content-center mb-md-0 ml-3">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;" <?php if ($searchValue['direct_flights'] == "Direct") {
-                                                                                                                                                                                                        echo "checked";
-                                                                                                                                                                                                    } ?>>
-                                        <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #FFF;"> Direct Flights only</label>
-                                    </div>
+                            <!-- NEW ROW FOR DIRECT FLIGHTS CHECKBOX - Mobile Responsive -->
+                            <div class="d-flex align-items-center justify-content-start mt-3 mt-md-2">
+                                <div class="form-check" style="margin: 0;">
+                                    <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;" <?php if ($searchValue['direct_flights'] == "Direct") {
+                                                                                                                                                                                                    echo "checked";
+                                                                                                                                                                                                } ?>>
+                                    <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #FFF; white-space: nowrap;"> Direct Flights only</label>
                                 </div>
-
                             </div>
                         </div>
 
@@ -261,11 +740,11 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon from_container">
-                                    <input type="text" class="form-control" id="from" name="from" autocomplete="off" value="<?php echo $departureDate ?>">
+                                    <input type="text" class="form-control" id="from" name="from" autocomplete="off" readonly value="<?php echo $departureDate ?>">
                                     <p class="error_codes"></p>
                                 </div>
                                 <div class="form-fields col-md-2 calndr-icon to_container">
-                                    <input type="text" class="form-control" id="to" name="to" autocomplete="off" value="<?php echo $returndepartureDate ?>">
+                                    <input type="text" class="form-control" id="to" name="to" autocomplete="off" readonly value="<?php echo $returndepartureDate ?>">
                                     <p class="error_codes"></p>
                                 </div>
                                 <span id="errormessage"></span>
@@ -355,91 +834,526 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
         <!-- BREADCRUMB STARTS HERE -->
 
         <!-- FILTERATION PART STARTS -->
-        <!-- <section style="margin-bottom:20px;" class="d-none">
-                <div class="container">
-                    <div class="form-row">
-                        <div class="col-12">
-                            <ul class="filter-left">
-                                <li>3 of 3 flights</li>
-                                <li>
-                                    <select name="" class="stops-select" id="">
-                                        <option value="">Stops</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <select name="" class="price-select" id="">
-                                        <option value="">One way price</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <select name="" class="opt-select" id="">
-                                        <option value="">Refundable</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <select name="" class="airline-select" id="">
-                                        <option value="">Airline</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <select name="" class="dep-time-select" id="">
-                                        <option value="">Departure Time</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                                <li>
-                                    <select name="" class="ret-time-select" id="">
-                                        <option value="">Return Time</option>
-                                        <option value="">Stop1</option>
-                                        <option value="">Stop2</option>
-                                        <option value="">Stop3</option>
-                                    </select>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-12 light-border" style="position: sticky;top: 155px;z-index: 99;">
-                            <ul class="flight-list">
-                                <li>
-                                    <ul class="form-row titlebar">
-                                        <li class="col-md-2 text-center">Airline</li>
-                                        <li class="col-md-1">Depart</li>
-                                        <li class="col-md-2">Stops</li>
-                                        <li class="col-md-2">Arrive</li>
-                                        <li class="col-md-3">Duration</li>
-                                        <li class="col-md-2 text-center">Price</li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </div>
-
-
+        <style>
+            /* Orange style for Select Fares & Book button */
+            .select-fares-btn {
+                background-color: #FF6C00 !important;
+                border-color: #FF6C00 !important;
+                color: #ffffff !important;
+            }
+            .select-fares-btn:hover,
+            .select-fares-btn:focus,
+            .select-fares-btn:active {
+                background-color: #e65f00 !important;
+                border-color: #e65f00 !important;
+                color: #ffffff !important;
+            }
+        </style>
+        <section class="filter-toggle-section mb-3" style="margin-bottom: 15px;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 d-flex justify-content-end align-items-center">
+                        <!-- Filter Toggle Button -->
+                        <button type="button" 
+                                id="filter-toggle-btn" 
+                                class="btn btn-outline-primary btn-lg"
+                                style="display: flex; align-items: center; justify-content: center; padding: 8px 15px; font-size: 14px; font-weight: 600; border: 2px solid #007bff; background: transparent; color: #007bff; transition: all 0.3s ease; width: auto; min-width: 120px;">
+                            <span style="font-size: 18px; margin-right: 8px;">☰</span>
+                            <span id="filter-toggle-text">Filters</span>
+                            <span id="filter-count-badge" style="margin-left: 6px; background: #007bff; color: white; border-radius: 12px; padding: 2px 8px; font-size: 12px; font-weight: 600; min-width: 20px; display: inline-block; text-align: center; display: none;">0</span>
+                            <span id="filter-toggle-icon" style="margin-left: 6px; transition: transform 0.3s ease; font-size: 12px;">▼</span>
+                        </button>
+                        <!-- Flight Count (Plain Text) -->
+                        <span id="flight-count" data-original="<?php echo count($groupedFlights); ?>" style="font-size: 15px; color: #495057; font-weight: 600; margin-left: 15px;">
+                            Showing: <strong style="color: #007bff;"><?php echo $totalFlights; ?></strong> flights<?php echo $hasAnyFilter ? ' (filtered)' : ''; ?>
+                        </span>
                     </div>
                 </div>
-            </section> -->
+            </div>
+        </section>
+
+        <!-- Filter Container (Initially Hidden) -->
+        <section class="filter-section mb-4" id="filter-container" style="display: none; margin-bottom: 15px;">
+            <div class="container">
+                <div class="form-row" style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 15px 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); border: 1px solid #dee2e6;">
+                    <div class="col-12">
+                        <form id="flight-filters-form" method="get" action="">
+                            <?php
+                            // Preserve existing GET parameters except filters
+                            foreach ($_GET as $key => $value) {
+                                if (!in_array($key, ['checked_baggage', 'cabin_only', 'refundable', 'date_changes', 'airlines', 'page'])) {
+                                    echo '<input type="hidden" name="' . htmlspecialchars($key) . '" value="' . htmlspecialchars($value) . '">';
+                                }
+                            }
+                            ?>
+                            <div class="row align-items-center">
+                                <div class="col-md-12 mb-2">
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                                            <?php $isCheckedBaggageActive = (!empty($_GET['checked_baggage']) || !empty($searchValue['checked_baggage_filter'])); ?>
+                                            <input class="filter-checkbox" type="checkbox" name="checked_baggage" id="filter-checked-baggage" value="1" <?php echo $isCheckedBaggageActive ? 'checked' : ''; ?> style="display: none;">
+                                            <div class="filter-item" data-filter-id="filter-checked-baggage" style="background: <?php echo $isCheckedBaggageActive ? '#e7f3ff' : 'white'; ?>; padding: 12px 15px; border-radius: 8px; border: 2px solid <?php echo $isCheckedBaggageActive ? '#007bff' : '#e9ecef'; ?>; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); text-align: center;" onmouseover="if(!this.classList.contains('active')) { this.style.borderColor='#007bff'; this.style.boxShadow='0 2px 6px rgba(0,123,255,0.2)'; }" onmouseout="if(!this.classList.contains('active')) { this.style.borderColor='<?php echo $isCheckedBaggageActive ? '#007bff' : '#e9ecef'; ?>'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)'; }">
+                                                <span style="font-size: 14px; font-weight: 600; color: <?php echo $isCheckedBaggageActive ? '#007bff' : '#495057'; ?>;">
+                                                    ✅ Checked baggage included
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                                            <input class="filter-checkbox" type="checkbox" name="cabin_only" id="filter-cabin-only" value="1" <?php echo (!empty($_GET['cabin_only'])) ? 'checked' : ''; ?> style="display: none;">
+                                            <div class="filter-item" data-filter-id="filter-cabin-only" style="background: <?php echo (!empty($_GET['cabin_only'])) ? '#e7f3ff' : 'white'; ?>; padding: 12px 15px; border-radius: 8px; border: 2px solid <?php echo (!empty($_GET['cabin_only'])) ? '#007bff' : '#e9ecef'; ?>; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); text-align: center;" onmouseover="if(!this.classList.contains('active')) { this.style.borderColor='#007bff'; this.style.boxShadow='0 2px 6px rgba(0,123,255,0.2)'; }" onmouseout="if(!this.classList.contains('active')) { this.style.borderColor='<?php echo (!empty($_GET['cabin_only'])) ? '#007bff' : '#e9ecef'; ?>'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)'; }">
+                                                <span style="font-size: 14px; font-weight: 600; color: <?php echo (!empty($_GET['cabin_only'])) ? '#007bff' : '#495057'; ?>;">
+                                                    🎒 Cabin baggage only
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                                            <input class="filter-checkbox" type="checkbox" name="refundable" id="filter-refundable" value="1" <?php echo (!empty($_GET['refundable'])) ? 'checked' : ''; ?> style="display: none;">
+                                            <div class="filter-item" data-filter-id="filter-refundable" style="background: <?php echo (!empty($_GET['refundable'])) ? '#e7f3ff' : 'white'; ?>; padding: 12px 15px; border-radius: 8px; border: 2px solid <?php echo (!empty($_GET['refundable'])) ? '#007bff' : '#e9ecef'; ?>; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); text-align: center;" onmouseover="if(!this.classList.contains('active')) { this.style.borderColor='#007bff'; this.style.boxShadow='0 2px 6px rgba(0,123,255,0.2)'; }" onmouseout="if(!this.classList.contains('active')) { this.style.borderColor='<?php echo (!empty($_GET['refundable'])) ? '#007bff' : '#e9ecef'; ?>'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)'; }">
+                                                <span style="font-size: 14px; font-weight: 600; color: <?php echo (!empty($_GET['refundable'])) ? '#007bff' : '#495057'; ?>;">
+                                                    💰 Refundable fares only
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 col-sm-6 mb-2">
+                                            <input class="filter-checkbox" type="checkbox" name="date_changes" id="filter-date-changes" value="1" <?php echo (!empty($_GET['date_changes'])) ? 'checked' : ''; ?> style="display: none;">
+                                            <div class="filter-item" data-filter-id="filter-date-changes" style="background: <?php echo (!empty($_GET['date_changes'])) ? '#e7f3ff' : 'white'; ?>; padding: 12px 15px; border-radius: 8px; border: 2px solid <?php echo (!empty($_GET['date_changes'])) ? '#007bff' : '#e9ecef'; ?>; transition: all 0.3s ease; cursor: pointer; box-shadow: 0 1px 3px rgba(0,0,0,0.05); text-align: center;" onmouseover="if(!this.classList.contains('active')) { this.style.borderColor='#007bff'; this.style.boxShadow='0 2px 6px rgba(0,123,255,0.2)'; }" onmouseout="if(!this.classList.contains('active')) { this.style.borderColor='<?php echo (!empty($_GET['date_changes'])) ? '#007bff' : '#e9ecef'; ?>'; this.style.boxShadow='0 1px 3px rgba(0,0,0,0.05)'; }">
+                                                <span style="font-size: 14px; font-weight: 600; color: <?php echo (!empty($_GET['date_changes'])) ? '#007bff' : '#495057'; ?>;">
+                                                    📅 Date changes allowed
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Airlines Filter -->
+                            <div class="row align-items-center mt-2">
+                                <div class="col-md-12">
+                                    <div style="background: white; padding: 12px 15px; border-radius: 8px; border: 2px solid #e9ecef; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+                                        <label for="airlines-filter" style="font-size: 14px; font-weight: 600; color: #495057; margin-bottom: 8px; display: block;">
+                                            ✈️ Filter by Airlines
+                                        </label>
+                                        <select name="airlines[]" id="airlines-filter" class="form-control" multiple="multiple" style="width: 100%;">
+                                            <?php foreach ($uniqueAirlines as $airline): ?>
+                                                <option value="<?php echo htmlspecialchars($airline['code']); ?>" 
+                                                    <?php echo (in_array($airline['code'], $filterAirlines)) ? 'selected' : ''; ?>>
+                                                    <?php echo htmlspecialchars($airline['name']); ?>
+                                                </option>
+                                            <?php endforeach; ?>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-12 d-flex align-items-center flex-wrap">
+                                    <button type="submit" class="btn btn-primary mr-2 mb-2" id="apply-filters" style="padding: 8px 20px; font-size: 14px; font-weight: 600; border-radius: 6px; box-shadow: 0 2px 4px rgba(0,123,255,0.3); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 8px rgba(0,123,255,0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 2px 4px rgba(0,123,255,0.3)'">
+                                        Apply Filters
+                                    </button>
+                                    <a href="?" class="btn btn-outline-secondary mr-2 mb-2" id="clear-filters" style="padding: 8px 20px; font-size: 14px; font-weight: 600; border-radius: 6px; border: 2px solid #6c757d; transition: all 0.3s ease; text-decoration: none; display: inline-block;" onmouseover="this.style.transform='translateY(-2px)'; this.style.backgroundColor='#6c757d'; this.style.color='white'" onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='transparent'; this.style.color='#6c757d'">
+                                        Clear All
+                                    </a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
         <!-- FILTERATION PART ENDS -->
 
-
+        <!-- ACTIVE FILTERS DISPLAY SECTION -->
+        <?php if ($hasAnyFilter): ?>
+        <section style="margin-bottom: 15px;">
+            <div class="container">
+                <div style="background: white; padding: 15px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+                    <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 10px;">
+                        <span style="font-weight: 600; color: #495057; margin-right: 5px;">Active Filters:</span>
+                        
+                        <?php if ($filterCheckedBaggage): ?>
+                        <div class="active-filter-tag" style="display: inline-flex; align-items: center; background: #e7f3ff; border: 1px solid #007bff; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: #007bff;">
+                            <span style="margin-right: 6px;">✅ Checked Baggage</span>
+                            <a href="?<?php 
+                                $params = $_GET;
+                                unset($params['checked_baggage']);
+                                // If filter came from homepage (session), we need to clear it from session too
+                                // Add a parameter to indicate filter removal
+                                $params['remove_checked_baggage'] = '1';
+                                echo http_build_query($params);
+                            ?>" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 4px;">×</a>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php if ($filterCabinOnly): ?>
+                        <div class="active-filter-tag" style="display: inline-flex; align-items: center; background: #e7f3ff; border: 1px solid #007bff; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: #007bff;">
+                            <span style="margin-right: 6px;">🎒 Cabin Only</span>
+                            <a href="?<?php 
+                                $params = $_GET;
+                                unset($params['cabin_only']);
+                                echo http_build_query($params);
+                            ?>" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 4px;">×</a>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php if ($filterRefundable): ?>
+                        <div class="active-filter-tag" style="display: inline-flex; align-items: center; background: #e7f3ff; border: 1px solid #007bff; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: #007bff;">
+                            <span style="margin-right: 6px;">💰 Refundable</span>
+                            <a href="?<?php 
+                                $params = $_GET;
+                                unset($params['refundable']);
+                                echo http_build_query($params);
+                            ?>" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 4px;">×</a>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php if ($filterDateChanges): ?>
+                        <div class="active-filter-tag" style="display: inline-flex; align-items: center; background: #e7f3ff; border: 1px solid #007bff; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: #007bff;">
+                            <span style="margin-right: 6px;">📅 Date Changes</span>
+                            <a href="?<?php 
+                                $params = $_GET;
+                                unset($params['date_changes']);
+                                echo http_build_query($params);
+                            ?>" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 4px;">×</a>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <?php if (!empty($filterAirlines)): ?>
+                        <div class="active-filter-tag" style="display: inline-flex; align-items: center; background: #e7f3ff; border: 1px solid #007bff; border-radius: 20px; padding: 6px 12px; font-size: 13px; color: #007bff;">
+                            <span style="margin-right: 6px;">✈️ Airlines (<?php echo count($filterAirlines); ?>)</span>
+                            <a href="?<?php 
+                                $params = $_GET;
+                                unset($params['airlines']);
+                                echo http_build_query($params);
+                            ?>" style="color: #007bff; text-decoration: none; font-weight: bold; margin-left: 4px;">×</a>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <!-- Clear All Filters Button -->
+                        <a href="?<?php 
+                            $params = $_GET;
+                            unset($params['checked_baggage'], $params['cabin_only'], $params['refundable'], $params['date_changes'], $params['airlines'], $params['page']);
+                            // Clear session-based checked baggage filter too
+                            $params['remove_checked_baggage'] = '1';
+                            echo http_build_query($params);
+                        ?>" style="display: inline-flex; align-items: center; background: #dc3545; color: white; border-radius: 20px; padding: 6px 14px; font-size: 13px; text-decoration: none; font-weight: 600; margin-left: 5px;">
+                            Clear All Filters
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <?php endif; ?>
+        <!-- ACTIVE FILTERS DISPLAY ENDS -->
 
         <section style="margin-bottom:20px;">
             <div class="container">
+                <!-- No Results Message - Unified Design -->
+                <?php if (count($currentPageFlights) == 0): ?>
+                <div class="col-12" style="padding: 40px 20px; text-align: center; margin-bottom: 20px;">
+                    <div style="background-color:#070F4E; padding: 40px; border-radius: 15px; color: #fff; box-shadow: 0 4px 15px rgba(18, 30, 126, 0.2);">
+                        <h2 style="font-size: 42px; margin-bottom: 15px; font-weight: bold;">Sorry!</h2>
+                        <p style="font-size: 18px; margin-bottom: 20px; line-height: 1.6;">
+                            <?php 
+                            if (isset($responseData['Data']['Errors'])) {
+                                echo "We couldn't find any flights for the selected dates.";
+                            } else {
+                                echo "No flights match your selected filters.";
+                            }
+                            ?>
+                        </p>
+                        <p style="font-size: 16px; opacity: 0.9; margin-bottom: 0;">
+                            Please try different dates or adjust your search criteria using the <strong>"Modify Search"</strong> button above or clear the filters below.
+                        </p>
+                    </div>
+                </div>
+                <?php endif; ?>
+                
                 <div class="form-row  g-3">
-                    <?php foreach ($currentPageFlights as $pricedItinerary) { ?>
-                        <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <?php 
+                    $flightLoopIndex = 0;
+                    foreach ($currentPageFlights as $flightGroup) { 
+                        // Extract master itinerary from grouped data
+                        $pricedItinerary = $flightGroup['master_itinerary'];
+                        
+                        // Find the index in the full array
+                        $fullIndex = -1;
+                        foreach ($pricedItineraries as $idx => $itinerary) {
+                            if ($itinerary['FareSourceCode'] === $pricedItinerary['FareSourceCode']) {
+                                $fullIndex = $idx;
+                                break;
+                            }
+                        }
+                        if ($fullIndex === -1) {
+                            $fullIndex = $flightLoopIndex;
+                        }
+                        $flightLoopIndex++;
+                    ?>
+                        <?php
+                            // Extract actual API data for display - Get penalty reference
+                            $penaltyListRefid = $pricedItinerary['PenaltiesInfoRef'] ?? null;
+                            $penaltyListRef = null;
+                            if ($penaltyListRefid !== null && isset($responseData['Data']['PenaltiesInfoList'][$penaltyListRefid])) {
+                                $penaltyListRef = $responseData['Data']['PenaltiesInfoList'][$penaltyListRefid];
+                            }
+                            
+                            $penaltyDetails = $penaltyListRef['Penaltydetails'][0] ?? [];
+                            
+                            // Check refundable - Handle boolean, int, and string types
+                            $isRefundableFare = false;
+                            if (isset($penaltyDetails['RefundAllowed'])) {
+                                $refundValue = $penaltyDetails['RefundAllowed'];
+                                $isRefundableFare = ($refundValue === true || $refundValue === 1 || $refundValue === '1');
+                            }
+                            
+                            // Check date change allowed - Handle boolean, int, and string types
+                            $isDateChangeAllowed = false;
+                            if (isset($penaltyDetails['ChangeAllowed'])) {
+                                $changeValue = $penaltyDetails['ChangeAllowed'];
+                                $isDateChangeAllowed = ($changeValue === true || $changeValue === 1 || $changeValue === '1');
+                            }
+
+                            // Check baggage info
+                            $hasCheckedBaggage = false;
+                            $hasCabinBaggage = false;
+                            $zeroCheckedBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A', 'NOT APPLICABLE'];
+                            $zeroCabinBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A', 'NOT APPLICABLE'];
+
+                            foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
+                                $baggageRef = $originDestination['ItineraryRef'] ?? null;
+                                if ($baggageRef === null || !isset($FlightItineraryList[$baggageRef])) {
+                                    continue;
+                                }
+
+                                $baggageInfo = $FlightItineraryList[$baggageRef];
+
+                                // CheckinBaggage: "SB" or "0PC" means NO checked baggage
+                                if (!$hasCheckedBaggage && !empty($baggageInfo['CheckinBaggage'])) {
+                                    foreach ((array) $baggageInfo['CheckinBaggage'] as $bagItem) {
+                                        $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                                        if ($value !== '' && !in_array($value, $zeroCheckedBaggageValues, true)) {
+                                            $hasCheckedBaggage = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                // CabinBaggage: "SB" means YES cabin baggage available
+                                if (!$hasCabinBaggage && !empty($baggageInfo['CabinBaggage'])) {
+                                    foreach ((array) $baggageInfo['CabinBaggage'] as $bagItem) {
+                                        $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                                        if ($value !== '' && !in_array($value, $zeroCabinBaggageValues, true)) {
+                                            $hasCabinBaggage = true;
+                                            break;
+                                        }
+                                    }
+                                }
+
+                                if ($hasCheckedBaggage && $hasCabinBaggage) {
+                                    break;
+                                }
+                            }
+
+                            // FIXED: Cabin-only means has cabin baggage BUT NO checked baggage
+                            $isCabinOnlyFare = $hasCabinBaggage && !$hasCheckedBaggage;
+                            
+                            // Extract actual baggage values for display (Departure leg only - LegIndicator == 0)
+                            $checkedBagDisplay = '';
+                            $cabinBagDisplay = '';
+                            foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
+                                // Only process departure leg (LegIndicator == 0)
+                                if (isset($originDestination['LegIndicator']) && $originDestination['LegIndicator'] != 0) {
+                                    continue;
+                                }
+                                
+                                $baggageRef = $originDestination['ItineraryRef'] ?? null;
+                                if ($baggageRef !== null && isset($FlightItineraryList[$baggageRef])) {
+                                    $bagInfo = $FlightItineraryList[$baggageRef];
+                                    
+                                    // Get checked baggage value - accept all values including 0KG
+                                    if (empty($checkedBagDisplay) && !empty($bagInfo['CheckinBaggage'])) {
+                                        foreach ((array) $bagInfo['CheckinBaggage'] as $checkBag) {
+                                            $val = trim($checkBag['Value'] ?? '');
+                                            if (!empty($val)) {
+                                                // Accept all values including 0KG, 0PC, etc.
+                                                $checkedBagDisplay = $val;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Get cabin baggage value
+                                    if (empty($cabinBagDisplay) && !empty($bagInfo['CabinBaggage'])) {
+                                        foreach ((array) $bagInfo['CabinBaggage'] as $cabBag) {
+                                            $val = trim($cabBag['Value'] ?? '');
+                                            if (!empty($val)) {
+                                                $cabinBagDisplay = ($val == 'SB' || strtoupper($val) == 'SB') ? 'Standard Baggage' : $val;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    if (!empty($checkedBagDisplay) && !empty($cabinBagDisplay)) {
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            // Extract return leg baggage info (for round trips)
+                            $hasReturnCheckedBaggage = false;
+                            $hasReturnCabinBaggage = false;
+                            $returnCheckedBagDisplay = '';
+                            $returnCabinBagDisplay = '';
+                            
+                            // Check if this is a return trip
+                            $isReturnTrip = false;
+                            foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
+                                if (isset($originDestination['LegIndicator']) && $originDestination['LegIndicator'] == 1) {
+                                    $isReturnTrip = true;
+                                    break;
+                                }
+                            }
+                            
+                            if ($isReturnTrip) {
+                                // Process all return leg segments (LegIndicator == 1)
+                                foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
+                                    // Only process return leg (LegIndicator == 1)
+                                    if (!isset($originDestination['LegIndicator']) || $originDestination['LegIndicator'] != 1) {
+                                        continue;
+                                    }
+                                    
+                                    $baggageRef = $originDestination['ItineraryRef'] ?? null;
+                                    if ($baggageRef === null || !isset($FlightItineraryList[$baggageRef])) {
+                                        continue;
+                                    }
+
+                                    $baggageInfo = $FlightItineraryList[$baggageRef];
+
+                                    // Get actual return baggage values for display FIRST (before checking flags)
+                                    // Always get the first value, even if it's 0KG
+                                    if (empty($returnCheckedBagDisplay) && !empty($baggageInfo['CheckinBaggage'])) {
+                                        foreach ((array) $baggageInfo['CheckinBaggage'] as $checkBag) {
+                                            $val = trim($checkBag['Value'] ?? '');
+                                            if (!empty($val)) {
+                                                // Accept all values including 0KG, 0PC, 20KG, etc.
+                                                $returnCheckedBagDisplay = $val;
+                                                // Set flag based on value
+                                                $upperVal = strtoupper($val);
+                                                if ($upperVal !== '0KG' && $upperVal !== '0PC' && $val !== '0') {
+                                                    $hasReturnCheckedBaggage = true;
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Always get cabin baggage value FIRST
+                                    if (empty($returnCabinBagDisplay) && !empty($baggageInfo['CabinBaggage'])) {
+                                        foreach ((array) $baggageInfo['CabinBaggage'] as $cabBag) {
+                                            $val = trim($cabBag['Value'] ?? '');
+                                            if (!empty($val)) {
+                                                $returnCabinBagDisplay = ($val == 'SB' || strtoupper($val) == 'SB') ? 'Standard Baggage' : $val;
+                                                $hasReturnCabinBaggage = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // Also check flags for backward compatibility
+                                    if (!$hasReturnCheckedBaggage && !empty($baggageInfo['CheckinBaggage'])) {
+                                        foreach ((array) $baggageInfo['CheckinBaggage'] as $bagItem) {
+                                            $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                                            if ($value !== '' && !in_array($value, $zeroCheckedBaggageValues, true)) {
+                                                $hasReturnCheckedBaggage = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    if (!$hasReturnCabinBaggage && !empty($baggageInfo['CabinBaggage'])) {
+                                        foreach ((array) $baggageInfo['CabinBaggage'] as $bagItem) {
+                                            $value = strtoupper(trim($bagItem['Value'] ?? ''));
+                                            if ($value !== '' && !in_array($value, $zeroCabinBaggageValues, true)) {
+                                                $hasReturnCabinBaggage = true;
+                                                break;
+                                            }
+                                        }
+                                    }
+                                    
+                                    // If we got both values, we can break, otherwise continue checking other segments
+                                    if (!empty($returnCheckedBagDisplay) && !empty($returnCabinBagDisplay)) {
+                                        break;
+                                    }
+                                }
+                            }
+                            
+                            // Final fallback: Use PTC_FareBreakdowns if OriginDestinations didn't provide values
+                            $ptc = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0] ?? [];
+                            
+                            // Departure fallback
+                            if ($checkedBagDisplay === '' && isset($ptc['BaggageInfo'][0])) {
+                                $val = trim((string)$ptc['BaggageInfo'][0]);
+                                if ($val !== '') {
+                                    $checkedBagDisplay = $val;
+                                    $upperVal = strtoupper($val);
+                                    if (!in_array($upperVal, $zeroCheckedBaggageValues, true)) {
+                                        $hasCheckedBaggage = true;
+                                    }
+                                }
+                            }
+                            if ($cabinBagDisplay === '' && isset($ptc['CabinBaggageInfo'][0])) {
+                                $val = trim((string)$ptc['CabinBaggageInfo'][0]);
+                                if ($val !== '') {
+                                    $cabinBagDisplay = (strtoupper($val) === 'SB') ? 'Standard Baggage' : $val;
+                                    $upperVal = strtoupper($val);
+                                    if (!in_array($upperVal, $zeroCabinBaggageValues, true)) {
+                                        $hasCabinBaggage = true;
+                                    }
+                                }
+                            }
+                            
+                            // Return fallback
+                            if ($isReturnTrip) {
+                                if ($returnCheckedBagDisplay === '' && isset($ptc['BaggageInfo'][1])) {
+                                    $val = trim((string)$ptc['BaggageInfo'][1]);
+                                    if ($val !== '') {
+                                        $returnCheckedBagDisplay = $val;
+                                        $upperVal = strtoupper($val);
+                                        if (!in_array($upperVal, $zeroCheckedBaggageValues, true)) {
+                                            $hasReturnCheckedBaggage = true;
+                                        }
+                                    }
+                                }
+                                if ($returnCabinBagDisplay === '' && isset($ptc['CabinBaggageInfo'][1])) {
+                                    $val = trim((string)$ptc['CabinBaggageInfo'][1]);
+                                    if ($val !== '') {
+                                        $returnCabinBagDisplay = (strtoupper($val) === 'SB') ? 'Standard Baggage' : $val;
+                                        $upperVal = strtoupper($val);
+                                        if (!in_array($upperVal, $zeroCabinBaggageValues, true)) {
+                                            $hasReturnCabinBaggage = true;
+                                        }
+                                    }
+                                }
+                            }
+                            
+                            // Debug: Check what values we have before setting data attributes
+                            echo "<!-- DEBUG BAGGAGE DATA:\n";
+                            echo "Departure: checked={$checkedBagDisplay}, cabin={$cabinBagDisplay}\n";
+                            echo "Return: checked={$returnCheckedBagDisplay}, cabin={$returnCabinBagDisplay}\n";
+                            echo "IsReturnTrip: " . ($isReturnTrip ? 'YES' : 'NO') . "\n";
+                            echo "HasCheckedBaggage: " . ($hasCheckedBaggage ? 'YES' : 'NO') . "\n";
+                            echo "HasReturnCheckedBaggage: " . ($hasReturnCheckedBaggage ? 'YES' : 'NO') . "\n";
+                            echo "-->\n";
+                        ?>
+                        <div class="flight-card col-xs-12 col-sm-12 col-md-12 col-lg-12"
+                             data-refundable="<?php echo $isRefundableFare ? '1' : '0'; ?>"
+                             data-date-change="<?php echo $isDateChangeAllowed ? '1' : '0'; ?>"
+                             data-checked-baggage="<?php echo $hasCheckedBaggage ? '1' : '0'; ?>"
+                             data-cabin-only="<?php echo $isCabinOnlyFare ? '1' : '0'; ?>"
+                             data-checked-baggage-value="<?php echo htmlspecialchars($checkedBagDisplay); ?>"
+                             data-cabin-baggage-value="<?php echo htmlspecialchars($cabinBagDisplay); ?>"
+                             data-has-cabin="<?php echo $hasCabinBaggage ? '1' : '0'; ?>"
+                             data-return-checked-baggage="<?php echo $hasReturnCheckedBaggage ? '1' : '0'; ?>"
+                             data-return-checked-baggage-value="<?php echo htmlspecialchars($returnCheckedBagDisplay); ?>"
+                             data-return-cabin-baggage-value="<?php echo htmlspecialchars($returnCabinBagDisplay); ?>"
+                             data-return-has-cabin="<?php echo $hasReturnCabinBaggage ? '1' : '0'; ?>">
                             <div class="light-border mb-3 p-0 me-3">
                                 <?php
                                 $totalstop = 0;
@@ -791,7 +1705,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                             ?>
 
                                                                         </strong>
-                                                                        Flight No - <?php echo $originSegment['OperatingFlightNumber']; ?>
+                                                                        Flight No - <?php echo ($originSegment['MarketingCarriercode'] ?? '') . ' ' . ($originSegment['MarketingFlightNumber'] ?? $originSegment['OperatingFlightNumber'] ?? 'N/A'); ?>
                                                                         <br>
                                                                         <?php echo $itinerySegment['CabinClassType'] ?>
                                                                     </div>
@@ -884,7 +1798,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                             ?>
 
                                                                         </strong>
-                                                                        Flight No - <?php echo $originSegment['OperatingFlightNumber']; ?>
+                                                                        Flight No - <?php echo ($originSegment['MarketingCarriercode'] ?? '') . ' ' . ($originSegment['MarketingFlightNumber'] ?? $originSegment['OperatingFlightNumber'] ?? 'N/A'); ?>
                                                                         <br>
                                                                         <?php echo $itinerySegment['CabinClassType'] ?>
                                                                     </div>
@@ -1030,9 +1944,20 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                 <li class="d-flex align-items-baseline p-1 bdr-b">
                                                                     <strong class="fs-14 fw-600">Fare Rules </strong>
                                                                     <?php
-                                                                    //   echo '<pre/>';
-                                                                    //   print_r($penaltyListRef);
-                                                                    $refundAllowed = $penaltyListRef['Penaltydetails'][0]['RefundAllowed'];
+                                                                    // Use actual API data
+                                                                    $refundAllowed = 0;
+                                                                    $DateChangeAllowed = 0;
+                                                                    
+                                                                    if (isset($penaltyListRef['Penaltydetails'][0]['RefundAllowed'])) {
+                                                                        $refundValue = $penaltyListRef['Penaltydetails'][0]['RefundAllowed'];
+                                                                        $refundAllowed = ($refundValue === true || $refundValue === 1 || $refundValue === '1') ? 1 : 0;
+                                                                    }
+                                                                    
+                                                                    if (isset($penaltyListRef['Penaltydetails'][0]['ChangeAllowed'])) {
+                                                                        $changeValue = $penaltyListRef['Penaltydetails'][0]['ChangeAllowed'];
+                                                                        $DateChangeAllowed = ($changeValue === true || $changeValue === 1 || $changeValue === '1') ? 1 : 0;
+                                                                    }
+                                                                    
                                                                     if ($refundAllowed == 1) {
                                                                     ?>
                                                                         <span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Refundable</span>
@@ -1043,7 +1968,6 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                     <?php
                                                                     }
                                                                     //DAte change allow or not 
-                                                                    $DateChangeAllowed = $penaltyListRef['Penaltydetails'][0]['ChangeAllowed'];
                                                                     if ($DateChangeAllowed == 1) {
                                                                     ?>
                                                                         <span class="uppercase-txt dark-black-txt green-bg border-radius-5 ml-2 pl-1 pr-1">Date Change Allowed</span>
@@ -1094,14 +2018,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                                                                             $total_refund = $refund_addition_fee_setting['value'] + $refund_fee_setting['value'];
 
                                                                                             if (!empty($val['RefundPenaltyAmount'])) {
-                              
-                                                                                                echo $refund_addition_fee_setting['value'];
-                                                                                                echo "----";
-                                                                                                echo $refund_fee_setting['value'];
-                                                                                                echo "----";
-                                                                                                echo $val['RefundPenaltyAmount'] * $usd_converion_rate;
-                                                                                                echo "----";
-                                                                                                $totDisplay =   ($val['RefundPenaltyAmount'] * $usd_converion_rate) + $total_refund;
+                                                                                                $totDisplay =   (floatval($val['RefundPenaltyAmount']) * floatval($usd_converion_rate)) + $total_refund;
                                                                                     ?>
                                                                                                 <td><?php echo $passengerType . ": $ " . number_format(round($totDisplay, 2), 2); ?></td>
                                                                                             <?php
@@ -1147,14 +2064,8 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
 
 
                                                                                         if (!empty($val['ChangePenaltyAmount'])) {
-echo $reissue_addition_fee_setting['value'];
-echo "----";
-echo $reissue_fee_setting['value'];
-echo "----";
-echo ($val['ChangePenaltyAmount'] * $usd_converion_rate);
-echo "----";
-                          $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
-                                                                                            $totDisplay =   ($val['ChangePenaltyAmount'] * $usd_converion_rate) + $total_refund;
+                                                                                            $total_refund = $reissue_addition_fee_setting['value'] + $reissue_fee_setting['value'];
+                                                                                            $totDisplay =   (floatval($val['ChangePenaltyAmount']) * floatval($usd_converion_rate)) + $total_refund;
 
                                                                                     //         $ipg_trasaction_percentage = ($ipg_percentage / 100) * $totDisplay;
                                                                                     //         $totDisplay += $ipg_trasaction_percentage;
@@ -1358,7 +2269,7 @@ echo "----";
                                                         $totalInfantfare += $fareListRef['PassengerFare'][2]['TotalFare'] * $infantCount;
                                                     }
 
-                                                    echo $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
+                                                    $totalFareAPI = $totalAdultfare + $totalChildfare + $totalInfantfare;
                                                     $markupPercentage = ($markup['commission_percentage'] / 100) * $totalFareAPI;
                                                     $markupPercentage += $ticketing_fee;
                                                     $total_price = $markupPercentage + $totalFareAPI;
@@ -1367,13 +2278,12 @@ echo "----";
                                                     ?>
 
 
-                                                    <!-- <form action="my-booking-step1" method="post" style="margin-top:4px;"> -->
-                                                    <!-- <input type="hidden" id="fscode" name="fscode" value="<?php //echo $pricedItinerary['FareSourceCode']; 
-                                                                                                                ?>"> -->
-                                                    <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100" style="font-weight: bold;font-size: 16px;">
-                                                        $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
-                                                    </button>
-                                                    <!-- </form> -->
+                                                    <form action="my-booking-step1" method="post" style="margin-top:4px;">
+                                                        <input type="hidden" id="fscode" name="fscode" value="<?php echo $pricedItinerary['FareSourceCode']; ?>">
+                                                        <button type="button" onclick="makeSessionFsCode(this,'<?php echo $pricedItinerary['FareSourceCode']; ?>')" class="btn btn-typ7 w-100 mb-2" style="font-weight: bold;font-size: 16px;">
+                                                            $<?php echo number_format(round($total_price, 2), 2); ?> | <span class="book_now_text"> &nbsp;BOOK NOW </span>
+                                                        </button>
+                                                    </form>
 
                                                 </li>
 
@@ -1395,10 +2305,23 @@ echo "----";
 
                 <div class="pagination-bottom w-100 p-4">
                     <?php
-                    for ($i = 1; $i < $totalPages; $i++) {
+                    // Build query string preserving filter parameters
+                    $queryParams = [];
+                    foreach ($_GET as $key => $value) {
+                        if ($key !== 'page') {
+                            $queryParams[$key] = $value;
+                        }
+                    }
+                    
+                    for ($i = 1; $i <= $totalPages; $i++) {
                         $activeClass = ($i == $page) ? 'active' : '';
-                        $activeUrl = ($i == $page) ? 'javascript:void(0);' : '?page=' . $i;
-                        echo '<a href="' . $activeUrl . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
+                        if ($i == $page) {
+                            $activeUrl = 'javascript:void(0);';
+                        } else {
+                            $queryParams['page'] = $i;
+                            $activeUrl = '?' . http_build_query($queryParams);
+                        }
+                        echo '<a href="' . htmlspecialchars($activeUrl) . '" class="' . $activeClass . ' mx-1">' . $i . '</a>';
                     }
                     ?>
                 </div>
@@ -1434,8 +2357,203 @@ echo "----";
         include_once('loading-popup.php');
         ?>
 
+        <!-- Fare Selection Modal -->
+        <div class="modal fade" id="fareSelectionModal" tabindex="-1" role="dialog" aria-labelledby="fareSelectionModalLabel" aria-hidden="true" style="z-index: 9999;">
+            <div class="modal-dialog modal-lg" role="document" style="max-width: 900px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #007bff; color: white;">
+                        <h5 class="modal-title" id="fareSelectionModalLabel">
+                            ✈️ SELECT FARES FOR YOUR TRIP
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="padding: 30px;">
+
+                        <!-- Departure Section -->
+                        <div class="departure-section mb-4">
+                            <h6 style="font-weight: 600; margin-bottom: 15px; color: #007bff;">
+                                ✈️ DEPARTURE: <span id="dep-route"></span><span id="dep-date-wrapper"></span>
+                            </h6>
+                            <p style="margin-bottom: 20px; color: #666; font-size: 14px;">
+                                <span id="dep-airline"></span> • <span id="dep-time"></span> • <span id="dep-duration"></span>
+                            </p>
+
+                            <div id="departure-fares" class="fare-options">
+                                <!-- Fare options will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <?php if (strtolower($airTripType) === 'return'): ?>
+                        <!-- Divider for Return -->
+                        <hr style="margin: 30px 0; border-top: 2px solid #ddd;">
+
+                        <!-- Return Section (only for Return trips) -->
+                        <div class="return-section mb-4">
+                            <h6 style="font-weight: 600; margin-bottom: 15px; color: #007bff;">
+                                ✈️ RETURN: <span id="ret-route"></span><span id="ret-date-wrapper"></span>
+                            </h6>
+                            <p style="margin-bottom: 20px; color: #666; font-size: 14px;">
+                                <span id="ret-airline"></span> • <span id="ret-time"></span> • <span id="ret-duration"></span>
+                            </p>
+
+                            <div id="return-fares" class="fare-options">
+                                <!-- Fare options will be populated dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Divider after Return -->
+                        <hr style="margin: 30px 0; border-top: 2px solid #ddd;">
+                        <?php endif; ?>
+
+                        <!-- Total Price Section -->
+                        <div class="total-price-section" style="background: #f8f9fa; padding: 20px; border-radius: 5px; margin-top: 20px;">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h5 style="margin: 0; font-weight: 600;">TOTAL PRICE:</h5>
+                                <h4 style="margin: 0; color: #28a745; font-weight: bold;" id="total-price-display">$0.00</h4>
+                            </div>
+                            <p style="margin: 10px 0 0 0; font-size: 13px; color: #666;" id="selected-fares-text">
+                                <?php echo (strtolower($airTripType) === 'return') ? '(Select fares for both legs)' : '(Select fare for departure)'; ?>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            ← Back to Results
+                        </button>
+                        <button type="button" class="btn btn-primary" id="continue-to-booking-btn" disabled>
+                            Continue to Booking →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Popup Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="confirmationModalLabel" aria-hidden="true" style="z-index: 9999;">
+            <div class="modal-dialog modal-lg" role="document" style="max-width: 900px;">
+                <div class="modal-content">
+                    <div class="modal-header" style="background: #ffc107; color: #333;">
+                        <h5 class="modal-title" id="confirmationModalLabel">
+                            ⚠️ CONFIRM YOUR BOOKING
+                        </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: #333;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="padding: 30px;">
+                        
+                        <!-- Total Price -->
+                        <div class="text-center mb-4">
+                            <h4 style="font-weight: bold; color: #28a745;">
+                                TOTAL PRICE: <span id="conf-total-price">$0.00</span>
+                            </h4>
+                        </div>
+
+                        <hr style="margin: 30px 0; border-top: 2px solid #ddd;">
+
+                        <!-- Departure Section -->
+                        <div class="departure-confirmation mb-4">
+                            <h6 style="font-weight: 600; margin-bottom: 15px; color: #007bff;">
+                                ✈️ DEPARTURE: <span id="conf-dep-route"></span> (<span id="conf-dep-date"></span>)
+                            </h6>
+                            <p style="margin-bottom: 10px; color: #666; font-size: 14px;">
+                                <span id="conf-dep-airline"></span> • <span id="conf-dep-time"></span>
+                            </p>
+                            <p style="margin-bottom: 15px; font-size: 14px; color: #333;">
+                                <strong>Fare:</strong> <span id="conf-dep-fare-name"></span> - $<span id="conf-dep-fare-price"></span> (<span id="conf-dep-fare-type"></span> - <span id="conf-dep-refundable-status"></span>)
+                            </p>
+
+                            <!-- Included Features -->
+                            <div style="background: #d4edda; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                                <strong style="color: #155724;">✅ INCLUDED:</strong>
+                                <ul id="conf-dep-included" style="margin: 10px 0 0 20px; padding: 0;">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+
+                            <!-- Not Included Features -->
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                                <strong style="color: #721c24;">❌ NOT INCLUDED:</strong>
+                                <ul id="conf-dep-not-included" style="margin: 10px 0 0 20px; padding: 0;">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+
+                            <!-- Refundable/Change Info -->
+                            <div style="background: #fff3cd; padding: 12px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404;">⚠️</strong> 
+                                <span id="conf-dep-refundable-warning"></span>
+                                <span id="conf-dep-change-fee"></span>
+                            </div>
+                        </div>
+
+                        <?php if (strtolower($airTripType) === 'return'): ?>
+                        <hr style="margin: 30px 0; border-top: 2px solid #ddd;">
+
+                        <!-- Return Section -->
+                        <div class="return-confirmation mb-4">
+                            <h6 style="font-weight: 600; margin-bottom: 15px; color: #007bff;">
+                                ✈️ RETURN: <span id="conf-ret-route"></span> (<span id="conf-ret-date"></span>)
+                            </h6>
+                            <p style="margin-bottom: 10px; color: #666; font-size: 14px;">
+                                <span id="conf-ret-airline"></span> • <span id="conf-ret-time"></span>
+                            </p>
+                            <p style="margin-bottom: 15px; font-size: 14px; color: #333;">
+                                <strong>Fare:</strong> <span id="conf-ret-fare-name"></span> - $<span id="conf-ret-fare-price"></span> (<span id="conf-ret-fare-type"></span> - <span id="conf-ret-refundable-status"></span>)
+                            </p>
+
+                            <!-- Included Features -->
+                            <div style="background: #d4edda; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                                <strong style="color: #155724;">✅ INCLUDED:</strong>
+                                <ul id="conf-ret-included" style="margin: 10px 0 0 20px; padding: 0;">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+
+                            <!-- Not Included Features -->
+                            <div style="background: #f8d7da; padding: 15px; border-radius: 5px; margin-bottom: 15px;">
+                                <strong style="color: #721c24;">❌ NOT INCLUDED:</strong>
+                                <ul id="conf-ret-not-included" style="margin: 10px 0 0 20px; padding: 0;">
+                                    <!-- Will be populated dynamically -->
+                                </ul>
+                            </div>
+
+                            <!-- Refundable/Change Info -->
+                            <div style="background: #fff3cd; padding: 12px; border-radius: 5px; border-left: 4px solid #ffc107;">
+                                <strong style="color: #856404;">⚠️</strong> 
+                                <span id="conf-ret-refundable-warning"></span>
+                                <span id="conf-ret-change-fee"></span>
+                            </div>
+                        </div>
+
+                        <hr style="margin: 30px 0; border-top: 2px solid #ddd;">
+                        <?php endif; ?>
+
+                        <!-- Mandatory Checkbox -->
+                        <div class="form-check mb-4" style="background: #e7f3ff; padding: 15px; border-radius: 5px; border: 2px solid #b3d9ff;">
+                            <input class="form-check-input" type="checkbox" id="confirm-checkbox" style="margin-top: 5px; width: 20px; height: 20px;">
+                            <label class="form-check-label" for="confirm-checkbox" style="margin-left: 10px; font-size: 15px; font-weight: 500;">
+                                I understand each leg's fare conditions
+                            </label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" id="change-fares-btn">
+                            ← Change Fares
+                        </button>
+                        <button type="button" class="btn btn-primary" id="continue-to-payment-btn" disabled>
+                            Continue to Payment →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 <?php
-    }
 }
 function minutesToHoursMinutes($minutes)
 {
@@ -1455,19 +2573,106 @@ require_once("includes/footer.php");
 <script>
     /************Datepicker******************/
     $(function() {
-        var dateFormat = "mm/dd/yy",
-            from = $("#from")
+        var dateFormat = "mm/dd/yy";
+        
+        // Function to properly position datepicker on both mobile and desktop
+        function positionDatepicker(input, inst) {
+            var isSmallScreen = window.innerWidth <= 767;
+            
+            setTimeout(function() {
+                var $input = $(input);
+                var $datepicker = $('#ui-datepicker-div');
+                var inputOffset = $input.offset();
+                var inputHeight = $input.outerHeight();
+                var inputWidth = $input.outerWidth();
+                var datepickerHeight = $datepicker.outerHeight();
+                var datepickerWidth = $datepicker.outerWidth();
+                var windowHeight = $(window).height();
+                var windowWidth = $(window).width();
+                var scrollTop = $(window).scrollTop();
+                
+                // Calculate position relative to viewport
+                var inputTop = inputOffset.top - scrollTop;
+                var inputLeft = inputOffset.left;
+                var spaceBelow = windowHeight - (inputTop + inputHeight);
+                var spaceAbove = inputTop;
+                
+                var top, left;
+                
+                if (isSmallScreen) {
+                    // Mobile positioning - fixed and centered
+                    if (spaceBelow >= datepickerHeight || spaceBelow > spaceAbove) {
+                        top = inputTop + inputHeight + 5;
+                    } else {
+                        top = inputTop - datepickerHeight - 5;
+                    }
+                    
+                    if (top < 10) top = 10;
+                    if (top + datepickerHeight > windowHeight - 10) {
+                        top = windowHeight - datepickerHeight - 10;
+                    }
+                    
+                    left = (windowWidth - datepickerWidth) / 2;
+                    if (left < 10) left = 10;
+                    
+                    $datepicker.css({
+                        position: 'fixed',
+                        top: top + 'px',
+                        left: left + 'px',
+                        right: 'auto',
+                        bottom: 'auto'
+                    });
+                } else {
+                    // Desktop positioning - absolute, aligned with input field
+                    if (spaceBelow >= datepickerHeight) {
+                        // Show below input
+                        top = inputOffset.top + inputHeight + 2;
+                    } else if (spaceAbove >= datepickerHeight) {
+                        // Show above input
+                        top = inputOffset.top - datepickerHeight - 2;
+                    } else {
+                        // Not enough space, show below anyway
+                        top = inputOffset.top + inputHeight + 2;
+                    }
+                    
+                    // Align with input field
+                    left = inputLeft;
+                    
+                    // Ensure datepicker doesn't go off screen horizontally
+                    if (left + datepickerWidth > windowWidth) {
+                        left = windowWidth - datepickerWidth - 10;
+                    }
+                    if (left < 10) left = 10;
+                    
+                    $datepicker.css({
+                        position: 'absolute',
+                        top: top + 'px',
+                        left: left + 'px',
+                        right: 'auto',
+                        bottom: 'auto'
+                    });
+                }
+            }, 0);
+        }
+        
+        var from = $("#from")
             .datepicker({
                 //defaultDate: "+1w",
                 changeMonth: true,
                 minDate: 0,
+                beforeShow: function(input, inst) {
+                    positionDatepicker(input, inst);
+                }
             })
             .on("change", function() {
                 to.datepicker("option", "minDate", getDate(this));
             }),
             to = $("#to").datepicker({
                 //defaultDate: "+1w",
-                changeMonth: true
+                changeMonth: true,
+                beforeShow: function(input, inst) {
+                    positionDatepicker(input, inst);
+                }
             })
             .on("change", function() {
                 from.datepicker("option", "maxDate", getDate(this));
@@ -1483,6 +2688,18 @@ require_once("includes/footer.php");
 
             return date;
         }
+        
+        // Re-position datepicker on window resize or scroll
+        $(window).on('resize scroll', function() {
+            if ($('#ui-datepicker-div').is(':visible')) {
+                var $activeInput = $('#from, #to').filter(function() {
+                    return $(this).is(':focus') || $(this).hasClass('hasDatepicker') && $('#ui-datepicker-div').is(':visible');
+                });
+                if ($activeInput.length) {
+                    positionDatepicker($activeInput[0], null);
+                }
+            }
+        });
     });
 
 
@@ -1502,6 +2719,28 @@ require_once("includes/footer.php");
             $('#one-way').prop('checked', true);
         }
 
+        const $flightCountElement = $('#flight-count');
+        const originalFlightCount = Number($flightCountElement.data('original')) || $('.flight-card').length;
+        $flightCountElement.data('original', originalFlightCount);
+        
+        // Auto-open filters and modify search when 0 flights
+        const visibleFlights = $('.flight-card').length;
+        if (visibleFlights === 0) {
+            // Open modify search section
+            //$('#modify-search-result').show();
+            
+            // Open filters panel
+            $('#filter-panel').slideDown();
+            $('#filter-toggle-icon').text('▲');
+            
+            // Scroll to modify search for better visibility
+            setTimeout(function() {
+                $('html, body').animate({
+                    scrollTop: $('.midbar-wrapper-inner').offset().top - 20
+                }, 500);
+            }, 300);
+        }
+
         $('.select-class').select2();
         $('.stops-select').select2();
         $('.price-select').select2();
@@ -1509,6 +2748,19 @@ require_once("includes/footer.php");
         $('.airline-select').select2();
         $('.dep-time-select').select2();
         $('.ret-time-select').select2();
+        
+        // Initialize airlines filter Select2
+        $('#airlines-filter').select2({
+            placeholder: 'Select airlines...',
+            allowClear: true,
+            closeOnSelect: true,
+            width: '100%'
+        });
+        
+        // Update filter count when airlines selection changes
+        $('#airlines-filter').on('change', function() {
+            updateFilterCount();
+        });
 
         // $('[name=tab]').each(function(i,d){
         //     var p = $(this).prop('checked');
@@ -1608,6 +2860,341 @@ require_once("includes/footer.php");
     $(".forgot-passward > button").click(function() {
         $(this).parents('.modal').modal('hide');
     });
+
+    // ============ FILTER TOGGLE FUNCTIONALITY ============
+    $('#filter-toggle-btn').on('click', function() {
+        const filterContainer = $('#filter-container');
+        const toggleText = $('#filter-toggle-text');
+        const toggleIcon = $('#filter-toggle-icon');
+        
+        if (filterContainer.is(':visible')) {
+            // Hide filters
+            filterContainer.slideUp(300);
+            toggleIcon.text('▼');
+            $(this).css({
+                'background': 'transparent',
+                'color': '#007bff'
+            });
+        } else {
+            // Show filters
+            filterContainer.slideDown(300);
+            toggleIcon.text('▲');
+            $(this).css({
+                'background': '#007bff',
+                'color': 'white'
+            });
+        }
+    });
+
+    // ============ MODERN FILTER ITEM TOGGLE ============
+    // Function to update filter count badge
+    function updateFilterCount() {
+        let count = $('.filter-checkbox:checked').length;
+        
+        // Add airline filter count if any airlines are selected
+        const airlinesSelected = $('#airlines-filter').val();
+        if (airlinesSelected && airlinesSelected.length > 0) {
+            count += 1; // Count as 1 filter even if multiple airlines selected
+        }
+        
+        const badge = $('#filter-count-badge');
+        if (count > 0) {
+            badge.text(count).show();
+        } else {
+            badge.hide();
+        }
+    }
+
+    // Handle filter item clicks (toggle without showing checkbox)
+    $('.filter-item').on('click', function() {
+        const filterId = $(this).data('filter-id');
+        const checkbox = $('#' + filterId);
+        
+        // Toggle checkbox
+        checkbox.prop('checked', !checkbox.prop('checked'));
+        
+        // FIXED: Mutual exclusion between checked baggage and cabin-only filters
+        if (checkbox.is(':checked')) {
+            if (filterId === 'filter-checked-baggage') {
+                // If checked baggage is selected, uncheck cabin-only
+                const cabinOnlyCheckbox = $('#filter-cabin-only');
+                const cabinOnlyItem = $('[data-filter-id="filter-cabin-only"]');
+                cabinOnlyCheckbox.prop('checked', false);
+                cabinOnlyItem.removeClass('active');
+                cabinOnlyItem.css({
+                    'background': 'white',
+                    'border-color': '#e9ecef',
+                    'box-shadow': '0 1px 3px rgba(0,0,0,0.05)'
+                });
+                cabinOnlyItem.find('span').css('color', '#495057');
+            } else if (filterId === 'filter-cabin-only') {
+                // If cabin-only is selected, uncheck checked baggage
+                const checkedBaggageCheckbox = $('#filter-checked-baggage');
+                const checkedBaggageItem = $('[data-filter-id="filter-checked-baggage"]');
+                checkedBaggageCheckbox.prop('checked', false);
+                checkedBaggageItem.removeClass('active');
+                checkedBaggageItem.css({
+                    'background': 'white',
+                    'border-color': '#e9ecef',
+                    'box-shadow': '0 1px 3px rgba(0,0,0,0.05)'
+                });
+                checkedBaggageItem.find('span').css('color', '#495057');
+            }
+        }
+        
+        // Toggle active class for visual feedback
+        if (checkbox.is(':checked')) {
+            $(this).addClass('active');
+            $(this).css({
+                'background': '#e7f3ff',
+                'border-color': '#007bff',
+                'box-shadow': '0 2px 6px rgba(0,123,255,0.15)'
+            });
+            $(this).find('span').css('color', '#007bff');
+        } else {
+            $(this).removeClass('active');
+            $(this).css({
+                'background': 'white',
+                'border-color': '#e9ecef',
+                'box-shadow': '0 1px 3px rgba(0,0,0,0.05)'
+            });
+            $(this).find('span').css('color', '#495057');
+        }
+        
+        // Don't update filter count badge here - only update when Apply Filters is clicked
+    });
+
+    // Update hover behavior for active items
+    $('.filter-item').on('mouseenter', function() {
+        if ($(this).hasClass('active')) {
+            $(this).css({
+                'background': '#d6ebff',
+                'box-shadow': '0 3px 8px rgba(0,123,255,0.2)'
+            });
+        }
+    }).on('mouseleave', function() {
+        if ($(this).hasClass('active')) {
+            $(this).css({
+                'background': '#e7f3ff',
+                'box-shadow': '0 2px 6px rgba(0,123,255,0.15)'
+            });
+        }
+    });
+
+    // Update filter count badge on page load
+    updateFilterCount();
+    
+    // Form submit handler - filters will be applied via GET request
+    $('#flight-filters-form').on('submit', function(e) {
+        // Form will submit naturally with GET method
+        // Reset page to 1 when filters change
+        if ($(this).find('input[name="page"]').length === 0) {
+            $('<input>').attr({
+                type: 'hidden',
+                name: 'page',
+                value: '1'
+            }).appendTo(this);
+        } else {
+            $(this).find('input[name="page"]').val('1');
+        }
+    });
+
+    // ============ FARE SELECTION & CONFIRMATION MODAL JAVASCRIPT ============
+    // Store flight data for modal - Make globally accessible (legacy support)
+    window.flightData = <?php echo json_encode($pricedItineraries); ?>;
+    window.flightSegments = <?php echo json_encode($responseData['Data']['FlightSegmentList']); ?>;
+    window.flightFares = <?php echo json_encode($responseData['Data']['FlightFaresList']); ?>;
+    window.penaltiesInfo = <?php echo json_encode($responseData['Data']['PenaltiesInfoList']); ?>;
+    window.itineraryRefs = <?php echo json_encode($responseData['Data']['ItineraryReferenceList']); ?>;
+    window.airTripType = "<?php echo $airTripType; ?>";
+    
+    // Keep track of last-used data so we can reopen the same selection
+    window.lastFareOptions = null;
+    window.lastSegments = null;
+    window.lastFareButton = null;
+    window.currentFlightIndex = null;
+
+    // Backwards-compatible wrapper:
+    // If called with a DOM element, delegate to the new implementation.
+    // If called with an index (legacy), try to reuse last-known data.
+    window.openFareSelectionModal = function(arg) {
+        try {
+            // New flow: button element with data attributes
+            if (arg && typeof arg === 'object' && typeof arg.getAttribute === 'function') {
+                window.lastFareButton = arg;
+                // Delegate to new implementation defined later in the file
+                if (typeof openFareSelectionModal === 'function') {
+                    return openFareSelectionModal(arg);
+                }
+            }
+
+            // Legacy flow support (index-based). If we have cached data, reuse it.
+            if (window.lastFareOptions && window.lastSegments) {
+                populateDepartureFares(window.lastFareOptions, window.lastSegments);
+                $('#fareSelectionModal').modal('show');
+                return;
+            }
+
+            // As a final fallback, we cannot safely reconstruct branded fares from the
+            // legacy structures without heavy logic. Fail gracefully.
+            console.warn('Fallback: no cached fare options available to reopen modal.');
+            alert('Please re-open the fares from the results list.');
+        } catch (e) {
+            console.error('Error in legacy openFareSelectionModal wrapper:', e);
+        }
+    }
+        // (legacy design block removed entirely)
+
+    // Function to select fare (updates border styling) - Make globally accessible
+    window.selectFare = function(leg, fareType, price, fareName) {
+        // Check the radio button
+        const radioId = leg + '-fare-' + fareType;
+        $('#' + radioId).prop('checked', true).trigger('change');
+        
+        // Update border styling for selected fare
+        $('.' + leg + '-fare-radio').closest('.fare-option').css('border-color', '#ddd');
+        $('#' + radioId).closest('.fare-option').css('border-color', '#007bff');
+        
+        // Use new updateTotalPrice function defined later
+        if (typeof updateTotalPrice === 'function') {
+            updateTotalPrice();
+        }
+    };
+
+    // Old updateTotalPrice function removed - using new one defined later in the file
+
+    // Handle continue to booking button - Show Confirmation Modal
+    $('#continue-to-booking-btn').off('click').on('click', function() {
+        const depFare = $('input[name="dep-fare"]:checked');
+        const retFare = window.airTripType === 'Return' ? $('input[name="ret-fare"]:checked') : null;
+        
+        // Get selected fare data (design only - will use real API data later)
+        const selectedData = {
+            dep: {
+                fareName: depFare.data('name') || depFare.val().toUpperCase(),
+                farePrice: depFare.data('price') || 160.00,
+                fareType: 'Public',
+                refundable: depFare.val() === 'flex' ? 'Refundable' : 'Non-Refundable',
+                changeFee: '$50 fee'
+            },
+            ret: retFare ? {
+                fareName: retFare.data('name') || retFare.val().toUpperCase(),
+                farePrice: retFare.data('price') || 155.20,
+                fareType: 'Public',
+                refundable: retFare.val() === 'flex' ? 'Refundable' : 'Non-Refundable',
+                changeFee: '$50 fee'
+            } : null
+        };
+
+        // Calculate total
+        let total = parseFloat(selectedData.dep.farePrice);
+        if (selectedData.ret) {
+            total += parseFloat(selectedData.ret.farePrice);
+        }
+
+        // Populate confirmation modal (design only - sample data)
+        $('#conf-total-price').text('$' + total.toFixed(2));
+        
+        // Departure details
+        $('#conf-dep-route').text(document.getElementById('dep-route').textContent);
+        const depDateWrapper = document.getElementById('dep-date-wrapper');
+        $('#conf-dep-date').text(depDateWrapper ? depDateWrapper.textContent : '');
+        $('#conf-dep-airline').text(document.getElementById('dep-airline').textContent);
+        $('#conf-dep-time').text(document.getElementById('dep-time').textContent);
+        $('#conf-dep-fare-name').text(selectedData.dep.fareName);
+        $('#conf-dep-fare-price').text(selectedData.dep.farePrice);
+        $('#conf-dep-fare-type').text(selectedData.dep.fareType);
+        $('#conf-dep-refundable-status').text(selectedData.dep.refundable);
+        
+        // Sample included/not included (will be from API later)
+        const depIncluded = selectedData.dep.fareName === 'LITE' ? 
+            '<li>Cabin bag (7kg)</li><li>Seat assignment at check-in</li>' : 
+            '<li>1 Checked bag (23kg)</li><li>Cabin bag (7kg)</li><li>Seat assignment at check-in</li>';
+        const depNotIncluded = selectedData.dep.fareName === 'LITE' ?
+            '<li>Checked baggage</li><li>Advance seat selection</li><li>Meals</li>' :
+            '<li>Advance seat selection</li><li>Meals</li>';
+        $('#conf-dep-included').html(depIncluded);
+        $('#conf-dep-not-included').html(depNotIncluded);
+        $('#conf-dep-refundable-warning').text(selectedData.dep.refundable.toUpperCase());
+        $('#conf-dep-change-fee').text(' • Changes: ' + selectedData.dep.changeFee);
+
+        // Return details (if return trip)
+        if (window.airTripType === 'Return' && selectedData.ret) {
+            $('#conf-ret-route').text(document.getElementById('ret-route').textContent);
+            const retDateWrapper = document.getElementById('ret-date-wrapper');
+            $('#conf-ret-date').text(retDateWrapper ? retDateWrapper.textContent : '');
+            $('#conf-ret-airline').text(document.getElementById('ret-airline').textContent);
+            $('#conf-ret-time').text(document.getElementById('ret-time').textContent);
+            $('#conf-ret-fare-name').text(selectedData.ret.fareName);
+            $('#conf-ret-fare-price').text(selectedData.ret.farePrice);
+            $('#conf-ret-fare-type').text(selectedData.ret.fareType);
+            $('#conf-ret-refundable-status').text(selectedData.ret.refundable);
+            
+            const retIncluded = selectedData.ret.fareName === 'LITE' ? 
+                '<li>Cabin bag (7kg)</li><li>Seat assignment at check-in</li>' : 
+                '<li>1 Checked bag (23kg)</li><li>Cabin bag (7kg)</li><li>Seat assignment at check-in</li>';
+            const retNotIncluded = selectedData.ret.fareName === 'LITE' ?
+                '<li>Checked baggage</li><li>Advance seat selection</li><li>Meals</li>' :
+                '<li>Advance seat selection</li><li>Meals</li>';
+            $('#conf-ret-included').html(retIncluded);
+            $('#conf-ret-not-included').html(retNotIncluded);
+            $('#conf-ret-refundable-warning').text(selectedData.ret.refundable.toUpperCase());
+            $('#conf-ret-change-fee').text(' • Changes: ' + selectedData.ret.changeFee);
+        }
+
+        // Hide fare selection modal and show confirmation modal
+        $('#fareSelectionModal').modal('hide');
+        
+        // Reset checkbox
+        $('#confirm-checkbox').prop('checked', false);
+        $('#continue-to-payment-btn').prop('disabled', true);
+        
+        // Show confirmation modal after a short delay
+        setTimeout(function() {
+            $('#confirmationModal').modal('show');
+        }, 300);
+    });
+
+    // Handle confirmation checkbox
+    $('#confirm-checkbox').off('change').on('change', function() {
+        if ($(this).is(':checked')) {
+            $('#continue-to-payment-btn').prop('disabled', false);
+        } else {
+            $('#continue-to-payment-btn').prop('disabled', true);
+        }
+    });
+
+    // Handle Change Fares button
+    $('#change-fares-btn').off('click').on('click', function() {
+        $('#confirmationModal').modal('hide');
+        setTimeout(function() {
+            // Prefer using the cached data from the last selection
+            if (window.lastFareOptions && window.lastSegments) {
+                try {
+                    populateDepartureFares(window.lastFareOptions, window.lastSegments);
+                    $('#fareSelectionModal').modal('show');
+                    return;
+                } catch (e) {
+                    console.error('Error reopening fare selection with cached data:', e);
+                }
+            }
+            // Fallback to last button or legacy index wrapper
+            if (window.lastFareButton) {
+                window.openFareSelectionModalV2(window.lastFareButton);
+            } else if (window.currentFlightIndex !== null) {
+                window.openFareSelectionModal(window.currentFlightIndex);
+            }
+        }, 300);
+    });
+
+    // Handle Continue to Payment button (design only)
+    $('#continue-to-payment-btn').off('click').on('click', function() {
+        // Store selected fare data in session/localStorage for payment page
+        // Then redirect to payment page
+        // For now, redirect to existing booking flow
+        window.location.href = "fligtsRulesRevalidation";
+    });
+    // ============ END FARE SELECTION & CONFIRMATION MODAL JAVASCRIPT ============
 
     $('#FlightSearchLoading').modal({
         show: false
@@ -1745,52 +3332,1214 @@ require_once("includes/footer.php");
     }
 
     function makeSessionFsCode(_this, fs_code) {
-        $(".full-page-spinner").show();
-        $(_this).attr("disabled", true);
-        $(_this).find("span.book_now_text").html("&nbsp;<i class='fas fa-spinner fa-spin' style='font-size:20px;'></i>");
+        // Card se details extract karo
+        const $card = $(_this).closest('.flight-card');
+        const $flightContainer = $(_this).closest('.light-border');
+        
+        // Data attributes se filter info
+        const isRefundable = $card.data('refundable') == '1' || $card.data('refundable') == 1;
+        const isDateChangeAllowed = $card.data('date-change') == '1' || $card.data('date-change') == 1;
+        const hasCheckedBaggage = $card.data('checked-baggage') == '1' || $card.data('checked-baggage') == 1;
+        const isCabinOnly = $card.data('cabin-only') == '1' || $card.data('cabin-only') == 1;
+        const hasCabin = $card.data('has-cabin') == '1' || $card.data('has-cabin') == 1;
+        
+        // Get actual baggage values (Departure) - using empty string as default
+        let checkedBaggageValue = $card.data('checked-baggage-value');
+        checkedBaggageValue = (checkedBaggageValue === undefined || checkedBaggageValue === null) ? '' : String(checkedBaggageValue);
+        
+        let cabinBaggageValue = $card.data('cabin-baggage-value');
+        cabinBaggageValue = (cabinBaggageValue === undefined || cabinBaggageValue === null) ? '' : String(cabinBaggageValue);
+        
+        // Get return baggage values (if round trip)
+        const hasReturnCheckedBaggage = $card.data('return-checked-baggage') == '1' || $card.data('return-checked-baggage') == 1;
+        const hasReturnCabinBaggage = $card.data('return-has-cabin') == '1' || $card.data('return-has-cabin') == 1;
+        
+        let returnCheckedBaggageValue = $card.data('return-checked-baggage-value');
+        returnCheckedBaggageValue = (returnCheckedBaggageValue === undefined || returnCheckedBaggageValue === null) ? '' : String(returnCheckedBaggageValue);
+        
+        let returnCabinBaggageValue = $card.data('return-cabin-baggage-value');
+        returnCabinBaggageValue = (returnCabinBaggageValue === undefined || returnCabinBaggageValue === null) ? '' : String(returnCabinBaggageValue);
+        
+        // Debug logging
+        console.log('Baggage Debug:', {
+            card: $card,
+            departure: {
+                checked: checkedBaggageValue,
+                cabin: cabinBaggageValue,
+                hasChecked: hasCheckedBaggage,
+                hasCabin: hasCabin
+            },
+            return: {
+                checked: returnCheckedBaggageValue,
+                cabin: returnCabinBaggageValue,
+                hasChecked: hasReturnCheckedBaggage,
+                hasCabin: hasReturnCabinBaggage
+            },
+            allDataAttributes: $card.data()
+        });
+        
+        // Check if round trip - check if there's a return section in the DOM or if return baggage values exist
+        const $returnSection = $flightContainer.find('p:contains("Return")');
+        const isRoundTrip = $returnSection.length > 0 || returnCheckedBaggageValue !== '' || returnCabinBaggageValue !== '' || hasReturnCheckedBaggage || hasReturnCabinBaggage;
+        
+        // Flight details extract karo
+        let airlineName = '';
+        const $airlineElement = $flightContainer.find('li[data-th="Airline"] strong');
+        if ($airlineElement.length > 0) {
+            airlineName = $airlineElement.first().text().trim();
+        }
+        
+        // Departure and Arrival info
+        let departureInfo = '';
+        let arrivalInfo = '';
+        const $departElements = $flightContainer.find('li[data-th="Depart"]');
+        const $arriveElements = $flightContainer.find('li[data-th="Arrive"]');
+        
+        if ($departElements.length > 0) {
+            const depCode = $departElements.find('strong').first().text().trim();
+            departureInfo = depCode;
+        }
+        
+        if ($arriveElements.length > 0) {
+            const arrCode = $arriveElements.find('strong').first().text().trim();
+            arrivalInfo = arrCode;
+        }
+        
+        // Total price extract karo
+        const buttonText = $(_this).text();
+        const priceMatch = buttonText.match(/\$[\d,]+\.?\d*/);
+        const totalPrice = priceMatch ? priceMatch[0] : 'N/A';
+        
+        // Fare Rules extract karo
+        let fareRules = [];
+        if (isRefundable) {
+            fareRules.push('✅ Refundable');
+        } else {
+            fareRules.push('❌ Not Refundable');
+        }
+        
+        if (isDateChangeAllowed) {
+            fareRules.push('✅ Date Change Allowed');
+        } else {
+            fareRules.push('❌ Date Change Not Allowed');
+        }
+        
+        // Baggage info - Show actual values with departure and return sections
+        let baggageInfoHTML = '';
+        
+        // Departure Baggage Section
+        baggageInfoHTML += '<div style="margin-bottom: 12px;"><strong style="color: #007bff; font-size: 14px; display: block; margin-bottom: 6px;">✈️ Departure</strong>';
+        
+        // Departure Checked Baggage - Always show value if available (even if 0KG)
+        console.log('Departure Checked Value:', checkedBaggageValue, 'Type:', typeof checkedBaggageValue, 'Length:', checkedBaggageValue.length);
+        
+        let depCheckedBag = '';
+        let depCheckedIcon = '❌';
+        let depCheckedColor = '#dc3545';
+        
+        if (checkedBaggageValue !== null && checkedBaggageValue !== undefined && checkedBaggageValue !== '') {
+            // Show actual value (including 0KG, 0PC, etc.)
+            const upperValue = String(checkedBaggageValue).toUpperCase();
+            const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
+            depCheckedBag = 'Checked Baggage: ' + checkedBaggageValue;
+            depCheckedIcon = isZeroBaggage ? '❌' : '✅';
+            depCheckedColor = isZeroBaggage ? '#dc3545' : '#28a745';
+            console.log('Dep Checked: Using value -', checkedBaggageValue, 'isZero:', isZeroBaggage);
+        } else if (hasCheckedBaggage) {
+            depCheckedBag = 'Checked Baggage Included';
+            depCheckedIcon = '✅';
+            depCheckedColor = '#28a745';
+            console.log('Dep Checked: Using flag - hasCheckedBaggage:', hasCheckedBaggage);
+        } else {
+            depCheckedBag = 'No Checked Baggage';
+            depCheckedIcon = '❌';
+            depCheckedColor = '#dc3545';
+            console.log('Dep Checked: No baggage');
+        }
+        baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + depCheckedIcon + '</span><span style="color: ' + depCheckedColor + '; font-weight: 500; font-size: 13px;">' + depCheckedBag + '</span></div>';
+        
+        // Departure Cabin Baggage - Always show value if available
+        console.log('Departure Cabin Value:', cabinBaggageValue, 'Type:', typeof cabinBaggageValue, 'Length:', cabinBaggageValue.length);
+        
+        let depCabinBag = '';
+        let depCabinIcon = '❌';
+        let depCabinColor = '#dc3545';
+        
+        if (cabinBaggageValue !== null && cabinBaggageValue !== undefined && cabinBaggageValue !== '') {
+            depCabinBag = 'Cabin Baggage: ' + cabinBaggageValue;
+            depCabinIcon = '🎒';
+            depCabinColor = '#28a745';
+            console.log('Dep Cabin: Using value -', cabinBaggageValue);
+        } else if (hasCabin) {
+            depCabinBag = 'Cabin Baggage Available';
+            depCabinIcon = '🎒';
+            depCabinColor = '#28a745';
+            console.log('Dep Cabin: Using flag - hasCabin:', hasCabin);
+        } else {
+            depCabinBag = 'No Cabin Baggage';
+            depCabinIcon = '❌';
+            depCabinColor = '#dc3545';
+            console.log('Dep Cabin: No baggage');
+        }
+        baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + depCabinIcon + '</span><span style="color: ' + depCabinColor + '; font-weight: 500; font-size: 13px;">' + depCabinBag + '</span></div>';
+        
+        baggageInfoHTML += '</div>';
+        
+        // Return Baggage Section (if round trip)
+        if (isRoundTrip) {
+            console.log('IS ROUND TRIP - Showing return section');
+            baggageInfoHTML += '<div><strong style="color: #28a745; font-size: 14px; display: block; margin-bottom: 6px;">🔄 Return</strong>';
+            
+            // Return Checked Baggage - Always show value if available (even if 0KG)
+            console.log('Return Checked Value:', returnCheckedBaggageValue, 'Type:', typeof returnCheckedBaggageValue, 'Length:', returnCheckedBaggageValue.length);
+            
+            let retCheckedBag = '';
+            let retCheckedIcon = '❌';
+            let retCheckedColor = '#dc3545';
+            
+            if (returnCheckedBaggageValue !== null && returnCheckedBaggageValue !== undefined && returnCheckedBaggageValue !== '') {
+                // Show actual value (including 0KG, 20KG, etc.)
+                const upperValue = String(returnCheckedBaggageValue).toUpperCase();
+                const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
+                retCheckedBag = 'Checked Baggage: ' + returnCheckedBaggageValue;
+                retCheckedIcon = isZeroBaggage ? '❌' : '✅';
+                retCheckedColor = isZeroBaggage ? '#dc3545' : '#28a745';
+                console.log('Ret Checked: Using value -', returnCheckedBaggageValue, 'isZero:', isZeroBaggage);
+            } else if (hasReturnCheckedBaggage) {
+                retCheckedBag = 'Checked Baggage Included';
+                retCheckedIcon = '✅';
+                retCheckedColor = '#28a745';
+                console.log('Ret Checked: Using flag - hasReturnCheckedBaggage:', hasReturnCheckedBaggage);
+            } else {
+                retCheckedBag = 'No Checked Baggage';
+                retCheckedIcon = '❌';
+                retCheckedColor = '#dc3545';
+                console.log('Ret Checked: No baggage');
+            }
+            baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + retCheckedIcon + '</span><span style="color: ' + retCheckedColor + '; font-weight: 500; font-size: 13px;">' + retCheckedBag + '</span></div>';
+            
+            // Return Cabin Baggage - Always show value if available
+            console.log('Return Cabin Value:', returnCabinBaggageValue, 'Type:', typeof returnCabinBaggageValue, 'Length:', returnCabinBaggageValue.length);
+            
+            let retCabinBag = '';
+            let retCabinIcon = '❌';
+            let retCabinColor = '#dc3545';
+            
+            if (returnCabinBaggageValue !== null && returnCabinBaggageValue !== undefined && returnCabinBaggageValue !== '') {
+                retCabinBag = 'Cabin Baggage: ' + returnCabinBaggageValue;
+                retCabinIcon = '🎒';
+                retCabinColor = '#28a745';
+                console.log('Ret Cabin: Using value -', returnCabinBaggageValue);
+            } else if (hasReturnCabinBaggage) {
+                retCabinBag = 'Cabin Baggage Available';
+                retCabinIcon = '🎒';
+                retCabinColor = '#28a745';
+                console.log('Ret Cabin: Using flag - hasReturnCabinBaggage:', hasReturnCabinBaggage);
+            } else {
+                retCabinBag = 'No Cabin Baggage';
+                retCabinIcon = '❌';
+                retCabinColor = '#dc3545';
+                console.log('Ret Cabin: No baggage');
+            }
+            baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + retCabinIcon + '</span><span style="color: ' + retCabinColor + '; font-weight: 500; font-size: 13px;">' + retCabinBag + '</span></div>';
+            
+            baggageInfoHTML += '</div>';
+        } else {
+            console.log('NOT ROUND TRIP - Hiding return section');
+        }
+        
+        // SweetAlert confirmation dialog with improved GUI
+        Swal.fire({
+            title: '',
+            html: `
+                <div style="text-align: left; padding: 0;">
+                    <!-- Header Section -->
+                    <div style="background: #0000FF; padding: 12px 15px; border-radius: 15px 15px 0 0; margin: 0; color: white;">
+                        <div style="display: flex; align-items: center; justify-content: space-between;">
+                            <div>
+                                <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Booking Summary</h3>
+                                <p style="margin: 3px 0 0 0; opacity: 0.9; font-size: 12px;">Please review your flight details</p>
+                            </div>
+                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 24px;">✈️</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Content Wrapper -->
+                    <div style="padding: 15px;">
+                    <!-- Flight Details Card -->
+                    <div style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <div style="background: #007bff; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
+                                ✈️
+                            </div>
+                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Flight Details</h4>
+                        </div>
+                        <div style="padding-left: 47px;">
+                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Airline:</span>
+                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${airlineName || 'N/A'}</span>
+                            </div>
+                            ${departureInfo ? `
+                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Departure:</span>
+                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${departureInfo}</span>
+                            </div>
+                            ` : ''}
+                            ${arrivalInfo ? `
+                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Arrival:</span>
+                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${arrivalInfo}</span>
+                            </div>
+                            ` : ''}
+                            <div style="display: flex; align-items: center; margin-top: 8px; padding-top: 8px; border-top: 2px solid #dee2e6;">
+                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Total Price:</span>
+                                <span style="color: #28a745; font-weight: 700; font-size: 18px;">${totalPrice}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fare Rules Card -->
+                    <div style="background: #f8f9fa; border-left: 4px solid #6c757d; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <div style="background: #6c757d; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
+                                💼
+                            </div>
+                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Fare Rules</h4>
+                        </div>
+                        <div style="padding-left: 47px;">
+                            ${fareRules.map(rule => {
+                                const isPositive = rule.includes('✅');
+                                return `
+                                <div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;">
+                                    <span style="font-size: 16px; margin-right: 8px;">${isPositive ? '✅' : '❌'}</span>
+                                    <span style="color: ${isPositive ? '#28a745' : '#dc3545'}; font-weight: 500; font-size: 13px;">${rule.replace(/✅|❌/g, '').trim()}</span>
+                                </div>
+                                `;
+                            }).join('')}
+                        </div>
+                    </div>
+                    
+                    ${baggageInfoHTML ? `
+                    <!-- Baggage Info Card -->
+                    <div style="background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
+                            <div style="background: #0ea5e9; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
+                                🎒
+                            </div>
+                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Baggage Information</h4>
+                        </div>
+                        <div style="padding-left: 47px;">
+                            ${baggageInfoHTML}
+                        </div>
+                    </div>
+                    ` : ''}
+                    
+                    <!-- Warning Box -->
+                    <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); padding: 10px 12px; border-radius: 8px; border: 2px solid #f39c12; margin-top: 10px;">
+                        <div style="display: flex; align-items: center;">
+                            <span style="font-size: 20px; margin-right: 10px;">⚠️</span>
+                            <p style="margin: 0; color: #856404; font-weight: 600; font-size: 13px;">
+                                Please review all details before confirming your booking.
+                            </p>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            `,
+            icon: null,
+            showCancelButton: true,
+            confirmButtonText: '<span style="font-weight: 600; font-size: 14px;">Confirm, proceed to traveller details</span>',
+            cancelButtonText: '<span style="font-weight: 600; font-size: 16px;">✕ Cancel</span>',
+            confirmButtonColor: '#F57C00',
+            cancelButtonColor: '#6c757d',
+            width: '600px',
+            padding: '20px',
+            customClass: {
+                popup: 'booking-confirmation-popup',
+                title: 'swal-title-custom',
+                confirmButton: 'swal-confirm-button-custom',
+                cancelButton: 'swal-cancel-button-custom'
+            },
+            buttonsStyling: true,
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // User ne confirm kiya, ab actual booking action perform karo
+                $(".full-page-spinner").show();
+                $(_this).attr("disabled", true);
+                $(_this).find("span.book_now_text").html("&nbsp;<i class='fas fa-spinner fa-spin' style='font-size:20px;'></i>");
 
-        if (fs_code) {
-            $.ajax({
-                url: "includes/ajax",
-                type: "POST",
-                data: {
-                    "fs_code": fs_code
-                },
-                success: function(response) {
+                if (fs_code) {
+                    $.ajax({
+                        url: "includes/ajax",
+                        type: "POST",
+                        data: {
+                            "fs_code": fs_code,
+                            // Persist summary/banner values from flights page into session
+                            "banner_airline": airlineName || '',
+                            "banner_dep": departureInfo || '',
+                            "banner_arr": arrivalInfo || '',
+                            "banner_refundable": isRefundable ? 1 : 0,
+                            "banner_date_change": isDateChangeAllowed ? 1 : 0,
+                            // Persist baggage values (dep/ret)
+                            "dep_checked": checkedBaggageValue || '',
+                            "dep_cabin": cabinBaggageValue || '',
+                            "ret_checked": returnCheckedBaggageValue || '',
+                            "ret_cabin": returnCabinBaggageValue || ''
+                        },
+                        success: function(response) {
+                            $(_this).attr("disabled", false);
+                            $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+
+                            deleteUserDataCookie("infantData");
+                            deleteUserDataCookie("contactDetailsData");
+                            deleteUserDataCookie("childData");
+                            deleteUserDataCookie("adultsData");
+                            deleteUserDataCookie("step_traveller_details_added");
+
+                            window.location.href = "fligtsRulesRevalidation";
+                        },
+                        error: function() {
+                            $(_this).attr("disabled", false);
+                            $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+                            $(".full-page-spinner").hide();
+                            Swal.fire({
+                                title: "Error",
+                                text: "An error occurred while processing your booking. Please try again.",
+                                icon: "error",
+                                confirmButtonText: "Close",
+                                confirmButtonColor: "#f57c00",
+                            });
+                        }
+                    });
+                } else {
                     $(_this).attr("disabled", false);
                     $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
+                    $(".full-page-spinner").hide();
+                    Swal.fire({
+                        title: "Fare Source Code not found",
+                        text: "Fare Source Code is required to proceed further.",
+                        icon: "error",
+                        confirmButtonText: "Close",
+                        confirmButtonColor: "#f57c00",
+                    });
+                }
+            } else {
+                // User ne cancel kiya - kuch nahi karna, bas dialog close ho jayega
+            }
+        });
+    }
 
-                    deleteUserDataCookie("infantData");
-                    deleteUserDataCookie("contactDetailsData");
-                    deleteUserDataCookie("childData");
-                    deleteUserDataCookie("adultsData");
-                    deleteUserDataCookie("step_traveller_details_added");
+    // ============================================
+    // FARE SELECTION MODAL - DYNAMIC POPULATION
+    // ============================================
+    
+    window.selectedFares = {
+        departure: null,
+        return: null
+    };
 
+    function openFareSelectionModalV2(button) {
+        try {
+            console.log('Button clicked:', button);
+            
+            // Get data from button
+            const fareOptionsStr = button.getAttribute('data-fare-options');
+            const segmentsStr = button.getAttribute('data-flight-segments');
+            
+            console.log('Raw data - Fare Options String:', fareOptionsStr);
+            console.log('Raw data - Segments String:', segmentsStr);
+            
+            if (!fareOptionsStr || fareOptionsStr === 'null' || fareOptionsStr === '[]') {
+                console.error('Missing or empty fare options data');
+                alert('Error: No fare options available for this flight.');
+                return;
+            }
+            
+            if (!segmentsStr || segmentsStr === 'null' || segmentsStr === '[]') {
+                console.error('Missing or empty segments data');
+                alert('Error: Flight segment information is missing.');
+                return;
+            }
+            
+            let fareOptions, segments;
+            
+            try {
+                fareOptions = JSON.parse(fareOptionsStr);
+                segments = JSON.parse(segmentsStr);
+                // Cache for reuse (Change Fares flow)
+                window.lastFareOptions = fareOptions;
+                window.lastSegments = segments;
+                window.lastFareButton = button;
+            } catch (parseError) {
+                console.error('JSON Parse Error:', parseError);
+                console.error('Fare Options String:', fareOptionsStr);
+                console.error('Segments String:', segmentsStr);
+                alert('Error parsing flight data. Please refresh and try again.');
+                return;
+            }
+            
+            console.log('Parsed Fare Options:', fareOptions);
+            console.log('Parsed Segments:', segments);
+            
+            // Validate data
+            if (!Array.isArray(fareOptions) || fareOptions.length === 0) {
+                console.error('Invalid fare options array');
+                alert('No fare options available for this flight.');
+                return;
+            }
+            
+            if (!Array.isArray(segments) || segments.length === 0) {
+                console.error('Invalid segments array');
+                alert('Flight segment information is incomplete.');
+                return;
+            }
+            
+            // Separate departure and return fares
+            const departureFares = fareOptions;
+            
+            // Extract return fare options if available
+            const returnFares = [];
+            const returnSegments = [];
+            const airTripType = '<?php echo $airTripType; ?>';
+            
+            if (airTripType !== 'OneWay') {
+                // Try to find return leg information from fare options
+                // Each fare option should have return_fare_family if it's from a return trip
+                const returnFareMap = {};
+                
+                // Collect unique return fare families with complete information
+                fareOptions.forEach(function(fare) {
+                    if (fare.return_itinerary_ref !== null && fare.return_itinerary_ref !== undefined) {
+                        // Get return leg details from ItineraryReferenceList
+                        // ItineraryReferenceList is an array, so we need to find by ItineraryRef
+                        let returnItineraryRefData = null;
+                        if (window.itineraryRefs && Array.isArray(window.itineraryRefs)) {
+                            const found = window.itineraryRefs.find(function(ref) {
+                                return ref && (ref.ItineraryRef === fare.return_itinerary_ref || ref.ItineraryRef == fare.return_itinerary_ref);
+                            });
+                            if (found) {
+                                returnItineraryRefData = found;
+                            }
+                        }
+                        
+                        const returnFareFamilyKey = fare.return_fare_family || 'Standard';
+                        
+                        if (!returnFareMap[returnFareFamilyKey]) {
+                            returnFareMap[returnFareFamilyKey] = {
+                                fare_family: returnFareFamilyKey,
+                                fare_source_code: fare.fare_source_code, // Use departure fare source code for now
+                                return_itinerary_ref: fare.return_itinerary_ref,
+                                price: fare.price, // Per-leg price (already divided by 2 in PHP for return trips)
+                                currency: fare.currency,
+                                fare_type: fare.fare_type,
+                                checked_baggage: returnItineraryRefData ? (returnItineraryRefData.CheckinBaggage || []) : [],
+                                cabin_baggage: returnItineraryRefData ? (returnItineraryRefData.CabinBaggage || []) : []
+                            };
+                        }
+                    }
+                });
+                
+                // Convert map to array
+                Object.keys(returnFareMap).forEach(function(key) {
+                    returnFares.push(returnFareMap[key]);
+                });
+                
+                // Find return segments from fare options that have return leg info
+                if (fareOptions.length > 0) {
+                    // Try to get return leg info from the first fare option
+                    const firstFare = fareOptions[0];
+                    if (firstFare.return_leg_info && Array.isArray(firstFare.return_leg_info)) {
+                        firstFare.return_leg_info.forEach(function(legInfo) {
+                            if (legInfo.SegmentRef !== null && window.flightSegments && window.flightSegments[legInfo.SegmentRef]) {
+                                returnSegments.push(window.flightSegments[legInfo.SegmentRef]);
+                            }
+                        });
+                    }
+                }
+            }
+            
+            // Reset selections BEFORE populating
+            window.selectedFares = { departure: null, return: null };
+            
+            // Build modal content
+            populateDepartureFares(departureFares, segments);
+            
+            // Populate return section if return trip
+            if (airTripType !== 'OneWay' && returnSegments.length > 0 && returnFares.length > 0) {
+                populateReturnFares(returnFares, returnSegments);
+            } else if (airTripType !== 'OneWay') {
+                // Initialize return section with placeholder
+                if ($('#ret-route').text().trim() === '' || $('#ret-route').text().trim() === 'Select return flight') {
+                    $('#ret-route').text('Select return flight');
+                    $('#ret-date-wrapper').hide();
+                    $('#ret-airline').text('No return flight selected');
+                    $('#ret-time').text('Select return flight from results');
+                    $('#ret-duration').text('');
+                }
+            }
+            
+            // Initialize total price display
+            updateTotalPrice();
+            
+            // Show modal
+            $('#fareSelectionModal').modal('show');
+            
+            // Trigger change events for any pre-selected radio buttons (if any)
+            setTimeout(function() {
+                $('input[name="departureFare"]:checked').trigger('change');
+                $('input[name="returnFare"]:checked').trigger('change');
+            }, 100);
+            
+        } catch (error) {
+            console.error('Error opening fare selection modal:', error);
+            console.error('Error stack:', error.stack);
+            alert('Error loading fare options: ' + error.message + '\n\nPlease refresh and try again.');
+        }
+    }
+    
+    function populateDepartureFares(fares, segments) {
+        try {
+            let html = '';
+            
+            // Update flight info with safe property access
+            if (segments && Array.isArray(segments) && segments.length > 0) {
+                const firstSeg = segments[0];
+                
+                if (firstSeg && typeof firstSeg === 'object') {
+                    const depAirport = firstSeg.DepartureAirportLocationCode || firstSeg.departureAirportLocationCode || 'N/A';
+                    const arrAirport = firstSeg.ArrivalAirportLocationCode || firstSeg.arrivalAirportLocationCode || 'N/A';
+                    const airlineCode = firstSeg.MarketingCarriercode || firstSeg.marketingCarriercode || '';
+                    const flightNum = firstSeg.MarketingFlightNumber || firstSeg.marketingFlightNumber || '';
+                    const depDateTime = firstSeg.DepartureDateTime || firstSeg.departureDateTime || '';
+                    const arrDateTime = firstSeg.ArrivalDateTime || firstSeg.arrivalDateTime || '';
+                    const journeyDuration = firstSeg.JourneyDuration || firstSeg.journeyDuration || 0;
+                    
+                    $('#dep-route').text(depAirport + ' → ' + arrAirport);
+                    $('#dep-airline').text(airlineCode + flightNum);
+                    
+                    // Format times and date
+                    let depDateText = '';
+                    if (depDateTime) {
+                        try {
+                            const depTime = new Date(depDateTime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true});
+                            const arrTime = new Date(arrDateTime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true});
+                            $('#dep-time').text(depTime + ' → ' + arrTime);
+                            
+                            depDateText = new Date(depDateTime).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'});
+                            if (depDateText) {
+                                $('#dep-date-wrapper').text(' (' + depDateText + ')').show();
+                            } else {
+                                $('#dep-date-wrapper').hide();
+                            }
+                        } catch (dateError) {
+                            console.error('Date parsing error:', dateError);
+                            $('#dep-time').text('Time not available');
+                            $('#dep-date-wrapper').hide();
+                            depDateText = '';
+                        }
+                    } else {
+                        $('#dep-time').text('Time not available');
+                        $('#dep-date-wrapper').hide();
+                        depDateText = '';
+                    }
+                    
+                    if (journeyDuration && journeyDuration > 0) {
+                        const hours = Math.floor(journeyDuration / 60);
+                        const minutes = journeyDuration % 60;
+                        $('#dep-duration').text(hours + 'h ' + (minutes > 0 ? minutes + 'm' : ''));
+                    } else {
+                        // DST-safe: sum segment JourneyDuration instead of browser date-diff
+                        try {
+                            const totalMins = (segments || []).reduce(function(total, seg) {
+                                const jd = seg && (seg.JourneyDuration || seg.journeyDuration || 0);
+                                return total + (Number.isFinite(jd) ? jd : 0);
+                            }, 0);
+                            if (totalMins > 0) {
+                                const hours = Math.floor(totalMins / 60);
+                                const minutes = totalMins % 60;
+                                $('#dep-duration').text(hours + 'h ' + (minutes > 0 ? minutes + 'm' : ''));
+                            } else {
+                                $('#dep-duration').text('Duration not available');
+                            }
+                        } catch (e) {
+                            $('#dep-duration').text('Duration not available');
+                        }
+                    }
+                } else {
+                    console.error('Invalid segment structure:', firstSeg);
+                    $('#dep-route').text('N/A → N/A');
+                    $('#dep-airline').text('N/A');
+                    $('#dep-time').text('N/A');
+                    $('#dep-duration').text('N/A');
+                    $('#dep-date-wrapper').hide();
+                }
+            } else {
+                console.error('No valid segments found');
+                $('#dep-route').text('N/A → N/A');
+                $('#dep-airline').text('N/A');
+                $('#dep-time').text('N/A');
+                $('#dep-duration').text('N/A');
+                $('#dep-date-wrapper').hide();
+            }
+        
+        // Build fare options DOM safely (no template literals)
+        const $depContainer = $('#departure-fares');
+        $depContainer.empty();
+        
+        // Get passenger counts
+        const adultCount = <?php echo $adultCount; ?>;
+        const childCount = <?php echo $childCount; ?>;
+        const infantCount = <?php echo $infantCount; ?>;
+        const totalPassengers = adultCount + childCount + infantCount;
+        
+        fares.forEach(function(fare){
+            const baggageInfo = (fare.checked_baggage && fare.checked_baggage[0]) ? fare.checked_baggage[0].Value : 'No baggage';
+            const cabinBaggageInfo = (fare.cabin_baggage && fare.cabin_baggage[0]) ? fare.cabin_baggage[0].Value : 'No cabin baggage';
+            const isRefundable = (fare.is_refundable === true || fare.is_refundable === 'true' || fare.is_refundable === 1);
+            const refundText = isRefundable ? '✅ Refundable' : '❌ Non-refundable';
+            const refundPenalty = (isRefundable && fare.refund_penalty_amount && fare.refund_penalty_amount !== '') ? ' (Penalty: ' + fare.refund_penalty_amount + ')' : '';
+            
+            console.log('Computed:', {isRefundable, refundText, refundPenalty});
+            
+            // Calculate total price for all passengers
+            const perPassengerPrice = parseFloat(fare.price || 0);
+            const totalPrice = perPassengerPrice * totalPassengers;
 
-
-                    window.location.href = "fligtsRulesRevalidation";
-                    // $(".full-page-spinner").hide();
-                },
+            const $card = $('<div>').addClass('fare-option-card').css({
+                border: '2px solid #e0e0e0',
+                borderRadius: '8px',
+                padding: '15px',
+                marginBottom: '15px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
             });
-        } else {
-            $(_this).attr("disabled", false);
-            $(_this).find("span.book_now_text").html("&nbsp; BOOK NOW");
-            $(".full-page-spinner").hide();
-            Swal.fire({
-                title: "Fare Source Code not found",
-                text: "Fare Source Code is required to proceed further.",
-                icon: "error",
-                confirmButtonText: "Close",
-                confirmButtonColor: "#f57c00",
+            
+            const $label = $('<label>').css({ display: 'flex', alignItems: 'flex-start', cursor: 'pointer', margin: 0 });
+            const $input = $('<input>').attr({ type: 'radio', name: 'departureFare', value: fare.fare_source_code })
+                .css({ marginRight: '15px', transform: 'scale(1.3)', marginTop: '3px' })
+                .data('checked-baggage', baggageInfo)
+                .data('cabin-baggage', cabinBaggageInfo)
+                .on('change', function(e){ 
+                    console.log('Departure fare radio changed:', fare);
+                    handleFareSelection('departure', perPassengerPrice, fare.fare_source_code || '', fare.fare_family || 'Standard', e.target); 
+                });
+            
+            // Make entire card clickable to select the radio
+            $card.on('click', function(e) {
+                if (e.target.type !== 'radio') {
+                    $input.prop('checked', true).trigger('change');
+                }
+            });
+            
+            const $right = $('<div>').css({ flex: 1 });
+            
+            // Header row with fare name and price
+            const $headerRow = $('<div>').css({ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center',
+                marginBottom: '10px'
+            });
+            const $name = $('<strong>').text(fare.fare_family || 'Standard').css({ 
+                fontSize: '18px', 
+                color: '#007bff',
+                fontWeight: '600'
+            });
+            const $priceContainer = $('<div>').css({ textAlign: 'right' });
+            const $price = $('<div>').text('$' + totalPrice.toFixed(2)).css({ 
+                fontSize: '24px', 
+                color: '#28a745',
+                fontWeight: 'bold',
+                lineHeight: '1.2'
+            });
+            const $priceLabel = $('<div>').text('Total for ' + totalPassengers + ' passenger(s)').css({
+                fontSize: '11px',
+                color: '#999',
+                marginTop: '2px'
+            });
+            $priceContainer.append($price).append($priceLabel);
+            $headerRow.append($name).append($priceContainer);
+            
+            // Per passenger price detail
+            const $perPassengerRow = $('<div>').css({
+                fontSize: '13px',
+                color: '#666',
+                marginBottom: '8px',
+                paddingBottom: '8px',
+                borderBottom: '1px solid #f0f0f0'
+            }).text('$' + perPassengerPrice.toFixed(2) + ' per passenger');
+            
+            // Baggage details
+            const $baggageRow = $('<div>').css({
+                fontSize: '14px',
+                color: '#555',
+                marginBottom: '5px',
+                display: 'flex',
+                alignItems: 'center'
+            });
+            const $baggageIcon = $('<span>').text('🎒').css({ marginRight: '8px', fontSize: '16px' });
+            const $baggageText = $('<span>').html('<strong>Checked:</strong> ' + baggageInfo + ' | <strong>Cabin:</strong> ' + cabinBaggageInfo);
+            $baggageRow.append($baggageIcon).append($baggageText);
+            
+            // Refundability row
+            const $refundRow = $('<div>').css({
+                fontSize: '14px',
+                color: isRefundable ? '#28a745' : '#dc3545',
+                marginBottom: '5px',
+                fontWeight: '500'
+            }).html(refundText + refundPenalty + ' • ' + (fare.fare_type || 'Public Fare'));
+            
+            // Seats remaining (if available)
+            if (fare.seats_remaining && fare.seats_remaining > 0 && fare.seats_remaining < 10) {
+                const $seatsRow = $('<div>').css({
+                    fontSize: '12px',
+                    color: '#ff9800',
+                    marginTop: '8px',
+                    fontWeight: '500'
+                }).text('⚠️ Only ' + fare.seats_remaining + ' seat(s) remaining');
+                $right.append($headerRow).append($perPassengerRow).append($baggageRow).append($refundRow).append($seatsRow);
+            } else {
+                $right.append($headerRow).append($perPassengerRow).append($baggageRow).append($refundRow);
+            }
+            
+            $label.append($input).append($right);
+            $card.append($label);
+            $depContainer.append($card);
+        });
+        
+        } catch (error) {
+            console.error('Error in populateDepartureFares:', error);
+            console.error('Error stack:', error.stack);
+            alert('Error displaying fare options: ' + error.message);
+        }
+    }
+    
+    function populateReturnFares(fares, segments) {
+        try {
+            // Update return flight info with safe property access
+            if (segments && Array.isArray(segments) && segments.length > 0) {
+                const firstSeg = segments[0];
+                
+                if (firstSeg && typeof firstSeg === 'object') {
+                    const depAirport = firstSeg.DepartureAirportLocationCode || firstSeg.departureAirportLocationCode || 'N/A';
+                    const arrAirport = firstSeg.ArrivalAirportLocationCode || firstSeg.arrivalAirportLocationCode || 'N/A';
+                    const airlineCode = firstSeg.MarketingCarriercode || firstSeg.marketingCarriercode || '';
+                    const flightNum = firstSeg.MarketingFlightNumber || firstSeg.marketingFlightNumber || '';
+                    const depDateTime = firstSeg.DepartureDateTime || firstSeg.departureDateTime || '';
+                    const arrDateTime = firstSeg.ArrivalDateTime || firstSeg.arrivalDateTime || '';
+                    const journeyDuration = firstSeg.JourneyDuration || firstSeg.journeyDuration || 0;
+                    
+                    $('#ret-route').text(depAirport + ' → ' + arrAirport);
+                    $('#ret-airline').text(airlineCode + flightNum);
+                    
+                    // Format times and date
+                    if (depDateTime) {
+                        try {
+                            const depTime = new Date(depDateTime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true});
+                            const arrTime = new Date(arrDateTime).toLocaleTimeString('en-US', {hour: '2-digit', minute: '2-digit', hour12: true});
+                            $('#ret-time').text(depTime + ' → ' + arrTime);
+                            
+                            const retDateText = new Date(depDateTime).toLocaleDateString('en-US', {month: 'short', day: 'numeric', year: 'numeric'});
+                            if (retDateText) {
+                                $('#ret-date-wrapper').text(' (' + retDateText + ')').show();
+                            } else {
+                                $('#ret-date-wrapper').hide();
+                            }
+                        } catch (dateError) {
+                            console.error('Date parsing error:', dateError);
+                            $('#ret-time').text('Time not available');
+                            $('#ret-date-wrapper').hide();
+                        }
+                    } else {
+                        $('#ret-time').text('Time not available');
+                        $('#ret-date-wrapper').hide();
+                    }
+                    
+                    if (journeyDuration && journeyDuration > 0) {
+                        const hours = Math.floor(journeyDuration / 60);
+                        const minutes = journeyDuration % 60;
+                        $('#ret-duration').text(hours + 'h ' + (minutes > 0 ? minutes + 'm' : ''));
+                    } else {
+                        // DST-safe: sum segment JourneyDuration instead of browser date-diff
+                        try {
+                            const totalMins = (segments || []).reduce(function(total, seg) {
+                                const jd = seg && (seg.JourneyDuration || seg.journeyDuration || 0);
+                                return total + (Number.isFinite(jd) ? jd : 0);
+                            }, 0);
+                            if (totalMins > 0) {
+                                const hours = Math.floor(totalMins / 60);
+                                const minutes = totalMins % 60;
+                                $('#ret-duration').text(hours + 'h ' + (minutes > 0 ? minutes + 'm' : ''));
+                            } else {
+                                $('#ret-duration').text('Duration not available');
+                            }
+                        } catch (e) {
+                            $('#ret-duration').text('Duration not available');
+                        }
+                    }
+                } else {
+                    console.error('Invalid return segment structure:', firstSeg);
+                    $('#ret-route').text('N/A → N/A');
+                    $('#ret-airline').text('N/A');
+                    $('#ret-time').text('N/A');
+                    $('#ret-duration').text('N/A');
+                    $('#ret-date-wrapper').hide();
+                }
+            } else {
+                console.error('No valid return segments found');
+                $('#ret-route').text('N/A → N/A');
+                $('#ret-airline').text('N/A');
+                $('#ret-time').text('N/A');
+                $('#ret-duration').text('N/A');
+                $('#ret-date-wrapper').hide();
+            }
+        
+        // Build fare options DOM for return section
+        const $retContainer = $('#return-fares');
+        $retContainer.empty();
+        
+        if (!fares || fares.length === 0) {
+            const $placeholder = $('<div>').css({
+                padding: '20px',
+                textAlign: 'center',
+                color: '#666',
+                fontSize: '14px',
+                border: '2px dashed #e0e0e0',
+                borderRadius: '8px'
+            }).text('No return fare options available for this flight.');
+            $retContainer.append($placeholder);
+            return;
+        }
+        
+        // Get passenger counts
+        const adultCount = <?php echo $adultCount; ?>;
+        const childCount = <?php echo $childCount; ?>;
+        const infantCount = <?php echo $infantCount; ?>;
+        const totalPassengers = adultCount + childCount + infantCount;
+        
+        fares.forEach(function(fare){
+            const baggageInfo = (fare.checked_baggage && fare.checked_baggage[0]) ? fare.checked_baggage[0].Value : 'No baggage';
+            const cabinBaggageInfo = (fare.cabin_baggage && fare.cabin_baggage[0]) ? fare.cabin_baggage[0].Value : 'No cabin baggage';
+            const isRefundable = (fare.is_refundable === true || fare.is_refundable === 'true' || fare.is_refundable === 1);
+            const refundText = isRefundable ? '✅ Refundable' : '❌ Non-refundable';
+            const refundPenalty = (isRefundable && fare.refund_penalty_amount && fare.refund_penalty_amount !== '') ? ' (Penalty: ' + fare.refund_penalty_amount + ')' : '';
+            
+            console.log('Computed:', {isRefundable, refundText, refundPenalty});
+            
+            // Calculate total price for all passengers
+            const perPassengerPrice = parseFloat(fare.price || 0);
+            const totalPrice = perPassengerPrice * totalPassengers;
+
+            const $card = $('<div>').addClass('fare-option-card').css({
+                border: '2px solid #e0e0e0',
+                borderRadius: '8px',
+                padding: '15px',
+                marginBottom: '15px',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease'
+            });
+            
+            const $label = $('<label>').css({ display: 'flex', alignItems: 'flex-start', cursor: 'pointer', margin: 0 });
+            const $input = $('<input>').attr({ type: 'radio', name: 'returnFare', value: fare.fare_source_code || '' })
+                .css({ marginRight: '15px', transform: 'scale(1.3)', marginTop: '3px' })
+                .data('checked-baggage', baggageInfo)
+                .data('cabin-baggage', cabinBaggageInfo)
+                .on('change', function(e){ 
+                    console.log('Return fare radio changed:', fare);
+                    handleFareSelection('return', perPassengerPrice, fare.fare_source_code || '', fare.fare_family || 'Standard', e.target); 
+                });
+            
+            // Make entire card clickable to select the radio
+            $card.on('click', function(e) {
+                if (e.target.type !== 'radio') {
+                    $input.prop('checked', true).trigger('change');
+                }
+            });
+            
+            const $right = $('<div>').css({ flex: 1 });
+            
+            // Header row with fare name and price
+            const $headerRow = $('<div>').css({ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center',
+                marginBottom: '10px'
+            });
+            const $name = $('<strong>').text(fare.fare_family || 'Standard').css({ 
+                fontSize: '18px', 
+                color: '#007bff',
+                fontWeight: '600'
+            });
+            const $priceContainer = $('<div>').css({ textAlign: 'right' });
+            const $price = $('<div>').text('$' + totalPrice.toFixed(2)).css({ 
+                fontSize: '24px', 
+                color: '#28a745',
+                fontWeight: 'bold',
+                lineHeight: '1.2'
+            });
+            const $priceLabel = $('<div>').text('Total for ' + totalPassengers + ' passenger(s)').css({
+                fontSize: '11px',
+                color: '#999',
+                marginTop: '2px'
+            });
+            $priceContainer.append($price).append($priceLabel);
+            $headerRow.append($name).append($priceContainer);
+            
+            // Per passenger price detail
+            const $perPassengerRow = $('<div>').css({
+                fontSize: '13px',
+                color: '#666',
+                marginBottom: '8px',
+                paddingBottom: '8px',
+                borderBottom: '1px solid #f0f0f0'
+            }).text('$' + perPassengerPrice.toFixed(2) + ' per passenger');
+            
+            // Baggage details
+            const $baggageRow = $('<div>').css({
+                fontSize: '14px',
+                color: '#555',
+                marginBottom: '5px',
+                display: 'flex',
+                alignItems: 'center'
+            });
+            const $baggageIcon = $('<span>').text('🎒').css({ marginRight: '8px', fontSize: '16px' });
+            const $baggageText = $('<span>').html('<strong>Checked:</strong> ' + baggageInfo + ' | <strong>Cabin:</strong> ' + cabinBaggageInfo);
+            $baggageRow.append($baggageIcon).append($baggageText);
+            
+            // Refundability row
+            const $refundRow = $('<div>').css({
+                fontSize: '14px',
+                color: isRefundable ? '#28a745' : '#dc3545',
+                marginBottom: '5px',
+                fontWeight: '500'
+            }).html(refundText + refundPenalty + ' • ' + (fare.fare_type || 'Public Fare'));
+            
+            // Seats remaining (if available)
+            if (fare.seats_remaining && fare.seats_remaining > 0 && fare.seats_remaining < 10) {
+                const $seatsRow = $('<div>').css({
+                    fontSize: '12px',
+                    color: '#ff9800',
+                    marginTop: '8px',
+                    fontWeight: '500'
+                }).text('⚠️ Only ' + fare.seats_remaining + ' seat(s) remaining');
+                $right.append($headerRow).append($perPassengerRow).append($baggageRow).append($refundRow).append($seatsRow);
+            } else {
+                $right.append($headerRow).append($perPassengerRow).append($baggageRow).append($refundRow);
+            }
+            
+            $label.append($input).append($right);
+            $card.append($label);
+            $retContainer.append($card);
+        });
+        
+        // Show return section
+        $('.return-section').show();
+        
+        } catch (error) {
+            console.error('Error in populateReturnFares:', error);
+            console.error('Error stack:', error.stack);
+            alert('Error displaying return fare options: ' + error.message);
+        }
+    }
+    
+    function handleFareSelection(leg, price, fareSourceCode, fareFamily, targetElement) {
+        console.log('handleFareSelection called:', { leg, price, fareSourceCode, fareFamily, priceType: typeof price });
+        
+        // Ensure price is a valid number
+        const parsedPrice = parseFloat(price);
+        if (isNaN(parsedPrice) || parsedPrice <= 0) {
+            console.error('Invalid price provided:', price);
+            alert('Error: Invalid fare price. Please try selecting again.');
+            return;
+        }
+        
+        // Read baggage values from radio element (attached when building the card)
+        var $radioEl = $(targetElement);
+        var selectedCheckedBaggage = $radioEl.data('checked-baggage') || '';
+        var selectedCabinBaggage = $radioEl.data('cabin-baggage') || '';
+
+        window.selectedFares[leg] = {
+            price: parsedPrice,
+            fareSourceCode: fareSourceCode,
+            fareFamily: fareFamily,
+            checkedBaggage: selectedCheckedBaggage,
+            cabinBaggage: selectedCabinBaggage
+        };
+        
+        console.log('selectedFares after update:', window.selectedFares);
+        console.log('Departure fare:', window.selectedFares.departure);
+        console.log('Return fare:', window.selectedFares.return);
+        
+        updateTotalPrice();
+        
+        // Enable continue button if selections are valid
+        const airTripType = '<?php echo $airTripType; ?>';
+        const canContinue = selectedFares.departure !== null && 
+                           (airTripType === 'OneWay' || selectedFares.return !== null);
+        
+        $('#continue-to-booking-btn').prop('disabled', !canContinue);
+        
+        // Highlight selected card
+        if (targetElement) {
+            $(targetElement).closest('.fare-option-card').css({
+                'border-color': '#007bff',
+                'background-color': '#f0f8ff'
+            }).siblings().css({
+                'border-color': '#e0e0e0',
+                'background-color': 'white'
             });
         }
     }
+    
+    // Make updateTotalPrice globally accessible
+    window.updateTotalPrice = function updateTotalPrice() {
+        console.log('updateTotalPrice called');
+        console.log('window.selectedFares:', window.selectedFares);
+        
+        let total = 0;
+        if (window.selectedFares && window.selectedFares.departure && window.selectedFares.departure.price) {
+            const depPrice = parseFloat(window.selectedFares.departure.price) || 0;
+            console.log('Departure price:', depPrice);
+            total += depPrice;
+        }
+        if (window.selectedFares && window.selectedFares.return && window.selectedFares.return.price) {
+            const retPrice = parseFloat(window.selectedFares.return.price) || 0;
+            console.log('Return price:', retPrice);
+            total += retPrice;
+        }
+        
+        console.log('Calculated total:', total);
+        
+        $('#total-price-display').text('$' + total.toFixed(2));
+        console.log('Total price display updated to:', '$' + total.toFixed(2));
+        
+        // Update subtitle with helpful message
+        const airTripType = '<?php echo $airTripType; ?>';
+        let subtitle = '';
+        
+        if (airTripType === 'OneWay') {
+            if (window.selectedFares && window.selectedFares.departure) {
+                subtitle = window.selectedFares.departure.fareFamily;
+                $('#selected-fares-text').text('(' + subtitle + ')');
+            } else {
+                $('#selected-fares-text').text('(Select fare for departure)');
+            }
+        } else {
+            // Return trip
+            if (window.selectedFares && window.selectedFares.departure) {
+                subtitle += window.selectedFares.departure.fareFamily;
+            }
+            if (window.selectedFares && window.selectedFares.return) {
+                if (subtitle) subtitle += ' + ';
+                subtitle += window.selectedFares.return.fareFamily;
+            }
+            
+            if (subtitle) {
+                $('#selected-fares-text').text('(' + subtitle + ')');
+            } else if (window.selectedFares && window.selectedFares.departure) {
+                $('#selected-fares-text').text('(Departure: ' + window.selectedFares.departure.fareFamily + ' | Select return fare)');
+            } else {
+                $('#selected-fares-text').text('(Select fares for both legs)');
+            }
+        }
+    }
+    
+    // Continue to booking function
+    $(document).on('click', '#continue-to-booking-btn', function() {
+        if (window.selectedFares.departure) {
+            // Store selected fare source code in session via AJAX
+            $.ajax({
+                url: 'includes/ajax.php',
+                type: 'POST',
+                data: {
+                    fs_code: window.selectedFares.departure.fareSourceCode,
+                    dep_checked: (window.selectedFares.departure && window.selectedFares.departure.checkedBaggage) ? window.selectedFares.departure.checkedBaggage : '',
+                    dep_cabin: (window.selectedFares.departure && window.selectedFares.departure.cabinBaggage) ? window.selectedFares.departure.cabinBaggage : '',
+                    ret_checked: (window.selectedFares.return && window.selectedFares.return.checkedBaggage) ? window.selectedFares.return.checkedBaggage : '',
+                    ret_cabin: (window.selectedFares.return && window.selectedFares.return.cabinBaggage) ? window.selectedFares.return.cabinBaggage : ''
+                },
+                success: function(response) {
+                    // Redirect to revalidation page
+                    window.location.href = 'fligtsRulesRevalidation';
+                },
+                error: function() {
+                    alert('Error saving selection. Please try again.');
+                }
+            });
+        }
+    });
 </script>
 <!-- ============ To remove cickable behaviour of radio buttons for airtrip type selection on top ==== -->
 <style>
     /* input[type="radio"]:not(:checked) + label {
         pointer-events: none;
     } */
+    
+    /* SweetAlert Booking Confirmation Dialog Custom Styles */
+    .booking-confirmation-popup {
+        border-radius: 15px !important;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.2) !important;
+    }
+    
+    .swal-title-custom {
+        padding: 0 !important;
+        margin-bottom: 0 !important;
+    }
+    
+    .swal-confirm-button-custom {
+        padding: 12px 20px !important;
+        border-radius: 8px !important;
+        font-size: 14px !important;
+        font-weight: 600 !important;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3) !important;
+        transition: all 0.3s ease !important;
+        white-space: normal !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+        line-height: 1.4 !important;
+    }
+    
+    .swal-confirm-button-custom:hover {
+        transform: translateY(-2px) !important;
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4) !important;
+    }
+    
+    .swal-cancel-button-custom {
+        padding: 12px 30px !important;
+        border-radius: 8px !important;
+        font-size: 16px !important;
+        font-weight: 600 !important;
+        transition: all 0.3s ease !important;
+    }
+    
+    .swal-cancel-button-custom:hover {
+        transform: translateY(-2px) !important;
+        background-color: #5a6268 !important;
+    }
+    
+    .swal2-popup {
+        padding: 0 !important;
+        margin-top: 60px !important;
+        overflow-x: hidden !important;
+        max-width: 600px !important;
+    }
+    
+    .swal2-html-container {
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow-x: hidden !important;
+        word-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+    
+    .booking-confirmation-popup * {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
 </style>
 
 <div class="full-page-spinner" style="display: none;">

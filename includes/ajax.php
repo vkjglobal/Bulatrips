@@ -7,6 +7,32 @@ if( isset($_POST['fs_code']) && $_POST['fs_code'] != '' ) {
     unset($_SESSION['Revalidateresponse']); 
     $_SESSION['fs_code_active'] = $_POST['fs_code'];
 
+    // Store selected baggage values from flights page (to use as fallback on revalidation/payment)
+    $depChecked = isset($_POST['dep_checked']) ? trim($_POST['dep_checked']) : '';
+    $depCabin   = isset($_POST['dep_cabin']) ? trim($_POST['dep_cabin']) : '';
+    $retChecked = isset($_POST['ret_checked']) ? trim($_POST['ret_checked']) : '';
+    $retCabin   = isset($_POST['ret_cabin']) ? trim($_POST['ret_cabin']) : '';
+    $_SESSION['selected_baggage'] = array(
+        'dep_checked' => $depChecked,
+        'dep_cabin'   => $depCabin,
+        'ret_checked' => $retChecked,
+        'ret_cabin'   => $retCabin,
+    );
+
+    // Store top banner/summary values from flights page
+    $bannerAirline = isset($_POST['banner_airline']) ? trim($_POST['banner_airline']) : '';
+    $bannerDep     = isset($_POST['banner_dep']) ? trim($_POST['banner_dep']) : '';
+    $bannerArr     = isset($_POST['banner_arr']) ? trim($_POST['banner_arr']) : '';
+    $bannerRefund  = isset($_POST['banner_refundable']) ? (int)$_POST['banner_refundable'] : null;
+    $bannerChange  = isset($_POST['banner_date_change']) ? (int)$_POST['banner_date_change'] : null;
+    $_SESSION['selected_banner'] = array(
+        'airline'       => $bannerAirline,
+        'dep'           => $bannerDep,
+        'arr'           => $bannerArr,
+        'is_refundable' => $bannerRefund,
+        'is_date_change_allowed' => $bannerChange,
+    );
+
     $fsCode = $_SESSION['fs_code_active'];
     // $apiEndpoint = 'https://restapidemo.myfarebox.com/api/v1/Revalidate/Flight';
     // $bearerToken = '18AEA8F0-5B21-41ED-9993-DD7A8123B0D2-1560';

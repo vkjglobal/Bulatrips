@@ -110,6 +110,340 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
             </section>
             <!-- BREADCRUMB STARTS HERE -->
 
+            <!-- PAYMENT PAGE BANNER - Add after breadcrumb -->
+            <section style="margin-bottom: 15px;">
+                <div class="container">
+                    <div class="alert alert-warning mb-3" role="alert" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 20px; border-radius: 5px; margin-top: 10px;">
+                        <?php 
+                        // Extract complete flight details from Revalidation API response
+                        $bannerAirline = 'N/A';
+                        $bannerDeparture = 'N/A';
+                        $bannerArrival = 'N/A';
+                        $bannerRefundable = 'No';
+                        $bannerDateChange = 'Not Allowed';
+                        $bannerBaggage = 'Cabin bag only';
+                        
+                        if (isset($_SESSION['Revalidateresponse']) && !empty($_SESSION['Revalidateresponse'])) {
+                            $responseData = $_SESSION['Revalidateresponse'];
+                            $pricedItineraries = isset($responseData['Data']['PricedItineraries']) ? $responseData['Data']['PricedItineraries'] : [];
+                            
+                            if (!empty($pricedItineraries)) {
+                                $pricedItinerary = $pricedItineraries[0];
+                                
+                                // Get Airline
+                                $airlineCode = isset($pricedItinerary['ValidatingAirlineCode']) ? $pricedItinerary['ValidatingAirlineCode'] : '';
+                                $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
+                                $code = '%' . $airlineCode . '%';
+                                $stmtairline->bindParam(':code', $code);
+                                $stmtairline->execute();
+                                $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
+                                $bannerAirline = $airlineLocation ? $airlineLocation['name'] : $airlineCode;
+                                
+                                // Get Departure and Arrival
+                                $originDestinations = isset($pricedItinerary['OriginDestinationOptions']) ? $pricedItinerary['OriginDestinationOptions'] : [];
+                                if (!empty($originDestinations)) {
+                                    $departureFlight = $originDestinations[0];
+                                    $departureSegments = isset($departureFlight['FlightSegments']) ? $departureFlight['FlightSegments'] : [];
+                                    
+                                    if (!empty($departureSegments)) {
+                                        $firstSegment = $departureSegments[0];
+                                        $lastSegment = $departureSegments[count($departureSegments) - 1];
+                                        $bannerDeparture = isset($firstSegment['DepartureAirportLocationCode']) ? $firstSegment['DepartureAirportLocationCode'] : 'N/A';
+                                        $bannerArrival = isset($lastSegment['ArrivalAirportLocationCode']) ? $lastSegment['ArrivalAirportLocationCode'] : 'N/A';
+                                    }
+                                }
+                                
+                                // Get Refundable and Date Change status from PenaltiesInfo (Revalidation API structure)
+                                if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'])) {
+                                    $penaltiesInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'];
+                                    
+                                    // Loop through penalties to find "Cancel" and "Exchange" types
+                                    foreach ($penaltiesInfo as $penalty) {
+                                        if (isset($penalty['PenaltyType']) && isset($penalty['Allowed'])) {
+                                            $allowedValue = $penalty['Allowed'];
+                                            $isAllowed = ($allowedValue === true || $allowedValue === 1 || $allowedValue === '1');
+                                            
+                                            if ($penalty['PenaltyType'] === 'Cancel') {
+                                                $bannerRefundable = $isAllowed ? '✅ Yes' : '❌ No';
+                                            } elseif ($penalty['PenaltyType'] === 'Exchange') {
+                                                $bannerDateChange = $isAllowed ? '✅ Allowed' : '❌ Not Allowed';
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                // Override banner values from flights page session if present
+                                if (isset($_SESSION['selected_banner']) && is_array($_SESSION['selected_banner'])) {
+                                    $sb = $_SESSION['selected_banner'];
+                                    if (!empty($sb['airline'])) {
+                                        $bannerAirline = $sb['airline'];
+                                    }
+                                    if (!empty($sb['dep'])) {
+                                        $bannerDeparture = $sb['dep'];
+                                    }
+                                    if (!empty($sb['arr'])) {
+                                        $bannerArrival = $sb['arr'];
+                                    }
+                                    if (isset($sb['is_refundable'])) {
+                                        $bannerRefundable = ($sb['is_refundable'] == 1) ? '✅ Yes' : '❌ No';
+                                    }
+                                    if (isset($sb['is_date_change_allowed'])) {
+                                        $bannerDateChange = ($sb['is_date_change_allowed'] == 1) ? '✅ Allowed' : '❌ Not Allowed';
+                                    }
+                                }
+                                
+                                // Get Baggage status from BaggageInfo (Revalidation API structure - direct array)
+                                // Separate Departure and Return baggage
+                                $zeroCheckedBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A'];
+                                $zeroCabinBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A'];
+                                
+                                // Departure Baggage
+                                $depCheckedBagValue = '';
+                                $depCabinBagValue = '';
+                                $hasDepCheckedBaggage = false;
+                                $hasDepCabinBaggage = false;
+                                
+                                // Return Baggage
+                                $retCheckedBagValue = '';
+                                $retCabinBagValue = '';
+                                $hasRetCheckedBaggage = false;
+                                $hasRetCabinBaggage = false;
+                                $isReturnTrip = false;
+                                
+                                if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'])) {
+                                    $baggageInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'];
+                                    
+                                    // Debug: See what's in the array
+                                    echo "<!-- BaggageInfo Array: " . print_r($baggageInfo, true) . " -->\n";
+                                    
+                                    if (!empty($baggageInfo) && is_array($baggageInfo)) {
+                                        // Count total segments to determine departure vs return
+                                        $totalSegments = count($baggageInfo);
+                                        
+                                        // Check if there are return flights
+                                        $hasReturnFlights = false;
+                                        if (!empty($originDestinations) && count($originDestinations) > 1) {
+                                            $hasReturnFlights = true;
+                                        }
+                                        
+                                        if ($hasReturnFlights && !empty($originDestinations[0]['FlightSegments'])) {
+                                            // Count departure segments
+                                            $depSegmentCount = count($originDestinations[0]['FlightSegments']);
+                                            
+                                            // First segment is departure
+                                            if (isset($baggageInfo[0])) {
+                                                $depCheckedBagValue = trim($baggageInfo[0]);
+                                                $value = strtoupper($depCheckedBagValue);
+                                                if (!in_array($value, $zeroCheckedBaggageValues, true)) {
+                                                    $hasDepCheckedBaggage = true;
+                                                    // Convert SB to Standard Baggage for better display
+                                                    if ($value == 'SB') {
+                                                        $depCheckedBagValue = 'Standard Baggage';
+                                                    }
+                                                }
+                                            }
+                                            
+                                            // Segments starting from depSegmentCount are return segments
+                                            if (isset($baggageInfo[$depSegmentCount])) {
+                                                $isReturnTrip = true;
+                                                $retCheckedBagValue = trim($baggageInfo[$depSegmentCount]);
+                                                $value = strtoupper($retCheckedBagValue);
+                                                if (!in_array($value, $zeroCheckedBaggageValues, true)) {
+                                                    $hasRetCheckedBaggage = true;
+														// Prefer numeric allowance when API returns 'SB'
+														if ($value == 'SB') {
+															$retCheckedBagValue = 'Standard Baggage';
+															// Try to derive an explicit allowance (e.g. 20KG/1PC) from other return segments
+															$totalBaggageItems = is_array($baggageInfo) ? count($baggageInfo) : 0;
+															for ($i = $depSegmentCount; $i < $totalBaggageItems; $i++) {
+																$candidateRaw = isset($baggageInfo[$i]) ? (string)$baggageInfo[$i] : '';
+																$candidate = strtoupper(trim($candidateRaw));
+																if ($candidate === 'SB') { // still generic
+																	continue;
+																}
+																// pick the first non-zero, explicit allowance
+																if (!in_array($candidate, $zeroCheckedBaggageValues, true) && preg_match('/\d+\s*(KG|PC)/', $candidate)) {
+																	$retCheckedBagValue = $candidateRaw;
+																	break;
+																}
+															}
+															// If still generic SB, prefer value from flights page (session)
+															if ($retCheckedBagValue === 'Standard Baggage' && isset($_SESSION['selected_baggage']['ret_checked']) && $_SESSION['selected_baggage']['ret_checked'] !== '') {
+																$sessionCandidateRaw = (string)$_SESSION['selected_baggage']['ret_checked'];
+																$sessionCandidate = strtoupper(trim($sessionCandidateRaw));
+																if (!in_array($sessionCandidate, $zeroCheckedBaggageValues, true)) {
+																	$retCheckedBagValue = $sessionCandidateRaw;
+																}
+															}
+														}
+                                                }
+                                            }
+                                        } else {
+                                            // One-way trip - just get first value
+                                            if (isset($baggageInfo[0])) {
+                                                $depCheckedBagValue = trim($baggageInfo[0]);
+                                                $value = strtoupper($depCheckedBagValue);
+                                                if (!in_array($value, $zeroCheckedBaggageValues, true)) {
+                                                    $hasDepCheckedBaggage = true;
+                                                    // Convert SB to Standard Baggage for better display
+                                                    if ($value == 'SB') {
+                                                        $depCheckedBagValue = 'Standard Baggage';
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'])) {
+                                    $cabinBaggageInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'];
+                                    
+                                    // Debug: See what's in the array
+                                    echo "<!-- CabinBaggageInfo Array: " . print_r($cabinBaggageInfo, true) . " -->\n";
+                                    echo "<!-- DepSegmentCount: " . (isset($depSegmentCount) ? $depSegmentCount : 'NOT SET') . " -->\n";
+                                    
+                                    if (!empty($cabinBaggageInfo) && is_array($cabinBaggageInfo)) {
+                                        // Check if there are return flights
+                                        $hasReturnFlights = false;
+                                        if (!empty($originDestinations) && count($originDestinations) > 1) {
+                                            $hasReturnFlights = true;
+                                        }
+                                        
+                                        if ($hasReturnFlights && !empty($originDestinations[0]['FlightSegments'])) {
+                                            // Count departure segments
+                                            $depSegmentCount = count($originDestinations[0]['FlightSegments']);
+                                            
+                                            // First segment is departure
+                                            if (isset($cabinBaggageInfo[0])) {
+                                                $value = strtoupper(trim($cabinBaggageInfo[0]));
+                                                $hasDepCabinBaggage = true;
+                                                $depCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[0];
+                                            }
+                                            
+                                            // Segments starting from depSegmentCount are return segments
+                                            if (isset($cabinBaggageInfo[$depSegmentCount])) {
+                                                $isReturnTrip = true;
+                                                $value = strtoupper(trim($cabinBaggageInfo[$depSegmentCount]));
+                                                $hasRetCabinBaggage = true;
+                                                $retCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[$depSegmentCount];
+                                            }
+                                        } else {
+                                            // One-way trip - just get first value
+                                            if (isset($cabinBaggageInfo[0])) {
+                                                $value = strtoupper(trim($cabinBaggageInfo[0]));
+                                                $hasDepCabinBaggage = true;
+                                                $depCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[0];
+                                            }
+                                        }
+                                    }
+                                }
+                                
+                                // Debug: Show extracted values
+                                echo "<!-- Extracted Values:\n";
+                                echo "Departure Checked: [{$depCheckedBagValue}]\n";
+                                echo "Departure Cabin: [{$depCabinBagValue}]\n";
+                                echo "Return Checked: [{$retCheckedBagValue}]\n";
+                                echo "Return Cabin: [{$retCabinBagValue}]\n";
+                                echo "IsReturnTrip: " . ($isReturnTrip ? 'YES' : 'NO') . "\n";
+                                echo "-->\n";
+								
+								// Always prefer baggage values coming from flights page (session) if available
+								if (isset($_SESSION['selected_baggage']) && is_array($_SESSION['selected_baggage'])) {
+									$sessionBaggage = $_SESSION['selected_baggage'];
+									
+									// Departure Checked
+									if (!empty($sessionBaggage['dep_checked'])) {
+										$sessionVal = trim((string)$sessionBaggage['dep_checked']);
+										$depCheckedBagValue = $sessionVal;
+										$hasDepCheckedBaggage = !in_array(strtoupper($sessionVal), $zeroCheckedBaggageValues, true);
+									}
+									// Departure Cabin
+									if (!empty($sessionBaggage['dep_cabin'])) {
+										$sessionVal = trim((string)$sessionBaggage['dep_cabin']);
+										$depCabinBagValue = (strtoupper($sessionVal) == 'SB') ? 'Standard Baggage' : $sessionVal;
+										$hasDepCabinBaggage = !in_array(strtoupper($sessionVal), $zeroCabinBaggageValues, true);
+									}
+									// Return Checked
+									if (!empty($sessionBaggage['ret_checked'])) {
+										$sessionVal = trim((string)$sessionBaggage['ret_checked']);
+										$retCheckedBagValue = $sessionVal;
+										$hasRetCheckedBaggage = !in_array(strtoupper($sessionVal), $zeroCheckedBaggageValues, true);
+										$isReturnTrip = true;
+									}
+									// Return Cabin
+									if (!empty($sessionBaggage['ret_cabin'])) {
+										$sessionVal = trim((string)$sessionBaggage['ret_cabin']);
+										$retCabinBagValue = (strtoupper($sessionVal) == 'SB') ? 'Standard Baggage' : $sessionVal;
+										$hasRetCabinBaggage = !in_array(strtoupper($sessionVal), $zeroCabinBaggageValues, true);
+										$isReturnTrip = true;
+									}
+								}
+                                
+                                // Format Departure Baggage Display
+                                $depBaggageDisplay = $depCheckedBagValue ? $depCheckedBagValue : ($hasDepCheckedBaggage ? 'Included' : 'No Checked Baggage');
+                                $depCabinDisplay = $depCabinBagValue ? $depCabinBagValue : ($hasDepCabinBaggage ? 'Included' : 'No Cabin');
+                                
+                                // Format Return Baggage Display
+                                $retBaggageDisplay = '';
+                                $retCabinDisplay = '';
+                                if ($isReturnTrip) {
+                                    $retBaggageDisplay = $retCheckedBagValue ? $retCheckedBagValue : ($hasRetCheckedBaggage ? 'Included' : 'No Checked Baggage');
+                                    $retCabinDisplay = $retCabinBagValue ? $retCabinBagValue : ($hasRetCabinBaggage ? 'Included' : 'No Cabin');
+                                }
+                                
+                                // For backward compatibility
+                                $bannerBaggage = $depCheckedBagValue ? ('✅ ' . $depCheckedBagValue) : '❌ No Checked Baggage';
+                                $bannerCabin = $depCabinBagValue ? ('🎒 ' . $depCabinBagValue) : '❌ No Cabin Baggage';
+                            }
+                        }
+                        ?>
+                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; font-size: 13px;">
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Airline:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($bannerAirline); ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Route:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($bannerDeparture) . ' → ' . htmlspecialchars($bannerArrival); ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Refundable:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo $bannerRefundable; ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Date Change:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo $bannerDateChange; ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">✈️ Departure</span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Checked:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($depBaggageDisplay); ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Cabin:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($depCabinDisplay); ?></span>
+                            </div>
+                            <?php if ($isReturnTrip): ?>
+                            <div></div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">🔄 Return</span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Checked:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($retBaggageDisplay); ?></span>
+                            </div>
+                            <div>
+                                <span style="color: #856404; font-weight: 600;">Cabin:</span>
+                                <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($retCabinDisplay); ?></span>
+                            </div>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
             <div class="container">
                 <div class="form-row">
                     <div class="col-md-8">
@@ -585,73 +919,87 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                                             </button>
                                         </div>
                                         <div class="modal-body">
-                                            <ul class="fs-13">
-                                                <li class="text-left p-1 bdr-b">
-                                                    <?php
-                                                    $originData = $originDestinations[0]['FlightSegments'][0]['DepartureAirportLocationCode'];
-                                                    $segmentCount = count($originDestinations[0]['FlightSegments']);
-                                                    $segmentCount -= 1;
-                                                    $destinationData = $originDestinations[0]['FlightSegments'][$segmentCount]['ArrivalAirportLocationCode'];
+                                            <?php
+                                            // Separate departure and return flights
+                                            $departureSegments = [];
+                                            $returnSegments = [];
+                                            
+                                            foreach ($flightSegments as $index => $flightSegment) {
+                                                // Determine if segment is departure or return based on index
+                                                // Usually first flight segments are departure, later ones are return
+                                                if (!empty($originDestinations)) {
+                                                    // Count departure segments
+                                                    $depSegmentCount = count($originDestinations[0]['FlightSegments']);
+                                                    if ($index < $depSegmentCount) {
+                                                        $departureSegments[] = ['segment' => $flightSegment, 'index' => $index];
+                                                    } else {
+                                                        $returnSegments[] = ['segment' => $flightSegment, 'index' => $index];
+                                                    }
+                                                }
+                                            }
+                                            ?>
+                                            
+                                            <!-- Departure Flights -->
+                                            <div style="border-left: 3px solid #007bff; padding-left: 10px; margin-bottom: 15px;">
+                                                <h6 style="color: #007bff; font-weight: 600; margin-bottom: 10px;">✈️ Departure</h6>
+                                                <ul class="fs-13">
+                                                    <?php foreach ($departureSegments as $segData): 
+                                                        $flightSegment = $segData['segment'];
+                                                        $index = $segData['index'];
                                                     ?>
-                                                    <?php echo $originData ?> <span class="right-arrow-small arrow-000000"></span> <?php echo $destinationData ?>
-                                                </li>
-                                                <li class="">
-                                                    <?php
-                                                    foreach ($flightSegments as $index => $flightSegment) {
-                                                        $stmtlocation = $conn->prepare('SELECT * FROM airportlocations WHERE airport_code = :airport_code');
-
-                                                    ?>
-                                                        <ul class="row align-items-center pt-3 pb-3">
-                                                            <li class="col-md-1 mb-md-0 mb-2">
-                                                                <?php if ($airlineLocation['image']) { ?>
-                                                                    <img src="images/emirates-logo.png" alt="">
-                                                                <?php
-
-                                                                } else { ?>
-                                                                    <img src="images/no-image-icon-1.jpg" alt="" style="max-height: 75px;">
-                                                                <?php
-
-                                                                } ?>
-
-                                                            </li>
-                                                            <li class="col-md-2 flex-column text-left mb-md-0 mb-2">
+                                                        <li class="row align-items-center pt-2 pb-2 bdr-b">
+                                                            <div class="col-md-3 mb-md-0 mb-2">
                                                                 <strong><?php echo $airlineLocation['name'] ?></strong>
-                                                                <span class="uppercase-txt"><?php echo $flightSegment['DepartureAirportLocationCode'] ?> <span class="right-arrow-small arrow-000000"></span> <?php echo $flightSegment['ArrivalAirportLocationCode'] ?></span>
-                                                            </li>
-                                                            <li class="col-md-7">
-                                                                <?php
-                                                                // $baggageInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'];
-                                                                // foreach($baggageInfo as $baggageInformations){
-                                                                ?>
-                                                                <ul class="row bdr-b">
-                                                                    <li class="col-4">Checkin</li>
-                                                                    <!-- <li class="col-4">1 pcs/person</li> -->
-
-                                                                    <li class="col-4"><?php echo  $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'][$index] ?></li>
-
-                                                                </ul>
-                                                                <ul class="row">
-                                                                    <li class="col-4">Cabin</li>
-                                                                    <!-- <li class="col-4">1 pcs/person</li> -->
-                                                                    <li class="col-4">
-                                                                        <?php if (strtolower($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index]) == "sb") {
-                                                                            echo "Standard Baggage";
-                                                                        } else {
-                                                                            echo $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index];
-                                                                        } ?>
-                                                                </ul>
-                                                                <?php
-                                                                // }
-                                                                ?>
-                                                            </li>
-                                                        </ul>
-                                                    <?php } ?>
-
-                                                </li>
-                                            </ul>
-                                            <p class="fs-13 fw-500 text-left"><strong>Note: </strong>
-                                                <!-- The information provided above is as retrieved from the airline reservation system. Thomas Cook does not guarantee the authenticity of this information. The baggage allowance may vary according to stop-overs, connecting flights and changes in airline rules. Customer is adviced to verify the same from the airline directly before departure. -->
-                                            </p>
+                                                                <div class="uppercase-txt"><?php echo $flightSegment['DepartureAirportLocationCode'] ?> → <?php echo $flightSegment['ArrivalAirportLocationCode'] ?></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div><strong>Checked:</strong> <?php echo $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'][$index] ?></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div><strong>Cabin:</strong> 
+                                                                    <?php 
+                                                                    $cabinVal = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index];
+                                                                    echo (strtolower($cabinVal) == "sb") ? "Standard Baggage" : $cabinVal;
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                            
+                                            <!-- Return Flights -->
+                                            <?php if (!empty($returnSegments)): ?>
+                                            <div style="border-left: 3px solid #28a745; padding-left: 10px; margin-bottom: 15px;">
+                                                <h6 style="color: #28a745; font-weight: 600; margin-bottom: 10px;">🔄 Return</h6>
+                                                <ul class="fs-13">
+                                                    <?php foreach ($returnSegments as $segData): 
+                                                        $flightSegment = $segData['segment'];
+                                                        $index = $segData['index'];
+                                                    ?>
+                                                        <li class="row align-items-center pt-2 pb-2 bdr-b">
+                                                            <div class="col-md-3 mb-md-0 mb-2">
+                                                                <strong><?php echo $airlineLocation['name'] ?></strong>
+                                                                <div class="uppercase-txt"><?php echo $flightSegment['DepartureAirportLocationCode'] ?> → <?php echo $flightSegment['ArrivalAirportLocationCode'] ?></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div><strong>Checked:</strong> <?php echo $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'][$index] ?></div>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                                <div><strong>Cabin:</strong> 
+                                                                    <?php 
+                                                                    $cabinVal = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'][$index];
+                                                                    echo (strtolower($cabinVal) == "sb") ? "Standard Baggage" : $cabinVal;
+                                                                    ?>
+                                                                </div>
+                                                            </div>
+                                                        </li>
+                                                    <?php endforeach; ?>
+                                                </ul>
+                                            </div>
+                                            <?php endif; ?>
+                                            
+                                            <p class="fs-13 fw-500 text-left"><strong>Note: </strong>The information provided above is as retrieved from the airline reservation system. Bulatrips does not guarantee the authenticity of this information. The baggage allowance may vary according to stop-overs, connecting flights and changes in airline rules. Customer is advised to verify the same from the airline directly before departure.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -1153,8 +1501,294 @@ require_once("includes/footer.php");
                                                             </strong>
                                                             <br />
                                                         </li>
-                                                        <li><p style="font-size: 14px;text-align: center;padding: 12px;">Total Amount to Pay in USD (including all taxes, extras and fees)</p></li>
+                                                        <li><p style="font-size: 14px;text-align: center;padding: 12px;">Total Amount to Pay in USD (including all taxes, extras and fees)</p></li>
                                                     </ul>
+                                                </div>
+
+                                                <!-- Compact Flight Details Section -->
+                                                <div class="col-12 mt-3 mb-3">
+                                                    <?php
+                                                    // Extract flight details from session
+                                                    if (isset($_SESSION['Revalidateresponse']) && !empty($_SESSION['Revalidateresponse'])) {
+                                                        $responseData = $_SESSION['Revalidateresponse'];
+                                                        $pricedItineraries = isset($responseData['Data']['PricedItineraries']) ? $responseData['Data']['PricedItineraries'] : [];
+                                                        
+                                                        if (!empty($pricedItineraries)) {
+                                                            $pricedItinerary = $pricedItineraries[0];
+                                                            $originDestinations = isset($pricedItinerary['OriginDestinationOptions']) ? $pricedItinerary['OriginDestinationOptions'] : [];
+                                                            
+                                                            if (!empty($originDestinations)) {
+                                                                $departureFlight = $originDestinations[0];
+                                                                $departureSegments = isset($departureFlight['FlightSegments']) ? $departureFlight['FlightSegments'] : [];
+                                                                
+                                                                if (!empty($departureSegments)) {
+                                                                    $firstSegment = $departureSegments[0];
+                                                                    $lastSegment = $departureSegments[count($departureSegments) - 1];
+                                                                    
+                                                                    // Get airline info
+                                                                    $airlineCode = isset($pricedItinerary['ValidatingAirlineCode']) ? $pricedItinerary['ValidatingAirlineCode'] : '';
+                                                                    $stmtairline = $conn->prepare('SELECT * FROM airline WHERE code LIKE :code');
+                                                                    $code = '%' . $airlineCode . '%';
+                                                                    $stmtairline->bindParam(':code', $code);
+                                                                    $stmtairline->execute();
+                                                                    $airlineLocation = $stmtairline->fetch(PDO::FETCH_ASSOC);
+                                                                    $airlineName = $airlineLocation ? $airlineLocation['name'] : $airlineCode;
+                                                                    
+                                                                    // Format dates
+                                                                    $depDateTime = isset($firstSegment['DepartureDateTime']) ? $firstSegment['DepartureDateTime'] : '';
+                                                                    $arrDateTime = isset($lastSegment['ArrivalDateTime']) ? $lastSegment['ArrivalDateTime'] : '';
+                                                                    
+                                                                    $depDate = '';
+                                                                    $arrDate = '';
+                                                                    if ($depDateTime) {
+                                                                        list($depDate, $depTime) = explode("T", $depDateTime);
+                                                                    }
+                                                                    if ($arrDateTime) {
+                                                                        list($arrDate, $arrTime) = explode("T", $arrDateTime);
+                                                                    }
+                                                                    
+                                                                    $depAirport = isset($firstSegment['DepartureAirportLocationCode']) ? $firstSegment['DepartureAirportLocationCode'] : '';
+                                                                    $arrAirport = isset($lastSegment['ArrivalAirportLocationCode']) ? $lastSegment['ArrivalAirportLocationCode'] : '';
+                                                                    
+                                                                    // Get Fare Rules (Refundable & Date Change) - Revalidation API structure
+                                                                    $isRefundable = false;
+                                                                    $isDateChangeAllowed = false;
+                                                                    if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'])) {
+                                                                        $penaltiesInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['PenaltiesInfo'];
+                                                                        
+                                                                        // Loop through penalties and check by PenaltyType
+                                                                        foreach ($penaltiesInfo as $penalty) {
+                                                                            if (isset($penalty['PenaltyType']) && isset($penalty['Allowed'])) {
+                                                                                $allowedValue = $penalty['Allowed'];
+                                                                                $isAllowed = ($allowedValue === true || $allowedValue === 1 || $allowedValue === '1');
+                                                                                
+                                                                                if ($penalty['PenaltyType'] === 'Cancel') {
+                                                                                    $isRefundable = $isAllowed;
+                                                                                } elseif ($penalty['PenaltyType'] === 'Exchange') {
+                                                                                    $isDateChangeAllowed = $isAllowed;
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    // Get Baggage Information (Revalidation API - direct array structure)
+                                                                    // Separate Departure and Return baggage
+                                                                    $zeroCheckedBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A'];
+                                                                    $zeroCabinBaggageValues = ['', '0', '0PC', '0KG', 'NO', 'NIL', 'NA', 'N/A'];
+                                                                    
+                                                                    // Departure Baggage
+                                                                    $popupDepCheckedBagValue = '';
+                                                                    $popupDepCabinBagValue = '';
+                                                                    
+                                                                    // Return Baggage
+                                                                    $popupRetCheckedBagValue = '';
+                                                                    $popupRetCabinBagValue = '';
+                                                                    $popupIsReturnTrip = false;
+                                                                    
+                                                                    if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'])) {
+                                                                        $baggageInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['BaggageInfo'];
+                                                                        
+                                                                        if (!empty($baggageInfo) && is_array($baggageInfo)) {
+                                                                            // Check if there are return flights
+                                                                            $hasReturnFlights = false;
+                                                                            if (!empty($originDestinations) && count($originDestinations) > 1) {
+                                                                                $hasReturnFlights = true;
+                                                                            }
+                                                                            
+                                                                            if ($hasReturnFlights && !empty($departureSegments)) {
+                                                                                // Count departure segments
+                                                                                $depSegmentCount = count($departureSegments);
+                                                                                
+                                                                                // First segment is departure
+                                                                                if (isset($baggageInfo[0])) {
+                                                                                    $popupDepCheckedBagValue = trim($baggageInfo[0]);
+                                                                                    // Convert SB to Standard Baggage for better display
+                                                                                    $value = strtoupper($popupDepCheckedBagValue);
+                                                                                    if ($value == 'SB') {
+                                                                                        $popupDepCheckedBagValue = 'Standard Baggage';
+                                                                                    }
+                                                                                }
+                                                                                
+                                                                                // Segments starting from depSegmentCount are return segments
+                                                                                if (isset($baggageInfo[$depSegmentCount])) {
+                                                                                    $popupIsReturnTrip = true;
+                                                                                    $popupRetCheckedBagValue = trim($baggageInfo[$depSegmentCount]);
+                                                                                    // Convert SB to Standard Baggage for better display
+                                                                                    $value = strtoupper($popupRetCheckedBagValue);
+																					if ($value == 'SB') {
+																						$popupRetCheckedBagValue = 'Standard Baggage';
+																						// Try to derive an explicit allowance from other return segments
+																						$totalBaggageItems = is_array($baggageInfo) ? count($baggageInfo) : 0;
+																						for ($i = $depSegmentCount; $i < $totalBaggageItems; $i++) {
+																							$candidateRaw = isset($baggageInfo[$i]) ? (string)$baggageInfo[$i] : '';
+																							$candidate = strtoupper(trim($candidateRaw));
+																							if ($candidate === 'SB') { continue; }
+																							if (!in_array($candidate, $zeroCheckedBaggageValues, true) && preg_match('/\d+\s*(KG|PC)/', $candidate)) {
+																								$popupRetCheckedBagValue = $candidateRaw;
+																								break;
+																							}
+																						}
+                                                                                        // If still generic SB, prefer value from flights page (session)
+                                                                                        if ($popupRetCheckedBagValue === 'Standard Baggage' && isset($_SESSION['selected_baggage']['ret_checked']) && $_SESSION['selected_baggage']['ret_checked'] !== '') {
+                                                                                            $sessionCandidateRaw = (string)$_SESSION['selected_baggage']['ret_checked'];
+                                                                                            $sessionCandidate = strtoupper(trim($sessionCandidateRaw));
+                                                                                            if (!in_array($sessionCandidate, $zeroCheckedBaggageValues, true)) {
+                                                                                                $popupRetCheckedBagValue = $sessionCandidateRaw;
+                                                                                            }
+                                                                                        }
+																					}
+                                                                                }
+                                                                            } else {
+                                                                                // One-way trip - just get first value
+                                                                                if (isset($baggageInfo[0])) {
+                                                                                    $popupDepCheckedBagValue = trim($baggageInfo[0]);
+                                                                                    // Convert SB to Standard Baggage for better display
+                                                                                    $value = strtoupper($popupDepCheckedBagValue);
+                                                                                    if ($value == 'SB') {
+                                                                                        $popupDepCheckedBagValue = 'Standard Baggage';
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+																	
+																	// Always prefer baggage values coming from flights page (session) for popup, if available
+																	if (isset($_SESSION['selected_baggage']) && is_array($_SESSION['selected_baggage'])) {
+																		$sessionBaggage = $_SESSION['selected_baggage'];
+																		if (!empty($sessionBaggage['dep_checked'])) {
+																			$popupDepCheckedBagValue = trim((string)$sessionBaggage['dep_checked']);
+																		}
+																		if (!empty($sessionBaggage['dep_cabin'])) {
+																			$sessionVal = trim((string)$sessionBaggage['dep_cabin']);
+																			$popupDepCabinBagValue = (strtoupper($sessionVal) == 'SB') ? 'Standard Baggage' : $sessionVal;
+																		}
+																		if (!empty($sessionBaggage['ret_checked'])) {
+																			$popupIsReturnTrip = true;
+																			$popupRetCheckedBagValue = trim((string)$sessionBaggage['ret_checked']);
+																		}
+																		if (!empty($sessionBaggage['ret_cabin'])) {
+																			$popupIsReturnTrip = true;
+																			$sessionVal = trim((string)$sessionBaggage['ret_cabin']);
+																			$popupRetCabinBagValue = (strtoupper($sessionVal) == 'SB') ? 'Standard Baggage' : $sessionVal;
+																		}
+																	}
+                                                                    
+                                                                    if (isset($pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'])) {
+                                                                        $cabinBaggageInfo = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0]['CabinBaggageInfo'];
+                                                                        
+                                                                        if (!empty($cabinBaggageInfo) && is_array($cabinBaggageInfo)) {
+                                                                            // Check if there are return flights
+                                                                            $hasReturnFlights = false;
+                                                                            if (!empty($originDestinations) && count($originDestinations) > 1) {
+                                                                                $hasReturnFlights = true;
+                                                                            }
+                                                                            
+                                                                            if ($hasReturnFlights && !empty($departureSegments)) {
+                                                                                // Count departure segments
+                                                                                $depSegmentCount = count($departureSegments);
+                                                                                
+                                                                                // First segment is departure
+                                                                                if (isset($cabinBaggageInfo[0])) {
+                                                                                    $value = strtoupper(trim($cabinBaggageInfo[0]));
+                                                                                    $popupDepCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[0];
+                                                                                }
+                                                                                
+                                                                                // Segments starting from depSegmentCount are return segments
+                                                                                if (isset($cabinBaggageInfo[$depSegmentCount])) {
+                                                                                    $popupIsReturnTrip = true;
+                                                                                    $value = strtoupper(trim($cabinBaggageInfo[$depSegmentCount]));
+                                                                                    $popupRetCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[$depSegmentCount];
+                                                                                }
+                                                                            } else {
+                                                                                // One-way trip - just get first value
+                                                                                if (isset($cabinBaggageInfo[0])) {
+                                                                                    $value = strtoupper(trim($cabinBaggageInfo[0]));
+                                                                                    $popupDepCabinBagValue = ($value == 'SB') ? 'Standard Baggage' : $cabinBaggageInfo[0];
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                    }
+                                                                    
+                                                                    // Total Price
+                                                                    $totalPrice = isset($_SESSION['session_total_amount']) ? $_SESSION['session_total_amount'] : 0;
+                                                                    ?>
+                                                                    <div style="background: #f8f9fa; padding: 10px; border-radius: 6px; font-size: 12px;">
+                                                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+                                                                            <?php
+                                                                            // Override with session banner values if available
+                                                                            if (isset($_SESSION['selected_banner']) && is_array($_SESSION['selected_banner'])) {
+                                                                                $sb = $_SESSION['selected_banner'];
+                                                                                if (!empty($sb['airline'])) { $airlineName = $sb['airline']; }
+                                                                                if (!empty($sb['dep'])) { $depAirport = $sb['dep']; }
+                                                                                if (!empty($sb['arr'])) { $arrAirport = $sb['arr']; }
+                                                                                if (isset($sb['is_refundable'])) { $isRefundable = ($sb['is_refundable'] == 1); }
+                                                                                if (isset($sb['is_date_change_allowed'])) { $isDateChangeAllowed = ($sb['is_date_change_allowed'] == 1); }
+                                                                            }
+                                                                            ?>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 70px;">Airline:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 600;"><?php echo htmlspecialchars($airlineName); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 70px;">Departure:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 600;"><?php echo htmlspecialchars($depAirport); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 70px;">Arrival:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 600;"><?php echo htmlspecialchars($arrAirport); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 70px;">Refundable:</span>
+                                                                                <span style="color: <?php echo $isRefundable ? '#28a745' : '#dc3545'; ?>; font-weight: 500;"><?php echo $isRefundable ? '✅ Yes' : '❌ No'; ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 70px;">Date Change:</span>
+                                                                                <span style="color: <?php echo $isDateChangeAllowed ? '#28a745' : '#dc3545'; ?>; font-weight: 500;"><?php echo $isDateChangeAllowed ? '✅ Allowed' : '❌ Not Allowed'; ?></span>
+                                                                            </div>
+                                                                            
+                                                                            <!-- Baggage rows without headings; keep two-column layout -->
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 140px;">Checked Arrival:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 500;"><?php echo htmlspecialchars(($popupIsReturnTrip && $popupRetCheckedBagValue) ? $popupRetCheckedBagValue : 'Not Available'); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 140px;">Checked Departure:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 500;"><?php echo htmlspecialchars($popupDepCheckedBagValue ? $popupDepCheckedBagValue : 'Not Available'); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 140px;">Cabin Arrival:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 500;"><?php echo htmlspecialchars(($popupIsReturnTrip && $popupRetCabinBagValue) ? $popupRetCabinBagValue : 'Not Available'); ?></span>
+                                                                            </div>
+                                                                            <div style="display: flex;">
+                                                                                <span style="color: #6c757d; min-width: 140px;">Cabin Departure:</span>
+                                                                                <span style="color: #2c3e50; font-weight: 500;"><?php echo htmlspecialchars($popupDepCabinBagValue ? $popupDepCabinBagValue : 'Not Available'); ?></span>
+                                                                            </div>
+                                                                            
+                                                                            <!-- Extra Services - Dynamically added by JavaScript -->
+                                                                            <div id="extra-baggage-departure-row" style="display: none;">
+                                                                                <span style="color: #6c757d; min-width: 110px;">Extra Baggage Departure:</span>
+                                                                                <span id="extra-baggage-departure-value" style="color: #2c3e50; font-weight: 600;"></span>
+                                                                            </div>
+                                                                            <div id="extra-baggage-arrival-row" style="display: none;">
+                                                                                <span style="color: #6c757d; min-width: 110px;">Extra Baggage Arrival:</span>
+                                                                                <span id="extra-baggage-arrival-value" style="color: #2c3e50; font-weight: 600;"></span>
+                                                                            </div>
+                                                                            <div id="extra-meal-departure-row" style="display: none;">
+                                                                                <span style="color: #6c757d; min-width: 110px;">Extra Meal Departure:</span>
+                                                                                <span id="extra-meal-departure-value" style="color: #2c3e50; font-weight: 600;"></span>
+                                                                            </div>
+                                                                            <div id="extra-meal-arrival-row" style="display: none;">
+                                                                                <span style="color: #6c757d; min-width: 110px;">Extra Meal Arrival:</span>
+                                                                                <span id="extra-meal-arrival-value" style="color: #2c3e50; font-weight: 600;"></span>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <?php
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                    ?>
                                                 </div>
                                             
                                                 <!-- <div class="col-12">
@@ -1343,6 +1977,289 @@ require_once("includes/footer.php");
                 });
             }
         }
+    });
+    
+    // Function to collect and display selected extra services in confirmation popup
+    function updateExtraServicesInPopup() {
+        console.log('updateExtraServicesInPopup called');
+        var selectedServices = [];
+        var extraSrviceData = [];
+        
+        try {
+            var extraSrviceDataElement = document.getElementById("extraSrviceData");
+            if (extraSrviceDataElement && extraSrviceDataElement.value) {
+                extraSrviceData = JSON.parse(extraSrviceDataElement.value);
+                console.log('Extra service data:', extraSrviceData);
+            } else {
+                console.log('extraSrviceData element not found or empty');
+            }
+        } catch(e) {
+            console.log("Error parsing extra service data:", e);
+        }
+        
+        // Collect all selected baggage and meal services
+        var baggageSelectors = $('select[id^="baggageService"], select[name^="baggageService"]');
+        var mealSelectors = $('select[id^="mealService"], select[name^="mealService"]');
+        console.log('Found baggage selectors:', baggageSelectors.length);
+        console.log('Found meal selectors:', mealSelectors.length);
+        
+        // Process baggage services
+        baggageSelectors.each(function() {
+            var selectedValue = $(this).val();
+            var elementId = $(this).attr('id') || $(this).attr('name');
+            
+            // Extract passenger number - handle baggageService1, baggageServiceReturn1, baggageServiceChild1, etc.
+            var passengerNum = elementId.replace('baggageService', '').replace('Return', '').replace('Child', '').replace('Infant', '');
+            var isChild = elementId.toLowerCase().includes('child');
+            var isInfant = elementId.toLowerCase().includes('infant');
+            
+            console.log('Checking selector:', elementId, 'Value:', selectedValue, 'PassengerNum:', passengerNum);
+            
+            if (selectedValue && selectedValue !== 'null' && selectedValue !== 'none' && selectedValue !== '' && selectedValue !== 'Select..') {
+                // Get passenger name from form
+                var passengerName = '';
+                
+                // Try different field name patterns based on passenger type
+                var firstNameInput, lastNameInput;
+                
+                if (isChild) {
+                    firstNameInput = $('input[name="childFirstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="childLastName' + passengerNum + '"]');
+                } else if (isInfant) {
+                    firstNameInput = $('input[name="infantFirstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="infantLastName' + passengerNum + '"]');
+                } else {
+                    // Adult passenger
+                    firstNameInput = $('input[name="firstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="lastName' + passengerNum + '"]');
+                }
+                
+                // If not found, try alternative patterns
+                if (firstNameInput.length === 0) {
+                    firstNameInput = $('input[name="fname' + passengerNum + '"]');
+                }
+                if (lastNameInput.length === 0) {
+                    lastNameInput = $('input[name="lname' + passengerNum + '"]');
+                }
+                
+                if (firstNameInput.length > 0 && lastNameInput.length > 0) {
+                    var firstName = firstNameInput.val() || '';
+                    var lastName = lastNameInput.val() || '';
+                    passengerName = (firstName + ' ' + lastName).trim();
+                }
+                
+                console.log('Passenger ' + passengerNum + ' name inputs found:', firstNameInput.length, lastNameInput.length);
+                console.log('Passenger ' + passengerNum + ' name:', passengerName);
+                
+                // Extract ExtraServiceId from value format "14/81KG /218.02"
+                var serviceId = selectedValue.split('/')[0].trim();
+                console.log('Extracted service ID:', serviceId, 'Type:', typeof serviceId);
+                
+                // Try both string and number comparison
+                var serviceDetail = extraSrviceData.find(function(service) {
+                    console.log('Comparing service.ExtraServiceId:', service.ExtraServiceId, 'with serviceId:', serviceId);
+                    return service.ExtraServiceId == serviceId || service.ExtraServiceId === parseInt(serviceId);
+                });
+                
+                console.log('Service detail found:', serviceDetail);
+                
+                if (serviceDetail) {
+                    var serviceType = serviceDetail.Behavior && serviceDetail.Behavior.includes('INBOUND') ? 'Return' : 'Departure';
+                    var serviceName = serviceDetail.Type + ': ' + serviceDetail.Description;
+                    
+                    selectedServices.push({
+                        type: serviceType,
+                        name: serviceName,
+                        passengerNum: passengerNum,
+                        passengerName: passengerName
+                    });
+                } else {
+                    // If no match found, use the description from the value itself
+                    var parts = selectedValue.split('/');
+                    if (parts.length >= 2) {
+                        var description = parts[1].trim();
+                        var isReturn = elementId.toLowerCase().includes('return');
+                        selectedServices.push({
+                            type: isReturn ? 'Return' : 'Departure',
+                            name: description,
+                            passengerNum: passengerNum,
+                            passengerName: passengerName
+                        });
+                        console.log('Added service using fallback method');
+                    }
+                }
+            }
+        });
+        
+        // Process meal services
+        mealSelectors.each(function() {
+            var selectedValue = $(this).val();
+            var elementId = $(this).attr('id') || $(this).attr('name');
+            
+            // Extract passenger number - handle mealService1, mealServiceReturn1, mealServiceChild1, etc.
+            var passengerNum = elementId.replace('mealService', '').replace('Return', '').replace('Child', '').replace('Infant', '');
+            var isChild = elementId.toLowerCase().includes('child');
+            var isInfant = elementId.toLowerCase().includes('infant');
+            
+            console.log('Checking meal selector:', elementId, 'Value:', selectedValue, 'PassengerNum:', passengerNum);
+            
+            if (selectedValue && selectedValue !== 'null' && selectedValue !== 'none' && selectedValue !== '' && selectedValue !== 'Select..') {
+                // Get passenger name from form
+                var passengerName = '';
+                
+                // Try different field name patterns based on passenger type
+                var firstNameInput, lastNameInput;
+                
+                if (isChild) {
+                    firstNameInput = $('input[name="childFirstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="childLastName' + passengerNum + '"]');
+                } else if (isInfant) {
+                    firstNameInput = $('input[name="infantFirstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="infantLastName' + passengerNum + '"]');
+                } else {
+                    // Adult passenger
+                    firstNameInput = $('input[name="firstName' + passengerNum + '"]');
+                    lastNameInput = $('input[name="lastName' + passengerNum + '"]');
+                }
+                
+                // If not found, try alternative patterns
+                if (firstNameInput.length === 0) {
+                    firstNameInput = $('input[name="fname' + passengerNum + '"]');
+                }
+                if (lastNameInput.length === 0) {
+                    lastNameInput = $('input[name="lname' + passengerNum + '"]');
+                }
+                
+                if (firstNameInput.length > 0 && lastNameInput.length > 0) {
+                    var firstName = firstNameInput.val() || '';
+                    var lastName = lastNameInput.val() || '';
+                    passengerName = (firstName + ' ' + lastName).trim();
+                }
+                
+                // Extract ExtraServiceId from value format "14/Vegetarian /15.00"
+                var serviceId = selectedValue.split('/')[0].trim();
+                
+                // Try both string and number comparison
+                var serviceDetail = extraSrviceData.find(function(service) {
+                    return service.ExtraServiceId == serviceId || service.ExtraServiceId === parseInt(serviceId);
+                });
+                
+                if (serviceDetail) {
+                    var serviceType = serviceDetail.Behavior && serviceDetail.Behavior.includes('INBOUND') ? 'Return' : 'Departure';
+                    var serviceName = serviceDetail.Type + ': ' + serviceDetail.Description;
+                    
+                    selectedServices.push({
+                        type: serviceType,
+                        name: serviceName,
+                        passengerNum: passengerNum,
+                        passengerName: passengerName
+                    });
+                } else {
+                    // If no match found, use the description from the value itself
+                    var parts = selectedValue.split('/');
+                    if (parts.length >= 2) {
+                        var description = parts[1].trim();
+                        var isReturn = elementId.toLowerCase().includes('return');
+                        selectedServices.push({
+                            type: isReturn ? 'Return' : 'Departure',
+                            name: description,
+                            passengerNum: passengerNum,
+                            passengerName: passengerName
+                        });
+                    }
+                }
+            }
+        });
+        
+        console.log('Selected services:', selectedServices);
+        
+        // Display selected services in simplified format
+        if (selectedServices.length > 0) {
+            // Group by type
+            var grouped = {
+                departureBaggage: [],
+                departureMeal: [],
+                arrivalBaggage: [],
+                arrivalMeal: []
+            };
+            
+            selectedServices.forEach(function(service) {
+                var isBaggage = service.name.toUpperCase().includes('BAGGAGE') || service.name.toUpperCase().includes('KG');
+                var isMeal = service.name.toUpperCase().includes('MEAL');
+                var isDeparture = service.type === 'Departure';
+                
+                var description = service.name.replace(/BAGGAGE:/gi, '').replace(/MEAL:/gi, '').trim();
+                
+                // Create passenger info string - show only name if available, else show "Passenger X"
+                var passengerInfo = service.passengerName ? service.passengerName : 'Passenger ' + service.passengerNum;
+                
+                var displayText = description + ' (' + passengerInfo + ')';
+                
+                if (isDeparture) {
+                    if (isBaggage) {
+                        grouped.departureBaggage.push(displayText);
+                    } else if (isMeal) {
+                        grouped.departureMeal.push(displayText);
+                    }
+                } else {
+                    if (isBaggage) {
+                        grouped.arrivalBaggage.push(displayText);
+                    } else if (isMeal) {
+                        grouped.arrivalMeal.push(displayText);
+                    }
+                }
+            });
+            
+            // Update individual rows in the grid
+            if (grouped.departureBaggage.length > 0) {
+                $('#extra-baggage-departure-value').text(grouped.departureBaggage.join(', '));
+                $('#extra-baggage-departure-row').show();
+            } else {
+                $('#extra-baggage-departure-row').hide();
+            }
+            
+            if (grouped.arrivalBaggage.length > 0) {
+                $('#extra-baggage-arrival-value').text(grouped.arrivalBaggage.join(', '));
+                $('#extra-baggage-arrival-row').show();
+            } else {
+                $('#extra-baggage-arrival-row').hide();
+            }
+            
+            if (grouped.departureMeal.length > 0) {
+                $('#extra-meal-departure-value').text(grouped.departureMeal.join(', '));
+                $('#extra-meal-departure-row').show();
+            } else {
+                $('#extra-meal-departure-row').hide();
+            }
+            
+            if (grouped.arrivalMeal.length > 0) {
+                $('#extra-meal-arrival-value').text(grouped.arrivalMeal.join(', '));
+                $('#extra-meal-arrival-row').show();
+            } else {
+                $('#extra-meal-arrival-row').hide();
+            }
+        } else {
+            // Hide all extra service rows if no services selected
+            $('#extra-baggage-departure-row').hide();
+            $('#extra-baggage-arrival-row').hide();
+            $('#extra-meal-departure-row').hide();
+            $('#extra-meal-arrival-row').hide();
+        }
+    }
+    
+    // Update extra services when modal is shown
+    $(document).on('show.bs.modal', '#how_to_proceed_login, #payment_modal', function() {
+        console.log('Modal opening, updating extra services...');
+        setTimeout(function() {
+            updateExtraServicesInPopup();
+        }, 100);
+    });
+    
+    // Also call when continue as guest button is clicked
+    $(document).on('click', '#continue_as_guest', function() {
+        setTimeout(function() {
+            updateExtraServicesInPopup();
+        }, 200);
     });
 </script>
 </body>

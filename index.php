@@ -168,16 +168,36 @@ $DBvideo = $newObj->get_video();
                                     </span>
                                 </span>
                             </div>
-                        </span>
+                        </span> 
+                    </div>
 
-
-                        <div class="d-flex align-items-center justify-content-center mb-md-0 ml-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;">
-                                <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #121E7E;"> Direct Flights only</label>
-                            </div>
+                    <!-- NEW ROW FOR CHECKBOXES - Mobile Responsive -->
+                    <style>
+                        @media (min-width: 768px) {
+                            .checkbox-row-wrapper {
+                                margin-top: -0.3rem !important;
+                                margin-left: 0.5rem !important;
+                            }
+                        }
+                    </style>
+                    <div class="d-flex align-items-center justify-content-start flex-wrap mt-3 checkbox-row-wrapper" style="gap: 15px;">
+                        <div class="form-check" style="margin: 0;">
+                            <input class="form-check-input" type="checkbox" value="Direct" id="direct_flights" name="direct_flights" style="width: 19px;height: 19px; margin-top: 3px;">
+                            <label class="form-check-label" for="direct_flights" style="margin-left: 5px; font-size:15px; color: #121E7E; white-space: nowrap;"> Direct flights</label>
                         </div>
 
+                        <!-- NEW CHECKBOX - Checked Baggage Filter -->
+                        <div class="form-check" style="margin: 0;">
+                            <input class="form-check-input"
+                                   type="checkbox"
+                                   value="1"
+                                   id="checked_baggage_filter"
+                                   name="checked_baggage_filter"
+                                   style="width: 19px;height: 19px; margin-top: 3px;">
+                            <label class="form-check-label" for="checked_baggage_filter" style="margin-left: 5px; font-size:15px; color: #121E7E; white-space: nowrap;">
+                            Flights with checked bags
+                            </label>
+                        </div>
                     </div>
                 </div>
 
@@ -198,11 +218,11 @@ $DBvideo = $newObj->get_video();
 
                         </div>
                         <div class="form-fields col-md-2 calndr-icon from_container">
-                            <input type="text" class="form-control" id="from" name="from" autocomplete="off" value="<?php echo date('m/d/Y'); ?>">
+                            <input type="text" class="form-control" id="from" name="from" autocomplete="off" readonly value="<?php echo date('m/d/Y'); ?>">
                             <p class="error_codes"></p>
                         </div>
                         <div class="form-fields col-md-2 calndr-icon to_container">
-                            <input type="text" class="form-control" id="to" name="to" autocomplete="off" value="<?php echo date('m/d/Y'); ?>">
+                            <input type="text" class="form-control" id="to" name="to" autocomplete="off" readonly value="<?php echo date('m/d/Y'); ?>">
                             <p class="error_codes"></p>
                         </div>
                         <span id="errormessage"></span>

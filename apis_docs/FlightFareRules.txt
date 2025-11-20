@@ -1,0 +1,405 @@
+FlightFareRules
+API / pre-booking / FlightFareRules
+This API provides the rules for the selected itinerary. It provides details of the specific requirements and restrictions associated with a particular fare. Fare Rules API response will provide the complete information regarding baggage, Airline, penalty and complete fare rules. Points to be noted: Fare rule API should be performed from Fare Source Code(FSC) of Revalidation Response to get accurate Fare Rule as per Airline. Fare Rule API(Web-Fare), we are passing the airline fare rule URL in Response for LCC carrier.avatar
+POST
+https://restapidemo.myfarebox.com/api/v1/FlightFareRules
+API Contract/Request
+Copy
+|
+{
+    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+    "Target": "Test",
+    "ConversationId": "A1234"
+}
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/4
+
+1. Non-Structured
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+    "Target": "Test",
+    "ConversationId": "A1234"
+}
+Response
+{
+  "Data": {
+    "BaggageInfos": [
+      {
+        "Arrival": "AMS",
+        "Baggage": "0PC",
+        "Departure": "DEL",
+        "FlightNo": "KL130"
+      },
+      {
+        "Arrival": "LHR",
+        "Baggage": "0PC",
+        "Departure": "AMS",
+        "FlightNo": "KL1011"
+      }
+    ],
+    "ConversationId": "A1234",
+    "Errors": [
+      
+    ],
+    "FareRules": [
+      {
+        "Airline": "",
+        "CityPair": "",
+        "RuleDetails": [
+          {
+            "Category": "GENERAL",
+            "Rules": "RULE APPLICATION AND OTHER CONDITIONS~NOTE - THE FOLLOWING TEXT IS INFORMATIONAL AND NOTVALIDATED FOR AUTOPRICING.ECONOMY CLASS FARESAPPLICATIONAREATHESE FARES APPLY WITHIN AREA 3.CLASS OF SERVICETHESE FARES APPLY FOR ECONOMY CLASS SERVICE.TYPES OF TRANSPORTATIONFARES GOVERNED BY THIS RULE CAN BE USED TO CREATEONE-WAY JOURNEYS.#ELIGIBILITY~NO ELIGIBILITY REQUIREMENTS APPLY.#DAY/TIME~NO DAY/TIME TRAVEL RESTRICTIONS APPLY.#SEASONALITY~NO SEASONAL TRAVEL RESTRICTIONS APPLY.#FLIGHT APPLICATION~THE FARE COMPONENT MUST BE ONONE OR MORE OF THE FOLLOWINGANY SL FLIGHT.#ADVANCE RESERVATIONS/TICKETING~WHEN RESERVATIONS ARE MADE AT LEAST 30 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 7 DAYSAFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 21 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 5DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 15 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 3DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 7 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 1DAY AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 5 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 12HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 2 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 6HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 36 HOURSBEFORE DEPARTURE, TICKETING MUST BE COMPLETEDWITHIN 2 HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 12 HOURSBEFORE DEPARTURE, TICKETING MUST BE COMPLETEDWITHIN 1 HOUR AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - CONFIRMED RESERVATIONS FOR ALL SECTORS ANDTICKETING MUST BE COMPLETED AT THE SAME TIME.#MINIMUM STAY~NO MINIMUM STAY REQUIREMENTS APPLY.#MAXIMUM STAY~NO MAXIMUM STAY REQUIREMENTS APPLY.#STOPOVERS~STOPOVERS ARE NOT PERMITTED AT INTERMEDIATE POINTS.#TRANSFERS~UNLIMITED TRANSFERS PERMITTED. - SURFACE AT FARE BREAKAND EMBEDDED SECTORS PERMITTED EXCEPT FOR PRICING UNITSWITHIN/BETWEEN US AND CANADA - INCLUDING PR/USV1 -SURFACE AT FARE BREAK IS NOT PERMITTED.#COMBINATIONS~SINGLE/DOUBLE OPEN JAWS NOT PERMITTED.END-ON-ENDEND-ON-END COMBINATIONS PERMITTED WITH DOMESTIC/INTERNATIONAL FARES. VALIDATE ALL FARE COMPONENTS.SIDE TRIPS PERMITTED WITH NO RESTRICTIONS.PROVIDED -COMBINATIONS ARE FOR CARRIER JT/IW/ID/OD/SL/IU INANY RULE IN ANY TARIFF.ROUND TRIPS/CIRCLE TRIPSFARES MAY BE COMBINED ON A HALF ROUND TRIP BASIS-TO FORM ROUND TRIPS/CIRCLE TRIPS.PROVIDED -COMBINATIONS ARE WITH ANY FARE FOR CARRIER JT/IW/ID/OD/SL/IU IN ANY RULE IN ANY TARIFF.#BLACKOUT DATES~NO BLACKOUT DATES APPLY.#SURCHARGES~THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -FARES MAYONLY BE SOLD BY SL.TICKETS MUST BE ISSUED ON THE STOCK OF SL.THERE IS NO MISCELLANEOUS/OTHER SURCHARGE PER ANYPASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS - TICKETS MUST NOT BE ISSUED ON SL. TICKETS MUST BEISSUED BY OD.MISCELLANEOUS/OTHER SURCHARGE OF 15 PERCENT OF THEFARE PER FARE COMPONENT WILL BE ADDED TO THEAPPLICABLE FARE PER ANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN AREA 1/AREA 2.MISCELLANEOUS/OTHER SURCHARGE OF USD 15.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN THAILAND/CHINA/MYANMAR/VIETNAM/INDONESIA.MISCELLANEOUS/OTHER SURCHARGE OF USD 3.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN JAPAN/NEPAL/BANGLADESH/INDIA/SRI LANKA.MISCELLANEOUS/OTHER SURCHARGE OF USD 6.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN CHINESE TAIPEI/SINGAPORE.MISCELLANEOUS/OTHER SURCHARGE OF USD 4.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN AREA 3.MISCELLANEOUS/OTHER SURCHARGE OF USD 3.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.#ACCOMPANIED TRAVEL~ACCOMPANIED TRAVEL NOT REQUIRED.#TRAVEL CASE OF CANCEL/NO-SHOW/REFUND.NOTE - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.TICKET FORFEITED LESS THAN 4 HOURS BEFORE DEPARTURE -NOTPERMITTED. TICKET FORFEITED.	REROUTING - NOT PERMITTED#HIP/MILEAGE EXCEPTIONS~NO HIP OR MILEAGE EXCEPTIONS APPLY.#TICKET ENDORSEMENTS~THE ORIGINAL TICKET MUST BE ANNOTATED - NONEND/NONRER/NONEXTEND - IN THE ENDORSEMENT BOX.#CHILDREN DISCOUNTS~CNN/ACCOMPANIED CHILD PSGR 2-11 - CHARGE 100 PERCENTOF THE FARE.MUST BE ACCOMPANIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.OR - UNN/UNACCOMPANIED CHILD PSGR 5-11 - CHARGE 100PERCENT OF THE FARE.OR - INF/INFANT WITHOUT A SEAT PSGR UNDER 2 - CHARGETHB 550.MUST BE ACCOMPANIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.NOTE - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.UNACCOMPANIED INFANT NOT PERMITTED.--INFANT DOES NOT ENTITLED FOR BAGGAGE ALLOWANCE.#TOUR CONDUCTOR DISCOUNTS~NO DISCOUNTS FOR TOUR CONDUCTORS.#AGENT DISCOUNTS~NO DISCOUNTS FOR SALE AGENTS.#ALL OTHER DISCOUNTS~NO DISCOUNTS FOR OTHERS.#MISCELLANEOUS PROVISIONS~NO PROVISIONS APPLY.#FARE BY RULE~NOT APPLICABLE.#GROUPS~NO GROUP PROVISIONS APPLY.#TOURS~NO TOUR PROVISIONS APPLY.#VISIT ANOTHER COUNTRY~NO VISIT ANOTHER COUNTRY PROVISIONS APPLY.#DEPOSITS~NO DEPOSIT PROVISIONS APPLY.#VOLUNTARY CHANGES~ENTER RD*31 OR RD‡LINE NUM‡*31 FOR VOLUNTARY CHGS.#VOLUNTARY REFUNDS~CHECK CATEGORY 16 OR CONTACT CARRIER FOR DETAILS.#NEGOTIATED FARES~NOT APPLICABLE.#INTERNATIONAL CONSTRUCTION~NOT A CONSTRUCTED FARE.#"
+          }
+        ]
+      },
+      {
+        "Airline": "",
+        "CityPair": "",
+        "RuleDetails": [
+          {
+            "Category": "GENERAL",
+            "Rules": ""
+          }
+        ]
+      }
+    ],
+    "Success": true,
+    "Target": "Test",
+    "TraceId": "23092010-123407b5-80da-4d02-844a-4d7481136035"
+  },
+  "Success": true
+}
+2. Structured FareRule with Raw text data
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+    "Target": "Test",
+    "ConversationId": "A1234"
+}
+Response
+{
+  "Data": {
+    "MiniFareRuleRS": {
+      "FareType": "Public",
+      "MiniFareRules": [
+        {
+          "CityPair": "DOHDEL",
+          "IsVoidApplicable": true,
+          "IsStructuredFareRulesAvailable": true,
+          "StructuredFareRuleInfo": {
+            "IsPenaltyTypeExchangeApplicable": true,
+            "IsPenaltyTypeCancelApplicable": true,
+            "IsPenaltyTypeMiscellaneousApplicable": true,
+            "PenaltyDetails": [
+              {
+                "PassengerType": "ADT",
+                "PenaltyCharges": [
+                  {
+                    "PenaltyCode": 1,
+                    "PenaltyType": "Exchange",
+                    "IsAllowedBeforeDeparture": true,
+                    "TimeBeforeDeparture": 0600,
+                    "ChargesBeforeDeparture": 35.0,
+                    "IsAllowedAfterDeparture": true,
+                    "ChargesAfterDeparture": 35.0,
+                    "IsPartialFlowPermitted": false,
+                    "IsSplitPaxPermitted": false,
+                    "IsReroutingPermitted": false,
+                    "IsAllowedNoShow": true,
+                    "NoShowCharge": {
+                      "IsAllowedBeforeDeparture": false,
+                      "TimeBeforeDeparture": 0400,
+                      "ChargesBeforeDeparture": 2100,
+                      "IsAllowedAfterDeparture": true,
+                      "ChargesAfterDeparture": 2100,
+                      
+                    },
+                    "Currency": "USD",
+                    "AdminCharges": 0.0
+                  },
+                  {
+                    "PenaltyCode": 2,
+                    "PenaltyType": "Cancel",
+                    "IsAllowedBeforeDeparture": false,
+                    "TimeBeforeDeparture": 0400,
+                    "ChargesBeforeDeparture": 0.0,
+                    "IsAllowedAfterDeparture": true,
+                    "ChargesAfterDeparture": 0.0,
+                    "IsPartialFlowPermitted": false,
+                    "IsSplitPaxPermitted": false,
+                    "IsAllowedNoShow": true,
+                    "NoShowCharge": {
+                      "IsAllowedBeforeDeparture": true,
+                      "TimeBeforeDeparture": 0400,
+                      "ChargesBeforeDeparture": 2100,
+                      "IsAllowedAfterDeparture": true,
+                      "ChargesAfterDeparture": 2100,
+                      
+                    },
+                    "Currency": "USD",
+                    "AdminCharges": 0.0
+                  }
+                ]
+              }
+            ],
+            "MiscellaneousCharges": {
+              "PenaltyCode": 3,
+              "PenaltyType": "Miscellaneous",
+              "IsAllowedNameCorrection": false,
+              "NameCorrectionChargesBeforeDeparture": 0.0,
+              "Currency": "USD",
+              "AdminCharges": 0.0,
+              "IsRefundableTaxes": false,
+              "RefundableTaxes": {
+                "TaxCode": "",
+                "Amount": ""
+              },
+              "IsNonRefundableTaxes": false,
+              "NonRefundableTaxes": {
+                "TaxCode": "",
+                "Amount": ""
+              },
+              
+            },
+            "AirVoidCharges": {
+              "IsVoidable": true,
+              "VoidingWindowTLInMins": "374",
+              "Currency": "SGD",
+              "Admincharges": 0.0
+            },
+            "FareRuleText": {
+              "Airline": "SL",
+              "CityPair": "HKTDMK",
+              "FareBasisCode": "XLTOW",
+              "RulesDetail": "RULE APPLICATION AND OTHER CONDITIONS~NOTE - THE FOLLOWING TEXT IS INFORMATIONAL AND NOTVALIDATED FOR AUTOPRICING.ECONOMY CLASS FARESAPPLICATIONAREATHESE FARES APPLY WITHIN AREA 3.CLASS OF SERVICETHESE FARES APPLY FOR ECONOMY CLASS SERVICE.TYPES OF TRANSPORTATIONFARES GOVERNED BY THIS RULE CAN BE USED TO CREATEONE-WAY JOURNEYS.#ELIGIBILITY~NO ELIGIBILITY REQUIREMENTS APPLY.#DAY/TIME~NO DAY/TIME TRAVEL RESTRICTIONS APPLY.#SEASONALITY~NO SEASONAL TRAVEL RESTRICTIONS APPLY.#FLIGHT APPLICATION~THE FARE COMPONENT MUST BE ONONE OR MORE OF THE FOLLOWINGANY SL FLIGHT.#ADVANCE RESERVATIONS/TICKETING~WHEN RESERVATIONS ARE MADE AT LEAST 30 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 7 DAYSAFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 21 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 5DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 15 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 3DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 7 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 1DAY AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 5 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 12HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 2 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 6HOURS AFTER RESERVATIONS ARE MADE..OR - WHEN RESERVATIONS ARE MADE SHOW/REFUND.NOTE - ONLY GOVERNMENT TAXES ARE REFUNDED UPON REQUESTWITHIN 90 DAYS FROM STD-------------GO SHOW - NOT PERMITTEDREROUTING - NOT PERMITTED-YR/ YQ IS NON-REFUNDABLECHANGESANY TIMECHANGES PERMITTED FOR REISSUE/REVALIDATION. - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.MORE THAN 4 HOURS BEFORE DEPARTURE - CHARGE THB750 PER SEGMENT.FARE DIFFERENCE APPLIES---------------LESS THAN 4 HOURS BEFORE DEPARTURE - NOTPERMITTED. TICKET FORFEITED.---------------REROUTING - NOT PERMITTED#HIPIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.OR - UNN/UNACCOMPANIED CHILD PSGR 5-11 - CHARGE 100PERCENT OF THE FARE.OR - INF/INFANT WITHOUT A SEAT PSGR UNDER 2 - CHARGETHB 550.MUST BE ACCOMPANIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.NOTE - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.UNACCOMPANIED INFANT NOT PERMITTED.--INFANT DOES NOT ENTITLED FOR BAGGAGE ALLOWANCE.#TOUR CONDUCTOR DISCOUNTS~NO DISCOUNTS FOR TOUR CONDUCTORS.#AGENT FARE BY RULE~NOT APPLICABLE.#GROUPS~NO GROUP PROVISIONS APPLY.#TOURS~NO TOUR RD*31 OR RD‡LINE NUM‡*31 FOR VOLUNTARY CHGS.#VOLUNTARY REFUNDS~CHECK CATEGORY 16 OR CONTACT CARRIER FOR DETAILS.#NEGOTIATED FARES~NOT APPLICABLE.#INTERNATIONAL CONSTRUCTION~NOT A CONSTRUCTED FARE.#"
+            },
+            
+          },
+          
+        },
+        
+      ],
+      "Errors": [
+        
+      ]
+    },
+    "TraceId": ""
+  },
+  "Success": true
+}
+3. Structured FareRule with URL
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+    "Target": "Test",
+    "ConversationId": "A1234"
+}
+Response
+{
+  "Data": {
+    "MiniFareRuleRS": {
+      "FareType": "WebFare",
+      "MiniFareRules": [
+        {
+          "CityPair": "DOHDEL",
+          "IsVoidApplicable": true,
+          "IsStructuredFareRulesAvailable": true,
+          "StructuredFareRuleInfo": {
+            "IsPenaltyTypeExchangeApplicable": true,
+            "IsPenaltyTypeCancelApplicable": true,
+            "IsPenaltyTypeMiscellaneousApplicable": true,
+            "PenaltyDetails": [
+              {
+                "PassengerType": "ADT",
+                "PenaltyCharges": [
+                  {
+                    "PenaltyCode": 1,
+                    "PenaltyType": "Exchange",
+                    "IsAllowedBeforeDeparture": true,
+                    "TimeBeforeDeparture": 0600,
+                    "ChargesBeforeDeparture": 35.0,
+                    "IsAllowedAfterDeparture": true,
+                    "ChargesAfterDeparture": 35.0,
+                    "IsPartialFlowPermitted": false,
+                    "IsSplitPaxPermitted": false,
+                    "IsReroutingPermitted": false,
+                    "IsAllowedNoShow": true,
+                    "NoShowCharge": {
+                      "IsAllowedBeforeDeparture": false,
+                      "TimeBeforeDeparture": 0400,
+                      "ChargesBeforeDeparture": 2100,
+                      "IsAllowedAfterDeparture": true,
+                      "ChargesAfterDeparture": 2100,
+                      
+                    },
+                    "Currency": "USD",
+                    "AdminCharges": 0.0
+                  },
+                  {
+                    "PenaltyCode": 2,
+                    "PenaltyType": "Cancel",
+                    "IsAllowedBeforeDeparture": false,
+                    "TimeBeforeDeparture": 0400,
+                    "ChargesBeforeDeparture": 0.0,
+                    "IsAllowedAfterDeparture": true,
+                    "ChargesAfterDeparture": 0.0,
+                    "IsPartialFlowPermitted": false,
+                    "IsSplitPaxPermitted": false,
+                    "IsAllowedNoShow": true,
+                    "NoShowCharge": {
+                      "IsAllowedBeforeDeparture": true,
+                      "TimeBeforeDeparture": 0400,
+                      "ChargesBeforeDeparture": 2100,
+                      "IsAllowedAfterDeparture": true,
+                      "ChargesAfterDeparture": 2100,
+                      
+                    },
+                    "Currency": "USD",
+                    "AdminCharges": 0.0
+                  }
+                ]
+              }
+            ],
+            "MiscellaneousCharges": {
+              "PenaltyCode": 3,
+              "PenaltyType": "Miscellaneous",
+              "IsAllowedNameCorrection": false,
+              "NameCorrectionChargesBeforeDeparture": 0.0,
+              "Currency": "USD",
+              "AdminCharges": 0.0,
+              "IsRefundableTaxes": false,
+              "RefundableTaxes": {
+                "TaxCode": "",
+                "Amount": ""
+              }
+            },
+            "AirVoidCharges": {
+              "IsVoidable": true,
+              "VoidingWindowTLInMins": "374",
+              "Currency": "SGD",
+              "Admincharges": 0.0
+            },
+            "FareRuleText": {
+              "Airline": "SL",
+              "CityPair": "HKTDMK",
+              "FareBasisCode": "XLTOW",
+              "RulesDetail": "https://www.goindigo.in/add-on-services/new-fare-types.html"
+            }
+          }
+        }
+      ],
+      "Errors": [
+        
+      ]
+    },
+    "TraceId": ""
+  },
+  "Success": true
+}
+4. Structure FareRule data in text format
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "FareSourceCode": "WHc4a050b25TTXdvM2RZQ3RKUmZPM215M2Jqd3YrSDhPdDdMZ0VqT01rc3FQVE5TQ2gxOWR3STZqU0RuOGE0U2hiQk1ncHVMeGtCQll6QUNWNmdidWMrcU5nWVJIN2tTNncwZWIwWXJOaTg1YUFWNWNTK2FXK2c5SlYzOHJ5M2VxUGpONXdCcFA3L2ZZSUZ4anhxNGErVDlEeEd1UG53b0JOL05XZWxDTzM4PQ==",
+    "Target": "Test",
+    "ConversationId": "A1234"
+}
+Response
+{
+  "Data": {
+    "MiniFareRuleRS": {
+      "FareType": "Public",
+      "MiniFareRules": [
+        {
+          "CityPair": "HKTDMK",
+          "IsVoidApplicable": true,
+          "IsStructuredFareRulesAvailable": false,
+          "AirVoidCharges": {
+            "IsVoidable": true,
+            "VoidingWindowTLInMins": "374",
+            "Currency": "SGD",
+            "Admincharges": 0.0
+          },
+          "FareRuleText": {
+            "Airline": "SL",
+            "CityPair": "HKTDMK",
+            "FareBasisCode": "XLTOW",
+            "RulesDetail": "RULE APPLICATION AND OTHER CONDITIONS~NOTE - THE FOLLOWING TEXT IS INFORMATIONAL AND NOTVALIDATED FOR AUTOPRICING.ECONOMY CLASS FARESAPPLICATIONAREATHESE FARES APPLY WITHIN AREA 3.CLASS OF SERVICETHESE FARES APPLY FOR ECONOMY CLASS SERVICE.TYPES OF TRANSPORTATIONFARES GOVERNED BY THIS RULE CAN BE USED TO CREATEONE-WAY JOURNEYS.#ELIGIBILITY~NO ELIGIBILITY REQUIREMENTS APPLY.#DAY/TIME~NO DAY/TIME TRAVEL RESTRICTIONS APPLY.#SEASONALITY~NO SEASONAL TRAVEL RESTRICTIONS APPLY.#FLIGHT APPLICATION~THE FARE COMPONENT MUST BE ONONE OR MORE OF THE FOLLOWINGANY SL FLIGHT.#ADVANCE RESERVATIONS/TICKETING~WHEN RESERVATIONS ARE MADE AT LEAST 30 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 7 DAYSAFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 21 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 5DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 15 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 3DAYS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 7 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 1DAY AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 5 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 12HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 2 DAYS BEFOREDEPARTURE, TICKETING MUST BE COMPLETED WITHIN 6HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 36 HOURSBEFORE DEPARTURE, TICKETING MUST BE COMPLETEDWITHIN 2 HOURS AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - WHEN RESERVATIONS ARE MADE AT LEAST 12 HOURSBEFORE DEPARTURE, TICKETING MUST BE COMPLETEDWITHIN 1 HOUR AFTER RESERVATIONS ARE MADE.OPEN RETURNS PERMITTED.OR - CONFIRMED RESERVATIONS FOR ALL SECTORS ANDTICKETING MUST BE COMPLETED AT THE SAME TIME.#MINIMUM STAY~NO MINIMUM STAY REQUIREMENTS APPLY.#MAXIMUM STAY~NO MAXIMUM STAY REQUIREMENTS APPLY.#STOPOVERS~STOPOVERS ARE NOT PERMITTED AT INTERMEDIATE POINTS.#TRANSFERS~UNLIMITED TRANSFERS PERMITTED. - SURFACE AT FARE BREAKAND EMBEDDED SECTORS PERMITTED EXCEPT FOR PRICING UNITSWITHIN/BETWEEN US AND CANADA - INCLUDING PR/USV1 -SURFACE AT FARE BREAK IS NOT PERMITTED.#COMBINATIONS~SINGLE/DOUBLE OPEN JAWS NOT PERMITTED.END-ON-ENDEND-ON-END COMBINATIONS PERMITTED WITH DOMESTIC/INTERNATIONAL FARES. VALIDATE ALL FARE COMPONENTS.SIDE TRIPS PERMITTED WITH NO RESTRICTIONS.PROVIDED -COMBINATIONS ARE FOR CARRIER JT/IW/ID/OD/SL/IU INANY RULE IN ANY TARIFF.ROUND TRIPS/CIRCLE TRIPSFARES MAY BE COMBINED ON A HALF ROUND TRIP BASIS-TO FORM ROUND TRIPS/CIRCLE TRIPS.PROVIDED -COMBINATIONS ARE WITH ANY FARE FOR CARRIER JT/IW/ID/OD/SL/IU IN ANY RULE IN ANY TARIFF.#BLACKOUT DATES~NO BLACKOUT DATES APPLY.#SURCHARGES~THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -FARES MAYONLY BE SOLD BY SL.TICKETS MUST BE ISSUED ON THE STOCK OF SL.THERE IS NO MISCELLANEOUS/OTHER SURCHARGE PER ANYPASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS - TICKETS MUST NOT BE ISSUED ON SL. TICKETS MUST BEISSUED BY OD.MISCELLANEOUS/OTHER SURCHARGE OF 15 PERCENT OF THEFARE PER FARE COMPONENT WILL BE ADDED TO THEAPPLICABLE FARE PER ANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN AREA 1/AREA 2.MISCELLANEOUS/OTHER SURCHARGE OF USD 15.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN THAILAND/CHINA/MYANMAR/VIETNAM/INDONESIA.MISCELLANEOUS/OTHER SURCHARGE OF USD 3.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN JAPAN/NEPAL/BANGLADESH/INDIA/SRI LANKA.MISCELLANEOUS/OTHER SURCHARGE OF USD 6.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN CHINESE TAIPEI/SINGAPORE.MISCELLANEOUS/OTHER SURCHARGE OF USD 4.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.THE PROVISIONS BELOW APPLY ONLY AS FOLLOWS -WHEN TICKETS ARE SOLD IN AREA 3.MISCELLANEOUS/OTHER SURCHARGE OF USD 3.00 PER FARECOMPONENT WILL BE ADDED TO THE APPLICABLE FARE PERANY PASSENGER.#ACCOMPANIED TRAVEL~ACCOMPANIED TRAVEL NOT REQUIRED.#TRAVEL CASE OF CANCEL/NO-SHOW/REFUND.NOTE - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.TICKET FORFEITED	LESS THAN 4 HOURS BEFORE DEPARTURE - NOTPERMITTED. TICKET FORFEITED.	REROUTING - NOT PERMITTED#HIP/MILEAGE EXCEPTIONS~NO HIP OR MILEAGE EXCEPTIONS APPLY.#TICKET ENDORSEMENTS~THE ORIGINAL TICKET MUST BE ANNOTATED - NONEND/NONRER/NONEXTEND - IN THE ENDORSEMENT BOX.#CHILDREN DISCOUNTS~CNN/ACCOMPANIED CHILD PSGR 2-11 - CHARGE 100 PERCENTOF THE FARE.MUST BE ACCOMPANIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.OR - UNN/UNACCOMPANIED CHILD PSGR 5-11 - CHARGE 100PERCENT OF THE FARE.OR - INF/INFANT WITHOUT A SEAT PSGR UNDER 2 - CHARGETHB 550.MUST BE ACCOMPANIED ON ALL FLIGHTS IN THE SAMECOMPARTMENT.NOTE - TEXT BELOW NOT VALIDATED FOR AUTOPRICING.UNACCOMPANIED INFANT NOT PERMITTED.--INFANT DOES NOT ENTITLED FOR BAGGAGE ALLOWANCE.#TOUR CONDUCTOR DISCOUNTS~NO DISCOUNTS FOR TOUR CONDUCTORS.#AGENT DISCOUNTS~NO DISCOUNTS FOR SALE AGENTS.#ALL OTHER DISCOUNTS~NO DISCOUNTS FOR OTHERS.#MISCELLANEOUS PROVISIONS~NO PROVISIONS APPLY.#FARE BY RULE~NOT APPLICABLE.#GROUPS~NO GROUP PROVISIONS APPLY.#TOURS~NO TOUR PROVISIONS APPLY.#VISIT ANOTHER COUNTRY~NO VISIT ANOTHER COUNTRY PROVISIONS APPLY.#DEPOSITS~NO DEPOSIT PROVISIONS APPLY.#VOLUNTARY CHANGES~ENTER RD*31 OR RD‡LINE NUM‡*31 FOR VOLUNTARY CHGS.#VOLUNTARY REFUNDS~CHECK CATEGORY 16 OR CONTACT CARRIER FOR DETAILS.#NEGOTIATED FARES~NOT APPLICABLE.#INTERNATIONAL CONSTRUCTION~NOT A CONSTRUCTED FARE.#"
+          }
+        }
+      ],
+      "Errors": [
+        
+      ]
+    },
+    "TraceId": ""
+  },
+  "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Failed scenario: Fare Source Code expired
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "FareSourceCode": "L2E1emJkVXhhU3F2aXpHNmh2bTlxR3p4dnhYclRBMStuOUM2YkJPNk5RL1lEaEM3ODhCVlVURXIxMmNtc1dtN2oxRGhuVkowR0ZJd295Njh4UUNYUldyMFpweVk4VXNmZnlaMkZQbWNwTExYWFZPdEFKNmk5anUxalpLODhyakZSSXNpM0lRSmo1aWU5c0FXSkc1SVplMkNDb24vcm1hRkRMdnA4UFZYM1dnPQ==",
+  "Target": "Test",
+  "ConversationId": "string"
+}
+Response
+{
+    "Data": {
+        "BaggageInfos": [],
+        "ConversationId": "string",
+        "Errors": [
+            {
+                "Code": "ERFRU002",
+                "Message": "FareSourceCode is Expired"
+            }
+        ],
+        "FareRules": [],
+        "Target": "Test",
+        "TraceId": "23081718-af092d96-02b7-4ca4-8c8d-6c2fe19dd107"
+    },
+    "Success": false,
+    "Message": "FareSourceCode is Expired"
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+"FareSourceCode":	"XXXX",	A Unique FSC for every single itinerary generated - For Pre-Booking Fare Rule Request
+"UniqueID":	"MF11830888",	A unique Mystifly reference number starts with MF followed by 8 digits
+"Target":	"Test" “Production”	Target specified in the request captured an passed in the response
+"ConversationId":	"YitBeDYzQlhaN2dQaXhuTnFBaVFvY29"	Free Text - can be used for Tracking at Client end
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ConversationId:	,	Free Text - can be used for Tracking at Client end
+Errors:	[],	Error message caused for the failures in Revalidation
+FareRules:	[],	FareRules passes the information with the following properties
+Airline:	EK,	Specifies the name of the airline
+CityPair:	BLRDXB,	Specifies the pair of the travel
+RuleDetails:	[],	RuleDetails passes the information with the following properties.
+Category:		Indicates the category to which this rule belongs
+Rules	Rules are unique for every itinerary
+Success:	true,	Returns the search status in a Boolean
+Target:	Test “Production”	Target specified in the request and response
+Success:	TRUE	Returns the search status in a Boolean

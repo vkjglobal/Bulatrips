@@ -663,19 +663,15 @@ if (!empty($responseData['Data']['Errors'])) {
             $baggageInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['BaggageInfo'][0];
             $cabinbaggageInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['CabinBaggageInfo'][0];
 
-            // Step 1: Convert datetime strings to DateTime objects
-            $datetime1 = new DateTime($datetime);
-            $datetime2 = new DateTime($arrivaldatetime);
-
-            // Step 2: Calculate the time difference between the two DateTime objects
-            $time_difference = $datetime1->diff($datetime2);
-
-            // Step 3: Extract hours and minutes from the time difference
-
-            $hours = $time_difference->days * 24 + $time_difference->h;
-
-            // Step 4: Extract remaining minutes
-            $minutes = $time_difference->i;
+            // DST-safe duration: sum segment JourneyDuration for outbound
+            $totalOutboundMinutes = 0;
+            foreach ($onewaysegment as $seg) {
+                if (!empty($seg['JourneyDuration'])) {
+                    $totalOutboundMinutes += (int)$seg['JourneyDuration'];
+                }
+            }
+            $hours = (int)floor($totalOutboundMinutes / 60);
+            $minutes = (int)($totalOutboundMinutes % 60);
 
 
 
@@ -840,18 +836,15 @@ if (!empty($responseData['Data']['Errors'])) {
                 $baggageInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['BaggageInfo'][$count];
                 $cabinbaggageInfo = $tripDetails['TripDetailsPTC_FareBreakdowns'][0]['CabinBaggageInfo'][$count];
 
-                $datetime1 = new DateTime($datetimereturn);
-                $datetime2 = new DateTime($arrivaldatetimereturn);
-
-                // Step 2: Calculate the time difference between the two DateTime objects
-                $time_difference = $datetime1->diff($datetime2);
-
-                // Step 3: Extract hours and minutes from the time difference
-
-                $hours = $time_difference->days * 24 + $time_difference->h;
-
-                // Step 4: Extract remaining minutes
-                $minutes = $time_difference->i;
+                // DST-safe duration: sum segment JourneyDuration for return
+                $totalReturnMinutes = 0;
+                foreach ($returnsegment as $seg) {
+                    if (!empty($seg['JourneyDuration'])) {
+                        $totalReturnMinutes += (int)$seg['JourneyDuration'];
+                    }
+                }
+                $hours = (int)floor($totalReturnMinutes / 60);
+                $minutes = (int)($totalReturnMinutes % 60);
 
                 $messageData .=                                        '<div align="center" style="padding:0 0 20px 0;margin-top:20px">
                                                                 <p

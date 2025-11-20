@@ -1,0 +1,113 @@
+OrderTicket
+API / pre-booking / OrderTicket
+Order Ticket API service provides the functionality to order the blocked ticket. If tickets are reserved or blocked, this API allows you to process the Blocked Ticket.avatar
+POST
+https://restapidemo.myfarebox.com/api/v1/OrderTicket
+API Contract/Request
+Copy
+|
+{
+    "UniqueID": "MF244XXXXX",
+        "Target": "Test"
+}
+Happy path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+Completed 0/1
+
+1. Successful Order Ticket API
+Pending
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+    "UniqueID": "MF24459523",
+        "Target": "Test"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "",
+        "Errors": [],
+        "Message": "",
+        "Success": true,
+        "Target": "Test",
+        "TraceId": "23092010-123407b5-80da-4d02-844a-4d7481136035",
+        "UniqueID": "MF24459523"
+    },
+    "Success": true
+}
+Error path scenarios
+API Integration Scenarios for Certification Completion: View details for each scenario by clicking on its name.
+
+1. Order Ticket RQ Invalid Booking Reference number/ Unique ID.
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "UniqueID": "MFXXXXXXXX",
+  "Target": "Test"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "",
+        "Errors": [
+            {
+                "Code": "EROTK006",
+                "Message": "Invalid Booking Reference number."
+            }
+        ],
+        "Message": "",
+        "Success": false,
+        "Target": "Test",
+        "TraceId": "",
+        "UniqueID": ""
+    },
+    "Success": false,
+    "Message": "Invalid Booking Reference number."
+}
+2. For the second time, performing the order ticket
+Use the request to get the desired on the right to successfully validate this scenario.
+
+Request
+{
+  "UniqueID": "MFXXXXXXXX",
+  "Target": "Test"
+}
+Response
+{
+    "Data": {
+        "ConversationId": "",
+        "Errors": [
+            {
+                "Code": "EROTK007",
+                "Message": "Booking may be already ordered for ticket or ticketed or cancelled."
+            }
+        ],
+        "Message": "",
+        "Success": false,
+        "Target": "Test",
+        "TraceId": "",
+        "UniqueID": ""
+    },
+    "Success": false,
+    "Message": "Booking may be already ordered for ticket or ticketed or cancelled."
+}
+Request Parameters
+
+List of API Request Parameters with their details
+Parameter	Example / Type	Description
+UniqueID:	MF11830888,	A unique Mystifly reference number starts with MF followed by 8 digits
+Target:	Test “Production”	Target specified in the request captured an passed in the response
+Response Parameters
+
+List of API Response Values with their details
+Parameter	Example / Type	Description
+ConversationId:	,	Free Text - can be used for Tracking at Client end
+Errors:	[],	Error message caused for the failures in OrderTicket
+Message:	,	The ticketing time limit has expired for the given booking
+Success:	true/false,	Returns the search status in a Boolean
+Target:	Test“Production”	Target specified in the request and resposne
+UniqueID:	MF11830888	A unique reference number starts with MF followed by 8 digits
+Success: true	true/false,	Returns the search status in a Boolean

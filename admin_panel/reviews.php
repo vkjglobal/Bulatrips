@@ -41,21 +41,34 @@ $reviews	    =   $objReviews->getListReviews();
                       //  echo "<pre/>";print_r($val);
                         ?>
                         <div class="review-item row g-lg-4 g-2">
-                            <div class="col-md-3">
+                            <!-- <div class="col-md-3">
                                 <img src="<?php echo $profileImageURL; ?>" alt="">
-                            </div>
+                            </div> -->
                             <div class="review-info col-md-9">
-                                <h5><?php echo $title; ?> </h5>
-                                <div class="ratings">Rating : <?php echo $ratingCount;?>
-                                 <!--   <div class="empty-stars"></div>
-                                    <div class="full-stars" style="width:80%"></div> -->
-                                    
+                                <div class="mb-2">
+                                    <label class="form-label mb-1">Title</label>
+                                    <input type="text" class="form-control" name="title_<?php echo $id; ?>" id="title_<?php echo $id; ?>" value="<?php echo htmlspecialchars($title); ?>">
                                 </div>
-                                <div class="txt-cntnt">
-                                <?php echo $description; ?>
+                                <div class="mb-2">
+                                    <label class="form-label mb-1">Rating</label>
+                                    <select class="form-select" name="rating_<?php echo $id; ?>" id="rating_<?php echo $id; ?>">
+                                        <?php for($i = 1; $i <= 5; $i++) { ?>
+                                            <option value="<?php echo $i; ?>" <?php if($ratingCount == $i){ echo 'selected'; } ?>><?php echo $i; ?></option>
+                                        <?php } ?>
+                                    </select>
                                 </div>
-                                <strong><?php echo $author; ?></strong>
-                                <button id="" class=".btn.btn-typ1" type="submit" onclick="toggleStatus(<?php echo $id.','.$status; ?> )"><?php if($status == 1){ echo 'Hide';}else{echo 'Unhide'; } ?></button>
+                                <div class="mb-2">
+                                    <label class="form-label mb-1">Description</label>
+                                    <textarea class="form-control" rows="3" name="description_<?php echo $id; ?>" id="description_<?php echo $id; ?>"><?php echo htmlspecialchars($description); ?></textarea>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label mb-1">Customer / Client Name</label>
+                                    <input type="text" class="form-control" name="author_<?php echo $id; ?>" id="author_<?php echo $id; ?>" value="<?php echo htmlspecialchars($author); ?>">
+                                </div>
+                                <div class="mt-2">
+                                    <button type="button" class="btn btn-sm btn-primary me-2" onclick="updateReview(<?php echo $id; ?>)">Update</button>
+                                    <button type="button" class="btn btn-sm btn-secondary" onclick="toggleStatus(<?php echo $id.','.$status; ?> )"><?php if($status == 1){ echo 'Hide';}else{echo 'Unhide'; } ?></button>
+                                </div>
                             </div>
                         </div>
                        
@@ -70,13 +83,12 @@ $reviews	    =   $objReviews->getListReviews();
             <div class="modal fade" id="successpop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
                 aria-labelledby="addMore" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5 text-secondary" id="staticBackdropLabel">successfully updated</h1>
-                            <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="location.reload();"></button>
+                    <div class="modal-content border-0 shadow-sm">
+                        <div class="modal-body p-4">
+                            <div class="alert alert-success mb-0 text-center" id="successMessage">
+                                Successfully updated
+                            </div>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -153,16 +165,19 @@ $reviews	    =   $objReviews->getListReviews();
 
   // Example AJAX request using jQuery
   $.ajax({
-    url: 'process.php',
+    url: 'process',
     method: 'POST',
     data: { rowId: rowId,status: status },
     success: function(response) {
-     // console.log(response);
-    //   alert(response);
-        if ($.trim(response) == 'success') {
-            $('#successpop').modal('show');
-            return false;
-        }
+      if ($.trim(response) == 'success') {
+        var msg = (status == 1) ? 'Review successfully hidden.' : 'Review successfully unhidden.';
+        $('#successMessage').text(msg);
+        $('#successpop').modal('show');
+        setTimeout(function() {
+          location.reload();
+        }, 1500);
+        return false;
+      }
         else if(($.trim(response) == 'err1') || ($.trim(response) == 'err2')){
             alert("error");
         }
@@ -174,6 +189,41 @@ $reviews	    =   $objReviews->getListReviews();
       // Handle the error response
       // For example, you can show an error message or handle the error condition
       console.log('Error updating status:', error);
+    }
+  });
+}
+
+function updateReview(reviewId) {
+  var title = $('#title_' + reviewId).val();
+  var description = $('#description_' + reviewId).val();
+  var rating = $('#rating_' + reviewId).val();
+  var author = $('#author_' + reviewId).val();
+
+  $.ajax({
+    url: 'process',
+    method: 'POST',
+    data: {
+      action: 'update_review',
+      reviewId: reviewId,
+      title: title,
+      description: description,
+      rating: rating,
+      author: author
+    },
+    success: function(response) {
+      if ($.trim(response) == 'update_success') {
+        $('#successMessage').text('Review updated successfully.');
+        $('#successpop').modal('show');
+        setTimeout(function() {
+          location.reload();
+        }, 1500);
+        return false;
+      } else {
+        alert('Error while updating review');
+      }
+    },
+    error: function(xhr, status, error) {
+      console.log('Error updating review:', error);
     }
   });
 }

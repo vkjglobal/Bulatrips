@@ -284,6 +284,18 @@ public function updateAgentBalance($agentId,$amountnew){
             die("Error executing query: " . $e->getMessage());
         }
     }
+    //review details update from admin
+    public function updateReviewDetails($reviewId,$title,$description,$author,$rating){
+        $query = "UPDATE reviews SET title = ?, description = ?, author = ?, rating = ? WHERE review_id = ?";
+        $params = [$title,$description,$author,$rating,$reviewId];
+        try {
+            $stmt = $this->conn->prepare($query);
+            $stmt->execute($params);
+            return true; // review updated successfully
+        } catch (PDOException $e) {
+            die("Error executing query: " . $e->getMessage());
+        }
+    }
     //aboutus edit
     public function updateAboutDb($tableName,$id,$title,$imgnewfile,$content){
        

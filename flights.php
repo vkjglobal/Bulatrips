@@ -31,6 +31,20 @@ require_once('includes/common_const.php');
         z-index: 99999 !important;
         box-shadow: 0 3px 15px rgba(0,0,0,0.3) !important;
     }
+
+    /* Modify/Search interaction styles */
+    #modify-search-result-btn.modify-btn-active {
+        background-color: #6c757d !important; /* dull gray */
+        border-color: #6c757d !important;
+        color: #ffffff !important;
+    }
+
+    #modify-search-submit.search-highlight {
+        background-color: #ff9800 !important; /* bright orange */
+        border-color: #ff9800 !important;
+        color: #ffffff !important;
+        box-shadow: 0 0 0 0.2rem rgba(255, 152, 0, 0.4);
+    }
     
     /* Lower z-index for blue bar so datepicker appears above it */
     .midbar-wrapper-inner {
@@ -644,7 +658,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             <?php echo "Passenger(s): " . $adultCount + $childCount + $infantCount; ?> |
                             <?php echo "Cabin: " . $searchValue['selected_cabin_text']; ?>
                         </span>
-                        <button class="btn btn-typ7 ml-3 btn-primary" id="modify-search-result-btn">Modify Search</button>
+                        <button class="btn btn-typ7 ml-3" id="modify-search-result-btn">Modify Search</button>
                     </div>
                 </div>
 
@@ -750,7 +764,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                                 <span id="errormessage"></span>
                                 <div class="form-fields col-md-2">
                                     <!-- <button class="btn btn-typ1 w-100 form-control">Search</button> -->
-                                    <input type="submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
+                                    <input type="submit" id="modify-search-submit" name="go" class="btn btn-typ1 w-100 form-control" value="Search">
                                 </div>
                             </div>
 
@@ -1047,10 +1061,10 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
             <div class="container">
                 <!-- No Results Message - Unified Design -->
                 <?php if (count($currentPageFlights) == 0): ?>
-                <div class="col-12" style="padding: 40px 20px; text-align: center; margin-bottom: 20px;">
-                    <div style="background-color:#070F4E; padding: 40px; border-radius: 15px; color: #fff; box-shadow: 0 4px 15px rgba(18, 30, 126, 0.2);">
-                        <h2 style="font-size: 42px; margin-bottom: 15px; font-weight: bold;">Sorry!</h2>
-                        <p style="font-size: 18px; margin-bottom: 20px; line-height: 1.6;">
+                <div class="col-12" style="padding: 30px 10px; text-align: center; margin-bottom: 20px;">
+                    <div style="background-color:#070F4E; padding: 28px 32px; border-radius: 15px; color: #fff; box-shadow: 0 4px 15px rgba(18, 30, 126, 0.2); max-width: 40%; margin: 0 auto;">
+                        <h2 style="font-size: 34px; margin-bottom: 12px; font-weight: bold;">Sorry!</h2>
+                        <p style="font-size: 16px; margin-bottom: 16px; line-height: 1.5;">
                             <?php 
                             if (isset($responseData['Data']['Errors'])) {
                                 echo "We couldn't find any flights for the selected dates.";
@@ -1059,7 +1073,7 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             }
                             ?>
                         </p>
-                        <p style="font-size: 16px; opacity: 0.9; margin-bottom: 0;">
+                        <p style="font-size: 14px; opacity: 0.9; margin-bottom: 0;">
                             Please try different dates or adjust your search criteria using the <strong>"Modify Search"</strong> button above or clear the filters below.
                         </p>
                     </div>
@@ -1154,49 +1168,35 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             // FIXED: Cabin-only means has cabin baggage BUT NO checked baggage
                             $isCabinOnlyFare = $hasCabinBaggage && !$hasCheckedBaggage;
                             
-                            // Extract actual baggage values for display (Departure leg only - LegIndicator == 0)
+                            // Extract baggage values for data attributes - Use the global $FlightItineraryList
+                            $FlightItineraryListGlobal = $responseData['Data']['ItineraryReferenceList'];
                             $checkedBagDisplay = '';
                             $cabinBagDisplay = '';
-                            foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
-                                // Only process departure leg (LegIndicator == 0)
-                                if (isset($originDestination['LegIndicator']) && $originDestination['LegIndicator'] != 0) {
-                                    continue;
-                                }
-                                
-                                $baggageRef = $originDestination['ItineraryRef'] ?? null;
-                                if ($baggageRef !== null && isset($FlightItineraryList[$baggageRef])) {
-                                    $bagInfo = $FlightItineraryList[$baggageRef];
+                            foreach ($pricedItinerary['OriginDestinations'] as $baggages) {
+                                $baggageRef = $baggages['ItineraryRef'];
+                                if (isset($FlightItineraryListGlobal[$baggageRef])) {
+                                    $baggageSegment = $FlightItineraryListGlobal[$baggageRef];
                                     
-                                    // Get checked baggage value - accept all values including 0KG
-                                    if (empty($checkedBagDisplay) && !empty($bagInfo['CheckinBaggage'])) {
-                                        foreach ((array) $bagInfo['CheckinBaggage'] as $checkBag) {
-                                            $val = trim($checkBag['Value'] ?? '');
-                                            if (!empty($val)) {
-                                                // Accept all values including 0KG, 0PC, etc.
-                                                $checkedBagDisplay = $val;
-                                                break;
-                                            }
+                                    // Only process departure leg (LegIndicator == 0)
+                                    if ($baggages['LegIndicator'] == 0) {
+                                        // Get checked baggage
+                                        if (isset($baggageSegment['CheckinBaggage'][0]['Value'])) {
+                                            $val = $baggageSegment['CheckinBaggage'][0]['Value'];
+                                            $checkedBagDisplay = (strtolower($val) == "sb") ? "Standard Baggage" : $val;
                                         }
-                                    }
-                                    
-                                    // Get cabin baggage value
-                                    if (empty($cabinBagDisplay) && !empty($bagInfo['CabinBaggage'])) {
-                                        foreach ((array) $bagInfo['CabinBaggage'] as $cabBag) {
-                                            $val = trim($cabBag['Value'] ?? '');
-                                            if (!empty($val)) {
-                                                $cabinBagDisplay = ($val == 'SB' || strtoupper($val) == 'SB') ? 'Standard Baggage' : $val;
-                                                break;
-                                            }
+                                        
+                                        // Get cabin baggage
+                                        if (isset($baggageSegment['CabinBaggage'][0]['Value'])) {
+                                            $val = $baggageSegment['CabinBaggage'][0]['Value'];
+                                            $cabinBagDisplay = (strtolower($val) == "sb") ? "Standard Baggage" : $val;
                                         }
-                                    }
-                                    
-                                    if (!empty($checkedBagDisplay) && !empty($cabinBagDisplay)) {
-                                        break;
+                                        
+                                        break; // Only first departure leg
                                     }
                                 }
                             }
                             
-                            // Extract return leg baggage info (for round trips)
+                            // Extract return leg baggage info
                             $hasReturnCheckedBaggage = false;
                             $hasReturnCabinBaggage = false;
                             $returnCheckedBagDisplay = '';
@@ -1212,135 +1212,35 @@ if (isset($_SESSION['response']) && isset($_SESSION['search_values'])) {
                             }
                             
                             if ($isReturnTrip) {
-                                // Process all return leg segments (LegIndicator == 1)
-                                foreach ($pricedItinerary['OriginDestinations'] as $originDestination) {
-                                    // Only process return leg (LegIndicator == 1)
-                                    if (!isset($originDestination['LegIndicator']) || $originDestination['LegIndicator'] != 1) {
-                                        continue;
-                                    }
-                                    
-                                    $baggageRef = $originDestination['ItineraryRef'] ?? null;
-                                    if ($baggageRef === null || !isset($FlightItineraryList[$baggageRef])) {
-                                        continue;
-                                    }
-
-                                    $baggageInfo = $FlightItineraryList[$baggageRef];
-
-                                    // Get actual return baggage values for display FIRST (before checking flags)
-                                    // Always get the first value, even if it's 0KG
-                                    if (empty($returnCheckedBagDisplay) && !empty($baggageInfo['CheckinBaggage'])) {
-                                        foreach ((array) $baggageInfo['CheckinBaggage'] as $checkBag) {
-                                            $val = trim($checkBag['Value'] ?? '');
-                                            if (!empty($val)) {
-                                                // Accept all values including 0KG, 0PC, 20KG, etc.
-                                                $returnCheckedBagDisplay = $val;
-                                                // Set flag based on value
+                                foreach ($pricedItinerary['OriginDestinations'] as $baggages) {
+                                    $baggageRef = $baggages['ItineraryRef'];
+                                    if (isset($FlightItineraryListGlobal[$baggageRef])) {
+                                        $baggageSegment = $FlightItineraryListGlobal[$baggageRef];
+                                        
+                                        // Only process return leg (LegIndicator == 1)
+                                        if ($baggages['LegIndicator'] == 1) {
+                                            // Get checked baggage
+                                            if (isset($baggageSegment['CheckinBaggage'][0]['Value'])) {
+                                                $val = $baggageSegment['CheckinBaggage'][0]['Value'];
+                                                $returnCheckedBagDisplay = (strtolower($val) == "sb") ? "Standard Baggage" : $val;
                                                 $upperVal = strtoupper($val);
                                                 if ($upperVal !== '0KG' && $upperVal !== '0PC' && $val !== '0') {
                                                     $hasReturnCheckedBaggage = true;
                                                 }
-                                                break;
                                             }
-                                        }
-                                    }
-                                    
-                                    // Always get cabin baggage value FIRST
-                                    if (empty($returnCabinBagDisplay) && !empty($baggageInfo['CabinBaggage'])) {
-                                        foreach ((array) $baggageInfo['CabinBaggage'] as $cabBag) {
-                                            $val = trim($cabBag['Value'] ?? '');
-                                            if (!empty($val)) {
-                                                $returnCabinBagDisplay = ($val == 'SB' || strtoupper($val) == 'SB') ? 'Standard Baggage' : $val;
+                                            
+                                            // Get cabin baggage
+                                            if (isset($baggageSegment['CabinBaggage'][0]['Value'])) {
+                                                $val = $baggageSegment['CabinBaggage'][0]['Value'];
+                                                $returnCabinBagDisplay = (strtolower($val) == "sb") ? "Standard Baggage" : $val;
                                                 $hasReturnCabinBaggage = true;
-                                                break;
                                             }
-                                        }
-                                    }
-                                    
-                                    // Also check flags for backward compatibility
-                                    if (!$hasReturnCheckedBaggage && !empty($baggageInfo['CheckinBaggage'])) {
-                                        foreach ((array) $baggageInfo['CheckinBaggage'] as $bagItem) {
-                                            $value = strtoupper(trim($bagItem['Value'] ?? ''));
-                                            if ($value !== '' && !in_array($value, $zeroCheckedBaggageValues, true)) {
-                                                $hasReturnCheckedBaggage = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-
-                                    if (!$hasReturnCabinBaggage && !empty($baggageInfo['CabinBaggage'])) {
-                                        foreach ((array) $baggageInfo['CabinBaggage'] as $bagItem) {
-                                            $value = strtoupper(trim($bagItem['Value'] ?? ''));
-                                            if ($value !== '' && !in_array($value, $zeroCabinBaggageValues, true)) {
-                                                $hasReturnCabinBaggage = true;
-                                                break;
-                                            }
-                                        }
-                                    }
-                                    
-                                    // If we got both values, we can break, otherwise continue checking other segments
-                                    if (!empty($returnCheckedBagDisplay) && !empty($returnCabinBagDisplay)) {
-                                        break;
-                                    }
-                                }
-                            }
-                            
-                            // Final fallback: Use PTC_FareBreakdowns if OriginDestinations didn't provide values
-                            $ptc = $pricedItinerary['AirItineraryPricingInfo']['PTC_FareBreakdowns'][0] ?? [];
-                            
-                            // Departure fallback
-                            if ($checkedBagDisplay === '' && isset($ptc['BaggageInfo'][0])) {
-                                $val = trim((string)$ptc['BaggageInfo'][0]);
-                                if ($val !== '') {
-                                    $checkedBagDisplay = $val;
-                                    $upperVal = strtoupper($val);
-                                    if (!in_array($upperVal, $zeroCheckedBaggageValues, true)) {
-                                        $hasCheckedBaggage = true;
-                                    }
-                                }
-                            }
-                            if ($cabinBagDisplay === '' && isset($ptc['CabinBaggageInfo'][0])) {
-                                $val = trim((string)$ptc['CabinBaggageInfo'][0]);
-                                if ($val !== '') {
-                                    $cabinBagDisplay = (strtoupper($val) === 'SB') ? 'Standard Baggage' : $val;
-                                    $upperVal = strtoupper($val);
-                                    if (!in_array($upperVal, $zeroCabinBaggageValues, true)) {
-                                        $hasCabinBaggage = true;
-                                    }
-                                }
-                            }
-                            
-                            // Return fallback
-                            if ($isReturnTrip) {
-                                if ($returnCheckedBagDisplay === '' && isset($ptc['BaggageInfo'][1])) {
-                                    $val = trim((string)$ptc['BaggageInfo'][1]);
-                                    if ($val !== '') {
-                                        $returnCheckedBagDisplay = $val;
-                                        $upperVal = strtoupper($val);
-                                        if (!in_array($upperVal, $zeroCheckedBaggageValues, true)) {
-                                            $hasReturnCheckedBaggage = true;
-                                        }
-                                    }
-                                }
-                                if ($returnCabinBagDisplay === '' && isset($ptc['CabinBaggageInfo'][1])) {
-                                    $val = trim((string)$ptc['CabinBaggageInfo'][1]);
-                                    if ($val !== '') {
-                                        $returnCabinBagDisplay = (strtoupper($val) === 'SB') ? 'Standard Baggage' : $val;
-                                        $upperVal = strtoupper($val);
-                                        if (!in_array($upperVal, $zeroCabinBaggageValues, true)) {
-                                            $hasReturnCabinBaggage = true;
+                                            
+                                            break; // Only first return leg
                                         }
                                     }
                                 }
                             }
-                            
-                            // Debug: Check what values we have before setting data attributes
-                            echo "<!-- DEBUG BAGGAGE DATA:\n";
-                            echo "Departure: checked={$checkedBagDisplay}, cabin={$cabinBagDisplay}\n";
-                            echo "Return: checked={$returnCheckedBagDisplay}, cabin={$returnCabinBagDisplay}\n";
-                            echo "IsReturnTrip: " . ($isReturnTrip ? 'YES' : 'NO') . "\n";
-                            echo "HasCheckedBaggage: " . ($hasCheckedBaggage ? 'YES' : 'NO') . "\n";
-                            echo "HasReturnCheckedBaggage: " . ($hasReturnCheckedBaggage ? 'YES' : 'NO') . "\n";
-                            echo "-->\n";
                         ?>
                         <div class="flight-card col-xs-12 col-sm-12 col-md-12 col-lg-12"
                              data-refundable="<?php echo $isRefundableFare ? '1' : '0'; ?>"
@@ -3261,6 +3161,25 @@ require_once("includes/footer.php");
     // When button with ID 'modify-search-result-btn' is clicked
     $('#modify-search-result-btn').click(function() {
         $('#modify-search-result').slideToggle();
+        // Toggle dull gray state while modify panel is open
+        $(this).toggleClass('modify-btn-active');
+    });
+
+    // Helper: highlight Search button after any modification
+    function markModifySearchChanged() {
+        $('#modify-search-submit').addClass('search-highlight');
+    }
+
+    // Any change inside modify-search form should highlight Search button
+    $('#modify-search-result').on('change', 'input, select', function (e) {
+        // ignore the Search submit itself
+        if (this.id === 'modify-search-submit') return;
+        markModifySearchChanged();
+    });
+
+    // Plus/minus clicks for passenger counts
+    $('#modify-search-result').on('click', '.add, .minus', function () {
+        markModifySearchChanged();
     });
 
     $('.select-class').select2();
@@ -3427,8 +3346,8 @@ require_once("includes/footer.php");
         // Baggage info - Show actual values with departure and return sections
         let baggageInfoHTML = '';
         
-        // Departure Baggage Section
-        baggageInfoHTML += '<div style="margin-bottom: 12px;"><strong style="color: #007bff; font-size: 14px; display: block; margin-bottom: 6px;">✈️ Departure</strong>';
+        // Departure Baggage Section - Build as column
+        let departureHTML = '<div style="flex: 1;"><strong style="color: #007bff; font-size: 13px; display: block; margin-bottom: 6px;">✈️ Departure</strong>';
         
         // Departure Checked Baggage - Always show value if available (even if 0KG)
         console.log('Departure Checked Value:', checkedBaggageValue, 'Type:', typeof checkedBaggageValue, 'Length:', checkedBaggageValue.length);
@@ -3456,7 +3375,7 @@ require_once("includes/footer.php");
             depCheckedColor = '#dc3545';
             console.log('Dep Checked: No baggage');
         }
-        baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + depCheckedIcon + '</span><span style="color: ' + depCheckedColor + '; font-weight: 500; font-size: 13px;">' + depCheckedBag + '</span></div>';
+        departureHTML += '<div style="display: flex; align-items: center; margin-bottom: 4px; padding: 5px; background: white; border-radius: 5px;"><span style="font-size: 14px; margin-right: 6px;">' + depCheckedIcon + '</span><span style="color: ' + depCheckedColor + '; font-weight: 500; font-size: 12px;">' + depCheckedBag + '</span></div>';
         
         // Departure Cabin Baggage - Always show value if available
         console.log('Departure Cabin Value:', cabinBaggageValue, 'Type:', typeof cabinBaggageValue, 'Length:', cabinBaggageValue.length);
@@ -3481,14 +3400,15 @@ require_once("includes/footer.php");
             depCabinColor = '#dc3545';
             console.log('Dep Cabin: No baggage');
         }
-        baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + depCabinIcon + '</span><span style="color: ' + depCabinColor + '; font-weight: 500; font-size: 13px;">' + depCabinBag + '</span></div>';
+        departureHTML += '<div style="display: flex; align-items: center; margin-bottom: 4px; padding: 5px; background: white; border-radius: 5px;"><span style="font-size: 14px; margin-right: 6px;">' + depCabinIcon + '</span><span style="color: ' + depCabinColor + '; font-weight: 500; font-size: 12px;">' + depCabinBag + '</span></div>';
         
-        baggageInfoHTML += '</div>';
+        departureHTML += '</div>';
         
-        // Return Baggage Section (if round trip)
+        // Return Baggage Section (if round trip) - Build as column
+        let returnHTML = '';
         if (isRoundTrip) {
             console.log('IS ROUND TRIP - Showing return section');
-            baggageInfoHTML += '<div><strong style="color: #28a745; font-size: 14px; display: block; margin-bottom: 6px;">🔄 Return</strong>';
+            returnHTML = '<div style="flex: 1;"><strong style="color: #28a745; font-size: 13px; display: block; margin-bottom: 6px;">🔄 Return</strong>';
             
             // Return Checked Baggage - Always show value if available (even if 0KG)
             console.log('Return Checked Value:', returnCheckedBaggageValue, 'Type:', typeof returnCheckedBaggageValue, 'Length:', returnCheckedBaggageValue.length);
@@ -3516,7 +3436,7 @@ require_once("includes/footer.php");
                 retCheckedColor = '#dc3545';
                 console.log('Ret Checked: No baggage');
             }
-            baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + retCheckedIcon + '</span><span style="color: ' + retCheckedColor + '; font-weight: 500; font-size: 13px;">' + retCheckedBag + '</span></div>';
+            returnHTML += '<div style="display: flex; align-items: center; margin-bottom: 4px; padding: 5px; background: white; border-radius: 5px;"><span style="font-size: 14px; margin-right: 6px;">' + retCheckedIcon + '</span><span style="color: ' + retCheckedColor + '; font-weight: 500; font-size: 12px;">' + retCheckedBag + '</span></div>';
             
             // Return Cabin Baggage - Always show value if available
             console.log('Return Cabin Value:', returnCabinBaggageValue, 'Type:', typeof returnCabinBaggageValue, 'Length:', returnCabinBaggageValue.length);
@@ -3541,12 +3461,15 @@ require_once("includes/footer.php");
                 retCabinColor = '#dc3545';
                 console.log('Ret Cabin: No baggage');
             }
-            baggageInfoHTML += '<div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;"><span style="font-size: 16px; margin-right: 8px;">' + retCabinIcon + '</span><span style="color: ' + retCabinColor + '; font-weight: 500; font-size: 13px;">' + retCabinBag + '</span></div>';
+            returnHTML += '<div style="display: flex; align-items: center; margin-bottom: 4px; padding: 5px; background: white; border-radius: 5px;"><span style="font-size: 14px; margin-right: 6px;">' + retCabinIcon + '</span><span style="color: ' + retCabinColor + '; font-weight: 500; font-size: 12px;">' + retCabinBag + '</span></div>';
             
-            baggageInfoHTML += '</div>';
+            returnHTML += '</div>';
         } else {
             console.log('NOT ROUND TRIP - Hiding return section');
         }
+        
+        // Combine departure and return in side-by-side layout
+        baggageInfoHTML = departureHTML + returnHTML;
         
         // SweetAlert confirmation dialog with improved GUI
         Swal.fire({
@@ -3554,93 +3477,97 @@ require_once("includes/footer.php");
             html: `
                 <div style="text-align: left; padding: 0;">
                     <!-- Header Section -->
-                    <div style="background: #0000FF; padding: 12px 15px; border-radius: 15px 15px 0 0; margin: 0; color: white;">
+                    <div style="background: #0000FF; padding: 10px 15px; border-radius: 15px 15px 0 0; margin: 0; color: white;">
                         <div style="display: flex; align-items: center; justify-content: space-between;">
                             <div>
-                                <h3 style="margin: 0; font-size: 18px; font-weight: 600;">Booking Summary</h3>
-                                <p style="margin: 3px 0 0 0; opacity: 0.9; font-size: 12px;">Please review your flight details</p>
+                                <h3 style="margin: 0; font-size: 16px; font-weight: 600;">Booking Summary</h3>
+                                <p style="margin: 2px 0 0 0; opacity: 0.9; font-size: 11px;">Please review your flight details</p>
                             </div>
-                            <div style="background: rgba(255,255,255,0.2); padding: 8px; border-radius: 50%; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center;">
-                                <span style="font-size: 24px;">✈️</span>
+                            <div style="background: rgba(255,255,255,0.2); padding: 6px; border-radius: 50%; width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
+                                <span style="font-size: 20px;">✈️</span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- Content Wrapper -->
-                    <div style="padding: 15px;">
-                    <!-- Flight Details Card -->
-                    <div style="background: #f8f9fa; border-left: 4px solid #007bff; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                            <div style="background: #007bff; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
-                                ✈️
-                            </div>
-                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Flight Details</h4>
-                        </div>
-                        <div style="padding-left: 47px;">
-                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Airline:</span>
-                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${airlineName || 'N/A'}</span>
-                            </div>
-                            ${departureInfo ? `
-                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Departure:</span>
-                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${departureInfo}</span>
-                            </div>
-                            ` : ''}
-                            ${arrivalInfo ? `
-                            <div style="display: flex; align-items: center; margin-bottom: 5px;">
-                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Arrival:</span>
-                                <span style="color: #2c3e50; font-weight: 600; font-size: 13px;">${arrivalInfo}</span>
-                            </div>
-                            ` : ''}
-                            <div style="display: flex; align-items: center; margin-top: 8px; padding-top: 8px; border-top: 2px solid #dee2e6;">
-                                <span style="color: #6c757d; min-width: 85px; font-size: 13px;">Total Price:</span>
-                                <span style="color: #28a745; font-weight: 700; font-size: 18px;">${totalPrice}</span>
-                            </div>
-                        </div>
-                    </div>
+                    <div style="padding: 12px;">
                     
-                    <!-- Fare Rules Card -->
-                    <div style="background: #f8f9fa; border-left: 4px solid #6c757d; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                            <div style="background: #6c757d; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
-                                💼
-                            </div>
-                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Fare Rules</h4>
-                        </div>
-                        <div style="padding-left: 47px;">
-                            ${fareRules.map(rule => {
-                                const isPositive = rule.includes('✅');
-                                return `
-                                <div style="display: flex; align-items: center; margin-bottom: 5px; padding: 6px; background: white; border-radius: 6px;">
-                                    <span style="font-size: 16px; margin-right: 8px;">${isPositive ? '✅' : '❌'}</span>
-                                    <span style="color: ${isPositive ? '#28a745' : '#dc3545'}; font-weight: 500; font-size: 13px;">${rule.replace(/✅|❌/g, '').trim()}</span>
+                    <!-- Row 1: Flight Details & Fare Rules (Side by Side) -->
+                    <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+                        <!-- Flight Details Card (50%) -->
+                        <div style="flex: 1; background: #f8f9fa; border-left: 4px solid #007bff; padding: 8px; border-radius: 8px;">
+                            <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                                <div style="background: #007bff; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 14px;">
+                                    ✈️
                                 </div>
-                                `;
-                            }).join('')}
+                                <h4 style="margin: 0; font-size: 14px; font-weight: 700;">Flight Details</h4>
+                            </div>
+                            <div style="padding-left: 36px;">
+                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                    <span style="color: #6c757d; min-width: 70px; font-size: 12px;">Airline:</span>
+                                    <span style="color: #2c3e50; font-weight: 600; font-size: 12px;">${airlineName || 'N/A'}</span>
+                                </div>
+                                ${departureInfo ? `
+                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                    <span style="color: #6c757d; min-width: 70px; font-size: 12px;">Departure:</span>
+                                    <span style="color: #2c3e50; font-weight: 600; font-size: 12px;">${departureInfo}</span>
+                                </div>
+                                ` : ''}
+                                ${arrivalInfo ? `
+                                <div style="display: flex; align-items: center; margin-bottom: 4px;">
+                                    <span style="color: #6c757d; min-width: 70px; font-size: 12px;">Arrival:</span>
+                                    <span style="color: #2c3e50; font-weight: 600; font-size: 12px;">${arrivalInfo}</span>
+                                </div>
+                                ` : ''}
+                                <div style="display: flex; align-items: center; margin-top: 6px; padding-top: 6px; border-top: 2px solid #dee2e6;">
+                                    <span style="color: #6c757d; min-width: 70px; font-size: 12px;">Total Price:</span>
+                                    <span style="color: #28a745; font-weight: 700; font-size: 16px;">${totalPrice}</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fare Rules Card (50%) -->
+                        <div style="flex: 1; background: #f8f9fa; border-left: 4px solid #6c757d; padding: 8px; border-radius: 8px;">
+                            <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                                <div style="background: #6c757d; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 14px;">
+                                    💼
+                                </div>
+                                <h4 style="margin: 0; font-size: 14px; font-weight: 700;">Fare Rules</h4>
+                            </div>
+                            <div style="padding-left: 36px;">
+                                ${fareRules.map(rule => {
+                                    const isPositive = rule.includes('✅');
+                                    return `
+                                    <div style="display: flex; align-items: center; margin-bottom: 4px; padding: 5px; background: white; border-radius: 5px;">
+                                        <span style="font-size: 14px; margin-right: 6px;">${isPositive ? '✅' : '❌'}</span>
+                                        <span style="color: ${isPositive ? '#28a745' : '#dc3545'}; font-weight: 500; font-size: 12px;">${rule.replace(/✅|❌/g, '').trim()}</span>
+                                    </div>
+                                    `;
+                                }).join('')}
+                            </div>
                         </div>
                     </div>
                     
                     ${baggageInfoHTML ? `
-                    <!-- Baggage Info Card -->
-                    <div style="background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 10px; border-radius: 8px; margin-bottom: 10px;">
-                        <div style="display: flex; align-items: center; margin-bottom: 8px;">
-                            <div style="background: #0ea5e9; color: white; width: 35px; height: 35px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; font-size: 18px;">
+                    <!-- Row 2: Baggage Information with Departure & Return Side by Side -->
+                    <div style="background: #f0f9ff; border-left: 4px solid #0ea5e9; padding: 8px; border-radius: 8px; margin-bottom: 10px;">
+                        <div style="display: flex; align-items: center; margin-bottom: 6px;">
+                            <div style="background: #0ea5e9; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 8px; font-size: 14px;">
                                 🎒
                             </div>
-                            <h4 style="margin: 0; font-size: 17px; font-weight: 700; letter-spacing: 0.3px;">Baggage Information</h4>
+                            <h4 style="margin: 0; font-size: 14px; font-weight: 700;">Baggage Information</h4>
                         </div>
-                        <div style="padding-left: 47px;">
+                        <div style="display: flex; gap: 10px; padding-left: 36px;">
                             ${baggageInfoHTML}
                         </div>
                     </div>
                     ` : ''}
                     
                     <!-- Warning Box -->
-                    <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); padding: 10px 12px; border-radius: 8px; border: 2px solid #f39c12; margin-top: 10px;">
+                    <div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); padding: 8px 10px; border-radius: 8px; border: 2px solid #f39c12;">
                         <div style="display: flex; align-items: center;">
-                            <span style="font-size: 20px; margin-right: 10px;">⚠️</span>
-                            <p style="margin: 0; color: #856404; font-weight: 600; font-size: 13px;">
+                            <span style="font-size: 18px; margin-right: 8px;">⚠️</span>
+                            <p style="margin: 0; color: #856404; font-weight: 600; font-size: 12px;">
                                 Please review all details before confirming your booking.
                             </p>
                         </div>
@@ -3654,8 +3581,8 @@ require_once("includes/footer.php");
             cancelButtonText: '<span style="font-weight: 600; font-size: 16px;">✕ Cancel</span>',
             confirmButtonColor: '#F57C00',
             cancelButtonColor: '#6c757d',
-            width: '600px',
-            padding: '20px',
+            width: '650px',
+            padding: '0px',
             customClass: {
                 popup: 'booking-confirmation-popup',
                 title: 'swal-title-custom',
@@ -4522,17 +4449,31 @@ require_once("includes/footer.php");
     
     .swal2-popup {
         padding: 0 !important;
-        margin-top: 60px !important;
+        margin-top: 40px !important;
         overflow-x: hidden !important;
-        max-width: 600px !important;
+        max-width: 650px !important;
     }
     
     .swal2-html-container {
         margin: 0 !important;
         padding: 0 !important;
         overflow-x: hidden !important;
+        overflow-y: auto !important;
         word-wrap: break-word !important;
         max-width: 100% !important;
+        max-height: 65vh !important;
+    }
+    
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+        .swal2-popup {
+            max-width: 95% !important;
+            margin-top: 20px !important;
+        }
+        
+        .swal2-html-container {
+            max-height: 70vh !important;
+        }
     }
     
     .booking-confirmation-popup * {

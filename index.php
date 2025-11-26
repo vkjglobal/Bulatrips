@@ -653,57 +653,181 @@ $DBvideo = $newObj->get_video();
 </form> -->
 
 
-
+<?php
+if (!empty($resultReview)) {?>
 <div class="container">
     <div class="col-12 hd-wraper hd-wraper_custom">
         <strong>What Our Customers Say</strong>
     </div>
 </div>
 
-<section class="travel-reviews" style="margin-bottom: 0px; display: flex; justify-content: center; align-items: center; min-height: 50vh;">>
+<section class="travel-reviews" style="margin-bottom: 0px; display: flex; justify-content: center; align-items: center; min-height: 50vh;">
     <div class="container" style="max-width:700px;">
-        <div id="reviewCarousel" class="carousel slide" data-ride="carousel">
+        <style>
+            .travel-reviews .review-stars {
+                font-size: 1.6rem;
+                letter-spacing: 2px;
+            }
+
+            /* Override multi-item carousel styles for this specific reviews carousel */
+            #reviewCarousel .carousel-inner {
+                position: relative;
+                width: 100%;
+                overflow: hidden;
+            }
+
+            #reviewCarousel .carousel-item {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            #reviewCarousel .carousel-item.active {
+                position: relative;
+                opacity: 1;
+            }
+
+            @media (min-width: 768px) {
+                #reviewCarousel .carousel-inner .carousel-item {
+                    position: absolute;
+                    visibility: visible;
+                }
+
+                #reviewCarousel .carousel-inner .carousel-item.active {
+                    position: relative;
+                }
+            }
+
+            /* Style carousel arrows to be more prominent */
+            #reviewCarousel .carousel-control-prev,
+            #reviewCarousel .carousel-control-next {
+                width: 50px;
+                height: 50px;
+                background-color: rgba(18, 30, 126, 0.8);
+                border-radius: 50%;
+                top: 50%;
+                transform: translateY(-50%);
+                opacity: 1;
+            }
+
+            #reviewCarousel .carousel-control-prev {
+                left: -60px;
+            }
+
+            #reviewCarousel .carousel-control-next {
+                right: -60px;
+            }
+
+            #reviewCarousel .carousel-control-prev:hover,
+            #reviewCarousel .carousel-control-next:hover {
+                background-color: rgba(18, 30, 126, 1);
+            }
+
+            #reviewCarousel .carousel-control-prev-icon,
+            #reviewCarousel .carousel-control-next-icon {
+                width: 24px;
+                height: 24px;
+            }
+
+            /* Mobile and tablet responsive arrows */
+            @media (max-width: 991px) {
+                #reviewCarousel .carousel-control-prev,
+                #reviewCarousel .carousel-control-next {
+                    width: 35px;
+                    height: 35px;
+                    background-color: rgba(18, 30, 126, 0.5);
+                }
+
+                #reviewCarousel .carousel-control-prev {
+                    left: 10px;
+                }
+
+                #reviewCarousel .carousel-control-next {
+                    right: 10px;
+                }
+
+                #reviewCarousel .carousel-control-prev-icon,
+                #reviewCarousel .carousel-control-next-icon {
+                    width: 18px;
+                    height: 18px;
+                }
+
+                #reviewCarousel .carousel-control-prev:hover,
+                #reviewCarousel .carousel-control-next:hover {
+                    background-color: rgba(18, 30, 126, 0.7);
+                }
+            }
+
+            /* Add spacing on mobile for carousel */
+            @media (max-width: 767px) {
+                #reviewCarousel .carousel-inner {
+                    margin-top: 30px;
+                }
+            }
+        </style>
+        <div id="reviewCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
             <div class="carousel-inner">
+                <?php
+                if (!empty($resultReview)) {
+                    $isFirst = true;
+                    foreach ($resultReview as $review) {
+                        $title       = isset($review['title']) ? $review['title'] : '';
+                        $description = isset($review['description']) ? $review['description'] : '';
+                        $author      = isset($review['author']) ? $review['author'] : '';
+                        $rating      = isset($review['rating']) ? (int)$review['rating'] : 0;
 
-                <!-- Slide 1 -->
-                <div class="carousel-item active">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">John Doe</h5>
-                            <p class="text-warning mb-2">★★★★★</p>
-                            <p class="card-text" style="color: #f57c00 !important;">
-                                "Great experience! Smart search made it super <br class="before_768" /> easy to find the best deal. Highly recommend!"
-                            </p>
+                        if ($rating < 0) {
+                            $rating = 0;
+                        } elseif ($rating > 5) {
+                            $rating = 5;
+                        }
+
+                        $fullStars  = str_repeat('★', $rating);
+                        $emptyStars = str_repeat('☆', 5 - $rating);
+                        $stars      = $fullStars . $emptyStars;
+
+                        $activeClass = $isFirst ? 'active' : '';
+                        $isFirst = false;
+                        ?>
+                        <div class="carousel-item <?php echo $activeClass; ?>">
+                            <div class="card shadow-sm mx-auto">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">
+                                        <?php echo htmlspecialchars($title); ?>
+                                    </h5>
+                                    <p class="text-warning mb-2 review-stars">
+                                        <?php echo $stars; ?>
+                                    </p>
+                                    <p class="card-text" style="color: #f57c00 !important;">
+                                        <?php echo nl2br(htmlspecialchars($description)); ?>
+                                    </p>
+                                    <?php if (!empty($author)) { ?>
+                                        <p class="mt-2 mb-0">
+                                            <strong><?php echo htmlspecialchars($author); ?></strong>
+                                        </p>
+                                    <?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    <?php
+                    }
+                } else {
+                    ?>
+                    <div class="carousel-item active">
+                        <div class="card shadow-sm mx-auto">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">No reviews yet</h5>
+                                <p class="text-warning mb-2">☆☆☆☆☆</p>
+                                <p class="card-text" style="color: #f57c00 !important;">
+                                    Be the first customer to share your experience with Bulatrips.
+                                </p>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Slide 2 -->
-                <div class="carousel-item">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Ayesha Khan</h5>
-                            <p class="text-warning mb-2">★★★★☆</p>
-                            <p class="card-text" style="color: #f57c00 !important;">
-                                "Loved the transparent pricing and quick support. <br class="before_768" /> A few more payment options would be great."
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Slide 3 -->
-                <div class="carousel-item">
-                    <div class="card shadow-sm mx-auto">
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Liam Smith</h5>
-                            <p class="text-warning mb-2">★★★★★</p>
-                            <p class="card-text" style="color: #f57c00 !important;">
-                                "Booking was smooth, and I could use my <br class="before_768" /> frequent flyer points. Will definitely book again!"
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
+                <?php } ?>
             </div>
 
             <!-- Carousel Controls -->
@@ -721,6 +845,7 @@ $DBvideo = $newObj->get_video();
     </div>
 </section>
 <!-- Button trigger modal -->
+<?php } ?>
 
 
 <!-- <section class="choose-flight">

@@ -47,7 +47,9 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
     } else if (empty($responseData['Data']['PricedItineraries'])) {
         require_once('includes/price_itinary_empty.php');
     } else {?>
-        <section class="bg-070F4E" style="margin-bottom: 18px;">
+        <!-- STICKY HEADER CONTAINER START - Sticky only on desktop (992px+) -->
+        <div id="sticky-header-container" style="background: white;">
+        <section class="bg-070F4E" style="margin-bottom: 0;">
             <div class="container p-3">
 
                 <input type="hidden" name="api_country_id" id="ap_country_id" value="<?php echo $AP_country_id; ?>" />
@@ -93,13 +95,12 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                 </div>
             </div>
         </section>
-        <section>
             <!-- BREADCRUMB STARTS HERE -->
-            <section style="margin-bottom: 10px;">
+            <section style="margin-bottom: 0; background: white; padding: 10px 0;">
                 <div class="container">
                     <div class="row">
                         <div class="col-12">
-                            <ul class="breadcrumbs">
+                            <ul class="breadcrumbs" style="margin-bottom: 0;">
                                 <li><a href="index" style="text-decoration: underline !important;">Home</a></li>
                                 <li><a href="flights" style="text-decoration: underline !important;">Search Flights</a></li>
                                 <li> Flight Details</li>
@@ -108,12 +109,14 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                     </div>
                 </div>
             </section>
-            <!-- BREADCRUMB STARTS HERE -->
+            <!-- BREADCRUMB ENDS HERE -->
+        </div>
+        <!-- STICKY HEADER CONTAINER END -->
 
             <!-- PAYMENT PAGE BANNER - Add after breadcrumb -->
             <section style="margin-bottom: 15px;">
                 <div class="container">
-                    <div class="alert alert-warning mb-3" role="alert" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 20px; border-radius: 5px; margin-top: 10px;">
+                    <div class="alert alert-warning mb-3" role="alert" style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 12px 15px; border-radius: 5px; margin-top: 10px; overflow-x: auto;">
                         <?php 
                         // Extract complete flight details from Revalidation API response
                         $bannerAirline = 'N/A';
@@ -397,7 +400,7 @@ if (isset($_SESSION['Revalidateresponse']) && $_SESSION['Revalidateresponse'] !=
                             }
                         }
                         ?>
-                        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; font-size: 13px;">
+                        <div class="flight-details-banner-grid">
                             <div>
                                 <span style="color: #856404; font-weight: 600;">Airline:</span>
                                 <span style="color: #856404; font-weight: 500; margin-left: 5px;"><?php echo htmlspecialchars($bannerAirline); ?></span>
@@ -1460,6 +1463,115 @@ require_once("includes/footer.php");
 .input-group-text {
     padding: .290rem .75rem;
 }
+
+/* Sticky Header Styles - ONLY FOR DESKTOP/LAPTOP (min-width: 992px) */
+
+/* Mobile/Tablet: Normal scrolling (no sticky) */
+@media (max-width: 991px) {
+    #sticky-header-container {
+        position: relative; /* Normal flow on mobile */
+        background: white;
+    }
+}
+
+/* Desktop/Laptop: Sticky behavior */
+@media (min-width: 992px) {
+    #sticky-header-container {
+        position: sticky;
+        top: 80px; /* Position below main header */
+        z-index: 999; /* Below main header (which has z-index 1030 from sticky-top) */
+        background: white;
+        transition: box-shadow 0.3s ease, top 0.3s ease;
+    }
+
+    #sticky-header-container.scrolled {
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+}
+
+/* Common styles for all screen sizes */
+#sticky-header-container section {
+    margin-bottom: 0 !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+#sticky-header-container .breadcrumbs {
+    padding: 10px 0;
+    margin-bottom: 0 !important;
+    background: white;
+}
+
+/* Flight Details Banner Responsive Grid */
+.flight-details-banner-grid {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+/* Desktop/Laptop: Original 4-column grid layout (like before) */
+@media (min-width: 992px) {
+    .flight-details-banner-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        font-size: 13px;
+    }
+    
+    .flight-details-banner-grid > div span {
+        display: inline; /* Inline labels on desktop */
+    }
+}
+
+/* Tablet: 2 columns with block labels */
+@media (min-width: 576px) and (max-width: 991px) {
+    .flight-details-banner-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        font-size: 13px;
+    }
+    
+    .flight-details-banner-grid > div {
+        padding: 8px 0;
+    }
+    
+    .flight-details-banner-grid > div span:first-child {
+        display: block; /* Block labels on tablet */
+        margin-bottom: 3px;
+        margin-left: 0 !important;
+    }
+    
+    .flight-details-banner-grid > div span:last-child {
+        margin-left: 0 !important;
+    }
+}
+
+/* Mobile: 1 column with block labels */
+@media (max-width: 575px) {
+    .flight-details-banner-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        font-size: 12px;
+    }
+    
+    .flight-details-banner-grid > div {
+        padding: 6px 0;
+        border-bottom: 1px solid rgba(133,100,4,0.1);
+    }
+    
+    .flight-details-banner-grid > div span:first-child {
+        display: block; /* Block labels on mobile */
+        margin-bottom: 3px;
+        margin-left: 0 !important;
+    }
+    
+    .flight-details-banner-grid > div span:last-child {
+        margin-left: 0 !important;
+    }
+}
 </style>
 
 <div class="modal flight-search-loading" id="payment_modal" tabindex="-1" role="dialog" aria-labelledby="ForgotPasswordModalTitle" aria-hidden="true"  data-backdrop="static" data-keyboard="false">
@@ -1927,7 +2039,40 @@ require_once("includes/footer.php");
         show: false
     })
     /**************Scroll To Top*****************/
+    // Calculate header height dynamically on page load - ONLY FOR DESKTOP
+    function updateStickyHeaderPosition() {
+        // Check if screen is desktop/laptop (min-width: 992px)
+        if ($(window).width() >= 992) {
+            var headerHeight = $('header.sticky-top').outerHeight();
+            if (headerHeight) {
+                $('#sticky-header-container').css('top', headerHeight + 'px');
+            }
+        } else {
+            // Remove inline top style on mobile
+            $('#sticky-header-container').css('top', '');
+        }
+    }
+    
+    $(document).ready(function() {
+        updateStickyHeaderPosition();
+    });
+    
+    // Update on window resize
+    $(window).on('resize', function() {
+        updateStickyHeaderPosition();
+    });
+    
     $(window).on('scroll', function() {
+        // Sticky Header Shadow Effect - ONLY FOR DESKTOP
+        if ($(window).width() >= 992) {
+            if (window.scrollY > 50) {
+                $('#sticky-header-container').addClass('scrolled');
+            } else {
+                $('#sticky-header-container').removeClass('scrolled');
+            }
+        }
+        
+        // Scroll to Top Button
         if (window.scrollY > window.innerHeight) {
             $('#scrollToTop').addClass('active')
         } else {

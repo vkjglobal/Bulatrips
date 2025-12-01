@@ -3360,9 +3360,18 @@ require_once("includes/footer.php");
             // Show actual value (including 0KG, 0PC, etc.)
             const upperValue = String(checkedBaggageValue).toUpperCase();
             const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
-            depCheckedBag = 'Checked Baggage: ' + checkedBaggageValue;
-            depCheckedIcon = isZeroBaggage ? '❌' : '✅';
-            depCheckedColor = isZeroBaggage ? '#dc3545' : '#28a745';
+            
+            if (isZeroBaggage) {
+                // CLIENT REQUIREMENT: When 0KG/0PC, show "not Included"
+                depCheckedBag = 'Checked Baggage not Included';
+                depCheckedIcon = '❌';
+                depCheckedColor = '#dc3545';
+            } else {
+                // Show actual value (Standard Baggage, 1PC, 20KG, etc.)
+                depCheckedBag = 'Checked Baggage: ' + checkedBaggageValue;
+                depCheckedIcon = '✅';
+                depCheckedColor = '#28a745';
+            }
             console.log('Dep Checked: Using value -', checkedBaggageValue, 'isZero:', isZeroBaggage);
         } else if (hasCheckedBaggage) {
             depCheckedBag = 'Checked Baggage Included';
@@ -3370,7 +3379,7 @@ require_once("includes/footer.php");
             depCheckedColor = '#28a745';
             console.log('Dep Checked: Using flag - hasCheckedBaggage:', hasCheckedBaggage);
         } else {
-            depCheckedBag = 'No Checked Baggage';
+            depCheckedBag = 'Checked Baggage not Included';
             depCheckedIcon = '❌';
             depCheckedColor = '#dc3545';
             console.log('Dep Checked: No baggage');
@@ -3385,17 +3394,28 @@ require_once("includes/footer.php");
         let depCabinColor = '#dc3545';
         
         if (cabinBaggageValue !== null && cabinBaggageValue !== undefined && cabinBaggageValue !== '') {
-            depCabinBag = 'Cabin Baggage: ' + cabinBaggageValue;
-            depCabinIcon = '🎒';
-            depCabinColor = '#28a745';
-            console.log('Dep Cabin: Using value -', cabinBaggageValue);
+            const upperValue = String(cabinBaggageValue).toUpperCase();
+            const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
+            
+            if (isZeroBaggage) {
+                // CLIENT REQUIREMENT: When 0KG/0PC, show "not included"
+                depCabinBag = 'Cabin Baggage not included';
+                depCabinIcon = '❌';
+                depCabinColor = '#dc3545';
+            } else {
+                // Show actual value (Standard Baggage, 7KG, etc.)
+                depCabinBag = 'Cabin Baggage: ' + cabinBaggageValue;
+                depCabinIcon = '🎒';
+                depCabinColor = '#28a745';
+            }
+            console.log('Dep Cabin: Using value -', cabinBaggageValue, 'isZero:', isZeroBaggage);
         } else if (hasCabin) {
             depCabinBag = 'Cabin Baggage Available';
             depCabinIcon = '🎒';
             depCabinColor = '#28a745';
             console.log('Dep Cabin: Using flag - hasCabin:', hasCabin);
         } else {
-            depCabinBag = 'No Cabin Baggage';
+            depCabinBag = 'Cabin Baggage not included';
             depCabinIcon = '❌';
             depCabinColor = '#dc3545';
             console.log('Dep Cabin: No baggage');
@@ -3421,9 +3441,18 @@ require_once("includes/footer.php");
                 // Show actual value (including 0KG, 20KG, etc.)
                 const upperValue = String(returnCheckedBaggageValue).toUpperCase();
                 const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
-                retCheckedBag = 'Checked Baggage: ' + returnCheckedBaggageValue;
-                retCheckedIcon = isZeroBaggage ? '❌' : '✅';
-                retCheckedColor = isZeroBaggage ? '#dc3545' : '#28a745';
+                
+                if (isZeroBaggage) {
+                    // CLIENT REQUIREMENT: When 0KG/0PC, show "not Included"
+                    retCheckedBag = 'Checked Baggage not Included';
+                    retCheckedIcon = '❌';
+                    retCheckedColor = '#dc3545';
+                } else {
+                    // Show actual value (Standard Baggage, 1PC, 20KG, etc.)
+                    retCheckedBag = 'Checked Baggage: ' + returnCheckedBaggageValue;
+                    retCheckedIcon = '✅';
+                    retCheckedColor = '#28a745';
+                }
                 console.log('Ret Checked: Using value -', returnCheckedBaggageValue, 'isZero:', isZeroBaggage);
             } else if (hasReturnCheckedBaggage) {
                 retCheckedBag = 'Checked Baggage Included';
@@ -3431,7 +3460,7 @@ require_once("includes/footer.php");
                 retCheckedColor = '#28a745';
                 console.log('Ret Checked: Using flag - hasReturnCheckedBaggage:', hasReturnCheckedBaggage);
             } else {
-                retCheckedBag = 'No Checked Baggage';
+                retCheckedBag = 'Checked Baggage not Included';
                 retCheckedIcon = '❌';
                 retCheckedColor = '#dc3545';
                 console.log('Ret Checked: No baggage');
@@ -3446,17 +3475,28 @@ require_once("includes/footer.php");
             let retCabinColor = '#dc3545';
             
             if (returnCabinBaggageValue !== null && returnCabinBaggageValue !== undefined && returnCabinBaggageValue !== '') {
-                retCabinBag = 'Cabin Baggage: ' + returnCabinBaggageValue;
-                retCabinIcon = '🎒';
-                retCabinColor = '#28a745';
-                console.log('Ret Cabin: Using value -', returnCabinBaggageValue);
+                const upperValue = String(returnCabinBaggageValue).toUpperCase();
+                const isZeroBaggage = upperValue === '0KG' || upperValue === '0PC' || upperValue === '0';
+                
+                if (isZeroBaggage) {
+                    // CLIENT REQUIREMENT: When 0KG/0PC, show "not included"
+                    retCabinBag = 'Cabin Baggage not included';
+                    retCabinIcon = '❌';
+                    retCabinColor = '#dc3545';
+                } else {
+                    // Show actual value (Standard Baggage, 7KG, etc.)
+                    retCabinBag = 'Cabin Baggage: ' + returnCabinBaggageValue;
+                    retCabinIcon = '🎒';
+                    retCabinColor = '#28a745';
+                }
+                console.log('Ret Cabin: Using value -', returnCabinBaggageValue, 'isZero:', isZeroBaggage);
             } else if (hasReturnCabinBaggage) {
                 retCabinBag = 'Cabin Baggage Available';
                 retCabinIcon = '🎒';
                 retCabinColor = '#28a745';
                 console.log('Ret Cabin: Using flag - hasReturnCabinBaggage:', hasReturnCabinBaggage);
             } else {
-                retCabinBag = 'No Cabin Baggage';
+                retCabinBag = 'Cabin Baggage not included';
                 retCabinIcon = '❌';
                 retCabinColor = '#dc3545';
                 console.log('Ret Cabin: No baggage');
